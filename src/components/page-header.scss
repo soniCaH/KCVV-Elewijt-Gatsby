@@ -1,0 +1,129 @@
+.header-mobile__logo {
+    text-align: center;
+    position: absolute;
+    left: 50%;
+    transform: translate(-50%, 0);
+    top: 5px;
+    img {
+        width: 100px;
+        height: auto;
+    }
+}
+
+//------ Off Canvas
+.main-nav__list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    .header-mobile__logo {
+        position: relative;
+        padding: 5px 0 18px 0;
+        border-bottom: 1px solid #292c31;
+        top: 0;
+        a {
+            margin: 0;
+            padding: 0;
+        }
+    }
+    li {
+        position: relative;
+        a {
+            display: block;
+            position: relative;
+            color: #fff;
+            padding: 0 34px;
+            line-height: 62px;
+            text-decoration: none;
+            position: relative;
+            font-family: "Montserrat", sans-serif;
+            font-size: 12px;
+            font-weight: 700;
+            font-style: normal;
+            text-transform: uppercase;
+            -webkit-transition: color 0.3s ease;
+            transition: color 0.3s ease;
+            padding: 1rem 2rem;
+            font-size: 11px;
+            text-align: left;
+            border-right: solid 0px;
+            background-color: transparent;
+            color: #fff;
+            line-height: 1.5em;
+            border-bottom: 1px solid #292c31;
+            position: static;
+            &:before {
+                content: "";
+                display: block;
+                position: absolute;
+                left: 0;
+                bottom: 0;
+                height: 100%;
+                width: 100%;
+                background-color: transparent;
+                -webkit-transition: background-color 0.3s ease;
+                transition: background-color 0.3s ease;
+                z-index: -1;
+                top: 0;
+                bottom: 0;
+                width: 4px;
+                height: auto;
+            }
+            &.active,
+            &:hover {
+                &:before {
+                    background-color: var(--color-green-dark);
+                }
+            }
+        }
+    }
+    .main-nav__item--social-links {
+        text-align: center;
+        a {
+            color: var(--color-green);
+            display: inline-block;
+            border-bottom: none;
+            padding: 13px;
+            &::before {
+                display: none;
+            }
+        }
+    }
+}
+
+.page-header {
+    background: var(--color-black);
+    position: relative;
+}
+
+.header__primary-inner {
+    content: "";
+    position: absolute;
+    display: none;
+    top: 0;
+    bottom: 0;
+    width: 210px;
+    background-color: #1e2024;
+    left: -25px;
+    margin-left: 0;
+    -webkit-transform: skew(-25deg);
+    transform: skew(-25deg);
+}
+
+.main-nav__list {
+    .is-accordion-submenu {
+        a {
+            border-bottom-color: var(--color-gray-medium);
+        }
+    }
+}
+
+.is-accordion-submenu {
+    background-color: var(--color-gray-dark);
+}
+
+.header--mobile {
+    height: 80px;
+    width: 100%;
+    position: relative;
+    background-color: var(--color-black);
+}
