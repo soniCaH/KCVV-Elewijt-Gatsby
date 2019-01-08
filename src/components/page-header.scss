@@ -28,45 +28,30 @@
     li {
         position: relative;
         a {
-            display: block;
-            position: relative;
-            color: #fff;
-            padding: 0 34px;
-            line-height: 62px;
-            text-decoration: none;
-            position: relative;
-            font-family: "Montserrat", sans-serif;
-            font-size: 12px;
-            font-weight: 700;
-            font-style: normal;
-            text-transform: uppercase;
-            -webkit-transition: color 0.3s ease;
-            transition: color 0.3s ease;
-            padding: 1rem 2rem;
-            font-size: 11px;
-            text-align: left;
-            border-right: solid 0px;
-            background-color: transparent;
-            color: #fff;
-            line-height: 1.5em;
             border-bottom: 1px solid #292c31;
-            position: static;
+            color: #fff;
+            display: block;
+            font-family: "Montserrat", sans-serif;
+            font-size: 0.6875rem;
+            line-height: 1.5em;
+            text-transform: uppercase;
+            font-weight: 700;
+            padding: 1rem 2rem;
+            position: relative;
+            text-decoration: none;
+            transition: color 0.3s ease;
             &:before {
+                background-color: transparent;
+                bottom: 0;
                 content: "";
                 display: block;
-                position: absolute;
-                left: 0;
-                bottom: 0;
-                height: 100%;
-                width: 100%;
-                background-color: transparent;
-                -webkit-transition: background-color 0.3s ease;
-                transition: background-color 0.3s ease;
-                z-index: -1;
-                top: 0;
-                bottom: 0;
-                width: 4px;
                 height: auto;
+                left: 0;
+                position: absolute;
+                top: 0;
+                transition: background-color 0.3s ease;
+                width: 4px;
+                z-index: -1;
             }
             &.active,
             &:hover {
@@ -105,20 +90,29 @@
     background-color: #1e2024;
     left: -25px;
     margin-left: 0;
-    -webkit-transform: skew(-25deg);
     transform: skew(-25deg);
 }
 
 .main-nav__list {
     .is-accordion-submenu {
+        background-color: var(--color-gray-dark);
+        box-shadow: inset 0 7px 9px -7px var(--color-black),
+                    inset 0 -7px 9px -7px var(--color-black);
+
         a {
             border-bottom-color: var(--color-gray-medium);
+
+            &:hover, &.active {
+                color: var(--color-green-dark);
+            }
+        }
+
+        li:last-child {
+            a {
+                border-bottom: none;
+            }
         }
     }
-}
-
-.is-accordion-submenu {
-    background-color: var(--color-gray-dark);
 }
 
 .header--mobile {
@@ -126,4 +120,10 @@
     width: 100%;
     position: relative;
     background-color: var(--color-black);
+
+    .menu-icon {
+        left: 34px;
+        position: absolute;
+        top: calc((80px - 16px) / 2);
+    }
 }

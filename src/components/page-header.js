@@ -110,9 +110,8 @@ export class PageHeaderMobile extends Component {
               />
             </a>
           </div>
-
           <li>
-            <a href="index.html" className="active">
+            <a href="index.html">
               Home
             </a>
           </li>
@@ -123,22 +122,62 @@ export class PageHeaderMobile extends Component {
             <a href="index.html">Evenementen</a>
           </li>
           <li>
-            <a href="index.html">A-ploeg</a>
+            <a href="index.html" className="active">A-Ploeg</a>
+            <ul className="vertical menu is-active">
+              <li>
+                <a href="#" className="active">Wedstrijden</a>
+              </li>
+              <li>
+                <a href="#">Ranking</a>
+              </li>
+              <li>
+                <a href="#">Staff</a>
+              </li>
+              <li>
+                <a href="#">Spelers</a>
+              </li>
+            </ul>
           </li>
           <li>
             <a href="index.html">B-ploeg</a>
-          </li>
-          <li>
-            <a href="index.html">Jeugd</a>
-          </li>
-          <li>
-            <a href="index.html">A-Ploeg</a>
-            <ul class="vertical menu">
+            <ul className="vertical menu">
               <li>
                 <a href="#">Wedstrijden</a>
               </li>
               <li>
                 <a href="#">Ranking</a>
+              </li>
+              <li>
+                <a href="#">Staff</a>
+              </li>
+              <li>
+                <a href="#">Spelers</a>
+              </li>
+            </ul>
+          </li>
+          <li>
+            <a href="index.html">Jeugd</a>
+            <ul className="vertical menu">
+              <li>
+                <a href="#">U13</a>
+              </li>
+              <li>
+                <a href="#">U11</a>
+              </li>
+              <li>
+                <a href="#">U10</a>
+              </li>
+              <li>
+                <a href="#">U9</a>
+              </li>
+              <li>
+                <a href="#">U8</a>
+              </li>
+              <li>
+                <a href="#">U7</a>
+              </li>
+              <li>
+                <a href="#">U6</a>
               </li>
             </ul>
           </li>
