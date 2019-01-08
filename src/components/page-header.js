@@ -39,7 +39,9 @@ class PageHeader extends Component {
               <div className="grid-container">
                 <div className="grid-x">
                   <div className="medium-4 medium-offset-8">
-                    <div className="sponsors--header">SPONSORS</div>
+                    <div className="sponsors--header">
+                      <img src="http://lorempixel.com/g/410/100/" alt="Bauvall Trans" />
+                    </div>
                   </div>
                 </div>
               </div>
@@ -58,34 +60,94 @@ class PageHeader extends Component {
                     </a>
                   </div>
                   <nav className="main-nav">
-                    <ul className="main-nav__list--desktop menu dropdown">
-                      <li><a href="#0">Home</a></li>
+                    <ul
+                      className="main-nav__list--desktop menu dropdown"
+                      data-dropdown-menu
+                    >
+                      <li>
+                        <a href="index.html">Home</a>
+                      </li>
+                      <li>
+                        <a href="index.html">Nieuws</a>
+                      </li>
+                      <li>
+                        <a href="index.html">Evenementen</a>
+                      </li>
+                      <li>
+                        <a href="index.html" className="active">
+                          A-Ploeg
+                        </a>
+                        <ul className="vertical menu is-active">
+                          <li>
+                            <a href="#" className="active">
+                              Wedstrijden
+                            </a>
+                          </li>
+                          <li>
+                            <a href="#">Ranking</a>
+                          </li>
+                          <li>
+                            <a href="#">Staff</a>
+                          </li>
+                          <li>
+                            <a href="#">Spelers</a>
+                          </li>
+                        </ul>
+                      </li>
+                      <li>
+                        <a href="index.html">B-ploeg</a>
+                        <ul className="vertical menu">
+                          <li>
+                            <a href="#">Wedstrijden</a>
+                          </li>
+                          <li>
+                            <a href="#">Ranking</a>
+                          </li>
+                          <li>
+                            <a href="#">Staff</a>
+                          </li>
+                          <li>
+                            <a href="#">Spelers</a>
+                          </li>
+                        </ul>
+                      </li>
+                      <li>
+                        <a href="index.html">Jeugd</a>
+                        <ul className="vertical menu submenu">
+                          <li>
+                            <a href="#">U13</a>
+                          </li>
+                          <li>
+                            <a href="#">U11</a>
+                          </li>
+                          <li>
+                            <a href="#">U10</a>
+                          </li>
+                          <li>
+                            <a href="#">U9</a>
+                          </li>
+                          <li>
+                            <a href="#">U8</a>
+                          </li>
+                          <li>
+                            <a href="#">U7</a>
+                          </li>
+                          <li>
+                            <a href="#">U6</a>
+                          </li>
+                        </ul>
+                      </li>
+                      <li>
+                        <a href="index.html">De club</a>
+                      </li>
+                      <li>
+                        <a href="index.html">Sponsors</a>
+                      </li>
+                      <li>
+                        <a href="index.html">Contact</a>
+                      </li>
                     </ul>
-                  {/* <ul className="dropdown menu main-nav__list--desktop" data-dropdown-menu>
-                    <li className="menu-text">Site Title</li>
-                    <li className="has-submenu">
-                      
-                      <ul className="submenu menu vertical" data-submenu>
-                        <li>
-                          <a href="#0">One</a>
-                        </li>
-                        <li>
-                          <a href="#0">Two</a>
-                        </li>
-                        <li>
-                          <a href="#0">Three</a>
-                        </li>
-                      </ul>
-                    </li>
-                    <li>
-                      <a href="#0">Two</a>
-                    </li>
-                    <li>
-                      <a href="#0">Three</a>
-                    </li>
-                  </ul> */}
                   </nav>
-                  
                 </div>
               </div>
             </div>
@@ -200,6 +262,9 @@ export class PageHeaderMobile extends Component {
           </li>
           <li>
             <a href="index.html">De club</a>
+          </li>
+          <li>
+            <a href="index.html">Sponsors</a>
           </li>
           <li>
             <a href="index.html">Contact</a>
