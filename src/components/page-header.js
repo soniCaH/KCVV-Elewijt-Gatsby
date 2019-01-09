@@ -79,18 +79,18 @@ class PageHeader extends Component {
                         </a>
                         <ul className="vertical menu is-active">
                           <li>
-                            <a href="#" className="active">
+                            <a href="index.html" className="active">
                               Wedstrijden
                             </a>
                           </li>
                           <li>
-                            <a href="#">Ranking</a>
+                            <a href="index.html">Ranking</a>
                           </li>
                           <li>
-                            <a href="#">Staff</a>
+                            <a href="index.html">Staff</a>
                           </li>
                           <li>
-                            <a href="#">Spelers</a>
+                            <a href="index.html">Spelers</a>
                           </li>
                         </ul>
                       </li>
@@ -98,16 +98,16 @@ class PageHeader extends Component {
                         <a href="index.html">B-ploeg</a>
                         <ul className="vertical menu">
                           <li>
-                            <a href="#">Wedstrijden</a>
+                            <a href="index.html">Wedstrijden</a>
                           </li>
                           <li>
-                            <a href="#">Ranking</a>
+                            <a href="index.html">Ranking</a>
                           </li>
                           <li>
-                            <a href="#">Staff</a>
+                            <a href="index.html">Staff</a>
                           </li>
                           <li>
-                            <a href="#">Spelers</a>
+                            <a href="index.html">Spelers</a>
                           </li>
                         </ul>
                       </li>
@@ -115,25 +115,25 @@ class PageHeader extends Component {
                         <a href="index.html">Jeugd</a>
                         <ul className="vertical menu submenu">
                           <li>
-                            <a href="#">U13</a>
+                            <a href="index.html">U13</a>
                           </li>
                           <li>
-                            <a href="#">U11</a>
+                            <a href="index.html">U11</a>
                           </li>
                           <li>
-                            <a href="#">U10</a>
+                            <a href="index.html">U10</a>
                           </li>
                           <li>
-                            <a href="#">U9</a>
+                            <a href="index.html">U9</a>
                           </li>
                           <li>
-                            <a href="#">U8</a>
+                            <a href="index.html">U8</a>
                           </li>
                           <li>
-                            <a href="#">U7</a>
+                            <a href="index.html">U7</a>
                           </li>
                           <li>
-                            <a href="#">U6</a>
+                            <a href="index.html">U6</a>
                           </li>
                         </ul>
                       </li>
@@ -202,18 +202,18 @@ export class PageHeaderMobile extends Component {
             </a>
             <ul className="vertical menu is-active">
               <li>
-                <a href="#" className="active">
+                <a href="index.html" className="active">
                   Wedstrijden
                 </a>
               </li>
               <li>
-                <a href="#">Ranking</a>
+                <a href="index.html">Ranking</a>
               </li>
               <li>
-                <a href="#">Staff</a>
+                <a href="index.html">Staff</a>
               </li>
               <li>
-                <a href="#">Spelers</a>
+                <a href="index.html">Spelers</a>
               </li>
             </ul>
           </li>
@@ -221,16 +221,16 @@ export class PageHeaderMobile extends Component {
             <a href="index.html">B-ploeg</a>
             <ul className="vertical menu">
               <li>
-                <a href="#">Wedstrijden</a>
+                <a href="index.html">Wedstrijden</a>
               </li>
               <li>
-                <a href="#">Ranking</a>
+                <a href="index.html">Ranking</a>
               </li>
               <li>
-                <a href="#">Staff</a>
+                <a href="index.html">Staff</a>
               </li>
               <li>
-                <a href="#">Spelers</a>
+                <a href="index.html">Spelers</a>
               </li>
             </ul>
           </li>
@@ -238,25 +238,25 @@ export class PageHeaderMobile extends Component {
             <a href="index.html">Jeugd</a>
             <ul className="vertical menu">
               <li>
-                <a href="#">U13</a>
+                <a href="index.html">U13</a>
               </li>
               <li>
-                <a href="#">U11</a>
+                <a href="index.html">U11</a>
               </li>
               <li>
-                <a href="#">U10</a>
+                <a href="index.html">U10</a>
               </li>
               <li>
-                <a href="#">U9</a>
+                <a href="index.html">U9</a>
               </li>
               <li>
-                <a href="#">U8</a>
+                <a href="index.html">U8</a>
               </li>
               <li>
-                <a href="#">U7</a>
+                <a href="index.html">U7</a>
               </li>
               <li>
-                <a href="#">U6</a>
+                <a href="index.html">U6</a>
               </li>
             </ul>
           </li>
@@ -271,7 +271,7 @@ export class PageHeaderMobile extends Component {
           </li>
           <li className="main-nav__item--social-links">
             <a
-              href="#"
+              href="index.html"
               className="social-links__link"
               data-toggle="tooltip"
               data-placement="bottom"
@@ -282,7 +282,7 @@ export class PageHeaderMobile extends Component {
             </a>
 
             <a
-              href="#"
+              href="index.html"
               className="social-links__link"
               data-toggle="tooltip"
               data-placement="bottom"
@@ -293,7 +293,7 @@ export class PageHeaderMobile extends Component {
             </a>
 
             <a
-              href="#"
+              href="index.html"
               className="social-links__link"
               data-toggle="tooltip"
               data-placement="bottom"

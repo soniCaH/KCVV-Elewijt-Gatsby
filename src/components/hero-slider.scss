@@ -1,0 +1,14 @@
+@import "~slick-carousel/slick/slick.css";
+@import "~slick-carousel/slick/slick-theme.css";
+.heroSlider,
+.heroSliderThumbs {
+    color: #FFF;
+}
+
+.slick-slider.heroSliderThumbs {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 3;
+}
