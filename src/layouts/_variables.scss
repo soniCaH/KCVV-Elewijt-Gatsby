@@ -3,6 +3,16 @@
     --color-gray-dark: #292c31;
     --color-gray-medium: #62656A;
     --color-gray-light: #9A9DA2;
+    --color-gray-blue: #31404b;
     --color-green: #BADA55;
     --color-green-dark: #4B9B48;
+
+    --color-blue: #38a9ff;
+    --color-cyan: #07e0c4;
+
+    --color-category-team: var(--color-green-dark);
+    --color-category-transfer: var(--color-green);
+    --color-category-youth: var(--color-blue);
+    --color-category-event: var(--color-cyan);
+    --color-category-club: var(--color-gray-blue);
 }

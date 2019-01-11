@@ -25,6 +25,15 @@
         opacity: 0.6;
         z-index: 2;
     }
+
+    .page-heading__title {
+        margin-top: 1rem;
+        @media (max-width: 1023px) {
+            line-height: 1;
+            padding-left: 50px;
+            padding-right: 50px;
+        }
+    }
 }
 
 .hero-slider__item-container {
@@ -37,4 +46,11 @@
     -webkit-transform: translateY(-50%);
     transform: translateY(-50%);
     text-align: center;
+}
+
+.post__meta, .post-author {
+    display: none;
+    @media (min-width: 1024px) {
+        display: block;
+    }
 }

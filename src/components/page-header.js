@@ -40,7 +40,10 @@ class PageHeader extends Component {
                 <div className="grid-x">
                   <div className="medium-4 medium-offset-8">
                     <div className="sponsors--header">
-                      <img src="http://lorempixel.com/g/410/100/" alt="Bauvall Trans" />
+                      <img
+                        src="http://lorempixel.com/g/410/100/"
+                        alt="Bauvall Trans"
+                      />
                     </div>
                   </div>
                 </div>
@@ -138,13 +141,21 @@ class PageHeader extends Component {
                         </ul>
                       </li>
                       <li>
-                        <a href="index.html">De club</a>
-                      </li>
-                      <li>
                         <a href="index.html">Sponsors</a>
                       </li>
                       <li>
-                        <a href="index.html">Contact</a>
+                        <a href="index.html">De club</a>
+                        <ul className="vertical menu submenu">
+                          <li>
+                            <a href="index.html">Geschiedenis</a>
+                          </li>
+                          <li>
+                            <a href="index.html">Verantwoordelijkheden</a>
+                          </li>
+                          <li>
+                            <a href="index.html">Contact</a>
+                          </li>
+                        </ul>
                       </li>
                     </ul>
                   </nav>
@@ -261,13 +272,21 @@ export class PageHeaderMobile extends Component {
             </ul>
           </li>
           <li>
-            <a href="index.html">De club</a>
-          </li>
-          <li>
             <a href="index.html">Sponsors</a>
           </li>
           <li>
-            <a href="index.html">Contact</a>
+            <a href="index.html">De club</a>
+            <ul className="vertical menu submenu">
+              <li>
+                <a href="index.html">Geschiedenis</a>
+              </li>
+              <li>
+                <a href="index.html">Verantwoordelijkheden</a>
+              </li>
+              <li>
+                <a href="index.html">Contact</a>
+              </li>
+            </ul>
           </li>
           <li className="main-nav__item--social-links">
             <a

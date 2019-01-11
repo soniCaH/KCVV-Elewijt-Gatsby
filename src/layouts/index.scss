@@ -1,10 +1,11 @@
+@import url('https://fonts.googleapis.com/css?family=Montserrat|Source+Sans+Pro');
+
 @import '~foundation-sites/scss/util/util';
 @import './settings';
 @import '~foundation-sites/scss/foundation';
 @import './vendor_font_fa';
 @import './vendor_font_simple_lines';
 @include foundation-everything;
-
 .button--back {
     width: 49px;
     height: 44px;
@@ -16,8 +17,50 @@
     background-position: center center;
     background-repeat: no-repeat;
     background-size: 13px 8px;
-
     &:hover {
         cursor: pointer;
     }
+}
+
+.label {
+    font-weight: bold;
+    line-height: 1;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: baseline;
+    font-family: "Montserrat", sans-serif;
+    text-transform: uppercase;
+}
+
+.posts__cat-label {
+    .post__category--club & {
+        background-color: var(--color-category-club);
+    }
+    .post__category--team & {
+        background-color: var(--color-category-team);
+    }
+    .post__category--transfer & {
+        background-color: var(--color-category-transfer);
+    }
+    .post__category--youth & {
+        background-color: var(--color-category-youth);
+    }
+    .post__category--event & {
+        background-color: var(--color-category-event);
+    }
+}
+
+.page-heading__title, .posts__title {
+    text-transform: uppercase;
+    letter-spacing: -0.02em;
+    a {
+        color: #FFF;
+    }
+    strong {
+        color: var(--color-green);
+    }
+}
+
+.post-datetime {
+    font-size: 0.9em;
 }

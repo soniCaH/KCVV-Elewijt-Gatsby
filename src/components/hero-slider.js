@@ -1,4 +1,4 @@
-import React, { Component, Fragment } from 'react'
+import React, { Component } from 'react'
 
 import Slider from 'react-slick'
 
@@ -26,7 +26,7 @@ class HeroSlider extends Component {
       slidesToScroll: 1,
       arrows: false,
       fade: true,
-      autoplay: false,
+      autoplay: true,
       focusOnSelect: true,
       autoplaySpeed: 8000,
 
@@ -34,7 +34,7 @@ class HeroSlider extends Component {
         {
           breakpoint: 992,
           settings: {
-            fade: false,
+            arrows: true
           },
         },
       ],
@@ -43,13 +43,14 @@ class HeroSlider extends Component {
     const settings_nav_thumbs = {
       slidesToShow: 3,
       slidesToScroll: 1,
-      dots: true,
+      dots: false,
+      arrows: false,
       centerMode: false,
       focusOnSelect: true,
     }
 
     return (
-      <Fragment>
+      <div className="hero-wrapper">
         <Slider
           className={'heroSlider'}
           asNavFor={this.state.nav_thumbs}
@@ -70,7 +71,7 @@ class HeroSlider extends Component {
           </div>
         </Slider>
         <Slider
-          className={'heroSliderThumbs grid-container'}
+          className={'heroSliderThumbs grid-container show-for-large'}
           asNavFor={this.state.nav_hero}
           ref={slider => (this.nav_thumbs_slider = slider)}
           {...settings_nav_thumbs}
@@ -88,7 +89,7 @@ class HeroSlider extends Component {
             <HeroSliderThumb />
           </div>
         </Slider>
-      </Fragment>
+      </div>
     )
   }
 }
