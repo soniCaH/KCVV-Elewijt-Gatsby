@@ -79,7 +79,7 @@ $foundation-palette: (
 );
 $light-gray: #edeff4;
 $medium-gray: #cacaca;
-$dark-gray: #8a8a8a;
+$dark-gray: #9a9da2;
 $black: #0a0a0a;
 $white: #fefefe;
 $body-background: $light-gray;
@@ -331,8 +331,8 @@ $card-font-color: $body-font-color;
 $card-divider-background: $light-gray;
 $card-border: 1px solid $light-gray;
 $card-shadow: none;
-$card-border-radius: $global-radius;
-$card-padding: $global-padding;
+$card-border-radius: 4px;
+$card-padding: 0;
 $card-margin-bottom: $global-margin;
 
 // 15. Close Button

@@ -3,7 +3,6 @@ import React, { Component } from 'react'
 import './index.scss'
 import PageHeader from '../components/page-header'
 import { PageHeaderMobile } from '../components/page-header'
-import HeroSlider from '../components/hero-slider'
 
 class Layout extends Component {
   render() {
@@ -14,13 +13,7 @@ class Layout extends Component {
         <PageHeaderMobile />
         <PageHeader />
 
-        <HeroSlider />
-        <div className="grid-container">
-          <div className="grid-x">
-            <main className="cell large-8">{children}</main>
-            <aside className="cell large-4">SIDEBAR</aside>
-          </div>
-        </div>
+        {children}
 
         <footer>FOOTER</footer>
       </React.Fragment>

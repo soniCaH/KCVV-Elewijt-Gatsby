@@ -1,5 +1,4 @@
 @import url('https://fonts.googleapis.com/css?family=Montserrat|Source+Sans+Pro');
-
 @import '~foundation-sites/scss/util/util';
 @import './settings';
 @import '~foundation-sites/scss/foundation';
@@ -28,7 +27,7 @@
     text-align: center;
     white-space: nowrap;
     vertical-align: baseline;
-    font-family: "Montserrat", sans-serif;
+    font-family: 'Montserrat', sans-serif;
     text-transform: uppercase;
 }
 
@@ -42,6 +41,9 @@
     .post__category--transfer & {
         background-color: var(--color-category-transfer);
     }
+    .post__category--interview & {
+        background-color: var(--color-category-interview);
+    }
     .post__category--youth & {
         background-color: var(--color-category-youth);
     }
@@ -50,11 +52,12 @@
     }
 }
 
-.page-heading__title, .posts__title {
+.page-heading__title,
+.posts__title {
     text-transform: uppercase;
     letter-spacing: -0.02em;
     a {
-        color: #FFF;
+        color: #fff;
     }
     strong {
         color: var(--color-green);
@@ -63,4 +66,91 @@
 
 .post-datetime {
     font-size: 0.9em;
+}
+
+.site-content {
+    padding-bottom: 3.75rem;
+    padding-top: 3.75rem;
+}
+
+.posts__item--card {
+    .posts__thumb {
+        margin: 0;
+        float: none;
+        overflow: hidden;
+        border-radius: 4px 4px 0 0;
+        transform: translate3d(0, 0, 0);
+        position: relative;
+        img {
+            width: 100%;
+            height: auto;
+            transition: transform 0.5s ease;
+            backface-visibility: hidden;
+        }
+
+        &:hover {
+            img {
+                transform: scale(1.1);
+            }
+        }
+    }
+    .posts__cat {
+        display: block;
+        position: absolute;
+        left: 23px;
+        bottom: 23px;
+        z-index: 1;
+    }
+    .posts__cat-label {
+        float: left;
+        padding-top: 0.6em;
+    }
+    .posts__inner {
+        padding-top: 1.125rem;
+    }
+    .posts__date {
+        font-size: 0.6875rem;
+        line-height: 1.2em;
+        &+.posts__title {
+            margin-top: 0.3125rem;
+            @media (min-width: 992px) {
+                margin-top: 0.625rem;
+            }
+        }
+        .posts__title {
+            line-height: 1em;
+            margin-bottom: 0.2em;
+        }
+    }
+    .posts__excerpt {
+        color: var(--color-gray-light);
+        font-size: 0.9375rem;
+        padding: 0.8125rem 0 0 0;
+        @media (min-width: 992px) {
+            padding: 1.4375rem 0 .5rem 0;
+        }
+    }
+}
+
+.posts__date {
+    display: inline-block;
+    text-transform: uppercase;
+    font-family: "Montserrat", sans-serif;
+    line-height: 1.2em;
+}
+
+.posts__title {
+    letter-spacing: -0.03em;
+    a {
+        color: var(--color-gray-blue);
+        line-height: 1em;
+        transition: color 0.2s ease-in-out;
+        &:hover {
+            color: var(--color-gray-blue-hover);
+        }
+    }
+}
+
+.card__content {
+    padding: 1.5rem;
 }
