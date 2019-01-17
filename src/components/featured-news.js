@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import picEli from '../images/foto-eli.jpg'
 import picWim from '../images/foto-wim.jpg'
+import picMickKjelle from '../images/foto-mick_kjelle.jpg'
 import picMattiEvert from '../images/foto-matti_evert.jpg'
 import picRickyKen from '../images/foto-ricky_ken.jpg'
 import picThomasSammy from '../images/foto-thomas_sammy.jpg'
@@ -16,6 +17,36 @@ class FeaturedNews extends Component {
         data-equalize-on="medium"
         id="featured__news"
       >
+      <article className="medium-6 cell featured__news-item article-card">
+          <div
+            class="posts__item posts__item--card post__category--transfer card"
+            data-equalizer-watch="true"
+          >
+            <figure class="posts__thumb">
+              <div class="posts__cat">
+                <span class="label posts__cat-label">Contract</span>
+              </div>
+              <a href="#">
+                <img src={picMickKjelle} alt="" />
+              </a>
+            </figure>
+            <div class="posts__inner card__content">
+              <time datetime="2016-08-23" class="posts__date">
+                16 januari 2019
+              </time>
+              <h6 class="posts__title">
+                <a href="index.html">
+                  Mick en Kjelle verlengen contract voor een jaar
+                </a>
+              </h6>
+              <div class="posts__excerpt">
+                <p>Met Mick en Kjelle verlengden vandaag de 9e en 10e speler hun contract voor volgend seizoen. De kern voor 2019-2020 begint zo stilaan vorm te krijgen.</p>
+                <p>✍️ Mick de Voster - onze tweede doelman tekent voor zijn tweede seizoen bij KCVV</p>
+                <p>✍️ Kjelle Vervoort - Na een kort avontuur bij KSC Machelen vorig jaar, bindt Kjell zich ook voor volgend seizoen aan zijn oude liefde.</p>
+              </div>
+            </div>
+          </div>
+        </article>
       <article className="medium-6 cell featured__news-item article-card">
           <div
             class="posts__item posts__item--card post__category--event card"
