@@ -2,42 +2,36 @@ import React from 'react'
 import Layout from '../layouts/index'
 import HeroSlider from '../components/hero-slider'
 import FeaturedNews from '../components/featured-news'
-import teamPic from '../images/kcvv-team.jpg'
 import matchesSlider from '../images/match-slider.png'
+import { graphql } from 'gatsby'
 
 class IndexPage extends React.Component {
   render() {
+    const data = this.props.data
     return (
       <Layout>
         <HeroSlider />
         <div className="grid-container site-content">
           <div className="grid-x grid-margin-x">
             <section className="cell large-8">
-              <FeaturedNews />
+              <FeaturedNews posts={data.toppost} />
             </section>
             <aside className="cell large-4">
               <div className="grid-x featured__matches grid-margin-x">
                 <article className="medium-6 large-12 cell featured__news-item article-card">
                   <div
-                    class="posts__item posts__item--card post__category--interview card"
+                    className="posts__item posts__item--card post__category--interview card"
                     data-equalizer-watch="true"
                   >
-                    <figure class="posts__thumb">
-                      <div class="posts__cat">
-                        <span class="label posts__cat-label">Interview</span>
-                      </div>
-                      <a href="#">
-                        <img src={teamPic} alt="" />
-                      </a>
-                    </figure>
-                    <div class="posts__inner card__content">
-                      <time datetime="2016-08-23" class="posts__date">
-                        13 januari 2019
-                      </time>
-                      <h6 class="posts__title">
+                    <div className="posts__inner card__content">
+                      <figure className="posts__thumb">LOGO 1 vs LOGO 2</figure>
+                      <h6 className="posts__title">
                         Asse Terheide - KCVV Elewijt A
                       </h6>
-                      <div class="posts__excerpt">
+                      <time dateTime="2016-08-23" className="posts__date">
+                        13 januari 2019
+                      </time>
+                      <div className="posts__excerpt">
                         <table>
                           <thead>
                             <tr>
@@ -48,16 +42,12 @@ class IndexPage extends React.Component {
                           </thead>
                           <tbody>
                             <tr>
-                              <td>
-                                2
-                              </td>
+                              <td>2</td>
                               <td>KCVV Elewijt A</td>
                               <td>40</td>
                             </tr>
                             <tr>
-                              <td>
-                                12
-                              </td>
+                              <td>12</td>
                               <td>KVC.Asse-Terheide A</td>
                               <td>18</td>
                             </tr>
@@ -70,14 +60,27 @@ class IndexPage extends React.Component {
                 <article className="medium-6 large-12 cell">
                   MATCH B-ploeg
                 </article>
-                <article className="medium-12 cell">Other matches</article>
+                <article className="medium-12 cell">
+                  Other matches (youth calendar)
+                </article>
               </div>
             </aside>
           </div>
         </div>
 
         <div className="grid-container full">
-          <img src={matchesSlider} />
+          <img src={matchesSlider} alt="Matches slider" />
+        </div>
+
+        <div className="grid-container">
+          <div className="grid-x grid-margin-x">
+            <section className="cell large-8">
+              <FeaturedNews posts={data.lowerpost} />
+            </section>
+            <aside className="cell large-4">
+              Some more sidebar juice (or just spread the left side over 3 columns instead of 2 in the FeaturedNews component?)
+            </aside>
+          </div>
         </div>
       </Layout>
     )
@@ -87,5 +90,69 @@ class IndexPage extends React.Component {
     // alert('hey');
   }
 }
+
+export const pageQuery = graphql`
+  query {
+    toppost: allWordpressPost(
+      sort: { fields: [date], order: DESC }
+      limit: 10
+    ) {
+      edges {
+        node {
+          id
+          slug
+          title
+          content
+          excerpt
+          unixdate: date(formatString: "YYYY-MM-DD", locale: "nl")
+          longdate: date(formatString: "DD MMMM YYYY", locale: "nl")
+          modified
+          categories {
+            name
+          }
+          featured_media {
+            localFile {
+              childImageSharp {
+                sizes(maxWidth: 615) {
+                  ...GatsbyImageSharpSizes_withWebp_tracedSVG
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+    lowerpost: allWordpressPost(
+      sort: { fields: [date], order: DESC }
+      limit: 10
+      skip: 10
+    ) {
+      edges {
+        node {
+          id
+          slug
+          title
+          content
+          excerpt
+          unixdate: date(formatString: "YYYY-MM-DD", locale: "nl")
+          longdate: date(formatString: "DD MMMM YYYY", locale: "nl")
+          modified
+          categories {
+            name
+          }
+          featured_media {
+            localFile {
+              childImageSharp {
+                sizes(maxWidth: 615) {
+                  ...GatsbyImageSharpSizes_withWebp_tracedSVG
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+`
 
 export default IndexPage

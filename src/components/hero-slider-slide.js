@@ -17,7 +17,7 @@ class HeroSliderSlide extends Component {
                 </h2>
                 <div className="post-author">
                   <div className="post-author__info">
-                    <date dateTime="2019-01-11" className="post-datetime">11 januari 2019</date>
+                    <time dateTime="2019-01-11" className="post-datetime">11 januari 2019</time>
                   </div>
                 </div>
               </div>
