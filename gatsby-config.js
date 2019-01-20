@@ -1,8 +1,12 @@
 module.exports = {
   siteMetadata: {
     title: `KCVV Elewijt`,
+    subTitle: `Er is maar één plezante compagnie`,
     description: `Static website of KCVV Elewijt footbal club.`,
     author: `@KevinVRansbeeck`,
+    serverUrl: 'http://api.footbalisto.be',
+    refreshRate: 360000,
+    fbAccessToken: '1618079068306856|L2hMjCUe9QVLeHn9nFk7pvWdzyc',
   },
   plugins: [
     `gatsby-plugin-react-helmet`,
@@ -29,15 +33,15 @@ module.exports = {
       },
     },
     {
-      resolve: "gatsby-source-wordpress",
+      resolve: 'gatsby-source-wordpress',
       options: {
         /*
-        * The base URL of the Wordpress site without the trailingslash and the protocol. This is required.
-        * Example : 'gatsbyjsexamplewordpress.wordpress.com' or 'www.example-site.com'
-        */
-        baseUrl: "kcvvelewijt.be",
+         * The base URL of the Wordpress site without the trailingslash and the protocol. This is required.
+         * Example : 'gatsbyjsexamplewordpress.wordpress.com' or 'www.example-site.com'
+         */
+        baseUrl: 'kcvvelewijt.be',
         // The protocol. This can be http or https.
-        protocol: "https",
+        protocol: 'https',
         // Indicates whether the site is hosted on wordpress.com.
         // If false, then the assumption is made that the site is self hosted.
         // If true, then the plugin will source its content on wordpress.com using the JSON REST API V2.
@@ -54,7 +58,7 @@ module.exports = {
         // routes with the ID option_page_1 and option_page_2
         // Dashes in IDs will be converted to underscores for use in GraphQL
         acfOptionPageIds: [],
-        
+
         // Set verboseOutput to true to display a verbose output on `npm run develop` or `npm run build`
         // It can help you debug specific API Endpoints problems.
         verboseOutput: true,
@@ -62,8 +66,8 @@ module.exports = {
         perPage: 100,
         // Search and Replace Urls across WordPress content.
         searchAndReplaceContentUrls: {
-          sourceUrl: "https://source-url.com",
-          replacementUrl: "https://replacement-url.com",
+          sourceUrl: 'https://source-url.com',
+          replacementUrl: 'https://replacement-url.com',
         },
         // Set how many simultaneous requests are sent at once.
         concurrentRequests: 10,
@@ -77,18 +81,18 @@ module.exports = {
         // all routes that begin with `yoast` from fetch.
         // Whitelisted routes using glob patterns
         includedRoutes: [
-          "**/*/*/categories",
-          "**/*/*/categories/**",
-          "**/*/*/posts",
-          "**/*/*/posts/**",
-          "**/*/*/pages",
-          "**/*/*/pages/**",
-          "**/*/*/media",
-          "**/*/*/media/**",
-          "**/*/*/tags",
-          "**/*/*/tags/**",
-          "**/*/*/taxonomies",
-          "**/*/*/taxonomies/**",
+          '**/*/*/categories',
+          '**/*/*/categories/**',
+          '**/*/*/posts',
+          '**/*/*/posts/**',
+          '**/*/*/pages',
+          '**/*/*/pages/**',
+          '**/*/*/media',
+          '**/*/*/media/**',
+          '**/*/*/tags',
+          '**/*/*/tags/**',
+          '**/*/*/taxonomies',
+          '**/*/*/taxonomies/**',
           // "**/*/*/users",
         ],
         // Blacklisted routes using glob patterns

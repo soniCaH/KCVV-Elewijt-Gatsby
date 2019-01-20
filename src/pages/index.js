@@ -4,20 +4,17 @@ import HeroSlider from '../components/hero-slider'
 import FeaturedNews from '../components/featured-news'
 import matchesSlider from '../images/match-slider.png'
 import { graphql } from 'gatsby'
-import Helmet from 'react-helmet'
+import SEO from '../components/seo'
 
 class IndexPage extends React.Component {
   render() {
     const data = this.props.data
     return (
       <Layout>
-        <Helmet>
-          <meta charSet="utf-8" />
-          <title>KCVV Elewijt - Er is maar 1 plezante compagnie</title>
-          <link rel="canonical" href="https://www.kcvvelewijt.be" />
-          <html lang="nl-BE" />
-        </Helmet>
+        <SEO lang="nl-BE" title="Er is maar één plezante compagnie" />
+
         <HeroSlider />
+
         <div className="grid-container site-content">
           <div className="grid-x grid-margin-x">
             <section className="cell large-8">
@@ -25,6 +22,9 @@ class IndexPage extends React.Component {
             </section>
             <aside className="cell large-4">
               <div className="grid-x featured__matches grid-margin-x">
+                {/* <MatchDetails division="3C" regNumber="00055"... /> */}
+                {/* <MatchDetails division="4D" regNumber="00055"... /> */}
+                {/* <MatchesCardSlider ignore="3C,4D" /> */}
                 <article className="medium-6 large-12 cell featured__news-item article-card">
                   <div
                     className="posts__item posts__item--card post__category--interview card"
@@ -97,10 +97,7 @@ class IndexPage extends React.Component {
 
 export const pageQuery = graphql`
   query {
-    toppost: allWordpressPost(
-      sort: { fields: [date], order: DESC }
-      limit: 8
-    ) {
+    toppost: allWordpressPost(sort: { fields: [date], order: DESC }, limit: 8) {
       edges {
         node {
           id
