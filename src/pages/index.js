@@ -2,7 +2,7 @@ import React from 'react'
 import Layout from '../layouts/index'
 import HeroSlider from '../components/hero-slider'
 import FeaturedNews from '../components/featured-news'
-import matchesSlider from '../images/match-slider.png'
+import MatchesSlider from '../components/matches-slider'
 import { graphql } from 'gatsby'
 import SEO from '../components/seo'
 
@@ -76,7 +76,7 @@ class IndexPage extends React.Component {
         </div>
 
         <div className="grid-container full">
-          <img src={matchesSlider} alt="Matches slider" />
+          <MatchesSlider season="1819" regnumber="00055" />
         </div>
 
         <div className="grid-container site-content">
@@ -105,8 +105,8 @@ export const pageQuery = graphql`
           title
           content
           excerpt
-          unixdate: date(formatString: "YYYY-MM-DD", locale: "nl")
-          longdate: date(formatString: "DD MMMM YYYY", locale: "nl")
+          unixdate: date(formatString: "YYYY-MM-DD", locale: "nl-be")
+          longdate: date(formatString: "DD MMMM YYYY", locale: "nl-be")
           modified
           categories {
             name
@@ -135,8 +135,8 @@ export const pageQuery = graphql`
           title
           content
           excerpt
-          unixdate: date(formatString: "YYYY-MM-DD", locale: "nl")
-          longdate: date(formatString: "DD MMMM YYYY", locale: "nl")
+          unixdate: date(formatString: "YYYY-MM-DD", locale: "nl-be")
+          longdate: date(formatString: "DD MMMM YYYY", locale: "nl-be")
           modified
           categories {
             name
