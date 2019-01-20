@@ -24,10 +24,7 @@ class MatchesSlider extends Component {
     console.log('Fetching matches overview')
 
     fetch(
-      `${this.apiServerUrl}/seasons/${season}/matches/upcoming/${regnumber}`,
-      {
-        credentials: 'same-origin',
-      }
+      `${this.apiServerUrl}/seasons/${season}/matches/upcoming/${regnumber}`
     )
       .then(response => response.json())
       .then(json => this.setState({ data: json, loading: false }))
