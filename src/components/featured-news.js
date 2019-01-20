@@ -4,7 +4,9 @@ import Img from "gatsby-image"
 
 class FeaturedNews extends Component {
   render() {
-    const posts = this.props.posts.edges
+    const posts = this.props.posts.edges;
+    const teaser = this.props.teaser | false;
+    const columns = 12 / (this.props.columns | 2);
 
     return (
       <div
@@ -24,7 +26,7 @@ class FeaturedNews extends Component {
             }
           }
 
-          return <article className="medium-6 cell featured__news-item article-card" key={i}>
+          return <article className={"medium-" + columns + " cell featured__news-item article-card"} key={i}>
           <div
             className={"posts__item posts__item--card card post__category--" + node.categories[0].name.replace(/\s+/g, '_').toLowerCase()}
             data-equalizer-watch="true"
@@ -44,7 +46,7 @@ class FeaturedNews extends Component {
               <h6 className="posts__title">
                 <a href="index.html" dangerouslySetInnerHTML = {{__html: node.title }} />
               </h6>
-              <div className="posts__excerpt" dangerouslySetInnerHTML = {{__html: node.excerpt }} />
+              { (!teaser) ? (<div className="posts__excerpt" dangerouslySetInnerHTML = {{__html: node.excerpt }} />) : '' }
             </div>
           </div>
         </article>

@@ -4,12 +4,19 @@ import HeroSlider from '../components/hero-slider'
 import FeaturedNews from '../components/featured-news'
 import matchesSlider from '../images/match-slider.png'
 import { graphql } from 'gatsby'
+import Helmet from 'react-helmet'
 
 class IndexPage extends React.Component {
   render() {
     const data = this.props.data
     return (
       <Layout>
+        <Helmet>
+          <meta charSet="utf-8" />
+          <title>KCVV Elewijt - Er is maar 1 plezante compagnie</title>
+          <link rel="canonical" href="https://www.kcvvelewijt.be" />
+          <html lang="nl-BE" />
+        </Helmet>
         <HeroSlider />
         <div className="grid-container site-content">
           <div className="grid-x grid-margin-x">
@@ -72,14 +79,11 @@ class IndexPage extends React.Component {
           <img src={matchesSlider} alt="Matches slider" />
         </div>
 
-        <div className="grid-container">
+        <div className="grid-container site-content">
           <div className="grid-x grid-margin-x">
-            <section className="cell large-8">
-              <FeaturedNews posts={data.lowerpost} />
+            <section className="cell large-12">
+              <FeaturedNews posts={data.lowerpost} columns="3" teaser={true} />
             </section>
-            <aside className="cell large-4">
-              Some more sidebar juice (or just spread the left side over 3 columns instead of 2 in the FeaturedNews component?)
-            </aside>
           </div>
         </div>
       </Layout>
@@ -95,7 +99,7 @@ export const pageQuery = graphql`
   query {
     toppost: allWordpressPost(
       sort: { fields: [date], order: DESC }
-      limit: 10
+      limit: 8
     ) {
       edges {
         node {
@@ -124,8 +128,8 @@ export const pageQuery = graphql`
     }
     lowerpost: allWordpressPost(
       sort: { fields: [date], order: DESC }
-      limit: 10
-      skip: 10
+      limit: 12
+      skip: 8
     ) {
       edges {
         node {
