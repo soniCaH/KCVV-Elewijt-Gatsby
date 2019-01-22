@@ -4,7 +4,7 @@ module.exports = {
     subTitle: `Er is maar één plezante compagnie`,
     description: `Static website of KCVV Elewijt footbal club.`,
     author: `@KevinVRansbeeck`,
-    serverUrl: 'http://api.footbalisto.be',
+    serverUrl: 'https://api.footbalisto.be',
     refreshRate: 360000,
     fbAccessToken: '1618079068306856|L2hMjCUe9QVLeHn9nFk7pvWdzyc',
   },
