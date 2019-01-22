@@ -1,8 +1,9 @@
 import React, { Component } from 'react'
 import { graphql, StaticQuery } from 'gatsby'
 import Slider from 'react-slick'
-import moment from 'moment';
+import moment from 'moment'
 import 'moment/locale/nl-be'
+import './matches-slider.scss'
 
 class MatchesSlider extends Component {
   constructor(props) {
@@ -59,17 +60,19 @@ class MatchesSlider extends Component {
       this.state.data.sort((a, b) => a.dateTime - b.dateTime)
 
       return (
-        <div className="hero-wrapper">
+        <div className="matchesSlider--wrapper">
           <Slider className={'matchesSlider'} {...settings_slickslider}>
             {this.state.data.map((match, i) => {
-                moment.locale('nl-be');
-                const matchTime = moment(match.dateTime);
+              moment.locale('nl-be')
+              const matchTime = moment(match.dateTime)
               return (
-                <div>
-                  <h4>{match.division}</h4>
-                  <p>{match.home}</p> <span>vs</span> <p>{match.away}</p>
-                  <p>{matchTime.format('dddd DD MMMM YYYY')}</p>
-                  <p>{matchTime.format('HH:mm')}</p>
+                <div className="matchesSlider__item">
+                  <div className="matchesSlider__item--inner">
+                    <h5>{match.division}</h5>
+                    <p>{match.home}</p> <span>vs</span> <p>{match.away}</p>
+                    <p>{matchTime.format('dddd DD MMMM YYYY')}</p>
+                    <p>{matchTime.format('HH:mm')}</p>
+                  </div>
                 </div>
               )
             })}
