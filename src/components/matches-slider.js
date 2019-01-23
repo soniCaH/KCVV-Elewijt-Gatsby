@@ -66,7 +66,7 @@ class MatchesSlider extends Component {
               moment.locale('nl-be')
               const matchTime = moment(match.dateTime)
               return (
-                <div className="matchesSlider__item">
+                <div className="matchesSlider__item" key={i}>
                   <div className="matchesSlider__item--inner">
                     <h5>{match.division}</h5>
                     <p>{match.home}</p> <span>vs</span> <p>{match.away}</p>
