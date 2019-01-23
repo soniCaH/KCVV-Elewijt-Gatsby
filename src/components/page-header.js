@@ -41,7 +41,7 @@ class PageHeader extends Component {
                   <div className="medium-4 medium-offset-8">
                     <div className="sponsors--header">
                       <img
-                        src="http://lorempixel.com/g/410/100/"
+                        src="https://lorempixel.com/g/410/100/"
                         alt="Bauvall Trans"
                       />
                     </div>
