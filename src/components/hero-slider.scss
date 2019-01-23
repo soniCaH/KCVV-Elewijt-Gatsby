@@ -9,8 +9,8 @@
     position: relative;
 }
 
-.slick-prev, .slick-right {
-    z-index: 10;
+.slick-prev, .slick-next {
+    z-index: 3;
 }
 
 .slick-prev {

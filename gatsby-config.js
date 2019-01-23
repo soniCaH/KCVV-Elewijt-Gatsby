@@ -1,10 +1,13 @@
+const apiUrl = 'https://api.footbalisto.be'
+
 module.exports = {
   siteMetadata: {
     title: `KCVV Elewijt`,
     subTitle: `Er is maar één plezante compagnie`,
     description: `Static website of KCVV Elewijt footbal club.`,
     author: `@KevinVRansbeeck`,
-    serverUrl: 'https://api.footbalisto.be',
+    serverUrl: apiUrl,
+    logoUrl: `${apiUrl}/logo`,
     refreshRate: 360000,
     fbAccessToken: '1618079068306856|L2hMjCUe9QVLeHn9nFk7pvWdzyc',
   },

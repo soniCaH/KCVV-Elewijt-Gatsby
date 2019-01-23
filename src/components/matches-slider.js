@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import { graphql, StaticQuery } from 'gatsby'
 import Slider from 'react-slick'
 import moment from 'moment'
+import defaultLogo from '../images/default.png'
 import 'moment/locale/nl-be'
 import './matches-slider.scss'
 
@@ -12,9 +13,11 @@ class MatchesSlider extends Component {
     this.state = {
       data: [],
       loading: true,
+      imageLoadError: true,
     }
 
     this.apiServerUrl = props.config.site.siteMetadata.serverUrl
+    this.apiLogoUrl = props.config.site.siteMetadata.logoUrl
     this.apiRefreshRate = props.config.site.siteMetadata.refreshRate
     this.timeout = {}
   }
@@ -55,23 +58,103 @@ class MatchesSlider extends Component {
         centerMode: true,
         focusOnSelect: true,
         infinite: true,
+
+        responsive: [
+          {
+            breakpoint: 1208,
+            settings: {
+              slidesToShow: 2,
+            },
+          }
+        ],
       }
 
       this.state.data.sort((a, b) => a.dateTime - b.dateTime)
 
       return (
-        <div className="matchesSlider--wrapper">
+        <div
+          className="matchesSlider--wrapper"
+          data-equalizer="true"
+          data-equalize-on="medium"
+        >
           <Slider className={'matchesSlider'} {...settings_slickslider}>
             {this.state.data.map((match, i) => {
               moment.locale('nl-be')
               const matchTime = moment(match.dateTime)
+
+              let homeLogo = `${this.apiLogoUrl}/${match.regNumberHome}`
+              let awayLogo = `${this.apiLogoUrl}/${match.regNumberAway}`
+
               return (
-                <div className="matchesSlider__item" key={i}>
+                <div
+                  className="matchesSlider__item"
+                  key={i}
+                  data-equalizer-watch="true"
+                >
                   <div className="matchesSlider__item--inner">
                     <h5>{match.division}</h5>
-                    <p>{match.home}</p> <span>vs</span> <p>{match.away}</p>
-                    <p>{matchTime.format('dddd DD MMMM YYYY')}</p>
-                    <p>{matchTime.format('HH:mm')}</p>
+                    <time
+                      dateTime={matchTime.format()}
+                      className={
+                        'matches__meta__datetime matches__meta__datetime--date'
+                      }
+                    >
+                      {matchTime.format('dddd DD MMMM YYYY')}
+                    </time>
+                    <time
+                      dateTime={matchTime.format()}
+                      className={
+                        'matches__meta__datetime matches__meta__datetime--time'
+                      }
+                    >
+                      {matchTime.format('H:mm')}
+                    </time>
+
+                    <div className={'matches__meta__logos'}>
+                      <div className={'matches__meta__logos__inner'}>
+                        <img
+                          src={homeLogo}
+                          onError={e => {
+                            e.target.onerror = null
+                            e.target.src = defaultLogo
+                          }}
+                          alt={match.home}
+                          className={
+                            'matchesSlider__item__logo matchesSlider__item__logo--home'
+                          }
+                        />
+                      </div>
+                      <div className={'matches__meta__logos__inner'}>
+                        <img
+                          src={awayLogo}
+                          onError={e => {
+                            e.target.onerror = null
+                            e.target.src = defaultLogo
+                          }}
+                          alt={match.away}
+                          className={
+                            'matchesSlider__item__logo matchesSlider__item__logo--away'
+                          }
+                        />
+                      </div>
+                    </div>
+
+                    <div className={'matches__meta__logos'}>
+                      <div
+                        className={
+                          'matches__meta__logos__inner matches__meta__teamname'
+                        }
+                      >
+                        {match.home}
+                      </div>
+                      <div
+                        className={
+                          'matches__meta__logos__inner matches__meta__teamname'
+                        }
+                      >
+                        {match.away}
+                      </div>
+                    </div>
                   </div>
                 </div>
               )
@@ -90,6 +173,7 @@ const query = graphql`
     site {
       siteMetadata {
         serverUrl
+        logoUrl
         refreshRate
       }
     }
