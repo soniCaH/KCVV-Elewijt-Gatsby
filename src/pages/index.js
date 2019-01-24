@@ -70,6 +70,15 @@ class IndexPage extends React.Component {
                 <article className="medium-12 cell">
                   Other matches (youth calendar)
                 </article>
+                <article className="medium-12 cell">
+                  IN THE SPOTLIGHT: Overzicht transfers / contract
+                </article>
+                <article className="medium-12 cell">
+                  IN THE SPOTLIGHT: KCVV TV
+                </article>
+                <article className="medium-12 cell">
+                  IN THE SPOTLIGHT: Aan tafel bij Hans
+                </article>
               </div>
             </aside>
           </div>

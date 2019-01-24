@@ -86,7 +86,9 @@
 
 .matches__meta__teamname {
     font-size: .85rem;
-    height: 2em;
+    height: 2.4em;
+    line-height: 1.2;
     text-align: center;
     color: var(--color-gray-medium);
+    justify-content: flex-start;
 }

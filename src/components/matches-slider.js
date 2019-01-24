@@ -61,9 +61,21 @@ class MatchesSlider extends Component {
 
         responsive: [
           {
-            breakpoint: 1208,
+            breakpoint: 1400,
+            settings: {
+              slidesToShow: 3,
+            },
+          },
+          {
+            breakpoint: 1200,
             settings: {
               slidesToShow: 2,
+            },
+          },
+          {
+            breakpoint: 800,
+            settings: {
+              slidesToShow: 1,
             },
           }
         ],
