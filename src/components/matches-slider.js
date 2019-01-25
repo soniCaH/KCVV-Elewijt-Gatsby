@@ -2,8 +2,9 @@ import React, { Component } from 'react'
 import { graphql, StaticQuery } from 'gatsby'
 import Slider from 'react-slick'
 import moment from 'moment'
-import defaultLogo from '../images/default.png'
 import 'moment/locale/nl-be'
+import { mapMatchStatus, formatDivision } from '../script/helper'
+import defaultLogo from '../images/default.png'
 import './matches-slider.scss'
 
 class MatchesSlider extends Component {
@@ -77,7 +78,7 @@ class MatchesSlider extends Component {
             settings: {
               slidesToShow: 1,
             },
-          }
+          },
         ],
       }
 
@@ -94,8 +95,8 @@ class MatchesSlider extends Component {
               moment.locale('nl-be')
               const matchTime = moment(match.dateTime)
 
-              let homeLogo = `${this.apiLogoUrl}/${match.regNumberHome}`
-              let awayLogo = `${this.apiLogoUrl}/${match.regNumberAway}`
+              const homeLogo = `${this.apiLogoUrl}/${match.regNumberHome}`
+              const awayLogo = `${this.apiLogoUrl}/${match.regNumberAway}`
 
               return (
                 <div
@@ -104,23 +105,45 @@ class MatchesSlider extends Component {
                   data-equalizer-watch="true"
                 >
                   <div className="matchesSlider__item--inner">
-                    <h5>{match.division}</h5>
-                    <time
-                      dateTime={matchTime.format()}
-                      className={
-                        'matches__meta__datetime matches__meta__datetime--date'
-                      }
-                    >
-                      {matchTime.format('dddd DD MMMM YYYY')}
-                    </time>
-                    <time
-                      dateTime={matchTime.format()}
-                      className={
-                        'matches__meta__datetime matches__meta__datetime--time'
-                      }
-                    >
-                      {matchTime.format('H:mm')}
-                    </time>
+                    <h5>{formatDivision(match.division, match.region)}</h5>
+                    {match.status ? (
+                      <>
+                        <time
+                          dateTime={matchTime.format()}
+                          className={
+                            'matches__meta__datetime matches__meta__datetime--date'
+                          }
+                        >
+                          {matchTime.format('dddd DD MMMM - H:mm')}
+                        </time>
+                        <div
+                          className={
+                            'matches__meta__datetime matches__meta__datetime--time matches__meta__status'
+                          }
+                        >
+                          {mapMatchStatus(match.status)}
+                        </div>
+                      </>
+                    ) : (
+                      <>
+                        <time
+                          dateTime={matchTime.format()}
+                          className={
+                            'matches__meta__datetime matches__meta__datetime--date'
+                          }
+                        >
+                          {matchTime.format('dddd DD MMMM YYYY')}
+                        </time>
+                        <time
+                          dateTime={matchTime.format()}
+                          className={
+                            'matches__meta__datetime matches__meta__datetime--time'
+                          }
+                        >
+                          {matchTime.format('H:mm')}
+                        </time>
+                      </>
+                    )}
 
                     <div className={'matches__meta__logos'}>
                       <div className={'matches__meta__logos__inner'}>
