@@ -1,0 +1,71 @@
+.match-details {
+    display: block;
+    padding: 1em;
+    font-family: "Montserrat", sans-serif;
+    font-weight: 700;
+    &--with-logo {
+        background: #FFF;
+    }
+    header {
+        line-height: 1.2em;
+        margin-bottom: .75em;
+        text-align: center;
+        text-transform: uppercase;
+    }
+}
+
+.match-details__datetime {
+    display: block;
+    letter-spacing: -.02em;
+    line-height: 1.2em;
+    text-align: center;
+    text-transform: uppercase;
+    &--date {
+        color: var(--color-gray-light);
+        font-size: .75rem;
+    }
+    &--time {
+        color: var(--color-gray-medium);
+        font-size: 1.25rem;
+    }
+}
+
+.match-details__status {}
+
+.match-details__lineup {
+    color: var(--color-gray-medium);
+    display: flex;
+    flex-direction: row;
+    align-items: stretch;
+    justify-content: center;
+    position: relative;
+    height: 100%;
+    width: 100%;
+}
+
+.match-details__lineup-inner {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+.match-details__vs {
+    position: absolute;
+    bottom: 0;
+    line-height: 1; // top: 50%;
+    // transform: translateY(-50%);
+    text-shadow: 2px 2px 5px var(--color-gray-light);
+    font-size: 6em;
+    font-weight: 100;
+    color: var(--color-green);
+}
+
+.match-details__teamname {
+    font-size: .85rem;
+    height: 2.4em;
+    line-height: 1.2;
+    text-align: center;
+    justify-content: flex-start;
+}

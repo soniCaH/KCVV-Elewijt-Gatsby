@@ -52,6 +52,12 @@ export function replaceFirstCharIfNumber(division) {
   return division
 }
 
+/**
+ * Convert a region+division into an output label.
+ * 
+ * @param {array} divisionArray 
+ * @param {string} level 
+ */
 export function outputDivision(divisionArray, level = '') {
     if (divisionArray[0] === 'BCD') {
       return `Beker van Brabant`;
@@ -77,6 +83,13 @@ export function mapDivision(division) {
   )
 }
 
+
+/**
+ * Retrieve mapping and the formatted descriptive label of a division.
+ * 
+ * @param {string} division
+ * @param {string} region
+ */
 export function formatDivision(division, region) {
     const divisionArr = mapDivision(division);
     return outputDivision(divisionArr, region);
