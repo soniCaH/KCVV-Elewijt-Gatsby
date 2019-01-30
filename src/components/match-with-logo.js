@@ -34,7 +34,7 @@ class MatchWithLogo extends Component {
             {status ? (
               <>
                 <time
-                  dateTime={'2019-06-30 12:30'}
+                  dateTime={matchTime.format('YYYY-MM-DD - H:mm')}
                   className={
                     'match-details__datetime match-details__datetime--date'
                   }
@@ -52,7 +52,7 @@ class MatchWithLogo extends Component {
             ) : (
               <>
                 <time
-                  dateTime={'2019-06-30 12:30'}
+                  dateTime={matchTime.format('YYYY-MM-DD')}
                   className={
                     'match-details__datetime match-details__datetime--date'
                   }
@@ -60,7 +60,7 @@ class MatchWithLogo extends Component {
                   {matchTime.format('dddd DD MMMM YYYY')}
                 </time>
                 <time
-                  dateTime={matchTime.format()}
+                  dateTime={matchTime.format('H:mm')}
                   className={
                     'match-details__datetime match-details__datetime--time'
                   }

@@ -63,7 +63,6 @@ class MetaMatches extends Component {
       this.state.data
     ) {
       const { next, previous, ranking } = this.state.data
-      console.log(this.globalRanking)
       return (
         <>
           <ul className="widget__filter" data-tabs id={`matches-${this.uuid}`}>

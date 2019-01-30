@@ -6,6 +6,7 @@ import MatchesSlider from '../components/matches-slider'
 import { graphql } from 'gatsby'
 import SEO from '../components/seo'
 import MetaMatches from '../components/meta-matches'
+import MatchesOverview from '../components/matches-overview'
 
 class IndexPage extends React.Component {
   render() {
@@ -41,7 +42,7 @@ class IndexPage extends React.Component {
                   <div className="card__header">
                     <h4>Jeugdploegen</h4>
                   </div>
-                  Matches overzicht
+                  <MatchesOverview season="1819" regnumber="00055" exclude="['3C', '4D']" />
                 </div>
 
                 <div className={'medium-6 large-12 cell card'}>

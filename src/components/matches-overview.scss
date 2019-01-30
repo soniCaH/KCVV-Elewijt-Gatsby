@@ -1,0 +1,33 @@
+.matchesOverview--wrapper {
+    padding: 1rem;
+    h6 {
+        color: var(--color-gray-medium); // text-transform: uppercase;
+        margin-top: .5em;
+    }
+
+    > div {
+        margin-bottom: 1.5em;
+
+        &:last-child {
+            margin-bottom: 0;
+        }
+    }
+}
+
+.matchesOverview__date {
+    margin-left: 1em;
+    display: inline-block;
+    font-size: 0.625rem;
+    line-height: 1;
+    font-weight: 700;
+    white-space: nowrap;
+    font-family: 'Montserrat', sans-serif;
+    text-transform: uppercase;
+    color: var(--color-gray-medium);
+}
+
+.matchesOverview__status {
+    float: right;
+    line-height: 1;
+    margin-top: .3rem;
+}
