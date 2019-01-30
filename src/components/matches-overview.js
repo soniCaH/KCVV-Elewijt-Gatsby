@@ -73,16 +73,9 @@ class MatchesOverview extends Component {
                 </span>
 
                 {match.status ? (
-                  <span
-                    data-tooltip
-                    class="top"
-                    tabindex="2"
-                    title="{mapMatchStatus(match.status)}"
-                  >
-                    {mapMatchStatus(match.status)}
-                  </span>
+                  <span className={"label alert matchesOverview__status"}>{mapMatchStatus(match.status)}</span>
                 ) : (
-                  <span className={"label alert matchesOverview__status"}>Algemeen forfait</span>
+                  ''
                   
                 )}
                 <h6>
