@@ -24,7 +24,7 @@ class Layout extends Component {
     const $ = require('jquery')
     // eslint-disable-next-line
     const foundation = require('foundation-sites')
-    $(document).foundation()
+    $(document).foundation();
   }
 }
 

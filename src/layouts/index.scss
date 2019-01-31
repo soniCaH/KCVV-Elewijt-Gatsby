@@ -1,6 +1,7 @@
 @import url('https://fonts.googleapis.com/css?family=Montserrat:400,700|Source+Sans+Pro:400,700');
 @import '~foundation-sites/scss/util/util';
 @import './settings';
+@import './mixins';
 @import '~foundation-sites/scss/foundation';
 @import './vendor_font_fa';
 @import './vendor_font_simple_lines';
@@ -150,8 +151,9 @@
     }
 }
 
-.card__content {
-    padding: 1.5rem;
+.card__content,
+.card__footer {
+    padding: 1rem;
 }
 
 .card__header {
@@ -178,6 +180,13 @@
         margin: 0;
         padding: 0;
     }
+}
+
+.card__footer {
+    margin-top: -1rem;
+    padding-top: 0;
+    
+        @include readmore-link;
 }
 
 .widget__filter {
@@ -214,5 +223,13 @@
                 color: var(--color-green-dark);
             }
         }
+    }
+}
+
+.card--kcvvtv {
+    iframe {
+        width: 100%;
+        max-width: 100%;
+        height: auto;
     }
 }

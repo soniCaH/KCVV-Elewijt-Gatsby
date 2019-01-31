@@ -73,10 +73,11 @@ class MatchesOverview extends Component {
                 </span>
 
                 {match.status ? (
-                  <span className={"label alert matchesOverview__status"}>{mapMatchStatus(match.status)}</span>
+                  <span className={'label alert matchesOverview__status'}>
+                    {mapMatchStatus(match.status)}
+                  </span>
                 ) : (
                   ''
-                  
                 )}
                 <h6>
                   {match.home} - {match.away}

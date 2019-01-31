@@ -7,6 +7,7 @@ import { graphql } from 'gatsby'
 import SEO from '../components/seo'
 import MetaMatches from '../components/meta-matches'
 import MatchesOverview from '../components/matches-overview'
+import picYentel from '../images/yentel.jpg'
 
 class IndexPage extends React.Component {
   render() {
@@ -29,37 +30,79 @@ class IndexPage extends React.Component {
                   <div className={'card__header'}>
                     <h4>The A-Team</h4>
                   </div>
-                  <MetaMatches season="1819" region="bra" division="3C" regnumber="00055" />
+                  <MetaMatches
+                    season="1819"
+                    region="bra"
+                    division="3C"
+                    regnumber="00055"
+                  />
                 </div>
                 <div className={'medium-6 large-12 cell card'}>
                   <div className={'card__header'}>
                     <h4>The B-Team</h4>
                   </div>
-                  <MetaMatches season="1819" region="bra" division="4D" regnumber="00055" />
+                  <MetaMatches
+                    season="1819"
+                    region="bra"
+                    division="4D"
+                    regnumber="00055"
+                  />
                 </div>
 
                 <div className={'medium-6 large-12 cell card'}>
                   <div className="card__header">
                     <h4>Jeugdploegen</h4>
                   </div>
-                  <MatchesOverview season="1819" regnumber="00055" exclude="['3C', '4D']" />
+                  <MatchesOverview
+                    season="1819"
+                    regnumber="00055"
+                    exclude="['3C', '4D']"
+                  />
                 </div>
 
                 <div className={'medium-6 large-12 cell card'}>
                   <div className="card__header">
                     <h4>Transfernieuws</h4>
                   </div>
-                </div>
-
-                <div className={'medium-6 large-12 cell card'}>
-                  <div className="card__header">
-                    <h4>KCVV TV</h4>
+                  <div>
+                    <img src={picYentel} alt="Yentel Teugels" />
+                  </div>
+                  <div className={'card__content'}>
+                    <h5>Yentel Teugels</h5>
+                    <div>
+                      <p>
+                        <span role="img" aria-label="Checkbox">
+                          ✅
+                        </span>{' '}
+                        Met Yentel haalt KCVV een creatieve aanvallende
+                        middenvelder in huis. Hij komt net als Ran Dondeyne over
+                        van reeksgenoot SK Steenhuffel.
+                      </p>
+                      <p>
+                        <span role="img" aria-label="Signature">
+                          ✍️
+                        </span>{' '}
+                        Yentel Teugels - 12 doelpunten tot dusver in de
+                        competitie.
+                      </p>
+                    </div>
+                  </div>
+                  <div className="card__footer">
+                    <a href="index.html">Lees alle transfernieuws</a>
                   </div>
                 </div>
 
-                <div className={'medium-6 large-12 cell card'}>
+                <div className={'medium-6 large-12 cell card card--kcvvtv'}>
                   <div className="card__header">
-                    <h4>Aan tafel bij Hans</h4>
+                    <h4>KCVV TV</h4>
+                  </div>
+                  <div id="fb-root" />
+                  <div
+                    className={"fb-video"}
+                    data-href="http://www.facebook.com/KCVVElewijt/videos/609327786169426/"
+                    data-show-text="true"
+                    data-allowfullscreen="true"
+                  >
                   </div>
                 </div>
               </div>
@@ -83,13 +126,25 @@ class IndexPage extends React.Component {
   }
 
   componentDidMount() {
-    // alert('hey');
+    ;(function(d, s, id) {
+      var js,
+        fjs = d.getElementsByTagName(s)[0]
+      if (d.getElementById(id)) return
+      js = d.createElement(s)
+      js.id = id
+      js.src =
+        'https://connect.facebook.net/nl_NL/sdk.js#xfbml=1&version=v3.2&appId=1618079068306856&autoLogAppEvents=1'
+      fjs.parentNode.insertBefore(js, fjs)
+    })(document, 'script', 'facebook-jssdk')
   }
 }
 
 export const pageQuery = graphql`
   query {
-    toppost: allWordpressPost(sort: { fields: [date], order: DESC }, limit: 8) {
+    toppost: allWordpressPost(
+      sort: { fields: [date], order: DESC }
+      limit: 12
+    ) {
       edges {
         node {
           id

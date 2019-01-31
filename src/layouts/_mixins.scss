@@ -1,0 +1,19 @@
+@mixin readmore-link {
+    a {
+        display: block;
+        text-align: right;
+        &:after {
+            display: inline-block;
+            content: url('../images/arrow-dark.svg');
+            margin: 0 .25em;
+            height: 1em;
+            width: 1em;
+        }
+
+        &:hover {
+            &:after {
+                transform: translateX(2px);
+            }
+        }
+    }
+}
