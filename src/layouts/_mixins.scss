@@ -7,7 +7,9 @@
             content: url('../images/arrow-dark.svg');
             margin: 0 .25em;
             height: 1em;
-            width: 1em;
+                transform: translateX(0);
+                width: 1em;
+                transition: all .25s ease-out;
         }
 
         &:hover {

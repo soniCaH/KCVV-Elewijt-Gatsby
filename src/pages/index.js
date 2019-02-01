@@ -96,13 +96,11 @@ class IndexPage extends React.Component {
                   <div className="card__header">
                     <h4>KCVV TV</h4>
                   </div>
-                  <div id="fb-root" />
-                  <div
-                    className={"fb-video"}
-                    data-href="http://www.facebook.com/KCVVElewijt/videos/609327786169426/"
-                    data-show-text="true"
-                    data-allowfullscreen="true"
-                  >
+                </div>
+
+                <div className={'medium-6 large-12 cell card'}>
+                  <div className="card__header">
+                    <h4>Aan tafel bij Hans</h4>
                   </div>
                 </div>
               </div>
@@ -126,16 +124,7 @@ class IndexPage extends React.Component {
   }
 
   componentDidMount() {
-    ;(function(d, s, id) {
-      var js,
-        fjs = d.getElementsByTagName(s)[0]
-      if (d.getElementById(id)) return
-      js = d.createElement(s)
-      js.id = id
-      js.src =
-        'https://connect.facebook.net/nl_NL/sdk.js#xfbml=1&version=v3.2&appId=1618079068306856&autoLogAppEvents=1'
-      fjs.parentNode.insertBefore(js, fjs)
-    })(document, 'script', 'facebook-jssdk')
+    // alert('hey');
   }
 }
 
