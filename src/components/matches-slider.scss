@@ -1,38 +1,41 @@
 .matchesSlider--wrapper {
-    background: white;
-    padding: 2em 0;
-    .slick-slide {
-        border-image: linear-gradient(to right, var(--color-green-dark) 0%, rgba(255, 255, 255, 0.0) 85%);
-        border-image-slice: 1;
-        border-width: 1px;
-        border-right: 0;
-        border-left: 1px solid;
-        border-top: 1px solid;
-        border-bottom: 1px solid;
-    }
+  background: white;
+  padding: 2em 0;
+  .slick-slide {
+    border-image: linear-gradient(
+      to right,
+      var(--color-green-dark) 0%,
+      rgba(255, 255, 255, 0) 85%
+    );
+    border-image-slice: 1;
+    border-right: 0;
+    border-left: 1px solid;
+    border-top: 1px solid;
+    border-bottom: 1px solid;
+  }
 }
 
 .matchesSlider {
-    .slick-arrow {
-        background: var(--color-green-dark);
-        height: 100px;
-        width: 50px;
-        transition: all 0.5s;
-        &:before {
-            opacity: 1;
-        }
-        &:hover {
-            width: 75px;
-        }
+  .slick-arrow {
+    background: var(--color-green-dark);
+    height: 100px;
+    width: 50px;
+    transition: all 0.5s;
+    &:before {
+      opacity: 1;
     }
-    .slick-prev {
-        left: 0;
+    &:hover {
+      width: 75px;
     }
-    .slick-next {
-        right: 0;
-    }
+  }
+  .slick-prev {
+    left: 0;
+  }
+  .slick-next {
+    right: 0;
+  }
 }
 
 .matchesSlider__item {
-    padding: 0 1em;
+  padding: 0 1em;
 }
