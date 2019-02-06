@@ -8,10 +8,20 @@ import SEO from '../components/seo'
 import MetaMatches from '../components/meta-matches'
 import MatchesOverview from '../components/matches-overview'
 import picYentel from '../images/yentel.jpg'
+import picSteak from '../images/steak.jpg'
 
 class IndexPage extends React.Component {
   render() {
     const data = this.props.data
+
+    const featuredEvent = {
+      dateStart: '2019-02-15',
+      dateEnd: '2019-02-17',
+      title: 'Steakfestijn KCVV Elewijt',
+      link: '/index.html',
+      image: picSteak,
+      text: '<p>En jawel hoor!  Ook dit seizoen wordt het weer smullen van onze heerlijke steaks met frietjes. Hartverwarmend  in deze grille wintertijden.  Onze KCVV Angels mobiliseren daarom een volledig team om jullie vanaf vrijdag 15 februari in de watten te leggen. Stip het steakfestijn dus aan in jullie agenda en we zien jullie dan.</p>'
+    }
 
     return (
       <Layout>
@@ -22,7 +32,7 @@ class IndexPage extends React.Component {
         <div className="grid-container site-content">
           <div className="grid-x grid-margin-x">
             <section className="cell large-8">
-              <FeaturedNews posts={data.toppost} />
+              <FeaturedNews posts={data.toppost} featuredEvent={featuredEvent} />
             </section>
             <aside className="cell large-4">
               <div className="grid-x featured__matches grid-margin-x">
@@ -73,7 +83,7 @@ class IndexPage extends React.Component {
                       <p>
                         <span role="img" aria-label="Checkbox">
                           ✅
-                        </span>{' '}
+                        </span>
                         Met Yentel haalt KCVV een creatieve aanvallende
                         middenvelder in huis. Hij komt net als Ran Dondeyne over
                         van reeksgenoot SK Steenhuffel.
@@ -81,7 +91,7 @@ class IndexPage extends React.Component {
                       <p>
                         <span role="img" aria-label="Signature">
                           ✍️
-                        </span>{' '}
+                        </span>
                         Yentel Teugels - 12 doelpunten tot dusver in de
                         competitie.
                       </p>
