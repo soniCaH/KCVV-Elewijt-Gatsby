@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 
 import './page-header.scss'
 import logo from '../images/logo-flat.png'
+import bauvall from '../images/bauvall.png'
 
 class PageHeader extends Component {
   render() {
@@ -41,7 +42,7 @@ class PageHeader extends Component {
                   <div className="medium-4 medium-offset-8">
                     <div className="sponsors--header">
                       <img
-                        src="https://lorempixel.com/g/410/100/"
+                        src={bauvall}
                         alt="Bauvall Trans"
                       />
                     </div>

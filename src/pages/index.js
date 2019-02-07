@@ -27,7 +27,7 @@ class IndexPage extends React.Component {
       <Layout>
         <SEO lang="nl-BE" title="Er is maar één plezante compagnie" />
 
-        <HeroSlider />
+        <HeroSlider posts={data.featuredPosts} />
 
         <div className="grid-container site-content">
           <div className="grid-x grid-margin-x">
@@ -199,6 +199,44 @@ export const pageQuery = graphql`
         }
       }
     }
+    featuredPosts: allWordpressPost(sort: {fields: [date], order: DESC}, limit: 3, filter: {categories: {elemMatch: {name: {eq: "Uitgelicht"}}}}) {
+    edges {
+      node {
+        id
+        slug
+        title
+        content
+        excerpt
+        unixdate: date(formatString: "YYYY-MM-DD", locale: "nl-be")
+        longdate: date(formatString: "DD MMMM YYYY", locale: "nl-be")
+        modified
+        categories {
+          name
+        }
+        featured_media {
+          source_url
+          localFile {
+            childImageSharp {
+              sizes(maxWidth: 615) {
+                base64
+                tracedSVG
+                aspectRatio
+                src
+                srcSet
+                srcWebp
+                srcSetWebp
+                sizes
+                originalImg
+                originalName
+                presentationWidth
+                presentationHeight
+              }
+            }
+          }
+        }
+      }
+    }
+  }
   }
 `
 

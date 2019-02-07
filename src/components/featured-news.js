@@ -102,27 +102,26 @@ class FeaturedNews extends Component {
                     }
                   >
                     <figure className="posts__thumb">
-                      <a href="index.html">
-                        <img src={insertEvent.event.image} alt={insertEvent.event.title} />
+                      <a href={insertEvent.event.link}>
+                        <img
+                          src={insertEvent.event.image}
+                          alt={insertEvent.event.title}
+                        />
                       </a>
                     </figure>
                     <div className="posts__inner card__content">
                       <time
-                        dateTime={insertEvent.event.dateStart}
-                        className="posts__date posts__date--start"
+                        className={'posts__date'}
+                        datetime={`${insertEvent.event.dateStart}/${
+                          insertEvent.event.dateEnd
+                        }`}
                       >
-                        {insertEvent.event.dateStart}
-                      </time>{' '}
-                      -{' '}
-                      <time
-                        dateTime={insertEvent.event.dateEnd}
-                        className="posts__date posts__date--end"
-                      >
+                        {insertEvent.event.dateStart} -{' '}
                         {insertEvent.event.dateEnd}
                       </time>
                       <h6 className="posts__title">
                         <a
-                          href="index.html"
+                          href={insertEvent.event.link}
                           dangerouslySetInnerHTML={{
                             __html: insertEvent.event.title,
                           }}
