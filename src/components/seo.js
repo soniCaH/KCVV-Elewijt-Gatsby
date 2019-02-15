@@ -7,9 +7,8 @@ function SEO({ description, lang, meta, keywords, title }) {
   return (
     <StaticQuery
       query={detailsQuery}
-      render={({site}) => {
-        const metaDescription =
-          description || site.siteMetadata.description
+      render={({ site }) => {
+        const metaDescription = description || site.siteMetadata.description
         const pageTitle = `${site.siteMetadata.title} || ${title}`
         return (
           <Helmet
@@ -62,10 +61,10 @@ function SEO({ description, lang, meta, keywords, title }) {
               )
               .concat(meta)}
           />
-        );
+        )
       }}
     />
-  );
+  )
 }
 
 SEO.defaultProps = {

@@ -8,9 +8,11 @@ class PageHeader extends Component {
   render() {
     return (
       // <!-- START STICKY CONTAINER --> //
-      <header data-sticky-container className="l--header">
+      // <header data-sticky-container className="l--header">
+      <header className="l--header">
         {/* <!-- START STICKY INNER --> */}
-        <div data-sticky data-options="marginTop:0;">
+        {/* <div data-sticky data-options="marginTop:0;"> */}
+        <div>
           {/* <!-- START MOBILE NAV BAR --> */}
           <div
             className="header--mobile"
@@ -187,8 +189,8 @@ export class PageHeaderMobile extends Component {
           data-responsive-menu="accordion large-dropdown"
         >
           <div className="header-mobile__logo">
-            <button aria-label="Close menu" type="button" data-toggle="">
-              <span aria-hidden="true" className="button--back" />
+            <button aria-label="Close menu" type="button" data-toggle="" className="button--back">
+              {/* <span aria-hidden="true" /> */}
             </button>
 
             <a href="index.html">

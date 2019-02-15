@@ -17,6 +17,7 @@
     background-position: center center;
     background-repeat: no-repeat;
     background-size: 13px 8px;
+    outline: none;
     &:hover {
         cursor: pointer;
     }
@@ -187,8 +188,7 @@
 .card__footer {
     margin-top: -1rem;
     padding-top: 0;
-    
-        @include readmore-link;
+    @include readmore-link;
 }
 
 .widget__filter {
@@ -234,4 +234,47 @@
         max-width: 100%;
         height: auto;
     }
+}
+
+.img-holder {
+    width: 100%;
+    float: left;
+    height: auto;
+    position: relative;
+    &:before {
+        display: block;
+        content: " ";
+        width: 100%;
+        padding-top: 42.55319%;
+    }
+    img {
+        float: left;
+        max-width: 100%;
+    }
+}
+
+.video--bg {
+    position: relative;
+    width: 100%;
+    video {
+        display: block;
+        width: 100%;
+        height: auto;
+    }
+}
+
+.video--content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    background: rgba(#4B9B48, 0.75);
+    background: repeating-linear-gradient( -45deg, transparent, transparent 5px, rgba(#4B9B48, 0.5) 5px, rgba(#4B9B48, 0.5) 10px), linear-gradient( to bottom, rgba(#4B9B48, 0.5), rgba(#999, 0.5));
+    color: #FFF;
+    font-size: 3rem;
+    text-align: center;
 }

@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React, { Component, Fragment } from 'react'
 
 import './index.scss'
 import PageHeader from '../components/page-header'
@@ -9,14 +9,22 @@ class Layout extends Component {
     const { children } = this.props
 
     return (
-      <React.Fragment>
+      <Fragment>
         <PageHeaderMobile />
         <PageHeader />
 
         {children}
 
+        <div className="video--bg">
+          <video autoPlay muted loop>
+            <source src="./video/kcvv-earth.mp4" type="video/mp4" />
+          </video>
+          <div className="video--content">KCVV Elewijt<br/>
+          Driesstraat 30, 1982 Elewijt</div>
+        </div>
+
         <footer>FOOTER</footer>
-      </React.Fragment>
+      </Fragment>
     )
   }
 
@@ -24,7 +32,7 @@ class Layout extends Component {
     const $ = require('jquery')
     // eslint-disable-next-line
     const foundation = require('foundation-sites')
-    $(document).foundation();
+    $(document).foundation()
   }
 }
 

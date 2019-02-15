@@ -10,16 +10,19 @@ class ClubLogo extends Component {
   }
 
   render() {
-    const logo = `${this.apiLogoUrl}/${this.props.regNumber}`
-    return <img
-      src={logo}
-      onError={e => {
-        e.target.onerror = null
-        e.target.src = defaultLogo
-      }}
-      alt={this.props.title}
-      className={this.props.className}
-    />
+    const logoUrl = `${this.apiLogoUrl}/${this.props.regNumber}`
+
+    return (
+      <img
+        src={logoUrl}
+        onError={e => {
+          e.target.onerror = null
+          e.target.src = defaultLogo
+        }}
+        alt={this.props.title}
+        className={this.props.className}
+      />
+    )
   }
 }
 
@@ -33,7 +36,11 @@ const query = graphql`
   }
 `
 
-export default ({ regNumber, title, className }) => (
+export default ({
+  regNumber = '00055',
+  title = 'KCVV Elewijt',
+  className = '',
+}) => (
   <StaticQuery
     query={query}
     render={data => (
