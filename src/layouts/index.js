@@ -3,6 +3,7 @@ import React, { Component, Fragment } from 'react'
 import './index.scss'
 import PageHeader from '../components/page-header'
 import { PageHeaderMobile } from '../components/page-header'
+import PageFooter from '../components/page-footer';
 
 class Layout extends Component {
   render() {
@@ -20,10 +21,11 @@ class Layout extends Component {
             <source src="./video/kcvv-earth.mp4" type="video/mp4" />
           </video>
           <div className="video--content">KCVV Elewijt<br/>
-          Driesstraat 30, 1982 Elewijt</div>
+          Driesstraat 30, 1982 Elewijt<br/>
+          info@kcvvelewijt.be</div>
         </div>
 
-        <footer>FOOTER</footer>
+        <PageFooter />
       </Fragment>
     )
   }
