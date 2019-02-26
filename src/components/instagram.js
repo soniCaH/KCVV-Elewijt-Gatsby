@@ -7,8 +7,6 @@ class Instagram extends React.Component {
 
     const { images } = this.props.data
 
-    console.log(images);
-
     return images.edges.map(image => (
       <div style={{ margin: 16 }} key={image.node.id}>
         <Img fluid={image.node.childImageSharp.fluid} />
@@ -28,7 +26,7 @@ class Instagram extends React.Component {
 }
 
 export const query = graphql`
-  query SocialMediaFeed {
+  query InstagramImage {
     images: allFile(
       filter: { fields: { InstagramImage: { eq: "true" } } }
       sort: { fields: [fields___created], order: DESC }

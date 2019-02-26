@@ -6,24 +6,74 @@ const { createRemoteFileNode } = require(`gatsby-source-filesystem`)
 const axios = require('axios')
 
 // Replace ACCESS_TOKEN with your Instagram token
-const API_URI = `https://api.instagram.com/v1/users/self/media/recent/?access_token=${
-  process.env.ACCESS_TOKEN
+const IG_API_URI = `https://api.instagram.com/v1/users/self/media/recent/?access_token=${
+  process.env.IG_ACCESS_TOKEN
 }`
 
-exports.sourceNodes = async ({ actions, store, cache, createNodeId }) => {
-  console.log(API_URI)
+const FB_API_URI = `https://graph.facebook.com/v3.2/138617142845339/posts?fields=full_picture,permalink_url,updated_time,message,type&limit=20&access_token=${
+  process.env.FB_ACCESS_TOKEN
+}`
 
+const _retrieveFacebook = async ({ actions, store, cache, createNodeId }) => {
   const { createNode, createNodeField } = actions
   // Fetch data
-  const { data } = await axios.get(API_URI)
+  const { data } = await axios.get(FB_API_URI)
+
+  // use for loop for async/await support
+  for (const post of data.data) {
+    let fileNode
+    try {
+      if (typeof post.full_picture !== 'undefined' && post.type !== 'video') {
+        fileNode = await createRemoteFileNode({
+          url: post.full_picture,
+          cache,
+          store,
+          createNode,
+          createNodeId,
+          ext: '.jpg',
+        })
+        await createNodeField({
+          node: fileNode,
+          name: 'FacebookImage',
+          value: 'true',
+        })
+        await createNodeField({
+          node: fileNode,
+          name: 'SocialMedia',
+          value: 'true',
+        })
+        await createNodeField({
+          node: fileNode,
+          name: 'link',
+          value: post.permalink_url,
+        })
+        await createNodeField({
+          node: fileNode,
+          name: 'created',
+          value: post.updated_time,
+        })
+        await createNodeField({
+          node: fileNode,
+          name: 'caption',
+          value: post.message,
+        })
+      }
+    } catch (error) {
+      console.warn('Error creating facebook node', error)
+    }
+  }
+}
+
+const _retrieveInstagram = async ({ actions, store, cache, createNodeId }) => {
+  const { createNode, createNodeField } = actions
+  // Fetch data
+  const { data } = await axios.get(IG_API_URI)
 
   // use for loop for async/await support
   for (const image of data.data) {
     let fileNode
     try {
       fileNode = await createRemoteFileNode({
-        // Add split so createRemoteFileNode creates the correct extension
-        // (Instagram sometimes adds additional url params causing this bug)
         url: image.images.standard_resolution.url,
         cache,
         store,
@@ -34,6 +84,11 @@ exports.sourceNodes = async ({ actions, store, cache, createNodeId }) => {
       await createNodeField({
         node: fileNode,
         name: 'InstagramImage',
+        value: 'true',
+      })
+      await createNodeField({
+        node: fileNode,
+        name: 'SocialMedia',
         value: 'true',
       })
       await createNodeField({
@@ -57,8 +112,12 @@ exports.sourceNodes = async ({ actions, store, cache, createNodeId }) => {
         value: image.likes.count,
       })
     } catch (error) {
-      console.log(error)
       console.warn('error creating node', error)
     }
   }
+}
+
+exports.sourceNodes = async ({ actions, store, cache, createNodeId }) => {
+  _retrieveInstagram({ actions, store, cache, createNodeId })
+  _retrieveFacebook({ actions, store, cache, createNodeId })
 }
