@@ -10,7 +10,7 @@ const IG_API_URI = `https://api.instagram.com/v1/users/self/media/recent/?access
   process.env.IG_ACCESS_TOKEN
 }`
 
-const FB_API_URI = `https://graph.facebook.com/v3.2/138617142845339/posts?fields=full_picture,permalink_url,updated_time,message,type&limit=20&access_token=${
+const FB_API_URI = `https://graph.facebook.com/v3.2/138617142845339/posts?fields=full_picture,permalink_url,updated_time,message,type&limit=50&access_token=${
   process.env.FB_ACCESS_TOKEN
 }`
 

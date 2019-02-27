@@ -24,7 +24,8 @@ class Instagram extends React.Component {
   }
 }
 
-export const query = graphql`
+
+const query = graphql`
   query SocialMediaImage {
     images: allFile(
       filter: { fields: { SocialMedia: { eq: "true" }, type: { ne: "video" } } }
