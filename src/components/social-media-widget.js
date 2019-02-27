@@ -2,7 +2,7 @@ import React from 'react'
 import { graphql, StaticQuery } from 'gatsby'
 import Img from 'gatsby-image'
 
-class Instagram extends React.Component {
+class SocialMediaWidget extends React.Component {
   _renderImages = () => {
     const { images } = this.props.data
 
@@ -10,9 +10,9 @@ class Instagram extends React.Component {
       let link = image.node.fields.link ? image.node.fields.link : '/index.html'
 
       return (
-        <div key={image.node.id} className="small-4 columns">
-          <a href={link}>
-            <Img fluid={image.node.childImageSharp.fluid} />
+        <div key={image.node.id} className="small-4 columns social-media-widget--item">
+          <a href={link} className="social-media-widget--link">
+            <Img fluid={image.node.childImageSharp.fluid} className="social-media-widget--image" />
           </a>
         </div>
       )
@@ -20,7 +20,7 @@ class Instagram extends React.Component {
   }
 
   render() {
-    return <div className="InstaFeed">{this._renderImages()}</div>
+    return <div className="social-media-widget grid-x">{this._renderImages()}</div>
   }
 }
 
@@ -62,5 +62,5 @@ const query = graphql`
 `
 
 export default () => (
-  <StaticQuery query={query} render={data => <Instagram data={data} />} />
+  <StaticQuery query={query} render={data => <SocialMediaWidget data={data} />} />
 )

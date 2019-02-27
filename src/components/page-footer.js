@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 
 import './page-footer.scss'
 import logo from '../images/logo-flat.png'
-import SocialMedia from './social-media';
+import SocialMediaWidget from './social-media-widget';
 
 class PageFooter extends Component {
   render() {
@@ -18,7 +18,7 @@ class PageFooter extends Component {
             </div>
             <div className="small-12 medium-6 columns">
                 <h4>Social media</h4>
-                <SocialMedia />
+                <SocialMediaWidget />
             </div>
           </div>
       </footer>

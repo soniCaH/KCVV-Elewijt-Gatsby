@@ -24,7 +24,7 @@ const _retrieveFacebook = async ({ actions, store, cache, createNodeId }) => {
   for (const post of data.data) {
     let fileNode
     try {
-      // if (typeof post.full_picture !== 'undefined' && post.type !== 'video') {
+      if (typeof post.full_picture !== 'undefined') {
         fileNode = await createRemoteFileNode({
           url: post.full_picture,
           cache,
@@ -63,7 +63,7 @@ const _retrieveFacebook = async ({ actions, store, cache, createNodeId }) => {
           name: 'caption',
           value: post.message,
         })
-      // }
+      }
     } catch (error) {
       console.warn('Error creating facebook node', error)
     }
