@@ -17,18 +17,14 @@ const FB_API_URI = `https://graph.facebook.com/v3.2/138617142845339/posts?fields
 const _retrieveFacebook = async ({ actions, store, cache, createNodeId }) => {
   const { createNode, createNodeField } = actions
 
-  console.log('Trying to fetch Facebook data...', FB_API_URI);
-
   // Fetch data
   const { data } = await axios.get(FB_API_URI)
-
-  console.log('Got Facebook data...', data);
 
   // use for loop for async/await support
   for (const post of data.data) {
     let fileNode
     try {
-      if (typeof post.full_picture !== 'undefined' && post.type !== 'video') {
+      // if (typeof post.full_picture !== 'undefined' && post.type !== 'video') {
         fileNode = await createRemoteFileNode({
           url: post.full_picture,
           cache,
@@ -54,6 +50,11 @@ const _retrieveFacebook = async ({ actions, store, cache, createNodeId }) => {
         })
         await createNodeField({
           node: fileNode,
+          name: 'type',
+          value: post.type,
+        })
+        await createNodeField({
+          node: fileNode,
           name: 'created',
           value: post.updated_time,
         })
@@ -62,7 +63,7 @@ const _retrieveFacebook = async ({ actions, store, cache, createNodeId }) => {
           name: 'caption',
           value: post.message,
         })
-      }
+      // }
     } catch (error) {
       console.warn('Error creating facebook node', error)
     }
@@ -72,12 +73,8 @@ const _retrieveFacebook = async ({ actions, store, cache, createNodeId }) => {
 const _retrieveInstagram = async ({ actions, store, cache, createNodeId }) => {
   const { createNode, createNodeField } = actions
 
-  console.log('Trying to fetch Instagram data...', IG_API_URI);
-
   // Fetch data
   const { data } = await axios.get(IG_API_URI)
-
-  console.log('Got Instagram data...', data);
 
   // use for loop for async/await support
   for (const image of data.data) {
@@ -110,6 +107,11 @@ const _retrieveInstagram = async ({ actions, store, cache, createNodeId }) => {
         node: fileNode,
         name: 'created',
         value: image.created_time,
+      })
+      await createNodeField({
+        node: fileNode,
+        name: 'type',
+        value: 'post',
       })
       await createNodeField({
         node: fileNode,

@@ -7,7 +7,7 @@ class Instagram extends React.Component {
     const { images } = this.props.data
 
     return images.edges.map(image => {
-      let link = image.node.fields.link ? image.node.fields.link : '/index.html';
+      let link = image.node.fields.link ? image.node.fields.link : '/index.html'
 
       return (
         <div key={image.node.id} className="small-4 columns">
@@ -27,8 +27,9 @@ class Instagram extends React.Component {
 export const query = graphql`
   query SocialMediaImage {
     images: allFile(
-      filter: { fields: { SocialMedia: { eq: "true" } } }
+      filter: { fields: { SocialMedia: { eq: "true" }, type: { ne: "video" } } }
       sort: { fields: [fields___created], order: DESC }
+      limit: 20
     ) {
       edges {
         node {
