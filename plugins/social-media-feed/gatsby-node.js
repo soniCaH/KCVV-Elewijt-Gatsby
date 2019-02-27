@@ -16,8 +16,13 @@ const FB_API_URI = `https://graph.facebook.com/v3.2/138617142845339/posts?fields
 
 const _retrieveFacebook = async ({ actions, store, cache, createNodeId }) => {
   const { createNode, createNodeField } = actions
+
+  console.log('Trying to fetch Facebook data...', FB_API_URI);
+
   // Fetch data
   const { data } = await axios.get(FB_API_URI)
+
+  console.log('Got Facebook data...', data);
 
   // use for loop for async/await support
   for (const post of data.data) {
@@ -66,8 +71,13 @@ const _retrieveFacebook = async ({ actions, store, cache, createNodeId }) => {
 
 const _retrieveInstagram = async ({ actions, store, cache, createNodeId }) => {
   const { createNode, createNodeField } = actions
+
+  console.log('Trying to fetch Instagram data...', IG_API_URI);
+
   // Fetch data
   const { data } = await axios.get(IG_API_URI)
+
+  console.log('Got Instagram data...', data);
 
   // use for loop for async/await support
   for (const image of data.data) {
