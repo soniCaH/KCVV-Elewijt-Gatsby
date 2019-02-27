@@ -7,8 +7,6 @@ class Facebook extends React.Component {
 
     const { images } = this.props.data
 
-    console.log(images);
-
     return images.edges.map(image => (
       <div style={{ margin: 16 }} key={image.node.id}>
         <Img fluid={image.node.childImageSharp.fluid} />

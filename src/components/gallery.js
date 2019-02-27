@@ -1,32 +1,33 @@
 import React from 'react'
 import { graphql, StaticQuery } from 'gatsby'
+import { Masonry, MasonryItem } from 'react-masonry-responsive'
 import Img from 'gatsby-image'
 
-class SocialMediaWidget extends React.Component {
-  _renderImages = () => {
-    const { images } = this.props.data
-
-    return images.edges.map(image => {
-      let link = image.node.fields.link ? image.node.fields.link : '/index.html'
-
-      return (
-        <div key={image.node.id} className="small-2 cell social-media-widget--item">
-          <a href={link} className="social-media-widget--link">
-            <Img fluid={image.node.childImageSharp.fluid} className="social-media-widget--image" />
-          </a>
-        </div>
-      )
-    })
-  }
-
+class Gallery extends React.Component {
   render() {
-    return <div className="social-media-widget grid-x grid-margin-x">{this._renderImages()}</div>
+    const { images } = this.props.data
+    const imagesRendered = images.edges.map(image => { 
+        console.log(image.node);
+        const img = {
+            key: image.node.childImageSharp.src,
+            node: <Img fluid={image.node.childImageSharp.fluid} />
+        }
+        
+        return img
+    });
+
+    return (
+      <div>
+        <h1>HALLO</h1>
+
+        <Masonry items={imagesRendered} minColumnWidth={128} />
+      </div>
+    )
   }
 }
 
-
 const query = graphql`
-  query SocialMediaImage {
+  query GalleryQuery {
     images: allFile(
       filter: { fields: { SocialMedia: { eq: "true" }, type: { ne: "video" } } }
       sort: { fields: [fields___created], order: DESC }
@@ -50,11 +51,6 @@ const query = graphql`
               presentationHeight
             }
           }
-          id
-          fields {
-            link
-            caption
-          }
         }
       }
     }
@@ -62,5 +58,5 @@ const query = graphql`
 `
 
 export default () => (
-  <StaticQuery query={query} render={data => <SocialMediaWidget data={data} />} />
+  <StaticQuery query={query} render={data => <Gallery data={data} />} />
 )

@@ -24,46 +24,44 @@ const _retrieveFacebook = async ({ actions, store, cache, createNodeId }) => {
   for (const post of data.data) {
     let fileNode
     try {
-      if (typeof post.full_picture !== 'undefined') {
-        fileNode = await createRemoteFileNode({
-          url: post.full_picture,
-          cache,
-          store,
-          createNode,
-          createNodeId,
-          ext: '.jpg',
-        })
-        await createNodeField({
-          node: fileNode,
-          name: 'FacebookImage',
-          value: 'true',
-        })
-        await createNodeField({
-          node: fileNode,
-          name: 'SocialMedia',
-          value: 'true',
-        })
-        await createNodeField({
-          node: fileNode,
-          name: 'link',
-          value: post.permalink_url,
-        })
-        await createNodeField({
-          node: fileNode,
-          name: 'type',
-          value: post.type,
-        })
-        await createNodeField({
-          node: fileNode,
-          name: 'created',
-          value: post.updated_time,
-        })
-        await createNodeField({
-          node: fileNode,
-          name: 'caption',
-          value: post.message,
-        })
-      }
+      fileNode = await createRemoteFileNode({
+        url: post.full_picture,
+        cache,
+        store,
+        createNode,
+        createNodeId,
+        ext: '.jpg',
+      })
+      await createNodeField({
+        node: fileNode,
+        name: 'FacebookImage',
+        value: 'true',
+      })
+      await createNodeField({
+        node: fileNode,
+        name: 'SocialMedia',
+        value: 'true',
+      })
+      await createNodeField({
+        node: fileNode,
+        name: 'link',
+        value: post.permalink_url,
+      })
+      await createNodeField({
+        node: fileNode,
+        name: 'type',
+        value: post.type,
+      })
+      await createNodeField({
+        node: fileNode,
+        name: 'created',
+        value: post.updated_time,
+      })
+      await createNodeField({
+        node: fileNode,
+        name: 'caption',
+        value: post.message,
+      })
     } catch (error) {
       console.warn('Error creating facebook node', error)
     }
