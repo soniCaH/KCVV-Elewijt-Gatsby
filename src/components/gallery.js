@@ -1,13 +1,12 @@
 import React from 'react'
 import { graphql, StaticQuery } from 'gatsby'
-import { Masonry, MasonryItem } from 'react-masonry-responsive'
+import { Masonry } from 'react-masonry-responsive'
 import Img from 'gatsby-image'
 
 class Gallery extends React.Component {
   render() {
     const { images } = this.props.data
     const imagesRendered = images.edges.map(image => { 
-        console.log(image.node);
         const img = {
             key: image.node.childImageSharp.src,
             node: <Img fluid={image.node.childImageSharp.fluid} />
@@ -20,7 +19,7 @@ class Gallery extends React.Component {
       <div>
         <h1>HALLO</h1>
 
-        <Masonry items={imagesRendered} minColumnWidth={128} />
+        <Masonry items={imagesRendered} minColumnWidth={256} gap={0} />
       </div>
     )
   }
@@ -31,12 +30,12 @@ const query = graphql`
     images: allFile(
       filter: { fields: { SocialMedia: { eq: "true" }, type: { ne: "video" } } }
       sort: { fields: [fields___created], order: DESC }
-      limit: 20
+      limit: 12
     ) {
       edges {
         node {
           childImageSharp {
-            fluid(maxWidth: 250) {
+            fluid(maxWidth: 350) {
               base64
               tracedSVG
               aspectRatio

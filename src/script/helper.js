@@ -1,7 +1,7 @@
 /**
  * Map a statusCode to a descriptive label.
- * 
- * @param {string} statusCode 
+ *
+ * @param {string} statusCode
  */
 export function mapMatchStatus(statusCode) {
   const statusCodes = new Map([
@@ -54,28 +54,28 @@ export function replaceFirstCharIfNumber(division) {
 
 /**
  * Convert a region+division into an output label.
- * 
- * @param {array} divisionArray 
- * @param {string} level 
+ *
+ * @param {array} divisionArray
+ * @param {string} level
  */
 export function outputDivision(divisionArray, level = '') {
-    if (divisionArray[0] === 'BCD') {
-      return `Beker van Brabant`;
-    } else if (divisionArray[2] <= 4) {
-      return `${divisionArray[2]}e ${
-        level !== 'nat' ? 'Prov.' : 'Nationale'
-      } ${divisionArray[3]}`;
-    } else {
-      return `U${divisionArray[2]} / ${divisionArray[3]}${
-        divisionArray[4] ? ` / ${divisionArray[4]}` : ''
-      }`;
-    }
+  if (divisionArray[0] === 'BCD') {
+    return `Beker van Brabant`
+  } else if (divisionArray[2] <= 4) {
+    return `${divisionArray[2]}e ${level !== 'nat' ? 'Prov.' : 'Nationale'} ${
+      divisionArray[3]
+    }`
+  } else {
+    return `U${divisionArray[2]} / ${divisionArray[3]}${
+      divisionArray[4] ? ` / ${divisionArray[4]}` : ''
+    }`
   }
+}
 
 /**
  * Replace a divisionCode with its descriptive label.
- * 
- * @param {string} division 
+ *
+ * @param {string} division
  */
 export function mapDivision(division) {
   return /^([A-Z]+)?(\d+)?([a-zA-Z]+)(\d*)$/.exec(
@@ -83,16 +83,33 @@ export function mapDivision(division) {
   )
 }
 
-
 /**
  * Retrieve mapping and the formatted descriptive label of a division.
- * 
+ *
  * @param {string} division
  * @param {string} region
  */
 export function formatDivision(division, region) {
-    const divisionArr = mapDivision(division);
-    return outputDivision(divisionArr, region);
+  const divisionArr = mapDivision(division)
+  return outputDivision(divisionArr, region)
 }
 
-export default { mapMatchStatus, mapDivision, formatDivision }
+/**
+ * Truncate to <n> letters and optionally stop at the last word instead of letter.
+ *
+ * @param {int} size
+ * @param {boolean} useWordBoundary
+ */
+export function truncate(size, useWordBoundary = true) {
+  if (this.length <= size) {
+    return this
+  }
+  var subString = this.substr(0, size - 1)
+  return (
+    (useWordBoundary
+      ? subString.substr(0, subString.lastIndexOf(' '))
+      : subString) + "…"
+  )
+}
+
+export default { mapMatchStatus, mapDivision, formatDivision, truncate }
