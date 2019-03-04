@@ -22,7 +22,7 @@ class MatchesSlider extends Component {
   updateData() {
     const { season, regnumber } = this.props
 
-    console.log('Fetching matches overview')
+    // console.log('Fetching matches overview')
 
     fetch(
       `${this.apiServerUrl}/seasons/${season}/matches/upcoming/${regnumber}`
@@ -32,7 +32,7 @@ class MatchesSlider extends Component {
 
     this.timeout = setTimeout(() => {
       this.updateData(() => {
-        console.log('Updating the rankings.')
+        // console.log('Updating the rankings.')
       })
     }, this.apiRefreshRate)
   }

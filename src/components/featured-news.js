@@ -25,8 +25,6 @@ class FeaturedNews extends Component {
         id="featured__news"
       >
         {posts.map(({ node }, i) => {
-          console.log(i)
-
           if (insertEvent.status && insertEvent.position === i) {
             return (
               <Fragment key={i}>
