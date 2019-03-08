@@ -289,6 +289,45 @@
     background: repeating-linear-gradient( -45deg, transparent, transparent 5px, rgba(#4B9B48, 0.5) 5px, rgba(#4B9B48, 0.5) 10px), linear-gradient( to bottom, rgba(#4B9B48, 0.5), rgba(#999, 0.5));
     color: #FFF;
     text-align: center;
+    min-height: 4rem;
+
+    font-size: 1.5rem;
+    @media (min-width: 767px) {
+        font-size: 1.75rem;
+    }
+    @media (min-width: 992px) {
+        font-size: 2.25rem;
+    }
+    @media (min-width: 1200px) {
+        font-size: 3rem;
+    }
+
+}
+
+ul.posts {
+    list-style: none;
+    padding: 0;
+}
+
+.posts--simple-list {
+    margin: 0;
+    .posts__item {
+        overflow: hidden;
+        margin-bottom: 1.125rem;
+    }
+    .posts__thumb {
+        float: left;
+        margin: 0 0.625rem 0.625rem 0;
+        position: relative;
+        width: 150px;
+    }
+    .posts__cat {
+        margin-bottom: .125rem
+    }
+
+    .posts__inner {
+        margin-left: calc(150px + 0.625rem);
+    }
 }
 
 ul.posts {
