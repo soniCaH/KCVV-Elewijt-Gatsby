@@ -1,50 +1,65 @@
 import React from 'react'
 import { graphql, StaticQuery } from 'gatsby'
 import Img from 'gatsby-image'
-import {truncate} from '../script/helper'
+import { truncate } from '../script/helper'
 import './footer-social-media.scss'
 
 class FooterSocialMedia extends React.Component {
   _renderPosts = () => {
     const { images } = this.props.data
-    let key = 0;
 
-    return images.edges.map(image => {
-      const source = image.node.fields.InstagramImage ? 'instagram' : 'facebook'
-      const title = truncate.apply(image.node.fields.caption, [150, true]);
+    return images.edges.map(({ node }, i) => {
+      const source = node.fields.InstagramImage ? 'instagram' : 'facebook'
+      const title = truncate
+        .apply(node.fields.caption, [150, true])
+        .replace(/[ ]*\n/g, '<br />\n')
+
+      console.log(node)
 
       return (
-        <li className={`posts__item--category--${source} posts__item`} key={key++}>
+        <li className={`posts__item--category--${source} posts__item`} key={i}>
           <figure className={'posts__thumb'}>
-            {image.node.fields.link ? (
+            {node.fields.link ? (
               <a
-                href={image.node.fields.link}
+                href={node.fields.link}
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                <Img fluid={image.node.childImageSharp.fluid} />
+                <Img
+                  fluid={{
+                    ...node.childImageSharp.fluid,
+                    aspectRatio: 4 / 3,
+                  }}
+                />
               </a>
             ) : (
-              <Img fluid={image.node.childImageSharp.fluid} />
+              <Img
+                fluid={{
+                  ...node.featured_media.localFile.childImageSharp.fluid,
+                  aspectRatio: 4 / 3,
+                }}
+              />
             )}
           </figure>
-          <div className={"posts__inner"}>
-            <div className={"posts__cat"}>
-              <span className={"label posts__cat-label"}>{source}</span>
+          <div className={'posts__inner'}>
+            <div className={'posts__cat'}>
+              <span className={'label posts__cat-label'}>{source}</span>
             </div>
-            <h6 className={'posts__title'}>
-              {image.node.fields.link ? (
+            {node.fields.link ? (
+              <h6 className={'posts__title'}>
                 <a
-                  href={image.node.fields.link}
+                  href={node.fields.link}
                   target="_blank"
                   rel="noopener noreferrer"
-                >
-                  {title}
-                </a>
-              ) : (
-                { title }
-              )}
-            </h6>
+                  dangerouslySetInnerHTML={{ __html: title }}
+                />
+              </h6>
+            ) : (
+              <h6
+                className={'posts__title'}
+                dangerouslySetInnerHTML={{ __html: title }}
+              />
+            )}
           </div>
         </li>
       )
@@ -52,7 +67,11 @@ class FooterSocialMedia extends React.Component {
   }
 
   render() {
-    return <ul className={'posts posts--simple-list footer-social-media'}>{this._renderPosts()}</ul>
+    return (
+      <ul className={'posts posts--simple-list footer-social-media'}>
+        {this._renderPosts()}
+      </ul>
+    )
   }
 }
 
@@ -66,19 +85,8 @@ const query = graphql`
       edges {
         node {
           childImageSharp {
-            fluid(maxWidth: 150) {
-              base64
-              tracedSVG
-              aspectRatio
-              src
-              srcSet
-              srcWebp
-              srcSetWebp
-              sizes
-              originalImg
-              originalName
-              presentationWidth
-              presentationHeight
+            fluid(maxWidth: 615) {
+              ...GatsbyImageSharpFluid_withWebp_tracedSVG
             }
           }
           id
