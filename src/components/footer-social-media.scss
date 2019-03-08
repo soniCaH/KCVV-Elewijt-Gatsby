@@ -12,6 +12,13 @@
             }
         }
     }
+
+    .posts__title {
+        font-weight: 100;
+        text-transform: uppercase;
+        font-size: .85rem;
+        line-height: 1.1rem;
+    }
 }
 
 .posts__item--category {

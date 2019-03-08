@@ -256,6 +256,19 @@
 .video--bg {
     position: relative;
     width: 100%;
+
+    min-height: 5rem;
+    font-size: 1.5rem;
+    @media (min-width: 767px) {
+        font-size: 1.75rem;
+    }
+    @media (min-width: 992px) {
+        font-size: 2.25rem;
+    }
+    @media (min-width: 1200px) {
+        font-size: 3rem;
+    }
+
     video {
         display: block;
         width: 100%;
@@ -276,19 +289,6 @@
     background: repeating-linear-gradient( -45deg, transparent, transparent 5px, rgba(#4B9B48, 0.5) 5px, rgba(#4B9B48, 0.5) 10px), linear-gradient( to bottom, rgba(#4B9B48, 0.5), rgba(#999, 0.5));
     color: #FFF;
     text-align: center;
-    min-height: 4rem;
-
-    font-size: 1.5rem;
-    @media (min-width: 767px) {
-        font-size: 1.75rem;
-    }
-    @media (min-width: 992px) {
-        font-size: 2.25rem;
-    }
-    @media (min-width: 1200px) {
-        font-size: 3rem;
-    }
-
 }
 
 ul.posts {
