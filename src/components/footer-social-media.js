@@ -80,7 +80,7 @@ const query = graphql`
     images: allFile(
       filter: { fields: { SocialMedia: { eq: "true" }, type: { ne: "video" } } }
       sort: { fields: [fields___created], order: DESC }
-      limit: 5
+      limit: 3
     ) {
       edges {
         node {
