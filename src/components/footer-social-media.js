@@ -14,8 +14,6 @@ class FooterSocialMedia extends React.Component {
         .apply(node.fields.caption, [150, true])
         .replace(/[ ]*\n/g, '<br />\n')
 
-      console.log(node)
-
       return (
         <li className={`posts__item--category--${source} posts__item`} key={i}>
           <figure className={'posts__thumb'}>
