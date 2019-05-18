@@ -82,8 +82,8 @@ class MetaMatches extends Component {
               <MiniRanking ranking={[previous.opponent.ranking, ranking]} />
             </div>
             <div className="tabs-panel is-active" id={`matches-${this.uuid}-next`}>
-              <MatchWithLogo match={next.match} />
-              <MiniRanking ranking={[next.opponent.ranking, ranking]} />
+              {/* <MatchWithLogo match={next.match} /> */}
+              {/* <MiniRanking ranking={[next.opponent.ranking, ranking]} /> */}
             </div>
             <div className="tabs-panel" id={`matches-${this.uuid}-rank`}>
               <MiniRanking ranking={this.state.globalRanking} />
