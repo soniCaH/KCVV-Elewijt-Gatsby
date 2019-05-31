@@ -1,9 +1,210 @@
-import React, { Component } from 'react'
+import React, { Component, Fragment } from 'react'
+import { Link } from 'gatsby'
 
 import './page-header.scss'
 import logo from '../images/logo-flat.png'
 import bauvall from '../images/bauvall.png'
 
+/**
+ * Search for the closest match of a selector.
+ *
+ * Vanilla JS version of $.closest().
+ *
+ * @param {*} elem
+ *   HTML DOMElement.
+ * @param {*} selector
+ *   CSS selector to search for (needle).
+ */
+const getClosest = (elem, selector) => {
+  // Element.matches() polyfill
+  if (!Element.prototype.matches) {
+    Element.prototype.matches =
+      Element.prototype.matchesSelector ||
+      Element.prototype.mozMatchesSelector ||
+      Element.prototype.msMatchesSelector ||
+      Element.prototype.oMatchesSelector ||
+      Element.prototype.webkitMatchesSelector ||
+      function(s) {
+        const matches = (this.document || this.ownerDocument).querySelectorAll(s);
+        let i = matches.length;
+        while (--i >= 0 && matches.item(i) !== this) {}
+        return i > -1
+      }
+  }
+
+  // Get closest match
+  for (; elem && elem !== document; elem = elem.parentNode) {
+    if (elem.matches(selector)) return elem
+  }
+
+  return null
+};
+
+/**
+ * Render the menu items with proper <Link>'s.
+ */
+class MenuItems extends Component {
+  componentDidMount() {
+    const activeLinks = document.querySelectorAll('.active')
+    let parent = null
+
+    activeLinks.forEach(activeLink => {
+      parent = getClosest(activeLink, '.submenu')
+      if (parent !== null) {
+        parent.classList.add('is-active')
+      }
+    })
+  }
+
+  render() {
+    return (
+      <Fragment>
+        <li>
+          <Link to="/" activeClassName="active" partiallyActive={true}>
+            Home
+          </Link>
+        </li>
+        <li>
+          <Link to="/news/" activeClassName="active" partiallyActive={true}>
+            Nieuws
+          </Link>
+        </li>
+        <li>
+          <Link to="/events/" activeClassName="active" partiallyActive={true}>
+            Evenementen
+          </Link>
+        </li>
+        <li>
+          <Link to="/a-team/" activeClassName="active" partiallyActive={true}>
+            A-Ploeg
+          </Link>
+          <ul className="vertical menu submenu">
+            <li>
+              <Link to="/a-team/matches/" activeClassName="active" partiallyActive={true}>
+                Wedstrijden
+              </Link>
+            </li>
+            <li>
+              <Link to="/a-team/ranking/" activeClassName="active" partiallyActive={true}>
+                Ranking
+              </Link>
+            </li>
+            <li>
+              <Link to="/a-team/staff/" activeClassName="active" partiallyActive={true}>
+                Staff
+              </Link>
+            </li>
+            <li>
+              <Link to="/a-team/players/" activeClassName="active" partiallyActive={true}>
+                Spelers
+              </Link>
+            </li>
+          </ul>
+        </li>
+        <li>
+          <Link to="/b-team/" activeClassName="active" partiallyActive={true}>
+            B-ploeg
+          </Link>
+          <ul className="vertical menu submenu">
+            <li>
+              <Link to="/b-team/matches/" activeClassName="active" partiallyActive={true}>
+                Wedstrijden
+              </Link>
+            </li>
+            <li>
+              <Link to="/b-team/ranking/" activeClassName="active" partiallyActive={true}>
+                Ranking
+              </Link>
+            </li>
+            <li>
+              <Link to="/b-team/staff/" activeClassName="active" partiallyActive={true}>
+                Staff
+              </Link>
+            </li>
+            <li>
+              <Link to="/b-team/players/" activeClassName="active" partiallyActive={true}>
+                Spelers
+              </Link>
+            </li>
+          </ul>
+        </li>
+        <li>
+          <Link to="/youth/" activeClassName="active" partiallyActive={true}>
+            Jeugd
+          </Link>
+          <ul className="vertical menu submenu">
+            <li>
+              <Link to="/youth/u13/" activeClassName="active" partiallyActive={true}>
+                U13
+              </Link>
+            </li>
+            <li>
+              <Link to="/youth/u11/" activeClassName="active" partiallyActive={true}>
+                U11
+              </Link>
+            </li>
+            <li>
+              <Link to="/youth/u10/" activeClassName="active" partiallyActive={true}>
+                U10
+              </Link>
+            </li>
+            <li>
+              <Link to="/youth/u9/" activeClassName="active" partiallyActive={true}>
+                U9
+              </Link>
+            </li>
+            <li>
+              <Link to="/youth/u8/" activeClassName="active" partiallyActive={true}>
+                U8
+              </Link>
+            </li>
+            <li>
+              <Link to="/youth/u7/" activeClassName="active" partiallyActive={true}>
+                U7
+              </Link>
+            </li>
+            <li>
+              <Link to="/youth/u6/" activeClassName="active" partiallyActive={true}>
+                U6
+              </Link>
+            </li>
+          </ul>
+        </li>
+        <li>
+          <Link to="/sponsors/" activeClassName="active" partiallyActive={true}>
+            Sponsors
+          </Link>
+        </li>
+        <li>
+          <Link to="/club/" activeClassName="active" partiallyActive={true}>
+            De club
+          </Link>
+          <ul className="vertical menu submenu">
+            <li>
+              <Link to="/club/history/" activeClassName="active" partiallyActive={true}>
+                Geschiedenis
+              </Link>
+            </li>
+            <li>
+              <Link to="/club/responsibilities/" activeClassName="active" partiallyActive={true}>
+                Verantwoordelijkheden
+              </Link>
+            </li>
+            <li>
+              <Link to="/club/contact/" activeClassName="active" partiallyActive={true}>
+                Contact
+              </Link>
+            </li>
+          </ul>
+        </li>
+      </Fragment>
+    )
+  }
+}
+
+/**
+ * Render the desktop version of the header.
+ */
 class PageHeader extends Component {
   render() {
     return (
@@ -25,13 +226,13 @@ class PageHeader extends Component {
               data-toggle="responsiveNavigation"
             />
             <div className="header-mobile__logo">
-              <a href="index.html">
+            <Link to="/">
                 <img
                   src={logo}
                   alt="KCVV Elewijt"
                   className="header-mobile__logo-img"
                 />
-              </a>
+                </Link>
             </div>
           </div>
           {/* <!-- END MOBILE NAV BAR --> */}
@@ -43,10 +244,7 @@ class PageHeader extends Component {
                 <div className="grid-x">
                   <div className="medium-4 medium-offset-8">
                     <div className="sponsors--header">
-                      <img
-                        src={bauvall}
-                        alt="Bauvall Trans"
-                      />
+                      <img src={bauvall} alt="Bauvall Trans" />
                     </div>
                   </div>
                 </div>
@@ -57,109 +255,20 @@ class PageHeader extends Component {
                 <div className="header__primary-inner">
                   {/* LOGO */}
                   <div className="header-logo">
-                    <a href="index.html">
+                   <Link to="/">
                       <img
                         src={logo}
                         alt="KCVV Elewijt"
                         className="header__logo-img"
                       />
-                    </a>
+                      </Link>
                   </div>
                   <nav className="main-nav">
                     <ul
                       className="main-nav__list--desktop menu dropdown"
                       data-dropdown-menu
                     >
-                      <li>
-                        <a href="index.html">Home</a>
-                      </li>
-                      <li>
-                        <a href="index.html">Nieuws</a>
-                      </li>
-                      <li>
-                        <a href="index.html">Evenementen</a>
-                      </li>
-                      <li>
-                        <a href="index.html" className="active">
-                          A-Ploeg
-                        </a>
-                        <ul className="vertical menu is-active">
-                          <li>
-                            <a href="index.html" className="active">
-                              Wedstrijden
-                            </a>
-                          </li>
-                          <li>
-                            <a href="index.html">Ranking</a>
-                          </li>
-                          <li>
-                            <a href="index.html">Staff</a>
-                          </li>
-                          <li>
-                            <a href="index.html">Spelers</a>
-                          </li>
-                        </ul>
-                      </li>
-                      <li>
-                        <a href="index.html">B-ploeg</a>
-                        <ul className="vertical menu">
-                          <li>
-                            <a href="index.html">Wedstrijden</a>
-                          </li>
-                          <li>
-                            <a href="index.html">Ranking</a>
-                          </li>
-                          <li>
-                            <a href="index.html">Staff</a>
-                          </li>
-                          <li>
-                            <a href="index.html">Spelers</a>
-                          </li>
-                        </ul>
-                      </li>
-                      <li>
-                        <a href="index.html">Jeugd</a>
-                        <ul className="vertical menu submenu">
-                          <li>
-                            <a href="index.html">U13</a>
-                          </li>
-                          <li>
-                            <a href="index.html">U11</a>
-                          </li>
-                          <li>
-                            <a href="index.html">U10</a>
-                          </li>
-                          <li>
-                            <a href="index.html">U9</a>
-                          </li>
-                          <li>
-                            <a href="index.html">U8</a>
-                          </li>
-                          <li>
-                            <a href="index.html">U7</a>
-                          </li>
-                          <li>
-                            <a href="index.html">U6</a>
-                          </li>
-                        </ul>
-                      </li>
-                      <li>
-                        <a href="index.html">Sponsors</a>
-                      </li>
-                      <li>
-                        <a href="index.html">De club</a>
-                        <ul className="vertical menu submenu">
-                          <li>
-                            <a href="index.html">Geschiedenis</a>
-                          </li>
-                          <li>
-                            <a href="index.html">Verantwoordelijkheden</a>
-                          </li>
-                          <li>
-                            <a href="index.html">Contact</a>
-                          </li>
-                        </ul>
-                      </li>
+                      <MenuItems />
                     </ul>
                   </nav>
                 </div>
@@ -176,6 +285,9 @@ class PageHeader extends Component {
   }
 }
 
+/**
+ * Render the mobile version of the header.
+ */
 export class PageHeaderMobile extends Component {
   render() {
     return (
@@ -189,108 +301,26 @@ export class PageHeaderMobile extends Component {
           data-responsive-menu="accordion large-dropdown"
         >
           <div className="header-mobile__logo">
-            <button aria-label="Close menu" type="button" data-toggle="" className="button--back">
+            <button
+              aria-label="Close menu"
+              type="button"
+              data-toggle=""
+              className="button--back"
+            >
               {/* <span aria-hidden="true" /> */}
             </button>
 
-            <a href="index.html">
+            <Link to="/">
               <img
                 src={logo}
                 alt="KCVV Elewijt"
                 className="header-mobile__logo-img"
               />
-            </a>
+              </Link>
           </div>
-          <li>
-            <a href="index.html">Home</a>
-          </li>
-          <li>
-            <a href="index.html">Nieuws</a>
-          </li>
-          <li>
-            <a href="index.html">Evenementen</a>
-          </li>
-          <li>
-            <a href="index.html" className="active">
-              A-Ploeg
-            </a>
-            <ul className="vertical menu is-active">
-              <li>
-                <a href="index.html" className="active">
-                  Wedstrijden
-                </a>
-              </li>
-              <li>
-                <a href="index.html">Ranking</a>
-              </li>
-              <li>
-                <a href="index.html">Staff</a>
-              </li>
-              <li>
-                <a href="index.html">Spelers</a>
-              </li>
-            </ul>
-          </li>
-          <li>
-            <a href="index.html">B-ploeg</a>
-            <ul className="vertical menu">
-              <li>
-                <a href="index.html">Wedstrijden</a>
-              </li>
-              <li>
-                <a href="index.html">Ranking</a>
-              </li>
-              <li>
-                <a href="index.html">Staff</a>
-              </li>
-              <li>
-                <a href="index.html">Spelers</a>
-              </li>
-            </ul>
-          </li>
-          <li>
-            <a href="index.html">Jeugd</a>
-            <ul className="vertical menu">
-              <li>
-                <a href="index.html">U13</a>
-              </li>
-              <li>
-                <a href="index.html">U11</a>
-              </li>
-              <li>
-                <a href="index.html">U10</a>
-              </li>
-              <li>
-                <a href="index.html">U9</a>
-              </li>
-              <li>
-                <a href="index.html">U8</a>
-              </li>
-              <li>
-                <a href="index.html">U7</a>
-              </li>
-              <li>
-                <a href="index.html">U6</a>
-              </li>
-            </ul>
-          </li>
-          <li>
-            <a href="index.html">Sponsors</a>
-          </li>
-          <li>
-            <a href="index.html">De club</a>
-            <ul className="vertical menu submenu">
-              <li>
-                <a href="index.html">Geschiedenis</a>
-              </li>
-              <li>
-                <a href="index.html">Verantwoordelijkheden</a>
-              </li>
-              <li>
-                <a href="index.html">Contact</a>
-              </li>
-            </ul>
-          </li>
+
+          <MenuItems />
+
           <li className="main-nav__item--social-links">
             <a
               href="index.html"

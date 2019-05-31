@@ -16,35 +16,35 @@ class PageFooter extends Component {
               </div>
 
               <div className={'page-footer__contact--social'}>
-                <ul class="social-links social-links--circle">
-                  <li class="social-links__item">
+                <ul className="social-links social-links--circle">
+                  <li className="social-links__item">
                     <a
                       href="https://facebook.com/KCVVElewijt/"
-                      class="social-links__link"
+                      className="social-links__link"
                       target="_blank"
                       rel="noopener noreferrer"
                     >
-                      <i class="fa fa-facebook" />
+                      <i className="fa fa-facebook" />
                     </a>
                   </li>
-                  <li class="social-links__item">
+                  <li className="social-links__item">
                     <a
                       href="https://twitter.com/kcvve"
-                      class="social-links__link"
+                      className="social-links__link"
                       target="_blank"
                       rel="noopener noreferrer"
                     >
-                      <i class="fa fa-twitter" />
+                      <i className="fa fa-twitter" />
                     </a>
                   </li>
-                  <li class="social-links__item">
+                  <li className="social-links__item">
                     <a
                       href="https://www.instagram.com/kcvve"
-                      class="social-links__link"
+                      className="social-links__link"
                       target="_blank"
                       rel="noopener noreferrer"
                     >
-                      <i class="fa fa-instagram" />
+                      <i className="fa fa-instagram" />
                     </a>
                   </li>
                 </ul>
@@ -97,7 +97,7 @@ class PageFooter extends Component {
                     Verhuur kantine
                   </th>
                   <td className="page-footer__contact-details__value">
-                    <a href="mailto:verhuur@kcvvelewijt.be">James Verstreken</a>
+                    <a href="mailto:verhuur@kcvvelewijt.be">Ann Walgraef</a>
                   </td>
                 </tr>
                 <tr>
