@@ -29,15 +29,23 @@
                 display: block;
 
                 color: #31404B;
-                font-size: 1.5rem;
+                font-size: 1rem;
+
+                @media (min-width: 768px) {
+                    font-size: 1.5rem;
+                }
             }
 
             &-last {
                 color: #FFF;
-                font-size: 2.5rem;
+                font-size: 1.5rem;
 
                 display: block;
                 text-align: right;
+
+                @media (min-width: 768px) {
+                    font-size: 2rem;
+                }
             }
         }
 
@@ -51,16 +59,21 @@
 
             font-family: 'Montserrat', sans-serif;
             font-weight: bold;
-            font-size: 13.75rem;
+            font-size: 8rem;
             line-height: 0.7;
             letter-spacing: -0.04px;
 
             user-select: none;
 
+            @media (min-width: 768px) {
+                font-size: 13.75rem;
+            }
+
             @media (min-width: 992px) {
                 top: 5rem;
                 left: auto;
                 right: 1rem;
+
                 text-align: right;
             }
             @media (min-width: 1480px) {
@@ -133,7 +146,7 @@
 
             display: grid;
             grid-template-columns: repeat(2, 1fr);
-            grid-gap: 2em 0;
+            grid-gap: 2em 1em;
 
             @media (min-width: 992px) {
                 padding-top: 4rem;
