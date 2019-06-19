@@ -2,9 +2,14 @@ import React from 'react'
 import { graphql, StaticQuery } from 'gatsby'
 import Img from 'gatsby-image'
 
+/**
+ * Render a feed of facebook images.
+ *
+ * Images will be retrieved from our graphql index.
+ */
 class Facebook extends React.Component {
   _renderImages = () => {
-
+    // Result from our graphql query.
     const { images } = this.props.data
 
     return images.edges.map(image => (

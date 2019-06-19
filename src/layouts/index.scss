@@ -23,6 +23,16 @@
     }
 }
 
+.screenreader {
+    position: absolute!important;
+    left: -10000px;
+    top: auto;
+    top: initial;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    }
+
 .label {
     font-weight: bold;
     line-height: 1;

@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { Component } from 'react'
 import Layout from '../layouts/index'
 import HeroSlider from '../components/hero-slider'
 import FeaturedNews from '../components/featured-news'
@@ -10,7 +10,7 @@ import MatchesOverview from '../components/matches-overview'
 import picYentel from '../images/yentel.jpg'
 import picSteak from '../images/steak.jpg'
 
-class IndexPage extends React.Component {
+class IndexPage extends Component {
   render() {
     const data = this.props.data
 
@@ -20,7 +20,8 @@ class IndexPage extends React.Component {
       title: 'Steakfestijn KCVV Elewijt',
       link: '/index.html',
       image: picSteak,
-      text: '<p>En jawel hoor!  Ook dit seizoen wordt het weer smullen van onze heerlijke steaks met frietjes. Hartverwarmend  in deze grille wintertijden.  Onze KCVV Angels mobiliseren daarom een volledig team om jullie vanaf vrijdag 15 februari in de watten te leggen. Stip het steakfestijn dus aan in jullie agenda en we zien jullie dan.</p>'
+      text:
+        '<p>En jawel hoor!  Ook dit seizoen wordt het weer smullen van onze heerlijke steaks met frietjes. Hartverwarmend  in deze grille wintertijden.  Onze KCVV Angels mobiliseren daarom een volledig team om jullie vanaf vrijdag 15 februari in de watten te leggen. Stip het steakfestijn dus aan in jullie agenda en we zien jullie dan.</p>',
     }
 
     return (
@@ -32,7 +33,10 @@ class IndexPage extends React.Component {
         <div className="grid-container site-content">
           <div className="grid-x grid-margin-x">
             <section className="cell large-8">
-              <FeaturedNews posts={data.toppost} featuredEvent={featuredEvent} />
+              <FeaturedNews
+                posts={data.toppost}
+                featuredEvent={featuredEvent}
+              />
             </section>
             <aside className="cell large-4">
               <div className="grid-x featured__matches grid-margin-x">
@@ -199,44 +203,48 @@ export const pageQuery = graphql`
         }
       }
     }
-    featuredPosts: allWordpressPost(sort: {fields: [date], order: DESC}, limit: 3, filter: {categories: {elemMatch: {name: {eq: "Uitgelicht"}}}}) {
-    edges {
-      node {
-        id
-        slug
-        title
-        content
-        excerpt
-        unixdate: date(formatString: "YYYY-MM-DD", locale: "nl-be")
-        longdate: date(formatString: "DD MMMM YYYY", locale: "nl-be")
-        modified
-        categories {
-          name
-        }
-        featured_media {
-          source_url
-          localFile {
-            childImageSharp {
-              sizes(maxWidth: 615) {
-                base64
-                tracedSVG
-                aspectRatio
-                src
-                srcSet
-                srcWebp
-                srcSetWebp
-                sizes
-                originalImg
-                originalName
-                presentationWidth
-                presentationHeight
+    featuredPosts: allWordpressPost(
+      sort: { fields: [date], order: DESC }
+      limit: 3
+      filter: { categories: { elemMatch: { name: { eq: "Uitgelicht" } } } }
+    ) {
+      edges {
+        node {
+          id
+          slug
+          title
+          content
+          excerpt
+          unixdate: date(formatString: "YYYY-MM-DD", locale: "nl-be")
+          longdate: date(formatString: "DD MMMM YYYY", locale: "nl-be")
+          modified
+          categories {
+            name
+          }
+          featured_media {
+            source_url
+            localFile {
+              childImageSharp {
+                sizes(maxWidth: 615) {
+                  base64
+                  tracedSVG
+                  aspectRatio
+                  src
+                  srcSet
+                  srcWebp
+                  srcSetWebp
+                  sizes
+                  originalImg
+                  originalName
+                  presentationWidth
+                  presentationHeight
+                }
               }
             }
           }
         }
       }
     }
-  }
   }
 `
 

@@ -1,0 +1,182 @@
+.player {
+    &-detail {
+        background: #edeff4;
+        width: 100%;
+        position: relative;
+
+        &__name {
+            position: absolute;
+            z-index: 10;
+            right: 1rem;
+            top: 1.5rem;
+
+            font-family: 'Montserrat', sans-serif;
+            font-weight: bold;
+            letter-spacing: -0.02px;
+            line-height: 0.9;
+            text-align: right;
+            text-transform: uppercase;
+
+            @media (min-width: 992px) {
+                top: 13rem;
+            }
+
+            @media (min-width: 1480px) {
+                right: 15%;
+            }
+
+            &-first {
+                display: block;
+
+                color: #31404B;
+                font-size: 1.5rem;
+            }
+
+            &-last {
+                color: #FFF;
+                font-size: 2.5rem;
+
+                display: block;
+                text-align: right;
+            }
+        }
+
+        &__bg-shirt-number {
+            position: absolute;
+            left: .25rem;
+            top: .25rem;
+            z-index: 3;
+
+            color: rgba(255, 255, 255, 0.25);
+
+            font-family: 'Montserrat', sans-serif;
+            font-weight: bold;
+            font-size: 13.75rem;
+            line-height: 0.7;
+            letter-spacing: -0.04px;
+
+            user-select: none;
+
+            @media (min-width: 992px) {
+                top: 5rem;
+                left: auto;
+                right: 1rem;
+                text-align: right;
+            }
+            @media (min-width: 1480px) {
+                right: 14%;
+            }
+        }
+
+        &__bg-black-mask {
+            background-image: linear-gradient(104deg, #4B9B48 0%, rgba(75, 155, 72, 0.50) 300%);
+            position: absolute;
+            left: 0;
+            right: 0;
+            top: 0;
+            overflow: hidden;
+            padding-top: 396px;
+            z-index: 2;
+        }
+
+        &__bg-gray-mask {
+            background: #edeff4;
+            width: 10000px;
+            min-width: 1440px;
+            height: 10000px;
+            position: absolute;
+            left: 0;
+            right: 0;
+            top: -110px;
+            z-index: 4;
+            transform: rotate(-6deg);
+
+            @media (min-width: 992px) {
+                transform: rotate(-2deg);
+                top: 220px;
+            }
+        }
+
+        &__bg-avatar {
+            position: absolute;
+            top: 5.875rem;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            background-size: contain;
+            background-position: center bottom;
+            background-repeat: no-repeat;
+            text-align: center;
+            z-index: 5;
+
+            @media (min-width: 767px) {
+                top: 4rem;
+            }
+
+            @media (min-width: 992px) {
+                top: 3rem;
+            }
+
+            @media (min-width: 1200px) {
+                top: 2rem;
+            }
+        }
+
+        &__statistics {
+            padding: 425px 4rem 4rem 4rem;
+
+            color: #31404B;
+            font-family: 'Montserrat', sans-serif;
+            line-height: 0.9;
+            text-transform: uppercase;
+            text-align: center;
+
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            grid-gap: 2em 0;
+
+            @media (min-width: 992px) {
+                padding-top: 4rem;
+
+                color: #fff;
+                line-height: 1;
+
+                position: absolute;
+                left: 25%;
+                top: 198px;
+                transform: translate(-50%, -50%);
+                z-index: 4;
+
+                grid-template-columns: 1fr;
+
+            }
+
+            &-item {
+                &__number {
+                    font-size: 2.5rem;
+                    font-weight: bold;
+                    min-width: 3rem;
+                }
+
+                &__label {
+                    color: #9A9DA2;
+
+                    @media (min-width: 992px) {
+                        color: #FFF;
+
+                    }
+                }
+            }
+
+
+
+        }
+    }
+}
+
+@media (min-width: 767px) {
+    .player-break {
+        display: block;
+        padding-top: 410px;
+    }
+}

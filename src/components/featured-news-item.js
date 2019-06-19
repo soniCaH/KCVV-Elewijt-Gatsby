@@ -2,6 +2,9 @@ import React, { Component } from 'react'
 import Img from 'gatsby-image'
 import './featured-news-item.scss'
 
+/**
+ * Render a single news item in card layout (image / tag / title / excerpt).
+ */
 class FeaturedNewsItem extends Component {
   render() {
     const { node, columns = 12, teaser = false } = this.props

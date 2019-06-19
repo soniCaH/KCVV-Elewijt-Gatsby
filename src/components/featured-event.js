@@ -1,5 +1,18 @@
 import React, { Component } from 'react'
 
+/**
+ * Render a featured event (fullwidth) with image, title, link and content.
+ *
+ * event = {
+ *     dateStart: '2019-02-15',
+ *     dateEnd: '2019-02-17',
+ *     title: 'Steakfestijn KCVV Elewijt',
+ *     link: '/events/steak-2019',
+ *     image: pictureSteak2019,
+ *     text:
+ *       '<p>En jawel hoor!  Ook dit seizoen wordt het weer smullen van onze heerlijke steaks met frietjes. Hartverwarmend  in deze grille wintertijden.  Onze KCVV Angels mobiliseren daarom een volledig team om jullie vanaf vrijdag 15 februari in de watten te leggen. Stip het steakfestijn dus aan in jullie agenda en we zien jullie dan.</p>',
+ *   }
+ */
 class FeaturedEvent extends Component {
   render() {
     const { event, key = null } = this.props
