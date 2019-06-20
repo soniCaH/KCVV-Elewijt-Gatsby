@@ -55,35 +55,20 @@ class ComponentsPage extends Component {
             </section>
           </aside>
 
-          {/* <div className={'player-detail__main'}>
-            <div className={'player-detail__main__wrapper'}>
-              <div className={'player-info'}>
-                <div class="player-info__main live">
-                  <div class="player-shirt-number" aria-hidden="true">
-                    1
-                  </div>
-                  <div
-                    class="player-content"
-                    aria-live="polite"
-                    aria-atomic="true"
-                    aria-relevant="additions"
-                  >
-                    <h1 class="player-name">
-                      David
-                      <br />
-                      De Gea
-                      <span class="screenreader">Shirt number 1</span>
-                    </h1>
-                  </div>
-                </div>
-              </div>
+          <div className={"player-break"}></div>
+
+          <section className={"player-detail__data"}>
+            <div className={'player-detail__data-item player-detail__data-item--birthdate'}>
+              <span className={'player-detail__data-item__label'}>Geboortedatum</span><span className={'player-detail__data-item__data'}>19/11/1986</span>
             </div>
-          </div>
-         */}
+            <div className={'player-detail__data-item player-detail__data-item--position'}>
+              <span className={'player-detail__date-item__data'}>Aanvaller</span>
+            </div>
+            <div className={'player-detail__data-item player-detail__data-item--joindate'}>
+              <span className={'player-detail__data-item__label'}>Speler bij KCVV sinds</span><span className={'player-detail__data-item__data'}>01/07/2018</span>
+            </div>
+          </section>
         </article>
-        <div className={"player-break"}></div>
-<hr/>
-        <div style={{margin: 0 + ' auto', width: 500 + 'px', textAlign: 'center'}}>Birthdate, Position, Joined the club.</div>
       </Layout>
     )
   }
