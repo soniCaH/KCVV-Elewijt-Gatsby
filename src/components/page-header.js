@@ -64,7 +64,7 @@ class MenuItems extends Component {
             Home
           </Link>
         </li>
-        <li>
+        {/* <li>
           <Link to="/news/" activeClassName="active" partiallyActive={true}>
             Nieuws
           </Link>
@@ -196,7 +196,7 @@ class MenuItems extends Component {
               </Link>
             </li>
           </ul>
-        </li>
+        </li> */}
       </Fragment>
     )
   }

@@ -1,3 +1,56 @@
+@mixin playerHighlightLarge {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+
+    &__bg {
+        border-radius: 4px 0 0 4px;
+        width: 75%;
+    }
+
+    &__name {
+        &-shirt-number {
+            margin-left: -.25em;
+        }
+
+        &-name {
+            margin-left: -3.5em;
+
+            &--first {
+                font-size: 1.5rem;
+            }
+
+            &--last {
+                font-size: 2.5rem;
+            }
+        }
+    }
+
+    &__main {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-evenly;
+        padding-bottom: 0;
+    }
+
+    &__stats {
+        margin-left: 0;
+        flex-wrap: nowrap;
+
+        &-item {
+            flex: 0;
+            margin: 0;
+        }
+    }
+}
+
+.component_header {
+    border: 1px solid #FFF;
+    border: 1px 0 1px;
+    margin: 1.5em 0;
+    padding: 1.5em 0;
+    text-align: center;
+}
+
 .player {
     &-detail {
         background: #edeff4;
@@ -254,5 +307,135 @@
     .player-break {
         display: block;
         padding-top: 410px;
+    }
+}
+
+.player-highlight {
+    border-radius: 4px;
+    background: #FFF;
+
+    &__header {
+        position: relative;
+        height: 283px;
+    }
+
+    &__image {
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        background-size: contain;
+        background-position: center bottom;
+        background-repeat: no-repeat;
+        text-align: center;
+        z-index: 5;
+    }
+
+    &__bg {
+        border-radius: 4px 0 0;
+        display: block;
+        position: absolute;
+        left: 0;
+        top: 0;
+        bottom: 0;
+        margin-left: 0;
+        width: 75%;
+        background-image: linear-gradient(104deg, #4B9B48 0%, rgba(75, 155, 72, 0.50) 300%);
+
+        color: hsla(0, 0%, 100%, .1);
+        font-size: 150px;
+        line-height: 1em;
+
+        &::before {
+            content: "";
+            display: block;
+            position: absolute;
+            right: 0;
+            top: 0;
+            width: 0;
+            height: 0;
+            border-bottom: 283px solid #fff;
+            border-left: 30px solid transparent;
+        }
+    }
+
+    &__name {
+        align-items: center;
+        display: flex;
+        flex-direction: row;
+
+        &-shirt-number {
+            color: rgba(154, 157, 162, 0.12);
+            font-family: 'Montserrat', sans-serif;
+            font-weight: bold;
+            font-size: 6.875rem;
+            line-height: 1;
+
+            user-select: none;
+
+            margin-left: 2.5rem;
+        }
+
+        &-name {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: bold;
+            line-height: 1;
+
+            margin-left: -5rem;
+
+            &--first {
+                color: #31404B;
+                font-size: 1rem;
+            }
+
+            &--last {
+                color: #4B9B48;
+                font-size: 1.5rem;
+            }
+        }
+    }
+
+    &__main {
+        padding-bottom: 2em;
+    }
+
+    &__stats {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        margin: 1em 2em;
+
+        &-item {
+            flex: 0 50%;
+            margin-bottom: 1em;
+
+            font-family: 'Montserrat', sans-serif;
+            font-weight: bold;
+            line-height: 1;
+            text-transform: uppercase;
+
+            &__number {
+                color: #31404B;
+                font-size: 2rem;
+            }
+
+            &__label {
+                color: #9A9DA2;
+                font-size: 0.8125rem;
+                font-weight: 100;
+            }
+        }
+    }
+
+
+
+}
+
+.player-highlight--large {
+    .player-highlight {
+        @media (min-width: 992px) {
+            @include playerHighlightLarge;
+        }
     }
 }
