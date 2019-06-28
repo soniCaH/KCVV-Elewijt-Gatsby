@@ -756,3 +756,91 @@ h6 {
     border: none;
     color: inherit;
 }
+
+.feature_carrousel {
+    height: auto;
+    margin: 0 auto;
+    position: relative;
+
+    &__cover_wrapper {
+        background-position: center center;
+        background-size: cover;
+        position: relative;
+    }
+
+    &__gradient {
+        background: rgba(26, 26, 26, .35);
+        height: 100%;
+        z-index: 4;
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: 0;
+        bottom: 0;
+    }
+
+    &__content {
+        color: #FFF;
+        margin: 0 .25rem;
+        padding: 3rem 0;
+        position: relative;
+        z-index: 5;
+
+        @media (min-width: 992px) {
+            margin: 0 1rem;
+            padding: 5rem 0;
+        }
+
+        @media (min-width: 1480px) {
+            margin: 0 14%;
+        }
+    }
+
+    &__articles {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        grid-gap: 1rem;
+
+        list-style: none;
+        margin: 3rem 0 0;
+        padding: 0;
+
+        @media (min-width: 992px) {
+            grid-template-columns: repeat(4, 1fr);
+        }
+
+        article {
+            background: #FFF;
+            color: #0a0a0a;
+
+            align-content: flex-start;
+            border: 1px solid #ababab;
+            display: grid;
+            position: relative;
+
+            a {
+                color: inherit;
+            }
+
+            header {}
+
+            main {
+                padding: 1rem 1rem 5rem;
+
+                h3 {
+                    font-size: 1.25rem;
+                    margin-bottom: 8px;
+                    line-height: 1.3;
+                }
+            }
+
+            footer {
+                padding: 1rem;
+                position: absolute;
+                bottom: 0;
+                left: 0;
+                right: 0;
+            }
+        }
+    }
+}

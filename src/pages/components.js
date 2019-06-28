@@ -3,6 +3,7 @@ import Layout from '../layouts/components'
 import { graphql } from 'gatsby'
 import SEO from '../components/seo'
 import playerProfile from '../images/kcvv-player-bg.png'
+import transfers from '../images/transfers.jpg'
 
 class ComponentsPage extends Component {
   render() {
@@ -403,7 +404,11 @@ class ComponentsPage extends Component {
           <div className={'team-break'}></div>
 
           <section className={'team-sub_navigation'}>
-            <ul className={"tabs team-sub_navigation__tabs "} data-tabs id="team-subnavigation_tabs">
+            <ul
+              className={'tabs team-sub_navigation__tabs '}
+              data-tabs
+              id="team-subnavigation_tabs"
+            >
               <li class="tabs-title is-active">
                 <a href="#team-lineup" aria-selected="true">
                   Lineup
@@ -643,6 +648,92 @@ class ComponentsPage extends Component {
             </div>
           </div>
         </article>
+
+        <section className={'feature_carrousel'}>
+          <div
+            className={'feature_carrousel__cover_wrapper'}
+            style={{ backgroundImage: `url(${transfers})` }}
+          >
+            <div className={'feature_carrousel__gradient'}></div>
+
+            <div className={'feature_carrousel__content'}>
+              <header>
+                <h2>TRANSFERTALK</h2>
+              </header>
+
+              <section className={'feature_carrousel__articles'}>
+                <article>
+                  <a href="">
+                    <header>
+                      <img src={transfers} alt="transfers" />
+                    </header>
+                    <main>
+                      <h3>Eli Nuyts</h3>
+                      <p>
+                        Opnieuw kunnen we activiteit melden van aan de
+                        onderhandelingstafel. Zo voegen we nog een speler toe
+                        aan de lijst van spelers die hun contract verlengden.
+                        KCVV slaagt er in om de kern nagenoeg intact te houden
+                        voor volgend seizoen.
+                      </p>
+                    </main>
+                    <footer>META</footer>
+                  </a>
+                </article>
+                <article>
+                  <a href="">
+                    <header>
+                      <img src={transfers} alt="transfers" />
+                    </header>
+                    <main>
+                      <h3>Yentel Teugels</h3>
+                      <p>
+                        Met Yentel haalt KCVV een creatieve aanvallende
+                        middenvelder in huis. Hij komt net als Ran Dondeyne over
+                        van reeksgenoot SK Steenhuffel
+                      </p>
+                    </main>
+                    <footer>META</footer>
+                  </a>
+                </article>
+                <article>
+                  <a href="">
+                    <header>
+                      <img src={transfers} alt="transfers" />
+                    </header>
+                    <main>
+                      <h3>Yarno Demeyer</h3>
+                      <p>
+                        Met Yarno kondigen we een tweede transfer aan voor
+                        volgend seizoen. Yarno komt over van VC Rijmenam en
+                        heeft zijn jeugdopleiding genoten bij Rupel-Boom en KV
+                        Mechelen.
+                      </p>
+                    </main>
+                    <footer>META</footer>
+                  </a>
+                </article>
+                <article>
+                  <a href="">
+                    <header>
+                      <img src={transfers} alt="transfers" />
+                    </header>
+                    <main>
+                      <h3>Ran Dondeyne</h3>
+                      <p>
+                        We zijn trots om onze eerste inkomende transfer te
+                        kunnen aankondigen. Ran komt over van reeksgenoot SK
+                        Steenhuffel en heeft zijn opleiding genoten bij SK
+                        Londerzeel.
+                      </p>
+                    </main>
+                    <footer>META</footer>
+                  </a>
+                </article>
+              </section>
+            </div>
+          </div>
+        </section>
       </Layout>
     )
   }
