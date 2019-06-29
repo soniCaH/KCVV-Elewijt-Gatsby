@@ -1,9 +1,11 @@
 import React, { Component, Fragment } from 'react'
 
-// import './index.scss'
-import PageHeader from '../components/page-header'
-import { PageHeaderMobile } from '../components/page-header'
-// import PageFooter from '../components/page-footer';
+import './index.scss'
+import './components.scss'
+import PageHeader from '../../src/components/page-header'
+import { PageHeaderMobile } from '../../src/components/page-header'
+import PageFooter from '../components/page-footer';
+import playerProfile from '../images/kcvv-player-bg.png'
 
 class Layout extends Component {
   render() {
@@ -11,8 +13,8 @@ class Layout extends Component {
 
     return (
       <Fragment>
-        <PageHeaderMobile />
-        <PageHeader />
+        {/* <PageHeaderMobile /> */}
+        {/* <PageHeader /> */}
 
         {children}
 

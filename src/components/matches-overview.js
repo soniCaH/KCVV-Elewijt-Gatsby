@@ -2,7 +2,7 @@ import React, { Component, Fragment } from 'react'
 import { graphql, StaticQuery } from 'gatsby'
 import './matches-overview.scss'
 import moment from 'moment'
-import { mapMatchStatus, formatDivision } from '../script/helper'
+import { mapMatchStatus, formatDivision } from '../scripts/helper'
 import 'moment/locale/nl-be'
 
 class MatchesOverview extends Component {
@@ -50,13 +50,21 @@ class MatchesOverview extends Component {
     if (this.state.loading === false && this.state.data) {
       this.state.data.sort((a, b) => a.dateTime - b.dateTime)
 
+      if (this.state.data.length <= 0) {
+        return (
+          <div className="matches_overview__wrapper">
+            Geen wedstrijden gevonden.
+          </div>
+        )
+      }
+
       moment.locale('nl-be')
       let matchTime = moment()
 
       const ignore = this.props.exclude
 
       return (
-        <div className="matchesOverview--wrapper">
+        <div className="matches_overview__wrapper">
           {this.state.data.map((match, i) => {
             if (ignore.indexOf(match.division) !== -1) {
               return <Fragment key={i} />
@@ -68,12 +76,12 @@ class MatchesOverview extends Component {
                 <span className={'label'}>
                   {formatDivision(match.division, match.region)}
                 </span>
-                <span className={'matchesOverview__date'}>
+                <span className={'matches_overview__date'}>
                   {matchTime.format('ddd D MMMM - H:mm')}
                 </span>
 
                 {match.status ? (
-                  <span className={'label alert matchesOverview__status'}>
+                  <span className={'label alert matches_overview__status'}>
                     {mapMatchStatus(match.status)}
                   </span>
                 ) : (

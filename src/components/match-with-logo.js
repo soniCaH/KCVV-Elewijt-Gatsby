@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import ClubLogo from './clublogo'
-import { mapMatchStatus, formatDivision } from '../script/helper'
+import { mapMatchStatus, formatDivision } from '../scripts/helper'
 import './match-with-logo.scss'
 import moment from 'moment'
 import 'moment/locale/nl-be'

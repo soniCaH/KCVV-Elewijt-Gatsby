@@ -3,7 +3,7 @@ import { Link } from 'gatsby'
 
 import './page-header.scss'
 import logo from '../images/logo-flat.png'
-import bauvall from '../images/bauvall.png'
+// import bauvall from '../images/bauvall.png'
 
 /**
  * Search for the closest match of a selector.
@@ -64,7 +64,7 @@ class MenuItems extends Component {
             Home
           </Link>
         </li>
-        {/* <li>
+        <li>
           <Link to="/news/" activeClassName="active" partiallyActive={true}>
             Nieuws
           </Link>
@@ -196,7 +196,7 @@ class MenuItems extends Component {
               </Link>
             </li>
           </ul>
-        </li> */}
+        </li>
       </Fragment>
     )
   }
@@ -244,7 +244,6 @@ class PageHeader extends Component {
                 <div className="grid-x">
                   <div className="medium-4 medium-offset-8">
                     <div className="sponsors--header">
-                      <img src={bauvall} alt="Bauvall Trans" />
                     </div>
                   </div>
                 </div>

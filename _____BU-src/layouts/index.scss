@@ -5,7 +5,13 @@
 @import '~foundation-sites/scss/foundation';
 @import './vendor_font_fa';
 @import './vendor_font_simple_lines';
+
 @include foundation-everything;
+
+
+
+
+
 .button--back {
     width: 49px;
     height: 44px;
@@ -33,15 +39,6 @@
     overflow: hidden;
     }
 
-.label {
-    font-weight: bold;
-    line-height: 1;
-    text-align: center;
-    white-space: nowrap;
-    vertical-align: baseline;
-    font-family: 'Montserrat', sans-serif;
-    text-transform: uppercase;
-}
 
 .posts__cat-label {
     .post__category--club & {
@@ -80,10 +77,6 @@
     font-size: 0.9em;
 }
 
-.site-content {
-    padding-bottom: 3.75rem;
-    padding-top: 3.75rem;
-}
 
 .posts__item--card {
     .posts__thumb {
@@ -164,79 +157,8 @@
     }
 }
 
-.card__content,
-.card__footer {
-    padding: 1rem;
-}
 
-.card__header {
-    text-transform: uppercase;
-    padding: 27px 23px;
-    border-radius: 4px 4px 0 0;
-    position: relative;
-    border-bottom: 1px solid #e4e7ed;
-    overflow: hidden;
-    background-color: transparent;
-    &:before {
-        content: "";
-        display: block;
-        position: absolute;
-        width: 6px;
-        left: 0;
-        top: 0;
-        bottom: 0;
-        background-color: var(--color-green);
-        border-radius: 3px 0 0 0;
-    }
-    h4 {
-        line-height: 1;
-        margin: 0;
-        padding: 0;
-    }
-}
 
-.card__footer {
-    margin-top: -1rem;
-    padding-top: 0;
-    @include readmore-link;
-}
-
-.widget__filter {
-    border-bottom: 1px solid #e4e7ed;
-    display: flex;
-    flex-wrap: wrap;
-    list-style: none;
-    margin: 0;
-    padding: 0;
-    width: auto;
-    li {
-        flex-basis: 0;
-        -ms-flex-positive: 1;
-        flex-grow: 1;
-        text-align: center;
-    }
-    .tabs-title {
-        a {
-            color: var(--color-gray-medium);
-            border-radius: 0;
-            font-size: .6875rem;
-            line-height: 1.5em;
-            font-family: Montserrat, sans-serif;
-            text-transform: uppercase;
-            padding: 12px 6px;
-            font-weight: 700;
-            letter-spacing: -.02em;
-            transition: color .2s ease-in-out;
-            &[aria-selected='true'] {
-                background: none;
-                color: var(--color-green-dark);
-            }
-            &:hover {
-                color: var(--color-green-dark);
-            }
-        }
-    }
-}
 
 .card--kcvvtv {
     iframe {

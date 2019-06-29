@@ -47,6 +47,9 @@ class MatchesSlider extends Component {
 
   render() {
     if (this.state.loading === false && this.state.data) {
+      if (this.state.data.length <= 0) {
+        return <></>;
+      }
       const settings_slickslider = {
         slidesToShow: 4,
         slidesToScroll: 1,
