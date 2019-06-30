@@ -15,8 +15,24 @@ class IndexPage extends Component {
 
         <div className="grid-container site-content">
           <div className="grid-x grid-margin-x">
-            <section className="cell large-8">
-              FEATURED NEWS
+            <section className="cell large-8 news_overview__wrapper">
+              <article className={'news_overview__article'}>
+                LOREM IPSUM
+              </article><article className={'news_overview__article featured'}>
+                LOREM IPSUM
+              </article><article className={'news_overview__article'}>
+                LOREM IPSUM
+              </article><article className={'news_overview__article'}>
+                LOREM IPSUM
+              </article><article className={'news_overview__article featured'}>
+                LOREM IPSUM
+              </article><article className={'news_overview__article featured'}>
+                LOREM IPSUM
+              </article><article className={'news_overview__article'}>
+                LOREM IPSUM
+              </article><article className={'news_overview__article'}>
+                LOREM IPSUM
+              </article>
               {/* <FeaturedNews
                 posts={data.toppost}
                 featuredEvent={featuredEvent}

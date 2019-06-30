@@ -13,6 +13,13 @@ module.exports = {
   },
   plugins: [
     `gatsby-plugin-sass`,
+    {
+      resolve: `gatsby-source-drupal`,
+      options: {
+        baseUrl: `http://api.kcvv.test/`,
+        apiBase: `jsonapi`, // optional, defaults to `jsonapi`
+      },
+    },
     // `gatsby-plugin-react-helmet`,
     // {
     //   resolve: `gatsby-source-filesystem`,
