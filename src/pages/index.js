@@ -35,7 +35,6 @@ class IndexPage extends Component {
                             .relationships.field_media_image.localFile
                             .childImageSharp.fluid,
                           aspectRatio: 4 / 3,
-                          sizes: `768px`,
                         }}
                       />
                     )}
@@ -46,7 +45,6 @@ class IndexPage extends Component {
                             .relationships.field_media_image.localFile
                             .childImageSharp.fluid,
                           aspectRatio: 4 / 3,
-                          sizes: `375px`,
                         }}
                       />
                     )}
@@ -152,7 +150,7 @@ export const pageQuery = graphql`
                 field_media_image {
                   localFile {
                     childImageSharp {
-                      fluid {
+                      fluid(quality: 75, cropFocus: ATTENTION) {
                         base64
                         tracedSVG
                         aspectRatio
