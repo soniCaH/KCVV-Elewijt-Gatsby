@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { graphql } from 'gatsby'
+import { graphql, Link } from 'gatsby'
 import Img from 'gatsby-image'
 
 import Layout from '../layouts/index'
@@ -23,34 +23,40 @@ class IndexPage extends Component {
               {data.featuredPosts.edges.map(({ node }, i) => {
                 return (
                   <article
+                    key={i}
                     className={
                       'news_overview__article ' +
                       (node.field_featured && 'featured')
                     }
                   >
-                    {node.field_featured && (
-                      <Img
-                        fluid={{
-                          ...node.relationships.field_media_article_image
-                            .relationships.field_media_image.localFile
-                            .childImageSharp.fluid,
-                          aspectRatio: 4 / 3,
-                        }}
-                      />
-                    )}
-                    {!node.field_featured && (
-                      <Img
-                        fluid={{
-                          ...node.relationships.field_media_article_image
-                            .relationships.field_media_image.localFile
-                            .childImageSharp.fluid,
-                          aspectRatio: 4 / 3,
-                        }}
-                      />
-                    )}
+                    <header>
+                      <Link to={node.path.alias}>
+                        {node.field_featured && (
+                          <Img
+                            fluid={{
+                              ...node.relationships.field_media_article_image
+                                .relationships.field_media_image.localFile
+                                .childImageSharp.fluid,
+                              aspectRatio: 2 / 1,
+                            }}
+                          />
+                        )}
+                        {!node.field_featured && (
+                          <Img
+                            fluid={{
+                              ...node.relationships.field_media_article_image
+                                .relationships.field_media_image.localFile
+                                .childImageSharp.fluid,
+                              aspectRatio: 4 / 3,
+                            }}
+                          />
+                        )}
+                      </Link>
 
-                    {node.title}
-                    {node.body.processed}
+                      {node.title}
+                    </header>
+                    <main>{node.body.processed}</main>
+                    <footer>Social links?</footer>
                   </article>
                 )
               })}
@@ -150,19 +156,19 @@ export const pageQuery = graphql`
                 field_media_image {
                   localFile {
                     childImageSharp {
-                      fluid(quality: 75, cropFocus: ATTENTION) {
-                        base64
+                      fluid(maxWidth: 1680, quality: 75, cropFocus: ATTENTION) {
+                        # base64
                         tracedSVG
                         aspectRatio
                         src
                         srcSet
-                        srcWebp
-                        srcSetWebp
+                        # srcWebp
+                        # srcSetWebp
                         sizes
-                        originalImg
-                        originalName
-                        presentationWidth
-                        presentationHeight
+                        # originalImg
+                        # originalName
+                        # presentationWidth
+                        # presentationHeight
                       }
                     }
                   }
