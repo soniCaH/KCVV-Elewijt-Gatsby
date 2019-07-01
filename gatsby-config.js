@@ -20,6 +20,8 @@ module.exports = {
         apiBase: `jsonapi`, // optional, defaults to `jsonapi`
       },
     },
+    `gatsby-transformer-sharp`,
+    `gatsby-plugin-sharp`,
     // `gatsby-plugin-react-helmet`,
     // {
     //   resolve: `gatsby-source-filesystem`,
@@ -29,8 +31,6 @@ module.exports = {
     //   },
     // },
     // 'social-media-feed',
-    // `gatsby-transformer-sharp`,
-    // `gatsby-plugin-sharp`,
     // {
     //   resolve: `gatsby-plugin-manifest`,
     //   options: {

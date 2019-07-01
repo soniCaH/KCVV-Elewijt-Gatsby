@@ -1,9 +1,13 @@
 import React, { Component } from 'react'
+import { graphql } from 'gatsby'
+import Img from 'gatsby-image'
+
 import Layout from '../layouts/index'
+
 import SEO from '../components/seo'
-import MetaMatches from '../components/meta-matches';
-import MatchesOverview from '../components/matches-overview';
-import MatchesSlider from '../components/matches-slider';
+import MetaMatches from '../components/meta-matches'
+import MatchesOverview from '../components/matches-overview'
+import MatchesSlider from '../components/matches-slider'
 
 class IndexPage extends Component {
   render() {
@@ -16,23 +20,43 @@ class IndexPage extends Component {
         <div className="grid-container site-content">
           <div className="grid-x grid-margin-x">
             <section className="cell large-8 news_overview__wrapper">
-              <article className={'news_overview__article'}>
-                LOREM IPSUM
-              </article><article className={'news_overview__article featured'}>
-                LOREM IPSUM
-              </article><article className={'news_overview__article'}>
-                LOREM IPSUM
-              </article><article className={'news_overview__article'}>
-                LOREM IPSUM
-              </article><article className={'news_overview__article featured'}>
-                LOREM IPSUM
-              </article><article className={'news_overview__article featured'}>
-                LOREM IPSUM
-              </article><article className={'news_overview__article'}>
-                LOREM IPSUM
-              </article><article className={'news_overview__article'}>
-                LOREM IPSUM
-              </article>
+              {data.featuredPosts.edges.map(({ node }, i) => {
+                return (
+                  <article
+                    className={
+                      'news_overview__article ' +
+                      (node.field_featured && 'featured')
+                    }
+                  >
+                    {node.field_featured && (
+                      <Img
+                        fluid={{
+                          ...node.relationships.field_media_article_image
+                            .relationships.field_media_image.localFile
+                            .childImageSharp.fluid,
+                          aspectRatio: 4 / 3,
+                          sizes: `768px`,
+                        }}
+                      />
+                    )}
+                    {!node.field_featured && (
+                      <Img
+                        fluid={{
+                          ...node.relationships.field_media_article_image
+                            .relationships.field_media_image.localFile
+                            .childImageSharp.fluid,
+                          aspectRatio: 4 / 3,
+                          sizes: `375px`,
+                        }}
+                      />
+                    )}
+
+                    {node.title}
+                    {node.body.processed}
+                  </article>
+                )
+              })}
+
               {/* <FeaturedNews
                 posts={data.toppost}
                 featuredEvent={featuredEvent}
@@ -98,5 +122,60 @@ class IndexPage extends Component {
     // alert('hey');
   }
 }
+
+export const pageQuery = graphql`
+  query {
+    featuredPosts: allNodeArticle(
+      filter: { status: { eq: true }, promote: { eq: true } }
+      sort: { fields: changed, order: ASC }
+      limit: 12
+    ) {
+      edges {
+        node {
+          path {
+            alias
+          }
+          changed(formatString: "D-MM-Y")
+          title
+          promote
+          status
+          field_featured
+          body {
+            value
+            format
+            processed
+            summary
+          }
+          relationships {
+            field_media_article_image {
+              relationships {
+                field_media_image {
+                  localFile {
+                    childImageSharp {
+                      fluid {
+                        base64
+                        tracedSVG
+                        aspectRatio
+                        src
+                        srcSet
+                        srcWebp
+                        srcSetWebp
+                        sizes
+                        originalImg
+                        originalName
+                        presentationWidth
+                        presentationHeight
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+`
 
 export default IndexPage
