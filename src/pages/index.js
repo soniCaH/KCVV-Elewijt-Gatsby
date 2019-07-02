@@ -8,6 +8,7 @@ import SEO from '../components/seo'
 import MetaMatches from '../components/meta-matches'
 import MatchesOverview from '../components/matches-overview'
 import MatchesSlider from '../components/matches-slider'
+import {NewsItemCard} from '../components/news-item';
 
 class IndexPage extends Component {
   render() {
@@ -21,6 +22,9 @@ class IndexPage extends Component {
           <div className="grid-x grid-margin-x">
             <section className="cell large-8 news_overview__wrapper">
               {data.featuredPosts.edges.map(({ node }, i) => {
+                return <NewsItemCard node={node} teaser={true}></NewsItemCard>
+
+
                 return (
                   <article
                     key={i}
@@ -136,6 +140,7 @@ export const pageQuery = graphql`
     ) {
       edges {
         node {
+          id
           path {
             alias
           }
