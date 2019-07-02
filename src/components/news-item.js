@@ -15,7 +15,7 @@ export class NewsItemCard extends Component {
         fluid={{
           ...node.relationships.field_media_article_image.relationships
             .field_media_image.localFile.childImageSharp.fluid,
-          aspectRatio: 4 / 3,
+          aspectRatio: 3 / 1,
         }}
       />
     )
@@ -25,25 +25,40 @@ export class NewsItemCard extends Component {
       <article key={node.nid} className={'news_overview__article'}>
         <Link to={node.path.alias}>
           <header>
-            <figure className={"news_overview__thumb"}>
-              <Img
-                fluid={{
-                  ...node.relationships.field_media_article_image.relationships
-                    .field_media_image.localFile.childImageSharp.fluid,
-                  aspectRatio: 2 / 1,
-                }}
-              />
-            </figure>
+            <figure>{image}</figure>
           </header>
 
           <main>
-            <h3 className={"news_overview__heading"}>{node.title}</h3>
+            <h3 className={'news_overview__heading'}>{node.title}</h3>
 
-            <div className={"news_overview__summary"} dangerouslySetInnerHTML={{ __html: summary }}></div>
+            {teaser && (
+              <div
+                className={'news_overview__summary'}
+                dangerouslySetInnerHTML={{ __html: summary }}
+              ></div>
+            )}
           </main>
         </Link>
 
-        <footer className={"news_overview__footer"}>Social links?</footer>
+        <footer
+          className={'news_overview__footer article_footer--datetime-tags'}
+        >
+          <span className={'datetime'}>
+            <i class="fa fa-clock-o" aria-hidden="true"></i> {node.changed}
+          </span>
+          {node.relationships.field_tags.length > 0 && (
+            <span className={'tag__wrapper'}>
+              <i class="fa fa-tags" aria-hidden="true"></i>{' '}
+              {node.relationships.field_tags.map(({ path, name }, i) => (
+                <Link to={path.alias}>
+                  <span key={i} className={'tag__label'}>
+                    #{name}
+                  </span>
+                </Link>
+              ))}
+            </span>
+          )}
+        </footer>
 
         {/* <div
           className={

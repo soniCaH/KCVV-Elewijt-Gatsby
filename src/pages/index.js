@@ -8,7 +8,7 @@ import SEO from '../components/seo'
 import MetaMatches from '../components/meta-matches'
 import MatchesOverview from '../components/matches-overview'
 import MatchesSlider from '../components/matches-slider'
-import {NewsItemCard} from '../components/news-item';
+import { NewsItemCard } from '../components/news-item'
 
 class IndexPage extends Component {
   render() {
@@ -23,7 +23,6 @@ class IndexPage extends Component {
             <section className="cell large-8 news_overview__wrapper">
               {data.featuredPosts.edges.map(({ node }, i) => {
                 return <NewsItemCard node={node} teaser={true}></NewsItemCard>
-
 
                 return (
                   <article
@@ -144,7 +143,7 @@ export const pageQuery = graphql`
           path {
             alias
           }
-          changed(formatString: "D-MM-Y")
+          changed
           title
           promote
           status
@@ -178,6 +177,12 @@ export const pageQuery = graphql`
                     }
                   }
                 }
+              }
+            }
+            field_tags {
+              name
+              path {
+                alias
               }
             }
           }
