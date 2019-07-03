@@ -19,3 +19,15 @@
         }
     }
 }
+
+@mixin break($media) {
+    @if $media == medium-up {
+        @media only screen and (min-width: 768px) { @content; }
+    }
+    @else if $media == large-up {
+        @media only screen and (min-width: 992px) { @content; }
+    }
+    @if $media == xlarge-up {
+        @media only screen and (min-width: 1200px) { @content; }
+    }
+}

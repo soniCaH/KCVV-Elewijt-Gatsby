@@ -3,3 +3,12 @@
     padding-bottom: 1.5rem;
     padding-top: 1.5rem;
 }
+
+.featured__matches {
+    @include break(medium-up) {
+        margin-top: 1.5rem;
+    }
+    @include break(large-up) {
+        margin-top: 0;
+    }
+}

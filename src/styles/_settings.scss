@@ -107,8 +107,8 @@ $print-transparent-backgrounds: true;
 
 $breakpoints: (
   small: 0,
-  medium: 640px,
-  large: 1024px,
+  medium: 768px,
+  large: 992px,
   xlarge: 1200px,
   xxlarge: 1440px,
 );
@@ -121,8 +121,8 @@ $breakpoint-classes: (small medium large);
 $grid-row-width: $global-width;
 $grid-column-count: 12;
 $grid-column-gutter: (
-  small: 20px,
-  medium: 30px,
+  small: 1rem,
+  medium: 1rem,
 );
 $grid-column-align-edge: true;
 $grid-column-alias: 'columns';
@@ -860,7 +860,7 @@ $grid-container: $global-width;
 $grid-columns: 12;
 $grid-margin-gutters: (
   small: 20px,
-  medium: 30px
+  medium: 1rem
 );
 $grid-padding-gutters: $grid-margin-gutters;
 $grid-container-padding: $grid-padding-gutters;

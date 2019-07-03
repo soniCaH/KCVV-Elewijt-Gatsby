@@ -8,7 +8,7 @@ import SEO from '../components/seo'
 import MetaMatches from '../components/meta-matches'
 import MatchesOverview from '../components/matches-overview'
 import MatchesSlider from '../components/matches-slider'
-import { NewsItemCard } from '../components/news-item'
+import { NewsItemCard, NewsItemFeatured } from '../components/news-item'
 
 class IndexPage extends Component {
   render() {
@@ -22,52 +22,15 @@ class IndexPage extends Component {
           <div className="grid-x grid-margin-x">
             <section className="cell large-8 news_overview__wrapper">
               {data.featuredPosts.edges.map(({ node }, i) => {
-                return <NewsItemCard node={node} teaser={true}></NewsItemCard>
-
                 return (
-                  <article
-                    key={i}
-                    className={
-                      'news_overview__article ' +
-                      (node.field_featured && 'featured')
-                    }
-                  >
-                    <header>
-                      <Link to={node.path.alias}>
-                        {node.field_featured && (
-                          <Img
-                            fluid={{
-                              ...node.relationships.field_media_article_image
-                                .relationships.field_media_image.localFile
-                                .childImageSharp.fluid,
-                              aspectRatio: 2 / 1,
-                            }}
-                          />
-                        )}
-                        {!node.field_featured && (
-                          <Img
-                            fluid={{
-                              ...node.relationships.field_media_article_image
-                                .relationships.field_media_image.localFile
-                                .childImageSharp.fluid,
-                              aspectRatio: 4 / 3,
-                            }}
-                          />
-                        )}
-                      </Link>
-
-                      {node.title}
-                    </header>
-                    <main>{node.body.processed}</main>
-                    <footer>Social links?</footer>
-                  </article>
+                  <>
+                    {node.field_featured && <NewsItemFeatured node={node} />}
+                    {!node.field_featured && (
+                      <NewsItemCard node={node} teaser={true} />
+                    )}
+                  </>
                 )
               })}
-
-              {/* <FeaturedNews
-                posts={data.toppost}
-                featuredEvent={featuredEvent}
-              /> */}
             </section>
             <aside className="cell large-4">
               <section className="grid-x featured__matches grid-margin-x">

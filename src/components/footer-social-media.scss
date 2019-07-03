@@ -1,0 +1,40 @@
+.footer-social-media {
+    color: #FFF;
+    a {
+        color: #FFF;
+        img {
+            transition: all 0.5s !important;
+        }
+        &:hover {
+            color: var(--color-green);
+            img {
+                transform: scale(1.1);
+            }
+        }
+    }
+
+    .posts__title {
+        font-weight: 100;
+        text-transform: uppercase;
+        font-size: .85rem;
+        line-height: 1.1rem;
+
+        a {
+            display: block;
+            line-height: inherit;
+        }
+    }
+}
+
+.posts__item--category {
+    &--facebook {
+        .label {
+            background-color: var(--color-facebook);
+        }
+    }
+    &--instagram {
+        .label {
+            background-color: var(--color-instagram);
+        }
+    }
+}
