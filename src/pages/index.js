@@ -8,7 +8,7 @@ import SEO from '../components/seo'
 import MetaMatches from '../components/meta-matches'
 import MatchesOverview from '../components/matches-overview'
 import MatchesSlider from '../components/matches-slider'
-import { NewsItemCard, NewsItemFeatured } from '../components/news-item'
+import {  NewsItemFeatured, NewsItemCardRatio } from '../components/news-item'
 
 class IndexPage extends Component {
   render() {
@@ -26,7 +26,7 @@ class IndexPage extends Component {
                   <>
                     {node.field_featured && <NewsItemFeatured node={node} />}
                     {!node.field_featured && (
-                      <NewsItemCard node={node} teaser={true} />
+                      <NewsItemCardRatio node={node} teaser={true} />
                     )}
                   </>
                 )
@@ -124,13 +124,14 @@ export const pageQuery = graphql`
                   localFile {
                     childImageSharp {
                       fluid(maxWidth: 1680, quality: 75, cropFocus: ATTENTION) {
-                        # base64
+                        base64
+                        aspectRatio
                         tracedSVG
                         aspectRatio
                         src
                         srcSet
-                        # srcWebp
-                        # srcSetWebp
+                        srcWebp
+                        srcSetWebp
                         sizes
                         # originalImg
                         # originalName

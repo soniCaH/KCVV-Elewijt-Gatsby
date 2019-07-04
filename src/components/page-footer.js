@@ -2,7 +2,6 @@ import React, { Component } from 'react'
 
 import './page-footer.scss'
 import logo from '../images/logo-flat.png'
-// import FooterSocialMedia from './footer-social-media'
 
 class PageFooter extends Component {
   render() {

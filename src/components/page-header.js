@@ -60,7 +60,7 @@ class MenuItems extends Component {
     return (
       <Fragment>
         <li>
-          <Link to="/" activeClassName="active" partiallyActive={true}>
+          <Link to="/" activeClassName="active" partiallyActive={false}>
             Home
           </Link>
         </li>
