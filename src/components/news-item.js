@@ -19,7 +19,9 @@ export class NewsItemCard extends Component {
         }}
       />
     )
-    const summary = node.body.value.replace(/<[^>]*>?/gm, '').substr(0, 150)
+    const summary = node.body.summary
+
+    const relatedTags = node.relationships.field_tags || []
 
     return (
       <article key={node.nid} className={'news_overview__article'}>
@@ -40,16 +42,14 @@ export class NewsItemCard extends Component {
           </main>
         </Link>
 
-        <footer
-          className={'news_overview__footer article__tags'}
-        >
+        <footer className={'news_overview__footer article__tags'}>
           <span className={'datetime'}>
-            <i class="fa fa-clock-o" aria-hidden="true"></i> {node.changed}
+            <i class="fa fa-clock-o" aria-hidden="true"></i> {node.created}
           </span>
-          {node.relationships.field_tags.length > 0 && (
+          {relatedTags.length > 0 && (
             <span className={'tag__wrapper'}>
               <i class="fa fa-tags" aria-hidden="true"></i>{' '}
-              {node.relationships.field_tags.map(({ path, name }, i) => (
+              {relatedTags.map(({ path, name }, i) => (
                 <Link to={path.alias}>
                   <span key={i} className={'tag__label'}>
                     #{name}
@@ -86,7 +86,7 @@ export class NewsItemFeatured extends Component {
         className={'news_overview__article news_overview__article--featured'}
       >
         <Link to={node.path.alias}>
-          <header style={{position: 'relative'}}>
+          <header style={{ position: 'relative' }}>
             <figure>{image}</figure>
             <div class="gradient gradient--70"></div>
           </header>
@@ -94,11 +94,9 @@ export class NewsItemFeatured extends Component {
           <div className={'news_overview__featured_content'}>
             <h3 className={'news_overview__heading'}>{node.title}</h3>
 
-            <section
-              className={'news_overview__footer article__tags'}
-            >
+            <section className={'news_overview__footer article__tags'}>
               <span className={'datetime'}>
-                <i class="fa fa-clock-o" aria-hidden="true"></i> {node.changed}
+                <i class="fa fa-clock-o" aria-hidden="true"></i> {node.created}
               </span>
               {node.relationships.field_tags.length > 0 && (
                 <span className={'tag__wrapper'}>
@@ -135,9 +133,9 @@ export class NewsItemSquare extends Component {
         }}
       />
     )
-    const relatedTags =  node.relationships.field_tags || [];
+    const relatedTags = node.relationships.field_tags || []
 
-    console.log(relatedTags);
+    console.log(relatedTags)
 
     return (
       <article
@@ -153,11 +151,9 @@ export class NewsItemSquare extends Component {
           <div className={'news_overview__featured_content'}>
             <h3 className={'news_overview__heading'}>{node.title}</h3>
 
-            <section
-              className={'news_overview__footer article__tags'}
-            >
+            <section className={'news_overview__footer article__tags'}>
               <span className={'datetime'}>
-                <i class="fa fa-clock-o" aria-hidden="true"></i> {node.changed}
+                <i class="fa fa-clock-o" aria-hidden="true"></i> {node.created}
               </span>
               {relatedTags.length > 0 && (
                 <span className={'tag__wrapper'}>
