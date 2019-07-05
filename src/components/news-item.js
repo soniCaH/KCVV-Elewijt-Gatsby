@@ -41,7 +41,7 @@ export class NewsItemCard extends Component {
         </Link>
 
         <footer
-          className={'news_overview__footer article_footer--datetime-tags'}
+          className={'news_overview__footer article__tags'}
         >
           <span className={'datetime'}>
             <i class="fa fa-clock-o" aria-hidden="true"></i> {node.changed}
@@ -95,7 +95,7 @@ export class NewsItemFeatured extends Component {
             <h3 className={'news_overview__heading'}>{node.title}</h3>
 
             <section
-              className={'news_overview__footer article_footer--datetime-tags'}
+              className={'news_overview__footer article__tags'}
             >
               <span className={'datetime'}>
                 <i class="fa fa-clock-o" aria-hidden="true"></i> {node.changed}
@@ -135,6 +135,9 @@ export class NewsItemSquare extends Component {
         }}
       />
     )
+    const relatedTags =  node.relationships.field_tags || [];
+
+    console.log(relatedTags);
 
     return (
       <article
@@ -151,15 +154,15 @@ export class NewsItemSquare extends Component {
             <h3 className={'news_overview__heading'}>{node.title}</h3>
 
             <section
-              className={'news_overview__footer article_footer--datetime-tags'}
+              className={'news_overview__footer article__tags'}
             >
               <span className={'datetime'}>
                 <i class="fa fa-clock-o" aria-hidden="true"></i> {node.changed}
               </span>
-              {node.relationships.field_tags.length > 0 && (
+              {relatedTags.length > 0 && (
                 <span className={'tag__wrapper'}>
                   <i class="fa fa-tags" aria-hidden="true"></i>{' '}
-                  {node.relationships.field_tags.map(({ path, name }, i) => (
+                  {relatedTags.map(({ path, name }, i) => (
                     <Link to={path.alias}>
                       <span key={i} className={'tag__label'}>
                         #{name}

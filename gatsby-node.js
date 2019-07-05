@@ -9,6 +9,7 @@ require('dotenv').config({
   path: `.env`,
 })
 const path = require(`path`)
+const createPaginatedPages = require(`gatsby-paginate`)
 
 // Implement the Gatsby API “createPages”. This is called once the
 // data layer is bootstrapped to let plugins create pages from data.
@@ -24,6 +25,11 @@ exports.createPages = ({ actions, graphql }) => {
         allNodeArticle {
           edges {
             node {
+              title
+              changed
+              body {
+                processed
+              }
               path {
                 alias
               }
@@ -36,6 +42,17 @@ exports.createPages = ({ actions, graphql }) => {
     if (result.errors) {
       throw result.errors
     }
+
+    createPaginatedPages({
+      edges: result.data.allNodeArticle.edges,
+      createPage: createPage,
+      pageTemplate: 'src/templates/newsoverview.js',
+      pageLength: 2,
+      pathPrefix: 'news',
+      buildPath: (index, pathPrefix) =>
+        index > 1 ? `${pathPrefix}/${index}` : `/${pathPrefix}`,
+    })
+
     // Create pages for each recipe.
     result.data.allNodeArticle.edges.forEach(({ node }) => {
       createPage({

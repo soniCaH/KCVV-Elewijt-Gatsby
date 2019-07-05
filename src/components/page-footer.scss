@@ -54,6 +54,13 @@
     &__label {
         text-align: left;
         font-weight: normal;
+        padding: 0;
         text-transform: uppercase;
+    }
+
+    tbody, tr, th, td {
+        border: 0;
+        background: transparent !important;
+        padding: 0;
     }
 }

@@ -1,5 +1,7 @@
 const apiUrl = 'https://api.footbalisto.be'
 
+require("dotenv").config()
+
 module.exports = {
   siteMetadata: {
     title: `KCVV Elewijt`,
@@ -16,7 +18,7 @@ module.exports = {
     {
       resolve: `gatsby-source-drupal`,
       options: {
-        baseUrl: `http://api.kcvv.test/`,
+        baseUrl: process.env.GATSBY_API_DOMAIN,
         apiBase: `jsonapi`, // optional, defaults to `jsonapi`
       },
     },
