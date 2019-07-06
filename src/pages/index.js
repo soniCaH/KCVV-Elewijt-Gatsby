@@ -13,6 +13,7 @@ import {  NewsItemFeatured, NewsItemCardRatio } from '../components/news-item'
 class IndexPage extends Component {
   render() {
     const data = this.props.data
+    let articleCount = 0;
 
     return (
       <Layout>
@@ -22,11 +23,13 @@ class IndexPage extends Component {
           <div className="grid-x grid-margin-x">
             <section className="cell large-8 news_overview__wrapper">
               {data.featuredPosts.edges.map(({ node }, i) => {
+                {node.field_featured && (articleCount = articleCount + 2)}
+                {!node.field_featured && (articleCount++)}
                 return (
                   <>
                     {node.field_featured && <NewsItemFeatured node={node} />}
                     {!node.field_featured && (
-                      <NewsItemCardRatio node={node} teaser={true} />
+                      <NewsItemCardRatio node={node} teaser={articleCount < 7 && true} />
                     )}
                   </>
                 )

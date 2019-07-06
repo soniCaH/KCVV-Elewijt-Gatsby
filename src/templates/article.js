@@ -37,7 +37,7 @@ export default ({ data }) => {
         <header className={'article__header'}>
           <figure className={'article__header_image'}>
             {image}
-            <div className={"gradient gradient--70"}></div>
+            <div className={'gradient gradient--70'}></div>
           </figure>
           <h3 className={'article__header__heading'}>
             <span>{post.title}</span>
@@ -50,11 +50,12 @@ export default ({ data }) => {
             </div>
             <div className={'article__tags'}>
               <span className={'datetime'}>
-                <i className={"fa fa-clock-o"} aria-hidden="true"></i> {post.changed}
+                <i className={'fa fa-clock-o'} aria-hidden="true"></i>{' '}
+                {post.changed}
               </span>
               {relatedTags.length > 0 && (
                 <span className={'tag__wrapper'}>
-                  <i className={"fa fa-tags"} aria-hidden="true"></i>{' '}
+                  <i className={'fa fa-tags'} aria-hidden="true"></i>{' '}
                   {relatedTags.map(({ path, name }, i) => (
                     <Link to={path.alias} key={i}>
                       <span key={i} className={'tag__label'}>
@@ -104,9 +105,29 @@ export const query = graphql`
           name
         }
         field_related_content {
-          title
-          path {
-            alias
+          ... on node__article {
+            title
+            path {
+              alias
+            }
+          }
+          ... on node__player {
+            title
+            path {
+              alias
+            }
+          }
+          ... on node__staff {
+            title
+            path {
+              alias
+            }
+          }
+          ... on node__team {
+            path {
+              alias
+            }
+            title
           }
         }
         field_media_article_image {
