@@ -112,4 +112,30 @@ export function truncate(size, useWordBoundary = true) {
   )
 }
 
-export default { mapMatchStatus, mapDivision, formatDivision, truncate }
+/**
+ * Map a positionCode to a descriptive label.
+ *
+ * @param {string} positionCode
+ */
+export function mapPositionCode(positionCode) {
+  return getPositions().get(positionCode) || null
+}
+
+/**
+ * List of all positions, in order of position on the fields.
+ *
+ * @param {string} positionCode
+ */
+export function getPositions() {
+  const positions = new Map([
+    ['k', 'Doelman'],
+    ['d', 'Verdediger'],
+    ['m', 'Middelvelder'],
+    ['a', 'Aanvaller'],
+  ])
+  return positions;
+}
+
+
+
+export default { mapMatchStatus, mapDivision, formatDivision, truncate, mapPositionCode, getPositions }

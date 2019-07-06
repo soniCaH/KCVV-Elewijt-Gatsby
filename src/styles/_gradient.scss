@@ -10,3 +10,33 @@
         height: 70%;
     }
 }
+
+
+.bg-green-mask {
+    background-image: linear-gradient(104deg, #4B9B48 0%, rgba(75, 155, 72, 0.50) 300%);
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    overflow: hidden;
+    padding-top: 396px;
+    z-index: 2;
+}
+
+.bg-white-end {
+    background: #edeff4;
+    width: 10000px;
+    min-width: 1440px;
+    height: 10000px;
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: -110px;
+    z-index: 4;
+    transform: rotate(-6deg);
+
+    @media (min-width: 992px) {
+        transform: rotate(-2deg);
+        top: 220px;
+    }
+}

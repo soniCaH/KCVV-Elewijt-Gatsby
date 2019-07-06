@@ -22,9 +22,9 @@
         @include break(medium-up) {
             margin: 0;
             display: flex;
-    flex-direction: column;
-    height: 100%;
-    justify-content: space-between;
+            flex-direction: column;
+            height: 100%;
+            justify-content: space-between;
         }
 
         // border: 1px solid #ccc;

@@ -11,7 +11,12 @@ require('dotenv').config({
 const path = require(`path`)
 
 const gatsbyNodePageQueries = require('./src/gatsby/gatsbyNodePageQueries')
-const { createArticles, createPlayers, createOverviewNews } = require('./src/gatsby/pageCreator')
+const {
+  createArticles,
+  createPlayers,
+  createStaff,
+  createOverviewNews,
+} = require('./src/gatsby/pageCreator')
 
 const createPaginatedPages = require(`gatsby-paginate`)
 
@@ -30,6 +35,7 @@ exports.createPages = async ({ graphql, actions }) => {
   const { createPage } = actions
   const articleTemplate = path.resolve(`src/templates/article.js`)
   const playerTemplate = path.resolve(`src/templates/player.js`)
+  const staffTemplate = path.resolve(`src/templates/player-staff.js`)
   const newsOverviewTemplate = path.resolve(`src/templates/newsoverview.js`)
   const result = await wrapper(
     graphql(`
@@ -39,8 +45,16 @@ exports.createPages = async ({ graphql, actions }) => {
     `)
   )
 
-  createArticles(result.data.articles.edges, createPage, articleTemplate);
-  createPlayers(result.data.players.edges, createPage, playerTemplate);
+  createArticles(result.data.articles.edges, createPage, articleTemplate)
+  createPlayers(result.data.players.edges, createPage, playerTemplate)
+  createStaff(result.data.staff.edges, createPage, staffTemplate)
 
-  createOverviewNews(result.data.articles.edges, createPaginatedPages, createPage, newsOverviewTemplate, 'news', 5);
+  createOverviewNews(
+    result.data.articles.edges,
+    createPaginatedPages,
+    createPage,
+    newsOverviewTemplate,
+    'news',
+    5
+  )
 }

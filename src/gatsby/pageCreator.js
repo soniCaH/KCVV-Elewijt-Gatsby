@@ -11,16 +11,28 @@ const createArticles = (list, createPage, template) => {
 }
 
 const createPlayers = (list, createPage, template) => {
-    list.forEach(({ node }) => {
-      createPage({
-        path: node.path.alias,
-        component: template,
-        context: {
-          slug: node.path.alias,
-        },
-      })
+  list.forEach(({ node }) => {
+    createPage({
+      path: node.path.alias,
+      component: template,
+      context: {
+        slug: node.path.alias,
+      },
     })
-  }
+  })
+}
+
+const createStaff = (list, createPage, template) => {
+  list.forEach(({ node }) => {
+    createPage({
+      path: node.path.alias,
+      component: template,
+      context: {
+        slug: node.path.alias,
+      },
+    })
+  })
+}
 
 const createOverviewNews = (
   list,
@@ -41,4 +53,4 @@ const createOverviewNews = (
   })
 }
 
-module.exports = { createArticles, createPlayers, createOverviewNews }
+module.exports = { createArticles, createPlayers, createStaff, createOverviewNews }

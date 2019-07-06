@@ -24,6 +24,17 @@ players: allNodePlayer {
         }
     }
 }
+
+staff: allNodeStaff {
+    edges {
+        node {
+            title
+            path {
+                alias
+            }
+        }
+    }
+}
 `
 
 module.exports = gatsbyNodePageQueries
