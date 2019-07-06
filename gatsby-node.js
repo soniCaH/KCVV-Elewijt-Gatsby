@@ -9,59 +9,38 @@ require('dotenv').config({
   path: `.env`,
 })
 const path = require(`path`)
+
+const gatsbyNodePageQueries = require('./src/gatsby/gatsbyNodePageQueries')
+const { createArticles, createPlayers, createOverviewNews } = require('./src/gatsby/pageCreator')
+
 const createPaginatedPages = require(`gatsby-paginate`)
 
-// Implement the Gatsby API “createPages”. This is called once the
-// data layer is bootstrapped to let plugins create pages from data.
-exports.createPages = ({ actions, graphql }) => {
-  const { createPage } = actions
-
-  const articleTemplate = path.resolve(`src/templates/article.js`)
-
-  // Query for recipe nodes to use in creating pages.
-  return graphql(
-    `
-      {
-        allNodeArticle {
-          edges {
-            node {
-              title
-              changed
-              body {
-                processed
-              }
-              path {
-                alias
-              }
-            }
-          }
-        }
-      }
-    `
-  ).then(result => {
+// graphql function doesn't throw an error so we have to check to check for the result.errors to throw manually
+const wrapper = promise =>
+  promise.then(result => {
     if (result.errors) {
       throw result.errors
     }
-
-    createPaginatedPages({
-      edges: result.data.allNodeArticle.edges,
-      createPage: createPage,
-      pageTemplate: 'src/templates/newsoverview.js',
-      pageLength: 2,
-      pathPrefix: 'news',
-      buildPath: (index, pathPrefix) =>
-        index > 1 ? `${pathPrefix}/${index}` : `/${pathPrefix}`,
-    })
-
-    // Create pages for each recipe.
-    result.data.allNodeArticle.edges.forEach(({ node }) => {
-      createPage({
-        path: node.path.alias,
-        component: articleTemplate,
-        context: {
-          slug: node.path.alias,
-        },
-      })
-    })
+    return result
   })
+
+// Implement the Gatsby API “createPages”. This is called once the
+// data layer is bootstrapped to let plugins create pages from data.
+exports.createPages = async ({ graphql, actions }) => {
+  const { createPage } = actions
+  const articleTemplate = path.resolve(`src/templates/article.js`)
+  const playerTemplate = path.resolve(`src/templates/player.js`)
+  const newsOverviewTemplate = path.resolve(`src/templates/newsoverview.js`)
+  const result = await wrapper(
+    graphql(`
+      query {
+        ${gatsbyNodePageQueries}
+      }
+    `)
+  )
+
+  createArticles(result.data.articles.edges, createPage, articleTemplate);
+  createPlayers(result.data.players.edges, createPage, playerTemplate);
+
+  createOverviewNews(result.data.articles.edges, createPaginatedPages, createPage, newsOverviewTemplate, 'news', 5);
 }
