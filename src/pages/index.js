@@ -100,7 +100,7 @@ export const pageQuery = graphql`
   query {
     featuredPosts: allNodeArticle(
       filter: { status: { eq: true }, promote: { eq: true } }
-      sort: { fields: revision_timestamp, order: DESC }
+      sort: { fields: created, order: DESC }
       limit: 12
     ) {
       edges {
@@ -109,8 +109,7 @@ export const pageQuery = graphql`
           path {
             alias
           }
-          created
-          changed
+          created(formatString: "d/m/Y")
           title
           promote
           status

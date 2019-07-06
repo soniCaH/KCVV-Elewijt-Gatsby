@@ -51,7 +51,7 @@ export default ({ data }) => {
             <div className={'article__tags'}>
               <span className={'datetime'}>
                 <i className={'fa fa-clock-o'} aria-hidden="true"></i>{' '}
-                {post.changed}
+                {post.created}
               </span>
               {relatedTags.length > 0 && (
                 <span className={'tag__wrapper'}>
@@ -95,7 +95,7 @@ export const query = graphql`
       path {
         alias
       }
-      changed
+      created(formatString: "d/m/Y")
       body {
         processed
       }

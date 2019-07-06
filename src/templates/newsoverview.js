@@ -26,7 +26,7 @@ const NewsOverviewPage = ({ pageContext }) => {
 
       {group.map(({ node }) => (
         <div key={node.id} className="blogListing">
-          <div className="date">{node.changed}</div>
+          <div className="date">{node.created}</div>
           <Link className="blogUrl" to={node.path.alias}>
             {node.title}
           </Link>

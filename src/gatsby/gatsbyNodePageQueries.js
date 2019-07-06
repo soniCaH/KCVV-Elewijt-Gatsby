@@ -3,7 +3,7 @@ articles: allNodeArticle {
     edges {
         node {
             title
-            changed
+            created(formatString: "d/m/Y")
             body {
                 processed
             }
