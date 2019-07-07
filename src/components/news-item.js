@@ -50,7 +50,7 @@ export class NewsItemCard extends Component {
             <span className={'tag__wrapper'}>
               <i class="fa fa-tags" aria-hidden="true"></i>{' '}
               {relatedTags.map(({ path, name }, i) => (
-                <Link to={path.alias}>
+                <Link to={node.path.alias}>
                   <span key={i} className={'tag__label'}>
                     #{name}
                   </span>
