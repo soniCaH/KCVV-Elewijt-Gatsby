@@ -10,7 +10,6 @@ import PlayerDetail from '../components/player'
 export default ({ data }) => {
   const node = data.nodePlayer
 
-  console.log(node)
   return (
     <Layout>
       <SEO lang="nl-BE" title={node.title} />

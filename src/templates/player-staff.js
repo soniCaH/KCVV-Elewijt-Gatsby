@@ -7,7 +7,6 @@ import PlayerDetail from '../components/player-staff'
 export default ({ data }) => {
   const node = data.nodeStaff
 
-  console.log(node)
   return (
     <Layout>
       <SEO lang="nl-BE" title={node.title} />
