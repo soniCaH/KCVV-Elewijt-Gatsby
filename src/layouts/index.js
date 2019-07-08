@@ -3,7 +3,7 @@ import React, { Component, Fragment } from 'react'
 // import './index.scss'
 import PageHeader from '../components/page-header'
 import { PageHeaderMobile } from '../components/page-header'
-import PageFooter from '../components/page-footer';
+import PageFooter from '../components/page-footer'
 
 class Layout extends Component {
   render() {
@@ -11,12 +11,16 @@ class Layout extends Component {
 
     return (
       <Fragment>
-        <PageHeaderMobile />
-        <PageHeader />
+        <div class="off-canvas-wrapper">
+          <PageHeaderMobile />
+          <PageHeader />
 
-        {children}
+          <main class="off-canvas-content" data-off-canvas-content>
+            {children}
+          </main>
 
-        <PageFooter />
+          <PageFooter />
+        </div>
       </Fragment>
     )
   }
