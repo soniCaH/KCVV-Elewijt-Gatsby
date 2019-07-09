@@ -109,7 +109,7 @@ export const pageQuery = graphql`
           path {
             alias
           }
-          created(formatString: "d/m/Y")
+          created(formatString: "D/M/YYYY")
           title
           promote
           status

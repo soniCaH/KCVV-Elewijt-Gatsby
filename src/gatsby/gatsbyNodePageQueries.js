@@ -1,14 +1,19 @@
 const gatsbyNodePageQueries = `
-articles: allNodeArticle {
+articles: allNodeArticle(sort: {fields: created, order: DESC}) {
     edges {
         node {
             title
-            created(formatString: "d/m/Y")
+            created(formatString: "DD/MM/YYYY")
             body {
                 processed
             }
             path {
                 alias
+            }
+            relationships {
+                field_tags {
+                    name
+                }
             }
         }
     }

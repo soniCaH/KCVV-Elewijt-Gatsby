@@ -95,7 +95,7 @@ export const query = graphql`
       path {
         alias
       }
-      created(formatString: "d/m/Y")
+      created(formatString: "DD/MM/YYYY")
       body {
         processed
       }
