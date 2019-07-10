@@ -4,9 +4,6 @@ articles: allNodeArticle(sort: {fields: created, order: DESC}) {
         node {
             title
             created(formatString: "DD/MM/YYYY")
-            body {
-                processed
-            }
             path {
                 alias
             }
@@ -40,6 +37,17 @@ staff: allNodeStaff {
         }
     }
 }
+
+categories: allTaxonomyTermCategory {
+    edges {
+      node {
+        name
+        path {
+          alias
+        }
+      }
+    }
+  }
 `
 
 module.exports = gatsbyNodePageQueries

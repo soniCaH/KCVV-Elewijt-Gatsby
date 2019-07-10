@@ -53,4 +53,22 @@ const createOverviewNews = (
   })
 }
 
-module.exports = { createArticles, createPlayers, createStaff, createOverviewNews }
+const createCategoryPages = (list, createPage, template) => {
+  list.forEach(({ node }) => {
+    createPage({
+      path: node.path.alias,
+      component: template,
+      context: {
+        slug: node.path.alias,
+      },
+    })
+  })
+}
+
+module.exports = {
+  createArticles,
+  createPlayers,
+  createStaff,
+  createOverviewNews,
+  createCategoryPages,
+}

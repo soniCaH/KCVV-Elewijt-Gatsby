@@ -16,6 +16,7 @@ const {
   createPlayers,
   createStaff,
   createOverviewNews,
+  createCategoryPages,
 } = require('./src/gatsby/pageCreator')
 
 const createPaginatedPages = require(`gatsby-paginate`)
@@ -37,6 +38,7 @@ exports.createPages = async ({ graphql, actions }) => {
   const playerTemplate = path.resolve(`src/templates/player.js`)
   const staffTemplate = path.resolve(`src/templates/player-staff.js`)
   const newsOverviewTemplate = path.resolve(`src/templates/newsoverview.js`)
+  const categoryTemplate = path.resolve(`src/templates/categoryPage.js`)
   const result = await wrapper(
     graphql(`
       query {
@@ -56,5 +58,11 @@ exports.createPages = async ({ graphql, actions }) => {
     newsOverviewTemplate,
     'news',
     20
+  )
+
+  createCategoryPages(
+    result.data.categories.edges,
+    createPage,
+    categoryTemplate
   )
 }
