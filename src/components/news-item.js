@@ -19,7 +19,7 @@ export class NewsItemCard extends Component {
         }}
       />
     )
-    const summary = node.body.summary
+    const summary = teaser && node.body.summary
 
     const relatedTags = node.relationships.field_tags || []
 
@@ -27,7 +27,7 @@ export class NewsItemCard extends Component {
       <article key={node.nid} className={'news_overview__article'}>
         <Link to={node.path.alias}>
           <header>
-            <figure>{image}</figure>
+            <figure className={"article__teaser_image"}>{image}</figure>
           </header>
 
           <main>

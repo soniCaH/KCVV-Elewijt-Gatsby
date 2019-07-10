@@ -10,6 +10,8 @@ import MatchesOverview from '../components/matches-overview'
 import MatchesSlider from '../components/matches-slider'
 import {  NewsItemFeatured, NewsItemCardRatio } from '../components/news-item'
 
+const items_page = 8;
+
 class IndexPage extends Component {
   render() {
     const data = this.props.data
@@ -25,11 +27,12 @@ class IndexPage extends Component {
               {data.featuredPosts.edges.map(({ node }, i) => {
                 {node.field_featured && (articleCount = articleCount + 2)}
                 {!node.field_featured && (articleCount++)}
+                console.log(articleCount);
                 return (
                   <>
-                    {node.field_featured && <NewsItemFeatured node={node} />}
-                    {!node.field_featured && (
-                      <NewsItemCardRatio node={node} teaser={articleCount < 7 && true} />
+                    {(node.field_featured || articleCount > items_page) && <NewsItemFeatured node={node} />}
+                    {!node.field_featured && articleCount <= items_page && (
+                      <NewsItemCardRatio node={node} teaser={true} />
                     )}
                   </>
                 )
@@ -42,9 +45,9 @@ class IndexPage extends Component {
                     <h4>The A-Team</h4>
                   </header>
                   <MetaMatches
-                    season="1819"
+                    season="1920"
                     region="bra"
-                    division="3C"
+                    division="2A"
                     regnumber="00055"
                   />
                 </article>
@@ -53,7 +56,7 @@ class IndexPage extends Component {
                     <h4>The B-Team</h4>
                   </header>
                   <MetaMatches
-                    season="1819"
+                    season="1920"
                     region="bra"
                     division="4D"
                     regnumber="00055"
@@ -75,8 +78,12 @@ class IndexPage extends Component {
           </div>
         </div>
 
-        <div className="grid-container full">
+        <div className={"grid-container full"}>
           <MatchesSlider season="1819" regnumber="00055" />
+        </div>
+
+        <div className={"grid-container full"}>
+          FEATURED STUFF
         </div>
 
         <div className="grid-container site-content">
@@ -101,7 +108,7 @@ export const pageQuery = graphql`
     featuredPosts: allNodeArticle(
       filter: { status: { eq: true }, promote: { eq: true } }
       sort: { fields: created, order: DESC }
-      limit: 12
+      limit: 8
     ) {
       edges {
         node {

@@ -4,7 +4,7 @@ import Layout from '../layouts/index'
 import SEO from '../components/seo'
 import Img from 'gatsby-image'
 
-import './article.scss'
+import './categoryPage.scss'
 
 String.prototype.replaceAll = function(search, replacement) {
   var target = this
@@ -13,17 +13,17 @@ String.prototype.replaceAll = function(search, replacement) {
 
 export default ({ data }) => {
   const info = data.allTaxonomyTermCategory.group
+  const tagName = info[0].fieldValue
   const post = data.allTaxonomyTermCategory.edges[0].node
-
-  console.log({ info, post })
+  const articles = post.relationships.node__article.slice(0, 19)
 
   return (
     <Layout>
-      <SEO lang="nl-BE" title={info.name} />
+      <SEO lang="nl-BE" title={tagName} />
 
-      <article className={'category__wrapper'}>
+      <section className={'category__wrapper'}>
         <header className={'player-detail__header'}>
-          <h1 className={'player-detail__name'}>{info[0].fieldValue}</h1>
+          <h1 className={'player-detail__name'}>#{tagName}</h1>
 
           <div className={'bg-green-mask'}>
             <div className={'bg-white-end'} />
@@ -38,10 +38,37 @@ export default ({ data }) => {
 
         <div className={'player-break'}></div>
         <main className={'category__content_wrapper'}>
-          Lorem Ipsum enz Lorem Ipsum enz Lorem Ipsum enz Lorem Ipsum enz Lorem
-          Ipsum enz
+          {articles.map((article, i) => {
+            const image = (
+              <Img
+                fixed={{
+                  ...article.relationships.field_media_article_image
+                    .relationships.field_media_image.localFile.childImageSharp
+                    .fixed,
+                }}
+              />
+            )
+            return (
+              <Link
+                to="{article.path.alias}"
+                className={'category__content_link'}
+                key={i}
+              >
+                <article className={'category__content_row'}>
+                  <figure>{image}</figure>
+                  <main>
+                    <h3>{article.title}</h3>
+                    <div
+                      className={'news_overview__summary'}
+                      dangerouslySetInnerHTML={{ __html: article.body.summary }}
+                    ></div>
+                  </main>
+                </article>
+              </Link>
+            )
+          })}
         </main>
-      </article>
+      </section>
     </Layout>
   )
 }
@@ -59,8 +86,38 @@ export const query = graphql`
             node__article {
               created
               title
+              body {
+                summary
+              }
               path {
                 alias
+              }
+              relationships {
+                field_media_article_image {
+                  relationships {
+                    field_media_image {
+                      localFile {
+                        childImageSharp {
+                          fixed(width: 125, height: 125) {
+                            ...GatsbyImageSharpFixed
+                            base64
+                            aspectRatio
+                            tracedSVG
+                            aspectRatio
+                            src
+                            srcSet
+                            srcWebp
+                            srcSetWebp
+                            # originalImg
+                            # originalName
+                            # presentationWidth
+                            # presentationHeight
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
               }
             }
           }
