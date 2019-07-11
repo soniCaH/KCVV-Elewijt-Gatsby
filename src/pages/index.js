@@ -81,8 +81,8 @@ class IndexPage extends Component {
           </div>
         </div>
 
-        <div className={"grid-container full"}>
-          <MatchesSlider season="1819" regnumber="00055" />
+        <div className={'grid-container full'}>
+          <MatchesSlider season="1920" regnumber="00055" />
         </div>
 
         <div className={'grid-container full'}>FEATURED STUFF</div>

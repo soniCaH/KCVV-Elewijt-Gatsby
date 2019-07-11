@@ -1,3 +1,6 @@
+@import "~slick-carousel/slick/slick.css";
+@import "~slick-carousel/slick/slick-theme.css";
+
 .matchesSlider--wrapper {
   background: white;
   padding: 2em 0;
@@ -29,9 +32,11 @@
   }
   .slick-prev {
     left: 0;
+    z-index: 5;
   }
   .slick-next {
     right: 0;
+    z-index: 5;
   }
 
   .match-details__logo {
