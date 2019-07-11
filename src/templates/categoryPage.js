@@ -15,7 +15,9 @@ export default ({ data }) => {
   const info = data.allTaxonomyTermCategory.group
   const tagName = info[0].fieldValue
   const post = data.allTaxonomyTermCategory.edges[0].node
-  const articles = post.relationships.node__article && post.relationships.node__article.slice(0, 19)
+  const articles =
+    post.relationships.node__article &&
+    post.relationships.node__article.slice(0, 19)
 
   return (
     <Layout>
@@ -44,7 +46,7 @@ export default ({ data }) => {
             )
             return (
               <Link
-                to="{article.path.alias}"
+                to={article.path.alias}
                 className={'category__content_link'}
                 key={i}
               >
