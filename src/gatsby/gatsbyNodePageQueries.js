@@ -50,4 +50,4 @@ categories: allTaxonomyTermCategory {
   }
 `
 
-export default gatsbyNodePageQueries
+module.exports = gatsbyNodePageQueries

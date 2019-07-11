@@ -65,10 +65,10 @@ const createCategoryPages = (list, createPage, template) => {
   })
 }
 
-export default {
+module.exports = {
   createArticles,
   createPlayers,
   createStaff,
   createOverviewNews,
   createCategoryPages,
-};
+}
