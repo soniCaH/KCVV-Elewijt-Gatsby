@@ -181,6 +181,7 @@ export const pageQuery = graphql`
         promote: { eq: true }
       }
       sort: { fields: created, order: DESC }
+      limit: 4
     ) {
       edges {
         node {
