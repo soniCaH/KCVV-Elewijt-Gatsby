@@ -7,7 +7,7 @@ class MiniRanking extends Component {
     }
 
     this.props.ranking.sort((a, b) => {
-      return a && (a.position - b.position)
+      return a && a.position - b.position
     })
 
     return (
@@ -21,12 +21,14 @@ class MiniRanking extends Component {
         </thead>
         <tbody>
           {this.props.ranking.map((rank, i) => {
-            return rank && (
-              <tr key={i}>
-                <td>{rank.position}</td>
-                <td>{rank.team}</td>
-                <td>{rank.points}</td>
-              </tr>
+            return (
+              rank && (
+                <tr key={i}>
+                  <td>{rank.position}</td>
+                  <td>{rank.team}</td>
+                  <td>{rank.points}</td>
+                </tr>
+              )
             )
           })}
         </tbody>

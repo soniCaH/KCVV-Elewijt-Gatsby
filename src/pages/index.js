@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
-import { graphql, Link } from 'gatsby'
-import Img from 'gatsby-image'
+import { graphql } from 'gatsby'
 
 import Layout from '../layouts/index'
 
@@ -8,14 +7,14 @@ import SEO from '../components/seo'
 import MetaMatches from '../components/meta-matches'
 import MatchesOverview from '../components/matches-overview'
 import MatchesSlider from '../components/matches-slider'
-import {  NewsItemFeatured, NewsItemCardRatio } from '../components/news-item'
+import { NewsItemFeatured, NewsItemCardRatio } from '../components/news-item'
 
-const items_page = 8;
+const items_page = 8
 
 class IndexPage extends Component {
   render() {
     const data = this.props.data
-    let articleCount = 0;
+    let articleCount = 0
 
     return (
       <Layout>
@@ -25,12 +24,16 @@ class IndexPage extends Component {
           <div className="grid-x grid-margin-x">
             <section className="cell large-8 news_overview__wrapper">
               {data.featuredPosts.edges.map(({ node }, i) => {
-                {node.field_featured && (articleCount = articleCount + 2)}
-                {!node.field_featured && (articleCount++)}
-                console.log(articleCount);
+                // Keep track of articleCount to properly place/align.
+                // Featured articles span 2 columns.
+                node.field_featured && (articleCount = articleCount + 2)
+                !node.field_featured && articleCount++
+
                 return (
                   <>
-                    {(node.field_featured || articleCount > items_page) && <NewsItemFeatured node={node} />}
+                    {(node.field_featured || articleCount > items_page) && (
+                      <NewsItemFeatured node={node} />
+                    )}
                     {!node.field_featured && articleCount <= items_page && (
                       <NewsItemCardRatio node={node} teaser={true} />
                     )}
@@ -82,9 +85,7 @@ class IndexPage extends Component {
           <MatchesSlider season="1819" regnumber="00055" />
         </div>
 
-        <div className={"grid-container full"}>
-          FEATURED STUFF
-        </div>
+        <div className={'grid-container full'}>FEATURED STUFF</div>
 
         <div className="grid-container site-content">
           <div className="grid-x grid-margin-x">

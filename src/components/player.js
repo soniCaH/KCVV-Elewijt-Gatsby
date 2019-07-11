@@ -1,6 +1,4 @@
 import React, { Component } from 'react'
-import { Link } from 'gatsby'
-import Img from 'gatsby-image'
 import { mapPositionCode } from '../scripts/helper'
 
 import './player.scss'
@@ -33,7 +31,11 @@ class PlayerDetail extends Component {
           <div className={'bg-green-mask'}>
             <div
               className={'player-detail__bg-avatar'}
-              style={player.relationships.field_image && { backgroundImage: `url(${player.relationships.field_image.localFile.url})` }}
+              style={
+                player.relationships.field_image && {
+                  backgroundImage: `url(${player.relationships.field_image.localFile.url})`,
+                }
+              }
             />
             <div className={'bg-white-end'} />
           </div>
@@ -108,8 +110,8 @@ class PlayerDetail extends Component {
           </div>
         </section>
         <section className={'player-detail__body'}>
-            <div dangerouslySetInnerHTML={{ __html: cleanBody }} />
-          </section>
+          <div dangerouslySetInnerHTML={{ __html: cleanBody }} />
+        </section>
       </article>
     )
   }

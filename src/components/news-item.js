@@ -135,8 +135,6 @@ export class NewsItemSquare extends Component {
     )
     const relatedTags = node.relationships.field_tags || []
 
-    console.log(relatedTags)
-
     return (
       <article
         key={node.nid}

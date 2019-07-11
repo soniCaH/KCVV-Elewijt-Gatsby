@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React from 'react'
 import Link from 'gatsby-link'
 import Layout from '../layouts/index'
 import SEO from '../components/seo'
@@ -14,8 +14,8 @@ const NavLink = props => {
 }
 
 const NewsOverviewPage = ({ pageContext }) => {
-  const { group, index, first, last, pageCount, pathPrefix } = pageContext
-  let previousUrl = index - 1 == 1 ? '/' : (index - 1).toString()
+  const { group, index, first, last, pathPrefix } = pageContext
+  let previousUrl = index - 1 === 1 ? '/' : (index - 1).toString()
   let nextUrl = (index + 1).toString()
   if (pathPrefix) {
     previousUrl = pathPrefix + '/' + previousUrl
@@ -30,25 +30,12 @@ const NewsOverviewPage = ({ pageContext }) => {
         <h2>Nieuwsarchief KCVV Elewijt.be</h2>
         <div className="grid-x grid-margin-x">
           {group.map(({ node }) => {
-            const relatedTags = node.relationships.field_tags || []
             return (
               <div key={node.id} className="archive__wrapper cell">
                 <div className="date">{node.created}</div>
                 <Link className="blogUrl" to={node.path.alias}>
                   {node.title}
                 </Link>
-                {/* {relatedTags.length > 0 && (
-                  <span className={'tag__wrapper'}>
-                    <i class="fa fa-tags" aria-hidden="true"></i>{' '}
-                    {relatedTags.map(({ path, name }, i) => (
-                      <Link to={node.path.alias}>
-                        <span key={i} className={'tag__label'}>
-                          #{name}
-                        </span>
-                      </Link>
-                    ))}
-                  </span>
-                )} */}
               </div>
             )
           })}

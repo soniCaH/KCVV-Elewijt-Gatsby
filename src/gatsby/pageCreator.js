@@ -44,10 +44,10 @@ const createOverviewNews = (
 ) => {
   createPaginatedPages({
     edges: list,
-    createPage: createPage,
+    createPage,
     pageTemplate: template,
     pageLength: itemsPerPage,
-    pathPrefix: pathPrefix,
+    pathPrefix,
     buildPath: (index, pathPrefix) =>
       index > 1 ? `${pathPrefix}/${index}` : `/${pathPrefix}`,
   })
@@ -65,10 +65,10 @@ const createCategoryPages = (list, createPage, template) => {
   })
 }
 
-module.exports = {
+export default {
   createArticles,
   createPlayers,
   createStaff,
   createOverviewNews,
   createCategoryPages,
-}
+};

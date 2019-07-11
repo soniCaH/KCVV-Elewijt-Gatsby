@@ -25,8 +25,10 @@ const getClosest = (elem, selector) => {
       Element.prototype.oMatchesSelector ||
       Element.prototype.webkitMatchesSelector ||
       function(s) {
-        const matches = (this.document || this.ownerDocument).querySelectorAll(s);
-        let i = matches.length;
+        const matches = (this.document || this.ownerDocument).querySelectorAll(
+          s
+        )
+        let i = matches.length
         while (--i >= 0 && matches.item(i) !== this) {}
         return i > -1
       }
@@ -38,7 +40,7 @@ const getClosest = (elem, selector) => {
   }
 
   return null
-};
+}
 
 /**
  * Render the menu items with proper <Link>'s.
@@ -80,22 +82,38 @@ class MenuItems extends Component {
           </Link>
           <ul className="vertical menu submenu">
             <li>
-              <Link to="/a-team/matches/" activeClassName="active" partiallyActive={true}>
+              <Link
+                to="/a-team/matches/"
+                activeClassName="active"
+                partiallyActive={true}
+              >
                 Wedstrijden
               </Link>
             </li>
             <li>
-              <Link to="/a-team/ranking/" activeClassName="active" partiallyActive={true}>
+              <Link
+                to="/a-team/ranking/"
+                activeClassName="active"
+                partiallyActive={true}
+              >
                 Ranking
               </Link>
             </li>
             <li>
-              <Link to="/a-team/staff/" activeClassName="active" partiallyActive={true}>
+              <Link
+                to="/a-team/staff/"
+                activeClassName="active"
+                partiallyActive={true}
+              >
                 Staff
               </Link>
             </li>
             <li>
-              <Link to="/a-team/players/" activeClassName="active" partiallyActive={true}>
+              <Link
+                to="/a-team/players/"
+                activeClassName="active"
+                partiallyActive={true}
+              >
                 Spelers
               </Link>
             </li>
@@ -107,22 +125,38 @@ class MenuItems extends Component {
           </Link>
           <ul className="vertical menu submenu">
             <li>
-              <Link to="/b-team/matches/" activeClassName="active" partiallyActive={true}>
+              <Link
+                to="/b-team/matches/"
+                activeClassName="active"
+                partiallyActive={true}
+              >
                 Wedstrijden
               </Link>
             </li>
             <li>
-              <Link to="/b-team/ranking/" activeClassName="active" partiallyActive={true}>
+              <Link
+                to="/b-team/ranking/"
+                activeClassName="active"
+                partiallyActive={true}
+              >
                 Ranking
               </Link>
             </li>
             <li>
-              <Link to="/b-team/staff/" activeClassName="active" partiallyActive={true}>
+              <Link
+                to="/b-team/staff/"
+                activeClassName="active"
+                partiallyActive={true}
+              >
                 Staff
               </Link>
             </li>
             <li>
-              <Link to="/b-team/players/" activeClassName="active" partiallyActive={true}>
+              <Link
+                to="/b-team/players/"
+                activeClassName="active"
+                partiallyActive={true}
+              >
                 Spelers
               </Link>
             </li>
@@ -134,37 +168,65 @@ class MenuItems extends Component {
           </Link>
           <ul className="vertical menu submenu">
             <li>
-              <Link to="/youth/u13/" activeClassName="active" partiallyActive={true}>
+              <Link
+                to="/youth/u13/"
+                activeClassName="active"
+                partiallyActive={true}
+              >
                 U13
               </Link>
             </li>
             <li>
-              <Link to="/youth/u11/" activeClassName="active" partiallyActive={true}>
+              <Link
+                to="/youth/u11/"
+                activeClassName="active"
+                partiallyActive={true}
+              >
                 U11
               </Link>
             </li>
             <li>
-              <Link to="/youth/u10/" activeClassName="active" partiallyActive={true}>
+              <Link
+                to="/youth/u10/"
+                activeClassName="active"
+                partiallyActive={true}
+              >
                 U10
               </Link>
             </li>
             <li>
-              <Link to="/youth/u9/" activeClassName="active" partiallyActive={true}>
+              <Link
+                to="/youth/u9/"
+                activeClassName="active"
+                partiallyActive={true}
+              >
                 U9
               </Link>
             </li>
             <li>
-              <Link to="/youth/u8/" activeClassName="active" partiallyActive={true}>
+              <Link
+                to="/youth/u8/"
+                activeClassName="active"
+                partiallyActive={true}
+              >
                 U8
               </Link>
             </li>
             <li>
-              <Link to="/youth/u7/" activeClassName="active" partiallyActive={true}>
+              <Link
+                to="/youth/u7/"
+                activeClassName="active"
+                partiallyActive={true}
+              >
                 U7
               </Link>
             </li>
             <li>
-              <Link to="/youth/u6/" activeClassName="active" partiallyActive={true}>
+              <Link
+                to="/youth/u6/"
+                activeClassName="active"
+                partiallyActive={true}
+              >
                 U6
               </Link>
             </li>
@@ -181,17 +243,29 @@ class MenuItems extends Component {
           </Link>
           <ul className="vertical menu submenu">
             <li>
-              <Link to="/club/history/" activeClassName="active" partiallyActive={true}>
+              <Link
+                to="/club/history/"
+                activeClassName="active"
+                partiallyActive={true}
+              >
                 Geschiedenis
               </Link>
             </li>
             <li>
-              <Link to="/club/responsibilities/" activeClassName="active" partiallyActive={true}>
+              <Link
+                to="/club/responsibilities/"
+                activeClassName="active"
+                partiallyActive={true}
+              >
                 Verantwoordelijkheden
               </Link>
             </li>
             <li>
-              <Link to="/club/contact/" activeClassName="active" partiallyActive={true}>
+              <Link
+                to="/club/contact/"
+                activeClassName="active"
+                partiallyActive={true}
+              >
                 Contact
               </Link>
             </li>
@@ -226,13 +300,13 @@ class PageHeader extends Component {
               data-toggle="responsiveNavigation"
             />
             <div className="header-mobile__logo">
-            <Link to="/">
+              <Link to="/">
                 <img
                   src={logo}
                   alt="KCVV Elewijt"
                   className="header-mobile__logo-img"
                 />
-                </Link>
+              </Link>
             </div>
           </div>
           {/* <!-- END MOBILE NAV BAR --> */}
@@ -243,8 +317,7 @@ class PageHeader extends Component {
               <div className="grid-container">
                 <div className="grid-x">
                   <div className="medium-4 medium-offset-8">
-                    <div className="sponsors--header">
-                    </div>
+                    <div className="sponsors--header"></div>
                   </div>
                 </div>
               </div>
@@ -254,13 +327,13 @@ class PageHeader extends Component {
                 <div className="header__primary-inner">
                   {/* LOGO */}
                   <div className="header-logo">
-                   <Link to="/">
+                    <Link to="/">
                       <img
                         src={logo}
                         alt="KCVV Elewijt"
                         className="header__logo-img"
                       />
-                      </Link>
+                    </Link>
                   </div>
                   <nav className="main-nav">
                     <ul
@@ -315,7 +388,7 @@ export class PageHeaderMobile extends Component {
                 alt="KCVV Elewijt"
                 className="header-mobile__logo-img"
               />
-              </Link>
+            </Link>
           </div>
 
           <MenuItems />

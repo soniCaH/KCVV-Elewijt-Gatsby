@@ -66,7 +66,7 @@ class MatchesOverview extends Component {
       return (
         <div className="matches_overview__wrapper">
           {this.state.data.map((match, i) => {
-            if (ignore.indexOf(match.division) !== -1) {
+            if (ignore.includes(match.division)) {
               return <Fragment key={i} />
             }
 
@@ -94,7 +94,7 @@ class MatchesOverview extends Component {
             )
           })}
         </div>
-      )
+      );
     } else {
       return <div>Loading...</div>
     }

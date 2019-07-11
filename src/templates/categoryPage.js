@@ -7,7 +7,7 @@ import Img from 'gatsby-image'
 import './categoryPage.scss'
 
 String.prototype.replaceAll = function(search, replacement) {
-  var target = this
+  const target = this;
   return target.replace(new RegExp(search, 'g'), replacement)
 }
 
@@ -34,11 +34,11 @@ export default ({ data }) => {
 
         <div className={'player-break'}></div>
         <main className={'category__content_wrapper'}>
-          {articles.map((article, i) => {
+          {articles && articles.map(({relationships, path, title, body}, i) => {
             const image = (
               <Img
                 fixed={{
-                  ...article.relationships.field_media_article_image
+                  ...relationships.field_media_article_image
                     .relationships.field_media_image.localFile.childImageSharp
                     .fixed,
                 }}
@@ -46,27 +46,27 @@ export default ({ data }) => {
             )
             return (
               <Link
-                to={article.path.alias}
+                to={path.alias}
                 className={'category__content_link'}
                 key={i}
               >
                 <article className={'category__content_row'}>
                   <figure>{image}</figure>
                   <main>
-                    <h3>{article.title}</h3>
+                    <h3>{title}</h3>
                     <div
                       className={'news_overview__summary'}
-                      dangerouslySetInnerHTML={{ __html: article.body.summary }}
+                      dangerouslySetInnerHTML={{ __html: body.summary }}
                     ></div>
                   </main>
                 </article>
               </Link>
-            )
+            );
           })}
         </main>
       </section>
     </Layout>
-  )
+  );
 }
 
 export const query = graphql`

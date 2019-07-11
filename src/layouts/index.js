@@ -11,11 +11,11 @@ class Layout extends Component {
 
     return (
       <Fragment>
-        <div className={"off-canvas-wrapper"}>
+        <div className={'off-canvas-wrapper'}>
           <PageHeaderMobile />
           <PageHeader />
 
-          <main className={"off-canvas-content"} data-off-canvas-content>
+          <main className={'off-canvas-content'} data-off-canvas-content>
             {children}
           </main>
 
