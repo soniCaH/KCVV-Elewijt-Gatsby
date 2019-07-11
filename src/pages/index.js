@@ -71,9 +71,9 @@ class IndexPage extends Component {
                     <h4>Jeugdploegen</h4>
                   </header>
                   <MatchesOverview
-                    season="1819"
+                    season="1920"
                     regnumber="00055"
-                    exclude="['3C', '4D']"
+                    exclude="['2A', '4D']"
                   />
                 </article>
               </section>

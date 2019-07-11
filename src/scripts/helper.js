@@ -59,7 +59,7 @@ export function replaceFirstCharIfNumber(division) {
  * @param {string} level
  */
 export function outputDivision(divisionArray, level = '') {
-  if (divisionArray[0] === 'BCD') {
+  if (divisionArray[0] === 'BCA') {
     return `Beker van Brabant`
   } else if (divisionArray[2] <= 4) {
     return `${divisionArray[2]}e ${level !== 'nat' ? 'Prov.' : 'Nationale'} ${
