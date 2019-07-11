@@ -15,7 +15,7 @@ export default ({ data }) => {
   const info = data.allTaxonomyTermCategory.group
   const tagName = info[0].fieldValue
   const post = data.allTaxonomyTermCategory.edges[0].node
-  const articles = post.relationships.node__article.slice(0, 19)
+  const articles = post.relationships.node__article && post.relationships.node__article.slice(0, 19)
 
   return (
     <Layout>
@@ -28,12 +28,6 @@ export default ({ data }) => {
           <div className={'bg-green-mask'}>
             <div className={'bg-white-end'} />
           </div>
-        </header>
-
-        <header className={'article__header'}>
-          <h3 className={'article__header__heading'}>
-            <span>{info.name}</span>
-          </h3>
         </header>
 
         <div className={'player-break'}></div>

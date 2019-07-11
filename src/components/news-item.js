@@ -27,7 +27,7 @@ export class NewsItemCard extends Component {
       <article key={node.nid} className={'news_overview__article'}>
         <Link to={node.path.alias}>
           <header>
-            <figure className={"article__teaser_image"}>{image}</figure>
+            <figure>{image}</figure>
           </header>
 
           <main>

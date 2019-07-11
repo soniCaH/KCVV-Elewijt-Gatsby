@@ -118,7 +118,7 @@ class PageFooter extends Component {
           </div>
 
           <div className="small-12 large-6 cell">
-            // SPONSORS //
+            /-- SPONSORS --/
             {/* <FooterSocialMedia /> */}
           </div>
         </div>

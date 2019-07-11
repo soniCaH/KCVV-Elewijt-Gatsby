@@ -1,7 +1,4 @@
 import React, { Component } from 'react'
-import { Link } from 'gatsby'
-import Img from 'gatsby-image'
-import { mapPositionCode } from '../scripts/helper'
 
 import './player.scss'
 
@@ -42,33 +39,6 @@ class PlayerDetail extends Component {
             {player.field_position_short || ''}
           </div>
         </header>
-
-        {/* <aside className={'player-detail__statistics'}>
-            <section className={'player-detail__statistics-item'}>
-              <div className={'player-detail__statistics-item__number'}>30</div>
-              <div className={'player-detail__statistics-item__label'}>
-                Wedstrijden
-              </div>
-            </section>
-            <section className={'player-detail__statistics-item'}>
-              <div className={'player-detail__statistics-item__number'}>19</div>
-              <div className={'player-detail__statistics-item__label'}>
-                Doelpunten
-              </div>
-            </section>
-            <section className={'player-detail__statistics-item'}>
-              <div className={'player-detail__statistics-item__number'}>5</div>
-              <div className={'player-detail__statistics-item__label'}>
-                Gele kaarten
-              </div>
-            </section>
-            <section className={'player-detail__statistics-item'}>
-              <div className={'player-detail__statistics-item__number'}>0</div>
-              <div className={'player-detail__statistics-item__label'}>
-                Rode kaarten
-              </div>
-            </section>
-          </aside> */}
 
         <div className={'player-break'}></div>
 
