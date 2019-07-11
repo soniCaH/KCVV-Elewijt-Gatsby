@@ -176,6 +176,7 @@ export class NewsItemSquare extends Component {
 export class NewsItemCardRatio extends Component {
   render() {
     const { node, teaser = false } = this.props
+
     const aspectRatio =
       node.relationships.field_media_article_image.relationships
         .field_media_image.localFile.childImageSharp.fluid.aspectRatio

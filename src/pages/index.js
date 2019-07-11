@@ -8,6 +8,7 @@ import MetaMatches from '../components/meta-matches'
 import MatchesOverview from '../components/matches-overview'
 import MatchesSlider from '../components/matches-slider'
 import { NewsItemFeatured, NewsItemCardRatio } from '../components/news-item'
+import FeaturedSection from '../components/featured-section'
 
 const items_page = 8
 
@@ -20,7 +21,12 @@ class IndexPage extends Component {
       <Layout>
         <SEO lang="nl-BE" title="Er is maar één plezante compagnie" />
 
-        <div className="grid-container site-content">
+
+        <section className={'grid-container full'}>
+          <FeaturedSection articles={data.featuredTransfers} title="Transfernieuws" link="/category/transfernieuws" />
+        </section>
+
+        <section className="grid-container site-content">
           <div className="grid-x grid-margin-x">
             <section className="cell large-8 news_overview__wrapper">
               {data.featuredPosts.edges.map(({ node }, i) => {
@@ -79,13 +85,15 @@ class IndexPage extends Component {
               </section>
             </aside>
           </div>
-        </div>
+        </section>
 
-        <div className={'grid-container full'}>
+        <section className={'grid-container full'}>
           <MatchesSlider season="1920" regnumber="00055" />
-        </div>
+        </section>
 
-        <div className={'grid-container full'}>FEATURED STUFF</div>
+        <section className={'grid-container full'}>
+          <FeaturedSection articles={data.featuredTransfers} title="Transfernieuws" link="/category/transfernieuws" />
+        </section>
 
         <div className="grid-container site-content">
           <div className="grid-x grid-margin-x">
@@ -110,6 +118,69 @@ export const pageQuery = graphql`
       filter: { status: { eq: true }, promote: { eq: true } }
       sort: { fields: created, order: DESC }
       limit: 8
+    ) {
+      edges {
+        node {
+          id
+          path {
+            alias
+          }
+          created(formatString: "D/M/YYYY")
+          title
+          promote
+          status
+          field_featured
+          body {
+            value
+            format
+            processed
+            summary
+          }
+          relationships {
+            field_media_article_image {
+              relationships {
+                field_media_image {
+                  localFile {
+                    childImageSharp {
+                      fluid(maxWidth: 1680, quality: 75, cropFocus: ATTENTION) {
+                        base64
+                        aspectRatio
+                        tracedSVG
+                        aspectRatio
+                        src
+                        srcSet
+                        srcWebp
+                        srcSetWebp
+                        sizes
+                        # originalImg
+                        # originalName
+                        # presentationWidth
+                        # presentationHeight
+                      }
+                    }
+                  }
+                }
+              }
+            }
+            field_tags {
+              name
+              path {
+                alias
+              }
+            }
+          }
+        }
+      }
+    }
+    featuredTransfers: allNodeArticle(
+      filter: {
+        relationships: {
+          field_tags: { elemMatch: { name: { eq: "Transfernieuws" } } }
+        }
+        status: { eq: true }
+        promote: { eq: true }
+      }
+      sort: { fields: created, order: DESC }
     ) {
       edges {
         node {
