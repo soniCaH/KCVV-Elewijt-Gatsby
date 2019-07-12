@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { graphql } from 'gatsby'
+import Img from 'gatsby-image'
 
 import Layout from '../layouts/index'
 
@@ -10,20 +11,24 @@ import MatchesSlider from '../components/matches-slider'
 import { NewsItemFeatured, NewsItemCardRatio } from '../components/news-item'
 import FeaturedSection from '../components/featured-section'
 
-const items_page = 8
+const items_page = 10
 
 class IndexPage extends Component {
   render() {
     const data = this.props.data
     let articleCount = 0
+    let featuredArticles = 0
 
     return (
       <Layout>
         <SEO lang="nl-BE" title="Er is maar één plezante compagnie" />
 
-
         <section className={'grid-container full'}>
-          <FeaturedSection articles={data.featuredTransfers} title="Transfernieuws" link="/category/transfernieuws" />
+          <FeaturedSection
+            articles={data.featuredTransfers}
+            title="Transfernieuws"
+            link="/category/transfernieuws"
+          />
         </section>
 
         <section className="grid-container site-content">
@@ -34,10 +39,10 @@ class IndexPage extends Component {
                 // Featured articles span 2 columns.
                 node.field_featured && (articleCount = articleCount + 2)
                 !node.field_featured && articleCount++
-
                 return (
                   <>
-                    {(node.field_featured || articleCount > items_page) && (
+                    {(node.field_featured ||
+                      articleCount > featuredArticles++ + items_page) && (
                       <NewsItemFeatured node={node} />
                     )}
                     {!node.field_featured && articleCount <= items_page && (
@@ -49,6 +54,17 @@ class IndexPage extends Component {
             </section>
             <aside className="cell large-4">
               <section className="grid-x featured__matches grid-margin-x">
+                <article className={'medium-6 large-12 cell card'}>
+                  <header className={'card__header'}>
+                    <h4>Beker van Brabant</h4>
+                  </header>
+                  <MetaMatches
+                    season="1920"
+                    region="bra"
+                    division="BCA"
+                    regnumber="00055"
+                  />
+                </article>{' '}
                 <article className={'medium-6 large-12 cell card'}>
                   <header className={'card__header'}>
                     <h4>The A-Team</h4>
@@ -71,7 +87,6 @@ class IndexPage extends Component {
                     regnumber="00055"
                   />
                 </article>
-
                 <article className={'medium-6 large-12 cell card'}>
                   <header className="card__header">
                     <h4>Jeugdploegen</h4>
@@ -92,7 +107,11 @@ class IndexPage extends Component {
         </section>
 
         <section className={'grid-container full'}>
-          <FeaturedSection articles={data.featuredTransfers} title="Transfernieuws" link="/category/transfernieuws" />
+          <Img
+            fluid={{
+              ...data.fm19.childImageSharp.fluid,
+            }}
+          />
         </section>
 
         <div className="grid-container site-content">
@@ -117,7 +136,7 @@ export const pageQuery = graphql`
     featuredPosts: allNodeArticle(
       filter: { status: { eq: true }, promote: { eq: true } }
       sort: { fields: created, order: DESC }
-      limit: 8
+      limit: 10
     ) {
       edges {
         node {
@@ -233,6 +252,25 @@ export const pageQuery = graphql`
               }
             }
           }
+        }
+      }
+    }
+    fm19: file(name: { eq: "fm19-kits" }) {
+      childImageSharp {
+        fluid(maxWidth: 1680, quality: 75, cropFocus: ATTENTION) {
+          base64
+          aspectRatio
+          tracedSVG
+          aspectRatio
+          src
+          srcSet
+          srcWebp
+          srcSetWebp
+          sizes
+          # originalImg
+          # originalName
+          # presentationWidth
+          # presentationHeight
         }
       }
     }

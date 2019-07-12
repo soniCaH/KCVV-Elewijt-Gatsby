@@ -10,7 +10,7 @@ class FeaturedSection extends Component {
     return (
       <div className={'featured_section__wrapper'}>
         <header className={'featured_section__header'}>
-          <h3>TRANSFERNIEUWS</h3>
+          <h3>#{title}</h3>
         </header>
         <main className={'featured_section__content'}>
           {articles &&
