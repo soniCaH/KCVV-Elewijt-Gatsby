@@ -6,6 +6,7 @@ import Img from 'gatsby-image'
 
 import './categoryPage.scss'
 
+// eslint-disable-next-line
 String.prototype.replaceAll = function(search, replacement) {
   const target = this;
   return target.replace(new RegExp(search, 'g'), replacement)

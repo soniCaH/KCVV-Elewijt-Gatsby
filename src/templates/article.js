@@ -6,6 +6,7 @@ import Img from 'gatsby-image'
 
 import './article.scss'
 
+// eslint-disable-next-line
 String.prototype.replaceAll = function(search, replacement) {
   var target = this
   return target.replace(new RegExp(search, 'g'), replacement)
@@ -73,7 +74,7 @@ export default ({ data }) => {
         </main>
         <footer className={'article__footer__wrapper'}>
           <section className={'article__footer'}>
-            // Gerelateerde inhoud //
+            /--- Gerelateerde inhoud ---/
             {relatedArticles.length > 0 &&
               relatedArticles.map(({ path, title }, i) => {
                 return (

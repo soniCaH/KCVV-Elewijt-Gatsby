@@ -37,6 +37,8 @@
             line-height: 1;
             text-transform: uppercase;
 
+            @include featured-border;
+
             @include break(medium-up) {
                 font-size: 3.5rem;
             }

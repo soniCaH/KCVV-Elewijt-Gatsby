@@ -101,6 +101,8 @@
                 font-size: 2rem;
                 line-height: 1.875rem;
             }
+
+            @include featured-border;
         }
         .news_overview__footer {
             padding: 0;
