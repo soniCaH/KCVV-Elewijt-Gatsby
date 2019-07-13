@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
-import { graphql, Link } from 'gatsby'
-import Img from 'gatsby-image'
+import { graphql } from 'gatsby'
 
 import Layout from '../layouts/index'
 
@@ -12,13 +11,10 @@ import { NewsItemFeatured, NewsItemCardRatio } from '../components/news-item'
 import FeaturedSection from '../components/featured-section'
 import { Card, CardImage } from '../components/cards'
 
-const items_page = 10
-
 class IndexPage extends Component {
   render() {
     const data = this.props.data
     let articleCount = 0
-    let featuredArticles = 0
 
     return (
       <Layout>
