@@ -1,178 +1,81 @@
 import React, { Component } from 'react'
-import { Link } from 'gatsby'
-import Img from 'gatsby-image'
+
+import { Card, CardImage, CardVertical } from './cards'
 
 import './news-item.scss'
 
 /**
- * Render a single news item in card layout (image / tag / title / excerpt).
+ * Render a single news item in default card layout.
  */
 export class NewsItemCard extends Component {
   render() {
     const { node, teaser = false } = this.props
-    const image = (
-      <Img
-        fluid={{
-          ...node.relationships.field_media_article_image.relationships
-            .field_media_image.localFile.childImageSharp.fluid,
-          aspectRatio: 3 / 2,
-        }}
-      />
-    )
+    const localFile =
+      node.relationships.field_media_article_image.relationships
+        .field_media_image.localFile
     const summary = teaser && node.body.summary
 
     const relatedTags = node.relationships.field_tags || []
 
     return (
-      <article key={node.nid} className={'news_overview__article'}>
-        <Link to={node.path.alias}>
-          <header>
-            <figure>{image}</figure>
-          </header>
-
-          <main>
-            <h3 className={'news_overview__heading'}>{node.title}</h3>
-
-            {teaser && (
-              <div
-                className={'news_overview__summary'}
-                dangerouslySetInnerHTML={{ __html: summary }}
-              ></div>
-            )}
-          </main>
-        </Link>
-
-        <footer className={'news_overview__footer article__tags'}>
-          <span className={'datetime'}>
-            <i class="fa fa-clock-o" aria-hidden="true"></i> {node.created}
-          </span>
-          {relatedTags.length > 0 && (
-            <span className={'tag__wrapper'}>
-              <i class="fa fa-tags" aria-hidden="true"></i>{' '}
-              {relatedTags.map(({ path, name }, i) => (
-                <Link to={node.path.alias}>
-                  <span key={i} className={'tag__label'}>
-                    #{name}
-                  </span>
-                </Link>
-              ))}
-            </span>
-          )}
-        </footer>
-      </article>
+      <Card
+        title={node.title}
+        body={summary}
+        localFile={localFile}
+        link={node.path.alias}
+        metadata={true}
+        tags={relatedTags}
+        created={node.created}
+        key={node.nid}
+        className={'test'}
+      />
     )
   }
 }
 
 /**
- * Render a single news item in image focus layout (image / tag / title).
+ * Render a single news item in image focus card layout.
  */
 export class NewsItemFeatured extends Component {
   render() {
     const { node } = this.props
-    const image = (
-      <Img
-        fluid={{
-          ...node.relationships.field_media_article_image.relationships
-            .field_media_image.localFile.childImageSharp.fluid,
-          aspectRatio: 2 / 1,
-        }}
-      />
-    )
+    const localFile =
+      node.relationships.field_media_article_image.relationships
+        .field_media_image.localFile
 
     return (
-      <article
-        key={node.nid}
-        className={'news_overview__article news_overview__article--featured'}
-      >
-        <Link to={node.path.alias}>
-          <header style={{ position: 'relative' }}>
-            <figure>{image}</figure>
-            <div class="gradient gradient--70"></div>
-          </header>
-
-          <div className={'news_overview__featured_content'}>
-            <h3 className={'news_overview__heading'}>{node.title}</h3>
-
-            <section className={'news_overview__footer article__tags'}>
-              <span className={'datetime'}>
-                <i class="fa fa-clock-o" aria-hidden="true"></i> {node.created}
-              </span>
-              {node.relationships.field_tags.length > 0 && (
-                <span className={'tag__wrapper'}>
-                  <i class="fa fa-tags" aria-hidden="true"></i>{' '}
-                  {node.relationships.field_tags.map(({ path, name }, i) => (
-                    <Link to={path.alias}>
-                      <span key={i} className={'tag__label'}>
-                        #{name}
-                      </span>
-                    </Link>
-                  ))}
-                </span>
-              )}
-            </section>
-          </div>
-        </Link>
-      </article>
+      <CardImage
+        title={node.title}
+        localFile={localFile}
+        link={node.path.alias}
+      />
     )
   }
 }
 
 /**
- * Render a single news item in vertical image layout (image / tag / title).
+ * Render a single news item in vertical image card layout.
  */
 export class NewsItemSquare extends Component {
   render() {
     const { node } = this.props
-    const image = (
-      <Img
-        fluid={{
-          ...node.relationships.field_media_article_image.relationships
-            .field_media_image.localFile.childImageSharp.fluid,
-          aspectRatio: 6 / 8,
-        }}
-      />
-    )
-    const relatedTags = node.relationships.field_tags || []
+    const localFile =
+      node.relationships.field_media_article_image.relationships
+        .field_media_image.localFile
 
     return (
-      <article
-        key={node.nid}
-        className={'news_overview__article news_overview__article--vertical'}
-      >
-        <Link to={node.path.alias}>
-          <header>
-            <figure>{image}</figure>
-            <div class="gradient gradient--70"></div>
-          </header>
-
-          <div className={'news_overview__featured_content'}>
-            <h3 className={'news_overview__heading'}>{node.title}</h3>
-
-            <section className={'news_overview__footer article__tags'}>
-              <span className={'datetime'}>
-                <i class="fa fa-clock-o" aria-hidden="true"></i> {node.created}
-              </span>
-              {relatedTags.length > 0 && (
-                <span className={'tag__wrapper'}>
-                  <i class="fa fa-tags" aria-hidden="true"></i>{' '}
-                  {relatedTags.map(({ path, name }, i) => (
-                    <Link to={path.alias}>
-                      <span key={i} className={'tag__label'}>
-                        #{name}
-                      </span>
-                    </Link>
-                  ))}
-                </span>
-              )}
-            </section>
-          </div>
-        </Link>
-      </article>
+      <CardVertical
+        title={node.title}
+        localFile={localFile}
+        link={node.path.alias}
+      />
     )
   }
 }
 
+/**
+ * Render news item in appropriate layout depending on the aspect ratio.
+ */
 export class NewsItemCardRatio extends Component {
   render() {
     const { node, teaser = false } = this.props

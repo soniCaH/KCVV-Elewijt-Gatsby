@@ -10,6 +10,7 @@ import MatchesOverview from '../components/matches-overview'
 import MatchesSlider from '../components/matches-slider'
 import { NewsItemFeatured, NewsItemCardRatio } from '../components/news-item'
 import FeaturedSection from '../components/featured-section'
+import { Card, CardImage } from '../components/cards'
 
 const items_page = 10
 
@@ -41,16 +42,30 @@ class IndexPage extends Component {
                 !node.field_featured && articleCount++
                 return (
                   <>
-                    {(node.field_featured ||
-                      articleCount > featuredArticles++ + items_page) && (
-                      <NewsItemFeatured node={node} />
-                    )}
-                    {!node.field_featured && articleCount <= items_page && (
+                    {node.field_featured && <NewsItemFeatured node={node} />}
+                    {!node.field_featured && (
                       <NewsItemCardRatio node={node} teaser={true} />
                     )}
                   </>
                 )
               })}
+
+              {articleCount % 2 !== 0 && (
+                <Card
+                  title="Speel nu FM 2019 met KCVV"
+                  localFile={data.fm19}
+                  link="news/2019-07-11-neem-zelf-de-leiding-van-kcvv-elewijt"
+                  metadata={false}
+                />
+              )}
+              {articleCount % 2 === 0 && (
+                <CardImage
+                  title="Speel nu FM 2019 met KCVV"
+                  localFile={data.fm19}
+                  link="news/2019-07-11-neem-zelf-de-leiding-van-kcvv-elewijt"
+                  metadata={false}
+                />
+              )}
             </section>
             <aside className="cell large-4">
               <section className="grid-x featured__matches grid-margin-x">
@@ -120,35 +135,18 @@ class IndexPage extends Component {
 
           <div className={'megatron__content'}>
             <h3>SPEEL NU FM 2019 ALS MANAGER VAN KCVV ELEWIJT!</h3>
-            <Link to="news/2019-07-11-neem-zelf-de-leiding-van-kcvv-elewijt" className={"button"}>Lees meer</Link>
-            {/* <h3 className={'news_overview__heading'}>{node.title}</h3>
-
-            <section className={'news_overview__footer article__tags'}>
-              <span className={'datetime'}>
-                <i class="fa fa-clock-o" aria-hidden="true"></i> {node.created}
-              </span>
-              {node.relationships.field_tags.length > 0 && (
-                <span className={'tag__wrapper'}>
-                  <i class="fa fa-tags" aria-hidden="true"></i>{' '}
-                  {node.relationships.field_tags.map(({ path, name }, i) => (
-                    <Link to={path.alias}>
-                      <span key={i} className={'tag__label'}>
-                        #{name}
-                      </span>
-                    </Link>
-                  ))}
-                </span>
-              )}
-            </section> */}
+            <Link
+              to="news/2019-07-11-neem-zelf-de-leiding-van-kcvv-elewijt"
+              className={'button'}
+            >
+              Lees meer
+            </Link>
           </div>
         </section>
 
         <div className="grid-container site-content">
           <div className="grid-x grid-margin-x">
-            <section className="cell large-12">
-              REST VAN NIEUWS
-              {/* <FeaturedNews posts={data.lowerpost} columns="3" teaser={true} /> */}
-            </section>
+            <section className="cell large-12">REST VAN NIEUWS</section>
           </div>
         </div>
       </Layout>
