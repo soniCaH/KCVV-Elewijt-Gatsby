@@ -36,7 +36,9 @@ export class Card extends Component {
           </header>
 
           <main className={'cardItem__summary'}>
-            <h3 className={'cardItem__heading'}>{title}</h3>
+            <div className={'cardItem__heading'}>
+              <h3>{title}</h3>
+            </div>
 
             {body && <div dangerouslySetInnerHTML={{ __html: body }}></div>}
           </main>
@@ -66,7 +68,7 @@ export class Card extends Component {
 
 export class CardImage extends Component {
   render() {
-    const { title, localFile, link } = this.props
+    const { title, localFile, link, body = null } = this.props
 
     const image = (
       <Img
@@ -83,7 +85,10 @@ export class CardImage extends Component {
           <header>
             <figure>{image}</figure>
             <div class="gradient gradient--70"></div>
-            <h3 className={'cardItem__heading'}>{title}</h3>
+            <div className={'cardItem__heading'}>
+              <h3>{title}</h3>
+              {body && <div dangerouslySetInnerHTML={{ __html: body }}></div>}
+            </div>
           </header>
         </Link>
       </article>
@@ -110,7 +115,9 @@ export class CardVertical extends Component {
           <header>
             <figure>{image}</figure>
             <div class="gradient gradient--70"></div>
-            <h3 className={'cardItem__heading'}>{title}</h3>
+            <div className={'cardItem__heading'}>
+              <h3>{title}</h3>
+            </div>
           </header>
         </Link>
       </article>

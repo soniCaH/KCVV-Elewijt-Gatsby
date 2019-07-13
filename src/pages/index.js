@@ -121,27 +121,13 @@ class IndexPage extends Component {
           <MatchesSlider season="1920" regnumber="00055" />
         </section>
 
-        <section className={'grid-container full megatron'}>
-          <header className={'megatron__header'}>
-            <figure>
-              <Img
-                fluid={{
-                  ...data.fm19.childImageSharp.fluid,
-                }}
-              />
-            </figure>
-            <div class="gradient gradient--70"></div>
-          </header>
-
-          <div className={'megatron__content'}>
-            <h3>SPEEL NU FM 2019 ALS MANAGER VAN KCVV ELEWIJT!</h3>
-            <Link
-              to="news/2019-07-11-neem-zelf-de-leiding-van-kcvv-elewijt"
-              className={'button'}
-            >
-              Lees meer
-            </Link>
-          </div>
+        <section className={'grid-container full'}>
+          <CardImage
+            title="SPEEL NU FM 2019 ALS MANAGER VAN KCVV ELEWIJT!"
+            localFile={data.fm19}
+            link="news/2019-07-11-neem-zelf-de-leiding-van-kcvv-elewijt"
+            body="Neem nu de leiding als manager van KCVV Elewijt in het populaire simulatiespel 'Football Manager 2019'."
+          />
         </section>
 
         <div className="grid-container site-content">

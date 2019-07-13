@@ -36,17 +36,11 @@
         }
     }
 
-    .article__tags {
-
-        a,
-        .datetime {
-            color: var(--color-gray-light);
-        }
-    }
-
     &__heading {
-        color: var(--color-black);
-        font-size: 1.25rem;
+        h3 {
+            color: var(--color-black);
+            font-size: 1.25rem;
+        }
     }
 
     &__summary {
@@ -63,11 +57,14 @@
         padding: 1.5rem 1.25rem 1rem;
     }
 
-    &--image, &--vertical {
+    &--image,
+    &--vertical {
         position: relative;
 
         .cardItem {
             &__heading {
+                color: #FFF;
+
                 bottom: 0;
                 left: 0;
                 padding: 1.5rem 1.25rem 1rem;
@@ -75,15 +72,25 @@
                 right: 0;
                 z-index: 5;
 
-                color: #FFF;
-                font-size: 1.25rem;
-                line-height: 1.2rem;
-                font-weight: 600;
-                text-transform: uppercase;
+                h3 {
+                    color: #FFF;
+                    font-size: 1.25rem;
+                    line-height: 1.2rem;
+                    font-weight: 600;
+                    text-transform: uppercase;
 
-                @include break(medium-up) {
-                    font-size: 2rem;
-                    line-height: 1.875rem;
+                    @include break(medium-up) {
+                        font-size: 2rem;
+                        line-height: 1.875rem;
+                    }
+
+                    &+div {
+                        display: none;
+
+                        @include break(medium-up) {
+                            display: block;
+                        }
+                    }
                 }
 
                 @include featured-border;
