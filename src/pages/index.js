@@ -170,7 +170,7 @@ export const pageQuery = graphql`
                 field_media_image {
                   localFile {
                     childImageSharp {
-                      fluid(maxWidth: 1680, quality: 75, cropFocus: ATTENTION) {
+                      fluid(maxWidth: 800, quality: 75, cropFocus: ATTENTION) {
                         base64
                         aspectRatio
                         tracedSVG
@@ -234,7 +234,7 @@ export const pageQuery = graphql`
                 field_media_image {
                   localFile {
                     childImageSharp {
-                      fluid(maxWidth: 1680, quality: 75, cropFocus: ATTENTION) {
+                      fluid(maxWidth: 600, quality: 75, cropFocus: ATTENTION) {
                         base64
                         aspectRatio
                         tracedSVG
