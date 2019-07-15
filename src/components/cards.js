@@ -75,6 +75,7 @@ export class CardImage extends Component {
         fluid={{
           ...localFile.childImageSharp.fluid,
           aspectRatio: 2 / 1,
+          cropFocus: ATTENTION
         }}
       />
     )
