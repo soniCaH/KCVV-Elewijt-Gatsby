@@ -8,25 +8,21 @@ import './categoryPage.scss'
 
 // eslint-disable-next-line
 String.prototype.replaceAll = function(search, replacement) {
-  const target = this;
+  const target = this
   return target.replace(new RegExp(search, 'g'), replacement)
 }
 
 export default ({ data }) => {
-  const info = data.allTaxonomyTermCategory.group
-  const tagName = info[0].fieldValue
-  const post = data.allTaxonomyTermCategory.edges[0].node
-  const articles =
-    post.relationships.node__article &&
-    post.relationships.node__article.slice(0, 19)
+  const articles = data.articles
+  const taxonomy = data.term
 
   return (
     <Layout>
-      <SEO lang="nl-BE" title={tagName} />
+      <SEO lang="nl-BE" title={taxonomy.name} />
 
       <section className={'category__wrapper'}>
         <header className={'player-detail__header'}>
-          <h1 className={'player-detail__name'}>#{tagName}</h1>
+          <h1 className={'player-detail__name'}>#{taxonomy.name}</h1>
 
           <div className={'bg-green-mask'}>
             <div className={'bg-white-end'} />
@@ -35,82 +31,83 @@ export default ({ data }) => {
 
         <div className={'player-break'}></div>
         <main className={'category__content_wrapper'}>
-          {articles && articles.map(({relationships, path, title, body}, i) => {
-            const image = (
-              <Img
-                fixed={{
-                  ...relationships.field_media_article_image
-                    .relationships.field_media_image.localFile.childImageSharp
-                    .fixed,
-                }}
-              />
-            )
-            return (
-              <Link
-                to={path.alias}
-                className={'category__content_link'}
-                key={i}
-              >
-                <article className={'category__content_row'}>
-                  <figure>{image}</figure>
-                  <main>
-                    <h3>{title}</h3>
-                    <div
-                      className={'news_overview__summary'}
-                      dangerouslySetInnerHTML={{ __html: body.summary }}
-                    ></div>
-                  </main>
-                </article>
-              </Link>
-            );
-          })}
+          {articles &&
+            articles.edges.map(({ node }, i) => {
+              const image = (
+                <Img
+                  fixed={{
+                    ...node.relationships.field_media_article_image
+                      .relationships.field_media_image.localFile.childImageSharp
+                      .fixed,
+                  }}
+                />
+              )
+              return (
+                <Link
+                  to={node.path.alias}
+                  className={'category__content_link'}
+                  key={i}
+                >
+                  <article className={'category__content_row'}>
+                    <figure>{image}</figure>
+                    <main>
+                      <h3>{node.title}</h3>
+                      <div
+                        className={'news_overview__summary'}
+                        dangerouslySetInnerHTML={{ __html: node.body.summary }}
+                      ></div>
+                    </main>
+                  </article>
+                </Link>
+              )
+            })}
         </main>
       </section>
     </Layout>
-  );
+  )
 }
 
 export const query = graphql`
   query($slug: String!) {
-    allTaxonomyTermCategory(
-      sort: { fields: relationships___node__article___created, order: DESC }
-      filter: { path: { alias: { eq: $slug } } }
+    articles: allNodeArticle(
+      sort: { fields: created, order: DESC }
+      limit: 20
+      filter: {
+        relationships: {
+          field_tags: { elemMatch: { path: { alias: { eq: $slug } } } }
+        }
+      }
     ) {
       edges {
         node {
-          name
+          created
+          title
+          body {
+            summary
+          }
+          path {
+            alias
+          }
           relationships {
-            node__article {
-              created
-              title
-              body {
-                summary
-              }
-              path {
-                alias
-              }
+            field_media_article_image {
               relationships {
-                field_media_article_image {
-                  relationships {
-                    field_media_image {
-                      localFile {
-                        childImageSharp {
-                          fixed(width: 125, height: 125) {
-                            ...GatsbyImageSharpFixed
-                            base64
-                            aspectRatio
-                            tracedSVG
-                            aspectRatio
-                            src
-                            srcSet
-                            srcWebp
-                            srcSetWebp
-                            # originalImg
-                            # originalName
-                            # presentationWidth
-                            # presentationHeight
-                          }
-                        }
+                field_media_image {
+                  localFile {
+                    childImageSharp {
+                      fixed(width: 125, height: 125) {
+                        ...GatsbyImageSharpFixed
+                        base64
+                        aspectRatio
+                        tracedSVG
+                        aspectRatio
+                        src
+                        srcSet
+                        srcWebp
+                        srcSetWebp
+                        # originalImg
+                        # originalName
+                        # presentationWidth
+                        # presentationHeight
                       }
                     }
                   }
@@ -120,9 +117,9 @@ export const query = graphql`
           }
         }
       }
-      group(field: name) {
-        fieldValue
-      }
+    }
+    term: taxonomyTermCategory(path: { alias: { eq: $slug } }) {
+      name
     }
   }
 `
