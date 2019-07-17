@@ -1,12 +1,12 @@
 import React, { Component } from 'react'
 
 import './featured-section.scss'
-import { NewsItemCard } from './news-item'
+import { NewsItemCard, NewsItemCardRatio, NewsItemSquare } from './news-item'
 import { Link } from 'gatsby'
 
 class FeaturedSection extends Component {
   render() {
-    const { articles, title, link } = this.props
+    const { articles, title, link = null } = this.props
     return (
       <div className={'featured_section__wrapper'}>
         <header className={'featured_section__header'}>
@@ -17,14 +17,15 @@ class FeaturedSection extends Component {
             articles.edges.map(({ node }, i) => {
               return (
                 <article className={'featured_section__item'}>
-                  <NewsItemCard node={node} teaser={true} />
+                  {/* <NewsItemCardRatio node={node} teaser={true} /> */}
+                  <NewsItemSquare node={node} />
                 </article>
               )
             })}
         </main>
         {link && (
           <footer className={'featured_section__footer'}>
-            <Link to={link}>Lees meer artikels over dit onderwerp</Link>
+            {link}
           </footer>
         )}
       </div>

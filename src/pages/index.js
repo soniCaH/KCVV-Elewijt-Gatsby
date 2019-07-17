@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { graphql } from 'gatsby'
+import { graphql, Link } from 'gatsby'
 
 import Layout from '../layouts/index'
 
@@ -15,6 +15,11 @@ class IndexPage extends Component {
   render() {
     const data = this.props.data
     let articleCount = 0
+    const linkCTA = (
+      <Link to="/category/transfernieuws" className={'btn btn--arrow'}>
+        Check alle transfernieuws
+      </Link>
+    )
 
     return (
       <Layout>
@@ -24,7 +29,7 @@ class IndexPage extends Component {
           <FeaturedSection
             articles={data.featuredTransfers}
             title="Transfernieuws"
-            link="/category/transfernieuws"
+            link={linkCTA}
           />
         </section>
 
