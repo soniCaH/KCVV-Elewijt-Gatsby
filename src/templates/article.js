@@ -14,12 +14,15 @@ String.prototype.replaceAll = function(search, replacement) {
 
 export default ({ data }) => {
   const post = data.nodeArticle
+  const aspectRatio = post.relationships.field_media_article_image.relationships
+  .field_media_image.localFile.childImageSharp.fluid;
+
   const image = (
     <Img
       fluid={{
         ...post.relationships.field_media_article_image.relationships
           .field_media_image.localFile.childImageSharp.fluid,
-        aspectRatio: 2.5 / 1,
+        aspectRatio: aspectRatio > 1 ? 2.5/1 : 1.5/1,
       }}
     />
   )

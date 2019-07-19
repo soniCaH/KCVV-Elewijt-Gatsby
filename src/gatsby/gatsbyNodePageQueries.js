@@ -16,6 +16,17 @@ articles: allNodeArticle(sort: {fields: created, order: DESC}) {
     }
 }
 
+pages: allNodePage {
+    edges {
+        node {
+            title
+            path {
+                alias
+            }
+        }
+    }
+}
+
 players: allNodePlayer {
     edges {
         node {
