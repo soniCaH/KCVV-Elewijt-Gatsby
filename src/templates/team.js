@@ -5,8 +5,20 @@ import SEO from '../components/seo'
 
 import './team.scss'
 
+const groupBy = key => array =>
+  array.reduce((objectsByKeyValue, obj) => {
+    const value = obj[key]
+    objectsByKeyValue[value] = (objectsByKeyValue[value] || []).concat(obj)
+    return objectsByKeyValue
+  }, {})
+const groupByPosition = groupBy('field_position')
+
 export default ({ data }) => {
   const node = data.nodeTeam
+
+  const playersByPosition = groupByPosition(node.relationships.field_players)
+
+  console.log(playersByPosition)
 
   return (
     <Layout>
@@ -253,6 +265,23 @@ export const query = graphql`
         alias
       }
       title
+      relationships {
+        field_players {
+          path {
+            alias
+          }
+          field_shirtnumber
+          title
+          field_position
+          relationships {
+            field_image {
+              localFile {
+                url
+              }
+            }
+          }
+        }
+      }
     }
   }
 `
