@@ -1,0 +1,138 @@
+@import '../styles/mixins';
+
+.team-detail {
+    position: relative;
+
+    &__header {}
+
+    &__name {
+        @include break(large-up) {
+            left: 1rem;
+            right: auto;
+            text-align: left;
+            top: 7.5rem;
+        }
+
+        @include break(xlarge-up) {
+            left: 15%;
+        }
+
+        &-last {
+            text-align: left;
+        }
+
+        &-division {}
+
+        &-tagline {}
+    }
+
+    &__division-number {
+        position: absolute;
+        left: .25rem;
+        top: .25rem;
+        z-index: 3;
+
+        color: rgba(255, 255, 255, 0.25);
+
+        font-family: 'Montserrat', sans-serif;
+        font-weight: bold;
+        font-size: 8rem;
+        line-height: 0.7;
+        letter-spacing: -0.04px;
+
+        user-select: none;
+
+        @include break(medium-up) {
+            font-size: 13.75rem;
+        }
+
+        @include break(large-up) {
+            top: 1rem;
+            left: 1rem;
+
+            text-align: left;
+        }
+
+        @include break(xlarge-up) {
+            left: 14%;
+        }
+    }
+
+    &__lineup {
+
+        margin: 0 .25rem;
+        position: relative;
+        z-index: 5;
+
+        @include break(large-up) {
+            margin: 0 1rem;
+        }
+
+        @include break(xlarge-up) {
+            margin: 0 14%;
+        }
+
+        ul {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            grid-gap: 1rem;
+
+            list-style: none;
+            margin: 0;
+            padding: 0;
+
+            @include break(large-up) {
+                grid-template-columns: repeat(4, 1fr);
+            }
+
+            @include break(xlarge-up) {
+                grid-template-columns: repeat(6, 1fr);
+            }
+        }
+
+        &-item {
+            border: 1px solid #ababab;
+            padding: 1rem;
+            position: relative;
+
+            &::before {
+                display: block;
+                content: " ";
+                width: 100%;
+                padding-top: 100%;
+            }
+        }
+
+        &-teaser {
+            position: absolute !important;
+            height: 100%;
+            overflow: hidden;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+
+            a {
+                display: inline-block;
+                width: 100%;
+                height: 100%;
+
+                &:hover {
+                    img {
+                        transform: scale(1.1);
+                    }
+                }
+            }
+        }
+
+    }
+}
+
+.team-break {
+    display: block;
+    padding-top: 8rem;
+
+    @media (min-width: 992px) {
+        padding-top: 14rem;
+    }
+}
