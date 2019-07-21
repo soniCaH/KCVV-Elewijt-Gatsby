@@ -27,6 +27,17 @@ pages: allNodePage {
     }
 }
 
+teams: allNodeTeam {
+    edges {
+        node {
+            title
+            path {
+                alias
+            }
+        }
+    }
+}
+
 players: allNodePlayer {
     edges {
         node {

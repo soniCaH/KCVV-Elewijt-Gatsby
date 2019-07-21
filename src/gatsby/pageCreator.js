@@ -22,6 +22,18 @@ const createPages = (list, createPage, template) => {
   })
 }
 
+const createTeams = (list, createPage, template) => {
+  list.forEach(({ node }) => {
+    createPage({
+      path: node.path.alias,
+      component: template,
+      context: {
+        slug: node.path.alias,
+      },
+    })
+  })
+}
+
 const createPlayers = (list, createPage, template) => {
   list.forEach(({ node }) => {
     createPage({
@@ -80,6 +92,7 @@ const createCategoryPages = (list, createPage, template) => {
 module.exports = {
   createArticles,
   createPages,
+  createTeams,
   createPlayers,
   createStaff,
   createOverviewNews,

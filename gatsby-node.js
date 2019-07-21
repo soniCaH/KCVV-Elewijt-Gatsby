@@ -14,6 +14,7 @@ const gatsbyNodePageQueries = require('./src/gatsby/gatsbyNodePageQueries')
 const {
   createArticles,
   createPages,
+  createTeams,
   createPlayers,
   createStaff,
   createOverviewNews,
@@ -37,6 +38,7 @@ exports.createPages = async ({ graphql, actions }) => {
   const { createPage } = actions
   const articleTemplate = path.resolve(`src/templates/article.js`)
   const pageTemplate = path.resolve(`src/templates/page.js`)
+  const teamTemplate = path.resolve(`src/templates/team.js`)
   const playerTemplate = path.resolve(`src/templates/player.js`)
   const staffTemplate = path.resolve(`src/templates/player-staff.js`)
   const newsOverviewTemplate = path.resolve(`src/templates/newsoverview.js`)
@@ -51,6 +53,7 @@ exports.createPages = async ({ graphql, actions }) => {
 
   createArticles(result.data.articles.edges, createPage, articleTemplate)
   createPages(result.data.pages.edges, createPage, pageTemplate)
+  createTeams(result.data.teams.edges, createPage, teamTemplate)
   createPlayers(result.data.players.edges, createPage, playerTemplate)
   createStaff(result.data.staff.edges, createPage, staffTemplate)
 
