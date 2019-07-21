@@ -28,11 +28,17 @@ export const query = graphql`
       }
       title
       field_join_date
+      field_date_leave
       field_lastname
       field_position
       field_firstname
       field_birth_date
       field_shirtnumber
+      field_stats_games
+      field_stats_cleansheets
+      field_stats_goals
+      field_stats_cards_yellow
+      field_stats_cards_red
       relationships {
         field_image {
           localFile {

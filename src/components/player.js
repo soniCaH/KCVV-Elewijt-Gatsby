@@ -16,6 +16,8 @@ class PlayerDetail extends Component {
         )) ||
       ''
 
+      const currentlyPlaying = !player.field_date_leave
+
     return (
       <article className={'player-detail'}>
         <header className={'player-detail__header'}>
@@ -45,32 +47,53 @@ class PlayerDetail extends Component {
           </div>
         </header>
 
-        {/* <aside className={'player-detail__statistics'}>
+        <aside className={'player-detail__statistics'}>
+          <section className={'player-detail__statistics-item'}>
+            <div className={'player-detail__statistics-item__number'}>
+              {player.field_stats_games || '0'}
+            </div>
+            <div className={'player-detail__statistics-item__label'}>
+              Wedstrijden
+            </div>
+          </section>
+
+          {player.field_position === 'k' && (
             <section className={'player-detail__statistics-item'}>
-              <div className={'player-detail__statistics-item__number'}>30</div>
+              <div className={'player-detail__statistics-item__number'}>
+                {player.field_stats_cleansheets || '0'}
+              </div>
               <div className={'player-detail__statistics-item__label'}>
-                Wedstrijden
+                Cleansheets
               </div>
             </section>
+          )}
+          {player.field_position !== 'k' && (
             <section className={'player-detail__statistics-item'}>
-              <div className={'player-detail__statistics-item__number'}>19</div>
+              <div className={'player-detail__statistics-item__number'}>
+                {player.field_stats_goals || '0'}
+              </div>
               <div className={'player-detail__statistics-item__label'}>
                 Doelpunten
               </div>
             </section>
-            <section className={'player-detail__statistics-item'}>
-              <div className={'player-detail__statistics-item__number'}>5</div>
-              <div className={'player-detail__statistics-item__label'}>
-                Gele kaarten
-              </div>
-            </section>
-            <section className={'player-detail__statistics-item'}>
-              <div className={'player-detail__statistics-item__number'}>0</div>
-              <div className={'player-detail__statistics-item__label'}>
-                Rode kaarten
-              </div>
-            </section>
-          </aside> */}
+          )}
+          <section className={'player-detail__statistics-item'}>
+            <div className={'player-detail__statistics-item__number'}>
+              {player.field_stats_cards_yellow || '0'}
+            </div>
+            <div className={'player-detail__statistics-item__label'}>
+              Gele kaarten
+            </div>
+          </section>
+          <section className={'player-detail__statistics-item'}>
+            <div className={'player-detail__statistics-item__number'}>
+              {player.field_stats_cards_red || '0'}
+            </div>
+            <div className={'player-detail__statistics-item__label'}>
+              Rode kaarten
+            </div>
+          </section>
+        </aside>
 
         <div className={'player-break'}></div>
 
@@ -102,10 +125,12 @@ class PlayerDetail extends Component {
             }
           >
             <span className={'player-detail__data-item__label'}>
-              Speler bij KCVV sinds
+              {currentlyPlaying && 'Speler bij KCVV sinds' }
+              {!currentlyPlaying && 'Speler tussen' }
             </span>
             <span className={'player-detail__data-item__data'}>
               {player.field_join_date || 'Onbekend'}
+              {!currentlyPlaying && <><span className={"text--regular"}> en </span> {player.field_date_leave}</>}
             </span>
           </div>
         </section>

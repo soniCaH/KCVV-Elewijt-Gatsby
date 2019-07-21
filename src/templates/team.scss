@@ -6,15 +6,17 @@
     &__header {}
 
     &__name {
-        @include break(large-up) {
-            left: 1rem;
-            right: auto;
-            text-align: left;
-            top: 7.5rem;
-        }
+        .team-detail__header & {
+            @include break(large-up) {
+                left: 1rem;
+                right: auto;
+                text-align: left;
+                top: 7.5rem;
+            }
 
-        @include break(xlarge-up) {
-            left: 15%;
+            @include break(xlarge-up) {
+                left: 15%;
+            }
         }
 
         &-last {
@@ -125,6 +127,81 @@
             }
         }
 
+    }
+
+    .tabs-content {
+        min-height: 10rem;
+    }
+
+}
+
+.team {
+    &-sub_navigation {
+        position: relative;
+        z-index: 9;
+
+        &__tabs {
+            background: transparent;
+            border: none;
+            list-style: none;
+
+            display: flex;
+            flex-direction: row;
+            margin: 0 .25rem 2rem;
+
+            @media (min-width: 992px) {
+                margin: 0 1rem 2rem;
+            }
+
+            @media (min-width: 1480px) {
+                margin: 0 14% 2rem;
+            }
+
+            &::before {
+                display: table;
+                content: ' ';
+                flex-basis: 0;
+                order: 1;
+            }
+
+            &::after {
+                display: table;
+                content: ' ';
+                flex-basis: 0;
+                order: 1;
+                clear: both
+            }
+
+            li {
+                float: none;
+                margin-right: 1.5em;
+
+                &::last-of-type() {
+                    margin-right: 0;
+                }
+
+                a {
+                    background: inherit;
+                    color: #FFF;
+                    font-size: 1rem;
+                    text-transform: uppercase;
+
+                    padding: 0 0 .5em;
+
+                    &[aria-selected='true'] {
+                        background: none;
+                        color: #FFF;
+                        border-bottom: 1px solid #fff;
+                    }
+
+                    &:hover {
+                        background: none;
+                        color: #FFF;
+                        border-bottom: 1px solid #fff;
+                    }
+                }
+            }
+        }
     }
 }
 

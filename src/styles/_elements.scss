@@ -16,6 +16,12 @@
     }
 }
 
+.text--regular {
+    font-size: 1rem;
+    color: var(--color-black);
+    text-transform: none;
+}
+
 .screenreader {
     position: absolute !important;
     left: -10000px;
@@ -28,4 +34,15 @@
 
 figure {
     line-height: 1;
+}
+
+
+.tabs-panel {
+    padding: 0 !important;
+}
+
+.tabs-content {
+    background: transparent !important;
+    border: none !important;
+    color: inherit !important;
 }
