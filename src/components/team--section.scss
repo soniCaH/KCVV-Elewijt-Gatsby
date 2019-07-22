@@ -1,0 +1,40 @@
+.team_lineup {
+    &__section {
+        margin-top: 3rem;
+
+        &:first-of-type {
+            margin-top: 0;
+        }
+    }
+
+    &__item {
+        border: 1px solid #ababab;
+        padding: 1rem;
+        position: relative;
+
+        &::before {
+            display: block;
+            content: " ";
+            width: 100%;
+            padding-top: 100%;
+        }
+    }
+
+    ul {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        grid-gap: 1rem;
+
+        list-style: none;
+        margin: 0;
+        padding: 0;
+
+        @media (min-width: 992px) {
+            grid-template-columns: repeat(4, 1fr);
+        }
+
+        @media (min-width: 1480px) {
+            grid-template-columns: repeat(6, 1fr);
+        }
+    }
+}

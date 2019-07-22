@@ -1,8 +1,8 @@
-import React from 'react'
 import { graphql } from 'gatsby'
-import Layout from '../layouts/index'
+import React from 'react'
 import SEO from '../components/seo'
-
+import Layout from '../layouts/index'
+import TeamSection from '../components/team--section'
 import './team.scss'
 
 const groupBy = key => array =>
@@ -17,8 +17,6 @@ export default ({ data }) => {
   const node = data.nodeTeam
 
   const playersByPosition = groupByPosition(node.relationships.field_players)
-
-  console.log(playersByPosition)
 
   return (
     <Layout>
@@ -50,17 +48,20 @@ export default ({ data }) => {
             data-tabs
             id="team-subnavigation_tabs"
           >
-            <li class="tabs-title is-active">
-              <a href="#team-lineup" aria-selected="true">
-                Lineup
+            <li className="tabs-title is-active">
+              <a href="#team-info" aria-selected="true">
+                Info
               </a>
             </li>
-            <li class="tabs-title">
+            <li className="tabs-title">
+              <a href="#team-lineup">Lineup</a>
+            </li>
+            <li className={'tabs-title'}>
               <a data-tabs-target="team-matches" href="#team-matches">
                 Wedstrijden
               </a>
             </li>
-            <li class="tabs-title">
+            <li className={'tabs-title'}>
               <a data-tabs-target="team-ranking" href="#team-ranking">
                 Stand
               </a>
@@ -68,188 +69,51 @@ export default ({ data }) => {
           </ul>
         </section>
 
-        <div class="tabs-content" data-tabs-content="team-subnavigation_tabs">
-          <div class="tabs-panel is-active" id="team-lineup">
+        <div
+          className={'tabs-content'}
+          data-tabs-content="team-subnavigation_tabs"
+        >
+          <div className={'tabs-panel is-active'} id="team-info">
+            Groepsfoto + contactgegevens.
+          </div>
+          <div className={'tabs-panel'} id="team-lineup">
             <main className={'team-detail__lineup'}>
-              <section className={'team-detail__lineup-section'}>
-                <h2>Staff</h2>
-                <ul>
-                  <li className={'team-detail__lineup-item'}>
-                    <article className={'team-detail__lineup-teaser'}>
-                      <a href="#">
-                        <div className={'team-detail__lineup-image'}>
-                          <div className={'team-detail__lineup-gradient'}></div>
-                        </div>
-                        <div className={'team-detail__lineup-info'}>
-                          <div className={'team-detail__lineup-info__number'}>
-                            T1
-                          </div>
-                          <div
-                            className={'team-detail__lineup-info__firstname'}
-                          >
-                            Wim
-                          </div>
-                          <div className={'team-detail__lineup-info__lastname'}>
-                            D'Hondt
-                          </div>
-                        </div>
-                      </a>
-                    </article>
-                  </li>
-                  <li className={'team-detail__lineup-item'}>
-                    <article className={'team-detail__lineup-teaser'}>
-                      <a href="#">
-                        <div className={'team-detail__lineup-image'}>
-                          <div className={'team-detail__lineup-gradient'}></div>
-                        </div>
-                        <div className={'team-detail__lineup-info'}>
-                          <div className={'team-detail__lineup-info__number'}>
-                            T2
-                          </div>
-                          <div
-                            className={'team-detail__lineup-info__firstname'}
-                          >
-                            Kevin
-                          </div>
-                          <div className={'team-detail__lineup-info__lastname'}>
-                            Spiessens
-                          </div>
-                        </div>
-                      </a>
-                    </article>
-                  </li>
-                  <li className={'team-detail__lineup-item'}>
-                    <article className={'team-detail__lineup-teaser'}>
-                      <a href="#">
-                        <div className={'team-detail__lineup-image'}>
-                          <div className={'team-detail__lineup-gradient'}></div>
-                        </div>
-                        <div className={'team-detail__lineup-info'}>
-                          <div className={'team-detail__lineup-info__number'}>
-                            TK
-                          </div>
-                          <div
-                            className={'team-detail__lineup-info__firstname'}
-                          >
-                            Luc
-                          </div>
-                          <div className={'team-detail__lineup-info__lastname'}>
-                            Usewils
-                          </div>
-                        </div>
-                      </a>
-                    </article>
-                  </li>
-                  <li className={'team-detail__lineup-item'}>
-                    <article className={'team-detail__lineup-teaser'}>
-                      <a href="#">
-                        <div className={'team-detail__lineup-image'}>
-                          <div className={'team-detail__lineup-gradient'}></div>
-                        </div>
-                        <div className={'team-detail__lineup-info'}>
-                          <div className={'team-detail__lineup-info__number'}>
-                            Afgevaardigde
-                          </div>
-                          <div
-                            className={'team-detail__lineup-info__firstname'}
-                          >
-                            Stefan
-                          </div>
-                          <div className={'team-detail__lineup-info__lastname'}>
-                            Robberechts
-                          </div>
-                        </div>
-                      </a>
-                    </article>
-                  </li>
-                </ul>
-              </section>
-              <section className={'team-detail__lineup-section'}>
-                <h2>Doelmannen</h2>
-                <ul>
-                  <li className={'team-detail__lineup-item'}>
-                    <article className={'team-detail__lineup-teaser'}>
-                      <a href="#">
-                        <div className={'team-detail__lineup-image'}>
-                          <div className={'team-detail__lineup-gradient'}></div>
-                        </div>
-                        <div className={'team-detail__lineup-info'}>
-                          <div className={'team-detail__lineup-info__number'}>
-                            1
-                          </div>
-                          <div
-                            className={'team-detail__lineup-info__firstname'}
-                          >
-                            Ken
-                          </div>
-                          <div className={'team-detail__lineup-info__lastname'}>
-                            Vanhalle
-                          </div>
-                        </div>
-                      </a>
-                    </article>
-                  </li>
-                  <li className={'team-detail__lineup-item'}>
-                    <article className={'team-detail__lineup-teaser'}>
-                      <a href="#">
-                        <div className={'team-detail__lineup-image'}>
-                          <div className={'team-detail__lineup-gradient'}></div>
-                        </div>
-                        <div className={'team-detail__lineup-info'}>
-                          <div className={'team-detail__lineup-info__number'}>
-                            12
-                          </div>
-                          <div
-                            className={'team-detail__lineup-info__firstname'}
-                          >
-                            Mick
-                          </div>
-                          <div className={'team-detail__lineup-info__lastname'}>
-                            Devoster
-                          </div>
-                        </div>
-                      </a>
-                    </article>
-                  </li>
-                  <li className={'team-detail__lineup-item'}>
-                    <article className={'team-detail__lineup-teaser'}>
-                      <a href="#">
-                        <div className={'team-detail__lineup-image'}>
-                          <div className={'team-detail__lineup-gradient'}></div>
-                        </div>
-                        <div className={'team-detail__lineup-info'}>
-                          <div className={'team-detail__lineup-info__number'}>
-                            22
-                          </div>
-                          <div
-                            className={'team-detail__lineup-info__firstname'}
-                          >
-                            Joeri
-                          </div>
-                          <div className={'team-detail__lineup-info__lastname'}>
-                            Bonsels
-                          </div>
-                        </div>
-                      </a>
-                    </article>
-                  </li>
-                </ul>
-              </section>
-              <section className={'team-detail__lineup-section'}>
-                <h2>Verdedigers</h2>
-              </section>
-              <section className={'team-detail__lineup-section'}>
-                <h2>Middenvelders</h2>
-              </section>
-              <section className={'team-detail__lineup-section'}>
-                <h2>Aanvallers</h2>
-              </section>
+              {node.relationships.field_staff && (
+                <TeamSection
+                  title="Stafleden"
+                  lineup={node.relationships.field_staff}
+                />
+              )}
+              {playersByPosition['d'] && (
+                <TeamSection
+                  title="Doelmannen"
+                  lineup={playersByPosition['k']}
+                />
+              )}
+              {playersByPosition['v'] && (
+                <TeamSection
+                  title="Verdedigers"
+                  lineup={playersByPosition['d']}
+                />
+              )}
+              {playersByPosition['m'] && (
+                <TeamSection
+                  title="Middenvelder"
+                  lineup={playersByPosition['m']}
+                />
+              )}
+              {playersByPosition['a'] && (
+                <TeamSection
+                  title="Aanvallers"
+                  lineup={playersByPosition['a']}
+                />
+              )}
             </main>
           </div>
-          <div class="tabs-panel" id="team-matches">
+          <div className={'tabs-panel'} id="team-matches">
             GAMES
           </div>
-          <div class="tabs-panel" id="team-ranking">
+          <div className={'tabs-panel'} id="team-ranking">
             RANKING
           </div>
         </div>
@@ -266,17 +130,55 @@ export const query = graphql`
       }
       title
       relationships {
+        field_staff {
+          path {
+            alias
+          }
+          field_position_short
+          field_lastname
+          field_firstname
+          relationships {
+            field_image {
+              localFile {
+                childImageSharp {
+                  fixed(width: 250, height: 250, cropFocus: ATTENTION) {
+                    base64
+                    aspectRatio
+                    tracedSVG
+                    aspectRatio
+                    src
+                    srcSet
+                    srcWebp
+                    srcSetWebp
+                  }
+                }
+              }
+            }
+          }
+        }
         field_players {
           path {
             alias
           }
           field_shirtnumber
-          title
+          field_lastname
+          field_firstname
           field_position
           relationships {
             field_image {
               localFile {
-                url
+                childImageSharp {
+                  fixed(width: 250, height: 250, cropFocus: ATTENTION) {
+                    base64
+                    aspectRatio
+                    tracedSVG
+                    aspectRatio
+                    src
+                    srcSet
+                    srcWebp
+                    srcSetWebp
+                  }
+                }
               }
             }
           }
