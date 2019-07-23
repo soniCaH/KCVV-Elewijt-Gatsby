@@ -2,7 +2,7 @@ import { graphql } from 'gatsby'
 import React from 'react'
 import SEO from '../components/seo'
 import Layout from '../layouts/index'
-import TeamSection from '../components/team--section'
+import { TeamSection } from '../components/team--section'
 import './team.scss'
 
 const groupBy = key => array =>
@@ -49,7 +49,7 @@ export default ({ data }) => {
             id="team-subnavigation_tabs"
           >
             <li className="tabs-title is-active">
-              <a href="#team-info" aria-selected="true">
+              <a href="#team-info">
                 Info
               </a>
             </li>
@@ -141,15 +141,8 @@ export const query = graphql`
             field_image {
               localFile {
                 childImageSharp {
-                  fixed(width: 250, height: 250, cropFocus: ATTENTION) {
-                    base64
-                    aspectRatio
-                    tracedSVG
-                    aspectRatio
-                    src
-                    srcSet
-                    srcWebp
-                    srcSetWebp
+                  fluid(maxWidth: 615) {
+                    ...GatsbyImageSharpFluid_withWebp_tracedSVG
                   }
                 }
               }
@@ -168,15 +161,8 @@ export const query = graphql`
             field_image {
               localFile {
                 childImageSharp {
-                  fixed(width: 250, height: 250, cropFocus: ATTENTION) {
-                    base64
-                    aspectRatio
-                    tracedSVG
-                    aspectRatio
-                    src
-                    srcSet
-                    srcWebp
-                    srcSetWebp
+                  fluid(maxWidth: 615) {
+                    ...GatsbyImageSharpFluid_withWebp_tracedSVG
                   }
                 }
               }

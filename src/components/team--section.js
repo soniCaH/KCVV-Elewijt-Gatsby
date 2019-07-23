@@ -1,9 +1,9 @@
 import React, { Component } from 'react'
-import PlayerTeaser from './player--teaser'
+import { PlayerTeaser } from './player--teaser'
 
 import './team--section.scss';
 
-class TeamSection extends Component {
+export class TeamSection extends Component {
   render() {
     const { title, lineup } = this.props
 
@@ -19,8 +19,8 @@ class TeamSection extends Component {
                   position={
                     player.field_shirtnumber || player.field_position_short
                   }
-                  firstname={player.field_firstname}
-                  lastname={player.field_lastname}
+                  first_name={player.field_firstname}
+                  last_name={player.field_lastname}
                   picture={player.relationships.field_image}
                 />
               </li>
@@ -31,5 +31,3 @@ class TeamSection extends Component {
     )
   }
 }
-
-export default TeamSection
