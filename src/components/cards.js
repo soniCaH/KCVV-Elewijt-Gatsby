@@ -70,8 +70,6 @@ export class CardImage extends Component {
   render() {
     const { title, localFile, link, body = null } = this.props
 
-    console.log(localFile.childImageSharp.fluid);
-
     const image = (
       <Img
         fluid={{

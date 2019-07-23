@@ -128,6 +128,26 @@
 
     }
 
+    &__team-picture {
+        z-index: 3;
+
+        + .team-detail__team-info {
+            margin-top: 2rem;
+        }
+    }
+
+    &__team-info {
+        margin: 0 .25rem;
+
+        @include break(large-up) {
+            margin: 0 1rem;
+        }
+
+        @include break(xlarge-up) {
+            margin: 0 14%;
+        }
+    }
+
     .tabs-content {
         min-height: 10rem;
     }

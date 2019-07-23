@@ -2,6 +2,7 @@ import { graphql } from 'gatsby'
 import React from 'react'
 import SEO from '../components/seo'
 import Layout from '../layouts/index'
+import Img from 'gatsby-image'
 import { TeamSection } from '../components/team--section'
 import './team.scss'
 
@@ -17,6 +18,17 @@ export default ({ data }) => {
   const node = data.nodeTeam
 
   const playersByPosition = groupByPosition(node.relationships.field_players)
+  const picture = node.relationships.field_media_article_image
+
+  const teamPicture = picture && (
+    <Img
+      fluid={
+        picture.relationships.field_media_image.localFile.childImageSharp.fluid
+      }
+      alt={picture.field_media_image.alt}
+      className={'team-detail__team-picture'}
+    />
+  )
 
   return (
     <Layout>
@@ -26,9 +38,11 @@ export default ({ data }) => {
         <header className={'team-detail__header'}>
           <h1 className={'team-detail__name'}>
             <span className={'team-detail__name-division'}>
-              2e provinciale A
+              {node.field_division_full}
             </span>
-            <span className={'team-detail__name-tagline'}>The A Team</span>
+            <span className={'team-detail__name-tagline'}>
+              {node.field_tagline}
+            </span>
           </h1>
 
           <div className={'bg-green-mask'}>
@@ -36,7 +50,7 @@ export default ({ data }) => {
           </div>
 
           <div className={'team-detail__division-number'} aria-hidden="true">
-            2A
+            {node.field_fb_id}
           </div>
         </header>
 
@@ -49,9 +63,7 @@ export default ({ data }) => {
             id="team-subnavigation_tabs"
           >
             <li className="tabs-title is-active">
-              <a href="#team-info">
-                Info
-              </a>
+              <a href="#team-info">Info</a>
             </li>
             <li className="tabs-title">
               <a href="#team-lineup">Lineup</a>
@@ -74,7 +86,15 @@ export default ({ data }) => {
           data-tabs-content="team-subnavigation_tabs"
         >
           <div className={'tabs-panel is-active'} id="team-info">
-            Groepsfoto + contactgegevens.
+            {teamPicture || ''}
+            {node.field_contact_info && (
+              <div
+                className={'team-detail__team-info'}
+                dangerouslySetInnerHTML={{
+                  __html: node.field_contact_info.processed,
+                }}
+              />
+            )}
           </div>
           <div className={'tabs-panel'} id="team-lineup">
             <main className={'team-detail__lineup'}>
@@ -129,6 +149,12 @@ export const query = graphql`
         alias
       }
       title
+      field_contact_info {
+        processed
+      }
+      field_fb_id
+      field_division_full
+      field_tagline
       relationships {
         field_staff {
           path {
@@ -167,6 +193,22 @@ export const query = graphql`
                 }
               }
             }
+          }
+        }
+        field_media_article_image {
+          relationships {
+            field_media_image {
+              localFile {
+                childImageSharp {
+                  fluid(maxWidth: 2000) {
+                    ...GatsbyImageSharpFluid_withWebp_tracedSVG
+                  }
+                }
+              }
+            }
+          }
+          field_media_image {
+            alt
           }
         }
       }
