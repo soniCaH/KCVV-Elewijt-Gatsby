@@ -28,3 +28,10 @@
         display: none;
     }
 }
+
+.kiosk__matches {
+.matches_overview__wrapper {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+}
+}

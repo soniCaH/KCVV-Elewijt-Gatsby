@@ -1,6 +1,3 @@
-
-
-
 import React, { Component } from 'react'
 
 import Layout from '../layouts/index'
@@ -11,10 +8,9 @@ import MatchesOverview from '../components/matches-overview'
 class GamesPage extends Component {
   render() {
     return (
-        <MatchesOverview
-        season="1920"
-        regnumber="00055"
-      />
+      <div className={'kiosk__matches'}>
+        <MatchesOverview season="1920" regnumber="00055" />
+      </div>
     )
   }
 }
