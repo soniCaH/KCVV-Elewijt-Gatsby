@@ -61,7 +61,7 @@ class MatchesOverview extends Component {
       moment.locale('nl-be')
       let matchTime = moment()
 
-      const ignore = this.props.exclude
+      const ignore = this.props.exclude || []
 
       return (
         <div className="matches_overview__wrapper">
