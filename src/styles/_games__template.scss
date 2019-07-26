@@ -1,10 +1,11 @@
 .games__template {
     margin: 0 auto;
     max-width: 60rem;
-    padding-top: 2rem;
+    padding: 2rem 0;
 
     .match-details__logo {
-        max-height: 100px;
+        max-height: 50px;
+        margin-bottom: .5rem;
     }
 
     .match-details__inner {
@@ -13,11 +14,17 @@
     }
 
     .match-details {
-        header, .match-details__datetime {
+
+        header,
+        .match-details__datetime {
             display: flex;
             flex-direction: column;
             justify-content: center;
             text-align: right;
         }
+    }
+
+    .match-details__vs {
+        display: none;
     }
 }
