@@ -23,6 +23,7 @@ class MatchWithLogo extends Component {
     } = this.props.match
 
     moment.locale('nl-be')
+
     const matchTime = moment(dateTime)
 
     return (
@@ -82,7 +83,7 @@ class MatchWithLogo extends Component {
               {typeof resultHome !== 'undefined' &&
               typeof resultAway !== 'undefined' ? (
                 <div className={'match-details__vs'}>
-                  {resultHome}-{resultAway}
+                  {resultHome} - {resultAway}
                 </div>
               ) : (
                 ''

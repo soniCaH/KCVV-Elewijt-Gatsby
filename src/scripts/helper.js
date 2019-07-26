@@ -61,7 +61,14 @@ export function replaceFirstCharIfNumber(division) {
 export function outputDivision(divisionArray, level = '') {
   if (divisionArray[0] === 'BCA') {
     return `Beker van Brabant`
-  } else if (divisionArray[2] <= 4) {
+  }
+  else if (divisionArray[0] === 'FR') {
+    return `Vriendschappelijk`
+  }
+  else if (divisionArray[0] === 'BVZ') {
+    return `Beker van Zemst`
+  }
+  else if (divisionArray[2] <= 4) {
     return `${divisionArray[2]}e ${level !== 'nat' ? 'Prov.' : 'Nationale'} ${
       divisionArray[3]
     }`

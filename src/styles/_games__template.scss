@@ -1,0 +1,12 @@
+.games__template {
+    padding-top: 2rem;
+
+    .match-details__logo {
+        max-height: 100px;
+    }
+
+    .match-details__inner {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
