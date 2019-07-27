@@ -130,12 +130,6 @@ class IndexPage extends Component {
             body="Neem nu de leiding als manager van KCVV Elewijt in het populaire simulatiespel 'Football Manager 2019'."
           />
         </section>
-
-        <div className="grid-container site-content">
-          <div className="grid-x grid-margin-x">
-            <section className="cell large-12">REST VAN NIEUWS</section>
-          </div>
-        </div>
       </Layout>
     )
   }

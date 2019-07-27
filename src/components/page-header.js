@@ -77,13 +77,13 @@ class MenuItems extends Component {
           </Link>
         </li>
         <li>
-          <Link to="/a-team/" activeClassName="active" partiallyActive={true}>
+          <Link to="/team/a-ploeg" activeClassName="active" partiallyActive={true}>
             A-Ploeg
           </Link>
           <ul className="vertical menu submenu">
             <li>
               <Link
-                to="/a-team/matches/"
+                to="/team/a-ploeg#matches"
                 activeClassName="active"
                 partiallyActive={true}
               >
@@ -92,7 +92,7 @@ class MenuItems extends Component {
             </li>
             <li>
               <Link
-                to="/a-team/ranking/"
+                to="/team/a-ploeg#ranking"
                 activeClassName="active"
                 partiallyActive={true}
               >
@@ -101,32 +101,23 @@ class MenuItems extends Component {
             </li>
             <li>
               <Link
-                to="/a-team/staff/"
+                to="/team/a-ploeg#lineup"
                 activeClassName="active"
                 partiallyActive={true}
               >
-                Staff
-              </Link>
-            </li>
-            <li>
-              <Link
-                to="/a-team/players/"
-                activeClassName="active"
-                partiallyActive={true}
-              >
-                Spelers
+                Spelers &amp; Staff
               </Link>
             </li>
           </ul>
         </li>
         <li>
-          <Link to="/b-team/" activeClassName="active" partiallyActive={true}>
+          <Link to="/team/b-ploeg" activeClassName="active" partiallyActive={true}>
             B-ploeg
           </Link>
           <ul className="vertical menu submenu">
             <li>
               <Link
-                to="/b-team/matches/"
+                to="/team/b-ploeg"
                 activeClassName="active"
                 partiallyActive={true}
               >
@@ -135,7 +126,7 @@ class MenuItems extends Component {
             </li>
             <li>
               <Link
-                to="/b-team/ranking/"
+                to="/team/b-ploeg"
                 activeClassName="active"
                 partiallyActive={true}
               >
@@ -144,20 +135,11 @@ class MenuItems extends Component {
             </li>
             <li>
               <Link
-                to="/b-team/staff/"
+                to="/team/b-ploeg"
                 activeClassName="active"
                 partiallyActive={true}
               >
-                Staff
-              </Link>
-            </li>
-            <li>
-              <Link
-                to="/b-team/players/"
-                activeClassName="active"
-                partiallyActive={true}
-              >
-                Spelers
+                Spelers &amp; Staff
               </Link>
             </li>
           </ul>
