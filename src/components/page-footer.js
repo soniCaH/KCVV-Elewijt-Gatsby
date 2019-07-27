@@ -71,7 +71,7 @@ class PageFooter extends Component {
                   <tr>
                     <th className="page-footer__contact-details__label">GC</th>
                     <td className="page-footer__contact-details__value">
-                      John De Ron
+                      <a href="mailto:gc@kcvvelewijt.be">John De Ron</a>
                     </td>
                   </tr>
                   <tr>
