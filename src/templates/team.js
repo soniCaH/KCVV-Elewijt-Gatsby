@@ -5,6 +5,8 @@ import Layout from '../layouts/index'
 import Img from 'gatsby-image'
 import { TeamSection } from '../components/team--section'
 import './team.scss'
+import Ranking from '../components/ranking'
+import TeamCalendarMatches from '../components/team-calendar-matches'
 
 const groupBy = key => array =>
   array.reduce((objectsByKeyValue, obj) => {
@@ -131,10 +133,19 @@ export default ({ data }) => {
             </main>
           </div>
           <div className={'tabs-panel'} id="team-matches">
-            GAMES
+            <TeamCalendarMatches
+              season="1920"
+              province="bra"
+              division="2A"
+              />
           </div>
           <div className={'tabs-panel'} id="team-ranking">
-            RANKING
+            <Ranking
+              season="1920"
+              province="bra"
+              division="2A"
+              highlight="KCVV.Elewijt A"
+            />
           </div>
         </div>
       </article>
