@@ -19,3 +19,17 @@
         padding-top: 410px;
     }
 // }
+
+.display-desktop {
+    display: none;
+    @include break(medium-up) {
+        display: block;
+    }
+}
+
+.display-mobile {
+    display: block;
+    @include break(medium-up) {
+        display: none;
+    }
+}
