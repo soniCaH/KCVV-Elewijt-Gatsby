@@ -106,13 +106,13 @@ export default ({ data }) => {
                   lineup={node.relationships.field_staff}
                 />
               )}
-              {playersByPosition['d'] && (
+              {playersByPosition['k'] && (
                 <TeamSection
                   title="Doelmannen"
                   lineup={playersByPosition['k']}
                 />
               )}
-              {playersByPosition['v'] && (
+              {playersByPosition['d'] && (
                 <TeamSection
                   title="Verdedigers"
                   lineup={playersByPosition['d']}

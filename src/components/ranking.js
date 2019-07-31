@@ -1,7 +1,7 @@
 import React, { Component, Fragment } from 'react'
 import { graphql, StaticQuery } from 'gatsby'
 
-class RankingRow extends React.Component {
+class RankingRow extends Component {
   constructor(props) {
     super(props)
   }
@@ -48,7 +48,7 @@ class RankingRow extends React.Component {
   }
 }
 
-class Ranking extends React.Component {
+class Ranking extends Component {
   constructor(props) {
     super(props)
     this.state = {

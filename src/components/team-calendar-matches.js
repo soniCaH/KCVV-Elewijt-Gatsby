@@ -1,49 +1,96 @@
 import React, { Component, Fragment } from 'react'
 import { graphql, StaticQuery } from 'gatsby'
 
-class RankingRow extends React.Component {
-  constructor(props) {
-    super(props)
-  }
+import ClubLogo from './clublogo'
 
+import './team-calendar-matches.scss'
+
+class CalendarRow extends Component {
   render() {
+    const moment = require('moment')
+    const timezone = require('moment-timezone')
+    moment.locale('nl-BE')
+
+    const { result } = this.props
+    const {
+      matchDay,
+      dateTime,
+      resultHome,
+      resultAway,
+      regNumberHome,
+      regNumberAway,
+      home,
+      away,
+      status,
+    } = result
+
+    const d = new moment(dateTime)
+    const date = d.format('dddd D MMMM YYYY')
+    const time = d.format('HH:mm')
     return (
-      <tr
-        className={
-          this.props.result.team === this.props.highlight
-            ? 'highlightRow rankingRow'
-            : 'rankingRow'
-        }
-      >
-        <td className="rankingRow-Position rankingRow-Integer">
-          {this.props.result.position}
-        </td>
-        <td className="rankingRow-Teamname">{this.props.result.team}</td>
-        <td className="rankingRow-Matches rankingRow-Integer">
-          {this.props.result.matches}
-        </td>
-        <td className="rankingRow-Wins rankingRow-Integer">
-          {this.props.result.wins}
-        </td>
-        <td className="rankingRow-Draws rankingRow-Integer">
-          {this.props.result.draws}
-        </td>
-        <td className="rankingRow-Losses rankingRow-Integer">
-          {this.props.result.losses}
-        </td>
-        <td className="rankingRow-GoalsPro rankingRow-Integer">
-          {this.props.result.goalsPro}
-        </td>
-        <td className="rankingRow-GoalsAgainst rankingRow-Integer">
-          {this.props.result.goalsAgainst}
-        </td>
-        <td className="rankingRow-GoalsDiff rankingRow-Integer">
-          {this.props.result.goalsPro - this.props.result.goalsAgainst}
-        </td>
-        <td className="rankingRow-Points rankingRow-Integer">
-          {this.props.result.points}
-        </td>
-      </tr>
+      <article className={'team-calendar-match'}>
+        <header className={'team-calendar-match__title'}>
+          <h2>
+            {date}{' '}
+            <span className={'team-calendar-match__title__separator'}>|</span>
+            <span className={'team-calendar-match__title__tagline'}>
+              speeldag {matchDay}
+            </span>
+          </h2>
+        </header>
+        <div className={'team-calendar-match__main'}>
+          <div
+            className={
+              'team-calendar-match__team team-calendar-match__team--home'
+            }
+          >
+            {home}
+
+            <ClubLogo
+              regNumber={regNumberHome}
+              title={home}
+              className={
+                'team-calendar-match__logo team-calendar-match__logo--home'
+              }
+            />
+          </div>
+          <div className={'team-calendar-match__score'}>
+            {typeof resultHome !== 'undefined' &&
+            typeof resultAway !== 'undefined'
+              ? `${resultHome} - ${resultAway}`
+              : time}
+          </div>
+          <div
+            className={
+              'team-calendar-match__team team-calendar-match__team--away'
+            }
+          >
+            <ClubLogo
+              regNumber={regNumberAway}
+              title={away}
+              className={
+                'team-calendar-match__logo team-calendar-match__logo--away'
+              }
+            />
+            {away}
+          </div>
+        </div>
+      </article>
+
+      // <tr>
+      //   <td className={'display-desktop'}>{date}</td>
+      //   <td className={'display-mobile'}>{dateShort}</td>
+      //   <td>{time}</td>
+      //   <td>{home}</td>
+      //   <td>
+      //     {typeof resultHome !== 'undefined' &&
+      //     typeof resultAway !== 'undefined'
+      //       ? `${resultHome} - ${resultAway}`
+      //       : 'vs'}
+      //   </td>
+      //   <td>{away}</td>
+      //   <td>{status}</td>
+      // </tr>
     )
   }
 }
@@ -85,10 +132,6 @@ class TeamCalendarMatches extends React.Component {
   }
 
   render() {
-    let moment = require('moment')
-    let timezone = require('moment-timezone')
-    moment.locale('nl-BE')
-
     if (this.state.loading === false && this.state.data) {
       const elewijtMatches = this.state.data
         .filter(
@@ -100,44 +143,11 @@ class TeamCalendarMatches extends React.Component {
         )
 
       return (
-        <table className="rankingTable">
-          <thead>
-            <tr className="rankingRow">
-              <th className="rankingRow-Position rankingRow-Integer">Datum</th>
-              <th className="rankingRow-Teamname">Uur</th>
-              <th className="rankingRow-Matches rankingRow-Integer">
-                Thuisploeg
-              </th>
-              <th className="rankingRow-Wins rankingRow-Integer">Score</th>
-              <th className="rankingRow-Draws rankingRow-Integer">Uitploeg</th>
-              <th className="rankingRow-Losses rankingRow-Integer">Status</th>
-            </tr>
-          </thead>
-          <tbody>
-            {elewijtMatches.map((result, i) => {
-              const d = new moment(result.dateTime)
-              const date = d.format('dddd D MMMM YYYY')
-              const dateShort = d.format('DD/MM/YYYY')
-              const time = d.format('HH:mm')
-              return (
-                <tr>
-                  <td className={'display-desktop'}>{date}</td>
-                  <td className={'display-mobile'}>{dateShort}</td>
-                  <td>{time}</td>
-                  <td>{result.home}</td>
-                  <td>
-                    {typeof result.resultHome !== 'undefined' &&
-                    typeof result.resultAway !== 'undefined'
-                      ? `${result.resultHome} - ${result.resultAway}`
-                      : 'vs'}
-                  </td>
-                  <td>{result.away}</td>
-                  <td>{result.status}</td>
-                </tr>
-              )
-            })}
-          </tbody>
-        </table>
+        <section className={'team-calendar-matches'}>
+          {elewijtMatches.map((result, i) => (
+            <CalendarRow result={result} key={i} />
+          ))}
+        </section>
       )
     } else {
       return <div>Loading...</div>
@@ -156,7 +166,7 @@ const query = graphql`
   }
 `
 
-export default ({ season, province, division, highlight }) => (
+export default ({ season, province, division }) => (
   <StaticQuery
     query={query}
     render={data => (
