@@ -120,6 +120,8 @@
 
     &__team-info {
         margin: 0 .25rem;
+        position: relative;
+        z-index: 4;
 
         @include break(large-up) {
             margin: 0 1rem;
