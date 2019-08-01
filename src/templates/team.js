@@ -7,6 +7,7 @@ import { TeamSection } from '../components/team--section'
 import './team.scss'
 import Ranking from '../components/ranking'
 import TeamCalendarMatches from '../components/team-calendar-matches'
+import TeamCalendarMetaMatches from '../components/team-calendar-meta-matches'
 
 const groupBy = key => array =>
   array.reduce((objectsByKeyValue, obj) => {
@@ -155,6 +156,12 @@ export default ({ data }) => {
           {node.field_fb_id && (
             <>
               <div className={'tabs-panel'} id="team-matches">
+                <TeamCalendarMetaMatches
+                  season="1920"
+                  province="bra"
+                  division={node.field_fb_id}
+                  regnumber="00055"
+                />
                 <TeamCalendarMatches
                   season="1920"
                   province="bra"

@@ -30,7 +30,7 @@
             &-division {
                 display: block;
 
-                color: #31404B;
+                color: var(--color-gray-blue);
                 font-size: 1rem;
 
                 @media (min-width: 768px) {
@@ -114,7 +114,7 @@
         &__statistics {
             padding: 425px 4rem 4rem 4rem;
 
-            color: #31404B;
+            color: var(--color-gray-blue);
             font-family: 'Montserrat', sans-serif;
             line-height: 0.9;
             text-transform: uppercase;
@@ -190,7 +190,7 @@
                 }
 
                 &__label {
-                    color: #31404B;
+                    color: var(--color-gray-blue);
                     font-size: 0.5rem;
                 }
 
@@ -203,7 +203,7 @@
                 &--birthdate {}
 
                 &--position {
-                    color: #31404B;
+                    color: var(--color-gray-blue);
                     font-size: 1.875rem;
                     text-align: center;
 

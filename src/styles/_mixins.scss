@@ -50,3 +50,17 @@
         margin-bottom: 10px;
     }
 }
+
+@mixin after-border($length: 24px) {
+    margin-bottom: 1rem;
+    position: relative;
+
+    &::after {
+        border-top: 2px solid #4B9B48;
+        position: absolute;
+        width: $length;
+        bottom: -8px;
+        left: 0;
+        content: '';
+    }
+}

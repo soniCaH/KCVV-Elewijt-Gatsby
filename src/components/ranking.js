@@ -1,5 +1,7 @@
-import React, { Component, Fragment } from 'react'
+import React, { Component } from 'react'
 import { graphql, StaticQuery } from 'gatsby'
+
+import './ranking.scss';
 
 class RankingRow extends Component {
   constructor(props) {
@@ -11,38 +13,20 @@ class RankingRow extends Component {
       <tr
         className={
           this.props.result.team === this.props.highlight
-            ? 'highlightRow rankingRow'
-            : 'rankingRow'
+            ? 'team-ranking__row--highlight team-ranking__row'
+            : 'team-ranking__row'
         }
       >
-        <td className="rankingRow-Position rankingRow-Integer">
-          {this.props.result.position}
-        </td>
-        <td className="rankingRow-Teamname">{this.props.result.team}</td>
-        <td className="rankingRow-Matches rankingRow-Integer">
-          {this.props.result.matches}
-        </td>
-        <td className="rankingRow-Wins rankingRow-Integer">
-          {this.props.result.wins}
-        </td>
-        <td className="rankingRow-Draws rankingRow-Integer">
-          {this.props.result.draws}
-        </td>
-        <td className="rankingRow-Losses rankingRow-Integer">
-          {this.props.result.losses}
-        </td>
-        <td className="rankingRow-GoalsPro rankingRow-Integer">
-          {this.props.result.goalsPro}
-        </td>
-        <td className="rankingRow-GoalsAgainst rankingRow-Integer">
-          {this.props.result.goalsAgainst}
-        </td>
-        <td className="rankingRow-GoalsDiff rankingRow-Integer">
-          {this.props.result.goalsPro - this.props.result.goalsAgainst}
-        </td>
-        <td className="rankingRow-Points rankingRow-Integer">
-          {this.props.result.points}
-        </td>
+        <td className={"team-ranking__column team-ranking__column--number team-ranking__column--ranking"}>{this.props.result.position}</td>
+        <td className={"team-ranking__column team-ranking__column--string team-ranking__column--team"}>{this.props.result.team}</td>
+        <td className={"team-ranking__column team-ranking__column--number"}>{this.props.result.matches}</td>
+        <td className={"team-ranking__column team-ranking__column--number"}>{this.props.result.wins}</td>
+        <td className={"team-ranking__column team-ranking__column--number"}>{this.props.result.draws}</td>
+        <td className={"team-ranking__column team-ranking__column--number"}>{this.props.result.losses}</td>
+        <td className={"team-ranking__column team-ranking__column--number team-ranking__column--goals-pro"}>{this.props.result.goalsPro}</td>
+        <td className={"team-ranking__column team-ranking__column--number team-ranking__column--goals-against"}> {this.props.result.goalsAgainst}</td>
+        <td className={"team-ranking__column team-ranking__column--number team-ranking__column--goals-difference"}>{this.props.result.goalsPro - this.props.result.goalsAgainst}</td>
+        <td className={"team-ranking__column team-ranking__column--number team-ranking__column--points"}>{this.props.result.points}</td>
       </tr>
     )
   }
@@ -97,19 +81,20 @@ class Ranking extends Component {
       })
 
       return (
-        <table className="rankingTable">
-          <thead>
-            <tr className="rankingRow">
-              <th className="rankingRow-Position rankingRow-Integer">#</th>
-              <th className="rankingRow-Teamname">Team</th>
-              <th className="rankingRow-Matches rankingRow-Integer">M</th>
-              <th className="rankingRow-Wins rankingRow-Integer">W</th>
-              <th className="rankingRow-Draws rankingRow-Integer">D</th>
-              <th className="rankingRow-Losses rankingRow-Integer">L</th>
-              <th className="rankingRow-GoalsPro rankingRow-Integer">G+</th>
-              <th className="rankingRow-GoalsAgainst rankingRow-Integer">G-</th>
-              <th className="rankingRow-GoalsDiff rankingRow-Integer">+/-</th>
-              <th className="rankingRow-Points rankingRow-Integer">Pts</th>
+        <div className={"team-ranking"}>
+        <table className={"team-ranking__table"}>
+          <thead className={"team-ranking__header"}>
+            <tr className={"team-ranking__row"}>
+              <th className={"team-ranking__column team-ranking__column--number team-ranking__column--ranking"}>#</th>
+              <th className={"team-ranking__column team-ranking__column--string team-ranking__column--team"}>Team</th>
+              <th className={"team-ranking__column team-ranking__column--number"}>M</th>
+              <th className={"team-ranking__column team-ranking__column--number"}>W</th>
+              <th className={"team-ranking__column team-ranking__column--number"}>D</th>
+              <th className={"team-ranking__column team-ranking__column--number"}>L</th>
+              <th className={"team-ranking__column team-ranking__column--number team-ranking__column--goals-pro"}>G+</th>
+              <th className={"team-ranking__column team-ranking__column--number team-ranking__column--goals-against"}>G-</th>
+              <th className={"team-ranking__column team-ranking__column--number team-ranking__column--goals-difference"}>+/-</th>
+              <th className={"team-ranking__column team-ranking__column--number team-ranking__column--points"}>Pts</th>
             </tr>
           </thead>
           <tbody>
@@ -121,7 +106,7 @@ class Ranking extends Component {
               />
             ))}
           </tbody>
-        </table>
+        </table></div>
       )
     } else {
       return <div>Loading...</div>
