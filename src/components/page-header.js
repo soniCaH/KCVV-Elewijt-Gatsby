@@ -77,13 +77,31 @@ class MenuItems extends Component {
           </Link>
         </li>
         <li>
-          <Link to="/team/a-ploeg" activeClassName="active" partiallyActive={true}>
+          <Link
+            to="/team/a-ploeg"
+            activeClassName="active"
+            partiallyActive={true}
+          >
             A-Ploeg
           </Link>
           <ul className="vertical menu submenu">
             <li>
               <Link
-                to="/team/a-ploeg#matches"
+                to="/team/a-ploeg#team-info"
+                activeClassName="active"
+                partiallyActive={true}
+              >
+                Info
+              </Link>
+              <Link
+                to="/team/a-ploeg#team-lineup"
+                activeClassName="active"
+                partiallyActive={true}
+              >
+                Spelers &amp; Staff
+              </Link>
+              <Link
+                to="/team/a-ploeg#team-matches"
                 activeClassName="active"
                 partiallyActive={true}
               >
@@ -92,32 +110,41 @@ class MenuItems extends Component {
             </li>
             <li>
               <Link
-                to="/team/a-ploeg#ranking"
+                to="/team/a-ploeg#team-ranking"
                 activeClassName="active"
                 partiallyActive={true}
               >
-                Ranking
-              </Link>
-            </li>
-            <li>
-              <Link
-                to="/team/a-ploeg#lineup"
-                activeClassName="active"
-                partiallyActive={true}
-              >
-                Spelers &amp; Staff
+                Stand
               </Link>
             </li>
           </ul>
         </li>
         <li>
-          <Link to="/team/b-ploeg" activeClassName="active" partiallyActive={true}>
-            B-ploeg
+          <Link
+            to="/team/b-ploeg"
+            activeClassName="active"
+            partiallyActive={true}
+          >
+            B-Ploeg
           </Link>
           <ul className="vertical menu submenu">
             <li>
               <Link
-                to="/team/b-ploeg"
+                to="/team/b-ploeg#team-info"
+                activeClassName="active"
+                partiallyActive={true}
+              >
+                Info
+              </Link>
+              <Link
+                to="/team/b-ploeg#team-lineup"
+                activeClassName="active"
+                partiallyActive={true}
+              >
+                Spelers &amp; Staff
+              </Link>
+              <Link
+                to="/team/b-ploeg#team-matches"
                 activeClassName="active"
                 partiallyActive={true}
               >
@@ -126,36 +153,36 @@ class MenuItems extends Component {
             </li>
             <li>
               <Link
-                to="/team/b-ploeg"
+                to="/team/b-ploeg#team-ranking"
                 activeClassName="active"
                 partiallyActive={true}
               >
-                Ranking
-              </Link>
-            </li>
-            <li>
-              <Link
-                to="/team/b-ploeg"
-                activeClassName="active"
-                partiallyActive={true}
-              >
-                Spelers &amp; Staff
+                Stand
               </Link>
             </li>
           </ul>
         </li>
         <li>
-          <Link to="/youth/" activeClassName="active" partiallyActive={true}>
+          <Link to="/jeugd/" activeClassName="active" partiallyActive={true}>
             Jeugd
           </Link>
           <ul className="vertical menu submenu">
             <li>
               <Link
-                to="/youth/u13/"
+                to="/team/u15/"
                 activeClassName="active"
                 partiallyActive={true}
               >
-                U13
+                U15
+              </Link>
+            </li>
+            <li>
+              <Link
+                to="/team/u12/"
+                activeClassName="active"
+                partiallyActive={true}
+              >
+                U12
               </Link>
             </li>
             <li>
@@ -231,6 +258,24 @@ class MenuItems extends Component {
                 partiallyActive={true}
               >
                 Geschiedenis
+              </Link>
+            </li>
+            <li>
+              <Link
+                to="/team/bestuur/"
+                activeClassName="active"
+                partiallyActive={true}
+              >
+                Bestuur
+              </Link>
+            </li>
+            <li>
+              <Link
+                to="/team/jeugdbestuur/"
+                activeClassName="active"
+                partiallyActive={true}
+              >
+                Jeugdbestuur
               </Link>
             </li>
             <li>

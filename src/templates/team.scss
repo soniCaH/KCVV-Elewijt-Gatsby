@@ -150,11 +150,11 @@
             flex-direction: row;
             margin: 0 .25rem 2rem;
 
-            @media (min-width: 992px) {
+            @include break(large-up) {
                 margin: 0 1rem 2rem;
             }
 
-            @media (min-width: 1480px) {
+            @include break(xlarge-up) {
                 margin: 0 14% 2rem;
             }
 

@@ -19,7 +19,9 @@ const groupByPosition = groupBy('field_position')
 export default ({ data }) => {
   const node = data.nodeTeam
 
-  const playersByPosition = groupByPosition(node.relationships.field_players)
+  const playersByPosition =
+    node.relationships.field_players &&
+    groupByPosition(node.relationships.field_players)
   const picture = node.relationships.field_media_article_image
 
   const teamPicture = picture && (
@@ -50,38 +52,54 @@ export default ({ data }) => {
           <div className={'bg-green-mask'}>
             <div className={'bg-white-end'} />
           </div>
-
-          <div className={'team-detail__division-number'} aria-hidden="true">
-            {node.field_fb_id}
-          </div>
+          {node.field_fb_id && (
+            <div className={'team-detail__division-number'} aria-hidden="true">
+              {node.field_fb_id}
+            </div>
+          )}
         </header>
 
         <div className={'team-break'}></div>
 
-        <section className={'team-sub_navigation'}>
-          <ul
-            className={'tabs team-sub_navigation__tabs '}
-            data-tabs
-            id="team-subnavigation_tabs"
-          >
-            <li className="tabs-title is-active">
-              <a href="#team-info">Info</a>
-            </li>
-            <li className="tabs-title">
-              <a href="#team-lineup">Lineup</a>
-            </li>
-            <li className={'tabs-title'}>
-              <a data-tabs-target="team-matches" href="#team-matches">
-                Wedstrijden
-              </a>
-            </li>
-            <li className={'tabs-title'}>
-              <a data-tabs-target="team-ranking" href="#team-ranking">
-                Stand
-              </a>
-            </li>
-          </ul>
-        </section>
+        {(playersByPosition || node.field_fb_id) && (
+          <>
+            <section className={'team-sub_navigation'}>
+              <ul
+                className={'tabs team-sub_navigation__tabs '}
+                data-tabs
+                data-deep-link="true"
+                data-update-history="true"
+                data-deep-link-smudge="true"
+                data-deep-link-smudge-delay="500"
+                id="team-subnavigation_tabs"
+              >
+                <li className="tabs-title is-active">
+                  <a href="#team-info">Info</a>
+                </li>
+                {playersByPosition && (
+                  <li className="tabs-title">
+                    <a href="#team-lineup">Lineup</a>
+                  </li>
+                )}
+                {node.field_fb_id && (
+                  <>
+                    {' '}
+                    <li className={'tabs-title'}>
+                      <a data-tabs-target="team-matches" href="#team-matches">
+                        Wedstrijden
+                      </a>
+                    </li>
+                    <li className={'tabs-title'}>
+                      <a data-tabs-target="team-ranking" href="#team-ranking">
+                        Stand
+                      </a>
+                    </li>
+                  </>
+                )}
+              </ul>
+            </section>
+          </>
+        )}
 
         <div
           className={'tabs-content'}
@@ -98,55 +116,61 @@ export default ({ data }) => {
               />
             )}
           </div>
-          <div className={'tabs-panel'} id="team-lineup">
-            <main className={'team-detail__lineup'}>
-              {node.relationships.field_staff && (
-                <TeamSection
-                  title="Stafleden"
-                  lineup={node.relationships.field_staff}
+          {playersByPosition && (
+            <div className={'tabs-panel'} id="team-lineup">
+              <main className={'team-detail__lineup'}>
+                {node.relationships.field_staff && (
+                  <TeamSection
+                    title="Stafleden"
+                    lineup={node.relationships.field_staff}
+                  />
+                )}
+                {playersByPosition['k'] && (
+                  <TeamSection
+                    title="Doelmannen"
+                    lineup={playersByPosition['k']}
+                  />
+                )}
+                {playersByPosition['d'] && (
+                  <TeamSection
+                    title="Verdedigers"
+                    lineup={playersByPosition['d']}
+                  />
+                )}
+                {playersByPosition['m'] && (
+                  <TeamSection
+                    title="Middenvelder"
+                    lineup={playersByPosition['m']}
+                  />
+                )}
+                {playersByPosition['a'] && (
+                  <TeamSection
+                    title="Aanvallers"
+                    lineup={playersByPosition['a']}
+                  />
+                )}
+              </main>
+            </div>
+          )}
+          {node.field_fb_id && (
+            <>
+              <div className={'tabs-panel'} id="team-matches">
+                <TeamCalendarMatches
+                  season="1920"
+                  province="bra"
+                  division={node.field_fb_id}
                 />
-              )}
-              {playersByPosition['k'] && (
-                <TeamSection
-                  title="Doelmannen"
-                  lineup={playersByPosition['k']}
+              </div>
+              <div className={'tabs-panel'} id="team-ranking">
+                <Ranking
+                  season="1920"
+                  province="bra"
+                  division={node.field_fb_id}
+                  highlight="KCVV.Elewijt A"
                 />
-              )}
-              {playersByPosition['d'] && (
-                <TeamSection
-                  title="Verdedigers"
-                  lineup={playersByPosition['d']}
-                />
-              )}
-              {playersByPosition['m'] && (
-                <TeamSection
-                  title="Middenvelder"
-                  lineup={playersByPosition['m']}
-                />
-              )}
-              {playersByPosition['a'] && (
-                <TeamSection
-                  title="Aanvallers"
-                  lineup={playersByPosition['a']}
-                />
-              )}
-            </main>
-          </div>
-          <div className={'tabs-panel'} id="team-matches">
-            <TeamCalendarMatches
-              season="1920"
-              province="bra"
-              division="2A"
-              />
-          </div>
-          <div className={'tabs-panel'} id="team-ranking">
-            <Ranking
-              season="1920"
-              province="bra"
-              division="2A"
-              highlight="KCVV.Elewijt A"
-            />
-          </div>
+              </div>
+            </>
+          )}
         </div>
       </article>
     </Layout>
