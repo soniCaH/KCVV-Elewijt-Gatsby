@@ -35,14 +35,18 @@ class IndexPage extends Component {
 
         <section className="grid-container site-content">
           <div className="grid-x grid-margin-x">
-            <section className={"cell large-12"}>
-            <CardImage
-                  title="Voorbereidings- en bekerwedstrijden"
-                  localFile={data.preseason}
-                  link="/games"
-                  metadata={false}
-                />
+            <section className={'cell large-12 featured-article'}>
+              <CardImage
+                title="Voorbereidings- en bekerwedstrijden"
+                localFile={data.preseason}
+                link="/games"
+                metadata={false}
+              />
             </section>
+          </div>
+        </section>
+        <section className="grid-container site-content">
+          <div className="grid-x grid-margin-x">
             <section className="cell large-8 news_overview__wrapper">
               {data.featuredPosts.edges.map(({ node }, i) => {
                 // Keep track of articleCount to properly place/align.
@@ -132,10 +136,9 @@ class IndexPage extends Component {
 
         <section className={'grid-container full'}>
           <CardImage
-            title="SPEEL NU FM 2019 ALS MANAGER VAN KCVV ELEWIJT!"
-            localFile={data.fm19}
-            link="news/2019-07-11-neem-zelf-de-leiding-van-kcvv-elewijt"
-            body="Neem nu de leiding als manager van KCVV Elewijt in het populaire simulatiespel 'Football Manager 2019'."
+            title="Afterwork party + Schijt je rijk"
+            localFile={data.sjr}
+            body="KCVV Ultra's organiseren: Afterwork + schijt je rijk - woensdag 14 augustus vanaf 17u in de chalet!"
           />
         </section>
       </Layout>
@@ -291,6 +294,25 @@ export const pageQuery = graphql`
       }
     }
     preseason: file(name: { eq: "preseason" }) {
+      childImageSharp {
+        fluid(maxWidth: 1680, quality: 75, cropFocus: ATTENTION) {
+          base64
+          aspectRatio
+          tracedSVG
+          aspectRatio
+          src
+          srcSet
+          srcWebp
+          srcSetWebp
+          sizes
+          # originalImg
+          # originalName
+          # presentationWidth
+          # presentationHeight
+        }
+      }
+    }
+    sjr: file(name: { eq: "sjr" }) {
       childImageSharp {
         fluid(maxWidth: 1680, quality: 75, cropFocus: ATTENTION) {
           base64
