@@ -25,23 +25,19 @@
     }
 
     .match-details__vs {
-position: absolute;
-bottom: 0;
+        position: absolute;
+        bottom: 0;
         text-shadow: none;
         font-family: $body-font-family;
 
         width: 50px;
-        margin: 0 0.625rem;
+        margin: 0;
         text-align: center;
 
         background: var(--color-gray-medium);
         color: #FFF;
         font-size: 1rem;
         line-height: 1.75rem;
-
-        @include break(large-up) {
-            margin: 0 0.875rem;
-        }
     }
 }
 

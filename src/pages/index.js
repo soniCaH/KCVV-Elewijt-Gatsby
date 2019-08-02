@@ -35,6 +35,14 @@ class IndexPage extends Component {
 
         <section className="grid-container site-content">
           <div className="grid-x grid-margin-x">
+            <section className={"cell large-12"}>
+            <CardImage
+                  title="Voorbereidings- en bekerwedstrijden"
+                  localFile={data.preseason}
+                  link="/games"
+                  metadata={false}
+                />
+            </section>
             <section className="cell large-8 news_overview__wrapper">
               {data.featuredPosts.edges.map(({ node }, i) => {
                 // Keep track of articleCount to properly place/align.
@@ -264,6 +272,25 @@ export const pageQuery = graphql`
       }
     }
     fm19: file(name: { eq: "fm19-kits" }) {
+      childImageSharp {
+        fluid(maxWidth: 1680, quality: 75, cropFocus: ATTENTION) {
+          base64
+          aspectRatio
+          tracedSVG
+          aspectRatio
+          src
+          srcSet
+          srcWebp
+          srcSetWebp
+          sizes
+          # originalImg
+          # originalName
+          # presentationWidth
+          # presentationHeight
+        }
+      }
+    }
+    preseason: file(name: { eq: "preseason" }) {
       childImageSharp {
         fluid(maxWidth: 1680, quality: 75, cropFocus: ATTENTION) {
           base64
