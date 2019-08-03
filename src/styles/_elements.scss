@@ -56,3 +56,7 @@ figure {
     clear: both;
     display: table;
 }
+
+body blockquote {
+    @include block-quote;
+}

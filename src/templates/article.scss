@@ -141,42 +141,7 @@
         }
 
         blockquote {
-            &::before {
-                color: var(--color-green);
-                font-size: 15rem;
-                line-height: .8;
-
-                content: '\201C';
-
-                float: left;
-                margin-bottom: -6rem;
-                margin-left: -.5rem;
-                overflow: hidden;
-            }
-
-            font-size: 2.5rem;
-            font-weight: 500;
-            line-height: 1;
-
-            border: 0;
-            margin: 2rem 0;
-            padding: 0;
-            overflow: hidden;
-
-            &,
-            p {
-                color: var(--color-gray-dark);
-                line-height: 1.25;
-            }
-
-            p {
-                padding-left: 6rem;
-            }
-
-            @include break(medium-up) {
-                // margin-left: -5rem;
-                // margin-right: -5rem;
-            }
+            @include block-quote;
         }
     }
 
