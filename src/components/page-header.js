@@ -187,7 +187,7 @@ class MenuItems extends Component {
             </li>
             <li>
               <Link
-                to="/jeugd/u11/"
+                to="/team/u11/"
                 activeClassName="active"
                 partiallyActive={true}
               >
@@ -196,7 +196,7 @@ class MenuItems extends Component {
             </li>
             <li>
               <Link
-                to="/jeugd/u10/"
+                to="/team/u10/"
                 activeClassName="active"
                 partiallyActive={true}
               >
@@ -205,7 +205,7 @@ class MenuItems extends Component {
             </li>
             <li>
               <Link
-                to="/jeugd/u9/"
+                to="/team/u9/"
                 activeClassName="active"
                 partiallyActive={true}
               >
@@ -214,7 +214,7 @@ class MenuItems extends Component {
             </li>
             <li>
               <Link
-                to="/jeugd/u8/"
+                to="/team/u8/"
                 activeClassName="active"
                 partiallyActive={true}
               >
@@ -223,7 +223,7 @@ class MenuItems extends Component {
             </li>
             <li>
               <Link
-                to="/jeugd/u7/"
+                to="/team/u7/"
                 activeClassName="active"
                 partiallyActive={true}
               >
@@ -232,7 +232,7 @@ class MenuItems extends Component {
             </li>
             <li>
               <Link
-                to="/jeugd/u6/"
+                to="/team/u6/"
                 activeClassName="active"
                 partiallyActive={true}
               >
