@@ -163,7 +163,7 @@ class MenuItems extends Component {
           </ul>
         </li>
         <li>
-          <Link to="/jeugd/" activeClassName="active" partiallyActive={true}>
+          <Link to="/jeugd/u15" activeClassName="active" partiallyActive={true}>
             Jeugd
           </Link>
           <ul className="vertical menu submenu">

@@ -46,3 +46,13 @@ figure {
     border: none !important;
     color: inherit !important;
 }
+
+.clearfix {
+    overflow: auto;
+}
+
+.clearfix::after {
+    content: "";
+    clear: both;
+    display: table;
+}

@@ -12,6 +12,8 @@ module.exports = {
     logoUrl: `${apiUrl}/logo`,
     refreshRate: 360000,
     fbAccessToken: '1618079068306856|L2hMjCUe9QVLeHn9nFk7pvWdzyc',
+    url: "http://preview.kcvvelewijt.be",
+    twitterHandle: "kcvve"
   },
   plugins: [
     `gatsby-plugin-sass`,

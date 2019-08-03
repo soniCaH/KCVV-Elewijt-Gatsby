@@ -4,6 +4,8 @@ import Layout from '../layouts/index'
 import SEO from '../components/seo'
 import Img from 'gatsby-image'
 
+import Share from '../components/share'
+
 import './article.scss'
 
 // eslint-disable-next-line
@@ -14,15 +16,23 @@ String.prototype.replaceAll = function(search, replacement) {
 
 export default ({ data }) => {
   const post = data.nodeArticle
-  const aspectRatio = post.relationships.field_media_article_image.relationships
-  .field_media_image.localFile.childImageSharp.fluid;
+
+  const {
+    site: {
+      siteMetadata: { url, twitterHandle },
+    },
+  } = data
+
+  const aspectRatio =
+    post.relationships.field_media_article_image.relationships.field_media_image
+      .localFile.childImageSharp.fluid
 
   const image = (
     <Img
       fluid={{
         ...post.relationships.field_media_article_image.relationships
           .field_media_image.localFile.childImageSharp.fluid,
-        aspectRatio: aspectRatio > 1 ? 2.5/1 : 1.5/1,
+        aspectRatio: aspectRatio > 1 ? 2.5 / 1 : 1.5 / 1,
       }}
     />
   )
@@ -48,7 +58,7 @@ export default ({ data }) => {
           </h3>
         </header>
         <main className={'article__body'}>
-          <section className={'article__metadata container'}>
+          <section className={'article__metadata container clearfix'}>
             <div className={'article__author'}>
               Geschreven door {post.relationships.uid.name}.
             </div>
@@ -69,6 +79,18 @@ export default ({ data }) => {
                   ))}
                 </span>
               )}
+            </div>
+            <div className={'article__social-share'}>
+              <Share
+                socialConfig={{
+                  twitterHandle,
+                  config: {
+                    url: `${url}${post.path.alias}`,
+                    title: post.title,
+                  },
+                }}
+                tags={relatedTags}
+              />
             </div>
           </section>
           <section>
@@ -95,6 +117,12 @@ export default ({ data }) => {
 
 export const query = graphql`
   query($slug: String!) {
+    site {
+      siteMetadata {
+        url
+        twitterHandle
+      }
+    }
     nodeArticle(path: { alias: { eq: $slug } }) {
       path {
         alias
