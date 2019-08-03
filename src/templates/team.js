@@ -117,7 +117,15 @@ export default ({ data }) => {
               />
             )}
           </div>
-          {playersByPosition && (
+          {node.relationships.field_staff && !playersByPosition && (
+              <main className={'team-detail__lineup team-detail__lineup--staff-only'}>
+                <TeamSection
+                  title="Stafleden"
+                  lineup={node.relationships.field_staff}
+                />
+              </main>
+          )}
+          {playersByPosition && node.relationships.field_staff && (
             <div className={'tabs-panel'} id="team-lineup">
               <main className={'team-detail__lineup'}>
                 {node.relationships.field_staff && (

@@ -108,6 +108,14 @@
             }
         }
 
+        &--staff-only {
+            h2 {
+                display: none;
+            }
+
+
+        }
+
     }
 
     &__team-picture {

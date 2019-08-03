@@ -169,7 +169,7 @@ class MenuItems extends Component {
           <ul className="vertical menu submenu">
             <li>
               <Link
-                to="/team/u15/"
+                to="/jeugd/u15/"
                 activeClassName="active"
                 partiallyActive={true}
               >
@@ -178,7 +178,7 @@ class MenuItems extends Component {
             </li>
             <li>
               <Link
-                to="/team/u12/"
+                to="/jeugd/u12/"
                 activeClassName="active"
                 partiallyActive={true}
               >
@@ -187,7 +187,7 @@ class MenuItems extends Component {
             </li>
             <li>
               <Link
-                to="/team/u11/"
+                to="/jeugd/u11/"
                 activeClassName="active"
                 partiallyActive={true}
               >
@@ -196,7 +196,7 @@ class MenuItems extends Component {
             </li>
             <li>
               <Link
-                to="/team/u10/"
+                to="/jeugd/u10/"
                 activeClassName="active"
                 partiallyActive={true}
               >
@@ -205,7 +205,7 @@ class MenuItems extends Component {
             </li>
             <li>
               <Link
-                to="/team/u9/"
+                to="/jeugd/u9/"
                 activeClassName="active"
                 partiallyActive={true}
               >
@@ -214,7 +214,7 @@ class MenuItems extends Component {
             </li>
             <li>
               <Link
-                to="/team/u8/"
+                to="/jeugd/u8/"
                 activeClassName="active"
                 partiallyActive={true}
               >
@@ -223,7 +223,7 @@ class MenuItems extends Component {
             </li>
             <li>
               <Link
-                to="/team/u7/"
+                to="/jeugd/u7/"
                 activeClassName="active"
                 partiallyActive={true}
               >
@@ -232,7 +232,7 @@ class MenuItems extends Component {
             </li>
             <li>
               <Link
-                to="/team/u6/"
+                to="/jeugd/u6/"
                 activeClassName="active"
                 partiallyActive={true}
               >
@@ -262,7 +262,7 @@ class MenuItems extends Component {
             </li>
             <li>
               <Link
-                to="/team/bestuur/"
+                to="/club/bestuur/"
                 activeClassName="active"
                 partiallyActive={true}
               >
@@ -271,7 +271,7 @@ class MenuItems extends Component {
             </li>
             <li>
               <Link
-                to="/team/jeugdbestuur/"
+                to="/club/jeugdbestuur/"
                 activeClassName="active"
                 partiallyActive={true}
               >
