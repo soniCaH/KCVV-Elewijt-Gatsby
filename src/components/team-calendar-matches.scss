@@ -54,9 +54,14 @@
     }
 
     &__team {
+        font-size: 85%;
         line-height: 1.5;
 
         width: calc(50% - 30px - 10px);
+
+        @include break(medium-up) {
+            font-size: 100%;
+        }
 
         &--home {
             text-align: right;
@@ -82,12 +87,16 @@
     &__logo {
         height: 26px;
         width: 26px;
+        margin: 0 0.25rem;
 
-        margin: 0 0.875rem;
+        @include break(medium-up) {
+            margin: 0 0.875rem;
+        }
 
         &--home {
             margin-right: 0;
         }
+
         &--away {
             margin-left: 0;
         }
