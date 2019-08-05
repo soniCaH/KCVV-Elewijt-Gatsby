@@ -149,12 +149,12 @@ export const query = graphql`
               alias
             }
           }
-          # ... on node__staff {
-          #   title
-          #   path {
-          #     alias
-          #   }
-          # }
+          ... on node__staff {
+            title
+            path {
+              alias
+            }
+          }
           ... on node__team {
             path {
               alias
