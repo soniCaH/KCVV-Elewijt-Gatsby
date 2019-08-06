@@ -9,8 +9,10 @@
     }
 
     .match-details__inner {
-        display: grid;
-        grid-template-columns: repeat(2, 1fr);
+        @include break(medium-up) {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+        }
     }
 
     .match-details {
@@ -20,7 +22,10 @@
             display: flex;
             flex-direction: column;
             justify-content: center;
-            text-align: right;
+
+            @include break(medium-up) {
+                text-align: right;
+            }
         }
     }
 
