@@ -124,6 +124,19 @@ class GamesPage extends Component {
       regNumberHome: '00039',
       regNumberAway: '00055',
     }
+    const wedstrijd10 = {
+      region: 'bra',
+      division: 'FR',
+      dateTime: 1565805600000,
+      home: 'Borght-Humbeek B',
+      away: 'KCVV Elewijt B',
+      resultHome: '',
+      resultAway: '',
+      status: '',
+      // matchDay,
+      regNumberHome: '00039',
+      regNumberAway: '00055',
+    }
     return (
       <Layout>
         <SEO lang="nl-BE" title="Er is maar één plezante compagnie" />
@@ -134,6 +147,7 @@ class GamesPage extends Component {
           <MatchWithLogo match={wedstrijd4} />
           <MatchWithLogo match={wedstrijd5} />
           <MatchWithLogo match={wedstrijd6} />
+          <MatchWithLogo match={wedstrijd10} />
           <MatchWithLogo match={wedstrijd7} />
           <MatchWithLogo match={wedstrijd8} />
           <MatchWithLogo match={wedstrijd9} />
