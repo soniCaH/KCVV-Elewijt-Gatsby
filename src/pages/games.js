@@ -78,8 +78,8 @@ class GamesPage extends Component {
       dateTime: 1565719200000,
       home: 'KCVV Elewijt',
       away: 'KFC Eppegem',
-      resultHome: '',
-      resultAway: '',
+      resultHome: '7',
+      resultAway: '1',
       status: '',
       // matchDay,
       regNumberHome: '00055',
@@ -87,29 +87,16 @@ class GamesPage extends Component {
     }
     const wedstrijd7 = {
       region: 'bra',
-      division: 'BCA',
-      dateTime: 1566136800000,
-      home: 'KCVV Elewijt',
-      away: 'Rhod.-De Hoek A',
-      resultHome: '',
-      resultAway: '',
-      status: '',
-      // matchDay,
-      regNumberHome: '00055',
-      regNumberAway: '00006',
-    }
-    const wedstrijd8 = {
-      region: 'bra',
       division: 'FR',
-      dateTime: 1566408600000,
-      home: 'KCVV Elewijt',
-      away: 'FC Melsbroek A',
+      dateTime: 1566136800000,
+      home: 'KCVV Elewijt A',
+      away: 'KFC Eppegem A',
       resultHome: '',
       resultAway: '',
       status: '',
       // matchDay,
       regNumberHome: '00055',
-      regNumberAway: '05659',
+      regNumberAway: '04759',
     }
     const wedstrijd9 = {
       region: 'bra',
@@ -130,11 +117,63 @@ class GamesPage extends Component {
       dateTime: 1565805600000,
       home: 'Borght-Humbeek B',
       away: 'KCVV Elewijt B',
+      resultHome: '5',
+      resultAway: '1',
+      status: '',
+      // matchDay,
+      regNumberHome: '00039',
+      regNumberAway: '00055',
+    }
+    const wedstrijd11 = {
+      region: 'bra',
+      division: 'BVZ',
+      dateTime: 1565874000000,
+      home: 'KCVV Elewijt A',
+      away: 'VK Weerde',
+      resultHome: '6',
+      resultAway: '0',
+      status: '',
+      // matchDay,
+      regNumberHome: '00055',
+      regNumberAway: '06354',
+    }
+    const wedstrijd12 = {
+      region: 'bra',
+      division: 'BCA',
+      dateTime: 1566406800000,
+      home: 'KCVV Elewijt A',
+      away: 'Rhod.-De Hoek A',
       resultHome: '',
       resultAway: '',
       status: '',
       // matchDay,
-      regNumberHome: '00039',
+      regNumberHome: '00055',
+      regNumberAway: '00006',
+    }
+    const wedstrijd13 = {
+      region: 'bra',
+      division: 'FR',
+      dateTime: 1566410400000,
+      home: 'KCVV Elewijt B',
+      away: 'FC Beigem B',
+      resultHome: '',
+      resultAway: '',
+      status: '',
+      // matchDay,
+      regNumberHome: '00055',
+      regNumberAway: '07753',
+    }
+    const wedstrijd14 = {
+      region: 'bra',
+      division: 'FR',
+      dateTime: 1566410400000,
+      home: 'V.O. Steenokkerzeel',
+      away: 'KCVV Elewijt B',
+      resultHome: '',
+      resultAway: '',
+      status: '',
+      // matchDay,
+      regNumberHome: '02660',
       regNumberAway: '00055',
     }
     return (
@@ -148,8 +187,11 @@ class GamesPage extends Component {
           <MatchWithLogo match={wedstrijd5} />
           <MatchWithLogo match={wedstrijd6} />
           <MatchWithLogo match={wedstrijd10} />
+          <MatchWithLogo match={wedstrijd11} />
           <MatchWithLogo match={wedstrijd7} />
-          <MatchWithLogo match={wedstrijd8} />
+          <MatchWithLogo match={wedstrijd12} />
+          <MatchWithLogo match={wedstrijd13} />
+          <MatchWithLogo match={wedstrijd14} />
           <MatchWithLogo match={wedstrijd9} />
         </div>
       </Layout>
