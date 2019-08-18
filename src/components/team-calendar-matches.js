@@ -1,4 +1,4 @@
-import React, { Component, Fragment } from 'react'
+import React, { Component } from 'react'
 import { graphql, StaticQuery } from 'gatsby'
 
 import ClubLogo from './clublogo'

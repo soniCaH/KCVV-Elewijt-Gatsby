@@ -155,10 +155,38 @@
     &__footer_related {
         a {
             color: #FFF;
-            margin-left: 2rem;
 
             &:hover {
                 text-decoration: underline;
+            }
+        }
+
+        &__icon {
+            text-align: center;
+            width: 1.5em;
+
+            &--node__article {
+                &::before {
+                    content: "\F1EA";
+                }
+            }
+
+            &--node__player {
+                &::before {
+                    content: "\F2C0";
+                }
+            }
+
+            &--node__staff {
+                &::before {
+                    content: "\F0B1";
+                }
+            }
+
+            &--node__team {
+                &::before {
+                    content: "\F132";
+                }
             }
         }
     }

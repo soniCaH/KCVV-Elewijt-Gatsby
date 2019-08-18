@@ -99,11 +99,12 @@ export default ({ data }) => {
         </main>
         <footer className={'article__footer__wrapper'}>
           <section className={'article__footer'}>
-            /--- Gerelateerde inhoud ---/
+            <h3>Gerelateerde inhoud</h3>
             {relatedArticles.length > 0 &&
-              relatedArticles.map(({ path, title }, i) => {
+              relatedArticles.map(({ path, title, internal }, i) => {
                 return (
                   <article key={i} className={'article__footer_related'}>
+                  <i className={`article__footer_related__icon article__footer_related__icon--${internal.type} fa`}/>
                     <Link to={path.alias}>{title}</Link>
                   </article>
                 )
@@ -142,11 +143,17 @@ export const query = graphql`
             path {
               alias
             }
+            internal {
+              type
+            }
           }
           ... on node__player {
             title
             path {
               alias
+            }
+            internal {
+              type
             }
           }
           ... on node__staff {
@@ -154,12 +161,18 @@ export const query = graphql`
             path {
               alias
             }
+            internal {
+              type
+            }
           }
           ... on node__team {
+            title
             path {
               alias
             }
-            title
+            internal {
+              type
+            }
           }
         }
         field_media_article_image {

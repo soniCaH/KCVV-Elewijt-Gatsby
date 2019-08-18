@@ -133,14 +133,6 @@ class IndexPage extends Component {
         <section className={'grid-container full'}>
           <MatchesSlider season="1920" regnumber="00055" />
         </section>
-
-        <section className={'grid-container full'}>
-          <CardImage
-            title="Afterwork party + Schijt je rijk"
-            localFile={data.sjr}
-            body="KCVV Ultra's organiseren: Afterwork + schijt je rijk - woensdag 14 augustus vanaf 17u in de chalet!"
-          />
-        </section>
       </Layout>
     )
   }
@@ -294,25 +286,6 @@ export const pageQuery = graphql`
       }
     }
     preseason: file(name: { eq: "preseason" }) {
-      childImageSharp {
-        fluid(maxWidth: 1680, quality: 75, cropFocus: ATTENTION) {
-          base64
-          aspectRatio
-          tracedSVG
-          aspectRatio
-          src
-          srcSet
-          srcWebp
-          srcSetWebp
-          sizes
-          # originalImg
-          # originalName
-          # presentationWidth
-          # presentationHeight
-        }
-      }
-    }
-    sjr: file(name: { eq: "sjr" }) {
       childImageSharp {
         fluid(maxWidth: 1680, quality: 75, cropFocus: ATTENTION) {
           base64

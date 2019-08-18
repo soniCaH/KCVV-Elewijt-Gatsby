@@ -4,10 +4,6 @@ import { graphql, StaticQuery } from 'gatsby'
 import './ranking.scss';
 
 class RankingRow extends Component {
-  constructor(props) {
-    super(props)
-  }
-
   render() {
     return (
       <tr
