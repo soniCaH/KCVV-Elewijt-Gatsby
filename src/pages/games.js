@@ -88,7 +88,7 @@ class GamesPage extends Component {
     const wedstrijd7 = {
       region: 'bra',
       division: 'FR',
-      dateTime: 1566136800000,
+      dateTime: 1566133200000,
       home: 'KCVV Elewijt A',
       away: 'KFC Eppegem A',
       resultHome: '',
