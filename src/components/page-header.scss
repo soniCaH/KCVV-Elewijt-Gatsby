@@ -4,6 +4,7 @@
     left: 50%;
     transform: translate(-50%, 0);
     top: 5px;
+
     img {
         width: 100px;
         height: auto;
@@ -15,18 +16,22 @@
     list-style: none;
     margin: 0;
     padding: 0;
+
     .header-mobile__logo {
         position: relative;
         padding: 5px 0 18px 0;
         border-bottom: 1px solid #292c31;
         top: 0;
+
         a {
             margin: 0;
             padding: 0;
         }
     }
+
     li {
         position: relative;
+
         a {
             border-bottom: 1px solid #292c31;
             color: #fff;
@@ -40,6 +45,7 @@
             position: relative;
             text-decoration: none;
             transition: color 0.3s ease;
+
             &:before {
                 background-color: transparent;
                 bottom: 0;
@@ -53,6 +59,7 @@
                 width: 4px;
                 z-index: -1;
             }
+
             &.active,
             &:hover {
                 &:before {
@@ -61,13 +68,16 @@
             }
         }
     }
+
     .main-nav__item--social-links {
         text-align: center;
+
         a {
             color: var(--color-green);
             display: inline-block;
             border-bottom: none;
             padding: 13px;
+
             &::before {
                 display: none;
             }
@@ -98,9 +108,11 @@
     margin: 0;
     list-style: none;
     z-index: 4;
+
     >li {
         display: inline-block;
         text-align: center;
+
         >a {
             background: none;
             padding: 0 1.666em;
@@ -115,15 +127,18 @@
             font-style: normal;
             text-transform: uppercase;
             transition: color 0.3s ease;
+
             &:hover,
             &.active {
                 background: var(--color-green-dark);
                 color: #FFF;
             }
+
             @media screen and (min-width: 1200px) {
                 font-size: .75rem;
             }
         }
+
         &.is-active {
             >a {
                 background: var(--color-green-dark) !important;
@@ -131,11 +146,13 @@
             }
         }
     }
+
     &.dropdown {
         >li {
             >a {
                 background: none;
                 padding: 0 1.666em;
+
                 &:hover,
                 &.active {
                     background: var(--color-green-dark);
@@ -155,6 +172,7 @@
 .header__primary {
     background: var(--color-black);
     position: relative;
+
     &:after {
         background: var(--color-gray-dark);
         content: "";
@@ -173,6 +191,7 @@
 .header__primary-inner {
     background-color: var(--color-gray-dark);
     position: relative;
+
     &:before {
         content: "";
         position: absolute;
@@ -184,11 +203,13 @@
         margin-left: 0;
         transform: skew(-25deg);
     }
+
     .header-logo {
         position: absolute;
         bottom: 0;
         left: 0;
         display: block;
+
         img {
             height: auto;
             position: relative;
@@ -201,13 +222,16 @@
     .is-accordion-submenu {
         background-color: var(--color-gray-dark);
         box-shadow: inset 0 7px 9px -7px var(--color-black), inset 0 -7px 9px -7px var(--color-black);
+
         a {
             border-bottom-color: var(--color-gray-medium);
+
             &:hover,
             &.active {
                 color: var(--color-green-dark);
             }
         }
+
         li:last-child {
             a {
                 border-bottom: none;
@@ -219,6 +243,9 @@
 .is-dropdown-submenu {
     background-color: var(--color-black);
     border: 1px solid var(--color-gray-dark);
+
+    z-index: 15;
+
     a {
         text-align: left;
         padding: 0 1.666em;
@@ -233,6 +260,7 @@
         font-style: normal;
         text-transform: uppercase;
         transition: color 0.3s ease;
+
         &:hover,
         &.active {
             color: var(--color-green);
@@ -245,6 +273,7 @@
     width: 100%;
     position: relative;
     background-color: var(--color-black);
+
     .menu-icon {
         left: 34px;
         position: absolute;

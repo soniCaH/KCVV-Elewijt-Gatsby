@@ -46,7 +46,7 @@ class PlayerDetail extends Component {
           </div>
         </header>
 
-        <div className={'player-break'}></div>
+        <div className={'staff-break'}></div>
 
         <section className={'player-detail__data'}>
           <div
