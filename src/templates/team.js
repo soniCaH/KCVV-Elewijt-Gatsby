@@ -21,9 +21,11 @@ export default ({ data }) => {
   const node = data.nodeTeam
 
   const playersByPosition =
-    node.relationships.field_players &&
+    node.relationships.field_players.length > 0 &&
     groupByPosition(node.relationships.field_players)
   const picture = node.relationships.field_media_article_image
+
+  console.log(playersByPosition)
 
   const teamPicture = picture && (
     <Img
@@ -118,12 +120,14 @@ export default ({ data }) => {
             )}
           </div>
           {node.relationships.field_staff && !playersByPosition && (
-              <main className={'team-detail__lineup team-detail__lineup--staff-only'}>
-                <TeamSection
-                  title="Stafleden"
-                  lineup={node.relationships.field_staff}
-                />
-              </main>
+            <main
+              className={'team-detail__lineup team-detail__lineup--staff-only'}
+            >
+              <TeamSection
+                title="Stafleden"
+                lineup={node.relationships.field_staff}
+              />
+            </main>
           )}
           {playersByPosition && node.relationships.field_staff && (
             <div className={'tabs-panel'} id="team-lineup">
