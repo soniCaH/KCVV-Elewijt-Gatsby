@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import ScrollAnimation from 'react-animate-on-scroll'
 
 import Layout from '../../layouts/index'
 
@@ -13,23 +14,27 @@ class HistoryPage extends Component {
         <div class="timeline">
           <div class="timeline-item">
             <div class="timeline-icon" />
-            <div class="timeline-content">
-              <p class="timeline-content-date">1913 - 1959</p>
-              <p>
-                In 1913 werd <strong>Crossing FC Ganshoren</strong> opgericht.
-                Ganshoren is een gemeente in het noordwesten van het Brussels
-                Hoofdstedelijk Gewest. De club sloot aan bij de voetbalbond en
-                kreeg later stamnummer 451 toegekend. Bij het 25-jarig bestaan
-                in 1938 werd de club koninklijk en heette Royal Crossing FC
-                Ganshoren. In 1942, tijdens de Tweede Wereldoorlog, verscheen de
-                club in de bevorderingsreeksen, aanvankelijk de Derde Klasse,
-                vanaf 1952 de Vierde Klasse, waar de club tot 1959 speelde.
-              </p>
-            </div>
+            <ScrollAnimation animateOnce="true" initiallyVisible="true">
+              <div class="timeline-content">
+                <p class="timeline-content-date">1913 - 1959</p>
+                <p>
+                  In 1913 werd <strong>Crossing FC Ganshoren</strong> opgericht.
+                  Ganshoren is een gemeente in het noordwesten van het Brussels
+                  Hoofdstedelijk Gewest. De club sloot aan bij de voetbalbond en
+                  kreeg later stamnummer 451 toegekend. Bij het 25-jarig bestaan
+                  in 1938 werd de club koninklijk en heette Royal Crossing FC
+                  Ganshoren. In 1942, tijdens de Tweede Wereldoorlog, verscheen
+                  de club in de bevorderingsreeksen, aanvankelijk de Derde
+                  Klasse, vanaf 1952 de Vierde Klasse, waar de club tot 1959
+                  speelde.
+                </p>
+              </div>
+            </ScrollAnimation>
           </div>
 
           <div class="timeline-item">
             <div class="timeline-icon"></div>
+            <ScrollAnimation animateOnce="true" initiallyVisible="true">
             <div class="timeline-content right">
               <p class="timeline-content-date">1959 - 1969</p>
               <p>
@@ -43,10 +48,12 @@ class HistoryPage extends Component {
                 Oostende.
               </p>
             </div>
+            </ScrollAnimation>
           </div>
 
           <div class="timeline-item">
             <div class="timeline-icon"></div>
+            <ScrollAnimation animateOnce="true" animateIn="fadeInLeftBig">
             <div class="timeline-content">
               <p class="timeline-content-date">1969 - 1983</p>
               <p>
@@ -73,10 +80,12 @@ class HistoryPage extends Component {
                 wedstrijden en zakte weg naar Eerste Provinciale.
               </p>
             </div>
+            </ScrollAnimation>
           </div>
 
           <div class="timeline-item">
             <div class="timeline-icon"></div>
+            <ScrollAnimation animateIn="fadeInRightBig" animateOnce="true">
             <div class="timeline-content right">
               <p class="timeline-content-date">1983 - 1991</p>
               <p>
@@ -95,10 +104,12 @@ class HistoryPage extends Component {
                 voetbalreeksen.
               </p>
             </div>
+            </ScrollAnimation>
           </div>
 
           <div class="timeline-item">
             <div class="timeline-icon"></div>
+            <ScrollAnimation animateIn="fadeInLeftBig" animateOnce="true">
             <div class="timeline-content">
               <p class="timeline-content-date">2001 - 2018</p>
               <p>
@@ -122,10 +133,12 @@ class HistoryPage extends Component {
                 belangrijkste zaken zijn.
               </p>
             </div>
+            </ScrollAnimation>
           </div>
 
           <div class="timeline-item">
             <div class="timeline-icon"></div>
+            <ScrollAnimation animateIn="fadeInRightBig" animateOnce="true">
             <div class="timeline-content right">
               <p class="timeline-content-date">2018 - ...</p>
               <p>
@@ -139,6 +152,7 @@ class HistoryPage extends Component {
                 provinciale A (Brabant).
               </p>
             </div>
+            </ScrollAnimation>
           </div>
         </div>
       </Layout>
