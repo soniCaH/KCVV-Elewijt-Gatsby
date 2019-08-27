@@ -10,7 +10,11 @@ class ResponsibilitiesPage extends Component {
       <Layout>
         <SEO lang="nl-BE" title="Er is maar één plezante compagnie" />
 
-        KOMT ERAAN
+        <div className={'limited-width_wrapper'}>
+          <h1>Verantwoordelijkheden</h1>
+
+          Pagina wordt zo snel mogelijk aangevuld.
+        </div>
       </Layout>
     )
   }

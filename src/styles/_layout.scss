@@ -1,3 +1,5 @@
+@import '../styles/mixins';
+
 .site-content {
     padding-bottom: 1.5rem;
     padding-top: 1.5rem;
@@ -10,6 +12,21 @@
 
     @include break(large-up) {
         margin-top: 0;
+    }
+}
+
+.limited-width_wrapper {
+    margin: 0 auto;
+    max-width: 60rem;
+    padding: 2rem 1rem;
+
+    @media(min-width: 61rem) {
+        padding-left: 0;
+        padding-right: 0;
+    }
+
+    section + section {
+        margin-top: 2rem;
     }
 }
 

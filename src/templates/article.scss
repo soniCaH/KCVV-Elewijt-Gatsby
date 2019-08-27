@@ -102,19 +102,19 @@
 
     &__body,
     &__footer {
-        padding: 1.5rem .5rem;
+        padding: 1.5rem 1rem;
         margin: 0 auto;
         max-width: 60rem;
         width: 100%;
 
-        font-size: 1.25rem;
-        line-height: 1.5;
-        font-weight: 100;
-
-        @include break(large-up) {
+        @media(min-width: 61rem) {
             padding-left: 0;
             padding-right: 0;
         }
+
+        font-size: 1.25rem;
+        line-height: 1.5;
+        font-weight: 100;
     }
 
     &__body {

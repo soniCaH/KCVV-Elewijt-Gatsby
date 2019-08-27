@@ -289,6 +289,15 @@ class MenuItems extends Component {
             </li>
             <li>
               <Link
+                to="/club/ultras/"
+                activeClassName="active"
+                partiallyActive={true}
+              >
+                KCVV Ultras
+              </Link>
+            </li>
+            <li>
+              <Link
                 to="/club/contact/"
                 activeClassName="active"
                 partiallyActive={true}

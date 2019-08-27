@@ -1,7 +1,12 @@
 .games__template {
     margin: 0 auto;
     max-width: 60rem;
-    padding: 2rem 0;
+    padding: 2rem 1rem;
+
+    @media(min-width: 61rem) {
+        padding-left: 0;
+        padding-right: 0;
+    }
 
     .match-details__logo {
         max-height: 50px;
