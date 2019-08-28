@@ -55,5 +55,14 @@
     .matches_overview__wrapper {
         display: grid;
         grid-template-columns: repeat(2, 1fr);
+
+        &--details {
+            grid-gap: 1rem;
+            grid-template-rows: repeat(5, minmax(1fr, calc(20vh-1rem)));
+
+            .match-details__logo {
+                max-height: 50px;
+            }
+        }
     }
 }
