@@ -22,7 +22,7 @@ class Search extends Component {
    * React lifecycle method to fetch the data
    */
   async componentDidMount() {
-    Axios.get(`http://api.kcvvelewijt.be/jsonapi/node/article`)
+    Axios.get(`http://api.kcvvelewijt.be/jsonapi/node/article?sort=-created`)
       .then(result => {
         const articleData = result.data.data
         this.setState({ articleList: articleData })
@@ -37,7 +37,7 @@ class Search extends Component {
         console.log(`====================================`)
       })
 
-    Axios.get(`http://api.kcvvelewijt.be/jsonapi/node/team`)
+    Axios.get(`http://api.kcvvelewijt.be/jsonapi/node/team?sort=title`)
       .then(result => {
         const teamData = result.data.data
         this.setState({ teamList: teamData })
@@ -52,7 +52,7 @@ class Search extends Component {
         console.log(`====================================`)
       })
 
-    Axios.get(`http://api.kcvvelewijt.be/jsonapi/node/player`)
+    Axios.get(`http://api.kcvvelewijt.be/jsonapi/node/player?sort=title`)
       .then(result => {
         const playerData = result.data.data
         this.setState({ playerList: playerData })
@@ -67,7 +67,7 @@ class Search extends Component {
         console.log(`====================================`)
       })
 
-    Axios.get(`http://api.kcvvelewijt.be/jsonapi/node/staff`)
+    Axios.get(`http://api.kcvvelewijt.be/jsonapi/node/staff?sort=title`)
       .then(result => {
         const staffData = result.data.data
         this.setState({ staffList: staffData })
