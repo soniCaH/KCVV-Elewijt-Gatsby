@@ -165,25 +165,25 @@
             text-align: center;
             width: 1.5em;
 
-            &--node__article {
+            &--node__article, &--node--article {
                 &::before {
                     content: "\F1EA";
                 }
             }
 
-            &--node__player {
+            &--node__player, &--node--player {
                 &::before {
                     content: "\F2C0";
                 }
             }
 
-            &--node__staff {
+            &--node__staff, &--node--staff {
                 &::before {
                     content: "\F0B1";
                 }
             }
 
-            &--node__team {
+            &--node__team, &--node--team {
                 &::before {
                     content: "\F132";
                 }
