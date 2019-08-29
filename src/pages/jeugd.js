@@ -1,15 +1,11 @@
 import React, { Component } from 'react'
-import { graphql, Link } from 'gatsby'
+import { graphql } from 'gatsby'
 
 import Layout from '../layouts/index'
 
 import SEO from '../components/seo'
-import MetaMatches from '../components/meta-matches'
+import { CardImage } from '../components/cards'
 import MatchesOverview from '../components/matches-overview'
-import MatchesSlider from '../components/matches-slider'
-import { NewsItemFeatured, NewsItemCardRatio } from '../components/news-item'
-import FeaturedSection from '../components/featured-section'
-import { Card, CardImage } from '../components/cards'
 
 class JeugdPage extends Component {
   render() {
@@ -29,14 +25,18 @@ class JeugdPage extends Component {
                 metadata={false}
               />
             </section>
+            <section className={'cell large-12 featured-article'}>
+              <h2 style={{ marginTop: `${2}rem` }}>Volgende wedstrijden</h2>
+              <MatchesOverview
+                season="1920"
+                regnumber="00055"
+                exclude="['2A', '4D']"
+              />
+            </section>
           </div>
         </section>
       </Layout>
     )
-  }
-
-  componentDidMount() {
-    // alert('hey');
   }
 }
 
@@ -54,10 +54,6 @@ export const pageQuery = graphql`
           srcWebp
           srcSetWebp
           sizes
-          # originalImg
-          # originalName
-          # presentationWidth
-          # presentationHeight
         }
       }
     }
