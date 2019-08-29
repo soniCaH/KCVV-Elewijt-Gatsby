@@ -25,8 +25,6 @@ export default ({ data }) => {
     groupByPosition(node.relationships.field_players)
   const picture = node.relationships.field_media_article_image
 
-  console.log(playersByPosition)
-
   const teamPicture = picture && (
     <Img
       fluid={
