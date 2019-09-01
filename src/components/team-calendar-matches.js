@@ -166,14 +166,14 @@ const query = graphql`
   }
 `
 
-export default ({ season, province, division }) => (
+export default ({ season, region, division }) => (
   <StaticQuery
     query={query}
     render={data => (
       <TeamCalendarMatches
         config={data}
         season={season}
-        province={province}
+        region={region}
         division={division}
       />
     )}

@@ -168,20 +168,20 @@ export default ({ data }) => {
               <div className={'tabs-panel'} id="team-matches">
                 <TeamCalendarMetaMatches
                   season="1920"
-                  province="bra"
+                  region="bra"
                   division={node.field_fb_id}
                   regnumber="00055"
                 />
                 <TeamCalendarMatches
                   season="1920"
-                  province="bra"
+                  region="bra"
                   division={node.field_fb_id}
                 />
               </div>
               <div className={'tabs-panel'} id="team-ranking">
                 <Ranking
                   season="1920"
-                  province="bra"
+                  region="bra"
                   division={node.field_fb_id}
                   highlight="KCVV.Elewijt A"
                 />

@@ -223,14 +223,14 @@ const query = graphql`
   }
 `
 
-export default ({ season, province, division, highlight }) => (
+export default ({ season, region, division, highlight }) => (
   <StaticQuery
     query={query}
     render={data => (
       <Ranking
         config={data}
         season={season}
-        province={province}
+        region={region}
         division={division}
         highlight={highlight}
       />
