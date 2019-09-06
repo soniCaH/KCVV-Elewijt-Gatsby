@@ -84,17 +84,6 @@ class IndexPage extends Component {
               <section className="grid-x featured__matches grid-margin-x">
                 <article className={'medium-6 large-12 cell card'}>
                   <header className={'card__header'}>
-                    <h4>Beker van Brabant</h4>
-                  </header>
-                  <MetaMatches
-                    season="1920"
-                    region="bra"
-                    division="BCA"
-                    regnumber="00055"
-                  />
-                </article>{' '}
-                <article className={'medium-6 large-12 cell card'}>
-                  <header className={'card__header'}>
                     <h4>The A-Team</h4>
                   </header>
                   <MetaMatches
@@ -135,10 +124,6 @@ class IndexPage extends Component {
         </section>
       </Layout>
     )
-  }
-
-  componentDidMount() {
-    // alert('hey');
   }
 }
 
@@ -246,10 +231,6 @@ export const pageQuery = graphql`
                         srcWebp
                         srcSetWebp
                         sizes
-                        # originalImg
-                        # originalName
-                        # presentationWidth
-                        # presentationHeight
                       }
                     }
                   }
@@ -278,10 +259,6 @@ export const pageQuery = graphql`
           srcWebp
           srcSetWebp
           sizes
-          # originalImg
-          # originalName
-          # presentationWidth
-          # presentationHeight
         }
       }
     }
@@ -297,10 +274,6 @@ export const pageQuery = graphql`
           srcWebp
           srcSetWebp
           sizes
-          # originalImg
-          # originalName
-          # presentationWidth
-          # presentationHeight
         }
       }
     }
