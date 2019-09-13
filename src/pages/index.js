@@ -25,26 +25,6 @@ class IndexPage extends Component {
       <Layout>
         <SEO lang="nl-BE" title="Er is maar één plezante compagnie" />
 
-        <section className={'grid-container full'}>
-          <FeaturedSection
-            articles={data.featuredTransfers}
-            title="Transfernieuws"
-            link={linkCTA}
-          />
-        </section>
-
-        <section className="grid-container site-content">
-          <div className="grid-x grid-margin-x">
-            <section className={'cell large-12 featured-article'}>
-              <CardImage
-                title="Voorbereidings- en bekerwedstrijden"
-                localFile={data.preseason}
-                link="/games"
-                metadata={false}
-              />
-            </section>
-          </div>
-        </section>
         <section className="grid-container site-content">
           <div className="grid-x grid-margin-x">
             <section className="cell large-8 news_overview__wrapper">
@@ -121,6 +101,27 @@ class IndexPage extends Component {
 
         <section className={'grid-container full'}>
           <MatchesSlider season="1920" regnumber="00055" />
+        </section>
+
+        <section className={'grid-container full'}>
+          <FeaturedSection
+            articles={data.featuredTransfers}
+            title="Transfernieuws"
+            link={linkCTA}
+          />
+        </section>
+
+        <section className="grid-container site-content">
+          <div className="grid-x grid-margin-x">
+            <section className={'cell large-12 featured-article'}>
+              <CardImage
+                title="Voorbereidings- en bekerwedstrijden"
+                localFile={data.preseason}
+                link="/games"
+                metadata={false}
+              />
+            </section>
+          </div>
         </section>
       </Layout>
     )
