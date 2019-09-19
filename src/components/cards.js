@@ -28,30 +28,50 @@ export class Card extends Component {
       />
     )
 
+    const absoluteUrlRegex = /^https?:\/\/|^\/\//i
+
     return (
       <article className={'cardItem'}>
-        <Link to={link}>
-          <header>
-            <figure>{image}</figure>
-          </header>
+        {absoluteUrlRegex.test(link) || (
+          <Link to={link}>
+            <header>
+              <figure>{image}</figure>
+            </header>
 
-          <main className={'cardItem__summary'}>
-            <div className={'cardItem__heading'}>
-              <h3>{title}</h3>
-            </div>
+            <main className={'cardItem__summary'}>
+              <div className={'cardItem__heading'}>
+                <h3>{title}</h3>
+              </div>
 
-            {body && <div dangerouslySetInnerHTML={{ __html: body }}></div>}
-          </main>
-        </Link>
+              {body && <div dangerouslySetInnerHTML={{ __html: body }}></div>}
+            </main>
+          </Link>
+        )}
+
+        {absoluteUrlRegex.test(link) && (
+          <a href={link} target="_blank" rel="noopener noreferrer">
+            <header>
+              <figure>{image}</figure>
+            </header>
+
+            <main className={'cardItem__summary'}>
+              <div className={'cardItem__heading'}>
+                <h3>{title}</h3>
+              </div>
+
+              {body && <div dangerouslySetInnerHTML={{ __html: body }}></div>}
+            </main>
+          </a>
+        )}
 
         {metadata && (
           <footer className={'cardItem__footer article__tags'}>
             <span className={'datetime'}>
-              <i class="fa fa-clock-o" aria-hidden="true"></i> {created}
+              <i className={'fa fa-clock-o'} aria-hidden="true"></i> {created}
             </span>
             {tags.length > 0 && (
               <span className={'tag__wrapper'}>
-                <i class="fa fa-tags" aria-hidden="true"></i>{' '}
+                <i className={'fa fa-tags'} aria-hidden="true"></i>{' '}
                 {tags.map(({ path, name }, i) => (
                   <Link to={path.alias} key={i}>
                     <span className={'tag__label'}>#{name}</span>
@@ -69,6 +89,7 @@ export class Card extends Component {
 export class CardImage extends Component {
   render() {
     const { title, localFile, link, body = null } = this.props
+    const absoluteUrlRegex = /^https?:\/\/|^\/\//i
 
     const image = (
       <Img
@@ -81,16 +102,30 @@ export class CardImage extends Component {
 
     return (
       <article className={'cardItem cardItem--image'}>
-        <Link to={link}>
-          <header>
-            <figure>{image}</figure>
-            <div class="gradient gradient--70"></div>
-            <div className={'cardItem__heading'}>
-              <h3>{title}</h3>
-              {body && <div dangerouslySetInnerHTML={{ __html: body }}></div>}
-            </div>
-          </header>
-        </Link>
+        {absoluteUrlRegex.test(link) || (
+          <Link to={link}>
+            <header>
+              <figure>{image}</figure>
+              <div className={'gradient gradient--70'}></div>
+              <div className={'cardItem__heading'}>
+                <h3>{title}</h3>
+                {body && <div dangerouslySetInnerHTML={{ __html: body }}></div>}
+              </div>
+            </header>
+          </Link>
+        )}
+        {absoluteUrlRegex.test(link) && (
+          <a href={link} target="_blank" rel="noopener noreferrer">
+            <header>
+              <figure>{image}</figure>
+              <div className={'gradient gradient--70'}></div>
+              <div className={'cardItem__heading'}>
+                <h3>{title}</h3>
+                {body && <div dangerouslySetInnerHTML={{ __html: body }}></div>}
+              </div>
+            </header>
+          </a>
+        )}
       </article>
     )
   }
@@ -99,6 +134,8 @@ export class CardImage extends Component {
 export class CardVertical extends Component {
   render() {
     const { title, localFile, link } = this.props
+
+    const absoluteUrlRegex = /^https?:\/\/|^\/\//i
 
     const image = (
       <Img
@@ -111,15 +148,28 @@ export class CardVertical extends Component {
 
     return (
       <article className={'cardItem cardItem--vertical'}>
-        <Link to={link}>
-          <header>
-            <figure>{image}</figure>
-            <div class="gradient gradient--70"></div>
-            <div className={'cardItem__heading'}>
-              <h3>{title}</h3>
-            </div>
-          </header>
-        </Link>
+        {absoluteUrlRegex.test(link) || (
+          <Link to={link}>
+            <header>
+              <figure>{image}</figure>
+              <div className={'gradient gradient--70'}></div>
+              <div className={'cardItem__heading'}>
+                <h3>{title}</h3>
+              </div>
+            </header>
+          </Link>
+        )}
+        {absoluteUrlRegex.test(link) && (
+          <a href={link} target="_blank" rel="noopener noreferrer">
+            <header>
+              <figure>{image}</figure>
+              <div className={'gradient gradient--70'}></div>
+              <div className={'cardItem__heading'}>
+                <h3>{title}</h3>
+              </div>
+            </header>
+          </a>
+        )}
       </article>
     )
   }

@@ -22,8 +22,6 @@ class MatchesSlider extends Component {
   updateData() {
     const { season, regnumber } = this.props
 
-    console.log('Fetching matches overview')
-
     fetch(
       `${this.apiServerUrl}/seasons/${season}/matches/upcoming/${regnumber}`
     )
@@ -31,8 +29,7 @@ class MatchesSlider extends Component {
       .then(json => this.setState({ data: json, loading: false }))
 
     this.timeout = setTimeout(() => {
-      this.updateData(() => {
-      })
+      this.updateData(() => {})
     }, this.apiRefreshRate)
   }
 
@@ -83,9 +80,7 @@ class MatchesSlider extends Component {
       this.state.data.sort((a, b) => a.dateTime - b.dateTime)
 
       return (
-        <div
-          className="matchesSlider--wrapper"
-        >
+        <div className="matchesSlider--wrapper">
           <Slider className={'matchesSlider'} {...settings_slickslider}>
             {this.state.data.map((match, i) => {
               return (

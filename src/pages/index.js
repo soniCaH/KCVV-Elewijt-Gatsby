@@ -25,26 +25,6 @@ class IndexPage extends Component {
       <Layout>
         <SEO lang="nl-BE" title="Er is maar één plezante compagnie" />
 
-        <section className={'grid-container full'}>
-          <FeaturedSection
-            articles={data.featuredTransfers}
-            title="Transfernieuws"
-            link={linkCTA}
-          />
-        </section>
-
-        <section className="grid-container site-content">
-          <div className="grid-x grid-margin-x">
-            <section className={'cell large-12 featured-article'}>
-              <CardImage
-                title="Voorbereidings- en bekerwedstrijden"
-                localFile={data.preseason}
-                link="/games"
-                metadata={false}
-              />
-            </section>
-          </div>
-        </section>
         <section className="grid-container site-content">
           <div className="grid-x grid-margin-x">
             <section className="cell large-8 news_overview__wrapper">
@@ -82,17 +62,6 @@ class IndexPage extends Component {
             </section>
             <aside className="cell large-4">
               <section className="grid-x featured__matches grid-margin-x">
-                <article className={'medium-6 large-12 cell card'}>
-                  <header className={'card__header'}>
-                    <h4>Beker van Brabant</h4>
-                  </header>
-                  <MetaMatches
-                    season="1920"
-                    region="bra"
-                    division="BCA"
-                    regnumber="00055"
-                  />
-                </article>{' '}
                 <article className={'medium-6 large-12 cell card'}>
                   <header className={'card__header'}>
                     <h4>The A-Team</h4>
@@ -133,12 +102,29 @@ class IndexPage extends Component {
         <section className={'grid-container full'}>
           <MatchesSlider season="1920" regnumber="00055" />
         </section>
+
+        <section className={'grid-container full'}>
+          <FeaturedSection
+            articles={data.featuredTransfers}
+            title="Transfernieuws"
+            link={linkCTA}
+          />
+        </section>
+
+        <section className="grid-container site-content">
+          <div className="grid-x grid-margin-x">
+            <section className={'cell large-12 featured-article'}>
+              <CardImage
+                title="Voorbereidings- en bekerwedstrijden"
+                localFile={data.preseason}
+                link="/games"
+                metadata={false}
+              />
+            </section>
+          </div>
+        </section>
       </Layout>
     )
-  }
-
-  componentDidMount() {
-    // alert('hey');
   }
 }
 
@@ -246,10 +232,6 @@ export const pageQuery = graphql`
                         srcWebp
                         srcSetWebp
                         sizes
-                        # originalImg
-                        # originalName
-                        # presentationWidth
-                        # presentationHeight
                       }
                     }
                   }
@@ -278,10 +260,6 @@ export const pageQuery = graphql`
           srcWebp
           srcSetWebp
           sizes
-          # originalImg
-          # originalName
-          # presentationWidth
-          # presentationHeight
         }
       }
     }
@@ -297,10 +275,6 @@ export const pageQuery = graphql`
           srcWebp
           srcSetWebp
           sizes
-          # originalImg
-          # originalName
-          # presentationWidth
-          # presentationHeight
         }
       }
     }

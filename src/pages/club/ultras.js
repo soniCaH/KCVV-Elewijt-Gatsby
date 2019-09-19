@@ -99,8 +99,9 @@ class UltrasPage extends Component {
                 className={'btn btn--arrow'}
                 href="https://www.facebook.com/KCVV.ULTRAS/"
                 target="_blank"
+                rel="noopener noreferrer"
               >
-                <i class="fa fa-facebook-square" aria-hidden="true"></i>{' '}
+                <i className={"fa fa-facebook-square"} aria-hidden="true"></i>{' '}
                 facebook.com/KCVV.ULTRAS
               </a>
             </p>

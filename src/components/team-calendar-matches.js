@@ -110,10 +110,10 @@ class TeamCalendarMatches extends React.Component {
   }
 
   updateData() {
-    let { season, province, division } = this.props
+    let { season, region, division } = this.props
 
     fetch(
-      `${this.apiServerUrl}/seasons/${season}/regions/${province}/matches/${division}`
+      `${this.apiServerUrl}/seasons/${season}/regions/${region}/matches/${division}`
     )
       .then(response => response.json())
       .then(json => this.setState({ data: json, loading: false }))
@@ -166,14 +166,14 @@ const query = graphql`
   }
 `
 
-export default ({ season, province, division }) => (
+export default ({ season, region, division }) => (
   <StaticQuery
     query={query}
     render={data => (
       <TeamCalendarMatches
         config={data}
         season={season}
-        province={province}
+        region={region}
         division={division}
       />
     )}

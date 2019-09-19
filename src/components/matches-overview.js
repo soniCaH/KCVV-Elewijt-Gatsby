@@ -23,8 +23,6 @@ class MatchesOverview extends Component {
   updateData() {
     const { season, regnumber } = this.props
 
-    // console.log('Fetching matches overview')
-
     fetch(
       `${this.apiServerUrl}/seasons/${season}/matches/upcoming/${regnumber}`
     )
@@ -32,9 +30,7 @@ class MatchesOverview extends Component {
       .then(json => this.setState({ data: json, loading: false }))
 
     this.timeout = setTimeout(() => {
-      this.updateData(() => {
-        // console.log('Updating the rankings.')
-      })
+      this.updateData(() => {})
     }, this.apiRefreshRate)
   }
 
@@ -94,7 +90,7 @@ class MatchesOverview extends Component {
             )
           })}
         </div>
-      );
+      )
     } else {
       return <div>Loading...</div>
     }

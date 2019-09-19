@@ -25,8 +25,6 @@ export default ({ data }) => {
     groupByPosition(node.relationships.field_players)
   const picture = node.relationships.field_media_article_image
 
-  console.log(playersByPosition)
-
   const teamPicture = picture && (
     <Img
       fluid={
@@ -170,20 +168,20 @@ export default ({ data }) => {
               <div className={'tabs-panel'} id="team-matches">
                 <TeamCalendarMetaMatches
                   season="1920"
-                  province="bra"
+                  region="bra"
                   division={node.field_fb_id}
                   regnumber="00055"
                 />
                 <TeamCalendarMatches
                   season="1920"
-                  province="bra"
+                  region="bra"
                   division={node.field_fb_id}
                 />
               </div>
               <div className={'tabs-panel'} id="team-ranking">
                 <Ranking
                   season="1920"
-                  province="bra"
+                  region="bra"
                   division={node.field_fb_id}
                   highlight="KCVV.Elewijt A"
                 />

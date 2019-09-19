@@ -25,8 +25,6 @@ class MetaMatches extends Component {
   updateData() {
     const { season, region, division, regnumber } = this.props
 
-    // console.log('Fetching meta matches overview')
-
     fetch(
       `${this.apiServerUrl}/meta/${season}/${region}/${division}/${regnumber}`
     )
@@ -40,9 +38,7 @@ class MetaMatches extends Component {
       .then(json => this.setState({ globalRanking: json, loading2: false }))
 
     this.timeout = setTimeout(() => {
-      this.updateData(() => {
-        // console.log('Updating the rankings.')
-      })
+      this.updateData(() => {})
     }, this.apiRefreshRate)
   }
 
