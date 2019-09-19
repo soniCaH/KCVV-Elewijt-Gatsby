@@ -188,6 +188,12 @@
                     content: "\F132";
                 }
             }
+
+            &--node__event, &--node--event {
+                &::before {
+                    content: "\F073";
+                }
+            }
         }
     }
 }

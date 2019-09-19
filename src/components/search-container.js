@@ -12,6 +12,7 @@ class Search extends Component {
     teamList: [],
     playerList: [],
     staffList: [],
+    eventList: [],
     search: [],
     searchResults: [],
     isLoading: true,
@@ -81,12 +82,27 @@ class Search extends Component {
         )
         console.log(`====================================`)
       })
+
+    Axios.get(`https://api.kcvvelewijt.be/jsonapi/node/event?sort=title`)
+      .then(result => {
+        const eventData = result.data.data
+        this.setState({ eventList: eventData })
+        this.rebuildIndex()
+      })
+      .catch(err => {
+        this.setState({ isError: true })
+        console.log(`====================================`)
+        console.log(
+          `Something bad happened while fetching the event data\n${err}`
+        )
+        console.log(`====================================`)
+      })
   }
   /**
    * rebuilds the overall index based on the options
    */
   rebuildIndex = () => {
-    const { articleList, teamList, playerList, staffList } = this.state
+    const { articleList, teamList, playerList, staffList, eventList } = this.state
     const dataToSearch = new JsSearch.Search(`id`)
     /**
      *  defines a indexing strategy for the data
@@ -111,6 +127,7 @@ class Search extends Component {
     dataToSearch.addDocuments(teamList)
     dataToSearch.addDocuments(playerList)
     dataToSearch.addDocuments(staffList)
+    dataToSearch.addDocuments(eventList)
     this.setState({ search: dataToSearch, isLoading: false })
   }
   /**
@@ -216,6 +233,11 @@ class Search extends Component {
                   className={`article__footer_related__icon article__footer_related__icon--node--staff fa`}
                 />{' '}
                 Staflid
+                <br />
+                <i
+                  className={`article__footer_related__icon article__footer_related__icon--node--event fa`}
+                />{' '}
+                Evenement
                 <br />
               </caption>
             </table>
