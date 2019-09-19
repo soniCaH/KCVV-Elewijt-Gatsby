@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import ClubLogo from './clublogo'
-import { mapMatchStatus, formatDivision } from '../script/helper'
+import { mapMatchStatus, formatDivision } from '../scripts/helper'
 import './match-with-logo.scss'
 import moment from 'moment'
 import 'moment/locale/nl-be'
@@ -23,6 +23,7 @@ class MatchWithLogo extends Component {
     } = this.props.match
 
     moment.locale('nl-be')
+
     const matchTime = moment(dateTime)
 
     return (
@@ -82,7 +83,7 @@ class MatchWithLogo extends Component {
               {typeof resultHome !== 'undefined' &&
               typeof resultAway !== 'undefined' ? (
                 <div className={'match-details__vs'}>
-                  {resultHome}-{resultAway}
+                  {resultHome} - {resultAway}
                 </div>
               ) : (
                 ''

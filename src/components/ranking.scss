@@ -1,0 +1,61 @@
+@import '../styles/mixins';
+
+.team-ranking {
+    margin: 0 .25rem 2rem;
+    position: relative;
+    z-index: 5;
+
+    font-size: .85rem;
+
+    @include break(medium-up) {
+        font-size: 1rem;
+    }
+
+    @include break(large-up) {
+        margin: 0 1rem 2rem;
+    }
+
+    @include break(xlarge-up) {
+        margin: 0 14% 2rem;
+    }
+
+    &__table {
+        border: 1px solid rgba(0, 0, 0, .1);
+
+        tbody, thead {
+            border: 0;
+        }
+    }
+
+    &__header {}
+
+    &__row {}
+
+    &__column {
+        &--number {
+            text-align: center;
+        }
+
+        &--string {}
+
+        &--ranking {
+            text-align: left;
+        }
+
+        &--team {}
+
+        &--goals-pro,
+        &--goals-against,
+        &--goals-difference {
+            display: none;
+
+            @include break(medium-up) {
+                display: table-cell;
+            }
+        }
+
+        &--points {
+            text-align: right;
+        }
+    }
+}

@@ -1,0 +1,66 @@
+// import React from 'react'
+// import { graphql, StaticQuery } from 'gatsby'
+// import Img from 'gatsby-image'
+
+// class Instagram extends React.Component {
+//   _renderImages = () => {
+
+//     const { images } = this.props.data
+
+//     return images.edges.map(image => (
+//       <div style={{ margin: 16 }} key={image.node.id}>
+//         <Img fluid={image.node.childImageSharp.fluid} />
+//       </div>
+//     ))
+//   }
+
+//   render() {
+//     return (
+//       <div
+//         className="InstaFeed"
+//       >
+//         {this._renderImages()}
+//       </div>
+//     )
+//   }
+// }
+
+// export const query = graphql`
+//   query InstagramImage {
+//     images: allFile(
+//       filter: { fields: { InstagramImage: { eq: "true" } } }
+//       sort: { fields: [fields___created], order: DESC }
+//     ) {
+//       edges {
+//         node {
+//           childImageSharp {
+//               fluid(maxWidth: 250) {
+//                 base64
+//                 tracedSVG
+//                 aspectRatio
+//                 src
+//                 srcSet
+//                 srcWebp
+//                 srcSetWebp
+//                 sizes
+//                 originalImg
+//                 originalName
+//                 presentationWidth
+//                 presentationHeight
+//               }
+//             }
+//           id
+//           fields {
+//             link
+//             caption
+//             likes
+//           }
+//         }
+//       }
+//     }
+//   }
+// `
+
+// export default () => (
+//   <StaticQuery query={query} render={data => <Instagram data={data} />} />
+// )

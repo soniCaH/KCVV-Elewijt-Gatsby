@@ -1,0 +1,237 @@
+.player,
+.team {
+    &-detail {
+        background: #edeff4;
+        width: 100%;
+        position: relative;
+
+        &__name {
+            position: absolute;
+            z-index: 3;
+            right: 1rem;
+            top: 1.5rem;
+
+            font-family: 'Montserrat', sans-serif;
+            font-weight: bold;
+            letter-spacing: -0.02px;
+            line-height: 0.9;
+            text-align: right;
+            text-transform: uppercase;
+
+            @media (min-width: 992px) {
+                top: 13rem;
+            }
+
+            @media (min-width: 1480px) {
+                right: 15%;
+            }
+
+            &-first,
+            &-division {
+                display: block;
+
+                color: var(--color-gray-blue);
+                font-size: 1rem;
+
+                @media (min-width: 768px) {
+                    font-size: 1.5rem;
+                }
+            }
+
+            &-last,
+            &-tagline {
+                color: #FFF;
+                font-size: 1.5rem;
+
+                display: block;
+                text-align: right;
+
+                @media (min-width: 768px) {
+                    font-size: 2rem;
+                }
+            }
+        }
+
+        &__bg-shirt-number {
+            position: absolute;
+            left: .25rem;
+            top: .25rem;
+            z-index: 2;
+
+            color: rgba(255, 255, 255, 0.25);
+
+            font-family: 'Montserrat', sans-serif;
+            font-weight: bold;
+            font-size: 8rem;
+            line-height: 0.7;
+            letter-spacing: -0.04px;
+
+            user-select: none;
+
+            @media (min-width: 768px) {
+                font-size: 13.75rem;
+            }
+
+            @media (min-width: 992px) {
+                top: 5rem;
+                left: auto;
+                right: 1rem;
+
+                text-align: right;
+            }
+
+            @media (min-width: 1480px) {
+                right: 14%;
+            }
+        }
+
+        &__bg-avatar {
+            position: absolute;
+            top: 5.875rem;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            background-image: url('../images/kcvv-player-bg.png');
+            background-size: contain;
+            background-position: center bottom;
+            background-repeat: no-repeat;
+            text-align: center;
+            z-index: 5;
+
+            @media (min-width: 767px) {
+                top: 4rem;
+            }
+
+            @media (min-width: 992px) {
+                top: 3rem;
+            }
+
+            @media (min-width: 1200px) {
+                top: 2rem;
+            }
+        }
+
+        &__statistics {
+            padding: 425px 4rem 4rem 4rem;
+
+            color: var(--color-gray-blue);
+            font-family: 'Montserrat', sans-serif;
+            line-height: 0.9;
+            text-transform: uppercase;
+            text-align: center;
+
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            grid-gap: 2em 1em;
+
+            @media (min-width: 992px) {
+                padding-top: 4rem;
+
+                color: #fff;
+                line-height: 1;
+
+                position: absolute;
+                left: 25%;
+                top: 198px;
+                transform: translate(-50%, -50%);
+                z-index: 4;
+
+                grid-template-columns: 1fr;
+
+            }
+
+            &-item {
+                &__number {
+                    font-size: 2.5rem;
+                    font-weight: bold;
+                    min-width: 3rem;
+                }
+
+                &__label {
+                    color: #9A9DA2;
+
+                    @media (min-width: 992px) {
+                        color: #FFF;
+
+                    }
+                }
+            }
+        }
+
+        &__data {
+            width: 100%;
+            max-width: 60em;
+            margin: 0 auto;
+            padding: 1em;
+
+            font-family: 'Montserrat', sans-serif;
+            font-weight: bold;
+            text-transform: uppercase;
+
+            display: grid;
+            grid-template-rows: repeat(3, auto);
+
+            @media (min-width: 992px) {
+                align-items: center;
+                justify-items: center;
+                grid-template-rows: 1fr;
+                grid-template-columns: repeat(3, 1fr);
+                width: 100%;
+            }
+
+            &-item {
+                display: grid;
+                grid-template-columns: repeat(2, 1fr);
+                align-items: center;
+
+                @media (min-width: 992px) {
+                    grid-template-columns: 1fr;
+                }
+
+                &__label {
+                    color: var(--color-gray-blue);
+                    font-size: 0.5rem;
+                }
+
+                &__data {
+                    color: #4B9B48;
+                    font-size: 1.5rem;
+                    justify-self: end;
+                }
+
+                &--birthdate {}
+
+                &--position {
+                    color: var(--color-gray-blue);
+                    font-size: 1.875rem;
+                    text-align: center;
+
+                    display: block;
+                    margin-bottom: 1em;
+                    grid-row: 1;
+
+                    @media (min-width: 992px) {
+                        font-size: 1.5rem;
+
+                        grid-column: 2;
+                        margin-bottom: 0;
+                    }
+                }
+
+                &--joindate {}
+            }
+        }
+
+        &__body {
+            padding: 1.5rem 1rem;
+            margin: 0 auto;
+            max-width: 60rem;
+            width: 100%;
+
+            @media(min-width: 61rem) {
+                padding-left: 0;
+                padding-right: 0;
+            }
+        }
+    }
+}

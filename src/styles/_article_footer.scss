@@ -1,0 +1,34 @@
+.article__tags {
+    .fa {
+        color: var(--color-green-dark);
+    }
+
+    .datetime {
+        color: var(--color-gray-medium);
+    }
+
+    a {
+        color: var(--color-gray-medium);
+
+        &:hover {
+            color: var(--color-green-dark);
+        }
+    }
+
+    .datetime {
+        &+.tag__wrapper {
+            margin-left: 1rem;
+        }
+    }
+
+    .tag__wrapper {
+        a+a {
+            margin-left: 1rem;
+        }
+    }
+}
+
+.article__teaser_image {
+    max-width: 150px;
+    height: auto;
+}

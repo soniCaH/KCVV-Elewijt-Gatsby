@@ -1,242 +1,283 @@
-import React from 'react'
+import React, { Component } from 'react'
+import { graphql, Link } from 'gatsby'
+
 import Layout from '../layouts/index'
-import HeroSlider from '../components/hero-slider'
-import FeaturedNews from '../components/featured-news'
-import MatchesSlider from '../components/matches-slider'
-import { graphql } from 'gatsby'
+
 import SEO from '../components/seo'
 import MetaMatches from '../components/meta-matches'
 import MatchesOverview from '../components/matches-overview'
-import picYentel from '../images/yentel.jpg'
-import picSteak from '../images/steak.jpg'
+import MatchesSlider from '../components/matches-slider'
+import { NewsItemFeatured, NewsItemCardRatio } from '../components/news-item'
+import FeaturedSection from '../components/featured-section'
+import { Card, CardImage } from '../components/cards'
 
-class IndexPage extends React.Component {
+class IndexPage extends Component {
   render() {
     const data = this.props.data
-
-    const featuredEvent = {
-      dateStart: '2019-02-15',
-      dateEnd: '2019-02-17',
-      title: 'Steakfestijn KCVV Elewijt',
-      link: '/index.html',
-      image: picSteak,
-      text: '<p>En jawel hoor!  Ook dit seizoen wordt het weer smullen van onze heerlijke steaks met frietjes. Hartverwarmend  in deze grille wintertijden.  Onze KCVV Angels mobiliseren daarom een volledig team om jullie vanaf vrijdag 15 februari in de watten te leggen. Stip het steakfestijn dus aan in jullie agenda en we zien jullie dan.</p>'
-    }
+    let articleCount = 0
+    const linkCTA = (
+      <Link to="/category/transfernieuws" className={'btn btn--arrow'}>
+        Check alle transfernieuws
+      </Link>
+    )
 
     return (
       <Layout>
         <SEO lang="nl-BE" title="Er is maar één plezante compagnie" />
 
-        <HeroSlider posts={data.featuredPosts} />
-
-        <div className="grid-container site-content">
+        <section className="grid-container site-content">
           <div className="grid-x grid-margin-x">
-            <section className="cell large-8">
-              <FeaturedNews posts={data.toppost} featuredEvent={featuredEvent} />
+            <section className="cell large-8 news_overview__wrapper">
+              {data.featuredPosts.edges.map(({ node }, i) => {
+                // Keep track of articleCount to properly place/align.
+                // Featured articles span 2 columns.
+                node.field_featured && (articleCount = articleCount + 2)
+                !node.field_featured && articleCount++
+                return (
+                  <>
+                    {node.field_featured && <NewsItemFeatured node={node} />}
+                    {!node.field_featured && (
+                      <NewsItemCardRatio node={node} teaser={true} />
+                    )}
+                  </>
+                )
+              })}
+
+              {articleCount % 2 !== 0 && (
+                <Card
+                  title="Speel nu FM 2019 met KCVV"
+                  localFile={data.fm19}
+                  link="news/2019-07-11-neem-zelf-de-leiding-van-kcvv-elewijt"
+                  metadata={false}
+                />
+              )}
+              {articleCount % 2 === 0 && (
+                <CardImage
+                  title="Speel nu FM 2019 met KCVV"
+                  localFile={data.fm19}
+                  link="news/2019-07-11-neem-zelf-de-leiding-van-kcvv-elewijt"
+                  metadata={false}
+                />
+              )}
             </section>
             <aside className="cell large-4">
-              <div className="grid-x featured__matches grid-margin-x">
-                <div className={'medium-6 large-12 cell card'}>
-                  <div className={'card__header'}>
+              <section className="grid-x featured__matches grid-margin-x">
+                <article className={'medium-6 large-12 cell card'}>
+                  <header className={'card__header'}>
                     <h4>The A-Team</h4>
-                  </div>
+                  </header>
                   <MetaMatches
-                    season="1819"
+                    season="1920"
                     region="bra"
-                    division="3C"
+                    division="2A"
                     regnumber="00055"
                   />
-                </div>
-                <div className={'medium-6 large-12 cell card'}>
-                  <div className={'card__header'}>
+                </article>
+                <article className={'medium-6 large-12 cell card'}>
+                  <header className={'card__header'}>
                     <h4>The B-Team</h4>
-                  </div>
+                  </header>
                   <MetaMatches
-                    season="1819"
+                    season="1920"
                     region="bra"
                     division="4D"
                     regnumber="00055"
                   />
-                </div>
-
-                <div className={'medium-6 large-12 cell card'}>
-                  <div className="card__header">
+                </article>
+                <article className={'medium-6 large-12 cell card'}>
+                  <header className="card__header">
                     <h4>Jeugdploegen</h4>
-                  </div>
+                  </header>
                   <MatchesOverview
-                    season="1819"
+                    season="1920"
                     regnumber="00055"
-                    exclude="['3C', '4D']"
+                    exclude="['2A', '4D']"
                   />
-                </div>
-
-                <div className={'medium-6 large-12 cell card'}>
-                  <div className="card__header">
-                    <h4>Transfernieuws</h4>
-                  </div>
-                  <div>
-                    <img src={picYentel} alt="Yentel Teugels" />
-                  </div>
-                  <div className={'card__content'}>
-                    <h5>Yentel Teugels</h5>
-                    <div>
-                      <p>
-                        <span role="img" aria-label="Checkbox">
-                          ✅
-                        </span>
-                        Met Yentel haalt KCVV een creatieve aanvallende
-                        middenvelder in huis. Hij komt net als Ran Dondeyne over
-                        van reeksgenoot SK Steenhuffel.
-                      </p>
-                      <p>
-                        <span role="img" aria-label="Signature">
-                          ✍️
-                        </span>
-                        Yentel Teugels - 12 doelpunten tot dusver in de
-                        competitie.
-                      </p>
-                    </div>
-                  </div>
-                  <div className="card__footer">
-                    <a href="index.html">Lees alle transfernieuws</a>
-                  </div>
-                </div>
-
-                <div className={'medium-6 large-12 cell card card--kcvvtv'}>
-                  <div className="card__header">
-                    <h4>KCVV TV</h4>
-                  </div>
-                </div>
-
-                <div className={'medium-6 large-12 cell card'}>
-                  <div className="card__header">
-                    <h4>Aan tafel bij Hans</h4>
-                  </div>
-                </div>
-              </div>
+                </article>
+              </section>
             </aside>
           </div>
-        </div>
+        </section>
 
-        <div className="grid-container full">
-          <MatchesSlider season="1819" regnumber="00055" />
-        </div>
+        <section className={'grid-container full'}>
+          <MatchesSlider season="1920" regnumber="00055" />
+        </section>
 
-        <div className="grid-container site-content">
+        <section className={'grid-container full'}>
+          <FeaturedSection
+            articles={data.featuredTransfers}
+            title="Transfernieuws"
+            link={linkCTA}
+          />
+        </section>
+
+        <section className="grid-container site-content">
           <div className="grid-x grid-margin-x">
-            <section className="cell large-12">
-              <FeaturedNews posts={data.lowerpost} columns="3" teaser={true} />
+            <section className={'cell large-12 featured-article'}>
+              <CardImage
+                title="Voorbereidings- en bekerwedstrijden"
+                localFile={data.preseason}
+                link="/games"
+                metadata={false}
+              />
             </section>
           </div>
-        </div>
+        </section>
       </Layout>
     )
-  }
-
-  componentDidMount() {
-    // alert('hey');
   }
 }
 
 export const pageQuery = graphql`
   query {
-    toppost: allWordpressPost(
-      sort: { fields: [date], order: DESC }
-      limit: 12
+    featuredPosts: allNodeArticle(
+      filter: { status: { eq: true }, promote: { eq: true } }
+      sort: { fields: created, order: DESC }
+      limit: 10
     ) {
       edges {
         node {
           id
-          slug
-          title
-          content
-          excerpt
-          unixdate: date(formatString: "YYYY-MM-DD", locale: "nl-be")
-          longdate: date(formatString: "DD MMMM YYYY", locale: "nl-be")
-          modified
-          categories {
-            name
+          path {
+            alias
           }
-          featured_media {
-            localFile {
-              childImageSharp {
-                sizes(maxWidth: 615) {
-                  ...GatsbyImageSharpSizes_withWebp_tracedSVG
+          created(formatString: "D/M/YYYY")
+          title
+          promote
+          status
+          field_featured
+          body {
+            value
+            format
+            processed
+            summary
+          }
+          relationships {
+            field_media_article_image {
+              relationships {
+                field_media_image {
+                  localFile {
+                    childImageSharp {
+                      fluid(maxWidth: 800, quality: 75, cropFocus: ATTENTION) {
+                        base64
+                        aspectRatio
+                        tracedSVG
+                        aspectRatio
+                        src
+                        srcSet
+                        srcWebp
+                        srcSetWebp
+                        sizes
+                        # originalImg
+                        # originalName
+                        # presentationWidth
+                        # presentationHeight
+                      }
+                    }
+                  }
                 }
+              }
+            }
+            field_tags {
+              name
+              path {
+                alias
               }
             }
           }
         }
       }
     }
-    lowerpost: allWordpressPost(
-      sort: { fields: [date], order: DESC }
-      limit: 12
-      skip: 8
+    featuredTransfers: allNodeArticle(
+      filter: {
+        relationships: {
+          field_tags: { elemMatch: { name: { eq: "Transfernieuws" } } }
+        }
+        status: { eq: true }
+        promote: { eq: true }
+      }
+      sort: { fields: created, order: DESC }
+      limit: 4
     ) {
       edges {
         node {
           id
-          slug
-          title
-          content
-          excerpt
-          unixdate: date(formatString: "YYYY-MM-DD", locale: "nl-be")
-          longdate: date(formatString: "DD MMMM YYYY", locale: "nl-be")
-          modified
-          categories {
-            name
+          path {
+            alias
           }
-          featured_media {
-            localFile {
-              childImageSharp {
-                sizes(maxWidth: 615) {
-                  ...GatsbyImageSharpSizes_withWebp_tracedSVG
+          created(formatString: "D/M/YYYY")
+          title
+          promote
+          status
+          field_featured
+          body {
+            value
+            format
+            processed
+            summary
+          }
+          relationships {
+            field_media_article_image {
+              relationships {
+                field_media_image {
+                  localFile {
+                    childImageSharp {
+                      fluid(maxWidth: 600, quality: 75, cropFocus: ATTENTION) {
+                        base64
+                        aspectRatio
+                        tracedSVG
+                        aspectRatio
+                        src
+                        srcSet
+                        srcWebp
+                        srcSetWebp
+                        sizes
+                      }
+                    }
+                  }
                 }
               }
             }
-          }
-        }
-      }
-    }
-    featuredPosts: allWordpressPost(sort: {fields: [date], order: DESC}, limit: 3, filter: {categories: {elemMatch: {name: {eq: "Uitgelicht"}}}}) {
-    edges {
-      node {
-        id
-        slug
-        title
-        content
-        excerpt
-        unixdate: date(formatString: "YYYY-MM-DD", locale: "nl-be")
-        longdate: date(formatString: "DD MMMM YYYY", locale: "nl-be")
-        modified
-        categories {
-          name
-        }
-        featured_media {
-          source_url
-          localFile {
-            childImageSharp {
-              sizes(maxWidth: 615) {
-                base64
-                tracedSVG
-                aspectRatio
-                src
-                srcSet
-                srcWebp
-                srcSetWebp
-                sizes
-                originalImg
-                originalName
-                presentationWidth
-                presentationHeight
+            field_tags {
+              name
+              path {
+                alias
               }
             }
           }
         }
       }
     }
-  }
+    fm19: file(name: { eq: "fm19-kits" }) {
+      childImageSharp {
+        fluid(maxWidth: 1680, quality: 75, cropFocus: ATTENTION) {
+          base64
+          aspectRatio
+          tracedSVG
+          aspectRatio
+          src
+          srcSet
+          srcWebp
+          srcSetWebp
+          sizes
+        }
+      }
+    }
+    preseason: file(name: { eq: "preseason" }) {
+      childImageSharp {
+        fluid(maxWidth: 1680, quality: 75, cropFocus: ATTENTION) {
+          base64
+          aspectRatio
+          tracedSVG
+          aspectRatio
+          src
+          srcSet
+          srcWebp
+          srcSetWebp
+          sizes
+        }
+      }
+    }
   }
 `
 

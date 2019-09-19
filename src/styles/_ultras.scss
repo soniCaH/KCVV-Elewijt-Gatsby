@@ -1,0 +1,31 @@
+@import '../styles/mixins';
+.ultras-wrapper {
+    margin: 0 auto;
+    max-width: 60rem;
+    padding: 2rem 1rem;
+
+    @media(min-width: 61rem) {
+        padding-left: 0;
+        padding-right: 0;
+    }
+
+    header {
+        margin-bottom: 2rem;
+    }
+
+    section {
+        &+section {
+            margin-top: 2rem;
+        }
+    }
+
+    h2 {
+        @include featured-border;
+    }
+
+    .btn {
+        clear: both;
+        display: inline-block;
+        margin: 1rem 0;
+    }
+}

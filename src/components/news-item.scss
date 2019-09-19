@@ -1,0 +1,22 @@
+@import '../styles/_mixins';
+
+.news_overview {
+    &__wrapper {
+        list-style: none;
+        height: 100%;
+        padding: 0;
+
+        @include break(medium-up) {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            grid-gap: 1rem;
+            grid-auto-flow: dense;
+        }
+
+        .cardItem {
+            &--image {
+                grid-column-end: span 2;
+            }
+        }
+    }
+}

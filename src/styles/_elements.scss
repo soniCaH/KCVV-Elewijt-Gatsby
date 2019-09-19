@@ -1,0 +1,68 @@
+@import '../styles/mixins';
+
+.button--back {
+    width: 49px;
+    height: 44px;
+    position: absolute;
+    right: 0;
+    top: 0;
+    z-index: 4;
+    background-image: url("data:image/svg+xml;charset=utf8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 13 8'%3E%3Cpath transform='translate(-238.75 -17.75)' fill='%23fff' d='M240,21h12v2H240V21Zm0.171-.415,4.243,4.243L243,26.242,238.757,22Zm4.243-1.414-4.243,4.242L238.757,22,243,17.757Z'/%3E%3C/svg%3E");
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: 13px 8px;
+    outline: none;
+
+    &:hover {
+        cursor: pointer;
+    }
+}
+
+.text--regular {
+    font-size: 1rem;
+    color: var(--color-black);
+    text-transform: none;
+}
+
+.featured-border {
+    @include featured-border;
+}
+
+.screenreader {
+    position: absolute !important;
+    left: -10000px;
+    top: auto;
+    top: initial;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+}
+
+figure {
+    line-height: 1;
+}
+
+
+.tabs-panel {
+    padding: 0 !important;
+}
+
+.tabs-content {
+    background: transparent !important;
+    border: none !important;
+    color: inherit !important;
+}
+
+.clearfix {
+    overflow: auto;
+}
+
+.clearfix::after {
+    content: "";
+    clear: both;
+    display: table;
+}
+
+body blockquote {
+    @include block-quote;
+}

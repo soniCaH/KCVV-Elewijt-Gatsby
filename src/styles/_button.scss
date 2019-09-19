@@ -1,0 +1,58 @@
+@import '~foundation-sites/scss/util/util';
+
+
+.btn {
+    color: #FFF;
+    background: var(--color-green-dark);
+    padding: 1rem 3rem;
+    display: inline-block;
+    font-weight: 700;
+    outline: none;
+    position: relative;
+    transition: all 0.3s;
+    overflow: hidden;
+    text-transform: uppercase;
+
+    &:hover {
+        color: #FFF;
+        background-color: var(--color-green-dark-hover);
+    }
+
+    &::after {
+        content: '';
+        position: absolute;
+        z-index: -1;
+        transition: all 0.3s;
+    }
+
+    &::before {
+        font: normal normal normal 1em/1 FontAwesome;
+        text-transform: none;
+        line-height: 1;
+        position: relative;
+        -webkit-font-smoothing: antialiased;
+
+        position: absolute;
+        height: 100%;
+        line-height: 3.5;
+        color: #FFF;
+        transition: all 0.3s;
+    }
+
+    &--arrow {
+        &::before {
+            content: "\F178";
+
+            left: 83%;
+            opacity: 0;
+            top: 0;
+        }
+
+        &:hover {
+            &::before {
+                left: 89%;
+                opacity: 1;
+            }
+        }
+    }
+}

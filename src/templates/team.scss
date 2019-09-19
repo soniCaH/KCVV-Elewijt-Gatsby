@@ -1,0 +1,226 @@
+@import '../styles/mixins';
+
+.team-detail {
+    position: relative;
+
+    &__header {}
+
+    &__name {
+        .team-detail__header & {
+            @include break(large-up) {
+                left: 1rem;
+                right: auto;
+                text-align: left;
+                top: 7.5rem;
+            }
+
+            @include break(xlarge-up) {
+                left: 15%;
+            }
+        }
+
+        &-last {
+            text-align: left;
+        }
+
+        &-division {}
+
+        &-tagline {}
+    }
+
+    &__division-number {
+        position: absolute;
+        left: .25rem;
+        top: .25rem;
+        z-index: 2;
+
+        color: rgba(255, 255, 255, 0.25);
+
+        font-family: 'Montserrat', sans-serif;
+        font-weight: bold;
+        font-size: 8rem;
+        line-height: 0.7;
+        letter-spacing: -0.04px;
+
+        user-select: none;
+
+        @include break(medium-up) {
+            font-size: 13.75rem;
+        }
+
+        @include break(large-up) {
+            top: 1rem;
+            left: 1rem;
+
+            text-align: left;
+        }
+
+        @include break(xlarge-up) {
+            left: 14%;
+        }
+    }
+
+    &__lineup {
+        margin: 0 .25rem;
+        position: relative;
+        z-index: 5;
+
+        @include break(large-up) {
+            margin: 0 1rem;
+        }
+
+        @include break(xlarge-up) {
+            margin: 0 14%;
+        }
+
+        &-item {
+            border: 1px solid #ababab;
+            padding: 1rem;
+            position: relative;
+
+            &::before {
+                display: block;
+                content: " ";
+                width: 100%;
+                padding-top: 100%;
+            }
+        }
+
+        &-teaser {
+            position: absolute !important;
+            height: 100%;
+            overflow: hidden;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+
+            a {
+                display: inline-block;
+                width: 100%;
+                height: 100%;
+
+                &:hover {
+                    img {
+                        transform: scale(1.1);
+                    }
+                }
+            }
+        }
+
+        &--staff-only {
+            h2 {
+                display: none;
+            }
+
+
+        }
+
+    }
+
+    &__team-picture {
+        z-index: 3;
+
+        + .team-detail__team-info {
+            margin-top: 2rem;
+        }
+    }
+
+    &__team-info {
+        margin: 0 .25rem;
+        position: relative;
+        z-index: 4;
+
+        @include break(large-up) {
+            margin: 0 1rem;
+        }
+
+        @include break(xlarge-up) {
+            margin: 0 14%;
+        }
+    }
+
+    .tabs-content {
+        min-height: 10rem;
+    }
+
+}
+
+.team {
+    &-sub_navigation {
+        position: relative;
+        z-index: 9;
+
+        &__tabs {
+            background: transparent;
+            border: none;
+            list-style: none;
+
+            display: flex;
+            flex-direction: row;
+            margin: 0 .25rem 2rem;
+
+            @include break(large-up) {
+                margin: 0 1rem 2rem;
+            }
+
+            @include break(xlarge-up) {
+                margin: 0 14% 2rem;
+            }
+
+            &::before {
+                display: table;
+                content: ' ';
+                flex-basis: 0;
+                order: 1;
+            }
+
+            &::after {
+                display: table;
+                content: ' ';
+                flex-basis: 0;
+                order: 1;
+                clear: both
+            }
+
+            li {
+                float: none;
+                margin-right: 1.5em;
+
+                &::last-of-type() {
+                    margin-right: 0;
+                }
+
+                a {
+                    background: inherit;
+                    color: #FFF;
+                    font-size: 1rem;
+                    text-transform: uppercase;
+
+                    padding: 0 0 .5em;
+
+                    &[aria-selected='true'] {
+                        background: none;
+                        color: #FFF;
+                        border-bottom: 1px solid #fff;
+                    }
+
+                    &:hover {
+                        background: none;
+                        color: #FFF;
+                        border-bottom: 1px solid #fff;
+                    }
+                }
+            }
+        }
+    }
+}
+
+.team-break {
+    display: block;
+    padding-top: 8rem;
+
+    @media (min-width: 992px) {
+        padding-top: 14rem;
+    }
+}

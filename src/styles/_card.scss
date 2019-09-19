@@ -1,0 +1,40 @@
+.card {
+    &__header {
+        text-transform: uppercase;
+        padding: 27px 23px;
+        border-radius: 4px 4px 0 0;
+        position: relative;
+        border-bottom: 1px solid #e4e7ed;
+        overflow: hidden;
+        background-color: transparent;
+
+        &:before {
+            content: "";
+            display: block;
+            position: absolute;
+            width: 6px;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            background-color: var(--color-green);
+            border-radius: 3px 0 0 0;
+        }
+
+        h4 {
+            line-height: 1;
+            margin: 0;
+            padding: 0;
+        }
+    }
+
+    &__footer {
+        margin-top: -1rem;
+        padding-top: 0;
+        @include readmore-link;
+    }
+
+    &__content,
+    &__footer {
+        padding: 1rem;
+    }
+}

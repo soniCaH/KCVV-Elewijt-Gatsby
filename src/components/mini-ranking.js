@@ -2,7 +2,13 @@ import React, { Component } from 'react'
 
 class MiniRanking extends Component {
   render() {
-    this.props.ranking.sort((a, b) => a.position - b.position)
+    if (this.props.ranking.length <= 0) {
+      return <span>Nog geen klassement opgemaakt</span>
+    }
+
+    this.props.ranking.sort((a, b) => {
+      return a && a.position - b.position
+    })
 
     return (
       <table>
@@ -16,11 +22,13 @@ class MiniRanking extends Component {
         <tbody>
           {this.props.ranking.map((rank, i) => {
             return (
-              <tr key={i}>
-                <td>{rank.position}</td>
-                <td>{rank.team}</td>
-                <td>{rank.points}</td>
-              </tr>
+              rank && (
+                <tr key={i}>
+                  <td>{rank.position}</td>
+                  <td>{rank.team}</td>
+                  <td>{rank.points}</td>
+                </tr>
+              )
             )
           })}
         </tbody>

@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React, { Component, Fragment } from 'react'
 import { graphql, StaticQuery } from 'gatsby'
 // import './meta-matches.scss'
 import MatchWithLogo from './match-with-logo'
@@ -15,7 +15,7 @@ class MetaMatches extends Component {
       loading2: true,
     }
 
-    this.uuid = props.division.toLowerCase();
+    this.uuid = props.division.toLowerCase()
 
     this.apiServerUrl = props.config.site.siteMetadata.serverUrl
     this.apiRefreshRate = props.config.site.siteMetadata.refreshRate
@@ -25,8 +25,6 @@ class MetaMatches extends Component {
   updateData() {
     const { season, region, division, regnumber } = this.props
 
-    // console.log('Fetching meta matches overview')
-
     fetch(
       `${this.apiServerUrl}/meta/${season}/${region}/${division}/${regnumber}`
     )
@@ -34,17 +32,13 @@ class MetaMatches extends Component {
       .then(json => this.setState({ data: json, loading1: false }))
 
     fetch(
-      `${
-        this.apiServerUrl
-      }/seasons/${season}/regions/${region}/rankings/${division}`
+      `${this.apiServerUrl}/seasons/${season}/regions/${region}/rankings/${division}`
     )
       .then(response => response.json())
       .then(json => this.setState({ globalRanking: json, loading2: false }))
 
     this.timeout = setTimeout(() => {
-      this.updateData(() => {
-        // console.log('Updating the rankings.')
-      })
+      this.updateData(() => {})
     }, this.apiRefreshRate)
   }
 
@@ -64,7 +58,7 @@ class MetaMatches extends Component {
     ) {
       const { next, previous, ranking } = this.state.data
       return (
-        <>
+        <Fragment>
           <ul className="widget__filter" data-tabs id={`matches-${this.uuid}`}>
             <li className="tabs-title">
               <a href={`#matches-${this.uuid}-prev`}>Vorige</a>
@@ -78,22 +72,32 @@ class MetaMatches extends Component {
           </ul>
           <div data-tabs-content={`matches-${this.uuid}`}>
             <div className="tabs-panel" id={`matches-${this.uuid}-prev`}>
-              <MatchWithLogo match={previous.match} />
-              <MiniRanking ranking={[previous.opponent.ranking, ranking]} />
+              {previous && <MatchWithLogo match={previous.match} />}
+              {previous && (
+                <MiniRanking ranking={[previous.opponent.ranking, ranking]} />
+              )}
+
+              {!previous && <span>Geen vorige wedstrijden gevonden</span>}
             </div>
-            <div className="tabs-panel is-active" id={`matches-${this.uuid}-next`}>
-              <MatchWithLogo match={next.match} />
-              <MiniRanking ranking={[next.opponent.ranking, ranking]} />
+            <div
+              className="tabs-panel is-active"
+              id={`matches-${this.uuid}-next`}
+            >
+              {next && <MatchWithLogo match={next.match} />}
+              {next && (
+                <MiniRanking ranking={[next.opponent.ranking, ranking]} />
+              )}
+              {!next && <span>Geen volgende wedstrijden gevonden</span>}
             </div>
             <div className="tabs-panel" id={`matches-${this.uuid}-rank`}>
               <MiniRanking ranking={this.state.globalRanking} />
             </div>
           </div>
-        </>
+        </Fragment>
       )
     } else {
       return (
-        <>
+        <Fragment>
           <ul className="widget__filter" data-tabs id={`matches-${this.uuid}`}>
             <li className="tabs-title">
               <a href={`#matches-${this.uuid}-prev`}>Vorige</a>
@@ -107,10 +111,15 @@ class MetaMatches extends Component {
           </ul>
           <div data-tabs-content={`matches-${this.uuid}`}>
             <div className="tabs-panel" id={`matches-${this.uuid}-prev`} />
-            <div className="tabs-panel is-active" id={`matches-${this.uuid}-next`} />
+            <div
+              className="tabs-panel is-active"
+              id={`matches-${this.uuid}-next`}
+            >
+              Nog geen wedstrijden gekend
+            </div>
             <div className="tabs-panel" id={`matches-${this.uuid}-rank`} />
           </div>
-        </>
+        </Fragment>
       )
     }
   }

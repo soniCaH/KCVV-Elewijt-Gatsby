@@ -1,0 +1,151 @@
+import React, { Component } from 'react'
+import { mapPositionCode } from '../scripts/helper'
+
+import './player.scss'
+
+// eslint-disable-next-line
+String.prototype.replaceAll = function(search, replacement) {
+  var target = this
+  return target.replace(new RegExp(search, 'g'), replacement)
+}
+
+/**
+ */
+class PlayerDetail extends Component {
+  render() {
+    const { player } = this.props
+    const cleanBody =
+      (player.body &&
+        player.body.processed.replaceAll(
+          '/sites/default/',
+          `${process.env.GATSBY_API_DOMAIN}/sites/default/`
+        )) ||
+      ''
+
+      const currentlyPlaying = !player.field_date_leave
+
+    return (
+      <article className={'player-detail'}>
+        <header className={'player-detail__header'}>
+          <h1 className={'player-detail__name'}>
+            <span className={'player-detail__name-first'}>
+              {player.field_firstname}
+            </span>
+            <span className={'player-detail__name-last'}>
+              {player.field_lastname}
+            </span>
+          </h1>
+
+          <div className={'bg-green-mask'}>
+            <div
+              className={'player-detail__bg-avatar'}
+              style={
+                player.relationships.field_image && {
+                  backgroundImage: `url(${player.relationships.field_image.localFile.url})`,
+                }
+              }
+            />
+            <div className={'bg-white-end'} />
+          </div>
+
+          <div className={'player-detail__bg-shirt-number'} aria-hidden="true">
+            {player.field_shirtnumber || ''}
+          </div>
+        </header>
+
+        <aside className={'player-detail__statistics'}>
+          <section className={'player-detail__statistics-item'}>
+            <div className={'player-detail__statistics-item__number'}>
+              {player.field_stats_games || '0'}
+            </div>
+            <div className={'player-detail__statistics-item__label'}>
+              Wedstrijden
+            </div>
+          </section>
+
+          {player.field_position === 'k' && (
+            <section className={'player-detail__statistics-item'}>
+              <div className={'player-detail__statistics-item__number'}>
+                {player.field_stats_cleansheets || '0'}
+              </div>
+              <div className={'player-detail__statistics-item__label'}>
+                Cleansheets
+              </div>
+            </section>
+          )}
+          {player.field_position !== 'k' && (
+            <section className={'player-detail__statistics-item'}>
+              <div className={'player-detail__statistics-item__number'}>
+                {player.field_stats_goals || '0'}
+              </div>
+              <div className={'player-detail__statistics-item__label'}>
+                Doelpunten
+              </div>
+            </section>
+          )}
+          <section className={'player-detail__statistics-item'}>
+            <div className={'player-detail__statistics-item__number'}>
+              {player.field_stats_cards_yellow || '0'}
+            </div>
+            <div className={'player-detail__statistics-item__label'}>
+              Gele kaarten
+            </div>
+          </section>
+          <section className={'player-detail__statistics-item'}>
+            <div className={'player-detail__statistics-item__number'}>
+              {player.field_stats_cards_red || '0'}
+            </div>
+            <div className={'player-detail__statistics-item__label'}>
+              Rode kaarten
+            </div>
+          </section>
+        </aside>
+
+        <div className={'player-break'}></div>
+
+        <section className={'player-detail__data'}>
+          <div
+            className={
+              'player-detail__data-item player-detail__data-item--birthdate'
+            }
+          >
+            <span className={'player-detail__data-item__label'}>
+              Geboortedatum
+            </span>
+            <span className={'player-detail__data-item__data'}>
+              {player.field_birth_date || 'Onbekend'}
+            </span>
+          </div>
+          <div
+            className={
+              'player-detail__data-item player-detail__data-item--position'
+            }
+          >
+            <span className={'player-detail__date-item__data'}>
+              {player.field_position && mapPositionCode(player.field_position)}
+            </span>
+          </div>
+          <div
+            className={
+              'player-detail__data-item player-detail__data-item--joindate'
+            }
+          >
+            <span className={'player-detail__data-item__label'}>
+              {currentlyPlaying && 'Speler bij KCVV sinds' }
+              {!currentlyPlaying && 'Speler tussen' }
+            </span>
+            <span className={'player-detail__data-item__data'}>
+              {player.field_join_date || 'Onbekend'}
+              {!currentlyPlaying && <><span className={"text--regular"}> en </span> {player.field_date_leave}</>}
+            </span>
+          </div>
+        </section>
+        <section className={'player-detail__body'}>
+          <div dangerouslySetInnerHTML={{ __html: cleanBody }} />
+        </section>
+      </article>
+    )
+  }
+}
+
+export default PlayerDetail

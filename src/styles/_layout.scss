@@ -1,0 +1,58 @@
+@import '../styles/mixins';
+
+.site-content {
+    padding-bottom: 1.5rem;
+    padding-top: 1.5rem;
+}
+
+.featured__matches {
+    @include break(medium-up) {
+        margin-top: 1.5rem;
+    }
+
+    @include break(large-up) {
+        margin-top: 0;
+    }
+}
+
+.limited-width_wrapper {
+    margin: 0 auto;
+    max-width: 60rem;
+    padding: 2rem 1rem;
+
+    @media(min-width: 61rem) {
+        padding-left: 0;
+        padding-right: 0;
+    }
+
+    section + section {
+        margin-top: 2rem;
+    }
+}
+
+.staff-break {
+    display: block;
+    padding-top: 410px;
+}
+.player-break {
+    @media (min-width: 992px) {
+        display: block;
+        padding-top: 410px;
+    }
+}
+
+.display-desktop {
+    display: none;
+
+    @include break(medium-up) {
+        display: block;
+    }
+}
+
+.display-mobile {
+    display: block;
+
+    @include break(medium-up) {
+        display: none;
+    }
+}

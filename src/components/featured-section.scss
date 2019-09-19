@@ -1,0 +1,36 @@
+@import '../styles/_mixins';
+
+.featured_section {
+    &__wrapper {
+        position: relative;
+    }
+
+    &__header {
+        background: var(--color-green-dark);
+        color: #FFF;
+        padding: 2rem 2rem 4rem;
+    }
+
+    &__content {
+        margin-top: -4rem;
+        // margin-bottom: 4rem;
+        padding: 0 2rem;
+        display: grid;
+        grid-template-columns: repeat(1, 1fr);
+        grid-template-rows: auto;
+        grid-gap: 1rem;
+
+        @include break(medium-up) {
+            grid-template-columns: repeat(2, 1fr);
+        }
+
+        @include break(large-up) {
+            grid-template-columns: repeat(4, 1fr);
+        }
+    }
+
+    &__footer {
+        padding: 2rem;
+        text-align: right;
+    }
+}

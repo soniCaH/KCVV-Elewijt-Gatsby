@@ -1,9 +1,9 @@
 import React, { Component, Fragment } from 'react'
 
-import './index.scss'
+// import './index.scss'
 import PageHeader from '../components/page-header'
 import { PageHeaderMobile } from '../components/page-header'
-import PageFooter from '../components/page-footer';
+import PageFooter from '../components/page-footer'
 
 class Layout extends Component {
   render() {
@@ -11,21 +11,16 @@ class Layout extends Component {
 
     return (
       <Fragment>
-        <PageHeaderMobile />
-        <PageHeader />
+        <div className={'off-canvas-wrapper'}>
+          <PageHeaderMobile />
+          <PageHeader />
 
-        {children}
+          <main className={'off-canvas-content'} data-off-canvas-content>
+            {children}
+          </main>
 
-        <div className="video--bg">
-          <video autoPlay muted loop>
-            <source src="./video/kcvv-earth.mp4" type="video/mp4" />
-          </video>
-          <div className="video--content">KCVV Elewijt<br/>
-          Driesstraat 30, 1982 Elewijt<br/>
-          info@kcvvelewijt.be</div>
+          <PageFooter />
         </div>
-
-        <PageFooter />
       </Fragment>
     )
   }
