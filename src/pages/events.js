@@ -15,21 +15,33 @@ class EventsPage extends Component {
         <div className={'limited-width_wrapper'}>
           <h1>Evenementen</h1>
 
-          {events.edges.map(({ node }, i) => {
-            return (
-              <Event
-                key={i}
-                title={node.title}
-                localFile={
-                  node.relationships.field_media_image.relationships
-                    .field_media_image.localFile
-                }
-                uri={node.field_event_link.uri}
-                datetime_start={node.field_daterange.value}
-                datetime_end={node.field_daterange.end_value}
-              />
-            )
-          })}
+          {events.edges.map(({ node }, i) => (
+            <Event
+              key={i}
+              title={node.title}
+              localFile={
+                node.relationships.field_media_image.relationships
+                  .field_media_image.localFile
+              }
+              uri={node.field_event_link.uri}
+              datetime_start={node.field_daterange.value}
+              datetime_end={node.field_daterange.end_value}
+            />
+          ))}
+
+          {events.edges.length === 0 && (
+            <div>
+              Geen evenementen ingepland voorlopig. Check{' '}
+              <a
+                href="https://www.facebook.com/kcvvelewijt"
+                target="_blank"
+                rel="noopen nofollow"
+              >
+                Facebook
+              </a>{' '}
+              om op de hoogte te blijven.
+            </div>
+          )}
         </div>
       </Layout>
     )
@@ -39,7 +51,7 @@ class EventsPage extends Component {
 export const pageQuery = graphql`
   query {
     events: allNodeEvent(
-      filter: { status: { eq: true } }
+      filter: { promote: { eq: true }, status: { eq: true } }
       sort: { order: ASC, fields: field_daterange___value }
     ) {
       edges {

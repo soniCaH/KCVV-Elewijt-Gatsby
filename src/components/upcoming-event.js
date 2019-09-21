@@ -33,7 +33,7 @@ class UpcomingEvent extends Component {
 const query = graphql`
   query {
     events: allNodeEvent(
-      filter: { status: { eq: true } }
+      filter: { promote: {eq: true}, status: { eq: true } }
       sort: { order: ASC, fields: field_daterange___value }
       limit: 1
     ) {
