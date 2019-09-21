@@ -1,46 +1,41 @@
 import React, { Component } from 'react'
-import { graphql } from 'gatsby'
+import { graphql, StaticQuery } from 'gatsby'
 
 import Layout from '../layouts/index'
-import SEO from '../components/seo'
-import Event from '../components/event'
+import SEO from './seo'
+import Event from './event'
 
-class EventsPage extends Component {
+class UpcomingEvent extends Component {
   render() {
     const { events } = this.props.data
     return (
-      <Layout>
-        <SEO lang="nl-BE" title="Er is maar één plezante compagnie" />
-
-        <div className={'limited-width_wrapper'}>
-          <h1>Evenementen</h1>
-
-          {events.edges.map(({ node }, i) => {
-            return (
-              <Event
-                key={i}
-                title={node.title}
-                localFile={
-                  node.relationships.field_media_image.relationships
-                    .field_media_image.localFile
-                }
-                uri={node.field_event_link.uri}
-                datetime_start={node.field_daterange.value}
-                datetime_end={node.field_daterange.end_value}
-              />
-            )
-          })}
-        </div>
-      </Layout>
+      <>
+        {events.edges.map(({ node }, i) => {
+          return (
+            <Event
+              key={i}
+              title={node.title}
+              localFile={
+                node.relationships.field_media_image.relationships
+                  .field_media_image.localFile
+              }
+              uri={node.field_event_link.uri}
+              datetime_start={node.field_daterange.value}
+              datetime_end={node.field_daterange.end_value}
+            />
+          )
+        })}
+      </>
     )
   }
 }
 
-export const pageQuery = graphql`
+const query = graphql`
   query {
     events: allNodeEvent(
       filter: { status: { eq: true } }
       sort: { order: ASC, fields: field_daterange___value }
+      limit: 1
     ) {
       edges {
         node {
@@ -77,4 +72,6 @@ export const pageQuery = graphql`
   }
 `
 
-export default EventsPage
+export default () => (
+  <StaticQuery query={query} render={data => <UpcomingEvent data={data} />} />
+)

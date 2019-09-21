@@ -102,7 +102,13 @@ class Search extends Component {
    * rebuilds the overall index based on the options
    */
   rebuildIndex = () => {
-    const { articleList, teamList, playerList, staffList, eventList } = this.state
+    const {
+      articleList,
+      teamList,
+      playerList,
+      staffList,
+      eventList,
+    } = this.state
     const dataToSearch = new JsSearch.Search(`id`)
     /**
      *  defines a indexing strategy for the data
