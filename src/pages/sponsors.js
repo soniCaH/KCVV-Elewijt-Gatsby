@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import { graphql } from 'gatsby'
 
 import Layout from '../layouts/index'
 
@@ -11,7 +12,6 @@ class SponsorsPage extends Component {
       goldSponsors,
       silverSponsors,
       bronzeSponsors,
-      sympaSponsors,
     } = this.props.data
     return (
       <Layout>
@@ -19,17 +19,16 @@ class SponsorsPage extends Component {
         <div className={'sponsors-overview__wrapper limited-width_wrapper'}>
           <section
             className={
-              'sponsors-overview__section sponsors-overview__section--gold'
+              'sponsors-overview__section sponsors-overview__section--top'
             }
           >
             {goldSponsors.edges.map(({ node }, i) => {
               const website =
                 (node.field_website && node.field_website.uri) ||
-                window.location.href + '#'
+                `${window.location.href}#`
               return (
                 <Sponsor
                   key={i}
-                  title={node.title}
                   localFile={
                     node.relationships.field_media_image.relationships
                       .field_media_image.localFile
@@ -39,15 +38,48 @@ class SponsorsPage extends Component {
               )
             })}
           </section>
-          {silverSponsors.edges.map(({ node }, i) => (
-            <div>{node.title}</div>
-          ))}
-          {bronzeSponsors.edges.map(({ node }, i) => (
-            <div>{node.title}</div>
-          ))}
-          {sympaSponsors.edges.map(({ node }, i) => (
-            <div>{node.title}</div>
-          ))}
+          <section
+            className={
+              'sponsors-overview__section sponsors-overview__section--middle'
+            }
+          >
+            {silverSponsors.edges.map(({ node }, i) => {
+              const website =
+                (node.field_website && node.field_website.uri) ||
+                `${window.location.href}#`
+              return (
+                <Sponsor
+                  key={i}
+                  localFile={
+                    node.relationships.field_media_image.relationships
+                      .field_media_image.localFile
+                  }
+                  uri={website}
+                />
+              )
+            })}
+          </section>
+          <section
+            className={
+              'sponsors-overview__section sponsors-overview__section--bottom'
+            }
+          >
+            {bronzeSponsors.edges.map(({ node }, i) => {
+              const website =
+                (node.field_website && node.field_website.uri) ||
+                `${window.location.href}#`
+              return (
+                <Sponsor
+                  key={i}
+                  localFile={
+                    node.relationships.field_media_image.relationships
+                      .field_media_image.localFile
+                  }
+                  uri={website}
+                />
+              )
+            })}
+          </section>
         </div>
       </Layout>
     )
@@ -60,7 +92,7 @@ export const pageQuery = graphql`
       filter: {
         promote: { eq: true }
         status: { eq: true }
-        field_type: { eq: "gold" }
+        field_type: { in: ["crossing"]}
       }
     ) {
       edges {
@@ -96,7 +128,7 @@ export const pageQuery = graphql`
       filter: {
         promote: { eq: true }
         status: { eq: true }
-        field_type: { eq: "silver" }
+        field_type: { in: ["green", "white"] }
       }
     ) {
       edges {
@@ -132,43 +164,7 @@ export const pageQuery = graphql`
       filter: {
         promote: { eq: true }
         status: { eq: true }
-        field_type: { eq: "bronze" }
-      }
-    ) {
-      edges {
-        node {
-          title
-          field_type
-          field_website {
-            uri
-          }
-          relationships {
-            field_media_image {
-              field_media_image {
-                alt
-              }
-              relationships {
-                field_media_image {
-                  localFile {
-                    childImageSharp {
-                      fluid(maxWidth: 2000) {
-                        ...GatsbyImageSharpFluid_withWebp_tracedSVG
-                        aspectRatio
-                      }
-                    }
-                  }
-                }
-              }
-            }
-          }
-        }
-      }
-    }
-    sympaSponsors: allNodeSponsor(
-      filter: {
-        promote: { eq: true }
-        status: { eq: true }
-        field_type: { eq: "sympa" }
+        field_type: { in: ["training", "panel", "other"] }
       }
     ) {
       edges {

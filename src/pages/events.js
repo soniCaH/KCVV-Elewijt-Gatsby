@@ -35,7 +35,7 @@ class EventsPage extends Component {
               <a
                 href="https://www.facebook.com/kcvvelewijt"
                 target="_blank"
-                rel="noopen nofollow"
+                rel="noopener noreferrer"
               >
                 Facebook
               </a>{' '}

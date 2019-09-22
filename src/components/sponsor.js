@@ -1,12 +1,12 @@
 import React, { Component } from 'react'
 
-import { CardImage } from '../components/cards'
+import { SingleImageCard } from '../components/cards'
 
 class Sponsor extends Component {
   render() {
-    const { title, localFile, uri = null } = this.props
+    const { localFile, uri = null } = this.props
 
-    return <CardImage title={title} localFile={localFile} link={uri} />
+    return <SingleImageCard localFile={localFile} link={uri} />
   }
 }
 

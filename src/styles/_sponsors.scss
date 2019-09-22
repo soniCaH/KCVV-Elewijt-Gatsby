@@ -6,7 +6,7 @@
     grid-gap: 1rem;
     grid-template-rows: 1fr;
 
-    &--gold {
+    &--top {
       grid-template-columns: 1fr;
 
       @include break(medium-up) {
@@ -14,7 +14,7 @@
       }
     }
 
-    &--silver {
+    &--middle {
       grid-template-columns: repeat(2, 1fr);
 
       @include break(medium-up) {
@@ -22,15 +22,7 @@
       }
     }
 
-    &--bronze {
-      grid-template-columns: repeat(2, 1fr);
-
-      @include break(medium-up) {
-        grid-template-columns: repeat(4, 1fr);
-      }
-    }
-
-    &--sympa {
+    &--bottom {
       grid-template-columns: repeat(2, 1fr);
 
       @include break(medium-up) {

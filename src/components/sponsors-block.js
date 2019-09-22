@@ -1,25 +1,22 @@
 import React, { Component } from 'react'
 import { graphql, StaticQuery } from 'gatsby'
 
-import Event from './event'
+import Sponsor from './sponsor'
 
-class UpcomingEvent extends Component {
+class SponsorsBlock extends Component {
   render() {
-    const { events } = this.props.data
+    const { sponsors } = this.props.data
     return (
       <>
-        {events.edges.map(({ node }, i) => {
+        {sponsors.edges.map(({ node }, i) => {
           return (
-            <Event
+            <Sponsor
               key={i}
-              title={node.title}
               localFile={
                 node.relationships.field_media_image.relationships
                   .field_media_image.localFile
               }
-              uri={node.field_event_link.uri}
-              datetime_start={node.field_daterange.value}
-              datetime_end={node.field_daterange.end_value}
+              uri={website}
             />
           )
         })}
@@ -30,21 +27,21 @@ class UpcomingEvent extends Component {
 
 const query = graphql`
   query {
-    events: allNodeEvent(
-      filter: { promote: {eq: true}, status: { eq: true } }
-      sort: { order: ASC, fields: field_daterange___value }
-      limit: 1
+    sponsors: allNodeSponsor(
+      filter: {
+        promote: { eq: true }
+        status: { eq: true }
+        field_type: { in: ["crossing", "green", "white"] }
+      },
+      sort: { fields: [field_type], order: ASC }
     ) {
       edges {
         node {
-          field_daterange {
-            value(formatString: "YYYY-MM-DDTHH:mm:ssZ")
-            end_value(formatString: "YYYY-MM-DDTHH:mm:ssZ")
-          }
-          field_event_link {
+          title
+          field_type
+          field_website {
             uri
           }
-          title
           relationships {
             field_media_image {
               field_media_image {
@@ -54,7 +51,7 @@ const query = graphql`
                 field_media_image {
                   localFile {
                     childImageSharp {
-                      fluid(maxWidth: 2000) {
+                      fluid(maxWidth: 400) {
                         ...GatsbyImageSharpFluid_withWebp_tracedSVG
                         aspectRatio
                       }
@@ -71,5 +68,5 @@ const query = graphql`
 `
 
 export default () => (
-  <StaticQuery query={query} render={data => <UpcomingEvent data={data} />} />
+  <StaticQuery query={query} render={data => <SponsorsBlock data={data} />} />
 )
