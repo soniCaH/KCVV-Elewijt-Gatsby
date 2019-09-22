@@ -25,7 +25,7 @@ class SponsorsPage extends Component {
             {goldSponsors.edges.map(({ node }, i) => {
               const website =
                 (node.field_website && node.field_website.uri) ||
-                `${window.location.href}#`
+                ``
               return (
                 <Sponsor
                   key={i}
@@ -46,7 +46,7 @@ class SponsorsPage extends Component {
             {silverSponsors.edges.map(({ node }, i) => {
               const website =
                 (node.field_website && node.field_website.uri) ||
-                `${window.location.href}#`
+                ''
               return (
                 <Sponsor
                   key={i}
@@ -67,7 +67,7 @@ class SponsorsPage extends Component {
             {bronzeSponsors.edges.map(({ node }, i) => {
               const website =
                 (node.field_website && node.field_website.uri) ||
-                `${window.location.href}#`
+                ''
               return (
                 <Sponsor
                   key={i}
