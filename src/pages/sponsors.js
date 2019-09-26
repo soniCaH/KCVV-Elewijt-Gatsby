@@ -8,11 +8,7 @@ import Sponsor from '../components/sponsor'
 
 class SponsorsPage extends Component {
   render() {
-    const {
-      goldSponsors,
-      silverSponsors,
-      bronzeSponsors,
-    } = this.props.data
+    const { goldSponsors, silverSponsors, bronzeSponsors } = this.props.data
     return (
       <Layout>
         <SEO lang="nl-BE" title="Er is maar één plezante compagnie" />
@@ -24,8 +20,7 @@ class SponsorsPage extends Component {
           >
             {goldSponsors.edges.map(({ node }, i) => {
               const website =
-                (node.field_website && node.field_website.uri) ||
-                ``
+                (node.field_website && node.field_website.uri) || ``
               return (
                 <Sponsor
                   key={i}
@@ -45,8 +40,7 @@ class SponsorsPage extends Component {
           >
             {silverSponsors.edges.map(({ node }, i) => {
               const website =
-                (node.field_website && node.field_website.uri) ||
-                ''
+                (node.field_website && node.field_website.uri) || ''
               return (
                 <Sponsor
                   key={i}
@@ -66,8 +60,7 @@ class SponsorsPage extends Component {
           >
             {bronzeSponsors.edges.map(({ node }, i) => {
               const website =
-                (node.field_website && node.field_website.uri) ||
-                ''
+                (node.field_website && node.field_website.uri) || ''
               return (
                 <Sponsor
                   key={i}
@@ -92,8 +85,9 @@ export const pageQuery = graphql`
       filter: {
         promote: { eq: true }
         status: { eq: true }
-        field_type: { in: ["crossing"]}
+        field_type: { in: ["crossing"] }
       }
+      sort: { fields: title, order: ASC }
     ) {
       edges {
         node {
@@ -130,6 +124,7 @@ export const pageQuery = graphql`
         status: { eq: true }
         field_type: { in: ["green", "white"] }
       }
+      sort: { fields: title, order: ASC }
     ) {
       edges {
         node {
@@ -166,6 +161,7 @@ export const pageQuery = graphql`
         status: { eq: true }
         field_type: { in: ["training", "panel", "other"] }
       }
+      sort: { fields: title, order: ASC }
     ) {
       edges {
         node {

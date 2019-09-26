@@ -9,6 +9,7 @@ class SponsorsBlock extends Component {
     return (
       <>
         {sponsors.edges.map(({ node }, i) => {
+          const website = (node.field_website && node.field_website.uri) || ''
           return (
             <Sponsor
               key={i}
@@ -32,8 +33,8 @@ const query = graphql`
         promote: { eq: true }
         status: { eq: true }
         field_type: { in: ["crossing", "green", "white"] }
-      },
-      sort: { fields: [field_type], order: ASC }
+      }
+      sort: { fields: [field_type, title], order: ASC }
     ) {
       edges {
         node {
