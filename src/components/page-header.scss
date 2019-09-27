@@ -3,7 +3,7 @@
     position: absolute;
     left: 50%;
     transform: translate(-50%, 0);
-    top: 5px;
+    top: 0;
 
     img {
         width: 100px;
@@ -206,7 +206,7 @@
 
     .header-logo {
         position: absolute;
-        bottom: 0;
+        bottom: -50%;
         left: 0;
         display: block;
 
@@ -282,7 +282,7 @@
 }
 
 .sponsors--header {
-    height: 75px;
+    height: 25px;
     max-width: 33vw;
     overflow: hidden;
 }
