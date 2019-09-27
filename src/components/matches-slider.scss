@@ -4,17 +4,25 @@
 .matchesSlider--wrapper {
   background: white;
   padding: 2em 0;
+
   .slick-slide {
-    border-width: 1px;
-    border-style: solid;
-    border-image: linear-gradient(
-      to right,
-      var(--color-green-dark) 0%,
-      rgba(255, 255, 255, 0) 85%
-    );
-    border-image-slice: 1;
-    border-right: 0;
+    padding: .5rem;
+
+    article {
+      box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+      margin-bottom: 20px;
+    }
   }
+}
+
+.slick-track
+{
+    display: flex !important;
+}
+
+.slick-slide
+{
+    height: inherit !important;
 }
 
 .matchesSlider {
@@ -23,17 +31,21 @@
     height: 100px;
     width: 50px;
     transition: all 0.5s;
+
     &:before {
       opacity: 1;
     }
+
     &:hover {
       width: 75px;
     }
   }
+
   .slick-prev {
     left: 0;
     z-index: 5;
   }
+
   .slick-next {
     right: 0;
     z-index: 5;
