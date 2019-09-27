@@ -33,13 +33,13 @@ const NewsOverviewPage = ({ pageContext, data }) => {
 
       <div className="grid-container site-content">
         <div className="grid-x grid-margin-x">
-          <h2>Nieuwsarchief KCVV Elewijt.be</h2>
+          <h2>Nieuwsarchief KCVV Elewijt</h2>
           <header className={'archive__filter_wrapper'}>
-            {/* <h5>Filter op categorie</h5> */}
+            <h5>Filter op categorie</h5>
             <section className={'archive__filter_filters'}>
               {categoryTags.edges.map(({ node, i }) => {
                 return (
-                  <Link to={node.path.alias} className={'btn'}>
+                  <Link to={node.path.alias} className={'btn btn--small'}>
                     {node.name}
                   </Link>
                 )
