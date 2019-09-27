@@ -55,4 +55,10 @@
             }
         }
     }
+
+    &--small {
+        font-size: 85%;
+        font-weight: 500;
+        padding: .5rem 1.5rem;
+    }
 }

@@ -29,7 +29,8 @@
     }
 
     &__filter_filters {
-        display: flex;
-        justify-content: space-between;
+        .btn {
+            margin: .25rem;
+        }
     }
 }
