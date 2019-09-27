@@ -51,6 +51,7 @@ class IndexPage extends Component {
                   title="Speel nu FM 2019 met KCVV"
                   localFile={data.fm19}
                   link="news/2019-07-11-neem-zelf-de-leiding-van-kcvv-elewijt"
+                  body="Speel nu zelf coach van KCVV Elewijt met de huidige spelerskern en toekomstige transfers."
                   metadata={false}
                 />
               )}

@@ -99,16 +99,21 @@ export default ({ data }) => {
         </main>
         <footer className={'article__footer__wrapper'}>
           <section className={'article__footer'}>
-            <h3>Gerelateerde inhoud</h3>
-            {relatedArticles.length > 0 &&
-              relatedArticles.map(({ path, title, internal }, i) => {
-                return (
-                  <article key={i} className={'article__footer_related'}>
-                  <i className={`article__footer_related__icon article__footer_related__icon--${internal.type} fa`}/>
-                    <Link to={path.alias}>{title}</Link>
-                  </article>
-                )
-              })}
+            {relatedArticles.length > 0 && (
+              <>
+                <h3>Gerelateerde inhoud</h3>
+                {relatedArticles.map(({ path, title, internal }, i) => {
+                  return (
+                    <article key={i} className={'article__footer_related'}>
+                      <i
+                        className={`article__footer_related__icon article__footer_related__icon--${internal.type} fa`}
+                      />
+                      <Link to={path.alias}>{title}</Link>
+                    </article>
+                  )
+                })}
+              </>
+            )}
           </section>
         </footer>
       </article>
