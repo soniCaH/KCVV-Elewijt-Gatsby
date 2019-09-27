@@ -10,6 +10,7 @@ import MatchesSlider from '../components/matches-slider'
 import { NewsItemFeatured, NewsItemCardRatio } from '../components/news-item'
 import FeaturedSection from '../components/featured-section'
 import { Card, CardImage } from '../components/cards'
+import UpcomingEvent from '../components/upcoming-event'
 
 class IndexPage extends Component {
   render() {
@@ -28,6 +29,8 @@ class IndexPage extends Component {
         <section className="grid-container site-content">
           <div className="grid-x grid-margin-x">
             <section className="cell large-8 news_overview__wrapper">
+              <UpcomingEvent />
+
               {data.featuredPosts.edges.map(({ node }, i) => {
                 // Keep track of articleCount to properly place/align.
                 // Featured articles span 2 columns.
@@ -48,6 +51,7 @@ class IndexPage extends Component {
                   title="Speel nu FM 2019 met KCVV"
                   localFile={data.fm19}
                   link="news/2019-07-11-neem-zelf-de-leiding-van-kcvv-elewijt"
+                  body="Speel nu zelf coach van KCVV Elewijt met de huidige spelerskern en toekomstige transfers."
                   metadata={false}
                 />
               )}

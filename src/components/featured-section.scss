@@ -24,7 +24,7 @@
             grid-template-columns: repeat(2, 1fr);
         }
 
-        @include break(large-up) {
+        @include break(xlarge-up) {
             grid-template-columns: repeat(4, 1fr);
         }
     }
