@@ -5,6 +5,7 @@ import SEO from '../components/seo'
 import Img from 'gatsby-image'
 
 import './categoryPage.scss'
+import { NewsItemCard, NewsItemCardRatio } from '../components/news-item'
 
 // eslint-disable-next-line
 String.prototype.replaceAll = function(search, replacement) {
@@ -20,7 +21,7 @@ export default ({ data }) => {
     <Layout>
       <SEO lang="nl-BE" title={taxonomy.name} />
 
-      <section className={'category__wrapper'}>
+      <section className={'category__wrapper site-content'}>
         <header className={'player-detail__header'}>
           <h1 className={'player-detail__name'}>#{taxonomy.name}</h1>
 
@@ -30,37 +31,17 @@ export default ({ data }) => {
         </header>
 
         <div className={'player-break'}></div>
-        <main className={'category__content_wrapper'}>
-          {articles &&
-            articles.edges.map(({ node }, i) => {
-              const image = (
-                <Img
-                  fixed={{
-                    ...node.relationships.field_media_article_image
-                      .relationships.field_media_image.localFile.childImageSharp
-                      .fixed,
-                  }}
-                />
-              )
-              return (
-                <Link
-                  to={node.path.alias}
-                  className={'category__content_link'}
-                  key={i}
-                >
-                  <article className={'category__content_row'}>
-                    <figure>{image}</figure>
-                    <main>
-                      <h3>{node.title}</h3>
-                      <div
-                        className={'news_overview__summary'}
-                        dangerouslySetInnerHTML={{ __html: node.body.summary }}
-                      ></div>
-                    </main>
-                  </article>
-                </Link>
-              )
-            })}
+        <main className={'grid-container'}>
+          <div
+            className={
+              'grid-x grid-margin-x category__content_wrapper news_overview__wrapper news_overview__wrapper--archive'
+            }
+          >
+            {articles &&
+              articles.edges.map(({ node }, i) => {
+                return <NewsItemCardRatio node={node} teaser={false} key={i} />
+              })}
+          </div>
         </main>
       </section>
     </Layout>
@@ -94,8 +75,7 @@ export const query = graphql`
                 field_media_image {
                   localFile {
                     childImageSharp {
-                      fixed(width: 125, height: 125) {
-                        ...GatsbyImageSharpFixed
+                      fluid(maxWidth: 800, quality: 75, cropFocus: ATTENTION) {
                         base64
                         aspectRatio
                         tracedSVG
@@ -104,14 +84,17 @@ export const query = graphql`
                         srcSet
                         srcWebp
                         srcSetWebp
-                        # originalImg
-                        # originalName
-                        # presentationWidth
-                        # presentationHeight
+                        sizes
                       }
                     }
                   }
                 }
+              }
+            }
+            field_tags {
+              name
+              path {
+                alias
               }
             }
           }

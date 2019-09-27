@@ -7,10 +7,44 @@ articles: allNodeArticle(sort: {fields: created, order: DESC}) {
             path {
                 alias
             }
+            body {
+                value
+                format
+                processed
+                summary
+            }
             relationships {
-                field_tags {
-                    name
+            field_media_article_image {
+                relationships {
+                field_media_image {
+                    localFile {
+                    childImageSharp {
+                        fluid(maxWidth: 800, quality: 75, cropFocus: ATTENTION) {
+                        base64
+                        aspectRatio
+                        tracedSVG
+                        aspectRatio
+                        src
+                        srcSet
+                        srcWebp
+                        srcSetWebp
+                        sizes
+                        # originalImg
+                        # originalName
+                        # presentationWidth
+                        # presentationHeight
+                        }
+                    }
+                    }
                 }
+                }
+            }
+            field_tags {
+                name
+                path {
+                alias
+                }
+            }
             }
         }
     }
