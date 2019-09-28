@@ -1,18 +1,15 @@
-const apiUrl = 'https://api.footbalisto.be'
-
 require("dotenv").config()
 
 module.exports = {
   siteMetadata: {
     title: `KCVV Elewijt`,
     subTitle: `Er is maar één plezante compagnie`,
-    description: `Static website of KCVV Elewijt footbal club.`,
+    description: `Website van KCVV Elewijt voetbalclub`,
     author: `@KevinVRansbeeck`,
-    serverUrl: apiUrl,
-    logoUrl: `${apiUrl}/logo`,
+    serverUrl: `${process.env.FOOTBEL_API_DOMAIN}`,
+    logoUrl: `${process.env.FOOTBEL_API_DOMAIN}/logo`,
     refreshRate: 360000,
-    fbAccessToken: '1618079068306856|L2hMjCUe9QVLeHn9nFk7pvWdzyc',
-    url: "http://preview.kcvvelewijt.be",
+    url: "https://preview.kcvvelewijt.be",
     twitterHandle: "kcvve"
   },
   plugins: [
