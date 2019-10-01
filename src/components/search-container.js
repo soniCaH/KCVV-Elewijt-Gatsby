@@ -144,7 +144,6 @@ class Search extends Component {
     const { search } = this.state
     const queryResult = search.search(e.target.value)
 
-    console.log({ e, search, queryResult })
     this.setState({ searchQuery: e.target.value, searchResults: queryResult })
   }
 
