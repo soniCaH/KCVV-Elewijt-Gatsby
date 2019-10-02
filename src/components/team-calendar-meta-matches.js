@@ -23,8 +23,6 @@ class TeamCalendarMetaMatches extends Component {
   updateData() {
     const { season, region, division, regnumber } = this.props
 
-    // console.log('Fetching meta matches overview')
-
     fetch(
       `${this.apiServerUrl}/meta/${season}/${region}/${division}/${regnumber}`
     )
@@ -32,9 +30,7 @@ class TeamCalendarMetaMatches extends Component {
       .then(json => this.setState({ data: json, loading: false }))
 
     this.timeout = setTimeout(() => {
-      this.updateData(() => {
-        // console.log('Updating the rankings.')
-      })
+      this.updateData(() => {})
     }, this.apiRefreshRate)
   }
 
