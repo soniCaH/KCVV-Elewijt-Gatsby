@@ -57,7 +57,7 @@ module.exports = {
         start_url: `/`,
         lang: `nl`,
         background_color: `#4B9B48`,
-        theme_color: `#6b374B9B48bf`,
+        theme_color: `#4B9B48`,
         display: `standalone`,
         icon: `src/images/icon.png`,
         crossOrigin: `use-credentials`,
