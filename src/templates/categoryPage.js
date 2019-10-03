@@ -14,36 +14,38 @@ String.prototype.replaceAll = function(search, replacement) {
 }
 
 export default ({ data }) => {
-  const articles = data.articles
-  const taxonomy = data.term
+  const { articles, term, categoryTags } = data
 
   return (
     <Layout>
-      <SEO lang="nl-BE" title={taxonomy.name} />
+      <SEO lang="nl-BE" title={term.name} />
 
-      <section className={'category__wrapper site-content'}>
-        <header className={'player-detail__header'}>
-          <h1 className={'player-detail__name'}>#{taxonomy.name}</h1>
+      <div className="grid-container site-content">
+        <div className="grid-x grid-margin-x">
+          <h2>KCVV Elewijt #{term.name}</h2>
+          <header className={'archive__filter_wrapper'}>
+            <h5>Filter op categorie</h5>
+            <section className={'archive__filter_filters'}>
+              {categoryTags.edges.map(({ node, i }) => {
+                return (
+                  <Link to={node.path.alias} className={'btn btn--small'} key={i}>
+                    {node.name}
+                  </Link>
+                )
+              })}
+            </section>
+          </header>
 
-          <div className={'bg-green-mask'}>
-            <div className={'bg-white-end'} />
-          </div>
-        </header>
-
-        <div className={'player-break'}></div>
-        <main className={'grid-container'}>
-          <div
-            className={
-              'grid-x grid-margin-x category__content_wrapper news_overview__wrapper news_overview__wrapper--archive'
-            }
+          <main
+            className={'news_overview__wrapper news_overview__wrapper--archive'}
           >
             {articles &&
               articles.edges.map(({ node }, i) => {
                 return <NewsItemCardRatio node={node} teaser={false} key={i} />
               })}
-          </div>
-        </main>
-      </section>
+          </main>
+        </div>
+      </div>
     </Layout>
   )
 }
@@ -103,6 +105,29 @@ export const query = graphql`
     }
     term: taxonomyTermCategory(path: { alias: { eq: $slug } }) {
       name
+    }
+    categoryTags: allTaxonomyTermCategory(
+      sort: { fields: name, order: ASC }
+      filter: {
+        status: { eq: true }
+        relationships: {
+          node__article: { elemMatch: { drupal_internal__nid: { gte: 1 } } }
+        }
+      }
+    ) {
+      edges {
+        node {
+          path {
+            alias
+          }
+          name
+          relationships {
+            node__article {
+              drupal_internal__nid
+            }
+          }
+        }
+      }
     }
   }
 `
