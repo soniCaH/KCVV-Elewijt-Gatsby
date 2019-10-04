@@ -63,7 +63,7 @@ export const query = graphql`
     ) {
       edges {
         node {
-          created
+          created(formatString: "DD/MM/YYYY")
           title
           body {
             summary
