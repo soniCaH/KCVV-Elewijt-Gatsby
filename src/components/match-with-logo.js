@@ -79,14 +79,33 @@ class MatchWithLogo extends Component {
                   title={home}
                   className={'match-details__logo match-details__logo--home'}
                 />
+                <div className={'match-details__teamname'}>{home}</div>
               </div>
               {typeof resultHome !== 'undefined' &&
               typeof resultAway !== 'undefined' ? (
-                <div className={'match-details__vs'}>
-                  {resultHome} - {resultAway}
+                <div className={'match-details__vs match-details__vs--score'}>
+                  {resultHome > resultAway ? (
+                    <span className={'match-details__winner match-details__winner--home'}>
+                      {resultHome}
+                    </span>
+                  ) : (
+                    <span className={'match-details__loser'}>{resultHome}</span>
+                  )}
+                  <span className={'match-details__divider'}> - </span>
+                  {resultAway > resultHome ? (
+                    <span
+                      className={
+                        'match-details__winner match-details__winner--away'
+                      }
+                    >
+                      {resultAway}
+                    </span>
+                  ) : (
+                    <span className={'match-details__loser'}>{resultAway}</span>
+                  )}
                 </div>
               ) : (
-                ''
+                <div className={'match-details__vs'}>VS</div>
               )}
               <div className={'match-details__lineup-inner'}>
                 <ClubLogo
@@ -94,13 +113,6 @@ class MatchWithLogo extends Component {
                   title={away}
                   className={'match-details__logo match-details__logo--away'}
                 />
-              </div>
-            </section>
-            <section className={'match-details__lineup'}>
-              <div className={'match-details__lineup-inner'}>
-                <div className={'match-details__teamname'}>{home}</div>
-              </div>
-              <div className={'match-details__lineup-inner'}>
                 <div className={'match-details__teamname'}>{away}</div>
               </div>
             </section>
