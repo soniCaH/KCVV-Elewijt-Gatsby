@@ -26,75 +26,51 @@ class Search extends Component {
     Axios.get(`https://api.kcvvelewijt.be/jsonapi/node/article?sort=-created`)
       .then(result => {
         const articleData = result.data.data
+        console.log(`Articles loaded: ${articleData.length}`)
         this.setState({ articleList: articleData })
-        this.rebuildIndex()
-      })
-      .catch(err => {
-        this.setState({ isError: true })
-        console.log(`====================================`)
-        console.log(
-          `Something bad happened while fetching the articles\n${err}`
-        )
-        console.log(`====================================`)
-      })
 
-    Axios.get(`https://api.kcvvelewijt.be/jsonapi/node/team?sort=title`)
+        return Axios.get(
+          `https://api.kcvvelewijt.be/jsonapi/node/team?sort=title`
+        )
+      })
       .then(result => {
         const teamData = result.data.data
+        console.log(`Teams loaded: ${teamData.length}`)
         this.setState({ teamList: teamData })
-        this.rebuildIndex()
-      })
-      .catch(err => {
-        this.setState({ isError: true })
-        console.log(`====================================`)
-        console.log(
-          `Something bad happened while fetching the team data\n${err}`
-        )
-        console.log(`====================================`)
-      })
 
-    Axios.get(`https://api.kcvvelewijt.be/jsonapi/node/player?sort=title`)
+        return Axios.get(
+          `https://api.kcvvelewijt.be/jsonapi/node/player?sort=title`
+        )
+      })
       .then(result => {
         const playerData = result.data.data
+        console.log(`Players loaded: ${playerData.length}`)
         this.setState({ playerList: playerData })
-        this.rebuildIndex()
-      })
-      .catch(err => {
-        this.setState({ isError: true })
-        console.log(`====================================`)
-        console.log(
-          `Something bad happened while fetching the player data\n${err}`
-        )
-        console.log(`====================================`)
-      })
 
-    Axios.get(`https://api.kcvvelewijt.be/jsonapi/node/staff?sort=title`)
+        return Axios.get(
+          `https://api.kcvvelewijt.be/jsonapi/node/staff?sort=title`
+        )
+      })
       .then(result => {
         const staffData = result.data.data
+        console.log(`Staff loaded: ${staffData.length}`)
         this.setState({ staffList: staffData })
-        this.rebuildIndex()
-      })
-      .catch(err => {
-        this.setState({ isError: true })
-        console.log(`====================================`)
-        console.log(
-          `Something bad happened while fetching the staff data\n${err}`
-        )
-        console.log(`====================================`)
-      })
 
-    Axios.get(`https://api.kcvvelewijt.be/jsonapi/node/event?sort=title`)
+        return Axios.get(
+          `https://api.kcvvelewijt.be/jsonapi/node/event?sort=title`
+        )
+      })
       .then(result => {
         const eventData = result.data.data
+        console.log(`Events loaded: ${eventData.length}`)
         this.setState({ eventList: eventData })
-        this.rebuildIndex()
+
+        setTimeout(() => {this.rebuildIndex()}, 250);
       })
       .catch(err => {
         this.setState({ isError: true })
         console.log(`====================================`)
-        console.log(
-          `Something bad happened while fetching the event data\n${err}`
-        )
+        console.log(`Something bad happened while fetching some data\n${err}`)
         console.log(`====================================`)
       })
   }
@@ -130,10 +106,15 @@ class Search extends Component {
     dataToSearch.addIndex([`attributes`, `body`, `processed`])
     dataToSearch.addIndex([`attributes`, `title`])
     dataToSearch.addDocuments(articleList)
+    console.log(`articleList added - ${articleList.length} articles indexed`)
     dataToSearch.addDocuments(teamList)
+    console.log(`teamList added - ${teamList.length} articles indexed`)
     dataToSearch.addDocuments(playerList)
+    console.log(`playerList added - ${playerList.length} articles indexed`)
     dataToSearch.addDocuments(staffList)
+    console.log(`staffList added - ${staffList.length} articles indexed`)
     dataToSearch.addDocuments(eventList)
+    console.log(`eventList added - ${eventList.length} articles indexed`)
     this.setState({ search: dataToSearch, isLoading: false })
   }
   /**
