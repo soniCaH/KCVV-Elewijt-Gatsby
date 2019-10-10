@@ -307,6 +307,11 @@ class MenuItems extends Component {
             </li>
           </ul>
         </li>
+        <li>
+          <Link to="/search/" activeClassName="active" partiallyActive={true}>
+            <i className={"fa fa-search"} aria-hidden="true"></i> <span className={'display-mobile search--label'}>Zoeken</span>
+          </Link>
+        </li>
       </Fragment>
     )
   }
