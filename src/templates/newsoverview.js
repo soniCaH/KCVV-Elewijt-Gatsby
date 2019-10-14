@@ -8,11 +8,11 @@ import { graphql } from 'gatsby'
 import './newsoverview.scss'
 import { NewsItemCard, NewsItemCardRatio } from '../components/news-item'
 
-const NavLink = props => {
-  if (!props.test) {
-    return <Link to={props.url}>{props.text}</Link>
+const NavLink = ({ test, url, text }) => {
+  if (!test) {
+    return <Link to={url}>{text}</Link>
   } else {
-    return <span>{props.text}</span>
+    return <span>{text}</span>
   }
 }
 
@@ -21,8 +21,8 @@ const NewsOverviewPage = ({ pageContext, data }) => {
   let previousUrl = index - 1 === 1 ? '/' : (index - 1).toString()
   let nextUrl = (index + 1).toString()
   if (pathPrefix) {
-    previousUrl = pathPrefix + '/' + previousUrl
-    nextUrl = pathPrefix + '/' + nextUrl
+    previousUrl = `${pathPrefix}/${previousUrl}`
+    nextUrl = `${pathPrefix}/${nextUrl}`
   }
 
   const { categoryTags } = data
@@ -37,22 +37,23 @@ const NewsOverviewPage = ({ pageContext, data }) => {
           <header className={'archive__filter_wrapper'}>
             <h5>Filter op categorie</h5>
             <section className={'archive__filter_filters'}>
-              {categoryTags.edges.map(({ node, i }) => {
-                return (
-                  <Link to={node.path.alias} className={'btn btn--small'}>
-                    {node.name}
-                  </Link>
-                )
-              })}
+              <Link to={'/news/'} className={'btn btn--small'}>
+                Alles
+              </Link>
+              {categoryTags.edges.map(({ node, i }) => (
+                <Link to={node.path.alias} className={'btn btn--small'}>
+                  {node.name}
+                </Link>
+              ))}
             </section>
           </header>
 
           <main
             className={'news_overview__wrapper news_overview__wrapper--archive'}
           >
-            {group.map(({ node, i }) => {
-              return <NewsItemCardRatio node={node} teaser={false} key={i} />
-            })}
+            {group.map(({ node, i }) => (
+              <NewsItemCardRatio node={node} teaser={false} key={i} />
+            ))}
           </main>
           <footer className={'archive__navigation_wrapper cell'}>
             <div className={'archive__navigation--previous'}>
