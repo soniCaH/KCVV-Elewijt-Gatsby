@@ -26,9 +26,16 @@ export default ({ data }) => {
           <header className={'archive__filter_wrapper'}>
             <h5>Filter op categorie</h5>
             <section className={'archive__filter_filters'}>
+              <Link to={'/news/'} className={'btn btn--small'}>
+                Alles
+              </Link>
               {categoryTags.edges.map(({ node, i }) => {
                 return (
-                  <Link to={node.path.alias} className={'btn btn--small'} key={i}>
+                  <Link
+                    to={node.path.alias}
+                    className={'btn btn--small'}
+                    key={i}
+                  >
                     {node.name}
                   </Link>
                 )

@@ -45,6 +45,7 @@
   flex-direction: row;
   align-items: stretch;
   justify-content: center;
+  align-items: center;
   position: relative;
   height: 100%;
   width: 100%;
@@ -55,18 +56,59 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  width: 100%;
+  width: 35%;
 }
 
 .match-details__vs {
-  position: absolute;
-  bottom: 0;
-  line-height: 1; // top: 50%;
-  // transform: translateY(-50%);
-  text-shadow: 2px 2px 5px var(--color-gray-light);
-  font-size: 6em;
-  font-weight: 100;
-  color: var(--color-green);
+  margin: 0 1%;
+  width: 28%;
+
+  font-family: 'Montserrat', sans-serif;
+  font-size: 1.875rem;
+  font-weight: 700;
+  letter-spacing: -.04em;
+  text-align: center;
+  text-transform: uppercase;
+
+  &--score {
+    color: var(--color-gray-light);
+    font-size: 1.25rem;
+  }
+}
+
+.match-details__winner {
+  color: var(--color-gray-medium);
+  font-weight: 700;
+
+  position: relative;
+
+  &:before {
+    content: "";
+    display: block;
+    position: absolute;
+    left: -15px;
+    top: 50%;
+    width: 0;
+    height: 0;
+    border-left: 8px solid var(--color-green-dark);
+    border-top: 8px solid transparent;
+    border-bottom: 8px solid transparent;
+    transform: translateY(-50%);
+  }
+
+  &--away {
+    &:before {
+      border-left: 0;
+      border-right: 8px solid var(--color-green-dark);
+      left: auto;
+      right: -15px;
+    }
+  }
+}
+
+.match-details__divider {
+  color: var(--color-gray-medium);
+  font-weight: 700;
 }
 
 .match-details__teamname {

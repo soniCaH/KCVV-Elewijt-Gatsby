@@ -56,6 +56,10 @@
 .display-mobile {
     display: block;
 
+    &--inline-block {
+        display: inline-block;
+    }
+
     @include break(medium-up) {
         display: none;
     }
