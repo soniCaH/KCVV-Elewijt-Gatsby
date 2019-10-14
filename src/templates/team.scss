@@ -151,6 +151,13 @@
         position: relative;
         z-index: 9;
 
+        @include break(large-up) {
+            position: absolute;
+            z-index: 3;
+            right: 1rem;
+            top: 1.5rem;
+        }
+
         &__tabs {
             background: transparent;
             border: none;
