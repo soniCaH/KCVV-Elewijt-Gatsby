@@ -1,19 +1,22 @@
 import React, { Component } from 'react'
+import Img from 'gatsby-image'
 import ScrollAnimation from 'react-animate-on-scroll'
 
 import Layout from '../../layouts/index'
 
 import SEO from '../../components/seo'
 
-import history52 from '../../images/history-52-53.png'
-import history58 from '../../images/history-58-59.png'
-import history63 from '../../images/history-63-64.png'
-import historyfusie from '../../images/history-fusie.png'
-import historybvb from '../../images/history-bvb.png'
-import history18 from '../../images/history-2018.jpeg'
-
 class HistoryPage extends Component {
   render() {
+    const {
+      history52,
+      history58,
+      history63,
+      historyfusie,
+      historybvb,
+      history18,
+    } = this.props.data
+
     return (
       <Layout>
         <SEO lang="nl-BE" title="Er is maar één plezante compagnie" />
@@ -248,48 +251,51 @@ class HistoryPage extends Component {
           </div>
         </div>
 
-        <ScrollAnimation animateOnce="true" animateIn="fadeInBottomBig">
-          <div class="timeline-image">
-            <p>
-              <figure>
-                <img src={history52} alt="SK Elewijt kampioen 52-53" />
-                <figcaption>
-                  <p>Figuur 1: SK Elewijt kampioen 52-53</p>
-                  <p>
-                    Boven: Labiau - Maurits Janssens - Maurits De Laet - Wannes
-                    Lepage - Julien Patry - Djois (Jean Peeters) - Felix
-                    Vandervorst (bijnaam Feke Van Den Asse) - Pierre Geerens
-                    <br />
-                    Onder: Coosemans - David Vandermeulen - Lucien Coppens -
-                    Gust Coppens - Warre Van Herck - Omer Lesage Felix De
-                    Koninck
-                  </p>
-                </figcaption>
-              </figure>
-            </p>
-          </div>
-        </ScrollAnimation>
+        <div class="timeline-image">
+          <p>
+            <figure>
+              <Img
+                fluid={{
+                  ...history52.childImageSharp.fluid,
+                }}
+              />
+              <figcaption>
+                <p>Figuur 1: SK Elewijt kampioen 52-53</p>
+                <p>
+                  Boven: Labiau - Maurits Janssens - Maurits De Laet - Wannes
+                  Lepage - Julien Patry - Djois (Jean Peeters) - Felix
+                  Vandervorst (bijnaam Feke Van Den Asse) - Pierre Geerens
+                  <br />
+                  Onder: Coosemans - David Vandermeulen - Lucien Coppens - Gust
+                  Coppens - Warre Van Herck - Omer Lesage Felix De Koninck
+                </p>
+              </figcaption>
+            </figure>
+          </p>
+        </div>
 
-        <ScrollAnimation animateOnce="true" animateIn="fadeInLeftBig">
-          <div class="timeline-image">
-            <p>
-              <figure>
-                <img src={history58} alt="SK Elewijt kampioen 58-59" />
-                <figcaption>
-                  <p>Figuur 2: SK Elewijt kampioen 58-59</p>
-                  <p>
-                    Staand: Jan De Ron; Maurits Janssens; Raymond Jaspers; Emiel
-                    Knaepen "Mieleke van Beezel"; Jean Lauwers; Jaak Janssens
-                    <br />
-                    Zittend: David Vander Meulen ; Ket Raeymaekers ; Jacky Van
-                    Mol; Mathieu Van Helden; René Van Gysel; Julien Coppens;
-                    Jozef Janssens; Maurits De Laet
-                  </p>
-                </figcaption>
-              </figure>
-            </p>
-          </div>
-        </ScrollAnimation>
+        <div class="timeline-image">
+          <p>
+            <figure>
+              <Img
+                fluid={{
+                  ...history58.childImageSharp.fluid,
+                }}
+              />{' '}
+              <figcaption>
+                <p>Figuur 2: SK Elewijt kampioen 58-59</p>
+                <p>
+                  Staand: Jan De Ron; Maurits Janssens; Raymond Jaspers; Emiel
+                  Knaepen "Mieleke van Beezel"; Jean Lauwers; Jaak Janssens
+                  <br />
+                  Zittend: David Vander Meulen ; Ket Raeymaekers ; Jacky Van
+                  Mol; Mathieu Van Helden; René Van Gysel; Julien Coppens; Jozef
+                  Janssens; Maurits De Laet
+                </p>
+              </figcaption>
+            </figure>
+          </p>
+        </div>
 
         <div class="timeline">
           <div class="timeline-item">
@@ -308,46 +314,49 @@ class HistoryPage extends Component {
             </ScrollAnimation>
           </div>
         </div>
-        <ScrollAnimation animateOnce="true" animateIn="fadeInLeftBig">
-          <div class="timeline-image">
-            <p>
-              <figure>
-                <img src={history63} alt="FC Elewijt kampioen 53-64" />
-                <figcaption>
-                  <p>Figuur 3: FC Elewijt kampioen 63-64</p>
-                  <p>
-                    Rij bovenaan : François De Win (burger), Gust Boxtaens,
-                    Chris Bessendorffer, Guy Van den Wijngaerd, Guy Busschots ,
-                    Alfons Beullens (de Kras), Warre Bosmans, Jaak Vandergucht
-                    (burger)
-                    <br />
-                    Rij onderaan : Hugo Vanderbeken, Jaak Demesmaecker , Jan
-                    Ervens , Rik Claes , Roger Wijns
-                  </p>
-                </figcaption>
-              </figure>
-            </p>
-          </div>
-        </ScrollAnimation>
+        <div class="timeline-image">
+          <p>
+            <figure>
+              <Img
+                fluid={{
+                  ...history63.childImageSharp.fluid,
+                }}
+              />{' '}
+              <figcaption>
+                <p>Figuur 3: FC Elewijt kampioen 63-64</p>
+                <p>
+                  Rij bovenaan : François De Win (burger), Gust Boxtaens, Chris
+                  Bessendorffer, Guy Van den Wijngaerd, Guy Busschots , Alfons
+                  Beullens (de Kras), Warre Bosmans, Jaak Vandergucht (burger)
+                  <br />
+                  Rij onderaan : Hugo Vanderbeken, Jaak Demesmaecker , Jan
+                  Ervens , Rik Claes , Roger Wijns
+                </p>
+              </figcaption>
+            </figure>
+          </p>
+        </div>
 
-        <ScrollAnimation animateOnce="true" animateIn="fadeInRightBig">
-          <div class="timeline-image">
-            <p>
-              <figure>
-                <img src={historyfusie} alt="Fusie in 1971" />
-                <figcaption>
-                  <p>
-                    Figuur 4: De fusieclub VV Elewijt (rood-wit - op de foto Luc
-                    Buedts als kind) sinds 1971-1972 in competitie speelde;
-                    ontstaan uit FC Elewijt (rood-geel - op de foto Etienne
-                    Cnops als moeder) en SK Elewijt (groen-wit - op de foto
-                    Walter Van As als vader).
-                  </p>
-                </figcaption>
-              </figure>
-            </p>
-          </div>
-        </ScrollAnimation>
+        <div class="timeline-image">
+          <p>
+            <figure>
+              <Img
+                fluid={{
+                  ...historyfusie.childImageSharp.fluid,
+                }}
+              />{' '}
+              <figcaption>
+                <p>
+                  Figuur 4: De fusieclub VV Elewijt (rood-wit - op de foto Luc
+                  Buedts als kind) sinds 1971-1972 in competitie speelde;
+                  ontstaan uit FC Elewijt (rood-geel - op de foto Etienne Cnops
+                  als moeder) en SK Elewijt (groen-wit - op de foto Walter Van
+                  As als vader).
+                </p>
+              </figcaption>
+            </figure>
+          </p>
+        </div>
 
         <div class="timeline">
           <div class="timeline-item">
@@ -398,21 +407,23 @@ class HistoryPage extends Component {
           </div>
         </div>
 
-        <ScrollAnimation animateOnce="true" animateIn="fadeInLeftBig">
-          <div class="timeline-image">
-            <p>
-              <figure>
-                <img src={historybvb} alt="Beker van Brabant in 1988" />
-                <figcaption>
-                  <p>
-                    Figuur 5: Crossing Elewijt won de beker van Brabant in 1988
-                    na een 4-1 overwinning in de finale tegen Peutie.
-                  </p>
-                </figcaption>
-              </figure>
-            </p>
-          </div>
-        </ScrollAnimation>
+        <div class="timeline-image">
+          <p>
+            <figure>
+              <Img
+                fluid={{
+                  ...historybvb.childImageSharp.fluid,
+                }}
+              />{' '}
+              <figcaption>
+                <p>
+                  Figuur 5: Crossing Elewijt won de beker van Brabant in 1988 na
+                  een 4-1 overwinning in de finale tegen Peutie.
+                </p>
+              </figcaption>
+            </figure>
+          </p>
+        </div>
 
         <div class="timeline">
           <div class="timeline-item">
@@ -467,24 +478,23 @@ class HistoryPage extends Component {
           </div>
         </div>
 
-        <ScrollAnimation animateOnce="true" animateIn="fadeInLeftBig">
-          <div class="timeline-image">
-            <p>
-              <figure>
-                <img
-                  src={history18}
-                  alt="KCVV Elewijt kampioen in 2018 - 2019"
-                />
-                <figcaption>
-                  <p>
-                    Figuur 6: KCVV Elewijt speelt kampioen in 2018-2019 met 79
-                    punten op 90.
-                  </p>
-                </figcaption>
-              </figure>
-            </p>
-          </div>
-        </ScrollAnimation>
+        <div class="timeline-image">
+          <p>
+            <figure>
+              <Img
+                fluid={{
+                  ...history18.childImageSharp.fluid,
+                }}
+              />{' '}
+              <figcaption>
+                <p>
+                  Figuur 6: KCVV Elewijt speelt kampioen in 2018-2019 met 79
+                  punten op 90.
+                </p>
+              </figcaption>
+            </figure>
+          </p>
+        </div>
 
         <div className={'timeline'}>
           <div class="timeline-item">
@@ -512,13 +522,108 @@ class HistoryPage extends Component {
         <div className={'limited-width_wrapper'}>
           <h3>Credits</h3>
           <p>
-            Graag wil ik Martijn van den Berg bedanken voor de foto's en teksten
-            over de geschiedenis van KCVV Elewijt!
+            Met dank aan Martijn van den Berg voor de foto's en teksten over de
+            geschiedenis van KCVV Elewijt!
           </p>
         </div>
       </Layout>
     )
   }
 }
+
+export const pageQuery = graphql`
+  query {
+    history52: file(name: { eq: "history-52-53" }) {
+      childImageSharp {
+        fluid(maxWidth: 1680, quality: 75, cropFocus: ATTENTION) {
+          base64
+          aspectRatio
+          tracedSVG
+          aspectRatio
+          src
+          srcSet
+          srcWebp
+          srcSetWebp
+          sizes
+        }
+      }
+    }
+    history58: file(name: { eq: "history-58-59" }) {
+      childImageSharp {
+        fluid(maxWidth: 1680, quality: 75, cropFocus: ATTENTION) {
+          base64
+          aspectRatio
+          tracedSVG
+          aspectRatio
+          src
+          srcSet
+          srcWebp
+          srcSetWebp
+          sizes
+        }
+      }
+    }
+    history63: file(name: { eq: "history-63-64" }) {
+      childImageSharp {
+        fluid(maxWidth: 1680, quality: 75, cropFocus: ATTENTION) {
+          base64
+          aspectRatio
+          tracedSVG
+          aspectRatio
+          src
+          srcSet
+          srcWebp
+          srcSetWebp
+          sizes
+        }
+      }
+    }
+    historyfusie: file(name: { eq: "history-fusie" }) {
+      childImageSharp {
+        fluid(maxWidth: 1680, quality: 75, cropFocus: ATTENTION) {
+          base64
+          aspectRatio
+          tracedSVG
+          aspectRatio
+          src
+          srcSet
+          srcWebp
+          srcSetWebp
+          sizes
+        }
+      }
+    }
+    historybvb: file(name: { eq: "history-bvb" }) {
+      childImageSharp {
+        fluid(maxWidth: 1680, quality: 75, cropFocus: ATTENTION) {
+          base64
+          aspectRatio
+          tracedSVG
+          aspectRatio
+          src
+          srcSet
+          srcWebp
+          srcSetWebp
+          sizes
+        }
+      }
+    }
+    history18: file(name: { eq: "history-2018" }) {
+      childImageSharp {
+        fluid(maxWidth: 1680, quality: 75, cropFocus: ATTENTION) {
+          base64
+          aspectRatio
+          tracedSVG
+          aspectRatio
+          src
+          srcSet
+          srcWebp
+          srcSetWebp
+          sizes
+        }
+      }
+    }
+  }
+`
 
 export default HistoryPage
