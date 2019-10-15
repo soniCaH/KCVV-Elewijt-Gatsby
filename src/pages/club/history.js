@@ -10,6 +10,7 @@ import history58 from '../../images/history-58-59.png'
 import history63 from '../../images/history-63-64.png'
 import historyfusie from '../../images/history-fusie.png'
 import historybvb from '../../images/history-bvb.png'
+import history18 from '../../images/history-2018.jpeg'
 
 class HistoryPage extends Component {
   render() {
@@ -17,7 +18,7 @@ class HistoryPage extends Component {
       <Layout>
         <SEO lang="nl-BE" title="Er is maar één plezante compagnie" />
 
-        <div class="timeline">
+        <div class="timeline timeline--top">
           <div class="timeline-item">
             <div class="timeline-icon" />
             <ScrollAnimation animateOnce="true" initiallyVisible="true">
@@ -245,58 +246,52 @@ class HistoryPage extends Component {
               </div>
             </ScrollAnimation>
           </div>
+        </div>
 
-          <div class="timeline-item">
-            <div class="timeline-icon"></div>
-            <ScrollAnimation animateOnce="true" animateIn="fadeInRightBig">
-              <div class="timeline-content right">
-                <p>
-                  <figure>
-                    <img src={history52} alt="SK Elewijt kampioen 52-53" />
-                    <figcaption>
-                      <p>Figuur 1: SK Elewijt kampioen 52-53</p>
-                      <p>
-                        Boven: Labiau - Maurits Janssens - Maurits De Laet -
-                        Wannes Lepage - Julien Patry - Djois (Jean Peeters) -
-                        Felix Vandervorst (bijnaam Feke Van Den Asse) - Pierre
-                        Geerens
-                        <br />
-                        Onder: Coosemans - David Vandermeulen - Lucien Coppens -
-                        Gust Coppens - Warre Van Herck - Omer Lesage Felix De
-                        Koninck
-                      </p>
-                    </figcaption>
-                  </figure>
-                </p>
-              </div>
-            </ScrollAnimation>
+        <ScrollAnimation animateOnce="true" animateIn="fadeInBottomBig">
+          <div class="timeline-image">
+            <p>
+              <figure>
+                <img src={history52} alt="SK Elewijt kampioen 52-53" />
+                <figcaption>
+                  <p>Figuur 1: SK Elewijt kampioen 52-53</p>
+                  <p>
+                    Boven: Labiau - Maurits Janssens - Maurits De Laet - Wannes
+                    Lepage - Julien Patry - Djois (Jean Peeters) - Felix
+                    Vandervorst (bijnaam Feke Van Den Asse) - Pierre Geerens
+                    <br />
+                    Onder: Coosemans - David Vandermeulen - Lucien Coppens -
+                    Gust Coppens - Warre Van Herck - Omer Lesage Felix De
+                    Koninck
+                  </p>
+                </figcaption>
+              </figure>
+            </p>
           </div>
+        </ScrollAnimation>
 
-          <div class="timeline-item">
-            <div class="timeline-icon"></div>
-            <ScrollAnimation animateOnce="true" animateIn="fadeInLeftBig">
-              <div class="timeline-content">
-                <p>
-                  <figure>
-                    <img src={history58} alt="SK Elewijt kampioen 58-59" />
-                    <figcaption>
-                      <p>Figuur 2: SK Elewijt kampioen 58-59</p>
-                      <p>
-                        Staand: Jan De Ron; Maurits Janssens; Raymond Jaspers;
-                        Emiel Knaepen "Mieleke van Beezel"; Jean Lauwers; Jaak
-                        Janssens
-                        <br />
-                        Zittend: David Vander Meulen ; Ket Raeymaekers ; Jacky
-                        Van Mol; Mathieu Van Helden; René Van Gysel; Julien
-                        Coppens; Jozef Janssens; Maurits De Laet
-                      </p>
-                    </figcaption>
-                  </figure>
-                </p>
-              </div>
-            </ScrollAnimation>
+        <ScrollAnimation animateOnce="true" animateIn="fadeInLeftBig">
+          <div class="timeline-image">
+            <p>
+              <figure>
+                <img src={history58} alt="SK Elewijt kampioen 58-59" />
+                <figcaption>
+                  <p>Figuur 2: SK Elewijt kampioen 58-59</p>
+                  <p>
+                    Staand: Jan De Ron; Maurits Janssens; Raymond Jaspers; Emiel
+                    Knaepen "Mieleke van Beezel"; Jean Lauwers; Jaak Janssens
+                    <br />
+                    Zittend: David Vander Meulen ; Ket Raeymaekers ; Jacky Van
+                    Mol; Mathieu Van Helden; René Van Gysel; Julien Coppens;
+                    Jozef Janssens; Maurits De Laet
+                  </p>
+                </figcaption>
+              </figure>
+            </p>
           </div>
+        </ScrollAnimation>
 
+        <div class="timeline">
           <div class="timeline-item">
             <div class="timeline-icon"></div>
             <ScrollAnimation animateOnce="true" animateIn="fadeInRightBig">
@@ -312,54 +307,49 @@ class HistoryPage extends Component {
               </div>
             </ScrollAnimation>
           </div>
-
-          <div class="timeline-item">
-            <div class="timeline-icon"></div>
-            <ScrollAnimation animateOnce="true" animateIn="fadeInLeftBig">
-              <div class="timeline-content">
-                <p>
-                  <figure>
-                    <img src={history63} alt="FC Elewijt kampioen 53-64" />
-                    <figcaption>
-                      <p>Figuur 3: FC Elewijt kampioen 63-64</p>
-                      <p>
-                        Rij bovenaan : François De Win (burger), Gust Boxtaens,
-                        Chris Bessendorffer, Guy Van den Wijngaerd, Guy
-                        Busschots , Alfons Beullens (de Kras), Warre Bosmans,
-                        Jaak Vandergucht (burger)
-                        <br />
-                        Rij onderaan : Hugo Vanderbeken, Jaak Demesmaecker , Jan
-                        Ervens , Rik Claes , Roger Wijns
-                      </p>
-                    </figcaption>
-                  </figure>
-                </p>
-              </div>
-            </ScrollAnimation>
+        </div>
+        <ScrollAnimation animateOnce="true" animateIn="fadeInLeftBig">
+          <div class="timeline-image">
+            <p>
+              <figure>
+                <img src={history63} alt="FC Elewijt kampioen 53-64" />
+                <figcaption>
+                  <p>Figuur 3: FC Elewijt kampioen 63-64</p>
+                  <p>
+                    Rij bovenaan : François De Win (burger), Gust Boxtaens,
+                    Chris Bessendorffer, Guy Van den Wijngaerd, Guy Busschots ,
+                    Alfons Beullens (de Kras), Warre Bosmans, Jaak Vandergucht
+                    (burger)
+                    <br />
+                    Rij onderaan : Hugo Vanderbeken, Jaak Demesmaecker , Jan
+                    Ervens , Rik Claes , Roger Wijns
+                  </p>
+                </figcaption>
+              </figure>
+            </p>
           </div>
+        </ScrollAnimation>
 
-          <div class="timeline-item">
-            <div class="timeline-icon"></div>
-            <ScrollAnimation animateOnce="true" animateIn="fadeInRightBig">
-              <div class="timeline-content right">
-                <p>
-                  <figure>
-                    <img src={historyfusie} alt="Fusie in 1971" />
-                    <figcaption>
-                      <p>
-                        Figuur 4: De fusieclub VV Elewijt (rood-wit - op de foto
-                        Luc Buedts als kind) sinds 1971-1972 in competitie
-                        speelde; ontstaan uit FC Elewijt (rood-geel - op de foto
-                        Etienne Cnops als moeder) en SK Elewijt (groen-wit - op
-                        de foto Walter Van As als vader).
-                      </p>
-                    </figcaption>
-                  </figure>
-                </p>
-              </div>
-            </ScrollAnimation>
+        <ScrollAnimation animateOnce="true" animateIn="fadeInRightBig">
+          <div class="timeline-image">
+            <p>
+              <figure>
+                <img src={historyfusie} alt="Fusie in 1971" />
+                <figcaption>
+                  <p>
+                    Figuur 4: De fusieclub VV Elewijt (rood-wit - op de foto Luc
+                    Buedts als kind) sinds 1971-1972 in competitie speelde;
+                    ontstaan uit FC Elewijt (rood-geel - op de foto Etienne
+                    Cnops als moeder) en SK Elewijt (groen-wit - op de foto
+                    Walter Van As als vader).
+                  </p>
+                </figcaption>
+              </figure>
+            </p>
           </div>
+        </ScrollAnimation>
 
+        <div class="timeline">
           <div class="timeline-item">
             <div class="timeline-icon"></div>
             <ScrollAnimation animateOnce="true" animateIn="fadeInLeftBig">
@@ -406,26 +396,25 @@ class HistoryPage extends Component {
               </div>
             </ScrollAnimation>
           </div>
+        </div>
 
-          <div class="timeline-item">
-            <div class="timeline-icon"></div>
-            <ScrollAnimation animateOnce="true" animateIn="fadeInLeftBig">
-              <div class="timeline-content">
-                <p>
-                  <figure>
-                    <img src={historybvb} alt="Beker van Brabant in 1988" />
-                    <figcaption>
-                      <p>
-                        Figuur 5: Crossing Elewijt won de beker van Brabant in
-                        1988 na een 4-1 overwinning in de finale tegen Peutie.
-                      </p>
-                    </figcaption>
-                  </figure>
-                </p>
-              </div>
-            </ScrollAnimation>
+        <ScrollAnimation animateOnce="true" animateIn="fadeInLeftBig">
+          <div class="timeline-image">
+            <p>
+              <figure>
+                <img src={historybvb} alt="Beker van Brabant in 1988" />
+                <figcaption>
+                  <p>
+                    Figuur 5: Crossing Elewijt won de beker van Brabant in 1988
+                    na een 4-1 overwinning in de finale tegen Peutie.
+                  </p>
+                </figcaption>
+              </figure>
+            </p>
           </div>
+        </ScrollAnimation>
 
+        <div class="timeline">
           <div class="timeline-item">
             <div class="timeline-icon"></div>
             <ScrollAnimation animateOnce="true" animateIn="fadeInRightBig">
@@ -476,7 +465,28 @@ class HistoryPage extends Component {
               </div>
             </ScrollAnimation>
           </div>
+        </div>
 
+        <ScrollAnimation animateOnce="true" animateIn="fadeInLeftBig">
+          <div class="timeline-image">
+            <p>
+              <figure>
+                <img
+                  src={history18}
+                  alt="KCVV Elewijt kampioen in 2018 - 2019"
+                />
+                <figcaption>
+                  <p>
+                    Figuur 6: KCVV Elewijt speelt kampioen in 2018-2019 met 79
+                    punten op 90.
+                  </p>
+                </figcaption>
+              </figure>
+            </p>
+          </div>
+        </ScrollAnimation>
+
+        <div className={'timeline'}>
           <div class="timeline-item">
             <div class="timeline-icon"></div>
             <ScrollAnimation animateOnce="true" animateIn="fadeInRightBig">
@@ -486,10 +496,12 @@ class HistoryPage extends Component {
                   In het seizoen 2018/2019 werd KCVV Elewijt kampioen met maar
                   liefst 79 punten, na een nek-aan-nek race tot de allerlaatste
                   speeldag (slechts één punt voorsprong op de tweede in de stand
-                  Mazenzele-Opwijk).
+                  Mazenzele-Opwijk). In dat seizoen wint het o.a. 14 keer op een
+                  rij en verliest het in totaal meer dan 300 dagen
+                  aaneengesloten niet.
                 </p>
                 <p>
-                  De ploeg zal in het seizoen 2019/2020 ingedeeld zijn in tweede
+                  De ploeg is in het seizoen 2019/2020 ingedeeld in tweede
                   provinciale A (Brabant).
                 </p>
               </div>
@@ -497,13 +509,13 @@ class HistoryPage extends Component {
           </div>
         </div>
 
-        <section>
+        <div className={'limited-width_wrapper'}>
           <h3>Credits</h3>
           <p>
-            Graag wil ik Martijn van den Berg bedanken voor de foto's en
-            teksten over de geschiedenis van KCVV Elewijt!
+            Graag wil ik Martijn van den Berg bedanken voor de foto's en teksten
+            over de geschiedenis van KCVV Elewijt!
           </p>
-        </section>
+        </div>
       </Layout>
     )
   }
