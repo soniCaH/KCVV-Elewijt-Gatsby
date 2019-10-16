@@ -11,6 +11,7 @@ import { NewsItemFeatured, NewsItemCardRatio } from '../components/news-item'
 import FeaturedSection from '../components/featured-section'
 import { Card, CardImage } from '../components/cards'
 import UpcomingEvent from '../components/upcoming-event'
+import PlayerFeatured from '../components/player--featured'
 
 class IndexPage extends Component {
   render() {
@@ -21,6 +22,21 @@ class IndexPage extends Component {
         Check alle transfernieuws
       </Link>
     )
+
+    const player1 = {
+      field_firstname: 'Nick',
+      field_lastname: 'De Letter',
+      field_shirtnumber: 11,
+      field_stats_games: 11,
+      field_position: 'a',
+      field_stats_cleansheets: 0,
+      field_stats_goals: 2,
+      field_stats_cards_yellow: 2,
+      field_stats_cards_red: 0,
+      relationships: {
+        field_image: null,
+      },
+    }
 
     return (
       <Layout>
@@ -97,6 +113,12 @@ class IndexPage extends Component {
                     regnumber="00055"
                     exclude="['2A', '4D']"
                   />
+                </article>
+                <article className={'medium-6 large-12 cell card'}>
+                  <header className={'card__header'}>
+                    <h4>Speler van de week</h4>
+                  </header>
+                  <PlayerFeatured player={player1} />
                 </article>
               </section>
             </aside>
