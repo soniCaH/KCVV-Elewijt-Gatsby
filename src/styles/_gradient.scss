@@ -22,6 +22,10 @@
     padding-top: 396px;
     z-index: 2;
 
+    @media (min-width: 992px) {
+        padding-top: 450px;
+    }
+
     .bg-white-end {
         background: #edeff4;
         width: 10000px;
@@ -36,7 +40,7 @@
 
         @media (min-width: 992px) {
             transform: rotate(-2deg);
-            top: 220px;
+            top: 270px;
         }
     }
 }
