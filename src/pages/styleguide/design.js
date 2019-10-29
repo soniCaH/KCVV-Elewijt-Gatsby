@@ -1,12 +1,9 @@
 import React, { Component } from 'react'
-import { graphql } from 'gatsby'
 
-import Layout from '../layouts/index'
+import Layout from '../../layouts/index'
 
-import SEO from '../components/seo'
-import { CardImage } from '../components/cards'
-import MatchesOverview from '../components/matches-overview'
-import PlayerFeatured from '../components/player--featured'
+import SEO from '../../components/seo'
+import PlayerFeatured from '../../components/player--featured'
 
 class DesignPage extends Component {
   render() {

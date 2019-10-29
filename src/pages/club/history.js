@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import { graphql } from 'gatsby'
 import Img from 'gatsby-image'
 import ScrollAnimation from 'react-animate-on-scroll'
 
