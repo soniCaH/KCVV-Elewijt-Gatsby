@@ -2,10 +2,9 @@ import React from 'react'
 import { graphql, Link } from 'gatsby'
 import Layout from '../layouts/index'
 import SEO from '../components/seo'
-import Img from 'gatsby-image'
 
 import './categoryPage.scss'
-import { NewsItemCard, NewsItemCardRatio } from '../components/news-item'
+import { NewsItemCardRatio } from '../components/news-item'
 
 // eslint-disable-next-line
 String.prototype.replaceAll = function(search, replacement) {

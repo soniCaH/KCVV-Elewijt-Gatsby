@@ -14,37 +14,33 @@ articles: allNodeArticle(sort: {fields: created, order: DESC}) {
                 summary
             }
             relationships {
-            field_media_article_image {
-                relationships {
-                field_media_image {
-                    localFile {
-                    childImageSharp {
-                        fluid(maxWidth: 800, quality: 75, cropFocus: ATTENTION) {
-                        base64
-                        aspectRatio
-                        tracedSVG
-                        aspectRatio
-                        src
-                        srcSet
-                        srcWebp
-                        srcSetWebp
-                        sizes
-                        # originalImg
-                        # originalName
-                        # presentationWidth
-                        # presentationHeight
+                field_media_article_image {
+                    relationships {
+                        field_media_image {
+                            localFile {
+                                childImageSharp {
+                                    fluid(maxWidth: 800, quality: 75, cropFocus: ATTENTION) {
+                                        base64
+                                        aspectRatio
+                                        tracedSVG
+                                        aspectRatio
+                                        src
+                                        srcSet
+                                        srcWebp
+                                        srcSetWebp
+                                        sizes
+                                    }
+                                }
+                            }
                         }
                     }
+                }
+                field_tags {
+                    name
+                    path {
+                        alias
                     }
                 }
-                }
-            }
-            field_tags {
-                name
-                path {
-                alias
-                }
-            }
             }
         }
     }
@@ -96,14 +92,14 @@ staff: allNodeStaff {
 
 categories: allTaxonomyTermCategory {
     edges {
-      node {
-        name
-        path {
-          alias
+        node {
+            name
+            path {
+                alias
+            }
         }
-      }
     }
-  }
+}
 `
 
 module.exports = gatsbyNodePageQueries

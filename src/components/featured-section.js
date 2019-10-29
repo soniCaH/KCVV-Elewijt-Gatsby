@@ -1,8 +1,7 @@
 import React, { Component } from 'react'
 
 import './featured-section.scss'
-import { NewsItemCard, NewsItemCardRatio, NewsItemSquare } from './news-item'
-import { Link } from 'gatsby'
+import { NewsItemSquare } from './news-item'
 
 class FeaturedSection extends Component {
   render() {
@@ -14,22 +13,13 @@ class FeaturedSection extends Component {
         </header>
         <main className={'featured_section__content'}>
           {articles &&
-            articles.edges.map(({ node }, i) => {
-              return (
-                <article className={'featured_section__item'}>
-                  {/* <NewsItemCardRatio node={node} teaser={true} /> */}
-                  <NewsItemSquare node={node} />
-                </article>
-              )
-            })}
+            articles.edges.map(({ node }, i) => <article className={'featured_section__item'}>
+              <NewsItemSquare node={node} />
+            </article>)}
         </main>
-        {link && (
-          <footer className={'featured_section__footer'}>
-            {link}
-          </footer>
-        )}
+        {link && <footer className={'featured_section__footer'}>{link}</footer>}
       </div>
-    )
+    );
   }
 }
 

@@ -18,7 +18,7 @@ module.exports = {
       resolve: `gatsby-source-drupal`,
       options: {
         baseUrl: process.env.GATSBY_API_DOMAIN,
-        apiBase: `jsonapi`, // optional, defaults to `jsonapi`
+        apiBase: `jsonapi`,
       },
     },
     `gatsby-transformer-sharp`,
@@ -34,20 +34,11 @@ module.exports = {
       resolve: 'gatsby-plugin-google-tagmanager',
       options: {
         id: process.env.GATSBY_GTM_ID,
-
-        // Include GTM in development.
-        // Defaults to false meaning GTM will only be loaded in production.
         includeInDevelopment: false,
-
-        // datalayer to be set before GTM is loaded
-        // should be an object or a function that is executed in the browser
-        // Defaults to null
         defaultDataLayer: { platform: 'gatsby' },
       },
     },
     `gatsby-plugin-preact`,
-    // 'social-media-feed',
-    // `gatsby-plugin-react-helmet`,
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
@@ -63,8 +54,6 @@ module.exports = {
         crossOrigin: `use-credentials`,
       },
     },
-    // this (optional) plugin enables Progressive Web App + Offline functionality
-    // To learn more, visit: https://gatsby.app/offline
     'gatsby-plugin-offline',
   ],
 }

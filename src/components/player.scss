@@ -11,7 +11,7 @@
             right: 1rem;
             top: 1.5rem;
 
-            font-family: 'Montserrat', sans-serif;
+            font-family: var(--font-title);
             font-weight: bold;
             letter-spacing: -0.02px;
             line-height: 0.9;
@@ -60,7 +60,7 @@
 
             color: rgba(255, 255, 255, 0.25);
 
-            font-family: 'Montserrat', sans-serif;
+            font-family: var(--font-title);
             font-weight: bold;
             font-size: 8rem;
             line-height: 0.7;
@@ -115,7 +115,7 @@
             padding: 425px 4rem 4rem 4rem;
 
             color: var(--color-gray-blue);
-            font-family: 'Montserrat', sans-serif;
+            font-family: var(--font-title);
             line-height: 0.9;
             text-transform: uppercase;
             text-align: center;
@@ -164,7 +164,7 @@
             margin: 0 auto;
             padding: 1em;
 
-            font-family: 'Montserrat', sans-serif;
+            font-family: var(--font-title);
             font-weight: bold;
             text-transform: uppercase;
 

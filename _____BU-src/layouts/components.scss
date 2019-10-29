@@ -129,7 +129,7 @@
 
         &-shirt-number {
             color: rgba(154, 157, 162, 0.12);
-            font-family: 'Montserrat', sans-serif;
+            font-family: var(--font-title);
             font-weight: bold;
             font-size: 6.875rem;
             line-height: 1;
@@ -140,7 +140,7 @@
         }
 
         &-name {
-            font-family: 'Montserrat', sans-serif;
+            font-family: var(--font-title);
             font-weight: bold;
             line-height: 1;
 
@@ -172,7 +172,7 @@
             flex: 0 50%;
             margin-bottom: 1em;
 
-            font-family: 'Montserrat', sans-serif;
+            font-family: var(--font-title);
             font-weight: bold;
             line-height: 1;
             text-transform: uppercase;
@@ -231,7 +231,7 @@
 
             color: rgba(255, 255, 255, 0.25);
 
-            font-family: 'Montserrat', sans-serif;
+            font-family: var(--font-title);
             font-weight: bold;
             font-size: 8rem;
             line-height: 0.7;
@@ -345,7 +345,7 @@ h3,
 h4,
 h5,
 h6 {
-    font-family: 'Montserrat', sans-serif;
+    font-family: var(--font-title);
     font-weight: bold;
     line-height: 1;
     text-transform: uppercase;
