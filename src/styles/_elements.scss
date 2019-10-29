@@ -66,3 +66,17 @@ figure {
 body blockquote {
     @include block-quote;
 }
+
+.stats__card {
+    border: none;
+    border-radius: 2px;
+    display: inline-block;
+    height: 1em;
+    width: .75em;
+    &--yellow {
+        background-color: #FAEE00;
+    }
+    &--red {
+        background-color: #E60012;
+    }
+}
