@@ -253,24 +253,24 @@ export const pageQuery = graphql`
         }
       }
     }
-    featuredPlayer: nodePlayer(field_firstname: { eq: "Nick" }) {
-      field_firstname
-      field_lastname
-      field_shirtnumber
-      field_stats_games
-      field_position
-      field_stats_cleansheets
-      field_stats_goals
-      field_stats_cards_yellow
-      field_stats_cards_red
-      relationships {
-        field_image {
-          localFile {
-            url
-          }
-        }
-      }
-    }
+    # featuredPlayer: nodePlayer(field_firstname: { eq: "Nick" }) {
+    #   field_firstname
+    #   field_lastname
+    #   field_shirtnumber
+    #   field_stats_games
+    #   field_position
+    #   field_stats_cleansheets
+    #   field_stats_goals
+    #   field_stats_cards_yellow
+    #   field_stats_cards_red
+    #   relationships {
+    #     field_image {
+    #       localFile {
+    #         url
+    #       }
+    #     }
+    #   }
+    # }
   }
 `
 
