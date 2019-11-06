@@ -78,29 +78,7 @@ export const query = graphql`
       title
       relationships {
         field_media_article_image {
-          relationships {
-            field_media_image {
-              localFile {
-                childImageSharp {
-                  fluid(maxWidth: 1680, quality: 75, cropFocus: ATTENTION) {
-                    base64
-                    aspectRatio
-                    tracedSVG
-                    aspectRatio
-                    src
-                    srcSet
-                    srcWebp
-                    srcSetWebp
-                    sizes
-                    # originalImg
-                    # originalName
-                    # presentationWidth
-                    # presentationHeight
-                  }
-                }
-              }
-            }
-          }
+          ...ArticleImageLarge
         }
       }
     }

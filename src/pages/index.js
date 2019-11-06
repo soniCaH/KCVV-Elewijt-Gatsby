@@ -23,20 +23,7 @@ class IndexPage extends Component {
       </Link>
     )
 
-    const player1 = {
-      field_firstname: 'Nick',
-      field_lastname: 'De Letter',
-      field_shirtnumber: 11,
-      field_stats_games: 11,
-      field_position: 'a',
-      field_stats_cleansheets: 0,
-      field_stats_goals: 2,
-      field_stats_cards_yellow: 2,
-      field_stats_cards_red: 0,
-      relationships: {
-        field_image: null,
-      },
-    }
+    const { featuredPlayer = null } = data
 
     return (
       <Layout>
@@ -114,12 +101,14 @@ class IndexPage extends Component {
                     exclude="['2A', '4D']"
                   />
                 </article>
-                <article className={'medium-6 large-12 cell card'}>
-                  <header className={'card__header'}>
-                    <h4>Speler van de week</h4>
-                  </header>
-                  <PlayerFeatured player={player1} />
-                </article>
+                {featuredPlayer && (
+                  <article className={'medium-6 large-12 cell card'}>
+                    <header className={'card__header'}>
+                      <h4>Speler van de week</h4>
+                    </header>
+                    <PlayerFeatured player={featuredPlayer} />
+                  </article>
+                )}
               </section>
             </aside>
           </div>
@@ -180,29 +169,7 @@ export const pageQuery = graphql`
           }
           relationships {
             field_media_article_image {
-              relationships {
-                field_media_image {
-                  localFile {
-                    childImageSharp {
-                      fluid(maxWidth: 800, quality: 75, cropFocus: ATTENTION) {
-                        base64
-                        aspectRatio
-                        tracedSVG
-                        aspectRatio
-                        src
-                        srcSet
-                        srcWebp
-                        srcSetWebp
-                        sizes
-                        # originalImg
-                        # originalName
-                        # presentationWidth
-                        # presentationHeight
-                      }
-                    }
-                  }
-                }
-              }
+              ...ArticleImage
             }
             field_tags {
               name
@@ -244,25 +211,7 @@ export const pageQuery = graphql`
           }
           relationships {
             field_media_article_image {
-              relationships {
-                field_media_image {
-                  localFile {
-                    childImageSharp {
-                      fluid(maxWidth: 600, quality: 75, cropFocus: ATTENTION) {
-                        base64
-                        aspectRatio
-                        tracedSVG
-                        aspectRatio
-                        src
-                        srcSet
-                        srcWebp
-                        srcSetWebp
-                        sizes
-                      }
-                    }
-                  }
-                }
-              }
+              ...ArticleImage
             }
             field_tags {
               name
@@ -301,6 +250,24 @@ export const pageQuery = graphql`
           srcWebp
           srcSetWebp
           sizes
+        }
+      }
+    }
+    featuredPlayer: nodePlayer(field_firstname: { eq: "Nick" }) {
+      field_firstname
+      field_lastname
+      field_shirtnumber
+      field_stats_games
+      field_position
+      field_stats_cleansheets
+      field_stats_goals
+      field_stats_cards_yellow
+      field_stats_cards_red
+      relationships {
+        field_image {
+          localFile {
+            url
+          }
         }
       }
     }
