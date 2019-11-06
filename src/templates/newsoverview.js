@@ -6,7 +6,7 @@ import SEO from '../components/seo'
 import { graphql } from 'gatsby'
 
 import './newsoverview.scss'
-import { NewsItemCard, NewsItemCardRatio } from '../components/news-item'
+import { NewsItemCardRatio } from '../components/news-item'
 
 const NavLink = ({ test, url, text }) => {
   if (!test) {

@@ -2,10 +2,9 @@ import React from 'react'
 import { graphql, Link } from 'gatsby'
 import Layout from '../layouts/index'
 import SEO from '../components/seo'
-import Img from 'gatsby-image'
 
 import './categoryPage.scss'
-import { NewsItemCard, NewsItemCardRatio } from '../components/news-item'
+import { NewsItemCardRatio } from '../components/news-item'
 
 // eslint-disable-next-line
 String.prototype.replaceAll = function(search, replacement) {
@@ -80,25 +79,7 @@ export const query = graphql`
           }
           relationships {
             field_media_article_image {
-              relationships {
-                field_media_image {
-                  localFile {
-                    childImageSharp {
-                      fluid(maxWidth: 800, quality: 75, cropFocus: ATTENTION) {
-                        base64
-                        aspectRatio
-                        tracedSVG
-                        aspectRatio
-                        src
-                        srcSet
-                        srcWebp
-                        srcSetWebp
-                        sizes
-                      }
-                    }
-                  }
-                }
-              }
+              ...ArticleImage
             }
             field_tags {
               name
