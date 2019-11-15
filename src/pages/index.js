@@ -48,24 +48,6 @@ class IndexPage extends Component {
                   </>
                 )
               })}
-
-              {articleCount % 2 !== 0 && (
-                <Card
-                  title="Speel nu FM 2019 met KCVV"
-                  localFile={data.fm19}
-                  link="news/2019-07-11-neem-zelf-de-leiding-van-kcvv-elewijt"
-                  body="Speel nu zelf coach van KCVV Elewijt met de huidige spelerskern en toekomstige transfers."
-                  metadata={false}
-                />
-              )}
-              {articleCount % 2 === 0 && (
-                <CardImage
-                  title="Speel nu FM 2019 met KCVV"
-                  localFile={data.fm19}
-                  link="news/2019-07-11-neem-zelf-de-leiding-van-kcvv-elewijt"
-                  metadata={false}
-                />
-              )}
             </section>
             <aside className="cell large-4">
               <section className="grid-x featured__matches grid-margin-x">
