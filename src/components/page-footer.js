@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 
 import './page-footer.scss'
 import logo from '../images/logo-flat.png'
+import SponsorsBlock from './sponsors-block'
 
 class PageFooter extends Component {
   render() {
@@ -117,9 +118,8 @@ class PageFooter extends Component {
             </div>
           </div>
 
-          <div className="small-12 large-6 cell">
-            /-- SPONSORS --/
-            {/* <FooterSocialMedia /> */}
+          <div className="small-12 large-6 cell page-footer__sponsors">
+            <SponsorsBlock />
           </div>
         </div>
       </footer>

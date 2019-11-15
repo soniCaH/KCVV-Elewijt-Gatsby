@@ -18,5 +18,23 @@
                 grid-column-end: span 2;
             }
         }
+
+        &--archive {
+            display: grid;
+            grid-template-columns: repeat(1, 1fr);
+            grid-gap: 1rem;
+            grid-auto-flow: dense;
+
+            @include break(medium-up) {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            @include break(large-up) {
+                grid-template-columns: repeat(3, 1fr);
+            }
+
+            .cardItem__summary {
+                margin-bottom: .5rem;
+            }
+        }
     }
 }

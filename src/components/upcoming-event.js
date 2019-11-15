@@ -1,21 +1,15 @@
 import React, { Component } from 'react'
-import { graphql } from 'gatsby'
+import { graphql, StaticQuery } from 'gatsby'
 
-import Layout from '../layouts/index'
-import SEO from '../components/seo'
-import Event from '../components/event'
+import Event from './event'
 
-class EventsPage extends Component {
+class UpcomingEvent extends Component {
   render() {
     const { events } = this.props.data
     return (
-      <Layout>
-        <SEO lang="nl-BE" title="Er is maar één plezante compagnie" />
-
-        <div className={'limited-width_wrapper'}>
-          <h1>Evenementen</h1>
-
-          {events.edges.map(({ node }, i) => (
+      <>
+        {events.edges.map(({ node }, i) => {
+          return (
             <Event
               key={i}
               title={node.title}
@@ -27,32 +21,19 @@ class EventsPage extends Component {
               datetime_start={node.field_daterange.value}
               datetime_end={node.field_daterange.end_value}
             />
-          ))}
-
-          {events.edges.length === 0 && (
-            <div>
-              Geen evenementen ingepland voorlopig. Check{' '}
-              <a
-                href="https://www.facebook.com/kcvvelewijt"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                Facebook
-              </a>{' '}
-              om op de hoogte te blijven.
-            </div>
-          )}
-        </div>
-      </Layout>
+          )
+        })}
+      </>
     )
   }
 }
 
-export const pageQuery = graphql`
+const query = graphql`
   query {
     events: allNodeEvent(
-      filter: { promote: { eq: true }, status: { eq: true } }
+      filter: { promote: {eq: true}, status: { eq: true } }
       sort: { order: ASC, fields: field_daterange___value }
+      limit: 1
     ) {
       edges {
         node {
@@ -89,4 +70,6 @@ export const pageQuery = graphql`
   }
 `
 
-export default EventsPage
+export default () => (
+  <StaticQuery query={query} render={data => <UpcomingEvent data={data} />} />
+)

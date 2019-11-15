@@ -28,6 +28,10 @@
     section + section {
         margin-top: 2rem;
     }
+
+    article + article {
+        margin-top: 2rem;
+    }
 }
 
 .staff-break {
@@ -37,7 +41,7 @@
 .player-break {
     @media (min-width: 992px) {
         display: block;
-        padding-top: 410px;
+        padding-top: 460px;
     }
 }
 
@@ -51,6 +55,10 @@
 
 .display-mobile {
     display: block;
+
+    &--inline-block {
+        display: inline-block;
+    }
 
     @include break(medium-up) {
         display: none;

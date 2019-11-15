@@ -2,9 +2,9 @@ import React from 'react'
 import { graphql, Link } from 'gatsby'
 import Layout from '../layouts/index'
 import SEO from '../components/seo'
-import Img from 'gatsby-image'
 
 import './categoryPage.scss'
+import { NewsItemCardRatio } from '../components/news-item'
 
 // eslint-disable-next-line
 String.prototype.replaceAll = function(search, replacement) {
@@ -13,56 +13,45 @@ String.prototype.replaceAll = function(search, replacement) {
 }
 
 export default ({ data }) => {
-  const articles = data.articles
-  const taxonomy = data.term
+  const { articles, term, categoryTags } = data
 
   return (
     <Layout>
-      <SEO lang="nl-BE" title={taxonomy.name} />
+      <SEO lang="nl-BE" title={term.name} />
 
-      <section className={'category__wrapper'}>
-        <header className={'player-detail__header'}>
-          <h1 className={'player-detail__name'}>#{taxonomy.name}</h1>
+      <div className="grid-container site-content">
+        <div className="grid-x grid-margin-x">
+          <h2>KCVV Elewijt #{term.name}</h2>
+          <header className={'archive__filter_wrapper'}>
+            <h5>Filter op categorie</h5>
+            <section className={'archive__filter_filters'}>
+              <Link to={'/news/'} className={'btn btn--small'}>
+                Alles
+              </Link>
+              {categoryTags.edges.map(({ node, i }) => {
+                return (
+                  <Link
+                    to={node.path.alias}
+                    className={'btn btn--small'}
+                    key={i}
+                  >
+                    {node.name}
+                  </Link>
+                )
+              })}
+            </section>
+          </header>
 
-          <div className={'bg-green-mask'}>
-            <div className={'bg-white-end'} />
-          </div>
-        </header>
-
-        <div className={'player-break'}></div>
-        <main className={'category__content_wrapper'}>
-          {articles &&
-            articles.edges.map(({ node }, i) => {
-              const image = (
-                <Img
-                  fixed={{
-                    ...node.relationships.field_media_article_image
-                      .relationships.field_media_image.localFile.childImageSharp
-                      .fixed,
-                  }}
-                />
-              )
-              return (
-                <Link
-                  to={node.path.alias}
-                  className={'category__content_link'}
-                  key={i}
-                >
-                  <article className={'category__content_row'}>
-                    <figure>{image}</figure>
-                    <main>
-                      <h3>{node.title}</h3>
-                      <div
-                        className={'news_overview__summary'}
-                        dangerouslySetInnerHTML={{ __html: node.body.summary }}
-                      ></div>
-                    </main>
-                  </article>
-                </Link>
-              )
-            })}
-        </main>
-      </section>
+          <main
+            className={'news_overview__wrapper news_overview__wrapper--archive'}
+          >
+            {articles &&
+              articles.edges.map(({ node }, i) => {
+                return <NewsItemCardRatio node={node} teaser={false} key={i} />
+              })}
+          </main>
+        </div>
+      </div>
     </Layout>
   )
 }
@@ -80,7 +69,7 @@ export const query = graphql`
     ) {
       edges {
         node {
-          created
+          created(formatString: "DD/MM/YYYY")
           title
           body {
             summary
@@ -90,28 +79,12 @@ export const query = graphql`
           }
           relationships {
             field_media_article_image {
-              relationships {
-                field_media_image {
-                  localFile {
-                    childImageSharp {
-                      fixed(width: 125, height: 125) {
-                        ...GatsbyImageSharpFixed
-                        base64
-                        aspectRatio
-                        tracedSVG
-                        aspectRatio
-                        src
-                        srcSet
-                        srcWebp
-                        srcSetWebp
-                        # originalImg
-                        # originalName
-                        # presentationWidth
-                        # presentationHeight
-                      }
-                    }
-                  }
-                }
+              ...ArticleImage
+            }
+            field_tags {
+              name
+              path {
+                alias
               }
             }
           }
@@ -120,6 +93,29 @@ export const query = graphql`
     }
     term: taxonomyTermCategory(path: { alias: { eq: $slug } }) {
       name
+    }
+    categoryTags: allTaxonomyTermCategory(
+      sort: { fields: name, order: ASC }
+      filter: {
+        status: { eq: true }
+        relationships: {
+          node__article: { elemMatch: { drupal_internal__nid: { gte: 1 } } }
+        }
+      }
+    ) {
+      edges {
+        node {
+          path {
+            alias
+          }
+          name
+          relationships {
+            node__article {
+              drupal_internal__nid
+            }
+          }
+        }
+      }
     }
   }
 `

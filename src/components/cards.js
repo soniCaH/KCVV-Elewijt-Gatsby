@@ -131,6 +131,42 @@ export class CardImage extends Component {
   }
 }
 
+export class SingleImageCard extends Component {
+  render() {
+    const { localFile, link } = this.props
+
+    const absoluteUrlRegex = /^https?:\/\/|^\/\//i
+
+    const image = (
+      <Img
+        fluid={{
+          ...localFile.childImageSharp.fluid,
+          aspectRatio: 2 / 1,
+        }}
+      />
+    )
+
+    return (
+      <article className={'cardItem cardItem--vertical'}>
+        {absoluteUrlRegex.test(link) || (
+          <Link to={link}>
+            <header>
+              <figure>{image}</figure>
+            </header>
+          </Link>
+        )}
+        {absoluteUrlRegex.test(link) && (
+          <a href={link} target="_blank" rel="noopener noreferrer">
+            <header>
+              <figure>{image}</figure>
+            </header>
+          </a>
+        )}
+      </article>
+    )
+  }
+}
+
 export class CardVertical extends Component {
   render() {
     const { title, localFile, link } = this.props

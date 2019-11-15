@@ -36,7 +36,7 @@
 
         color: rgba(255, 255, 255, 0.25);
 
-        font-family: 'Montserrat', sans-serif;
+        font-family: var(--font-title);
         font-weight: bold;
         font-size: 8rem;
         line-height: 0.7;
@@ -150,6 +150,13 @@
     &-sub_navigation {
         position: relative;
         z-index: 9;
+
+        @include break(large-up) {
+            position: absolute;
+            z-index: 3;
+            right: 1rem;
+            top: 1.5rem;
+        }
 
         &__tabs {
             background: transparent;

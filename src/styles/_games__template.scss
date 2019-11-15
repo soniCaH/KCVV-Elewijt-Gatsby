@@ -1,76 +1,102 @@
 .games__template {
-    margin: 0 auto;
-    max-width: 60rem;
-    padding: 2rem 1rem;
+  margin: 0 auto;
+  max-width: 60rem;
+  padding: 2rem 1rem;
 
-    @media(min-width: 61rem) {
-        padding-left: 0;
-        padding-right: 0;
+  @media(min-width: 61rem) {
+    padding-left: 0;
+    padding-right: 0;
+  }
+
+  .match-details__logo {
+    max-height: 50px;
+    margin-bottom: .5rem;
+  }
+
+  .match-details__inner {
+    @include break(medium-up) {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
     }
+  }
 
-    .match-details__logo {
-        max-height: 50px;
-        margin-bottom: .5rem;
+  .match-details {
+
+    header,
+    .match-details__datetime {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+
+      @include break(medium-up) {
+        text-align: right;
+      }
     }
+  }
 
-    .match-details__inner {
-        @include break(medium-up) {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-        }
-    }
+  .match-details__vs {
+    position: absolute;
+    bottom: 0;
+    text-shadow: none;
+    font-family: $body-font-family;
 
-    .match-details {
+    width: 50px;
+    margin: 0;
+    text-align: center;
 
-        header,
-        .match-details__datetime {
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-
-            @include break(medium-up) {
-                text-align: right;
-            }
-        }
-    }
-
-    .match-details__vs {
-        position: absolute;
-        bottom: 0;
-        text-shadow: none;
-        font-family: $body-font-family;
-
-        width: 50px;
-        margin: 0;
-        text-align: center;
-
-        background: var(--color-gray-medium);
-        color: #FFF;
-        font-size: 1rem;
-        line-height: 1.75rem;
-    }
+    background: var(--color-gray-medium);
+    color: #FFF;
+    font-size: 1rem;
+    line-height: 1.75rem;
+  }
 }
 
 .kiosk__matches {
-    .matches_overview__wrapper {
-        height: 100vh;
+  .matches_overview__wrapper {
+    height: 100vh;
+    padding: 0;
 
-        .match-details {
+    .match-details {
+      display: inline-block;
+      width: 48%;
+      margin: .5%;
+      float: left;
+      //   height: calc(20vh - 1%);
+
+      .match-details__logo {
+        max-height: 30px;
+      }
+
+      .match-details__vs {
+        font-size: 2rem;
+      }
+
+      &__inner {
+        header {
+          text-align: right;
+
+          >* {
             display: inline-block;
-            width: 48%;
-            margin: 1%;
-            float: left;
-            height: calc(20vh - 1%);
 
-            .match-details__logo {
-                max-height: 50px;
+            &:first-child {
+              float: left;
             }
 
-            .match-details__vs {
-                font-size: 3rem;
+            &.match-details__datetime--date {
+              margin-right: 1rem;
+              font-size: 1rem;
             }
+          }
+
+          //   display: flex;
+          //   align-items: center;
+          //   * {
+          //       margin: 0 1rem;
+          //   }
         }
+      }
     }
+  }
 }
 
 // .kiosk__matches {

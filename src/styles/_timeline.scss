@@ -6,6 +6,7 @@ $timeline-item-card: false;
 $timeline-item-card-radius: $global-radius;
 
 %clearfix {
+
   &::after,
   &::before {
     clear: both;
@@ -17,11 +18,19 @@ $timeline-item-card-radius: $global-radius;
 
 // Timeline
 .timeline {
-  margin: 30px auto;
+  margin: 0 auto;
   padding: 0 10px;
   position: relative;
   transition: $timeline-transition;
   width: 100%;
+
+  &--top {
+    margin-top: 30px;
+  }
+
+  &--bottom {
+    margin-bottom: 30px;
+  }
 
   &::before {
     background: $timeline-color;
@@ -85,14 +94,16 @@ $timeline-item-card-radius: $global-radius;
       transition: $timeline-transition;
       width: 45%;
 
-      @if $timeline-item-card == true {
+      @if $timeline-item-card==true {
         background: $timeline-item-card-bg;
         border-radius: $timeline-item-card-radius;
 
         p {
           color: $black;
         }
-      } @else {
+      }
+
+      @else {
         background: transparent;
 
         p {
@@ -123,6 +134,25 @@ $timeline-item-card-radius: $global-radius;
         text-align: left;
       }
     }
+  }
+}
+
+.timeline-image {
+  position: relative;
+
+  img {
+    height: auto;
+    margin: 0;
+    width: 100%;
+  }
+
+  figcaption {
+    text-align: right;
+    padding-right: 2rem;
+
+    color: var(--color-gray-dark);
+    font-style: italic;
+    font-size: .75rem;
   }
 }
 

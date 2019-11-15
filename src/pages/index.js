@@ -10,6 +10,8 @@ import MatchesSlider from '../components/matches-slider'
 import { NewsItemFeatured, NewsItemCardRatio } from '../components/news-item'
 import FeaturedSection from '../components/featured-section'
 import { Card, CardImage } from '../components/cards'
+import UpcomingEvent from '../components/upcoming-event'
+import PlayerFeatured from '../components/player--featured'
 
 class IndexPage extends Component {
   render() {
@@ -21,6 +23,8 @@ class IndexPage extends Component {
       </Link>
     )
 
+    const { featuredPlayer = null } = data
+
     return (
       <Layout>
         <SEO lang="nl-BE" title="Er is maar één plezante compagnie" />
@@ -28,6 +32,8 @@ class IndexPage extends Component {
         <section className="grid-container site-content">
           <div className="grid-x grid-margin-x">
             <section className="cell large-8 news_overview__wrapper">
+              <UpcomingEvent />
+
               {data.featuredPosts.edges.map(({ node }, i) => {
                 // Keep track of articleCount to properly place/align.
                 // Featured articles span 2 columns.
@@ -42,23 +48,6 @@ class IndexPage extends Component {
                   </>
                 )
               })}
-
-              {articleCount % 2 !== 0 && (
-                <Card
-                  title="Speel nu FM 2019 met KCVV"
-                  localFile={data.fm19}
-                  link="news/2019-07-11-neem-zelf-de-leiding-van-kcvv-elewijt"
-                  metadata={false}
-                />
-              )}
-              {articleCount % 2 === 0 && (
-                <CardImage
-                  title="Speel nu FM 2019 met KCVV"
-                  localFile={data.fm19}
-                  link="news/2019-07-11-neem-zelf-de-leiding-van-kcvv-elewijt"
-                  metadata={false}
-                />
-              )}
             </section>
             <aside className="cell large-4">
               <section className="grid-x featured__matches grid-margin-x">
@@ -94,6 +83,14 @@ class IndexPage extends Component {
                     exclude="['2A', '4D']"
                   />
                 </article>
+                {featuredPlayer && (
+                  <article className={'medium-6 large-12 cell card'}>
+                    <header className={'card__header'}>
+                      <h4>Speler van de week</h4>
+                    </header>
+                    <PlayerFeatured player={featuredPlayer} />
+                  </article>
+                )}
               </section>
             </aside>
           </div>
@@ -154,29 +151,7 @@ export const pageQuery = graphql`
           }
           relationships {
             field_media_article_image {
-              relationships {
-                field_media_image {
-                  localFile {
-                    childImageSharp {
-                      fluid(maxWidth: 800, quality: 75, cropFocus: ATTENTION) {
-                        base64
-                        aspectRatio
-                        tracedSVG
-                        aspectRatio
-                        src
-                        srcSet
-                        srcWebp
-                        srcSetWebp
-                        sizes
-                        # originalImg
-                        # originalName
-                        # presentationWidth
-                        # presentationHeight
-                      }
-                    }
-                  }
-                }
-              }
+              ...ArticleImage
             }
             field_tags {
               name
@@ -218,25 +193,7 @@ export const pageQuery = graphql`
           }
           relationships {
             field_media_article_image {
-              relationships {
-                field_media_image {
-                  localFile {
-                    childImageSharp {
-                      fluid(maxWidth: 600, quality: 75, cropFocus: ATTENTION) {
-                        base64
-                        aspectRatio
-                        tracedSVG
-                        aspectRatio
-                        src
-                        srcSet
-                        srcWebp
-                        srcSetWebp
-                        sizes
-                      }
-                    }
-                  }
-                }
-              }
+              ...ArticleImage
             }
             field_tags {
               name
@@ -278,6 +235,24 @@ export const pageQuery = graphql`
         }
       }
     }
+    # featuredPlayer: nodePlayer(field_firstname: { eq: "Nick" }) {
+    #   field_firstname
+    #   field_lastname
+    #   field_shirtnumber
+    #   field_stats_games
+    #   field_position
+    #   field_stats_cleansheets
+    #   field_stats_goals
+    #   field_stats_cards_yellow
+    #   field_stats_cards_red
+    #   relationships {
+    #     field_image {
+    #       localFile {
+    #         url
+    #       }
+    #     }
+    #   }
+    # }
   }
 `
 

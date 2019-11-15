@@ -248,17 +248,7 @@ export const query = graphql`
           }
         }
         field_media_article_image {
-          relationships {
-            field_media_image {
-              localFile {
-                childImageSharp {
-                  fluid(maxWidth: 2000) {
-                    ...GatsbyImageSharpFluid_withWebp_tracedSVG
-                  }
-                }
-              }
-            }
-          }
+          ...ArticleImageLarge
           field_media_image {
             alt
           }

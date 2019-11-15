@@ -1,0 +1,41 @@
+.sponsors-overview {
+  &__wrapper {}
+
+  &__section {
+    display: grid;
+    grid-gap: 1rem;
+    grid-template-rows: 1fr;
+
+    &--top {
+      grid-template-columns: 1fr;
+
+      @include break(medium-up) {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    &--middle {
+      grid-template-columns: repeat(2, 1fr);
+
+      @include break(medium-up) {
+        grid-template-columns: repeat(3, 1fr);
+      }
+    }
+
+    &--bottom {
+      grid-template-columns: repeat(2, 1fr);
+
+      @include break(medium-up) {
+        grid-template-columns: repeat(4, 1fr);
+      }
+    }
+
+    .cardItem {
+      margin: 0;
+    }
+  }
+
+  .cardItem {
+    background: #FFF;
+  }
+}
