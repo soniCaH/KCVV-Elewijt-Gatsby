@@ -13,12 +13,26 @@ class StatsPage extends Component {
         <SEO lang="nl-BE" title="Er is maar één plezante compagnie" />
         <div className={'games__template'}>
           <Ranking
+            season="1718"
+            region="bra"
+            division="3C"
+            highlight="KCVV.Elewijt A"
+          />
+          <TeamCalendarMatches season="1718" region="bra" division="3C" />
+          <Ranking
             season="1819"
             region="bra"
             division="3C"
             highlight="KCVV.Elewijt A"
           />
           <TeamCalendarMatches season="1819" region="bra" division="3C" />
+          <Ranking
+            season="1920"
+            region="bra"
+            division="2A"
+            highlight="KCVV.Elewijt A"
+          />
+          <TeamCalendarMatches season="1920" region="bra" division="2A" />
         </div>
       </Layout>
     )
