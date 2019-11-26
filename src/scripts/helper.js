@@ -137,7 +137,7 @@ export function getPositions() {
   const positions = new Map([
     ['k', 'Doelman'],
     ['d', 'Verdediger'],
-    ['m', 'Middelvelder'],
+    ['m', 'Middenvelder'],
     ['a', 'Aanvaller'],
   ])
   return positions;
