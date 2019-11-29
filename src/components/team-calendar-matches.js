@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { graphql, StaticQuery } from 'gatsby'
+import { mapMatchStatus } from '../scripts/helper'
 
 import ClubLogo from './clublogo'
 
@@ -55,10 +56,14 @@ class CalendarRow extends Component {
             />
           </div>
           <div className={'team-calendar-match__score'}>
-            {typeof resultHome !== 'undefined' &&
-            typeof resultAway !== 'undefined'
-              ? `${resultHome} - ${resultAway}`
-              : time}
+            {typeof status !== 'undefined' ? (
+              <span title={mapMatchStatus(status)}>{status}</span>
+            ) : typeof resultHome !== 'undefined' &&
+              typeof resultAway !== 'undefined' ? (
+              `${resultHome} - ${resultAway}`
+            ) : (
+              time
+            )}
           </div>
           <div
             className={
