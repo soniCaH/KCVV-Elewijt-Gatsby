@@ -56,7 +56,7 @@ class CalendarRow extends Component {
             />
           </div>
           <div className={'team-calendar-match__score'}>
-            {typeof status !== 'undefined' ? (
+            {(typeof status !== 'undefined' || status !== '') ? (
               <span title={mapMatchStatus(status)}>{status}</span>
             ) : typeof resultHome !== 'undefined' &&
               typeof resultAway !== 'undefined' ? (
