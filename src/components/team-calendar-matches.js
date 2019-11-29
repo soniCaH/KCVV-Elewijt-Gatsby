@@ -82,21 +82,6 @@ class CalendarRow extends Component {
           </div>
         </div>
       </article>
-
-      // <tr>
-      //   <td className={'display-desktop'}>{date}</td>
-      //   <td className={'display-mobile'}>{dateShort}</td>
-      //   <td>{time}</td>
-      //   <td>{home}</td>
-      //   <td>
-      //     {typeof resultHome !== 'undefined' &&
-      //     typeof resultAway !== 'undefined'
-      //       ? `${resultHome} - ${resultAway}`
-      //       : 'vs'}
-      //   </td>
-      //   <td>{away}</td>
-      //   <td>{status}</td>
-      // </tr>
     )
   }
 }

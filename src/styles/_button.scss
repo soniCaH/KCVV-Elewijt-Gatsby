@@ -43,14 +43,14 @@
         &::before {
             content: "\F178";
 
-            left: 83%;
+            right: 1.5em;
             opacity: 0;
             top: 0;
         }
 
         &:hover {
             &::before {
-                left: 89%;
+                right: 1em;
                 opacity: 1;
             }
         }
