@@ -25,19 +25,20 @@
         padding-right: 0;
     }
 
-    section + section {
+    section+section {
         margin-top: 2rem;
     }
 
-    article + article {
+    article+article {
         margin-top: 2rem;
     }
 }
 
 .staff-break {
     display: block;
-    padding-top: 410px;
+    padding-top: 460px;
 }
+
 .player-break {
     @media (min-width: 992px) {
         display: block;
