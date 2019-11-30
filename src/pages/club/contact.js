@@ -3,6 +3,7 @@ import React, { Component } from 'react'
 import Layout from '../../layouts/index'
 
 import SEO from '../../components/seo'
+import HeaderBgTitle from '../../components/header-bg-title'
 
 class ContactPage extends Component {
   render() {
@@ -10,8 +11,13 @@ class ContactPage extends Component {
       <Layout>
         <SEO lang="nl-BE" title="Er is maar één plezante compagnie" />
 
+
+        <HeaderBgTitle
+          title="Contact"
+          classes={'contact-page'}
+        />
+
         <div className={'limited-width_wrapper'}>
-          <h1>Contact</h1>
 
           <table className="page-footer__contact-details">
                 <tbody>

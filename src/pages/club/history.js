@@ -6,6 +6,7 @@ import ScrollAnimation from 'react-animate-on-scroll'
 import Layout from '../../layouts/index'
 
 import SEO from '../../components/seo'
+import HeaderBgTitle from '../../components/header-bg-title'
 
 class HistoryPage extends Component {
   render() {
@@ -21,6 +22,12 @@ class HistoryPage extends Component {
     return (
       <Layout>
         <SEO lang="nl-BE" title="Er is maar één plezante compagnie" />
+
+        <HeaderBgTitle
+          title="Geschiedenis"
+          highlight="van KCVV"
+          classes={'history-page'}
+        />
 
         <div class="timeline timeline--top">
           <div class="timeline-item">

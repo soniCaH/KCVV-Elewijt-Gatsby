@@ -1,9 +1,6 @@
 import React, { Component, Fragment } from 'react'
 import { graphql, StaticQuery } from 'gatsby'
 import './matches-overview.scss'
-import moment from 'moment'
-import { mapMatchStatus, formatDivision } from '../scripts/helper'
-import 'moment/locale/nl-be'
 import MatchWithLogo from './match-with-logo'
 
 class MatchesOverviewDetails extends Component {
@@ -60,9 +57,6 @@ class MatchesOverviewDetails extends Component {
         )
       }
 
-      moment.locale('nl-be')
-      let matchTime = moment()
-
       const ignore = this.props.exclude || []
 
       return (
@@ -72,7 +66,6 @@ class MatchesOverviewDetails extends Component {
               return <Fragment key={i} />
             }
 
-            matchTime = moment(match.dateTime)
             return <MatchWithLogo match={match} />
           })}
         </div>

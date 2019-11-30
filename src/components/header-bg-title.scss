@@ -1,0 +1,68 @@
+@import '../styles/mixins';
+
+.page-header-title {
+
+  background-color: #1e2024;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: 50% 50%;
+  text-align: center;
+  padding: 50px 0;
+  position: relative;
+
+  @include break(medium-up) {
+    padding: 110px 0 106px;
+  }
+
+  &.error-page {
+    background-image: url(../images/header-404.jpg);
+  }
+
+  &.history-page {
+    background-image: url(../images/history-bvb.png);
+
+    @include break(large-up) {
+      padding: 200px 0 156px;
+    }
+  }
+
+  &.ultras-page {
+    background-image: url(../images/header-ultras.jpg);
+  }
+
+  &.contact-page {
+    background-image: url(../images/header-contact.jpg);
+  }
+
+  &::before {
+    content: "";
+    display: block;
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    background-image: url(../images/page-heading-pattern.png);
+    background-size: auto;
+    background-position: 100% 0;
+    background-repeat: no-repeat;
+    opacity: .4;
+  }
+
+  &::after {
+    background: rgba(0, 0, 0, 0.35);
+    content: '';
+    display: block;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+  }
+
+  h1 {
+    color: var(--color-white, #FFF);
+    position: relative;
+    z-index: 1;
+  }
+}

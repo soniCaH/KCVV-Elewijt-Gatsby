@@ -3,7 +3,7 @@
 .team-ranking {
     margin: 0 .25rem 2rem;
     position: relative;
-    z-index: 5;
+    z-index: 2;
 
     font-size: .85rem;
 
@@ -22,7 +22,8 @@
     &__table {
         border: 1px solid rgba(0, 0, 0, .1);
 
-        tbody, thead {
+        tbody,
+        thead {
             border: 0;
         }
     }
@@ -56,6 +57,24 @@
 
         &--points {
             text-align: right;
+        }
+    }
+
+    &__winner {
+        position: relative;
+
+        &:before {
+            content: "";
+            display: block;
+            position: absolute;
+            left: -15px;
+            top: 50%;
+            width: 0;
+            height: 0;
+            border-left: 8px solid var(--color-green-dark);
+            border-top: 8px solid transparent;
+            border-bottom: 8px solid transparent;
+            transform: translateY(-50%);
         }
     }
 }

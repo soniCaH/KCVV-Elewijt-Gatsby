@@ -63,7 +63,7 @@
     &__lineup {
         margin: 0 .25rem;
         position: relative;
-        z-index: 5;
+        z-index: 2;
 
         @include break(large-up) {
             margin: 0 1rem;
@@ -148,6 +148,7 @@
 
 .team {
     &-sub_navigation {
+        margin-bottom: 1em;
         position: relative;
         z-index: 9;
 

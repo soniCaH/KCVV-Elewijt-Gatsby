@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { graphql, Link } from 'gatsby'
+import { graphql } from 'gatsby'
 
 import Layout from '../layouts/index'
 
@@ -8,8 +8,7 @@ import MetaMatches from '../components/meta-matches'
 import MatchesOverview from '../components/matches-overview'
 import MatchesSlider from '../components/matches-slider'
 import { NewsItemFeatured, NewsItemCardRatio } from '../components/news-item'
-import FeaturedSection from '../components/featured-section'
-import { Card, CardImage } from '../components/cards'
+import { CardImage } from '../components/cards'
 import UpcomingEvent from '../components/upcoming-event'
 import PlayerFeatured from '../components/player--featured'
 
@@ -17,11 +16,6 @@ class IndexPage extends Component {
   render() {
     const data = this.props.data
     let articleCount = 0
-    const linkCTA = (
-      <Link to="/category/transfernieuws" className={'btn btn--arrow'}>
-        Check alle transfernieuws
-      </Link>
-    )
 
     const { featuredPlayer = null } = data
 
@@ -100,14 +94,6 @@ class IndexPage extends Component {
           <MatchesSlider season="1920" regnumber="00055" />
         </section>
 
-        <section className={'grid-container full'}>
-          <FeaturedSection
-            articles={data.featuredTransfers}
-            title="Transfernieuws"
-            link={linkCTA}
-          />
-        </section>
-
         <section className="grid-container site-content">
           <div className="grid-x grid-margin-x">
             <section className={'cell large-12 featured-article'}>
@@ -160,63 +146,6 @@ export const pageQuery = graphql`
               }
             }
           }
-        }
-      }
-    }
-    featuredTransfers: allNodeArticle(
-      filter: {
-        relationships: {
-          field_tags: { elemMatch: { name: { eq: "Transfernieuws" } } }
-        }
-        status: { eq: true }
-        promote: { eq: true }
-      }
-      sort: { fields: created, order: DESC }
-      limit: 4
-    ) {
-      edges {
-        node {
-          id
-          path {
-            alias
-          }
-          created(formatString: "D/M/YYYY")
-          title
-          promote
-          status
-          field_featured
-          body {
-            value
-            format
-            processed
-            summary
-          }
-          relationships {
-            field_media_article_image {
-              ...ArticleImage
-            }
-            field_tags {
-              name
-              path {
-                alias
-              }
-            }
-          }
-        }
-      }
-    }
-    fm19: file(name: { eq: "fm19-kits" }) {
-      childImageSharp {
-        fluid(maxWidth: 1680, quality: 75, cropFocus: ATTENTION) {
-          base64
-          aspectRatio
-          tracedSVG
-          aspectRatio
-          src
-          srcSet
-          srcWebp
-          srcSetWebp
-          sizes
         }
       }
     }
