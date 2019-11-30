@@ -35,8 +35,6 @@
   }
 
   .match-details__vs {
-    position: absolute;
-    bottom: 0;
     text-shadow: none;
     font-family: $body-font-family;
 
@@ -44,10 +42,22 @@
     margin: 0;
     text-align: center;
 
-    background: var(--color-gray-medium);
+    background: var(--color-gray-light);
     color: #FFF;
     font-size: 1rem;
     line-height: 1.75rem;
+  }
+
+  .match-details__divider {
+    color: #FFF;
+  }
+
+  .match-details__winner {
+    color: #FFF;
+
+    &::before {
+      display: none;
+    }
   }
 }
 
