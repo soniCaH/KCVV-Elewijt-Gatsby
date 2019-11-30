@@ -85,6 +85,47 @@ class IndexPage extends Component {
                     <PlayerFeatured player={featuredPlayer} />
                   </article>
                 )}
+                <article className={'medium-6 large-12 cell'}>
+                  <div className={'social-sidebar__wrapper'}>
+                    <a
+                      href="https://facebook.com/KCVVElewijt"
+                      class="btn-social-counter btn-social-counter--fb"
+                      target="_blank"
+                    >
+                      <div class="btn-social-counter__icon">
+                        <i class="fa fa-facebook"></i>
+                      </div>
+                      <h5 class="btn-social-counter__title">
+                        Volg onze Facebook pagina
+                      </h5>
+                    </a>
+                    <a
+                      href="https://twitter.com/kcvve"
+                      class="btn-social-counter btn-social-counter--twitter"
+                      target="_blank"
+                    >
+                      <div class="btn-social-counter__icon">
+                        <i class="fa fa-twitter"></i>
+                      </div>
+                      <h5 class="btn-social-counter__title">
+                        Volg ons op Twitter
+                      </h5>
+
+                    </a>
+                    <a
+                      href="http://www.instagram.com/kcvve"
+                      class="btn-social-counter btn-social-counter--instagram"
+                      target="_blank"
+                    >
+                      <div class="btn-social-counter__icon">
+                        <i class="fa fa-instagram"></i>
+                      </div>
+                      <h5 class="btn-social-counter__title">
+                        Volg ons op Instagram
+                      </h5>
+                    </a>
+                  </div>
+                </article>
               </section>
             </aside>
           </div>
