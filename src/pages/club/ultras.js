@@ -5,6 +5,7 @@ import Layout from '../../layouts/index'
 import SEO from '../../components/seo'
 import { StaticQuery, graphql } from 'gatsby'
 import { CardImage } from '../../components/cards'
+import HeaderBgTitle from '../../components/header-bg-title'
 
 class UltrasPage extends Component {
   render() {
@@ -12,6 +13,9 @@ class UltrasPage extends Component {
     return (
       <Layout>
         <SEO lang="nl-BE" title="Er is maar één plezante compagnie" />
+
+        <HeaderBgTitle title="KCVV" highlight="ultra's" classes={'ultras-page'} />
+
         <div className={'ultras-wrapper'}>
           <header>
             <h1>KCVV Ultras</h1>

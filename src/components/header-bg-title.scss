@@ -15,8 +15,23 @@
   }
 
   &.error-page {
-    background-color: #1e2024;
-    background-image: url(../images/header-bg-title.jpg);
+    background-image: url(../images/header-404.jpg);
+  }
+
+  &.history-page {
+    background-image: url(../images/history-bvb.png);
+
+    @include break(large-up) {
+      padding: 200px 0 156px;
+    }
+  }
+
+  &.ultras-page {
+    background-image: url(../images/header-ultras.jpg);
+  }
+
+  &.contact-page {
+    background-image: url(../images/header-contact.jpg);
   }
 
   &::before {

@@ -12,7 +12,11 @@ class PageNotFoundPage extends Component {
       <Layout>
         <SEO lang="nl-BE" title="Er is maar één plezante compagnie" />
 
-        <HeaderBgTitle title="Pagina" highlight="niet gevonden" classes={'error-page--404 error-page'} />
+        <HeaderBgTitle
+          title="Pagina"
+          highlight="niet gevonden"
+          classes={'error-page--404 error-page'}
+        />
 
         <div className={'grid-container site-content'}>
           <div className={'grid-x grid-margin-x'}>
