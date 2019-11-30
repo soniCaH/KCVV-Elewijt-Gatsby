@@ -28,6 +28,9 @@ class CalendarRow extends Component {
     const d = new moment(dateTime)
     const date = d.format('dddd D MMMM YYYY')
     const time = d.format('HH:mm')
+    const matchPlayed =
+      typeof resultHome !== 'undefined' && typeof resultAway !== 'undefined'
+
     return (
       <article className={'team-calendar-match'}>
         <header className={'team-calendar-match__title'}>
@@ -41,9 +44,9 @@ class CalendarRow extends Component {
         </header>
         <div className={'team-calendar-match__main'}>
           <div
-            className={
-              'team-calendar-match__team team-calendar-match__team--home'
-            }
+            className={`team-calendar-match__team team-calendar-match__team--home ${matchPlayed &&
+              resultHome > resultAway &&
+              'match-winner'}`}
           >
             {home}
 
@@ -56,20 +59,20 @@ class CalendarRow extends Component {
             />
           </div>
           <div className={'team-calendar-match__score'}>
-            {console.log({status, resultHome, resultAway, time})}
-            {(typeof status !== 'undefined' && status !== '') ? (
+            {console.log({ status, resultHome, resultAway, time })}
+            {typeof status !== 'undefined' && status !== '' ? (
               <span title={mapMatchStatus(status)}>{status}</span>
-            ) : (typeof resultHome !== 'undefined' &&
+            ) : typeof resultHome !== 'undefined' &&
               typeof resultAway !== 'undefined' ? (
               `${resultHome} - ${resultAway}`
             ) : (
               time
-            ))}
+            )}
           </div>
           <div
-            className={
-              'team-calendar-match__team team-calendar-match__team--away'
-            }
+            className={`team-calendar-match__team team-calendar-match__team--away ${matchPlayed &&
+              resultAway > resultHome &&
+              'match-winner'}`}
           >
             <ClubLogo
               regNumber={regNumberAway}
