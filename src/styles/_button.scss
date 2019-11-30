@@ -61,4 +61,16 @@
         font-weight: 500;
         padding: .5rem 1.5rem;
     }
+
+    &+.btn {
+        margin-left: 2rem;
+    }
+
+    &--alt {
+        background-color: var(--color-gray-medium);
+
+        &:hover {
+            background-color: var(--color-gray-dark);
+        }
+    }
 }
