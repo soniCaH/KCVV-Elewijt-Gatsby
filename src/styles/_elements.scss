@@ -1,5 +1,19 @@
 @import '../styles/mixins';
 
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    color: #fff;
+    margin: 0 0 .75em;
+    font-style: normal;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: -.02em;
+}
+
 .button--back {
     width: 49px;
     height: 44px;
@@ -73,10 +87,20 @@ body blockquote {
     display: inline-block;
     height: 1em;
     width: .75em;
+
     &--yellow {
         background-color: #FAEE00;
     }
+
     &--red {
         background-color: #E60012;
     }
+}
+
+.highlight {
+    color: var(--color-green);
+}
+
+.center {
+    text-align: center;
 }

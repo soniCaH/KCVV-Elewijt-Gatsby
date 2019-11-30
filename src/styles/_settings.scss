@@ -68,7 +68,7 @@
 @import './variables';
 
 $global-font-size: 100%;
-$global-width: rem-calc(1200);
+$global-width: rem-calc(1280);
 $global-lineheight: 1.5;
 $foundation-palette: (
   primary: #4B9B48,
@@ -83,8 +83,8 @@ $dark-gray: #9a9da2;
 $black: #0a0a0a;
 $white: #fefefe;
 $body-background: $light-gray;
-$body-font-color: $black;
-$body-font-family: 'Source Sans Pro', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+$body-font-color: #292c31;
+$body-font-family: 'Source Sans Pro', 'Roboto', 'Helvetica Neue', Helvetica, Arial, sans-serif;
 $body-antialiased: true;
 $global-margin: 1rem;
 $global-padding: 1rem;
@@ -109,7 +109,7 @@ $breakpoints: (
   small: 0,
   medium: 768px,
   large: 992px,
-  xlarge: 1200px,
+  xlarge: 1280px,
   xxlarge: 1440px,
 );
 $print-breakpoint: large;
@@ -135,31 +135,31 @@ $header-font-family: "Montserrat", Verdana, sans-serif;
 $header-font-weight: 700;
 $header-font-style: normal;
 $font-family-monospace: Consolas, 'Liberation Mono', Courier, monospace;
-$header-color: inherit;
-$header-lineheight: 1.4;
-$header-margin-bottom: 0.5rem;
+$header-color: var(--color-gray-blue);
+$header-lineheight: 1.2;
+$header-margin-bottom: 1em;
 $header-styles: (
   small: (
-    'h1': ('font-size': 24),
-    'h2': ('font-size': 20),
-    'h3': ('font-size': 19),
+    'h1': ('font-size': 28),
+    'h2': ('font-size': 22),
+    'h3': ('font-size': 20),
     'h4': ('font-size': 18),
-    'h5': ('font-size': 17),
-    'h6': ('font-size': 16),
+    'h5': ('font-size': 16),
+    'h6': ('font-size': 14),
   ),
   medium: (
     'h1': ('font-size': 48),
-    'h2': ('font-size': 40),
-    'h3': ('font-size': 31),
-    'h4': ('font-size': 25),
-    'h5': ('font-size': 20),
-    'h6': ('font-size': 16),
+    'h2': ('font-size': 32),
+    'h3': ('font-size': 24),
+    'h4': ('font-size': 22),
+    'h5': ('font-size': 16),
+    'h6': ('font-size': 14),
   ),
 );
 $header-text-rendering: optimizeLegibility;
 $small-font-size: 20%;
-$header-small-font-color: $medium-gray;
-$paragraph-lineheight: 1.6;
+$header-small-font-color: var(--color-gray-blue);
+$paragraph-lineheight: 1.75;
 $paragraph-margin-bottom: 1rem;
 $paragraph-text-rendering: optimizeLegibility;
 $code-color: $black;

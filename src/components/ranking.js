@@ -22,7 +22,8 @@ class RankingRow extends Component {
         </td>
         <td
           className={
-            'team-ranking__column team-ranking__column--string team-ranking__column--team'
+            `team-ranking__column team-ranking__column--string team-ranking__column--team
+            ${this.props.result.team.includes("Elewijt") && 'team-ranking__winner'}`
           }
         >
           {this.props.result.team}
