@@ -55,7 +55,7 @@ export default ({ data }) => {
           </div>
           {node.field_fb_id && (
             <div className={'team-detail__division-number'} aria-hidden="true">
-              {node.field_fb_id}
+              {node.field_fb_id_2 ? node.field_fb_id_2 : node.field_fb_id}
             </div>
           )}
         </header>
@@ -163,28 +163,70 @@ export default ({ data }) => {
               </main>
             </div>
           )}
-          {node.field_fb_id && (
+          {(node.field_fb_id || node.field_fb_id_2) && (
             <>
               <div className={'tabs-panel'} id="team-matches">
-                <TeamCalendarMetaMatches
-                  season="1920"
-                  region="bra"
-                  division={node.field_fb_id}
-                  regnumber="00055"
-                />
-                <TeamCalendarMatches
-                  season="1920"
-                  region="bra"
-                  division={node.field_fb_id}
-                />
+                {node.field_fb_id && !node.field_fb_id_2 && (
+                  <div className={'team-calendar-matches__wrapper'}>
+                    <TeamCalendarMetaMatches
+                      season="1920"
+                      region="bra"
+                      division={node.field_fb_id}
+                      regnumber="00055"
+                    />
+
+                    <TeamCalendarMatches
+                      season="1920"
+                      region="bra"
+                      division={node.field_fb_id}
+                    />
+                  </div>
+                )}
+                {node.field_fb_id_2 && (
+                  <div className={'team-calendar-matches__wrapper'}>
+                    <h2>Na nieuwjaar</h2>
+                    <TeamCalendarMetaMatches
+                      season="1920"
+                      region="bra"
+                      division={node.field_fb_id_2}
+                      regnumber="00055"
+                    />
+                    {node.field_fb_id && (
+                      <>
+                        <h2>Wedstrijden voor nieuwjaar</h2>
+                        <TeamCalendarMatches
+                          season="1920"
+                          region="bra"
+                          division={node.field_fb_id}
+                        />
+                      </>
+                    )}
+                  </div>
+                )}
               </div>
               <div className={'tabs-panel'} id="team-ranking">
-                <Ranking
-                  season="1920"
-                  region="bra"
-                  division={node.field_fb_id}
-                  highlight="KCVV.Elewijt A"
-                />
+                {node.field_fb_id_2 && (
+                  <div className={'team-ranking__wrapper'}>
+                    <h2>Na nieuwjaar</h2>
+                    <Ranking
+                      season="1920"
+                      region="bra"
+                      division={node.field_fb_id_2}
+                      highlight="KCVV.Elewijt A"
+                    />
+                  </div>
+                )}
+                {node.field_fb_id && (
+                  <div className={'team-ranking__wrapper'}>
+                    {node.field_fb_id_2 && <h2>Ranking voor nieuwjaar</h2>}
+                    <Ranking
+                      season="1920"
+                      region="bra"
+                      division={node.field_fb_id}
+                      highlight="KCVV.Elewijt A"
+                    />
+                  </div>
+                )}
               </div>
             </>
           )}
@@ -205,6 +247,7 @@ export const query = graphql`
         processed
       }
       field_fb_id
+      field_fb_id_2
       field_division_full
       field_tagline
       relationships {

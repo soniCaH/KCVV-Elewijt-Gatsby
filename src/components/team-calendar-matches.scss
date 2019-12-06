@@ -2,9 +2,12 @@
 
 .team-calendar-matches {
     background: #FFF;
+}
+
+.team-calendar-matches__wrapper {
     margin: 0 .25rem;
     position: relative;
-    z-index: 5;
+    z-index: 2;
 
     @include break(large-up) {
         margin: 0 1rem;

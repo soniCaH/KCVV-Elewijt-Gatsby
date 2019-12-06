@@ -1,17 +1,9 @@
 @import '../styles/mixins';
 
 .team-calendar-meta-matches {
-    margin: 0 .25rem 2rem;
+    margin-bottom: 2rem;
     position: relative;
-    z-index: 2;
-
-    @include break(large-up) {
-        margin: 0 1rem 2rem;
-    }
-
-    @include break(xlarge-up) {
-        margin: 0 14% 2rem;
-    }
+    z-index: 1;
 
     @include break(medium-up) {
         display: grid;

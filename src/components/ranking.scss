@@ -1,15 +1,9 @@
 @import '../styles/mixins';
 
-.team-ranking {
+.team-ranking__wrapper {
     margin: 0 .25rem 2rem;
     position: relative;
     z-index: 2;
-
-    font-size: .85rem;
-
-    @include break(medium-up) {
-        font-size: 1rem;
-    }
 
     @include break(large-up) {
         margin: 0 1rem 2rem;
@@ -17,6 +11,15 @@
 
     @include break(xlarge-up) {
         margin: 0 14% 2rem;
+    }
+}
+
+.team-ranking {
+
+    font-size: .85rem;
+
+    @include break(medium-up) {
+        font-size: 1rem;
     }
 
     &__table {
