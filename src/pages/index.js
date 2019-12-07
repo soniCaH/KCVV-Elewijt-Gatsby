@@ -59,7 +59,7 @@ class IndexPage extends Component {
                           node.relationships.field_media_article_image
                             .relationships.field_media_image.localFile
                         }
-                        link={node.field_link}
+                        link={node.field_website.uri}
                         metadata={false}
                       />
                     )
