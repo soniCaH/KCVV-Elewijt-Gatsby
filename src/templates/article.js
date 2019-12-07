@@ -34,6 +34,7 @@ export default ({ data }) => {
           .field_media_image.localFile.childImageSharp.fluid,
         aspectRatio: aspectRatio > 1 ? 2.5 / 1 : 1.5 / 1,
       }}
+      alt={post.title}
     />
   )
   const relatedArticles = post.relationships.field_related_content || []

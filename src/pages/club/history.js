@@ -266,6 +266,7 @@ class HistoryPage extends Component {
                 fluid={{
                   ...history52.childImageSharp.fluid,
                 }}
+                alt="Figuur 1: SK Elewijt kampioen 52-53"
               />
               <figcaption>
                 <p>Figuur 1: SK Elewijt kampioen 52-53</p>
@@ -289,7 +290,8 @@ class HistoryPage extends Component {
                 fluid={{
                   ...history58.childImageSharp.fluid,
                 }}
-              />{' '}
+                alt="Figuur 2: SK Elewijt kampioen 58-59"
+              />
               <figcaption>
                 <p>Figuur 2: SK Elewijt kampioen 58-59</p>
                 <p>
@@ -329,7 +331,8 @@ class HistoryPage extends Component {
                 fluid={{
                   ...history63.childImageSharp.fluid,
                 }}
-              />{' '}
+                alt="Figuur 3: FC Elewijt kampioen 63-64"
+              />
               <figcaption>
                 <p>Figuur 3: FC Elewijt kampioen 63-64</p>
                 <p>
@@ -352,7 +355,8 @@ class HistoryPage extends Component {
                 fluid={{
                   ...historyfusie.childImageSharp.fluid,
                 }}
-              />{' '}
+                alt="Figuur 4: De fusieclub VV Elewijt"
+              />
               <figcaption>
                 <p>
                   Figuur 4: De fusieclub VV Elewijt (rood-wit - op de foto Luc
@@ -422,7 +426,8 @@ class HistoryPage extends Component {
                 fluid={{
                   ...historybvb.childImageSharp.fluid,
                 }}
-              />{' '}
+                alt="Figuur 5: Crossing Elewijt won de beker van Brabant in 1988"
+              />
               <figcaption>
                 <p>
                   Figuur 5: Crossing Elewijt won de beker van Brabant in 1988 na
@@ -493,7 +498,8 @@ class HistoryPage extends Component {
                 fluid={{
                   ...history18.childImageSharp.fluid,
                 }}
-              />{' '}
+                alt="Figuur 6: KCVV Elewijt speelt kampioen in 2018-2019 met 79 punten op 90"
+              />
               <figcaption>
                 <p>
                   Figuur 6: KCVV Elewijt speelt kampioen in 2018-2019 met 79
