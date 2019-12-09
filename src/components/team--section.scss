@@ -43,7 +43,8 @@
     }
 
     &__item {
-        border: 1px solid #ababab;
+        border: 1px solid var(--color-green-dark);
+        background: linear-gradient(123deg,#4b9b48,rgb(75, 155, 72) 100%);
         padding: 1rem;
         position: relative;
 

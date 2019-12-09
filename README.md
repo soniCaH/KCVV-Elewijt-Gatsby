@@ -1,6 +1,6 @@
 [![Netlify Status](https://api.netlify.com/api/v1/badges/418e0ffe-e0eb-46d1-84a1-43fec5698791/deploy-status)](https://app.netlify.com/sites/boring-thompson-91501c/deploys)
 
-<img src="https://img.shields.io/website?down_color=red&down_message=FRONTEND%20DOWN&up_color=%23BADA55&up_message=FRONTEND%20UP&url=https%3A%2F%2Fpreview.kcvvelewijt.be" alt="Frontend monitor" />
+<img src="https://img.shields.io/website?down_color=red&down_message=FRONTEND%20DOWN&up_color=%23BADA55&up_message=FRONTEND%20UP&url=https%3A%2F%2Fwww.kcvvelewijt.be" alt="Frontend monitor" />
 
 <img src="https://img.shields.io/website?down_color=red&down_message=CONTENT%20API%20DOWN&up_color=%23BADA55&up_message=CONTENT%20API%20UP&url=https%3A%2F%2Fapi.kcvvelewijt.be%2Fjsonapi" alt="Backend API monitor" />
 

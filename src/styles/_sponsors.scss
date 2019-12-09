@@ -39,3 +39,11 @@
     background: #FFF;
   }
 }
+
+.page-footer__sponsors {
+  .read-more {
+    grid-column: 1/-1;
+    display: block;
+    text-align: right;
+  }
+}

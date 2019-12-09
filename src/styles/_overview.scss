@@ -8,6 +8,11 @@
     &:last-child {
       margin-right: 0;
     }
+
+    &.btn + .btn {
+      margin-left: 0;
+      margin-right: 1rem;
+    }
   }
 }
 
