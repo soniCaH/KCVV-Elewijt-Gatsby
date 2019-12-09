@@ -9,7 +9,8 @@ module.exports = {
     serverUrl: `${process.env.FOOTBEL_API_DOMAIN}`,
     logoUrl: `${process.env.FOOTBEL_API_DOMAIN}/logo`,
     refreshRate: 360000,
-    url: 'https://preview.kcvvelewijt.be',
+    url: 'https://www.kcvvelewijt.be',
+    siteUrl: 'https://www.kcvvelewijt.be',
     twitterHandle: 'kcvve',
   },
   plugins: [
@@ -54,6 +55,7 @@ module.exports = {
         crossOrigin: `use-credentials`,
       },
     },
-    'gatsby-plugin-offline',
+    `gatsby-plugin-offline`,
+    `gatsby-plugin-sitemap`,
   ],
 }

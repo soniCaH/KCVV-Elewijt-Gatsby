@@ -61,7 +61,7 @@ export default ({ data }) => {
         <main className={'article__body'}>
           <section className={'article__metadata container clearfix'}>
             <div className={'article__author'}>
-              Geschreven door {post.relationships.uid.name}.
+              Geschreven door {post.relationships.uid.display_name}.
             </div>
             <div className={'article__tags'}>
               <span className={'datetime'}>
@@ -141,7 +141,7 @@ export const query = graphql`
       title
       relationships {
         uid {
-          name
+          display_name
         }
         field_related_content {
           ... on node__article {
