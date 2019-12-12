@@ -19,6 +19,7 @@ class JeugdPage extends Component {
           <div className="grid-x grid-margin-x">
             <section className={'cell large-12 youth_teams__overview'}>
               <Link to="/jeugd/u15/" className={'btn btn--arrow'}>U15</Link>
+              <Link to="/jeugd/u13/" className={'btn btn--arrow'}>U13</Link>
               <Link to="/jeugd/u12/" className={'btn btn--arrow'}>U12</Link>
               <Link to="/jeugd/u11/" className={'btn btn--arrow'}>U11</Link>
               <Link to="/jeugd/u10/" className={'btn btn--arrow'}>U10</Link>
