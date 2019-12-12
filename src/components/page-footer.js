@@ -113,6 +113,16 @@ class PageFooter extends Component {
                       </a>
                     </td>
                   </tr>
+                  <tr>
+                    <th className="page-footer__contact-details__label">
+                      Privacy &amp; cookies
+                    </th>
+                    <td className="page-footer__contact-details__value">
+                      <a href="/privacy">
+                        Privacyverklaring
+                      </a>
+                    </td>
+                  </tr>
                 </tbody>
               </table>
             </div>
