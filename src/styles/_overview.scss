@@ -9,7 +9,11 @@
       margin-right: 0;
     }
 
-    &.btn + .btn {
+    &.btn {
+      margin-bottom: 1rem;
+    }
+
+    &.btn+.btn {
       margin-left: 0;
       margin-right: 1rem;
     }

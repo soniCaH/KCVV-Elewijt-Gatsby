@@ -64,7 +64,7 @@ class IndexPage extends Component {
                       />
                     )
                   default:
-                    return
+                    return '';
                 }
               })}
             </section>
