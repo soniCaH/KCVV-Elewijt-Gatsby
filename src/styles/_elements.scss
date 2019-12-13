@@ -104,3 +104,7 @@ body blockquote {
 .center {
     text-align: center;
 }
+
+.rich-link {
+    @include rich-link;
+}
