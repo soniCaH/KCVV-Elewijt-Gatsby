@@ -64,7 +64,7 @@ class IndexPage extends Component {
                       />
                     )
                   default:
-                    return '';
+                    return ''
                 }
               })}
             </section>
@@ -110,7 +110,7 @@ class IndexPage extends Component {
                     <PlayerFeatured player={featuredPlayer} />
                   </article>
                 )}
-                <article className={'medium-6 large-12 cell'}>
+                <article className={'medium-6 large-12 cell social'}>
                   <div className={'social-sidebar__wrapper'}>
                     <a
                       href="https://facebook.com/KCVVElewijt"
@@ -151,6 +151,33 @@ class IndexPage extends Component {
                         Volg ons op Instagram
                       </h5>
                     </a>
+                  </div>
+                </article>
+                <article className={'medium-6 large-12 cell card'}>
+                  <header className={'card__header'}>
+                    <h4>
+                      <i
+                        className={'fa fa-commenting-o'}
+                        aria-hidden="true"
+                      ></i>{' '}
+                      Website feedback
+                    </h4>
+                  </header>
+                  <div className={'card__content'}>
+                    <p>
+                      Na lang zwoegen is onze nieuwe website eíndelijk online
+                      geraakt! We zijn heel benieuwd naar jullie mening of
+                      feedback. Als jullie vinden dat er iets ontbreekt, of als
+                      je bepaalde fouten tegenkomt, zouden we het ten zeerste
+                      appreciëren als je ons even iets laat weten op{' '}
+                      <a
+                        href="mailto:website@kcvvelewijt.be"
+                        className={'rich-link'}
+                      >
+                        website@kcvvelewijt.be
+                      </a>
+                      !
+                    </p>
                   </div>
                 </article>
               </section>

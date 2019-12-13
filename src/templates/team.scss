@@ -138,6 +138,10 @@
         @include break(xlarge-up) {
             margin: 0 14%;
         }
+
+        a {
+            @include rich-link;
+        }
     }
 
     .tabs-content {
