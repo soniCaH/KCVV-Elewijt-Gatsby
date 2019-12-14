@@ -38,12 +38,16 @@ class Layout extends Component {
           .indexOf(window.location.pathname) == 0 &&
         window.location.hash
       ) {
-        const url =$(this).attr('href');
-        const hash = url.substring(url.indexOf('#'));
+        const url = $(this).attr('href')
+        const hash = url.substring(url.indexOf('#'))
 
         $(`.team-sub_navigation a[href="${hash}"]`).click()
       }
     })
+
+    if (window.location.hash) {
+      $(`.team-sub_navigation a[href="${window.location.hash}"]`).click()
+    }
   }
 }
 
