@@ -46,6 +46,11 @@ const getClosest = (elem, selector) => {
  * Render the menu items with proper <Link>'s.
  */
 class MenuItems extends Component {
+  constructor(props) {
+    super(props);
+    this.teamsClick = this.teamsClick.bind(this)
+  }
+
   componentDidMount() {
     const activeLinks = document.querySelectorAll('.active')
     let parent = null
@@ -56,6 +61,10 @@ class MenuItems extends Component {
         parent.classList.add('is-active')
       }
     })
+  }
+
+  teamsClick(e) {
+    console.log(e);
   }
 
   render() {
@@ -90,7 +99,6 @@ class MenuItems extends Component {
                 to="/team/a-ploeg#team-info"
                 activeClassName="active"
                 partiallyActive={true}
-                onClick={"$('.team-sub_navigation a[href=#team-info]').click()"}
               >
                 Info
               </Link>
@@ -98,7 +106,6 @@ class MenuItems extends Component {
                 to="/team/a-ploeg#team-lineup"
                 activeClassName="active"
                 partiallyActive={true}
-                onClick={"$('.team-sub_navigation a[href=#team-lineup]').click()"}
               >
                 Spelers &amp; Staff
               </Link>
@@ -106,7 +113,6 @@ class MenuItems extends Component {
                 to="/team/a-ploeg#team-matches"
                 activeClassName="active"
                 partiallyActive={true}
-                onClick={"$('.team-sub_navigation a[href=#team-matches]').click()"}
               >
                 Wedstrijden
               </Link>
@@ -116,7 +122,6 @@ class MenuItems extends Component {
                 to="/team/a-ploeg#team-ranking"
                 activeClassName="active"
                 partiallyActive={true}
-                onClick={"$('.team-sub_navigation a[href=#team-ranking]').click()"}
               >
                 Stand
               </Link>
@@ -137,7 +142,6 @@ class MenuItems extends Component {
                 to="/team/b-ploeg#team-info"
                 activeClassName="active"
                 partiallyActive={true}
-                onClick={"$('.team-sub_navigation a[href=#team-info]').click()"}
               >
                 Info
               </Link>
@@ -145,7 +149,6 @@ class MenuItems extends Component {
                 to="/team/b-ploeg#team-lineup"
                 activeClassName="active"
                 partiallyActive={true}
-                onClick={"$('.team-sub_navigation a[href=#team-lineup]').click()"}
               >
                 Spelers &amp; Staff
               </Link>
@@ -153,7 +156,6 @@ class MenuItems extends Component {
                 to="/team/b-ploeg#team-matches"
                 activeClassName="active"
                 partiallyActive={true}
-                onClick={"$('.team-sub_navigation a[href=#team-matches]').click()"}
               >
                 Wedstrijden
               </Link>
@@ -163,7 +165,6 @@ class MenuItems extends Component {
                 to="/team/b-ploeg#team-ranking"
                 activeClassName="active"
                 partiallyActive={true}
-                onClick={"$('.team-sub_navigation a[href=#team-ranking]').click()"}
               >
                 Stand
               </Link>
