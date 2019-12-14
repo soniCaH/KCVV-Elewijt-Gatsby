@@ -25,7 +25,7 @@ class MiniRanking extends Component {
               rank && (
                 <tr key={i}>
                   <td>{rank.position}</td>
-                  <td className={rank.team.includes("Elewijt") && 'team-ranking__winner'}>{rank.team}</td>
+                  <td className={rank.team.includes("Elewijt") ? 'team-ranking__winner' : undefined}>{rank.team}</td>
                   <td>{rank.points}</td>
                 </tr>
               )
