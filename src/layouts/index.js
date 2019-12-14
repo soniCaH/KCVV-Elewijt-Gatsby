@@ -30,6 +30,20 @@ class Layout extends Component {
     // eslint-disable-next-line
     const foundation = require('foundation-sites')
     $(document).foundation()
+
+    $('.main-nav a').on('click', function() {
+      if (
+        $(this)
+          .attr('href')
+          .indexOf(window.location.pathname) == 0 &&
+        window.location.hash
+      ) {
+        const url =$(this).attr('href');
+        const hash = url.substring(url.indexOf('#'));
+
+        $(`.team-sub_navigation a[href="${hash}"]`).click()
+      }
+    })
   }
 }
 

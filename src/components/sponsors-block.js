@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { graphql, StaticQuery } from 'gatsby'
+import { graphql, StaticQuery, Link } from 'gatsby'
 
 import Sponsor from './sponsor'
 
@@ -21,6 +21,7 @@ class SponsorsBlock extends Component {
             />
           )
         })}
+        <Link to="/sponsors" className={'read-more'}>Alle sponsors &raquo;</Link>
       </>
     )
   }

@@ -17,7 +17,14 @@ class IndexPage extends Component {
     const data = this.props.data
     let articleCount = 0
 
-    const { featuredPlayer = null } = data
+    const { featuredPosts, kcvvTv, featuredPlayer = null } = data
+    const posts = [...featuredPosts.edges, ...kcvvTv.edges].sort((a, b) =>
+      a.node.timestamp < b.node.timestamp
+        ? 1
+        : b.node.timestamp < a.node.timestamp
+        ? -1
+        : 0
+    )
 
     return (
       <Layout>
@@ -28,19 +35,37 @@ class IndexPage extends Component {
             <section className="cell large-8 news_overview__wrapper">
               <UpcomingEvent />
 
-              {data.featuredPosts.edges.map(({ node }, i) => {
-                // Keep track of articleCount to properly place/align.
-                // Featured articles span 2 columns.
-                node.field_featured && (articleCount = articleCount + 2)
-                !node.field_featured && articleCount++
-                return (
-                  <>
-                    {node.field_featured && <NewsItemFeatured node={node} />}
-                    {!node.field_featured && (
-                      <NewsItemCardRatio node={node} teaser={true} />
-                    )}
-                  </>
-                )
+              {posts.map(({ node }, i) => {
+                switch (node.internal.type) {
+                  case 'node__article':
+                    node.field_featured && (articleCount = articleCount + 2)
+                    !node.field_featured && articleCount++
+                    return (
+                      <>
+                        {node.field_featured && (
+                          <NewsItemFeatured node={node} />
+                        )}
+                        {!node.field_featured && (
+                          <NewsItemCardRatio node={node} teaser={true} />
+                        )}
+                      </>
+                    )
+                  case 'node__kcvv_tv':
+                    articleCount = articleCount + 2
+                    return (
+                      <CardImage
+                        title={node.title}
+                        localFile={
+                          node.relationships.field_media_article_image
+                            .relationships.field_media_image.localFile
+                        }
+                        link={node.field_website.uri}
+                        metadata={false}
+                      />
+                    )
+                  default:
+                    return ''
+                }
               })}
             </section>
             <aside className="cell large-4">
@@ -85,12 +110,13 @@ class IndexPage extends Component {
                     <PlayerFeatured player={featuredPlayer} />
                   </article>
                 )}
-                <article className={'medium-6 large-12 cell'}>
+                <article className={'medium-6 large-12 cell social'}>
                   <div className={'social-sidebar__wrapper'}>
                     <a
                       href="https://facebook.com/KCVVElewijt"
                       class="btn-social-counter btn-social-counter--fb"
                       target="_blank"
+                      rel="noopener noreferrer"
                     >
                       <div class="btn-social-counter__icon">
                         <i class="fa fa-facebook"></i>
@@ -103,6 +129,7 @@ class IndexPage extends Component {
                       href="https://twitter.com/kcvve"
                       class="btn-social-counter btn-social-counter--twitter"
                       target="_blank"
+                      rel="noopener noreferrer"
                     >
                       <div class="btn-social-counter__icon">
                         <i class="fa fa-twitter"></i>
@@ -110,12 +137,12 @@ class IndexPage extends Component {
                       <h5 class="btn-social-counter__title">
                         Volg ons op Twitter
                       </h5>
-
                     </a>
                     <a
                       href="http://www.instagram.com/kcvve"
                       class="btn-social-counter btn-social-counter--instagram"
                       target="_blank"
+                      rel="noopener noreferrer"
                     >
                       <div class="btn-social-counter__icon">
                         <i class="fa fa-instagram"></i>
@@ -124,6 +151,33 @@ class IndexPage extends Component {
                         Volg ons op Instagram
                       </h5>
                     </a>
+                  </div>
+                </article>
+                <article className={'medium-6 large-12 cell card'}>
+                  <header className={'card__header'}>
+                    <h4>
+                      <i
+                        className={'fa fa-commenting-o'}
+                        aria-hidden="true"
+                      ></i>{' '}
+                      Website feedback
+                    </h4>
+                  </header>
+                  <div className={'card__content'}>
+                    <p>
+                      Na lang zwoegen is onze nieuwe website eíndelijk online
+                      geraakt! We zijn heel benieuwd naar jullie mening of
+                      feedback. Als jullie vinden dat er iets ontbreekt, of als
+                      je bepaalde fouten tegenkomt, zouden we het ten zeerste
+                      appreciëren als je ons even iets laat weten op{' '}
+                      <a
+                        href="mailto:website@kcvvelewijt.be"
+                        className={'rich-link'}
+                      >
+                        website@kcvvelewijt.be
+                      </a>
+                      !
+                    </p>
                   </div>
                 </article>
               </section>
@@ -166,6 +220,7 @@ export const pageQuery = graphql`
             alias
           }
           created(formatString: "D/M/YYYY")
+          timestamp: created(formatString: "x")
           title
           promote
           status
@@ -187,6 +242,9 @@ export const pageQuery = graphql`
               }
             }
           }
+          internal {
+            type
+          }
         }
       }
     }
@@ -205,24 +263,48 @@ export const pageQuery = graphql`
         }
       }
     }
-    # featuredPlayer: nodePlayer(field_firstname: { eq: "Nick" }) {
-    #   field_firstname
-    #   field_lastname
-    #   field_shirtnumber
-    #   field_stats_games
-    #   field_position
-    #   field_stats_cleansheets
-    #   field_stats_goals
-    #   field_stats_cards_yellow
-    #   field_stats_cards_red
-    #   relationships {
-    #     field_image {
-    #       localFile {
-    #         url
-    #       }
-    #     }
-    #   }
-    # }
+    kcvvTv: allNodeKcvvTv(
+      filter: { status: { eq: true }, promote: { eq: true } }
+      sort: { fields: created, order: DESC }
+      limit: 5
+    ) {
+      edges {
+        node {
+          id
+          title
+          timestamp: created(formatString: "x")
+          relationships {
+            field_media_article_image {
+              ...ArticleImage
+            }
+          }
+          field_website {
+            uri
+          }
+          internal {
+            type
+          }
+        }
+      }
+    }
+    featuredPlayer: nodePlayer(field_firstname: { eq: "Dautzen" }) {
+      field_firstname
+      field_lastname
+      field_shirtnumber
+      field_stats_games
+      field_position
+      field_stats_cleansheets
+      field_stats_goals
+      field_stats_cards_yellow
+      field_stats_cards_red
+      relationships {
+        field_image {
+          localFile {
+            url
+          }
+        }
+      }
+    }
   }
 `
 

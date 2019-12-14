@@ -72,7 +72,7 @@ class PageFooter extends Component {
                   <tr>
                     <th className="page-footer__contact-details__label">GC</th>
                     <td className="page-footer__contact-details__value">
-                      <a href="mailto:gc@kcvvelewijt.be">John De Ron</a>
+                      <a href="mailto:gc@kcvvelewijt.be" className={'rich-link'}>John De Ron</a>
                     </td>
                   </tr>
                   <tr>
@@ -80,7 +80,7 @@ class PageFooter extends Component {
                       Algemeen contact
                     </th>
                     <td className="page-footer__contact-details__value">
-                      <a href="mailto:info@kcvvelewijt.be">
+                      <a href="mailto:info@kcvvelewijt.be" className={'rich-link'}>
                         info@kcvvelewijt.be
                       </a>
                     </td>
@@ -90,7 +90,7 @@ class PageFooter extends Component {
                       Jeugdwerking
                     </th>
                     <td className="page-footer__contact-details__value">
-                      <a href="mailto:jeugd@kcvvelewijt.be">
+                      <a href="mailto:jeugd@kcvvelewijt.be" className={'rich-link'}>
                         jeugd@kcvvelewijt.be
                       </a>
                     </td>
@@ -100,7 +100,7 @@ class PageFooter extends Component {
                       Verhuur kantine
                     </th>
                     <td className="page-footer__contact-details__value">
-                      <a href="mailto:verhuur@kcvvelewijt.be">Ann Walgraef</a>
+                      <a href="mailto:verhuur@kcvvelewijt.be" className={'rich-link'}>Ann Walgraef</a>
                     </td>
                   </tr>
                   <tr>
@@ -108,8 +108,18 @@ class PageFooter extends Component {
                       Website
                     </th>
                     <td className="page-footer__contact-details__value">
-                      <a href="mailto:kevin@kcvvelewijt.be">
+                      <a href="mailto:kevin@kcvvelewijt.be" className={'rich-link'}>
                         Kevin Van Ransbeeck
+                      </a>
+                    </td>
+                  </tr>
+                  <tr>
+                    <th className="page-footer__contact-details__label">
+                      Privacy &amp; cookies
+                    </th>
+                    <td className="page-footer__contact-details__value">
+                      <a href="/privacy" className={'rich-link'}>
+                        Privacyverklaring
                       </a>
                     </td>
                   </tr>

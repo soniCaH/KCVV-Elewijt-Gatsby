@@ -26,8 +26,9 @@ export default ({ data }) => {
         fluid={{
           ...post.relationships.field_media_article_image.relationships
             .field_media_image.localFile.childImageSharp.fluid,
-          aspectRatio: aspectRatio > 1 ? 2.5 / 1 : 1.5 / 1,
+          aspectRatio: aspectRatio > 1 ? 1.7 / 1 : 2 / 1,
         }}
+        alt={post.title}
       />
     )
   }

@@ -119,6 +119,10 @@
 
     &__body {
 
+        a {
+            @include rich-link;
+        }
+
         div[data-entity-type="media"] {
             img {
                 height: auto;
@@ -165,31 +169,36 @@
             text-align: center;
             width: 1.5em;
 
-            &--node__article, &--node--article {
+            &--node__article,
+            &--node--article {
                 &::before {
                     content: "\F1EA";
                 }
             }
 
-            &--node__player, &--node--player {
+            &--node__player,
+            &--node--player {
                 &::before {
                     content: "\F2C0";
                 }
             }
 
-            &--node__staff, &--node--staff {
+            &--node__staff,
+            &--node--staff {
                 &::before {
                     content: "\F0B1";
                 }
             }
 
-            &--node__team, &--node--team {
+            &--node__team,
+            &--node--team {
                 &::before {
                     content: "\F132";
                 }
             }
 
-            &--node__event, &--node--event {
+            &--node__event,
+            &--node--event {
                 &::before {
                     content: "\F073";
                 }

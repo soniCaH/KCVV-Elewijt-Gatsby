@@ -95,6 +95,10 @@
 
     &__body {
 
+        a {
+            @include rich-link;
+        }
+
         div[data-entity-type="media"] {
             img {
                 height: auto;

@@ -25,6 +25,7 @@ export class Card extends Component {
           ...localFile.childImageSharp.fluid,
           aspectRatio: 3 / 2,
         }}
+        alt={title}
       />
     )
 
@@ -97,6 +98,7 @@ export class CardImage extends Component {
           ...localFile.childImageSharp.fluid,
           aspectRatio: 2 / 1,
         }}
+        alt={title}
       />
     )
 
@@ -179,6 +181,7 @@ export class CardVertical extends Component {
           ...localFile.childImageSharp.fluid,
           aspectRatio: 6 / 8,
         }}
+        alt={title}
       />
     )
 
