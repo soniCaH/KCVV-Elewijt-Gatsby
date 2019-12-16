@@ -13,7 +13,7 @@ class JeugdPage extends Component {
 
     return (
       <Layout>
-        <SEO lang="nl-BE" title="Er is maar één plezante compagnie" />
+        <SEO lang="nl-BE" title="Jeugd" />
 
         <section className="grid-container site-content">
           <div className="grid-x grid-margin-x">
