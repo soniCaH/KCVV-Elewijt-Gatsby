@@ -21,6 +21,7 @@ export default ({ data }) => {
       post.relationships.field_media_article_image.relationships
         .field_media_image.localFile.childImageSharp.fluid
 
+    // Create a fluid image based on its original aspectRatio.
     image = (
       <Img
         fluid={{
