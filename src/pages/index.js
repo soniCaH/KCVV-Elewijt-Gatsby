@@ -304,6 +304,9 @@ export const pageQuery = graphql`
           }
         }
       }
+      path {
+        alias
+      }
     }
   }
 `
