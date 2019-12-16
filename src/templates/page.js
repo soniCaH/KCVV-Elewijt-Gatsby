@@ -32,6 +32,8 @@ export default ({ data }) => {
       />
     )
   }
+
+  // Convert links to paths on our API, to absolute URL's.
   const cleanBody = post.body.processed.replaceAll(
     '/sites/default/',
     `${process.env.GATSBY_API_DOMAIN}/sites/default/`
