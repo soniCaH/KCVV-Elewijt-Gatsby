@@ -41,7 +41,7 @@ const NewsOverviewPage = ({ pageContext, data }) => {
                 Alles
               </Link>
               {categoryTags.edges.map(({ node, i }) => (
-                <Link to={node.path.alias} className={'btn btn--small'}>
+                <Link to={node.path.alias} className={'btn btn--small'} key={i}>
                   {node.name}
                 </Link>
               ))}

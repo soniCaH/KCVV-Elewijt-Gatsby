@@ -12,7 +12,7 @@ class UltrasPage extends Component {
     const { sjr, champ } = this.props.data
     return (
       <Layout>
-        <SEO lang="nl-BE" title="Er is maar één plezante compagnie" />
+        <SEO lang="nl-BE" title="KCVV Ultra's" />
 
         <HeaderBgTitle title="KCVV" highlight="ultra's" classes={'ultras-page'} />
 

@@ -9,7 +9,7 @@ class SearchPage extends Component {
   render() {
     return (
       <Layout>
-        <SEO lang="nl-BE" title="Zoeken | Er is maar één plezante compagnie" />
+        <SEO lang="nl-BE" title="Zoeken" />
 
         <div className={'limited-width_wrapper'}>
           <h1>Zoeken</h1>

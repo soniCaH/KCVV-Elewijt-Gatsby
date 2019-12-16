@@ -90,7 +90,7 @@ class PlayerFeatured extends Component {
             </section>
           </aside>
           <footer className={'player--featured__footer'}>
-            <Link to={'/player/nick-de-letter'}>Meer over Nick &raquo;</Link>
+            <Link to={player.path.alias}>Meer over {player.field_firstname} &raquo;</Link>
           </footer>
         </section>
       </article>

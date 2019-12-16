@@ -9,7 +9,7 @@ class ContactPage extends Component {
   render() {
     return (
       <Layout>
-        <SEO lang="nl-BE" title="Er is maar één plezante compagnie" />
+        <SEO lang="nl-BE" title="Contact" />
 
 
         <HeaderBgTitle
