@@ -43,10 +43,10 @@ class IndexPage extends Component {
                     return (
                       <>
                         {node.field_featured && (
-                          <NewsItemFeatured node={node} />
+                          <NewsItemFeatured node={node} key={i} />
                         )}
                         {!node.field_featured && (
-                          <NewsItemCardRatio node={node} teaser={true} />
+                          <NewsItemCardRatio node={node} teaser={true} key={i} />
                         )}
                       </>
                     )
@@ -61,6 +61,7 @@ class IndexPage extends Component {
                         }
                         link={node.field_website.uri}
                         metadata={false}
+                        key={i}
                       />
                     )
                   default:
@@ -114,40 +115,40 @@ class IndexPage extends Component {
                   <div className={'social-sidebar__wrapper'}>
                     <a
                       href="https://facebook.com/KCVVElewijt"
-                      class="btn-social-counter btn-social-counter--fb"
+                      className="btn-social-counter btn-social-counter--fb"
                       target="_blank"
                       rel="noopener noreferrer"
                     >
-                      <div class="btn-social-counter__icon">
-                        <i class="fa fa-facebook"></i>
+                      <div className="btn-social-counter__icon">
+                        <i className="fa fa-facebook"></i>
                       </div>
-                      <h5 class="btn-social-counter__title">
+                      <h5 className="btn-social-counter__title">
                         Volg onze Facebook pagina
                       </h5>
                     </a>
                     <a
                       href="https://twitter.com/kcvve"
-                      class="btn-social-counter btn-social-counter--twitter"
+                      className="btn-social-counter btn-social-counter--twitter"
                       target="_blank"
                       rel="noopener noreferrer"
                     >
-                      <div class="btn-social-counter__icon">
-                        <i class="fa fa-twitter"></i>
+                      <div className="btn-social-counter__icon">
+                        <i className="fa fa-twitter"></i>
                       </div>
-                      <h5 class="btn-social-counter__title">
+                      <h5 className="btn-social-counter__title">
                         Volg ons op Twitter
                       </h5>
                     </a>
                     <a
                       href="http://www.instagram.com/kcvve"
-                      class="btn-social-counter btn-social-counter--instagram"
+                      className="btn-social-counter btn-social-counter--instagram"
                       target="_blank"
                       rel="noopener noreferrer"
                     >
-                      <div class="btn-social-counter__icon">
-                        <i class="fa fa-instagram"></i>
+                      <div className="btn-social-counter__icon">
+                        <i className="fa fa-instagram"></i>
                       </div>
-                      <h5 class="btn-social-counter__title">
+                      <h5 className="btn-social-counter__title">
                         Volg ons op Instagram
                       </h5>
                     </a>
@@ -303,6 +304,9 @@ export const pageQuery = graphql`
             url
           }
         }
+      }
+      path {
+        alias
       }
     }
   }

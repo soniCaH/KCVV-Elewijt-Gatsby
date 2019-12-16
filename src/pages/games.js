@@ -178,7 +178,7 @@ class GamesPage extends Component {
     }
     return (
       <Layout>
-        <SEO lang="nl-BE" title="Er is maar één plezante compagnie" />
+        <SEO lang="nl-BE" title="Matchoverzicht voorbereiding" />
         <div className={'games__template'}>
           <MatchWithLogo match={wedstrijd1} />
           <MatchWithLogo match={wedstrijd2} />

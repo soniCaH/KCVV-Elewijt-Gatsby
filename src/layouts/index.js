@@ -35,7 +35,7 @@ class Layout extends Component {
       if (
         $(this)
           .attr('href')
-          .indexOf(window.location.pathname) == 0 &&
+          .indexOf(window.location.pathname) === 0 &&
         window.location.hash
       ) {
         const url = $(this).attr('href')

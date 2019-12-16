@@ -9,7 +9,7 @@ class IndexPage extends Component {
   render() {
     return (
       <Layout>
-        <SEO lang="nl-BE" title="Er is maar één plezante compagnie" />
+        <SEO lang="nl-BE" title="De Club" />
 
         <div className={'limited-width_wrapper'}>
           <header>

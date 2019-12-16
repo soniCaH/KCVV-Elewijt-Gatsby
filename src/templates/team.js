@@ -9,22 +9,27 @@ import Ranking from '../components/ranking'
 import TeamCalendarMatches from '../components/team-calendar-matches'
 import TeamCalendarMetaMatches from '../components/team-calendar-meta-matches'
 
+// Generic helper function to group an array by a property.
 const groupBy = key => array =>
   array.reduce((objectsByKeyValue, obj) => {
     const value = obj[key]
     objectsByKeyValue[value] = (objectsByKeyValue[value] || []).concat(obj)
     return objectsByKeyValue
   }, {})
+
+// Specific implementation of our groupBy function, to group by a property "field_position".
 const groupByPosition = groupBy('field_position')
 
 export default ({ data }) => {
   const node = data.nodeTeam
 
+  // If we have players, group them by their position.
   const playersByPosition =
     node.relationships.field_players.length > 0 &&
     groupByPosition(node.relationships.field_players)
-  const picture = node.relationships.field_media_article_image
 
+  const picture = node.relationships.field_media_article_image
+  // Create a fluid/responsive team image instance.
   const teamPicture = picture && (
     <Img
       fluid={
@@ -35,6 +40,9 @@ export default ({ data }) => {
     />
   )
 
+  // Helper variable so we don't have to do the check over and over again.
+  const hasDivision = node.field_fb_id || node.field_fb_id_2
+
   return (
     <Layout>
       <SEO lang="nl-BE" title={node.title} />
@@ -42,9 +50,11 @@ export default ({ data }) => {
       <article className={'team-detail'}>
         <header className={'team-detail__header'}>
           <h1 className={'team-detail__name'}>
+            {/* > GEWESTELIJKE U13 K */}
             <span className={'team-detail__name-division'}>
               {node.field_division_full}
             </span>
+            {/* > The A-team */}
             <span className={'team-detail__name-tagline'}>
               {node.field_tagline}
             </span>
@@ -53,7 +63,10 @@ export default ({ data }) => {
           <div className={'bg-green-mask'}>
             <div className={'bg-white-end'} />
           </div>
-          {(node.field_fb_id || node.field_fb_id_2) && (
+
+          {/* > 2A, 2G9K... */}
+          {/* FB ID if only one of either is set, FB ID 2 if it has a value (will only be published around new year's, so it's always the most relevant as soon as it's known) */}
+          {hasDivision && (
             <div className={'team-detail__division-number'} aria-hidden="true">
               {node.field_fb_id_2 ? node.field_fb_id_2 : node.field_fb_id}
             </div>
@@ -62,46 +75,47 @@ export default ({ data }) => {
 
         <div className={'team-break'}></div>
 
-        {(playersByPosition || node.field_fb_id || node.field_fb_id_2) && (
-          <>
-            <section className={'team-sub_navigation'}>
-              <ul
-                className={'tabs team-sub_navigation__tabs '}
-                data-tabs
-                data-deep-link="true"
-                data-update-history="true"
-                data-deep-link-smudge="true"
-                data-deep-link-smudge-delay="500"
-                id="team-subnavigation_tabs"
-              >
-                <li className="tabs-title is-active">
-                  <a href="#team-info">Info</a>
+        {/* Only show tab links if there are either players assigned to the team, or the team has an (active) division, so we can show rankings/matches */}
+        {(playersByPosition || hasDivision) && (
+          <section className={'team-sub_navigation'}>
+            {/* Foundation tabs structure */}
+            <ul
+              className={'tabs team-sub_navigation__tabs '}
+              data-tabs
+              data-deep-link="true"
+              data-update-history="true"
+              data-deep-link-smudge="true"
+              data-deep-link-smudge-delay="500"
+              id="team-subnavigation_tabs"
+            >
+              <li className="tabs-title is-active">
+                <a href="#team-info">Info</a>
+              </li>
+              {/* Youth teams don't have lineups, so we don't show the tab link. */}
+              {playersByPosition && (
+                <li className="tabs-title">
+                  <a href="#team-lineup">Lineup</a>
                 </li>
-                {playersByPosition && (
-                  <li className="tabs-title">
-                    <a href="#team-lineup">Lineup</a>
+              )}
+              {hasDivision && (
+                <>
+                  <li className={'tabs-title'}>
+                    <a data-tabs-target="team-matches" href="#team-matches">
+                      Wedstrijden
+                    </a>
                   </li>
-                )}
-                {(node.field_fb_id || node.field_fb_id_2) && (
-                  <>
-                    {' '}
-                    <li className={'tabs-title'}>
-                      <a data-tabs-target="team-matches" href="#team-matches">
-                        Wedstrijden
-                      </a>
-                    </li>
-                    <li className={'tabs-title'}>
-                      <a data-tabs-target="team-ranking" href="#team-ranking">
-                        Stand
-                      </a>
-                    </li>
-                  </>
-                )}
-              </ul>
-            </section>
-          </>
+                  <li className={'tabs-title'}>
+                    <a data-tabs-target="team-ranking" href="#team-ranking">
+                      Stand
+                    </a>
+                  </li>
+                </>
+              )}
+            </ul>
+          </section>
         )}
 
+        {/* Foundation content of the tabs. */}
         <div
           className={'tabs-content'}
           data-tabs-content="team-subnavigation_tabs"
@@ -117,6 +131,7 @@ export default ({ data }) => {
               />
             )}
           </div>
+          {/* If our page displays staff only (e.g. the "board" page), we change the title. */}
           {node.relationships.field_staff && !playersByPosition && (
             <main
               className={'team-detail__lineup team-detail__lineup--staff-only'}
@@ -127,7 +142,7 @@ export default ({ data }) => {
               />
             </main>
           )}
-          {playersByPosition && node.relationships.field_staff && (
+          {playersByPosition && (
             <div className={'tabs-panel'} id="team-lineup">
               <main className={'team-detail__lineup'}>
                 {node.relationships.field_staff && (
@@ -163,17 +178,43 @@ export default ({ data }) => {
               </main>
             </div>
           )}
-          {(node.field_fb_id || node.field_fb_id_2) && (
+          {hasDivision && (
             <>
               <div className={'tabs-panel'} id="team-matches">
-                {node.field_fb_id && !node.field_fb_id_2 && (
-                  <div className={'team-calendar-matches__wrapper'}>
-                    <TeamCalendarMetaMatches
+                {node.field_fb_id_2 && (
+                  <div className={'team-ranking__wrapper'}>
+                    {node.field_fb_id && <h2>Wedstrijden na nieuwjaar</h2>}
+
+                    {/* Metamatches is the big banner on top with the previous and next match highlighted. */}
+                    {!node.field_fb_id && (
+                      <TeamCalendarMetaMatches
+                        season="1920"
+                        region="bra"
+                        division={node.field_fb_id_2}
+                        regnumber="00055"
+                      />
+                    )}
+
+                    <TeamCalendarMatches
                       season="1920"
                       region="bra"
-                      division={node.field_fb_id}
-                      regnumber="00055"
+                      division={node.field_fb_id_2}
                     />
+                  </div>
+                )}
+                {node.field_fb_id && (
+                  <div className={'team-ranking__wrapper'}>
+                    {node.field_fb_id_2 && <h2>Wedstrijden voor nieuwjaar</h2>}
+
+                    {/* Metamatches is the big banner on top with the previous and next match highlighted. */}
+                    {!node.field_fb_id_2 && (
+                      <TeamCalendarMetaMatches
+                        season="1920"
+                        region="bra"
+                        division={node.field_fb_id}
+                        regnumber="00055"
+                      />
+                    )}
 
                     <TeamCalendarMatches
                       season="1920"
@@ -182,36 +223,11 @@ export default ({ data }) => {
                     />
                   </div>
                 )}
-                {node.field_fb_id_2 && (
-                  <div className={'team-calendar-matches__wrapper'}>
-                    <h2>Na nieuwjaar</h2>
-                    <TeamCalendarMetaMatches
-                      season="1920"
-                      region="bra"
-                      division={node.field_fb_id_2}
-                      regnumber="00055"
-                    /><TeamCalendarMatches
-                          season="1920"
-                          region="bra"
-                          division={node.field_fb_id_2}
-                        />
-                    {node.field_fb_id && (
-                      <>
-                        <h2>Wedstrijden voor nieuwjaar</h2>
-                        <TeamCalendarMatches
-                          season="1920"
-                          region="bra"
-                          division={node.field_fb_id}
-                        />
-                      </>
-                    )}
-                  </div>
-                )}
               </div>
               <div className={'tabs-panel'} id="team-ranking">
                 {node.field_fb_id_2 && (
                   <div className={'team-ranking__wrapper'}>
-                    <h2>Na nieuwjaar</h2>
+                    {node.field_fb_id && <h2>Ranking na nieuwjaar</h2>}
                     <Ranking
                       season="1920"
                       region="bra"
