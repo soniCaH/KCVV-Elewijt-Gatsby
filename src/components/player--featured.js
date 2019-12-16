@@ -72,7 +72,11 @@ class PlayerFeatured extends Component {
                 </div>
               </section>
             )}
-            <section className={'player--featured__statistics-item player--featured__statistics-item--cards'}>
+            <section
+              className={
+                'player--featured__statistics-item player--featured__statistics-item--cards'
+              }
+            >
               <div className={'player--featured__statistics-item__number'}>
                 {player.field_stats_cards_yellow || '0'}
               </div>
@@ -80,18 +84,26 @@ class PlayerFeatured extends Component {
                 <span className={'stats__card stats__card--yellow'}></span>
               </div>
             </section>
-            <section className={'player--featured__statistics-item player--featured__statistics-item--cards'}>
+            <section
+              className={
+                'player--featured__statistics-item player--featured__statistics-item--cards'
+              }
+            >
               <div className={'player--featured__statistics-item__number'}>
                 {player.field_stats_cards_red || '0'}
               </div>
               <div className={'player--featured__statistics-item__label'}>
-              <span className={'stats__card stats__card--red'}></span>
+                <span className={'stats__card stats__card--red'}></span>
               </div>
             </section>
           </aside>
-          <footer className={'player--featured__footer'}>
-            <Link to={player.path.alias}>Meer over {player.field_firstname} &raquo;</Link>
-          </footer>
+          {player.path.alias && (
+            <footer className={'player--featured__footer'}>
+              <Link to={player.path.alias}>
+                Meer over {player.field_firstname} &raquo;
+              </Link>
+            </footer>
+          )}
         </section>
       </article>
     )
