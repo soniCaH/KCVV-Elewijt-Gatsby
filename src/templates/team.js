@@ -53,7 +53,7 @@ export default ({ data }) => {
           <div className={'bg-green-mask'}>
             <div className={'bg-white-end'} />
           </div>
-          {node.field_fb_id && (
+          {(node.field_fb_id || node.field_fb_id_2) && (
             <div className={'team-detail__division-number'} aria-hidden="true">
               {node.field_fb_id_2 ? node.field_fb_id_2 : node.field_fb_id}
             </div>
@@ -62,7 +62,7 @@ export default ({ data }) => {
 
         <div className={'team-break'}></div>
 
-        {(playersByPosition || node.field_fb_id) && (
+        {(playersByPosition || node.field_fb_id || node.field_fb_id_2) && (
           <>
             <section className={'team-sub_navigation'}>
               <ul
@@ -82,7 +82,7 @@ export default ({ data }) => {
                     <a href="#team-lineup">Lineup</a>
                   </li>
                 )}
-                {node.field_fb_id && (
+                {(node.field_fb_id || node.field_fb_id_2) && (
                   <>
                     {' '}
                     <li className={'tabs-title'}>
@@ -190,7 +190,11 @@ export default ({ data }) => {
                       region="bra"
                       division={node.field_fb_id_2}
                       regnumber="00055"
-                    />
+                    /><TeamCalendarMatches
+                          season="1920"
+                          region="bra"
+                          division={node.field_fb_id_2}
+                        />
                     {node.field_fb_id && (
                       <>
                         <h2>Wedstrijden voor nieuwjaar</h2>
