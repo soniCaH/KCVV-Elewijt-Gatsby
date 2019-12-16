@@ -97,7 +97,7 @@ class PlayerFeatured extends Component {
               </div>
             </section>
           </aside>
-          {player.path.alias && (
+          {player.path && (
             <footer className={'player--featured__footer'}>
               <Link to={player.path.alias}>
                 Meer over {player.field_firstname} &raquo;
