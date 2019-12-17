@@ -91,3 +91,28 @@ export class NewsItemCardRatio extends Component {
     }
   }
 }
+
+
+/**
+ * Render a single KCVV TV item in default card layout.
+ */
+export class KcvvTvCard extends Component {
+  render() {
+    const { node, teaser = false } = this.props
+    const localFile =
+      node.relationships.field_media_article_image.relationships
+        .field_media_image.localFile
+        const summary = `${node.title}<br/><br/>Bekijk hier het wedstrijdverslag, interviews, nabespreking... en stem voor je man van de match!`;
+    return (
+      <Card
+        title={"KCVV TV"}
+        body={summary}
+        localFile={localFile}
+        link={node.field_website.uri}
+        metadata={true}
+        key={node.nid}
+        created={node.created}
+      />
+    )
+  }
+}
