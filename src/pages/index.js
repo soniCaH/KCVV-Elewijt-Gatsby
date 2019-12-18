@@ -288,7 +288,7 @@ export const pageQuery = graphql`
         }
       }
     }
-    featuredPlayer: nodePlayer(field_firstname: { eq: "Dautzen" }) {
+    featuredPlayer: nodePlayer(field_firstname: { eq: "Niels" }) {
       field_firstname
       field_lastname
       field_shirtnumber
