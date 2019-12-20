@@ -160,6 +160,7 @@
                         color: #FFF;
                         font-size: 0.85rem;
                     }
+
                     // @media (min-width: 1280px) {
                     //     font-size: 1rem;
                     // }
@@ -212,18 +213,32 @@
 
                 &--position {
                     color: var(--color-gray-blue);
-                    font-size: 1.875rem;
+                    // font-size: 1.875rem;
                     text-align: center;
 
                     display: block;
-                    margin-bottom: 1em;
                     grid-row: 1;
 
+                    .player-detail__data-item__label {
+                        display: block;
+                        font-size: 1rem;
+                    }
+
                     @media (min-width: 992px) {
+                        display: grid;
                         font-size: 1.5rem;
 
                         grid-column: 2;
                         margin-bottom: 0;
+
+                        .player-detail__data-item__data,
+                        .player-detail__data-item__label {
+                            margin-top: -.35rem
+                        }
+
+                        .player-detail__data-item__label {
+                            font-size: 0.75rem;
+                        }
                     }
                 }
 
@@ -246,6 +261,7 @@
                 @include rich-link;
             }
         }
+
         .bg-white-end {
             z-index: 10;
         }

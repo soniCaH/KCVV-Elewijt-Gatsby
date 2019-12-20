@@ -32,9 +32,19 @@ export const query = graphql`
       field_birth_date
       field_position_short
       relationships {
+        node__team {
+          title
+          path {
+            alias
+          }
+        }
         field_image {
           localFile {
-            url
+            childImageSharp {
+              fixed(height: 460) {
+                src
+              }
+            }
           }
         }
       }
