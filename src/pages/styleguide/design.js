@@ -316,6 +316,7 @@ class DesignPage extends Component {
                       <a
                         href="https://www.facebook.com/KCVVElewijt/posts/3498364080203945"
                         target="_blank"
+                        rel="noopener noreferrer"
                       >
                         Facebook
                       </a>
@@ -330,6 +331,7 @@ class DesignPage extends Component {
                       <a
                         href="https://www.facebook.com/KCVVElewijt/posts/3510448235662196"
                         target="_blank"
+                        rel="noopener noreferrer"
                       >
                         Facebook
                       </a>
@@ -344,6 +346,7 @@ class DesignPage extends Component {
                       <a
                         href="https://www.facebook.com/KCVVElewijt/posts/3519639191409767"
                         target="_blank"
+                        rel="noopener noreferrer"
                       >
                         Facebook
                       </a>
