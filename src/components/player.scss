@@ -1,5 +1,14 @@
 @import '../styles/mixins';
 
+@keyframes slideInBottom {
+    0% {
+      transform: translateY(10%);
+    }
+    100% {
+      transform: translateY(0);
+    }
+  }
+
 .player,
 .team {
     &-detail {
@@ -99,6 +108,8 @@
             background-repeat: no-repeat;
             text-align: center;
             z-index: 5;
+
+            animation: .35s ease-out 0s 1 slideInBottom;
 
             @media (min-width: 767px) {
                 top: 4rem;
@@ -212,18 +223,31 @@
 
                 &--position {
                     color: var(--color-gray-blue);
-                    font-size: 1.875rem;
+                    // font-size: 1.875rem;
                     text-align: center;
 
                     display: block;
-                    margin-bottom: 1em;
                     grid-row: 1;
 
+                    .player-detail__data-item__label {
+                        display: block;
+                        font-size: 1rem;
+                    }
+
                     @media (min-width: 992px) {
+                        display: grid;
                         font-size: 1.5rem;
 
                         grid-column: 2;
                         margin-bottom: 0;
+
+                        .player-detail__data-item__data, .player-detail__data-item__label {
+                            margin-top: -.35rem
+                        }
+
+                        .player-detail__data-item__label {
+                            font-size: 0.75rem;
+                        }
                     }
                 }
 
