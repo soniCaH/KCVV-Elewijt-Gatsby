@@ -40,9 +40,19 @@ export const query = graphql`
       field_stats_cards_yellow
       field_stats_cards_red
       relationships {
+        node__team {
+          title
+          path {
+            alias
+          }
+        }
         field_image {
           localFile {
-            url
+            childImageSharp {
+              fixed(height: 460) {
+                src
+              }
+            }
           }
         }
       }

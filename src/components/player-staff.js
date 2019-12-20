@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 
 import './player.scss'
+import { Link } from 'gatsby'
 
 // eslint-disable-next-line
 String.prototype.replaceAll = function(search, replacement) {
@@ -34,9 +35,13 @@ class PlayerDetail extends Component {
           </h1>
 
           <div className={'bg-green-mask'}>
-          <div
+            <div
               className={'player-detail__bg-avatar'}
-              style={player.relationships.field_image && { backgroundImage: `url(${player.relationships.field_image.localFile.url})` }}
+              style={
+                player.relationships.field_image && {
+                  backgroundImage: `url(${player.relationships.field_image.localFile.childImageSharp.fixed.src})`,
+                }
+              }
             />
             <div className={'bg-white-end'} />
           </div>
@@ -68,6 +73,13 @@ class PlayerDetail extends Component {
           >
             <span className={'player-detail__date-item__data'}>
               {player.field_position_staff || ''}
+            </span>
+            <span className={'player-detail__data-item__label'}>
+              {player.relationships.node__team && (
+                <Link to={player.relationships.node__team[0].path.alias}>
+                  {player.relationships.node__team[0].title}
+                </Link>
+              )}
             </span>
           </div>
           <div
