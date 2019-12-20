@@ -18,6 +18,7 @@ $responsive-card-table-label-bg: $light-gray;
 
   @media screen and (max-width: $responsive-card-table-stack-point) {
     thead {
+      border: none;
 
       tr {
         position: absolute;
