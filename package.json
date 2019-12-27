@@ -42,7 +42,7 @@
     "react-helmet": "^5.2.0",
     "react-masonry-responsive": "^2.1.2",
     "react-share": "^3.0.0",
-    "react-slick": "0.21.0",
+    "react-slick": "^0.25.0",
     "slick-carousel": "^1.8.1"
   },
   "keywords": [
