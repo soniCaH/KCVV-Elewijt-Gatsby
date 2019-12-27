@@ -467,13 +467,12 @@ class HistoryPage extends Component {
               <div class="timeline-content">
                 <p class="timeline-content-date">1991 - 2018</p>
                 <p>
-                  1Vanaf 1991-1992 werd besloten om beide Elewijtse ploegen te
+                  Vanaf 1991-1992 werd besloten om beide Elewijtse ploegen te
                   fuseren tot KCVV Elewijt; de ploeg ging verder in tweede
                   provinciale. Na twee degradaties in enkele jaren tijd moest
                   KCVV vanaf 1994-1995 aantreden in vierde provinciale.
                 </p>
                 <p>
-                  {' '}
                   KCVV Elewijt werd in 2001 tweede in de laagste provinciale
                   reeks en dwong zo de promotie naar derde provinciale af. Het
                   daaropvolgende seizoen werden ze laatste en degradeerden ze
