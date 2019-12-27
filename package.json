@@ -23,18 +23,18 @@
     "gatsby-plugin-sass": "^2.0.7",
     "gatsby-plugin-sharp": "^2.2.2",
     "gatsby-plugin-sitemap": "^2.2.22",
-    "gatsby-source-drupal": "^3.2.1",
+    "gatsby-source-drupal": "^3.3.13",
     "gatsby-source-filesystem": "^2.1.2",
-    "gatsby-transformer-sharp": "^2.2.1",
+    "gatsby-transformer-sharp": "^2.3.9",
     "global": "^4.4.0",
     "jquery": "^3.3.1",
     "js-search": "^1.4.3",
     "lodash": "^4.17.13",
     "modern-css-reset": "^1.0.4",
     "moment": "^2.24.0",
-    "moment-timezone": "^0.5.26",
-    "node-sass": "^4.11.0",
-    "preact": "^10.0.0-rc.3",
+    "moment-timezone": "^0.5.27",
+    "node-sass": "^4.13.0",
+    "preact": "^10.1.1",
     "prop-types": "^15.7.2",
     "react": "^16.6.3",
     "react-animate-on-scroll": "^2.1.5",
@@ -58,7 +58,7 @@
     "test": "echo \"Write tests! -> https://gatsby.app/unit-testing\""
   },
   "devDependencies": {
-    "prettier": "^1.15.3"
+    "prettier": "^1.19.1"
   },
   "repository": {
     "type": "git",
