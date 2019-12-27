@@ -5517,12 +5517,12 @@ gatsby-plugin-react-helmet@^3.0.2:
     "@babel/runtime" "^7.7.6"
 
 gatsby-plugin-sass@^2.0.7:
-  version "2.1.9"
-  resolved "https://registry.yarnpkg.com/gatsby-plugin-sass/-/gatsby-plugin-sass-2.1.9.tgz#095b733ef4155962ff06ac755311e3e643830581"
-  integrity sha512-HeK43EEV85OcibjxTIVQLEW2uLIyYJ9q87mQnTRj12AwtbFuQyv2XnYezEcqDmgxC/r9R4HQzJOBnUHEp3DZfA==
+  version "2.1.26"
+  resolved "https://registry.yarnpkg.com/gatsby-plugin-sass/-/gatsby-plugin-sass-2.1.26.tgz#46b56a1c0a7b424aa42d8f740eb293ba00b64f67"
+  integrity sha512-zunowxeYrtPIiMkgIHZLTNvwzSLJmBBSH+2EQEtyKgdOlB2tWcXp+/ifoWaYRCMykMGsTvvyn4kNIyl5bslBDw==
   dependencies:
-    "@babel/runtime" "^7.0.0"
-    sass-loader "^7.0.1"
+    "@babel/runtime" "^7.7.6"
+    sass-loader "^7.3.1"
 
 gatsby-plugin-sharp@^2.2.2:
   version "2.2.12"
@@ -10748,7 +10748,7 @@ sass-graph@^2.2.4:
     scss-tokenizer "^0.2.3"
     yargs "^7.0.0"
 
-sass-loader@^7.0.1:
+sass-loader@^7.3.1:
   version "7.3.1"
   resolved "https://registry.yarnpkg.com/sass-loader/-/sass-loader-7.3.1.tgz#a5bf68a04bcea1c13ff842d747150f7ab7d0d23f"
   integrity sha512-tuU7+zm0pTCynKYHpdqaPpe+MMTQ76I9TPZ7i4/5dZsigE350shQWe5EZNl5dBidM49TPET75tNqRbcsUZWeNA==
