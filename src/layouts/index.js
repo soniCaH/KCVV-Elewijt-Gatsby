@@ -31,6 +31,8 @@ class Layout extends Component {
     const foundation = require('foundation-sites')
     $(document).foundation()
 
+    $('html').addClass('js');
+
     $('.main-nav a').on('click', function() {
       if (
         $(this)
