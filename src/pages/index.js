@@ -7,7 +7,7 @@ import SEO from '../components/seo'
 import MetaMatches from '../components/meta-matches'
 import MatchesOverview from '../components/matches-overview'
 import MatchesSlider from '../components/matches-slider'
-import { NewsItemFeatured, NewsItemCardRatio } from '../components/news-item'
+import { NewsItemFeatured, NewsItemCardRatio, KcvvTvCard } from '../components/news-item'
 import { CardImage } from '../components/cards'
 import UpcomingEvent from '../components/upcoming-event'
 import PlayerFeatured from '../components/player--featured'
@@ -16,6 +16,7 @@ class IndexPage extends Component {
   render() {
     const data = this.props.data
     let articleCount = 0
+    let kcvvTvCount = 0;
 
     const { featuredPosts, kcvvTv, featuredPlayer = null } = data
     const posts = [...featuredPosts.edges, ...kcvvTv.edges].sort((a, b) =>
@@ -51,7 +52,9 @@ class IndexPage extends Component {
                       </>
                     )
                   case 'node__kcvv_tv':
-                    articleCount = articleCount + 2
+                  if (kcvvTvCount === 0) {
+                    articleCount = articleCount + 2;
+                    kcvvTvCount++;
                     return (
                       <CardImage
                         title={node.title}
@@ -64,6 +67,15 @@ class IndexPage extends Component {
                         key={i}
                       />
                     )
+                  }
+                  else {
+                    articleCount = articleCount + 2;
+                    kcvvTvCount++;
+                    return (
+                      <KcvvTvCard node={node} teaser={true} key={i} />
+                    )
+                  }
+
                   default:
                     return ''
                 }
@@ -272,6 +284,7 @@ export const pageQuery = graphql`
       edges {
         node {
           id
+          created(formatString: "D/M/YYYY")
           title
           timestamp: created(formatString: "x")
           relationships {
