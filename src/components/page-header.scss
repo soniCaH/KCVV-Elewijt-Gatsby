@@ -312,16 +312,29 @@
     z-index: 4;
 }
 
-html:not(.js) .header--desktop {
-    display: none;
+
+.no-js {
+    .header--desktop {
+        display: none;
+    }
 }
 
 @media screen and (min-width: 992px) {
-    html:not(.js) .header--desktop {
+    .no-js .header--desktop {
         display: block;
+
+        .main-nav__list--desktop {
+            ul {
+                display: none;
+            }
+
+            a:after {
+                display: none;
+            }
+        }
     }
 
-    html:not(.js) .header--mobile {
+    .no-js .header--mobile {
         display: none;
     }
 }
