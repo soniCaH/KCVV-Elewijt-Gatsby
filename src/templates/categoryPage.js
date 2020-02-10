@@ -59,7 +59,7 @@ export default ({ data }) => {
 export const query = graphql`
   query($slug: String!) {
     articles: allNodeArticle(
-      sort: { fields: created, order: DESC }
+      sort: { fields: changed, order: DESC }
       limit: 20
       filter: {
         relationships: {
@@ -70,6 +70,7 @@ export const query = graphql`
       edges {
         node {
           created(formatString: "DD/MM/YYYY")
+          changed(formatString: "DD/MM/YYYY")
           title
           body {
             summary
