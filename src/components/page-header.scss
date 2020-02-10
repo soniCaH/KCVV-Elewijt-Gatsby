@@ -311,3 +311,30 @@
     position: relative;
     z-index: 4;
 }
+
+
+.no-js {
+    .header--desktop {
+        display: none;
+    }
+}
+
+@media screen and (min-width: 992px) {
+    .no-js .header--desktop {
+        display: block;
+
+        .main-nav__list--desktop {
+            ul {
+                display: none;
+            }
+
+            a:after {
+                display: none;
+            }
+        }
+    }
+
+    .no-js .header--mobile {
+        display: none;
+    }
+}

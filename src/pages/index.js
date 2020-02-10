@@ -202,7 +202,7 @@ class IndexPage extends Component {
           <MatchesSlider season="1920" regnumber="00055" />
         </section>
 
-        <section className="grid-container site-content">
+        {/* <section className="grid-container site-content">
           <div className="grid-x grid-margin-x">
             <section className={'cell large-12 featured-article'}>
               <CardImage
@@ -213,7 +213,7 @@ class IndexPage extends Component {
               />
             </section>
           </div>
-        </section>
+        </section> */}
       </Layout>
     )
   }
@@ -223,7 +223,7 @@ export const pageQuery = graphql`
   query {
     featuredPosts: allNodeArticle(
       filter: { status: { eq: true }, promote: { eq: true } }
-      sort: { fields: created, order: DESC }
+      sort: { fields: changed, order: DESC }
       limit: 10
     ) {
       edges {
@@ -233,6 +233,7 @@ export const pageQuery = graphql`
             alias
           }
           created(formatString: "D/M/YYYY")
+          changed(formatString: "D/M/YYYY")
           timestamp: created(formatString: "x")
           title
           promote
@@ -301,7 +302,7 @@ export const pageQuery = graphql`
         }
       }
     }
-    featuredPlayer: nodePlayer(field_firstname: { eq: "Niels" }) {
+    featuredPlayer: nodePlayer(field_firstname: { eq: "Bocar" }) {
       field_firstname
       field_lastname
       field_shirtnumber
