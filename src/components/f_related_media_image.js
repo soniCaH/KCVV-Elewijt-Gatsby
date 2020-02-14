@@ -7,15 +7,7 @@ export const query = graphql`
         localFile {
           childImageSharp {
             fluid(maxWidth: 800, quality: 75, cropFocus: ATTENTION) {
-              base64
-              aspectRatio
-              tracedSVG
-              aspectRatio
-              src
-              srcSet
-              srcWebp
-              srcSetWebp
-              sizes
+              ...GatsbyImageSharpFluid
             }
           }
         }
@@ -28,15 +20,7 @@ export const query = graphql`
         localFile {
           childImageSharp {
             fluid(maxWidth: 1680, quality: 75, cropFocus: ATTENTION) {
-              base64
-              aspectRatio
-              tracedSVG
-              aspectRatio
-              src
-              srcSet
-              srcWebp
-              srcSetWebp
-              sizes
+              ...GatsbyImageSharpFluid
             }
           }
         }

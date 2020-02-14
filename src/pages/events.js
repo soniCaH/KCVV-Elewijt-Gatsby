@@ -73,9 +73,8 @@ export const pageQuery = graphql`
                 field_media_image {
                   localFile {
                     childImageSharp {
-                      fluid(maxWidth: 2000) {
-                        ...GatsbyImageSharpFluid_withWebp_tracedSVG
-                        aspectRatio
+                      fluid(maxWidth: 1500) {
+                        ...GatsbyImageSharpFluid
                       }
                     }
                   }
