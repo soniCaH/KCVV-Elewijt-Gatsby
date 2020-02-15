@@ -234,7 +234,7 @@ export const pageQuery = graphql`
           }
           created(formatString: "D/M/YYYY")
           changed(formatString: "D/M/YYYY")
-          timestamp: created(formatString: "x")
+          timestamp: changed(formatString: "x")
           title
           promote
           status
