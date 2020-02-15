@@ -7,16 +7,22 @@ import SEO from '../components/seo'
 import MetaMatches from '../components/meta-matches'
 import MatchesOverview from '../components/matches-overview'
 import MatchesSlider from '../components/matches-slider'
-import { NewsItemFeatured, NewsItemCardRatio, KcvvTvCard } from '../components/news-item'
+import {
+  NewsItemFeatured,
+  NewsItemCardRatio,
+  KcvvTvCard,
+} from '../components/news-item'
 import { CardImage } from '../components/cards'
 import UpcomingEvent from '../components/upcoming-event'
 import PlayerFeatured from '../components/player--featured'
+
+import MyMakro from '../images/mymakrokcvv.jpg'
 
 class IndexPage extends Component {
   render() {
     const data = this.props.data
     let articleCount = 0
-    let kcvvTvCount = 0;
+    let kcvvTvCount = 0
 
     const { featuredPosts, kcvvTv, featuredPlayer = null } = data
     const posts = [...featuredPosts.edges, ...kcvvTv.edges].sort((a, b) =>
@@ -47,34 +53,35 @@ class IndexPage extends Component {
                           <NewsItemFeatured node={node} key={i} />
                         )}
                         {!node.field_featured && (
-                          <NewsItemCardRatio node={node} teaser={true} key={i} />
+                          <NewsItemCardRatio
+                            node={node}
+                            teaser={true}
+                            key={i}
+                          />
                         )}
                       </>
                     )
                   case 'node__kcvv_tv':
-                  if (kcvvTvCount === 0) {
-                    articleCount = articleCount + 2;
-                    kcvvTvCount++;
-                    return (
-                      <CardImage
-                        title={node.title}
-                        localFile={
-                          node.relationships.field_media_article_image
-                            .relationships.field_media_image.localFile
-                        }
-                        link={node.field_website.uri}
-                        metadata={false}
-                        key={i}
-                      />
-                    )
-                  }
-                  else {
-                    articleCount = articleCount + 2;
-                    kcvvTvCount++;
-                    return (
-                      <KcvvTvCard node={node} teaser={true} key={i} />
-                    )
-                  }
+                    if (kcvvTvCount === 0) {
+                      articleCount = articleCount + 2
+                      kcvvTvCount++
+                      return (
+                        <CardImage
+                          title={node.title}
+                          localFile={
+                            node.relationships.field_media_article_image
+                              .relationships.field_media_image.localFile
+                          }
+                          link={node.field_website.uri}
+                          metadata={false}
+                          key={i}
+                        />
+                      )
+                    } else {
+                      articleCount = articleCount + 2
+                      kcvvTvCount++
+                      return <KcvvTvCard node={node} teaser={true} key={i} />
+                    }
 
                   default:
                     return ''
@@ -191,6 +198,37 @@ class IndexPage extends Component {
                       </a>
                       !
                     </p>
+                  </div>
+                </article>
+                <article className={'medium-6 large-12 cell card'}>
+                  <header className={'card__header'}>
+                    <h4>MyMakro</h4>
+                  </header>
+                  <div className={'card__content'}>
+                    <p>
+                      Link nu jouw Makro voordeelkaart aan onze vereniging. Bij
+                      elke aankoop bij Makro en partners steun je KCVV Elewijt!
+                    </p>
+                    <p>
+                      <img
+                        src={MyMakro}
+                        alt="QR Code MyMakro"
+                        style={{ width: '100%' }}
+                      />
+                    </p>
+                    <p>
+                      Scan bovenstaande QR-code met je camera op GSM, of surf
+                      naar{' '}
+                      <a
+                        href="https://my.makro.be/nl/link-vereniging/02277464"
+                        target="_blank"
+                        title="MyMakro link voor KCVV Elewijt"
+                      >
+                        https://my.makro.be/nl/link-vereniging/02277464
+                      </a>
+                      .
+                    </p>
+                    <p>Onze vereniging dankt jullie van harte!</p>
                   </div>
                 </article>
               </section>
