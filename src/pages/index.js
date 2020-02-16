@@ -7,7 +7,11 @@ import SEO from '../components/seo'
 import MetaMatches from '../components/meta-matches'
 import MatchesOverview from '../components/matches-overview'
 import MatchesSlider from '../components/matches-slider'
-import { NewsItemFeatured, NewsItemCardRatio, KcvvTvCard } from '../components/news-item'
+import {
+  NewsItemFeatured,
+  NewsItemCardRatio,
+  KcvvTvCard,
+} from '../components/news-item'
 import { CardImage } from '../components/cards'
 import UpcomingEvent from '../components/upcoming-event'
 import PlayerFeatured from '../components/player--featured'
@@ -16,7 +20,7 @@ class IndexPage extends Component {
   render() {
     const data = this.props.data
     let articleCount = 0
-    let kcvvTvCount = 0;
+    let kcvvTvCount = 0
 
     const { featuredPosts, kcvvTv, featuredPlayer = null } = data
     const posts = [...featuredPosts.edges, ...kcvvTv.edges].sort((a, b) =>
@@ -47,34 +51,35 @@ class IndexPage extends Component {
                           <NewsItemFeatured node={node} key={i} />
                         )}
                         {!node.field_featured && (
-                          <NewsItemCardRatio node={node} teaser={true} key={i} />
+                          <NewsItemCardRatio
+                            node={node}
+                            teaser={true}
+                            key={i}
+                          />
                         )}
                       </>
                     )
                   case 'node__kcvv_tv':
-                  if (kcvvTvCount === 0) {
-                    articleCount = articleCount + 2;
-                    kcvvTvCount++;
-                    return (
-                      <CardImage
-                        title={node.title}
-                        localFile={
-                          node.relationships.field_media_article_image
-                            .relationships.field_media_image.localFile
-                        }
-                        link={node.field_website.uri}
-                        metadata={false}
-                        key={i}
-                      />
-                    )
-                  }
-                  else {
-                    articleCount = articleCount + 2;
-                    kcvvTvCount++;
-                    return (
-                      <KcvvTvCard node={node} teaser={true} key={i} />
-                    )
-                  }
+                    if (kcvvTvCount === 0) {
+                      articleCount = articleCount + 2
+                      kcvvTvCount++
+                      return (
+                        <CardImage
+                          title={node.title}
+                          localFile={
+                            node.relationships.field_media_article_image
+                              .relationships.field_media_image.localFile
+                          }
+                          link={node.field_website.uri}
+                          metadata={false}
+                          key={i}
+                        />
+                      )
+                    } else {
+                      articleCount = articleCount + 2
+                      kcvvTvCount++
+                      return <KcvvTvCard node={node} teaser={true} key={i} />
+                    }
 
                   default:
                     return ''
@@ -307,7 +312,11 @@ export const pageQuery = graphql`
       relationships {
         field_image {
           localFile {
-            url
+            childImageSharp {
+              fixed(height: 640) {
+                src
+              }
+            }
           }
         }
       }

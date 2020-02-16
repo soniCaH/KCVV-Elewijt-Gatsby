@@ -17,7 +17,7 @@ class PlayerFeatured extends Component {
               className={'player--featured__bg-avatar'}
               style={
                 player.relationships.field_image && {
-                  backgroundImage: `url(${player.relationships.field_image.localFile.url})`,
+                  backgroundImage: `url(${player.relationships.field_image.localFile.childImageSharp.fixed.src})`,
                 }
               }
             />
