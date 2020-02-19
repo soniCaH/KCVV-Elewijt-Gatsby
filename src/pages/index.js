@@ -122,14 +122,20 @@ class IndexPage extends Component {
                     exclude="['2A', '4D']"
                   />
                 </article>
-                {featuredPlayer && (
-                  <article className={'medium-6 large-12 cell card'}>
-                    <header className={'card__header'}>
-                      <h4>Speler van de week</h4>
-                    </header>
-                    <PlayerFeatured player={featuredPlayer} />
-                  </article>
-                )}
+                {featuredPlayer &&
+                  featuredPlayer.edges.map(
+                    ({ node: potw }) =>
+                      potw.relationships.field_player && (
+                        <article className={'medium-6 large-12 cell card'}>
+                          <header className={'card__header'}>
+                            <h4>Speler van de week</h4>
+                          </header>
+                          <PlayerFeatured
+                            player={potw.relationships.field_player}
+                          />
+                        </article>
+                      )
+                  )}
                 <article className={'medium-6 large-12 cell social'}>
                   <div className={'social-sidebar__wrapper'}>
                     <a
@@ -340,25 +346,37 @@ export const pageQuery = graphql`
         }
       }
     }
-    featuredPlayer: nodePlayer(field_firstname: { eq: "Aubry" }) {
-      field_firstname
-      field_lastname
-      field_shirtnumber
-      field_stats_games
-      field_position
-      field_stats_cleansheets
-      field_stats_goals
-      field_stats_cards_yellow
-      field_stats_cards_red
-      relationships {
-        field_image {
-          localFile {
-            url
+    featuredPlayer: allNodePotw(
+      sort: { fields: created, order: DESC }
+      filter: { status: { eq: true } }
+      limit: 1
+    ) {
+      edges {
+        node {
+          relationships {
+            field_player {
+              field_firstname
+              field_lastname
+              field_shirtnumber
+              field_stats_games
+              field_position
+              field_stats_cleansheets
+              field_stats_goals
+              field_stats_cards_yellow
+              field_stats_cards_red
+              relationships {
+                field_image {
+                  localFile {
+                    url
+                  }
+                }
+              }
+              path {
+                alias
+              }
+            }
           }
         }
-      }
-      path {
-        alias
       }
     }
   }
