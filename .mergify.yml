@@ -6,8 +6,8 @@ pull_request_rules:
       merge:
         method: merge
   - name: ask to resolve conflict
-  conditions:
-    - conflicts
-  actions:
-      comment:
-        message: This pull request is now in conflicts. Could you fix it? 🙏
+    conditions:
+      - conflicts
+    actions:
+        comment:
+          message: This pull request is now in conflicts. Could you fix it? 🙏
