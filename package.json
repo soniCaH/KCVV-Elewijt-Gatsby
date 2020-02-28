@@ -15,6 +15,7 @@
     "gatsby-cli": "^2.7.0",
     "gatsby-image": "^2.2.4",
     "gatsby-paginate": "^1.1.0",
+    "gatsby-parallel-runner": "^1.2.3",
     "gatsby-plugin-google-tagmanager": "^2.1.5",
     "gatsby-plugin-manifest": "^2.2.5",
     "gatsby-plugin-offline": "^3.0.30",
