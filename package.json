@@ -25,7 +25,7 @@
     "gatsby-plugin-sitemap": "^2.2.22",
     "gatsby-source-drupal": "^3.3.13",
     "gatsby-source-filesystem": "^2.1.2",
-    "gatsby-transformer-sharp": "^2.3.9",
+    "gatsby-transformer-sharp": "^2.3.16",
     "global": "^4.4.0",
     "jquery": "^3.3.1",
     "js-search": "^1.4.3",
