@@ -16,6 +16,8 @@ import { CardImage } from '../components/cards'
 import UpcomingEvent from '../components/upcoming-event'
 import PlayerFeatured from '../components/player--featured'
 
+import MyMakro from '../images/mymakrokcvv.jpg'
+
 class IndexPage extends Component {
   render() {
     const data = this.props.data
@@ -120,14 +122,20 @@ class IndexPage extends Component {
                     exclude="['2A', '4D']"
                   />
                 </article>
-                {featuredPlayer && (
-                  <article className={'medium-6 large-12 cell card'}>
-                    <header className={'card__header'}>
-                      <h4>Speler van de week</h4>
-                    </header>
-                    <PlayerFeatured player={featuredPlayer} />
-                  </article>
-                )}
+                {featuredPlayer &&
+                  featuredPlayer.edges.map(
+                    ({ node: potw }) =>
+                      potw.relationships.field_player && (
+                        <article className={'medium-6 large-12 cell card'}>
+                          <header className={'card__header'}>
+                            <h4>Speler van de week</h4>
+                          </header>
+                          <PlayerFeatured
+                            player={potw.relationships.field_player}
+                          />
+                        </article>
+                      )
+                  )}
                 <article className={'medium-6 large-12 cell social'}>
                   <div className={'social-sidebar__wrapper'}>
                     <a
@@ -198,6 +206,37 @@ class IndexPage extends Component {
                     </p>
                   </div>
                 </article>
+                <article className={'medium-6 large-12 cell card'}>
+                  <header className={'card__header'}>
+                    <h4>MyMakro</h4>
+                  </header>
+                  <div className={'card__content'}>
+                    <p>
+                      Link nu jouw Makro voordeelkaart aan onze vereniging. Bij
+                      elke aankoop bij Makro en partners steun je KCVV Elewijt!
+                    </p>
+                    <p>
+                      <img
+                        src={MyMakro}
+                        alt="QR Code MyMakro"
+                        style={{ width: '100%' }}
+                      />
+                    </p>
+                    <p>
+                      Scan bovenstaande QR-code met je camera op GSM, of surf
+                      naar{' '}
+                      <a
+                        href="https://my.makro.be/nl/link-vereniging/02277464"
+                        target="_blank"
+                        title="MyMakro link voor KCVV Elewijt"
+                      >
+                        https://my.makro.be/nl/link-vereniging/02277464
+                      </a>
+                      .
+                    </p>
+                    <p>Onze vereniging dankt jullie van harte!</p>
+                  </div>
+                </article>
               </section>
             </aside>
           </div>
@@ -239,7 +278,7 @@ export const pageQuery = graphql`
           }
           created(formatString: "D/M/YYYY")
           changed(formatString: "D/M/YYYY")
-          timestamp: created(formatString: "x")
+          timestamp: changed(formatString: "x")
           title
           promote
           status
@@ -299,29 +338,37 @@ export const pageQuery = graphql`
         }
       }
     }
-    featuredPlayer: nodePlayer(field_firstname: { eq: "Bocar" }) {
-      field_firstname
-      field_lastname
-      field_shirtnumber
-      field_stats_games
-      field_position
-      field_stats_cleansheets
-      field_stats_goals
-      field_stats_cards_yellow
-      field_stats_cards_red
-      relationships {
-        field_image {
-          localFile {
-            childImageSharp {
-              fixed(height: 640) {
-                src
+    featuredPlayer: allNodePotw(
+      sort: { fields: created, order: DESC }
+      filter: { status: { eq: true } }
+      limit: 1
+    ) {
+      edges {
+        node {
+          relationships {
+            field_player {
+              field_firstname
+              field_lastname
+              field_shirtnumber
+              field_stats_games
+              field_position
+              field_stats_cleansheets
+              field_stats_goals
+              field_stats_cards_yellow
+              field_stats_cards_red
+              relationships {
+                field_image {
+                  localFile {
+                    url
+                  }
+                }
+              }
+              path {
+                alias
               }
             }
           }
         }
-      }
-      path {
-        alias
       }
     }
   }
