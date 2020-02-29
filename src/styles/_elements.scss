@@ -12,6 +12,11 @@ h6 {
     font-weight: 700;
     text-transform: uppercase;
     letter-spacing: -.02em;
+
+    @include break(small-only) {
+        word-break: break-word;
+        hyphens: auto;
+    }
 }
 
 .button--back {

@@ -52,8 +52,13 @@
                 margin: 0 auto;
                 max-width: 60rem;
                 width: 100%;
+                padding: 0 .5rem;
 
                 @include featured-border;
+
+                @include break(medium-up) {
+                    padding: 0;
+                }
             }
         }
 
@@ -147,6 +152,14 @@
         blockquote {
             @include block-quote;
         }
+    }
+
+    &__footer {
+        columns: 3 250px;
+
+            h3 {
+                column-span: all;
+            }
     }
 
     &__footer__wrapper {

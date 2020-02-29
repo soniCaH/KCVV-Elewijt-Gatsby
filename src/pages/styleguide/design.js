@@ -295,6 +295,65 @@ class DesignPage extends Component {
                   </tr>
                 </tbody>
               </table>
+
+              <table class="responsive-card-table unstriped">
+                <thead>
+                  <tr>
+                    <th>&nbsp;</th>
+                    <th>Naam</th>
+                    <th>Positie</th>
+                    <th>KCVV sinds</th>
+                    <th>Meer info</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td data-label="Actie">📝</td>
+                    <td data-label="Naam">Dautzen Jaspers</td>
+                    <td data-label="Positie">Verdediger</td>
+                    <td data-label="KCVV sinds">Pre-historie</td>
+                    <td data-label="Meer info">
+                      <a
+                        href="https://www.facebook.com/KCVVElewijt/posts/3498364080203945"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
+                        Facebook
+                      </a>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td data-label="Actie">📝</td>
+                    <td data-label="Naam">Ken Vanhalle</td>
+                    <td data-label="Positie">Doelman</td>
+                    <td data-label="KCVV sinds">2018/2019</td>
+                    <td data-label="Meer info">
+                      <a
+                        href="https://www.facebook.com/KCVVElewijt/posts/3510448235662196"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
+                        Facebook
+                      </a>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td data-label="Actie">📝</td>
+                    <td data-label="Naam">Sammy Abdellah</td>
+                    <td data-label="Positie">Verdediger</td>
+                    <td data-label="KCVV sinds">2018/2019</td>
+                    <td data-label="Meer info">
+                      <a
+                        href="https://www.facebook.com/KCVVElewijt/posts/3519639191409767"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
+                        Facebook
+                      </a>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
             </section>
             <section className={'cell large-8 featured-article card'}>
               <header className={'card__header'}>

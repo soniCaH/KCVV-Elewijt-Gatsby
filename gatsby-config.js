@@ -4,7 +4,7 @@ module.exports = {
   siteMetadata: {
     title: `KCVV Elewijt`,
     subTitle: `Er is maar één plezante compagnie`,
-    description: `Website van KCVV Elewijt voetbalclub`,
+    description: `KCVV Elewijt`,
     author: `@KevinVRansbeeck`,
     serverUrl: `${process.env.FOOTBEL_API_DOMAIN}`,
     logoUrl: `${process.env.FOOTBEL_API_DOMAIN}/logo`,
