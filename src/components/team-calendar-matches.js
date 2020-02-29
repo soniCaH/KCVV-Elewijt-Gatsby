@@ -2,14 +2,15 @@ import React, { Component } from 'react'
 import { graphql, StaticQuery } from 'gatsby'
 import { mapMatchStatus } from '../scripts/helper'
 
+import moment from 'moment-timezone'
+import 'moment/locale/nl-be'
+
 import ClubLogo from './clublogo'
 
 import './team-calendar-matches.scss'
 
 class CalendarRow extends Component {
   render() {
-    const moment = require('moment')
-    const timezone = require('moment-timezone')
     moment.locale('nl-BE')
 
     const { result } = this.props

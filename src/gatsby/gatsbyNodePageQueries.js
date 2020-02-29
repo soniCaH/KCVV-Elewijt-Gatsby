@@ -20,14 +20,9 @@ articles: allNodeArticle(sort: {fields: created, order: DESC}) {
                             localFile {
                                 childImageSharp {
                                     fluid(maxWidth: 800, quality: 75, cropFocus: ATTENTION) {
-                                        base64
-                                        aspectRatio
-                                        tracedSVG
                                         aspectRatio
                                         src
                                         srcSet
-                                        srcWebp
-                                        srcSetWebp
                                         sizes
                                     }
                                 }
