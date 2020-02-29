@@ -5,5 +5,15 @@
   "ignorePaths": [
     "_____BU-src",
     "_____BU-src/plugins/social-media-feed/package.json"
+  ],
+  "packageRules": [
+    {
+      "updateTypes": ["minor", "patch", "pin", "digest"],
+      "automerge": true
+    },
+    {
+      "depTypeList": ["devDependencies"],
+      "automerge": true
+    }
   ]
 }
