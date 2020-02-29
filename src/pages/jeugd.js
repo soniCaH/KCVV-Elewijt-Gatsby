@@ -56,15 +56,7 @@ export const pageQuery = graphql`
     leerplan: file(name: { eq: "leerplan_header" }) {
       childImageSharp {
         fluid(maxWidth: 1680, quality: 75, cropFocus: ATTENTION) {
-          base64
-          aspectRatio
-          tracedSVG
-          aspectRatio
-          src
-          srcSet
-          srcWebp
-          srcSetWebp
-          sizes
+          ...GatsbyImageSharpFluid_withWebp
         }
       }
     }

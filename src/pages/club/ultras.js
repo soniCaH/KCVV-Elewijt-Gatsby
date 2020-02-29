@@ -121,38 +121,14 @@ export const query = graphql`
     sjr: file(name: { eq: "sjr" }) {
       childImageSharp {
         fluid(maxWidth: 1680, quality: 75, cropFocus: ATTENTION) {
-          base64
-          aspectRatio
-          tracedSVG
-          aspectRatio
-          src
-          srcSet
-          srcWebp
-          srcSetWebp
-          sizes
-          # originalImg
-          # originalName
-          # presentationWidth
-          # presentationHeight
+          ...GatsbyImageSharpFluid_withWebp
         }
       }
     }
     champ: file(name: { eq: "ultraskampioen" }) {
       childImageSharp {
         fluid(maxWidth: 1680, quality: 75, cropFocus: ATTENTION) {
-          base64
-          aspectRatio
-          tracedSVG
-          aspectRatio
-          src
-          srcSet
-          srcWebp
-          srcSetWebp
-          sizes
-          # originalImg
-          # originalName
-          # presentationWidth
-          # presentationHeight
+          ...GatsbyImageSharpFluid_withWebp
         }
       }
     }
