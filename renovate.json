@@ -1,0 +1,9 @@
+{
+  "extends": [
+    "config:base"
+  ],
+  "ignorePaths": [
+    "_____BU-src",
+    "_____BU-src/plugins/social-media-feed/package.json"
+  ]
+}
