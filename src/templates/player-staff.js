@@ -42,7 +42,7 @@ export const query = graphql`
           localFile {
             childImageSharp {
               fixed(height: 460) {
-                ...GatsbyImageSharpFixed_withWebp
+                ...GatsbyImageSharpFixed_withWebp_tracedSVG
               }
             }
           }
