@@ -9525,10 +9525,10 @@ potrace@^2.1.2:
   dependencies:
     jimp "^0.6.4"
 
-preact@10.1.1:
-  version "10.1.1"
-  resolved "https://registry.yarnpkg.com/preact/-/preact-10.1.1.tgz#1fd12e3ed6b74993ed8805f68e9d953cc914889a"
-  integrity sha512-mKW7Cdn68XMhdes0FjyIbA8+IVPsj3aIuAEQlZVkj9E2VhujWcXZEfwirBoXK6qZYfj1djaTBDCFKjAu1sK93w==
+preact@10.3.2:
+  version "10.3.2"
+  resolved "https://registry.yarnpkg.com/preact/-/preact-10.3.2.tgz#1dabd1747b54de4e6820c7d2eadbb8bc4c2e3047"
+  integrity sha512-yIx4i7gp45enhzX4SLkvvR20UZ+YOUbMdj2KEscU/dC70MHv/L6dpTcsP+4sXrU9SRbA3GjJQQCPfFa5sE17dQ==
 
 prebuild-install@^5.3.3:
   version "5.3.3"
