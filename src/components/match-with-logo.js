@@ -24,6 +24,8 @@ class MatchWithLogo extends Component {
 
     moment.locale('nl-be')
 
+    const lazyload = this.props.lazyload && true;
+
     const matchTime = moment(dateTime)
 
     return (
@@ -78,6 +80,7 @@ class MatchWithLogo extends Component {
                   regNumber={regNumberHome}
                   title={home}
                   className={'match-details__logo match-details__logo--home'}
+                  lazyload={lazyload}
                 />
                 <div className={'match-details__teamname'}>{home}</div>
               </div>
@@ -85,7 +88,11 @@ class MatchWithLogo extends Component {
               typeof resultAway !== 'undefined' ? (
                 <div className={'match-details__vs match-details__vs--score'}>
                   {resultHome > resultAway ? (
-                    <span className={'match-details__winner match-details__winner--home'}>
+                    <span
+                      className={
+                        'match-details__winner match-details__winner--home'
+                      }
+                    >
                       {resultHome}
                     </span>
                   ) : (
@@ -112,6 +119,7 @@ class MatchWithLogo extends Component {
                   regNumber={regNumberAway}
                   title={away}
                   className={'match-details__logo match-details__logo--away'}
+                  lazyload={lazyload}
                 />
                 <div className={'match-details__teamname'}>{away}</div>
               </div>

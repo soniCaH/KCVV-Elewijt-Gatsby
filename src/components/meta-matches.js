@@ -72,7 +72,7 @@ class MetaMatches extends Component {
           </ul>
           <div data-tabs-content={`matches-${this.uuid}`}>
             <div className="tabs-panel" id={`matches-${this.uuid}-prev`}>
-              {previous && <MatchWithLogo match={previous.match} />}
+              {previous && <MatchWithLogo match={previous.match} lazyload={true}  />}
               {previous && (
                 <MiniRanking ranking={[previous.opponent.ranking, ranking]} />
               )}
@@ -83,7 +83,7 @@ class MetaMatches extends Component {
               className="tabs-panel is-active"
               id={`matches-${this.uuid}-next`}
             >
-              {next && <MatchWithLogo match={next.match} />}
+              {next && <MatchWithLogo match={next.match} lazyload={true}  />}
               {next && (
                 <MiniRanking ranking={[next.opponent.ranking, ranking]} />
               )}

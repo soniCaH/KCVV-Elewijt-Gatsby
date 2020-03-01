@@ -50,8 +50,10 @@ class TeamCalendarMetaMatches extends Component {
         return (
           <Fragment>
             <div className={'team-calendar-meta-matches'}>
-              {previous && <MatchWithLogo match={previous.match} />}
-              {next && <MatchWithLogo match={next.match} />}
+              {previous && (
+                <MatchWithLogo match={previous.match} lazyload={true} />
+              )}
+              {next && <MatchWithLogo match={next.match} lazyload={true} />}
             </div>
           </Fragment>
         )
