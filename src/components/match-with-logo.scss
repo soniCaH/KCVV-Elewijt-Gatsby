@@ -6,6 +6,11 @@
 
   &--with-logo {
     background: #FFF;
+
+    .LazyLoad:not(.is-visible) {
+      width: 100%;
+      height: 100px;
+    }
   }
 
   header {

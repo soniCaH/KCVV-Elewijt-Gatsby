@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React, { Component, Fragment } from 'react'
 import { graphql } from 'gatsby'
 
 import Layout from '../layouts/index'
@@ -48,18 +48,17 @@ class IndexPage extends Component {
                     node.field_featured && (articleCount = articleCount + 2)
                     !node.field_featured && articleCount++
                     return (
-                      <>
+                      <Fragment key={i}>
                         {node.field_featured && (
-                          <NewsItemFeatured node={node} key={i} />
+                          <NewsItemFeatured node={node} />
                         )}
                         {!node.field_featured && (
                           <NewsItemCardRatio
                             node={node}
                             teaser={true}
-                            key={i}
                           />
                         )}
-                      </>
+                        </Fragment>
                     )
                   case 'node__kcvv_tv':
                     if (kcvvTvCount === 0) {
@@ -126,7 +125,10 @@ class IndexPage extends Component {
                   featuredPlayer.edges.map(
                     ({ node: potw }) =>
                       potw.relationships.field_player && (
-                        <article className={'medium-6 large-12 cell card'}>
+                        <article
+                          className={'medium-6 large-12 cell card'}
+                          key={potw.relationships.field_player.field_firstname}
+                        >
                           <header className={'card__header'}>
                             <h4>Speler van de week</h4>
                           </header>

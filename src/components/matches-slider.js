@@ -47,13 +47,14 @@ class MatchesSlider extends Component {
         return <></>
       }
       const settings_slickslider = {
-        slidesToShow: 4,
+        slidesToShow: 3,
         slidesToScroll: 1,
         dots: false,
         arrows: true,
         centerMode: true,
         focusOnSelect: true,
         infinite: true,
+        lazyLoad: true,
 
         responsive: [
           {
@@ -89,7 +90,7 @@ class MatchesSlider extends Component {
                   key={i}
                   data-equalizer-watch="true"
                 >
-                  <MatchWithLogo match={match} />
+                  <MatchWithLogo match={match} lazyload={false} />
                 </div>
               )
             })}
