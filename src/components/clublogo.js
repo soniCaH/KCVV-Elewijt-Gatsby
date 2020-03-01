@@ -22,7 +22,7 @@ class ClubLogo extends Component {
     if (this.props.regNumber === '00055') {
       if (this.props.lazyload === true) {
         return (
-          <LazyLoad>
+          <LazyLoad debounce={false}>
             <img
               src={LogoFlat}
               alt="KCVV Elewijt"
@@ -44,7 +44,7 @@ class ClubLogo extends Component {
 
     if (this.props.lazyload === true) {
       return (
-        <LazyLoad>
+        <LazyLoad debounce={false}>
           <img
             src={logoUrl}
             onError={({ target }) => {
