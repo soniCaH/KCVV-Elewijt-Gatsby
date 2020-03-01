@@ -34,7 +34,7 @@
     "moment": "2.24.0",
     "moment-timezone": "0.5.28",
     "node-sass": "4.13.1",
-    "preact": "10.3.2",
+    "preact": "10.3.3",
     "prop-types": "15.7.2",
     "react": "16.13.0",
     "react-animate-on-scroll": "2.1.5",
