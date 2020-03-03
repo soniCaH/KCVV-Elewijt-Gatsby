@@ -15,5 +15,8 @@
       "depTypeList": ["devDependencies"],
       "automerge": true
     }
+  ],
+  "labels": [
+    "dependencies"
   ]
 }
