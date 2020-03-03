@@ -18,5 +18,6 @@
   ],
   "labels": [
     "dependencies"
-  ]
+  ],
+  "masterIssue": true
 }
