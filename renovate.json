@@ -1,6 +1,7 @@
 {
   "extends": [
-    "config:base"
+    "config:base",
+    "packages:gatsby"
   ],
   "ignorePaths": [
     "_____BU-src",
@@ -18,5 +19,6 @@
   ],
   "labels": [
     "dependencies"
-  ]
+  ],
+  "masterIssue": true
 }
