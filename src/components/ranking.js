@@ -1,7 +1,7 @@
-import React, { Component } from 'react'
-import { graphql, StaticQuery } from 'gatsby'
+import React, { Component } from "react"
+import { graphql, StaticQuery } from "gatsby"
 
-import './ranking.scss'
+import "./ranking.scss"
 
 class RankingRow extends Component {
   render() {
@@ -9,62 +9,61 @@ class RankingRow extends Component {
       <tr
         className={
           this.props.result.team === this.props.highlight
-            ? 'team-ranking__row--highlight team-ranking__row'
-            : 'team-ranking__row'
+            ? "team-ranking__row--highlight team-ranking__row"
+            : "team-ranking__row"
         }
       >
         <td
           className={
-            'team-ranking__column team-ranking__column--number team-ranking__column--ranking'
+            "team-ranking__column team-ranking__column--number team-ranking__column--ranking"
           }
         >
           {this.props.result.position}
         </td>
         <td
-          className={
-            `team-ranking__column team-ranking__column--string team-ranking__column--team
-            ${this.props.result.team.includes("Elewijt") && 'team-ranking__winner'}`
-          }
+          className={`team-ranking__column team-ranking__column--string team-ranking__column--team
+            ${this.props.result.team.includes("Elewijt") &&
+              "team-ranking__winner"}`}
         >
           {this.props.result.team}
         </td>
-        <td className={'team-ranking__column team-ranking__column--number'}>
+        <td className={"team-ranking__column team-ranking__column--number"}>
           {this.props.result.matches}
         </td>
-        <td className={'team-ranking__column team-ranking__column--number'}>
+        <td className={"team-ranking__column team-ranking__column--number"}>
           {this.props.result.wins}
         </td>
-        <td className={'team-ranking__column team-ranking__column--number'}>
+        <td className={"team-ranking__column team-ranking__column--number"}>
           {this.props.result.draws}
         </td>
-        <td className={'team-ranking__column team-ranking__column--number'}>
+        <td className={"team-ranking__column team-ranking__column--number"}>
           {this.props.result.losses}
         </td>
         <td
           className={
-            'team-ranking__column team-ranking__column--number team-ranking__column--goals-pro'
+            "team-ranking__column team-ranking__column--number team-ranking__column--goals-pro"
           }
         >
           {this.props.result.goalsPro}
         </td>
         <td
           className={
-            'team-ranking__column team-ranking__column--number team-ranking__column--goals-against'
+            "team-ranking__column team-ranking__column--number team-ranking__column--goals-against"
           }
         >
-          {' '}
+          {" "}
           {this.props.result.goalsAgainst}
         </td>
         <td
           className={
-            'team-ranking__column team-ranking__column--number team-ranking__column--goals-difference'
+            "team-ranking__column team-ranking__column--number team-ranking__column--goals-difference"
           }
         >
           {this.props.result.goalsPro - this.props.result.goalsAgainst}
         </td>
         <td
           className={
-            'team-ranking__column team-ranking__column--number team-ranking__column--points'
+            "team-ranking__column team-ranking__column--number team-ranking__column--points"
           }
         >
           {this.props.result.points}
@@ -119,76 +118,76 @@ class Ranking extends Component {
       })
 
       return (
-        <div className={'team-ranking'}>
-          <table className={'team-ranking__table'}>
-            <thead className={'team-ranking__header'}>
-              <tr className={'team-ranking__row'}>
+        <div className={"team-ranking"}>
+          <table className={"team-ranking__table"}>
+            <thead className={"team-ranking__header"}>
+              <tr className={"team-ranking__row"}>
                 <th
                   className={
-                    'team-ranking__column team-ranking__column--number team-ranking__column--ranking'
+                    "team-ranking__column team-ranking__column--number team-ranking__column--ranking"
                   }
                 >
                   #
                 </th>
                 <th
                   className={
-                    'team-ranking__column team-ranking__column--string team-ranking__column--team'
+                    "team-ranking__column team-ranking__column--string team-ranking__column--team"
                   }
                 >
                   Team
                 </th>
                 <th
                   className={
-                    'team-ranking__column team-ranking__column--number'
+                    "team-ranking__column team-ranking__column--number"
                   }
                 >
                   M
                 </th>
                 <th
                   className={
-                    'team-ranking__column team-ranking__column--number'
+                    "team-ranking__column team-ranking__column--number"
                   }
                 >
                   W
                 </th>
                 <th
                   className={
-                    'team-ranking__column team-ranking__column--number'
+                    "team-ranking__column team-ranking__column--number"
                   }
                 >
                   D
                 </th>
                 <th
                   className={
-                    'team-ranking__column team-ranking__column--number'
+                    "team-ranking__column team-ranking__column--number"
                   }
                 >
                   L
                 </th>
                 <th
                   className={
-                    'team-ranking__column team-ranking__column--number team-ranking__column--goals-pro'
+                    "team-ranking__column team-ranking__column--number team-ranking__column--goals-pro"
                   }
                 >
                   G+
                 </th>
                 <th
                   className={
-                    'team-ranking__column team-ranking__column--number team-ranking__column--goals-against'
+                    "team-ranking__column team-ranking__column--number team-ranking__column--goals-against"
                   }
                 >
                   G-
                 </th>
                 <th
                   className={
-                    'team-ranking__column team-ranking__column--number team-ranking__column--goals-difference'
+                    "team-ranking__column team-ranking__column--number team-ranking__column--goals-difference"
                   }
                 >
                   +/-
                 </th>
                 <th
                   className={
-                    'team-ranking__column team-ranking__column--number team-ranking__column--points'
+                    "team-ranking__column team-ranking__column--number team-ranking__column--points"
                   }
                 >
                   Pts

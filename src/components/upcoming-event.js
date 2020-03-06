@@ -1,7 +1,7 @@
-import React, { Component } from 'react'
-import { graphql, StaticQuery } from 'gatsby'
+import React, { Component } from "react"
+import { graphql, StaticQuery } from "gatsby"
 
-import Event from './event'
+import Event from "./event"
 
 class UpcomingEvent extends Component {
   render() {
@@ -31,7 +31,7 @@ class UpcomingEvent extends Component {
 const query = graphql`
   query {
     events: allNodeEvent(
-      filter: { promote: {eq: true}, status: { eq: true } }
+      filter: { promote: { eq: true }, status: { eq: true } }
       sort: { order: ASC, fields: field_daterange___value }
       limit: 1
     ) {

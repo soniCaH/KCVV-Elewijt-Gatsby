@@ -1,8 +1,8 @@
-import React, { Component } from 'react'
-import defaultLogo from '../images/default.png'
-import { graphql, StaticQuery } from 'gatsby'
+import React, { Component } from "react"
+import defaultLogo from "../images/default.png"
+import { graphql, StaticQuery } from "gatsby"
 
-import LogoFlat from '../images/logo-flat.png';
+import LogoFlat from "../images/logo-flat.png"
 
 /**
  * Render club logo based on the registration number of a club.
@@ -18,22 +18,28 @@ class ClubLogo extends Component {
   }
 
   render() {
-    if (this.props.regNumber === '00055') {
-      return <img src={LogoFlat} alt="KCVV Elewijt" className={this.props.className} />
+    if (this.props.regNumber === "00055") {
+      return (
+        <img
+          src={LogoFlat}
+          alt="KCVV Elewijt"
+          className={this.props.className}
+        />
+      )
     }
     const logoUrl = `${this.apiLogoUrl}/${this.props.regNumber}`
 
     return (
       <img
         src={logoUrl}
-        onError={({target}) => {
+        onError={({ target }) => {
           target.onerror = null
           target.src = defaultLogo
         }}
         alt={this.props.title}
         className={this.props.className}
       />
-    );
+    )
   }
 }
 
@@ -50,9 +56,9 @@ const query = graphql`
 
 export default ({
   // If no regnumber was given, we return the KCVV Elewijt logo by default.
-  regNumber = '00055',
-  title = 'KCVV Elewijt',
-  className = '',
+  regNumber = "00055",
+  title = "KCVV Elewijt",
+  className = "",
 }) => (
   <StaticQuery
     query={query}

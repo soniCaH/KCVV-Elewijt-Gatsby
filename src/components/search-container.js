@@ -1,10 +1,10 @@
-import React, { Component } from 'react'
-import Axios from 'axios'
-import { Link } from 'gatsby'
+import React, { Component } from "react"
+import Axios from "axios"
+import { Link } from "gatsby"
 
-import * as JsSearch from 'js-search'
+import * as JsSearch from "js-search"
 
-import './search-container.scss'
+import "./search-container.scss"
 
 class Search extends Component {
   state = {
@@ -65,7 +65,9 @@ class Search extends Component {
         console.log(`Events loaded: ${eventData.length}`)
         this.setState({ eventList: eventData })
 
-        setTimeout(() => {this.rebuildIndex()}, 250);
+        setTimeout(() => {
+          this.rebuildIndex()
+        }, 250)
       })
       .catch(err => {
         this.setState({ isError: true })
@@ -144,28 +146,28 @@ class Search extends Component {
         <>
           <h2>Aiiii...</h2>
           <h3>
-            Er ging iets mis - gelieve{' '}
-            <a href="mailto:website@kcvvelewijt.be">contact op te nemen</a>{' '}
+            Er ging iets mis - gelieve{" "}
+            <a href="mailto:website@kcvvelewijt.be">contact op te nemen</a>{" "}
             indien het probleem zich blijft voordoen.
           </h3>
         </>
       )
     }
     return (
-      <div className={'search--placeholder'}>
+      <div className={"search--placeholder"}>
         <form onSubmit={this.handleSubmit}>
           <div>
-            <label className={'search_input__label'} htmlFor="search">
+            <label className={"search_input__label"} htmlFor="search">
               <input
                 id="search"
                 onChange={this.searchData}
-                className={'search_input__input'}
+                className={"search_input__input"}
                 placeholder="Spelersnaam, ploegnaam, deel van een artikel..."
                 value={searchQuery}
                 required
               />
-              <span className={'search_input__label__inner_wrapper'}>
-                <span className={'search_input__label__inner_text'}>
+              <span className={"search_input__label__inner_wrapper"}>
+                <span className={"search_input__label__inner_text"}>
                   Waar bent u naar op zoek?
                 </span>
               </span>
@@ -202,27 +204,27 @@ class Search extends Component {
               <caption>
                 <i
                   className={`article__footer_related__icon article__footer_related__icon--node--article fa`}
-                />{' '}
+                />{" "}
                 Nieuwsbericht
                 <br />
                 <i
                   className={`article__footer_related__icon article__footer_related__icon--node--team fa`}
-                />{' '}
+                />{" "}
                 Ploeg
                 <br />
                 <i
                   className={`article__footer_related__icon article__footer_related__icon--node--player fa`}
-                />{' '}
+                />{" "}
                 Speler
                 <br />
                 <i
                   className={`article__footer_related__icon article__footer_related__icon--node--staff fa`}
-                />{' '}
+                />{" "}
                 Staflid
                 <br />
                 <i
                   className={`article__footer_related__icon article__footer_related__icon--node--event fa`}
-                />{' '}
+                />{" "}
                 Evenement
                 <br />
               </caption>

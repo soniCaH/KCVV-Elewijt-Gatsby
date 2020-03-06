@@ -1,8 +1,8 @@
-import React, { Component } from 'react'
-import { Link } from 'gatsby'
-import Img from 'gatsby-image'
+import React, { Component } from "react"
+import { Link } from "gatsby"
+import Img from "gatsby-image"
 
-import './cards.scss'
+import "./cards.scss"
 
 /**
  * Render a card layout (image / tag / title / excerpt).
@@ -32,15 +32,15 @@ export class Card extends Component {
     const absoluteUrlRegex = /^https?:\/\/|^\/\//i
 
     return (
-      <article className={'cardItem'}>
+      <article className={"cardItem"}>
         {absoluteUrlRegex.test(link) || (
           <Link to={link}>
             <header>
               <figure>{image}</figure>
             </header>
 
-            <main className={'cardItem__summary'}>
-              <div className={'cardItem__heading'}>
+            <main className={"cardItem__summary"}>
+              <div className={"cardItem__heading"}>
                 <h3>{title}</h3>
               </div>
 
@@ -55,8 +55,8 @@ export class Card extends Component {
               <figure>{image}</figure>
             </header>
 
-            <main className={'cardItem__summary'}>
-              <div className={'cardItem__heading'}>
+            <main className={"cardItem__summary"}>
+              <div className={"cardItem__heading"}>
                 <h3>{title}</h3>
               </div>
 
@@ -66,16 +66,16 @@ export class Card extends Component {
         )}
 
         {metadata && (
-          <footer className={'cardItem__footer article__tags'}>
-            <span className={'datetime'}>
-              <i className={'fa fa-clock-o'} aria-hidden="true"></i> {created}
+          <footer className={"cardItem__footer article__tags"}>
+            <span className={"datetime"}>
+              <i className={"fa fa-clock-o"} aria-hidden="true"></i> {created}
             </span>
             {tags.length > 0 && (
-              <span className={'tag__wrapper'}>
-                <i className={'fa fa-tags'} aria-hidden="true"></i>{' '}
+              <span className={"tag__wrapper"}>
+                <i className={"fa fa-tags"} aria-hidden="true"></i>{" "}
                 {tags.map(({ path, name }, i) => (
                   <Link to={path.alias} key={i}>
-                    <span className={'tag__label'}>#{name}</span>
+                    <span className={"tag__label"}>#{name}</span>
                   </Link>
                 ))}
               </span>
@@ -103,13 +103,13 @@ export class CardImage extends Component {
     )
 
     return (
-      <article className={'cardItem cardItem--image'}>
+      <article className={"cardItem cardItem--image"}>
         {absoluteUrlRegex.test(link) || (
           <Link to={link}>
             <header>
               <figure>{image}</figure>
-              <div className={'gradient gradient--70'}></div>
-              <div className={'cardItem__heading'}>
+              <div className={"gradient gradient--70"}></div>
+              <div className={"cardItem__heading"}>
                 <h3>{title}</h3>
                 {body && <div dangerouslySetInnerHTML={{ __html: body }}></div>}
               </div>
@@ -120,8 +120,8 @@ export class CardImage extends Component {
           <a href={link} target="_blank" rel="noopener noreferrer">
             <header>
               <figure>{image}</figure>
-              <div className={'gradient gradient--70'}></div>
-              <div className={'cardItem__heading'}>
+              <div className={"gradient gradient--70"}></div>
+              <div className={"cardItem__heading"}>
                 <h3>{title}</h3>
                 {body && <div dangerouslySetInnerHTML={{ __html: body }}></div>}
               </div>
@@ -149,7 +149,7 @@ export class SingleImageCard extends Component {
     )
 
     return (
-      <article className={'cardItem cardItem--vertical'}>
+      <article className={"cardItem cardItem--vertical"}>
         {absoluteUrlRegex.test(link) || (
           <Link to={link}>
             <header>
@@ -186,13 +186,13 @@ export class CardVertical extends Component {
     )
 
     return (
-      <article className={'cardItem cardItem--vertical'}>
+      <article className={"cardItem cardItem--vertical"}>
         {absoluteUrlRegex.test(link) || (
           <Link to={link}>
             <header>
               <figure>{image}</figure>
-              <div className={'gradient gradient--70'}></div>
-              <div className={'cardItem__heading'}>
+              <div className={"gradient gradient--70"}></div>
+              <div className={"cardItem__heading"}>
                 <h3>{title}</h3>
               </div>
             </header>
@@ -202,8 +202,8 @@ export class CardVertical extends Component {
           <a href={link} target="_blank" rel="noopener noreferrer">
             <header>
               <figure>{image}</figure>
-              <div className={'gradient gradient--70'}></div>
-              <div className={'cardItem__heading'}>
+              <div className={"gradient gradient--70"}></div>
+              <div className={"cardItem__heading"}>
                 <h3>{title}</h3>
               </div>
             </header>

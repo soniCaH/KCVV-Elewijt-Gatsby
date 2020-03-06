@@ -1,15 +1,15 @@
-import React from 'react'
-import { graphql, Link } from 'gatsby'
-import Layout from '../layouts/index'
-import SEO from '../components/seo'
+import React from "react"
+import { graphql, Link } from "gatsby"
+import Layout from "../layouts/index"
+import SEO from "../components/seo"
 
-import './categoryPage.scss'
-import { NewsItemCardRatio } from '../components/news-item'
+import "./categoryPage.scss"
+import { NewsItemCardRatio } from "../components/news-item"
 
 // eslint-disable-next-line
 String.prototype.replaceAll = function(search, replacement) {
   const target = this
-  return target.replace(new RegExp(search, 'g'), replacement)
+  return target.replace(new RegExp(search, "g"), replacement)
 }
 
 export default ({ data }) => {
@@ -22,17 +22,17 @@ export default ({ data }) => {
       <div className="grid-container site-content">
         <div className="grid-x grid-margin-x">
           <h2>KCVV Elewijt #{term.name}</h2>
-          <header className={'archive__filter_wrapper'}>
+          <header className={"archive__filter_wrapper"}>
             <h5>Filter op categorie</h5>
-            <section className={'archive__filter_filters'}>
-              <Link to={'/news/'} className={'btn btn--small'}>
+            <section className={"archive__filter_filters"}>
+              <Link to={"/news/"} className={"btn btn--small"}>
                 Alles
               </Link>
               {categoryTags.edges.map(({ node, i }) => {
                 return (
                   <Link
                     to={node.path.alias}
-                    className={'btn btn--small'}
+                    className={"btn btn--small"}
                     key={i}
                   >
                     {node.name}
@@ -43,7 +43,7 @@ export default ({ data }) => {
           </header>
 
           <main
-            className={'news_overview__wrapper news_overview__wrapper--archive'}
+            className={"news_overview__wrapper news_overview__wrapper--archive"}
           >
             {articles &&
               articles.edges.map(({ node }, i) => {

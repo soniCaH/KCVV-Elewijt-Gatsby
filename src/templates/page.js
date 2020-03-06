@@ -1,15 +1,15 @@
-import React from 'react'
-import { graphql } from 'gatsby'
-import Layout from '../layouts/index'
-import SEO from '../components/seo'
-import Img from 'gatsby-image'
+import React from "react"
+import { graphql } from "gatsby"
+import Layout from "../layouts/index"
+import SEO from "../components/seo"
+import Img from "gatsby-image"
 
-import './article.scss'
+import "./article.scss"
 
 // eslint-disable-next-line
 String.prototype.replaceAll = function(search, replacement) {
   var target = this
-  return target.replace(new RegExp(search, 'g'), replacement)
+  return target.replace(new RegExp(search, "g"), replacement)
 }
 
 export default ({ data }) => {
@@ -36,7 +36,7 @@ export default ({ data }) => {
 
   // Convert links to paths on our API, to absolute URL's.
   const cleanBody = post.body.processed.replaceAll(
-    '/sites/default/',
+    "/sites/default/",
     `${process.env.GATSBY_API_DOMAIN}/sites/default/`
   )
 
@@ -44,23 +44,23 @@ export default ({ data }) => {
     <Layout>
       <SEO lang="nl-BE" title={post.title} />
 
-      <article className={'article__wrapper'}>
+      <article className={"article__wrapper"}>
         <header
           className={
-            'article__header' + (!image ? ' article__header--no-image' : '')
+            "article__header" + (!image ? " article__header--no-image" : "")
           }
         >
           {image && (
-            <figure className={'article__header_image'}>
+            <figure className={"article__header_image"}>
               {image}
-              <div className={'gradient gradient--70'}></div>
+              <div className={"gradient gradient--70"}></div>
             </figure>
           )}
-          <h3 className={'article__header__heading'}>
+          <h3 className={"article__header__heading"}>
             <span>{post.title}</span>
           </h3>
         </header>
-        <main className={'article__body'}>
+        <main className={"article__body"}>
           <section>
             <div dangerouslySetInnerHTML={{ __html: cleanBody }} />
           </section>

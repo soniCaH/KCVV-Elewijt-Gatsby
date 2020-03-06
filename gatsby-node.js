@@ -5,12 +5,12 @@
  */
 
 // You can delete this file if you're not using it
-require('dotenv').config({
+require("dotenv").config({
   path: `.env`,
 })
 const path = require(`path`)
 
-const gatsbyNodePageQueries = require('./src/gatsby/gatsbyNodePageQueries')
+const gatsbyNodePageQueries = require("./src/gatsby/gatsbyNodePageQueries")
 const {
   createArticles,
   createPages,
@@ -19,7 +19,7 @@ const {
   createStaff,
   createOverviewNews,
   createCategoryPages,
-} = require('./src/gatsby/pageCreator')
+} = require("./src/gatsby/pageCreator")
 
 const createPaginatedPages = require(`gatsby-paginate`)
 
@@ -62,7 +62,7 @@ exports.createPages = async ({ graphql, actions }) => {
     createPaginatedPages,
     createPage,
     newsOverviewTemplate,
-    'news',
+    "news",
     60
   )
 

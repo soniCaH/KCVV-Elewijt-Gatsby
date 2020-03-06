@@ -1,8 +1,8 @@
-import React, { Component } from 'react'
+import React, { Component } from "react"
 
-import Layout from '../../layouts/index'
+import Layout from "../../layouts/index"
 
-import SEO from '../../components/seo'
+import SEO from "../../components/seo"
 
 class ResponsibilitiesPage extends Component {
   render() {
@@ -10,9 +10,8 @@ class ResponsibilitiesPage extends Component {
       <Layout>
         <SEO lang="nl-BE" title="Verantwoordelijkheden" />
 
-        <div className={'limited-width_wrapper'}>
+        <div className={"limited-width_wrapper"}>
           <h1>Verantwoordelijkheden</h1>
-
           Pagina wordt zo snel mogelijk aangevuld.
         </div>
       </Layout>

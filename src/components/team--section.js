@@ -1,19 +1,19 @@
-import React, { Component } from 'react'
-import { PlayerTeaser } from './player--teaser'
+import React, { Component } from "react"
+import { PlayerTeaser } from "./player--teaser"
 
-import './team--section.scss';
+import "./team--section.scss"
 
 export class TeamSection extends Component {
   render() {
     const { title, lineup } = this.props
 
     return (
-      <section className={'team_lineup__section'}>
+      <section className={"team_lineup__section"}>
         <h2>{title}</h2>
         <ul>
           {lineup.map((player, i) => {
             return (
-              <li className={'team_lineup__item'} key={i}>
+              <li className={"team_lineup__item"} key={i}>
                 <PlayerTeaser
                   url={player.path.alias}
                   position={

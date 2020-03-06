@@ -5,13 +5,13 @@
  */
 export function mapMatchStatus(statusCode) {
   const statusCodes = new Map([
-    ['PP', 'Uitgesteld'],
-    ['ST', 'Stopgezet'],
-    ['F1', 'Forfait'],
-    ['FI', 'Forfait'],
-    ['F2', 'Forfait'],
-    ['FF', 'Forfait'],
-    ['AMC', 'Algemeen forfait'],
+    ["PP", "Uitgesteld"],
+    ["ST", "Stopgezet"],
+    ["F1", "Forfait"],
+    ["FI", "Forfait"],
+    ["F2", "Forfait"],
+    ["FF", "Forfait"],
+    ["AMC", "Algemeen forfait"],
   ])
 
   return statusCodes.get(statusCode) || null
@@ -58,23 +58,20 @@ export function replaceFirstCharIfNumber(division) {
  * @param {array} divisionArray
  * @param {string} level
  */
-export function outputDivision(divisionArray, level = '') {
-  if (divisionArray[0] === 'BCA') {
+export function outputDivision(divisionArray, level = "") {
+  if (divisionArray[0] === "BCA") {
     return `Beker van Brabant`
-  }
-  else if (divisionArray[0] === 'FR') {
+  } else if (divisionArray[0] === "FR") {
     return `Vriendschappelijk`
-  }
-  else if (divisionArray[0] === 'BVZ') {
+  } else if (divisionArray[0] === "BVZ") {
     return `Beker van Zemst`
-  }
-  else if (divisionArray[2] <= 4) {
-    return `${divisionArray[2]}e ${level !== 'nat' ? 'Prov.' : 'Nationale'} ${
+  } else if (divisionArray[2] <= 4) {
+    return `${divisionArray[2]}e ${level !== "nat" ? "Prov." : "Nationale"} ${
       divisionArray[3]
     }`
   } else {
     return `U${divisionArray[2]} / ${divisionArray[3]}${
-      divisionArray[4] ? ` / ${divisionArray[4]}` : ''
+      divisionArray[4] ? ` / ${divisionArray[4]}` : ""
     }`
   }
 }
@@ -114,7 +111,7 @@ export function truncate(size, useWordBoundary = true) {
   var subString = this.substr(0, size - 1)
   return (
     (useWordBoundary
-      ? subString.substr(0, subString.lastIndexOf(' '))
+      ? subString.substr(0, subString.lastIndexOf(" "))
       : subString) + "…"
   )
 }
@@ -135,14 +132,19 @@ export function mapPositionCode(positionCode) {
  */
 export function getPositions() {
   const positions = new Map([
-    ['k', 'Doelman'],
-    ['d', 'Verdediger'],
-    ['m', 'Middenvelder'],
-    ['a', 'Aanvaller'],
+    ["k", "Doelman"],
+    ["d", "Verdediger"],
+    ["m", "Middenvelder"],
+    ["a", "Aanvaller"],
   ])
-  return positions;
+  return positions
 }
 
-
-
-export default { mapMatchStatus, mapDivision, formatDivision, truncate, mapPositionCode, getPositions }
+export default {
+  mapMatchStatus,
+  mapDivision,
+  formatDivision,
+  truncate,
+  mapPositionCode,
+  getPositions,
+}

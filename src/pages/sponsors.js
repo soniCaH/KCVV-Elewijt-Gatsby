@@ -1,10 +1,10 @@
-import React, { Component } from 'react'
-import { graphql } from 'gatsby'
+import React, { Component } from "react"
+import { graphql } from "gatsby"
 
-import Layout from '../layouts/index'
+import Layout from "../layouts/index"
 
-import SEO from '../components/seo'
-import Sponsor from '../components/sponsor'
+import SEO from "../components/seo"
+import Sponsor from "../components/sponsor"
 
 class SponsorsPage extends Component {
   render() {
@@ -12,10 +12,10 @@ class SponsorsPage extends Component {
     return (
       <Layout>
         <SEO lang="nl-BE" title="Sponsors" />
-        <div className={'sponsors-overview__wrapper limited-width_wrapper'}>
+        <div className={"sponsors-overview__wrapper limited-width_wrapper"}>
           <section
             className={
-              'sponsors-overview__section sponsors-overview__section--top'
+              "sponsors-overview__section sponsors-overview__section--top"
             }
           >
             {goldSponsors.edges.map(({ node }, i) => {
@@ -35,12 +35,12 @@ class SponsorsPage extends Component {
           </section>
           <section
             className={
-              'sponsors-overview__section sponsors-overview__section--middle'
+              "sponsors-overview__section sponsors-overview__section--middle"
             }
           >
             {silverSponsors.edges.map(({ node }, i) => {
               const website =
-                (node.field_website && node.field_website.uri) || ''
+                (node.field_website && node.field_website.uri) || ""
               return (
                 <Sponsor
                   key={i}
@@ -55,12 +55,12 @@ class SponsorsPage extends Component {
           </section>
           <section
             className={
-              'sponsors-overview__section sponsors-overview__section--bottom'
+              "sponsors-overview__section sponsors-overview__section--bottom"
             }
           >
             {bronzeSponsors.edges.map(({ node }, i) => {
               const website =
-                (node.field_website && node.field_website.uri) || ''
+                (node.field_website && node.field_website.uri) || ""
               return (
                 <Sponsor
                   key={i}
