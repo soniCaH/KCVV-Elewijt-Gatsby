@@ -1,8 +1,8 @@
-import React, { Component } from 'react'
+import React, { Component } from "react"
 
-import { Card, CardImage, CardVertical } from './cards'
+import { Card, CardImage, CardVertical } from "./cards"
 
-import './news-item.scss'
+import "./news-item.scss"
 
 /**
  * Render a single news item in default card layout.
@@ -27,7 +27,7 @@ export class NewsItemCard extends Component {
         tags={relatedTags}
         created={node.created}
         key={node.nid}
-        className={'test'}
+        className={"test"}
       />
     )
   }
@@ -92,7 +92,6 @@ export class NewsItemCardRatio extends Component {
   }
 }
 
-
 /**
  * Render a single KCVV TV item in default card layout.
  */
@@ -102,7 +101,7 @@ export class KcvvTvCard extends Component {
     const localFile =
       node.relationships.field_media_article_image.relationships
         .field_media_image.localFile
-        const summary = `${node.title}<br/><br/>Bekijk hier het wedstrijdverslag, interviews, nabespreking... en stem voor je man van de match!`;
+    const summary = `${node.title}<br/><br/>Bekijk hier het wedstrijdverslag, interviews, nabespreking... en stem voor je man van de match!`
     return (
       <Card
         title={"KCVV TV"}

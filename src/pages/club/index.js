@@ -1,9 +1,9 @@
-import React, { Component } from 'react'
+import React, { Component } from "react"
 
-import Layout from '../../layouts/index'
+import Layout from "../../layouts/index"
 
-import SEO from '../../components/seo'
-import { Link } from 'gatsby'
+import SEO from "../../components/seo"
+import { Link } from "gatsby"
 
 class IndexPage extends Component {
   render() {
@@ -11,12 +11,12 @@ class IndexPage extends Component {
       <Layout>
         <SEO lang="nl-BE" title="De Club" />
 
-        <div className={'limited-width_wrapper'}>
+        <div className={"limited-width_wrapper"}>
           <header>
             <h1>KCVV Elewijt</h1>
           </header>
           <section>
-            <h2 className={'featured-border'}>Geschiedenis</h2>
+            <h2 className={"featured-border"}>Geschiedenis</h2>
 
             <blockquote>
               <strong>Koninklijk Voetbal Vereniging Crossing Elewijt</strong> is
@@ -32,12 +32,12 @@ class IndexPage extends Component {
               Sinds 1983 is die thuishaven Elewijt.
             </p>
 
-            <Link to="club/history" className={'btn btn--arrow'}>
+            <Link to="club/history" className={"btn btn--arrow"}>
               Meer over de geschiedenis
             </Link>
           </section>
           <section>
-            <h2 className={'featured-border'}>Bestuur</h2>
+            <h2 className={"featured-border"}>Bestuur</h2>
 
             <p>
               KCVV Elewijt wordt al enkele jaren geleid door een gepassioneerde
@@ -47,12 +47,12 @@ class IndexPage extends Component {
               gecombineerd kunnen worden.
             </p>
 
-            <Link to="club/bestuur" className={'btn btn--arrow'}>
+            <Link to="club/bestuur" className={"btn btn--arrow"}>
               Maak kennis met het bestuur
             </Link>
           </section>
           <section>
-            <h2 className={'featured-border'}>Jeugdwerking</h2>
+            <h2 className={"featured-border"}>Jeugdwerking</h2>
             <p>
               Na enkele jaren waarin we achter de feiten holden en veel lokale
               jeugdspelers zagen vertrekken naar buurgemeenten, heeft KCVV
@@ -64,12 +64,12 @@ class IndexPage extends Component {
               opvolgen, gestaafd met leerrijke opleidingsplannen.
             </p>
 
-            <Link to="club/jeugdbestuur" className={'btn btn--arrow'}>
+            <Link to="club/jeugdbestuur" className={"btn btn--arrow"}>
               Ontmoet het jeugdbestuur
             </Link>
           </section>
           <section>
-            <h2 className={'featured-border'}>Contact</h2>
+            <h2 className={"featured-border"}>Contact</h2>
             <p>
               Binnen de club heeft iedereen zijn eigen "domein". Wil je graag
               contact over de sponsormogelijkheden, een aansluiting, een
@@ -77,12 +77,12 @@ class IndexPage extends Component {
               startpunt hebben we onmiddellijk een rechtstreekse lijn!
             </p>
 
-            <Link to="club/contact" className={'btn btn--arrow'}>
+            <Link to="club/contact" className={"btn btn--arrow"}>
               Neem contact op
             </Link>
           </section>
           <section>
-            <h2 className={'featured-border'}>KCVV Ultras</h2>
+            <h2 className={"featured-border"}>KCVV Ultras</h2>
             <p>
               De naam KCVV Ultras werd enkele jaren geleden op facebook in het
               leven geroepen door een bende supporters die elke week trouw op
@@ -91,12 +91,12 @@ class IndexPage extends Component {
             </p>
             <p>
               Tot het seizoen 2018 - 2019. In de zoektocht naar de
-              kampioenstitel konden de spelers elke vorm van steun gebruiken,
-              en wat is er beter dan de KCVV Ultras hiervoor terug nieuw leven
-              in te blazen? Enkele nieuwe voortrekkers stonden op en plaatsten
-              hun schouders onder de eerste sfeeracties. Bengaals vuur en
-              rookpotten werden aangekocht, trommels en spandoeken naast het
-              veld geposteerd en we konden knallen!
+              kampioenstitel konden de spelers elke vorm van steun gebruiken, en
+              wat is er beter dan de KCVV Ultras hiervoor terug nieuw leven in
+              te blazen? Enkele nieuwe voortrekkers stonden op en plaatsten hun
+              schouders onder de eerste sfeeracties. Bengaals vuur en rookpotten
+              werden aangekocht, trommels en spandoeken naast het veld
+              geposteerd en we konden knallen!
             </p>
             <p>
               Het enthousiasme, gekoppeld aan de goede resultaten, werkte
@@ -105,7 +105,7 @@ class IndexPage extends Component {
               kregen uitbreiding op verplaatsing: met de bierfiets de ploeg over
               de streep gaan trekken op FC Zemst, met de bus naar Mollem enz...
             </p>
-            <Link to="club/ultras" className={'btn btn--arrow'}>
+            <Link to="club/ultras" className={"btn btn--arrow"}>
               Meer over de supportersclub
             </Link>
           </section>

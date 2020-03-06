@@ -1,8 +1,8 @@
-import React from 'react'
-import { graphql } from 'gatsby'
-import Layout from '../layouts/index'
-import SEO from '../components/seo'
-import PlayerDetail from '../components/player'
+import React from "react"
+import { graphql } from "gatsby"
+import Layout from "../layouts/index"
+import SEO from "../components/seo"
+import PlayerDetail from "../components/player"
 
 // import './article.scss'
 

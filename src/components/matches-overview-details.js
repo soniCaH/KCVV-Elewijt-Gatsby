@@ -1,7 +1,7 @@
-import React, { Component, Fragment } from 'react'
-import { graphql, StaticQuery } from 'gatsby'
-import './matches-overview.scss'
-import MatchWithLogo from './match-with-logo'
+import React, { Component, Fragment } from "react"
+import { graphql, StaticQuery } from "gatsby"
+import "./matches-overview.scss"
+import MatchWithLogo from "./match-with-logo"
 
 class MatchesOverviewDetails extends Component {
   constructor(props) {

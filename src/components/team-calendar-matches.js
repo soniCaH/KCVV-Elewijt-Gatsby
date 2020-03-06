@@ -1,17 +1,17 @@
-import React, { Component } from 'react'
-import { graphql, StaticQuery } from 'gatsby'
-import { mapMatchStatus } from '../scripts/helper'
+import React, { Component } from "react"
+import { graphql, StaticQuery } from "gatsby"
+import { mapMatchStatus } from "../scripts/helper"
 
-import moment from 'moment-timezone'
-import 'moment/locale/nl-be'
+import moment from "moment-timezone"
+import "moment/locale/nl-be"
 
-import ClubLogo from './clublogo'
+import ClubLogo from "./clublogo"
 
-import './team-calendar-matches.scss'
+import "./team-calendar-matches.scss"
 
 class CalendarRow extends Component {
   render() {
-    moment.locale('nl-BE')
+    moment.locale("nl-BE")
 
     const { result } = this.props
     const {
@@ -27,27 +27,27 @@ class CalendarRow extends Component {
     } = result
 
     const d = new moment(dateTime)
-    const date = d.format('dddd D MMMM YYYY')
-    const time = d.format('HH:mm')
+    const date = d.format("dddd D MMMM YYYY")
+    const time = d.format("HH:mm")
     const matchPlayed =
-      typeof resultHome !== 'undefined' && typeof resultAway !== 'undefined'
+      typeof resultHome !== "undefined" && typeof resultAway !== "undefined"
 
     return (
-      <article className={'team-calendar-match'}>
-        <header className={'team-calendar-match__title'}>
+      <article className={"team-calendar-match"}>
+        <header className={"team-calendar-match__title"}>
           <h2>
-            {date}{' '}
-            <span className={'team-calendar-match__title__separator'}>|</span>
-            <span className={'team-calendar-match__title__tagline'}>
+            {date}{" "}
+            <span className={"team-calendar-match__title__separator"}>|</span>
+            <span className={"team-calendar-match__title__tagline"}>
               speeldag {matchDay}
             </span>
           </h2>
         </header>
-        <div className={'team-calendar-match__main'}>
+        <div className={"team-calendar-match__main"}>
           <div
             className={`team-calendar-match__team team-calendar-match__team--home ${matchPlayed &&
               resultHome > resultAway &&
-              'match-winner'}`}
+              "match-winner"}`}
           >
             {home}
 
@@ -55,16 +55,16 @@ class CalendarRow extends Component {
               regNumber={regNumberHome}
               title={home}
               className={
-                'team-calendar-match__logo team-calendar-match__logo--home'
+                "team-calendar-match__logo team-calendar-match__logo--home"
               }
               lazyload={true}
             />
           </div>
-          <div className={'team-calendar-match__score'}>
-            {typeof status !== 'undefined' && status !== '' ? (
+          <div className={"team-calendar-match__score"}>
+            {typeof status !== "undefined" && status !== "" ? (
               <span title={mapMatchStatus(status)}>{status}</span>
-            ) : typeof resultHome !== 'undefined' &&
-              typeof resultAway !== 'undefined' ? (
+            ) : typeof resultHome !== "undefined" &&
+              typeof resultAway !== "undefined" ? (
               `${resultHome} - ${resultAway}`
             ) : (
               time
@@ -73,13 +73,13 @@ class CalendarRow extends Component {
           <div
             className={`team-calendar-match__team team-calendar-match__team--away ${matchPlayed &&
               resultAway > resultHome &&
-              'match-winner'}`}
+              "match-winner"}`}
           >
             <ClubLogo
               regNumber={regNumberAway}
               title={away}
               className={
-                'team-calendar-match__logo team-calendar-match__logo--away'
+                "team-calendar-match__logo team-calendar-match__logo--away"
               }
               lazyload={true}
             />
@@ -132,14 +132,14 @@ class TeamCalendarMatches extends React.Component {
       const elewijtMatches = this.state.data
         .filter(
           ({ regNumberHome, regNumberAway }) =>
-            regNumberHome === '00055' || regNumberAway === '00055'
+            regNumberHome === "00055" || regNumberAway === "00055"
         )
         .sort((a, b) =>
           a.dateTime > b.dateTime ? 1 : b.dateTime > a.dateTime ? -1 : 0
         )
 
       return (
-        <section className={'team-calendar-matches'}>
+        <section className={"team-calendar-matches"}>
           {elewijtMatches.map((result, i) => (
             <CalendarRow result={result} key={i} />
           ))}

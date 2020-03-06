@@ -1,7 +1,7 @@
-import React, { Component } from 'react'
-import { graphql, StaticQuery, Link } from 'gatsby'
+import React, { Component } from "react"
+import { graphql, StaticQuery, Link } from "gatsby"
 
-import Sponsor from './sponsor'
+import Sponsor from "./sponsor"
 
 class SponsorsBlock extends Component {
   render() {
@@ -9,7 +9,7 @@ class SponsorsBlock extends Component {
     return (
       <>
         {sponsors.edges.map(({ node }, i) => {
-          const website = (node.field_website && node.field_website.uri) || ''
+          const website = (node.field_website && node.field_website.uri) || ""
           return (
             <Sponsor
               key={i}
@@ -21,7 +21,9 @@ class SponsorsBlock extends Component {
             />
           )
         })}
-        <Link to="/sponsors" className={'read-more'}>Alle sponsors &raquo;</Link>
+        <Link to="/sponsors" className={"read-more"}>
+          Alle sponsors &raquo;
+        </Link>
       </>
     )
   }

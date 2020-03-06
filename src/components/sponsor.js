@@ -1,6 +1,6 @@
-import React, { Component } from 'react'
+import React, { Component } from "react"
 
-import { SingleImageCard } from '../components/cards'
+import { SingleImageCard } from "../components/cards"
 
 class Sponsor extends Component {
   render() {

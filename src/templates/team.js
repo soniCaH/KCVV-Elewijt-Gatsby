@@ -1,13 +1,13 @@
-import { graphql } from 'gatsby'
-import React from 'react'
-import SEO from '../components/seo'
-import Layout from '../layouts/index'
-import Img from 'gatsby-image'
-import { TeamSection } from '../components/team--section'
-import './team.scss'
-import Ranking from '../components/ranking'
-import TeamCalendarMatches from '../components/team-calendar-matches'
-import TeamCalendarMetaMatches from '../components/team-calendar-meta-matches'
+import { graphql } from "gatsby"
+import React from "react"
+import SEO from "../components/seo"
+import Layout from "../layouts/index"
+import Img from "gatsby-image"
+import { TeamSection } from "../components/team--section"
+import "./team.scss"
+import Ranking from "../components/ranking"
+import TeamCalendarMatches from "../components/team-calendar-matches"
+import TeamCalendarMetaMatches from "../components/team-calendar-meta-matches"
 
 // Generic helper function to group an array by a property.
 const groupBy = key => array =>
@@ -18,7 +18,7 @@ const groupBy = key => array =>
   }, {})
 
 // Specific implementation of our groupBy function, to group by a property "field_position".
-const groupByPosition = groupBy('field_position')
+const groupByPosition = groupBy("field_position")
 
 export default ({ data }) => {
   const node = data.nodeTeam
@@ -36,7 +36,7 @@ export default ({ data }) => {
         picture.relationships.field_media_image.localFile.childImageSharp.fluid
       }
       alt={picture.field_media_image.alt}
-      className={'team-detail__team-picture'}
+      className={"team-detail__team-picture"}
     />
   )
 
@@ -47,40 +47,40 @@ export default ({ data }) => {
     <Layout>
       <SEO lang="nl-BE" title={node.title} />
 
-      <article className={'team-detail'}>
-        <header className={'team-detail__header'}>
-          <h1 className={'team-detail__name'}>
+      <article className={"team-detail"}>
+        <header className={"team-detail__header"}>
+          <h1 className={"team-detail__name"}>
             {/* > GEWESTELIJKE U13 K */}
-            <span className={'team-detail__name-division'}>
+            <span className={"team-detail__name-division"}>
               {node.field_division_full}
             </span>
             {/* > The A-team */}
-            <span className={'team-detail__name-tagline'}>
+            <span className={"team-detail__name-tagline"}>
               {node.field_tagline}
             </span>
           </h1>
 
-          <div className={'bg-green-mask'}>
-            <div className={'bg-white-end'} />
+          <div className={"bg-green-mask"}>
+            <div className={"bg-white-end"} />
           </div>
 
           {/* > 2A, 2G9K... */}
           {/* FB ID if only one of either is set, FB ID 2 if it has a value (will only be published around new year's, so it's always the most relevant as soon as it's known) */}
           {hasDivision && (
-            <div className={'team-detail__division-number'} aria-hidden="true">
+            <div className={"team-detail__division-number"} aria-hidden="true">
               {node.field_fb_id_2 ? node.field_fb_id_2 : node.field_fb_id}
             </div>
           )}
         </header>
 
-        <div className={'team-break'}></div>
+        <div className={"team-break"}></div>
 
         {/* Only show tab links if there are either players assigned to the team, or the team has an (active) division, so we can show rankings/matches */}
         {(playersByPosition || hasDivision) && (
-          <section className={'team-sub_navigation'}>
+          <section className={"team-sub_navigation"}>
             {/* Foundation tabs structure */}
             <ul
-              className={'tabs team-sub_navigation__tabs '}
+              className={"tabs team-sub_navigation__tabs "}
               data-tabs
               data-deep-link="true"
               data-update-history="true"
@@ -99,12 +99,12 @@ export default ({ data }) => {
               )}
               {hasDivision && (
                 <>
-                  <li className={'tabs-title'}>
+                  <li className={"tabs-title"}>
                     <a data-tabs-target="team-matches" href="#team-matches">
                       Wedstrijden
                     </a>
                   </li>
-                  <li className={'tabs-title'}>
+                  <li className={"tabs-title"}>
                     <a data-tabs-target="team-ranking" href="#team-ranking">
                       Stand
                     </a>
@@ -117,14 +117,14 @@ export default ({ data }) => {
 
         {/* Foundation content of the tabs. */}
         <div
-          className={'tabs-content'}
+          className={"tabs-content"}
           data-tabs-content="team-subnavigation_tabs"
         >
-          <div className={'tabs-panel is-active'} id="team-info">
-            {teamPicture || ''}
+          <div className={"tabs-panel is-active"} id="team-info">
+            {teamPicture || ""}
             {node.field_contact_info && (
               <div
-                className={'team-detail__team-info'}
+                className={"team-detail__team-info"}
                 dangerouslySetInnerHTML={{
                   __html: node.field_contact_info.processed,
                 }}
@@ -134,7 +134,7 @@ export default ({ data }) => {
           {/* If our page displays staff only (e.g. the "board" page), we change the title. */}
           {node.relationships.field_staff && !playersByPosition && (
             <main
-              className={'team-detail__lineup team-detail__lineup--staff-only'}
+              className={"team-detail__lineup team-detail__lineup--staff-only"}
             >
               <TeamSection
                 title="Stafleden"
@@ -143,36 +143,36 @@ export default ({ data }) => {
             </main>
           )}
           {playersByPosition && (
-            <div className={'tabs-panel'} id="team-lineup">
-              <main className={'team-detail__lineup'}>
+            <div className={"tabs-panel"} id="team-lineup">
+              <main className={"team-detail__lineup"}>
                 {node.relationships.field_staff && (
                   <TeamSection
                     title="Stafleden"
                     lineup={node.relationships.field_staff}
                   />
                 )}
-                {playersByPosition['k'] && (
+                {playersByPosition["k"] && (
                   <TeamSection
                     title="Doelmannen"
-                    lineup={playersByPosition['k']}
+                    lineup={playersByPosition["k"]}
                   />
                 )}
-                {playersByPosition['d'] && (
+                {playersByPosition["d"] && (
                   <TeamSection
                     title="Verdedigers"
-                    lineup={playersByPosition['d']}
+                    lineup={playersByPosition["d"]}
                   />
                 )}
-                {playersByPosition['m'] && (
+                {playersByPosition["m"] && (
                   <TeamSection
                     title="Middenvelder"
-                    lineup={playersByPosition['m']}
+                    lineup={playersByPosition["m"]}
                   />
                 )}
-                {playersByPosition['a'] && (
+                {playersByPosition["a"] && (
                   <TeamSection
                     title="Aanvallers"
-                    lineup={playersByPosition['a']}
+                    lineup={playersByPosition["a"]}
                   />
                 )}
               </main>
@@ -180,9 +180,9 @@ export default ({ data }) => {
           )}
           {hasDivision && (
             <>
-              <div className={'tabs-panel'} id="team-matches">
+              <div className={"tabs-panel"} id="team-matches">
                 {node.field_fb_id_2 && (
-                  <div className={'team-ranking__wrapper'}>
+                  <div className={"team-ranking__wrapper"}>
                     {node.field_fb_id && <h2>Wedstrijden na nieuwjaar</h2>}
 
                     {/* Metamatches is the big banner on top with the previous and next match highlighted. */}
@@ -203,7 +203,7 @@ export default ({ data }) => {
                   </div>
                 )}
                 {node.field_fb_id && (
-                  <div className={'team-ranking__wrapper'}>
+                  <div className={"team-ranking__wrapper"}>
                     {node.field_fb_id_2 && <h2>Wedstrijden voor nieuwjaar</h2>}
 
                     {/* Metamatches is the big banner on top with the previous and next match highlighted. */}
@@ -224,9 +224,9 @@ export default ({ data }) => {
                   </div>
                 )}
               </div>
-              <div className={'tabs-panel'} id="team-ranking">
+              <div className={"tabs-panel"} id="team-ranking">
                 {node.field_fb_id_2 && (
-                  <div className={'team-ranking__wrapper'}>
+                  <div className={"team-ranking__wrapper"}>
                     {node.field_fb_id && <h2>Ranking na nieuwjaar</h2>}
                     <Ranking
                       season="1920"
@@ -237,7 +237,7 @@ export default ({ data }) => {
                   </div>
                 )}
                 {node.field_fb_id && (
-                  <div className={'team-ranking__wrapper'}>
+                  <div className={"team-ranking__wrapper"}>
                     {node.field_fb_id_2 && <h2>Ranking voor nieuwjaar</h2>}
                     <Ranking
                       season="1920"
@@ -304,7 +304,6 @@ export const query = graphql`
                 childImageSharp {
                   fluid(maxWidth: 615) {
                     ...GatsbyImageSharpFluid_withWebp_tracedSVG
-
                   }
                 }
               }

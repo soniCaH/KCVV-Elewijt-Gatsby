@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React, { Component } from "react"
 
 class MiniRanking extends Component {
   render() {
@@ -25,7 +25,15 @@ class MiniRanking extends Component {
               rank && (
                 <tr key={i}>
                   <td>{rank.position}</td>
-                  <td className={rank.team.includes("Elewijt") ? 'team-ranking__winner' : undefined}>{rank.team}</td>
+                  <td
+                    className={
+                      rank.team.includes("Elewijt")
+                        ? "team-ranking__winner"
+                        : undefined
+                    }
+                  >
+                    {rank.team}
+                  </td>
                   <td>{rank.points}</td>
                 </tr>
               )

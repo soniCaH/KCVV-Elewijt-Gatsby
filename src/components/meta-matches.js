@@ -1,8 +1,8 @@
-import React, { Component, Fragment } from 'react'
-import { graphql, StaticQuery } from 'gatsby'
+import React, { Component, Fragment } from "react"
+import { graphql, StaticQuery } from "gatsby"
 // import './meta-matches.scss'
-import MatchWithLogo from './match-with-logo'
-import MiniRanking from './mini-ranking'
+import MatchWithLogo from "./match-with-logo"
+import MiniRanking from "./mini-ranking"
 
 class MetaMatches extends Component {
   constructor(props) {
