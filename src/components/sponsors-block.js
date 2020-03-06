@@ -54,8 +54,7 @@ const query = graphql`
                   localFile {
                     childImageSharp {
                       fluid(maxWidth: 400) {
-                        ...GatsbyImageSharpFluid_withWebp_tracedSVG
-                        aspectRatio
+                        ...GatsbyImageSharpFluid_withWebp
                       }
                     }
                   }

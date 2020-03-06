@@ -311,15 +311,7 @@ export const pageQuery = graphql`
     preseason: file(name: { eq: "preseason" }) {
       childImageSharp {
         fluid(maxWidth: 1680, quality: 75, cropFocus: ATTENTION) {
-          base64
-          aspectRatio
-          tracedSVG
-          aspectRatio
-          src
-          srcSet
-          srcWebp
-          srcSetWebp
-          sizes
+          ...GatsbyImageSharpFluid_withWebp
         }
       }
     }
@@ -369,7 +361,11 @@ export const pageQuery = graphql`
               relationships {
                 field_image {
                   localFile {
-                    url
+                    childImageSharp {
+                      fixed(height: 640) {
+                        src
+                      }
+                    }
                   }
                 }
               }
