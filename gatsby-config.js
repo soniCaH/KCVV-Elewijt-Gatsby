@@ -1,4 +1,4 @@
-require('dotenv').config()
+require("dotenv").config()
 
 module.exports = {
   siteMetadata: {
@@ -9,9 +9,9 @@ module.exports = {
     serverUrl: `${process.env.FOOTBEL_API_DOMAIN}`,
     logoUrl: `${process.env.FOOTBEL_API_DOMAIN}/logo`,
     refreshRate: 360000,
-    url: 'https://www.kcvvelewijt.be',
-    siteUrl: 'https://www.kcvvelewijt.be',
-    twitterHandle: 'kcvve',
+    url: "https://www.kcvvelewijt.be",
+    siteUrl: "https://www.kcvvelewijt.be",
+    twitterHandle: "kcvve",
   },
   plugins: [
     `gatsby-plugin-sass`,
@@ -32,11 +32,11 @@ module.exports = {
       },
     },
     {
-      resolve: 'gatsby-plugin-google-tagmanager',
+      resolve: "gatsby-plugin-google-tagmanager",
       options: {
         id: process.env.GATSBY_GTM_ID,
         includeInDevelopment: false,
-        defaultDataLayer: { platform: 'gatsby' },
+        defaultDataLayer: { platform: "gatsby" },
       },
     },
     `gatsby-plugin-preact`,

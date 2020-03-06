@@ -1,9 +1,9 @@
-import React, { Component } from 'react'
-import { graphql } from 'gatsby'
+import React, { Component } from "react"
+import { graphql } from "gatsby"
 
-import Layout from '../layouts/index'
-import SEO from '../components/seo'
-import Event from '../components/event'
+import Layout from "../layouts/index"
+import SEO from "../components/seo"
+import Event from "../components/event"
 
 class EventsPage extends Component {
   render() {
@@ -12,7 +12,7 @@ class EventsPage extends Component {
       <Layout>
         <SEO lang="nl-BE" title="Evenementen" />
 
-        <div className={'limited-width_wrapper'}>
+        <div className={"limited-width_wrapper"}>
           <h1>Evenementen</h1>
 
           {events.edges.map(({ node }, i) => (
@@ -31,14 +31,14 @@ class EventsPage extends Component {
 
           {events.edges.length === 0 && (
             <div>
-              Geen evenementen ingepland voorlopig. Check{' '}
+              Geen evenementen ingepland voorlopig. Check{" "}
               <a
                 href="https://www.facebook.com/kcvvelewijt"
                 target="_blank"
                 rel="noopener noreferrer"
               >
                 Facebook
-              </a>{' '}
+              </a>{" "}
               om op de hoogte te blijven.
             </div>
           )}

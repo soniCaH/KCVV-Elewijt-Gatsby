@@ -1,26 +1,26 @@
-import React from 'react'
-import PropTypes from 'prop-types'
-import { FacebookShareButton, TwitterShareButton } from 'react-share'
+import React from "react"
+import PropTypes from "prop-types"
+import { FacebookShareButton, TwitterShareButton } from "react-share"
 
-import './share.scss'
+import "./share.scss"
 
 const Share = ({ socialConfig, tags }) => (
   <>
-  <span className={"social-share-title"}>Delen op: </span>
+    <span className={"social-share-title"}>Delen op: </span>
     <FacebookShareButton
       url={socialConfig.config.url}
       className="social-share-btn is-outlined is-rounded facebook"
     >
-      <i className={'fa fa-facebook-f'} /> Facebook
+      <i className={"fa fa-facebook-f"} /> Facebook
     </FacebookShareButton>
     <TwitterShareButton
       url={socialConfig.config.url}
       className="social-share-btn is-outlined is-rounded twitter"
       title={socialConfig.config.title}
-      via={socialConfig.twitterHandle.split('@').join('')}
+      via={socialConfig.twitterHandle.split("@").join("")}
       hashtags={tags}
     >
-      <i className={'fa fa-twitter'} /> Twitter
+      <i className={"fa fa-twitter"} /> Twitter
     </TwitterShareButton>
   </>
 )

@@ -1,16 +1,16 @@
-import React, { Component } from 'react'
-import PropTypes from 'prop-types'
+import React, { Component } from "react"
+import PropTypes from "prop-types"
 
-import './header-bg-title.scss'
+import "./header-bg-title.scss"
 
 class HeaderBgTitle extends Component {
   render() {
     return (
-      <header className={`page-header-title ${this.props.classes || ''}`}>
+      <header className={`page-header-title ${this.props.classes || ""}`}>
         <h1>
-          {this.props.title}{' '}
+          {this.props.title}{" "}
           {this.props.highlight && (
-            <span className={'highlight'}>{this.props.highlight}</span>
+            <span className={"highlight"}>{this.props.highlight}</span>
           )}
         </h1>
       </header>

@@ -1,8 +1,8 @@
-import React, { Component } from 'react'
-import { graphql, StaticQuery } from 'gatsby'
-import Slider from 'react-slick'
-import './matches-slider.scss'
-import MatchWithLogo from './match-with-logo'
+import React, { Component } from "react"
+import { graphql, StaticQuery } from "gatsby"
+import Slider from "react-slick"
+import "./matches-slider.scss"
+import MatchWithLogo from "./match-with-logo"
 
 class MatchesSlider extends Component {
   constructor(props) {
@@ -81,7 +81,7 @@ class MatchesSlider extends Component {
 
       return (
         <div className="matchesSlider--wrapper">
-          <Slider className={'matchesSlider'} {...settings_slickslider}>
+          <Slider className={"matchesSlider"} {...settings_slickslider}>
             {this.state.data.map((match, i) => {
               return (
                 <div

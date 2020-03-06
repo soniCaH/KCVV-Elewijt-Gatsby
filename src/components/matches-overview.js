@@ -1,9 +1,9 @@
-import React, { Component, Fragment } from 'react'
-import { graphql, StaticQuery } from 'gatsby'
-import './matches-overview.scss'
-import moment from 'moment'
-import { mapMatchStatus, formatDivision } from '../scripts/helper'
-import 'moment/locale/nl-be'
+import React, { Component, Fragment } from "react"
+import { graphql, StaticQuery } from "gatsby"
+import "./matches-overview.scss"
+import moment from "moment"
+import { mapMatchStatus, formatDivision } from "../scripts/helper"
+import "moment/locale/nl-be"
 
 class MatchesOverview extends Component {
   constructor(props) {
@@ -54,7 +54,7 @@ class MatchesOverview extends Component {
         )
       }
 
-      moment.locale('nl-be')
+      moment.locale("nl-be")
       let matchTime = moment()
 
       const ignore = this.props.exclude || []
@@ -69,19 +69,19 @@ class MatchesOverview extends Component {
             matchTime = moment(match.dateTime)
             return (
               <div key={i}>
-                <span className={'label'}>
+                <span className={"label"}>
                   {formatDivision(match.division, match.region)}
                 </span>
-                <span className={'matches_overview__date'}>
-                  {matchTime.format('ddd D MMMM - H:mm')}
+                <span className={"matches_overview__date"}>
+                  {matchTime.format("ddd D MMMM - H:mm")}
                 </span>
 
                 {match.status ? (
-                  <span className={'label alert matches_overview__status'}>
+                  <span className={"label alert matches_overview__status"}>
                     {mapMatchStatus(match.status)}
                   </span>
                 ) : (
-                  ''
+                  ""
                 )}
                 <h6>
                   {match.home} - {match.away}

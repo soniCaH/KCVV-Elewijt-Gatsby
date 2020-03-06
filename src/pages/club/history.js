@@ -1,12 +1,12 @@
-import React, { Component } from 'react'
-import { graphql } from 'gatsby'
-import Img from 'gatsby-image'
-import ScrollAnimation from 'react-animate-on-scroll'
+import React, { Component } from "react"
+import { graphql } from "gatsby"
+import Img from "gatsby-image"
+import ScrollAnimation from "react-animate-on-scroll"
 
-import Layout from '../../layouts/index'
+import Layout from "../../layouts/index"
 
-import SEO from '../../components/seo'
-import HeaderBgTitle from '../../components/header-bg-title'
+import SEO from "../../components/seo"
+import HeaderBgTitle from "../../components/header-bg-title"
 
 class HistoryPage extends Component {
   render() {
@@ -26,7 +26,7 @@ class HistoryPage extends Component {
         <HeaderBgTitle
           title="Geschiedenis"
           highlight="van KCVV"
-          classes={'history-page'}
+          classes={"history-page"}
         />
 
         <div class="timeline timeline--top">
@@ -509,7 +509,7 @@ class HistoryPage extends Component {
           </p>
         </div>
 
-        <div className={'timeline'}>
+        <div className={"timeline"}>
           <div class="timeline-item">
             <div class="timeline-icon"></div>
             <ScrollAnimation animateOnce="true" animateIn="fadeInRightBig">
@@ -532,7 +532,7 @@ class HistoryPage extends Component {
           </div>
         </div>
 
-        <div className={'limited-width_wrapper'}>
+        <div className={"limited-width_wrapper"}>
           <h3>Credits</h3>
           <p>
             Met dank aan Martijn van den Berg voor de foto's en teksten over de

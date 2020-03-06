@@ -1,8 +1,8 @@
-import React, { Component, Fragment } from 'react'
-import { Link } from 'gatsby'
+import React, { Component, Fragment } from "react"
+import { Link } from "gatsby"
 
-import './page-header.scss'
-import logo from '../images/logo-flat.png'
+import "./page-header.scss"
+import logo from "../images/logo-flat.png"
 // import bauvall from '../images/bauvall.png'
 
 /**
@@ -47,24 +47,24 @@ const getClosest = (elem, selector) => {
  */
 class MenuItems extends Component {
   constructor(props) {
-    super(props);
+    super(props)
     this.teamsClick = this.teamsClick.bind(this)
   }
 
   componentDidMount() {
-    const activeLinks = document.querySelectorAll('.active')
+    const activeLinks = document.querySelectorAll(".active")
     let parent = null
 
     activeLinks.forEach(activeLink => {
-      parent = getClosest(activeLink, '.submenu')
+      parent = getClosest(activeLink, ".submenu")
       if (parent !== null) {
-        parent.classList.add('is-active')
+        parent.classList.add("is-active")
       }
     })
   }
 
   teamsClick(e) {
-    console.log(e);
+    console.log(e)
   }
 
   render() {
@@ -327,7 +327,14 @@ class MenuItems extends Component {
         </li>
         <li>
           <Link to="/search/" activeClassName="active" partiallyActive={true}>
-            <i className={"fa fa-search"} aria-hidden="true"></i> <span className={'display-mobile--inline-block display-mobile search--label'}>Zoeken</span>
+            <i className={"fa fa-search"} aria-hidden="true"></i>{" "}
+            <span
+              className={
+                "display-mobile--inline-block display-mobile search--label"
+              }
+            >
+              Zoeken
+            </span>
           </Link>
         </li>
       </Fragment>
