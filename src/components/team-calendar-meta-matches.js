@@ -1,8 +1,8 @@
-import React, { Component, Fragment } from 'react'
-import { graphql, StaticQuery } from 'gatsby'
-import MatchWithLogo from './match-with-logo'
+import React, { Component, Fragment } from "react"
+import { graphql, StaticQuery } from "gatsby"
+import MatchWithLogo from "./match-with-logo"
 
-import './team-calendar-meta-matches.scss'
+import "./team-calendar-meta-matches.scss"
 
 class TeamCalendarMetaMatches extends Component {
   constructor(props) {
@@ -49,7 +49,7 @@ class TeamCalendarMetaMatches extends Component {
       if (previous || next) {
         return (
           <Fragment>
-            <div className={'team-calendar-meta-matches'}>
+            <div className={"team-calendar-meta-matches"}>
               {previous && (
                 <MatchWithLogo match={previous.match} lazyload={true} />
               )}

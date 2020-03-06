@@ -1,9 +1,9 @@
-import React, { Component } from 'react'
-import defaultLogo from '../images/default.png'
-import { graphql, StaticQuery } from 'gatsby'
-import LazyLoad from 'react-lazy-load'
+import React, { Component } from "react"
+import defaultLogo from "../images/default.png"
+import { graphql, StaticQuery } from "gatsby"
+import LazyLoad from "react-lazy-load"
 
-import LogoFlat from '../images/logo-flat.png'
+import LogoFlat from "../images/logo-flat.png"
 
 /**
  * Render club logo based on the registration number of a club.
@@ -19,7 +19,7 @@ class ClubLogo extends Component {
   }
 
   render() {
-    if (this.props.regNumber === '00055') {
+    if (this.props.regNumber === "00055") {
       if (this.props.lazyload === true) {
         return (
           <LazyLoad debounce={false}>
@@ -85,9 +85,9 @@ const query = graphql`
 
 export default ({
   // If no regnumber was given, we return the KCVV Elewijt logo by default.
-  regNumber = '00055',
-  title = 'KCVV Elewijt',
-  className = '',
+  regNumber = "00055",
+  title = "KCVV Elewijt",
+  className = "",
   lazyload = false,
 }) => (
   <StaticQuery

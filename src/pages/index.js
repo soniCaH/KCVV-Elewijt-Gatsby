@@ -1,22 +1,22 @@
-import React, { Component, Fragment } from 'react'
-import { graphql } from 'gatsby'
+import React, { Component, Fragment } from "react"
+import { graphql } from "gatsby"
 
-import Layout from '../layouts/index'
+import Layout from "../layouts/index"
 
-import SEO from '../components/seo'
-import MetaMatches from '../components/meta-matches'
-import MatchesOverview from '../components/matches-overview'
-import MatchesSlider from '../components/matches-slider'
+import SEO from "../components/seo"
+import MetaMatches from "../components/meta-matches"
+import MatchesOverview from "../components/matches-overview"
+import MatchesSlider from "../components/matches-slider"
 import {
   NewsItemFeatured,
   NewsItemCardRatio,
   KcvvTvCard,
-} from '../components/news-item'
-import { CardImage } from '../components/cards'
-import UpcomingEvent from '../components/upcoming-event'
-import PlayerFeatured from '../components/player--featured'
+} from "../components/news-item"
+import { CardImage } from "../components/cards"
+import UpcomingEvent from "../components/upcoming-event"
+import PlayerFeatured from "../components/player--featured"
 
-import MyMakro from '../images/mymakrokcvv.jpg'
+import MyMakro from "../images/mymakrokcvv.jpg"
 
 class IndexPage extends Component {
   render() {
@@ -44,7 +44,7 @@ class IndexPage extends Component {
 
               {posts.map(({ node }, i) => {
                 switch (node.internal.type) {
-                  case 'node__article':
+                  case "node__article":
                     node.field_featured && (articleCount = articleCount + 2)
                     !node.field_featured && articleCount++
                     return (
@@ -53,14 +53,11 @@ class IndexPage extends Component {
                           <NewsItemFeatured node={node} />
                         )}
                         {!node.field_featured && (
-                          <NewsItemCardRatio
-                            node={node}
-                            teaser={true}
-                          />
+                          <NewsItemCardRatio node={node} teaser={true} />
                         )}
-                        </Fragment>
+                      </Fragment>
                     )
-                  case 'node__kcvv_tv':
+                  case "node__kcvv_tv":
                     if (kcvvTvCount === 0) {
                       articleCount = articleCount + 2
                       kcvvTvCount++
@@ -83,14 +80,14 @@ class IndexPage extends Component {
                     }
 
                   default:
-                    return ''
+                    return ""
                 }
               })}
             </section>
             <aside className="cell large-4">
               <section className="grid-x featured__matches grid-margin-x">
-                <article className={'medium-6 large-12 cell card'}>
-                  <header className={'card__header'}>
+                <article className={"medium-6 large-12 cell card"}>
+                  <header className={"card__header"}>
                     <h4>The A-Team</h4>
                   </header>
                   <MetaMatches
@@ -100,8 +97,8 @@ class IndexPage extends Component {
                     regnumber="00055"
                   />
                 </article>
-                <article className={'medium-6 large-12 cell card'}>
-                  <header className={'card__header'}>
+                <article className={"medium-6 large-12 cell card"}>
+                  <header className={"card__header"}>
                     <h4>The B-Team</h4>
                   </header>
                   <MetaMatches
@@ -111,7 +108,7 @@ class IndexPage extends Component {
                     regnumber="00055"
                   />
                 </article>
-                <article className={'medium-6 large-12 cell card'}>
+                <article className={"medium-6 large-12 cell card"}>
                   <header className="card__header">
                     <h4>Jeugdploegen</h4>
                   </header>
@@ -126,10 +123,10 @@ class IndexPage extends Component {
                     ({ node: potw }) =>
                       potw.relationships.field_player && (
                         <article
-                          className={'medium-6 large-12 cell card'}
+                          className={"medium-6 large-12 cell card"}
                           key={potw.relationships.field_player.field_firstname}
                         >
-                          <header className={'card__header'}>
+                          <header className={"card__header"}>
                             <h4>Speler van de week</h4>
                           </header>
                           <PlayerFeatured
@@ -138,8 +135,8 @@ class IndexPage extends Component {
                         </article>
                       )
                   )}
-                <article className={'medium-6 large-12 cell social'}>
-                  <div className={'social-sidebar__wrapper'}>
+                <article className={"medium-6 large-12 cell social"}>
+                  <div className={"social-sidebar__wrapper"}>
                     <a
                       href="https://facebook.com/KCVVElewijt"
                       className="btn-social-counter btn-social-counter--fb"
@@ -181,26 +178,26 @@ class IndexPage extends Component {
                     </a>
                   </div>
                 </article>
-                <article className={'medium-6 large-12 cell card'}>
-                  <header className={'card__header'}>
+                <article className={"medium-6 large-12 cell card"}>
+                  <header className={"card__header"}>
                     <h4>
                       <i
-                        className={'fa fa-commenting-o'}
+                        className={"fa fa-commenting-o"}
                         aria-hidden="true"
-                      ></i>{' '}
+                      ></i>{" "}
                       Website feedback
                     </h4>
                   </header>
-                  <div className={'card__content'}>
+                  <div className={"card__content"}>
                     <p>
                       Na lang zwoegen is onze nieuwe website eíndelijk online
                       geraakt! We zijn heel benieuwd naar jullie mening of
                       feedback. Als jullie vinden dat er iets ontbreekt, of als
                       je bepaalde fouten tegenkomt, zouden we het ten zeerste
-                      appreciëren als je ons even iets laat weten op{' '}
+                      appreciëren als je ons even iets laat weten op{" "}
                       <a
                         href="mailto:website@kcvvelewijt.be"
-                        className={'rich-link'}
+                        className={"rich-link"}
                       >
                         website@kcvvelewijt.be
                       </a>
@@ -208,11 +205,11 @@ class IndexPage extends Component {
                     </p>
                   </div>
                 </article>
-                <article className={'medium-6 large-12 cell card'}>
-                  <header className={'card__header'}>
+                <article className={"medium-6 large-12 cell card"}>
+                  <header className={"card__header"}>
                     <h4>MyMakro</h4>
                   </header>
-                  <div className={'card__content'}>
+                  <div className={"card__content"}>
                     <p>
                       Link nu jouw Makro voordeelkaart aan onze vereniging. Bij
                       elke aankoop bij Makro en partners steun je KCVV Elewijt!
@@ -221,12 +218,12 @@ class IndexPage extends Component {
                       <img
                         src={MyMakro}
                         alt="QR Code MyMakro"
-                        style={{ width: '100%' }}
+                        style={{ width: "100%" }}
                       />
                     </p>
                     <p>
                       Scan bovenstaande QR-code met je camera op GSM, of surf
-                      naar{' '}
+                      naar{" "}
                       <a
                         href="https://my.makro.be/nl/link-vereniging/02277464"
                         target="_blank"
@@ -244,7 +241,7 @@ class IndexPage extends Component {
           </div>
         </section>
 
-        <section className={'grid-container full'}>
+        <section className={"grid-container full"}>
           <MatchesSlider season="1920" regnumber="00055" />
         </section>
 
