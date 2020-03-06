@@ -1,7 +1,9 @@
 {
   "extends": [
     "config:base",
-    "packages:gatsby"
+    "config:js-app",
+    "packages:gatsby",
+    "group:gatsbyMonorepo"
   ],
   "ignorePaths": [
     "_____BU-src",
