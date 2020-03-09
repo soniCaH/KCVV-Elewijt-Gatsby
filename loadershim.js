@@ -1,5 +1,6 @@
+/** global: jest */
+
 global.___loader = {
-  /** global: jest */
   enqueue: jest.fn(),
 }
 
