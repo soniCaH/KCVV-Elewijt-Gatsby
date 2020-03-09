@@ -27,16 +27,6 @@ exports[`HighlightTitle renders correctly 1`] = `
 </header>
 `;
 
-exports[`MissingTitle renders correctly 1`] = `
-<header
-  className="page-header-title "
->
-  <h1>
-     
-  </h1>
-</header>
-`;
-
 exports[`SimpleTitle renders correctly 1`] = `
 <header
   className="page-header-title "
