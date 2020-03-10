@@ -3,11 +3,8 @@
     "config:base",
     "config:js-app",
     "packages:gatsby",
-    "group:gatsbyMonorepo"
-  ],
-  "ignorePaths": [
-    "_____BU-src",
-    "_____BU-src/plugins/social-media-feed/package.json"
+    "group:gatsbyMonorepo",
+    "schedule:daily"
   ],
   "packageRules": [
     {
@@ -22,5 +19,6 @@
   "labels": [
     "dependencies"
   ],
+  "timezone": "Europe/Brussels",
   "masterIssue": true
 }
