@@ -2,11 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="e06177db-f180-454e-8016-b97862712fa8" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.eslintrc.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/clublogo.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/clublogo.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/meta-matches.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/meta-matches.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/club/history.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/club/history.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -21,13 +17,7 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="JsFlowSettings">
-    <service-enabled>true</service-enabled>
-    <exe-path />
-    <other-services-enabled>true</other-services-enabled>
-    <auto-save>true</auto-save>
-  </component>
-  <component name="ProjectId" id="1Yn9op2HIRuCIhFFnn6sZbKzhXy" />
+  <component name="ProjectId" id="1YsqEat3exwLO7vl8HYis4mT1I2" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showExcludedFiles" value="true" />
@@ -58,7 +48,8 @@
       <updated>1549791559487</updated>
       <workItem from="1549791560781" duration="1494000" />
       <workItem from="1549960917802" duration="111000" />
-      <workItem from="1583567671055" duration="783000" />
+      <workItem from="1583741544899" duration="585000" />
+      <workItem from="1583828315900" duration="81000" />
     </task>
     <servers />
   </component>
@@ -66,13 +57,9 @@
     <option name="version" value="1" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="440" y="173" key="#ESLint" timestamp="1583567955098">
-      <screen x="0" y="23" width="1680" height="969" />
+    <state x="560" y="188" key="#ESLint" timestamp="1583828385237">
+      <screen x="0" y="23" width="1920" height="999" />
     </state>
-    <state x="440" y="173" key="#ESLint/0.23.1680.969@0.23.1680.969" timestamp="1583567955098" />
-    <state x="341" y="146" key="SettingsEditor" timestamp="1583567728183">
-      <screen x="0" y="23" width="1680" height="969" />
-    </state>
-    <state x="341" y="146" key="SettingsEditor/0.23.1680.969@0.23.1680.969" timestamp="1583567728183" />
+    <state x="560" y="188" key="#ESLint/0.23.1920.999/-1680.23.1680.1027@0.23.1920.999" timestamp="1583828385237" />
   </component>
 </project>
