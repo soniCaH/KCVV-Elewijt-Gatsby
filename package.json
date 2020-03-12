@@ -54,10 +54,15 @@
     "start": "npm run develop",
     "clean": "rm -rf public",
     "format:js": "prettier '**/*.{js,jsx}' --write",
-    "test": "echo \"Write tests! -> https://gatsby.app/unit-testing\""
+    "test": "jest"
   },
   "devDependencies": {
-    "prettier": "1.19.1"
+    "babel-jest": "^25.1.0",
+    "babel-preset-gatsby": "^0.2.31",
+    "identity-obj-proxy": "^3.0.0",
+    "jest": "^25.1.0",
+    "prettier": "1.19.1",
+    "react-test-renderer": "^16.13.0"
   },
   "repository": {
     "type": "git",
