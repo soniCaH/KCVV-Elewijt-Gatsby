@@ -104,11 +104,7 @@ export const pageQuery = graphql`
               relationships {
                 field_media_image {
                   localFile {
-                    childImageSharp {
-                      fluid(maxWidth: 500) {
-                        ...GatsbyImageSharpFluid_withWebp
-                      }
-                    }
+                    ...KCVVFluid480
                   }
                 }
               }
@@ -140,11 +136,7 @@ export const pageQuery = graphql`
               relationships {
                 field_media_image {
                   localFile {
-                    childImageSharp {
-                      fluid(maxWidth: 300) {
-                        ...GatsbyImageSharpFluid_withWebp
-                      }
-                    }
+                    ...KCVVFluid480
                   }
                 }
               }
@@ -176,11 +168,7 @@ export const pageQuery = graphql`
               relationships {
                 field_media_image {
                   localFile {
-                    childImageSharp {
-                      fluid(maxWidth: 300) {
-                        ...GatsbyImageSharpFluid_withWebp
-                      }
-                    }
+                    ...KCVVFluid480
                   }
                 }
               }

@@ -281,11 +281,7 @@ export const query = graphql`
           relationships {
             field_image {
               localFile {
-                childImageSharp {
-                  fluid(maxWidth: 615) {
-                    ...GatsbyImageSharpFluid_withWebp_tracedSVG
-                  }
-                }
+                ...KCVVFluidPlayerTeaser
               }
             }
           }
@@ -301,17 +297,13 @@ export const query = graphql`
           relationships {
             field_image {
               localFile {
-                childImageSharp {
-                  fluid(maxWidth: 615) {
-                    ...GatsbyImageSharpFluid_withWebp_tracedSVG
-                  }
-                }
+                ...KCVVFluidPlayerTeaser
               }
             }
           }
         }
         field_media_article_image {
-          ...ArticleImageLarge
+          ...ArticleImage
           field_media_image {
             alt
           }

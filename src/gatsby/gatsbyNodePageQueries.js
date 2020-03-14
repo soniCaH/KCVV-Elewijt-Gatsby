@@ -19,7 +19,8 @@ articles: allNodeArticle(sort: {fields: created, order: DESC}) {
                         field_media_image {
                             localFile {
                                 childImageSharp {
-                                    fluid(maxWidth: 800, quality: 75, cropFocus: ATTENTION) {
+                                    fluid(maxWidth: 480) {
+                                        base64
                                         aspectRatio
                                         src
                                         srcSet

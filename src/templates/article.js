@@ -182,7 +182,7 @@ export const query = graphql`
           }
         }
         field_media_article_image {
-          ...ArticleImageLarge
+          ...ArticleImage
         }
         field_tags {
           name

@@ -40,11 +40,7 @@ export const query = graphql`
         }
         field_image {
           localFile {
-            childImageSharp {
-              fixed(height: 460) {
-                ...GatsbyImageSharpFixed_withWebp_tracedSVG
-              }
-            }
+            ...KCVVFixedPlayerTeaser
           }
         }
       }

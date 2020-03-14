@@ -125,18 +125,10 @@ class UltrasPage extends Component {
 export const query = graphql`
   query {
     sjr: file(name: { eq: "sjr" }) {
-      childImageSharp {
-        fluid(maxWidth: 960, quality: 75, cropFocus: ATTENTION) {
-          ...GatsbyImageSharpFluid_withWebp
-        }
-      }
+      ...KCVVFluid960
     }
     champ: file(name: { eq: "ultraskampioen" }) {
-      childImageSharp {
-        fluid(maxWidth: 960, quality: 75, cropFocus: ATTENTION) {
-          ...GatsbyImageSharpFluid_withWebp
-        }
-      }
+      ...KCVVFluid960
     }
   }
 `
