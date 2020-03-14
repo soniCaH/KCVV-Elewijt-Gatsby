@@ -19,7 +19,7 @@ export const query = graphql`
       field_media_image {
         localFile {
           childImageSharp {
-            fluid(maxWidth: 1680, quality: 75, cropFocus: ATTENTION) {
+            fluid(maxWidth: 960, quality: 75, cropFocus: ATTENTION) {
               ...GatsbyImageSharpFluid_withWebp
             }
           }

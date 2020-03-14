@@ -102,30 +102,25 @@ export class CardImage extends Component {
       />
     )
 
+    const content = (
+      <header>
+        <figure>{image}</figure>
+        <div className={"gradient gradient--70"}></div>
+        <div className={"cardItem__heading"}>
+          <h3>{title}</h3>
+          {body && <div dangerouslySetInnerHTML={{ __html: body }}></div>}
+        </div>
+      </header>
+    )
+
     return (
       <article className={"cardItem cardItem--image"}>
-        {absoluteUrlRegex.test(link) || (
-          <Link to={link}>
-            <header>
-              <figure>{image}</figure>
-              <div className={"gradient gradient--70"}></div>
-              <div className={"cardItem__heading"}>
-                <h3>{title}</h3>
-                {body && <div dangerouslySetInnerHTML={{ __html: body }}></div>}
-              </div>
-            </header>
-          </Link>
-        )}
-        {absoluteUrlRegex.test(link) && (
+        {link === false && content}
+        {link !== false &&
+          (absoluteUrlRegex.test(link) || <Link to={link}>{content}</Link>)}
+        {link !== false && absoluteUrlRegex.test(link) && (
           <a href={link} target="_blank" rel="noopener noreferrer">
-            <header>
-              <figure>{image}</figure>
-              <div className={"gradient gradient--70"}></div>
-              <div className={"cardItem__heading"}>
-                <h3>{title}</h3>
-                {body && <div dangerouslySetInnerHTML={{ __html: body }}></div>}
-              </div>
-            </header>
+            {content}
           </a>
         )}
       </article>

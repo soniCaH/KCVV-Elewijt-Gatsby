@@ -54,7 +54,7 @@ const query = graphql`
                 field_media_image {
                   localFile {
                     childImageSharp {
-                      fluid(maxWidth: 1500) {
+                      fluid(maxWidth: 960) {
                         ...GatsbyImageSharpFluid_withWebp
                       }
                     }

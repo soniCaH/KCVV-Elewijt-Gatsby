@@ -14,7 +14,12 @@ describe("SimpleTitle", () => {
 describe("HighlightTitle", () => {
   it("renders correctly", () => {
     const tree = renderer
-      .create(<HeaderBgTitle title="KCVV Elewijt" highlight="Er is maar één plezante compagnie" />)
+      .create(
+        <HeaderBgTitle
+          title="KCVV Elewijt"
+          highlight="Er is maar één plezante compagnie"
+        />
+      )
       .toJSON()
     expect(tree).toMatchSnapshot()
   })
