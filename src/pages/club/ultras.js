@@ -127,14 +127,14 @@ export const query = graphql`
     sjr: file(name: { eq: "sjr" }) {
       childImageSharp {
         fluid(maxWidth: 960, quality: 75, cropFocus: ATTENTION) {
-          ...GatsbyImageSharpFluid_withWebp
+          ...GatsbyImageSharpFluid
         }
       }
     }
     champ: file(name: { eq: "ultraskampioen" }) {
       childImageSharp {
         fluid(maxWidth: 960, quality: 75, cropFocus: ATTENTION) {
-          ...GatsbyImageSharpFluid_withWebp
+          ...GatsbyImageSharpFluid
         }
       }
     }

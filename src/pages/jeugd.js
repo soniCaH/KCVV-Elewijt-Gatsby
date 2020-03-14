@@ -74,7 +74,7 @@ export const pageQuery = graphql`
     leerplan: file(name: { eq: "leerplan_header" }) {
       childImageSharp {
         fluid(maxWidth: 960, quality: 75, cropFocus: ATTENTION) {
-          ...GatsbyImageSharpFluid_withWebp
+          ...GatsbyImageSharpFluid
         }
       }
     }

@@ -549,42 +549,42 @@ export const pageQuery = graphql`
     history52: file(name: { eq: "history-52-53" }) {
       childImageSharp {
         fluid(maxWidth: 1680, quality: 75, cropFocus: ATTENTION) {
-          ...GatsbyImageSharpFluid_withWebp
+          ...GatsbyImageSharpFluid
         }
       }
     }
     history58: file(name: { eq: "history-58-59" }) {
       childImageSharp {
         fluid(maxWidth: 1680, quality: 75, cropFocus: ATTENTION) {
-          ...GatsbyImageSharpFluid_withWebp
+          ...GatsbyImageSharpFluid
         }
       }
     }
     history63: file(name: { eq: "history-63-64" }) {
       childImageSharp {
         fluid(maxWidth: 1680, quality: 75, cropFocus: ATTENTION) {
-          ...GatsbyImageSharpFluid_withWebp
+          ...GatsbyImageSharpFluid
         }
       }
     }
     historyfusie: file(name: { eq: "history-fusie" }) {
       childImageSharp {
         fluid(maxWidth: 1680, quality: 75, cropFocus: ATTENTION) {
-          ...GatsbyImageSharpFluid_withWebp
+          ...GatsbyImageSharpFluid
         }
       }
     }
     historybvb: file(name: { eq: "history-bvb" }) {
       childImageSharp {
         fluid(maxWidth: 1680, quality: 75, cropFocus: ATTENTION) {
-          ...GatsbyImageSharpFluid_withWebp
+          ...GatsbyImageSharpFluid
         }
       }
     }
     history18: file(name: { eq: "history-2018" }) {
       childImageSharp {
         fluid(maxWidth: 1680, quality: 75, cropFocus: ATTENTION) {
-          ...GatsbyImageSharpFluid_withWebp
+          ...GatsbyImageSharpFluid
         }
       }
     }

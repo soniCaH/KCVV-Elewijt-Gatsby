@@ -310,7 +310,7 @@ export const pageQuery = graphql`
     preseason: file(name: { eq: "preseason" }) {
       childImageSharp {
         fluid(maxWidth: 960, quality: 75, cropFocus: ATTENTION) {
-          ...GatsbyImageSharpFluid_withWebp
+          ...GatsbyImageSharpFluid
         }
       }
     }
