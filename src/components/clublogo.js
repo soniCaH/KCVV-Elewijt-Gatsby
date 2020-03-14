@@ -31,6 +31,7 @@ class ClubLogo extends Component {
 
     return (
       <img
+        role="presentation"
         src={logoUrl}
         onError={({ target }) => {
           target.onerror = null
