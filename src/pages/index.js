@@ -356,11 +356,7 @@ export const pageQuery = graphql`
               relationships {
                 field_image {
                   localFile {
-                    childImageSharp {
-                      fixed(height: 640) {
-                        src
-                      }
-                    }
+                    ...KCVVFixedPlayerTeaser
                   }
                 }
               }

@@ -69,3 +69,17 @@ export const KCVVFluidPlayerTeaser = graphql`
     }
   }
 `
+
+export const KCVVFixedPlayerTeaser = graphql`
+  fragment KCVVFixedPlayerTeaser on File {
+    childImageSharp {
+      fixed(height: 480) {
+        tracedSVG
+        width
+        height
+        src
+        srcSet
+      }
+    }
+  }
+`
