@@ -5865,7 +5865,7 @@ gatsby-plugin-manifest@2.2.47:
     semver "^5.7.1"
     sharp "^0.23.4"
 
-gatsby-plugin-netlify-cache@^1.2.0:
+gatsby-plugin-netlify-cache@1.2.0:
   version "1.2.0"
   resolved "https://registry.yarnpkg.com/gatsby-plugin-netlify-cache/-/gatsby-plugin-netlify-cache-1.2.0.tgz#e68db9c5bd4ae103b4589f9be2a3cb9958750788"
   integrity sha512-unt4mAVpC0JzwZSo8KQV4P/trDHkr3PeTWDF5Hijw9jGfNQIWXbcj9nYljAVg7HCich6E6b27Q+zuf53InwpDQ==
