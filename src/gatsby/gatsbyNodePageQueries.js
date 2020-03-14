@@ -19,12 +19,12 @@ articles: allNodeArticle(sort: {fields: created, order: DESC}) {
                         field_media_image {
                             localFile {
                                 childImageSharp {
-                                    fluid(maxWidth: 960) {
-                                      base64
-                                      aspectRatio
-                                      src
-                                      srcSet
-                                      sizes
+                                    fluid(maxWidth: 480) {
+                                        base64
+                                        aspectRatio
+                                        src
+                                        srcSet
+                                        sizes
                                     }
                                 }
                             }

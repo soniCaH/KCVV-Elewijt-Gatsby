@@ -54,11 +54,7 @@ const query = graphql`
               relationships {
                 field_media_image {
                   localFile {
-                    childImageSharp {
-                      fluid(maxWidth: 400) {
-                        ...GatsbyImageSharpFluid
-                      }
-                    }
+                    ...KCVVFluid240
                   }
                 }
               }
