@@ -56,3 +56,16 @@ export const KCVVFluid1280 = graphql`
   }
 `
 
+export const KCVVFluidPlayerTeaser = graphql`
+  fragment KCVVFluidPlayerTeaser on File {
+    childImageSharp {
+      fluid(maxWidth: 615) {
+        tracedSVG
+        aspectRatio
+        src
+        srcSet
+        sizes
+      }
+    }
+  }
+`

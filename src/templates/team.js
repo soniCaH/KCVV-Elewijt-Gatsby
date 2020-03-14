@@ -281,11 +281,7 @@ export const query = graphql`
           relationships {
             field_image {
               localFile {
-                childImageSharp {
-                  fluid(maxWidth: 615) {
-                    ...GatsbyImageSharpFluid_tracedSVG
-                  }
-                }
+                ...KCVVFluidPlayerTeaser
               }
             }
           }
@@ -301,11 +297,7 @@ export const query = graphql`
           relationships {
             field_image {
               localFile {
-                childImageSharp {
-                  fluid(maxWidth: 615) {
-                    ...GatsbyImageSharpFluid_tracedSVG
-                  }
-                }
+                ...KCVVFluidPlayerTeaser
               }
             }
           }
