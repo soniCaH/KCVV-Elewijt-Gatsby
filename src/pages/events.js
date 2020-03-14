@@ -72,11 +72,7 @@ export const pageQuery = graphql`
               relationships {
                 field_media_image {
                   localFile {
-                    childImageSharp {
-                      fluid(maxWidth: 960) {
-                        ...GatsbyImageSharpFluid
-                      }
-                    }
+                    ...KCVVFluid960
                   }
                 }
               }

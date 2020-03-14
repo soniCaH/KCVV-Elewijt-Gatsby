@@ -82,7 +82,7 @@ export const query = graphql`
       title
       relationships {
         field_media_article_image {
-          ...ArticleImageLarge
+          ...ArticleImage
         }
       }
     }

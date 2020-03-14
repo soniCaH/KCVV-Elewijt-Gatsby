@@ -308,11 +308,7 @@ export const pageQuery = graphql`
       }
     }
     preseason: file(name: { eq: "preseason" }) {
-      childImageSharp {
-        fluid(maxWidth: 960, quality: 75, cropFocus: ATTENTION) {
-          ...GatsbyImageSharpFluid
-        }
-      }
+      ...KCVVFluid960
     }
     kcvvTv: allNodeKcvvTv(
       filter: { status: { eq: true }, promote: { eq: true } }
