@@ -41,3 +41,18 @@ export const KCVVFluid240 = graphql`
     }
   }
 `
+
+export const KCVVFluid1280 = graphql`
+  fragment KCVVFluid1280 on File {
+    childImageSharp {
+      fluid(maxWidth: 1280, quality: 75) {
+        base64
+        aspectRatio
+        src
+        srcSet
+        sizes
+      }
+    }
+  }
+`
+
