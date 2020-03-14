@@ -53,7 +53,7 @@
   "scripts": {
     "build": "gatsby build",
     "develop": "gatsby develop",
-    "start": "npm run develop",
+    "start": "yarn run develop",
     "clean": "rm -rf public",
     "format:js": "prettier '**/*.{js,jsx}' --write",
     "test": "jest"
