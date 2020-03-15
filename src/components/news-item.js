@@ -97,7 +97,7 @@ export class NewsItemCardRatio extends Component {
  */
 export class KcvvTvCard extends Component {
   render() {
-    const { node, teaser = false } = this.props
+    const { node } = this.props
     const localFile =
       node.relationships.field_media_article_image.relationships
         .field_media_image.localFile

@@ -47,19 +47,7 @@ const { featuredPlayer = null } = data
 
 ```
 preseason: file(name: { eq: "preseason" }) {
-  childImageSharp {
-    fluid(maxWidth: 1680, quality: 75, cropFocus: ATTENTION) {
-      base64
-      aspectRatio
-      tracedSVG
-      aspectRatio
-      src
-      srcSet
-      srcWebp
-      srcSetWebp
-      sizes
-    }
-  }
+  ...KCVVFluid960
 }
 ```
 
@@ -154,19 +142,7 @@ const linkCTA = (
 
 ```
 fm19: file(name: { eq: "fm19-kits" }) {
-  childImageSharp {
-    fluid(maxWidth: 1680, quality: 75, cropFocus: ATTENTION) {
-      base64
-      aspectRatio
-      tracedSVG
-      aspectRatio
-      src
-      srcSet
-      srcWebp
-      srcSetWebp
-      sizes
-    }
-  }
+  ...KCVVFluid960
 }
 ```
 

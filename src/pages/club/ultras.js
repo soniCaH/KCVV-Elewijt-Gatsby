@@ -27,6 +27,7 @@ class UltrasPage extends Component {
               title="KCVV ULtras op kampioenenmatch"
               localFile={champ}
               metadata={false}
+              link={false}
             />
           </header>
           <section>
@@ -95,6 +96,7 @@ class UltrasPage extends Component {
               title="Schijt je rijk"
               localFile={sjr}
               metadata={false}
+              link={false}
             />
           </section>
           <section>
@@ -123,18 +125,10 @@ class UltrasPage extends Component {
 export const query = graphql`
   query {
     sjr: file(name: { eq: "sjr" }) {
-      childImageSharp {
-        fluid(maxWidth: 1680, quality: 75, cropFocus: ATTENTION) {
-          ...GatsbyImageSharpFluid_withWebp
-        }
-      }
+      ...KCVVFluid960
     }
     champ: file(name: { eq: "ultraskampioen" }) {
-      childImageSharp {
-        fluid(maxWidth: 1680, quality: 75, cropFocus: ATTENTION) {
-          ...GatsbyImageSharpFluid_withWebp
-        }
-      }
+      ...KCVVFluid960
     }
   }
 `

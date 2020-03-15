@@ -1,0 +1,39 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ClassnameTitle renders correctly 1`] = `
+<header
+  className="page-header-title title--large"
+>
+  <h1>
+    KCVV Elewijt
+     
+  </h1>
+</header>
+`;
+
+exports[`HighlightTitle renders correctly 1`] = `
+<header
+  className="page-header-title "
+>
+  <h1>
+    KCVV Elewijt
+     
+    <span
+      className="highlight"
+    >
+      Er is maar één plezante compagnie
+    </span>
+  </h1>
+</header>
+`;
+
+exports[`SimpleTitle renders correctly 1`] = `
+<header
+  className="page-header-title "
+>
+  <h1>
+    KCVV Elewijt
+     
+  </h1>
+</header>
+`;

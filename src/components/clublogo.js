@@ -31,6 +31,7 @@ class ClubLogo extends Component {
     const image = (
       <img
         src={logoSourceUrl}
+        role="presentation"
         onError={({ target }) => {
           target.onerror = null
           target.src = defaultLogo

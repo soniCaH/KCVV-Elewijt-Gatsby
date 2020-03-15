@@ -308,7 +308,11 @@ class DesignPage extends Component {
                 </thead>
                 <tbody>
                   <tr>
-                    <td data-label="Actie">📝</td>
+                    <td data-label="Actie">
+                      <span role="img" aria-label="Contract getekend">
+                        📝
+                      </span>
+                    </td>
                     <td data-label="Naam">Dautzen Jaspers</td>
                     <td data-label="Positie">Verdediger</td>
                     <td data-label="KCVV sinds">Pre-historie</td>
@@ -323,7 +327,11 @@ class DesignPage extends Component {
                     </td>
                   </tr>
                   <tr>
-                    <td data-label="Actie">📝</td>
+                    <td data-label="Actie">
+                      <span role="img" aria-label="Contract getekend">
+                        📝
+                      </span>
+                    </td>
                     <td data-label="Naam">Ken Vanhalle</td>
                     <td data-label="Positie">Doelman</td>
                     <td data-label="KCVV sinds">2018/2019</td>
@@ -338,7 +346,11 @@ class DesignPage extends Component {
                     </td>
                   </tr>
                   <tr>
-                    <td data-label="Actie">📝</td>
+                    <td data-label="Actie">
+                      <span role="img" aria-label="Contract getekend">
+                        📝
+                      </span>
+                    </td>
                     <td data-label="Naam">Sammy Abdellah</td>
                     <td data-label="Positie">Verdediger</td>
                     <td data-label="KCVV sinds">2018/2019</td>
