@@ -1,8 +1,9 @@
 import React, { Component } from "react"
-import defaultLogo from "../images/default.png"
 import { graphql, StaticQuery } from "gatsby"
+import LazyLoad from "react-lazy-load"
 
-import LogoFlat from "../images/logo-flat.png"
+import defaultLogo from "../images/default.png"
+import flatLogoElewijt from "../images/logo-flat.png"
 
 /**
  * Render club logo based on the registration number of a club.
@@ -13,34 +14,38 @@ class ClubLogo extends Component {
   constructor(props) {
     super(props)
 
-    // Retrieve endpoint of the logo's api.
     this.apiLogoUrl = props.config.site.siteMetadata.logoUrl
   }
 
-  render() {
-    if (this.props.regNumber === "00055") {
-      return (
-        <img
-          src={LogoFlat}
-          alt="KCVV Elewijt"
-          className={this.props.className}
-        />
-      )
+  // Official logo @ KBVB is still old / wannabe 3D-ish.
+  getLogoImageSrcUrl(regNumber) {
+    if (regNumber === "00055") {
+      return flatLogoElewijt
     }
-    const logoUrl = `${this.apiLogoUrl}/${this.props.regNumber}`
+    return `${this.apiLogoUrl}/${regNumber}`
+  }
 
-    return (
+  render() {
+    const { lazyload, regNumber, title, className } = this.props
+    const logoSourceUrl = this.getLogoImageSrcUrl(regNumber)
+    const image = (
       <img
+        src={logoSourceUrl}
         role="presentation"
-        src={logoUrl}
         onError={({ target }) => {
           target.onerror = null
           target.src = defaultLogo
         }}
-        alt={this.props.title}
-        className={this.props.className}
+        alt={title}
+        className={className}
       />
     )
+
+    if (lazyload === true) {
+      return <LazyLoad debounce={false}>{image}</LazyLoad>
+    } else {
+      return image
+    }
   }
 }
 
@@ -60,6 +65,7 @@ export default ({
   regNumber = "00055",
   title = "KCVV Elewijt",
   className = "",
+  lazyload = false,
 }) => (
   <StaticQuery
     query={query}
@@ -70,6 +76,7 @@ export default ({
         regNumber={regNumber}
         title={title}
         className={className}
+        lazyload={lazyload}
       />
     )}
   />

@@ -57,6 +57,7 @@ class CalendarRow extends Component {
               className={
                 "team-calendar-match__logo team-calendar-match__logo--home"
               }
+              lazyload={true}
             />
           </div>
           <div className={"team-calendar-match__score"}>
@@ -80,6 +81,7 @@ class CalendarRow extends Component {
               className={
                 "team-calendar-match__logo team-calendar-match__logo--away"
               }
+              lazyload={true}
             />
             {away}
           </div>
