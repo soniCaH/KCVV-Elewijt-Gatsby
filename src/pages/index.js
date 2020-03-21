@@ -85,6 +85,7 @@ class IndexPage extends Component {
             target="_blank"
             rel="noopener noreferrer"
             title="MyMakro link voor KCVV Elewijt"
+            className={"rich-link"}
           >
             https://my.makro.be/nl/link-vereniging/02277464
           </a>
