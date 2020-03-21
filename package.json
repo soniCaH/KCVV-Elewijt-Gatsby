@@ -36,9 +36,9 @@
     "node-sass": "4.13.1",
     "preact": "10.3.4",
     "prop-types": "15.7.2",
-    "react": "16.13.0",
+    "react": "16.13.1",
     "react-animate-on-scroll": "2.1.5",
-    "react-dom": "16.13.0",
+    "react-dom": "16.13.1",
     "react-helmet": "5.2.1",
     "react-lazy-load": "3.0.13",
     "react-masonry-responsive": "2.1.2",
@@ -65,7 +65,7 @@
     "identity-obj-proxy": "3.0.0",
     "jest": "25.1.0",
     "prettier": "1.19.1",
-    "react-test-renderer": "16.13.0"
+    "react-test-renderer": "16.13.1"
   },
   "repository": {
     "type": "git",
