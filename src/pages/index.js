@@ -220,16 +220,58 @@ class IndexPage extends Component {
     })
   }
 
-  render() {
-    const { featuredPosts, kcvvTv, featuredPlayer = null } = this.props.data
-    const posts = [...featuredPosts.edges, ...kcvvTv.edges].sort((a, b) =>
+  combineAndSortPosts = (featuredPosts, kcvvTv) => {
+    return [...featuredPosts.edges, ...kcvvTv.edges].sort((a, b) =>
       a.node.timestamp < b.node.timestamp
         ? 1
         : b.node.timestamp < a.node.timestamp
         ? -1
         : 0
     )
+  }
 
+  renderLayoutSidebar = () => {
+    const { featuredPlayer } = this.props.data
+    return (
+      <>
+        {/* A TEAM OVERVIEW - SUMMARY OF MATCHES AND RANKING*/}
+        {this.renderATeamCalendarArticle()}
+
+        {/* B TEAM OVERVIEW - SUMMARY OF MATCHES AND RANKING */}
+        {this.renderBTeamCalendarArticle()}
+
+        {/* YOUTH TEAMS OVERVIEW - SUMMARY OF UPCOMING MATCHES */}
+        {this.renderYouthCalendarArticle()}
+
+        {/* PLAYER OF THE WEEK ARTICLE IF ANY */}
+        {featuredPlayer && this.renderPlayerOfTheWeek(featuredPlayer)}
+
+        {/* INFO ARTICLE WITH SOCIAL MEDIA LINKS */}
+        {this.renderSocialMediaArticle()}
+
+        {/* INFO ARTICLE WITH REQUEST FOR WEBSITE FEEDBACK */}
+        {this.renderWebsiteFeedbackArticle()}
+
+        {/* INFO ARTICLE WITH "MYMAKRO" CONTENT */}
+        {this.renderMakroArticle()}
+      </>
+    )
+  }
+
+  renderLayoutMain = () => {
+    const { featuredPosts, kcvvTv } = this.props.data
+    const posts = this.combineAndSortPosts(featuredPosts, kcvvTv)
+
+    return (
+      <>
+        <UpcomingEvent />
+
+        {posts && this.renderPosts(posts)}
+      </>
+    )
+  }
+
+  render() {
     return (
       <Layout>
         <SEO lang="nl-BE" title="Er is maar één plezante compagnie" />
@@ -237,32 +279,13 @@ class IndexPage extends Component {
         <section className="grid-container site-content">
           <div className="grid-x grid-margin-x">
             <section className="cell large-8 news_overview__wrapper">
-              <UpcomingEvent />
-
-              {posts && this.renderPosts(posts)}
+              {/* MAIN CONTENT AREA */}
+              {this.renderLayoutMain()}
             </section>
             <aside className="cell large-4">
               <section className="grid-x featured__matches grid-margin-x">
-                {/* A TEAM OVERVIEW - SUMMARY OF MATCHES AND RANKING*/}
-                {this.renderATeamCalendarArticle()}
-
-                {/* B TEAM OVERVIEW - SUMMARY OF MATCHES AND RANKING */}
-                {this.renderBTeamCalendarArticle()}
-
-                {/* YOUTH TEAMS OVERVIEW - SUMMARY OF UPCOMING MATCHES */}
-                {this.renderYouthCalendarArticle()}
-
-                {/* PLAYER OF THE WEEK ARTICLE IF ANY */}
-                {featuredPlayer && this.renderPlayerOfTheWeek(featuredPlayer)}
-
-                {/* INFO ARTICLE WITH SOCIAL MEDIA LINKS */}
-                {this.renderSocialMediaArticle()}
-
-                {/* INFO ARTICLE WITH REQUEST FOR WEBSITE FEEDBACK */}
-                {this.renderWebsiteFeedbackArticle()}
-
-                {/* INFO ARTICLE WITH "MYMAKRO" CONTENT */}
-                {this.renderMakroArticle()}
+                {/* SIDEBAR CONTENT */}
+                {this.renderLayoutSidebar()}
               </section>
             </aside>
           </div>
