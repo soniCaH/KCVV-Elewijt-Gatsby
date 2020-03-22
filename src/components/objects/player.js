@@ -66,6 +66,5 @@ export class Player extends PlayerMinimal {
     this.dateBirth = dateBirth
     this.teamName = teamName
     this.teamLink = teamLink
-    return this
   }
 }
