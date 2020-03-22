@@ -26,8 +26,7 @@ featuredPlayer: nodePlayer(field_firstname: { eq: "Nick" }) {
 ## Code
 
 ```
-const { featuredPlayer = null } = data
-
+const featuredPlayer = new PlayerMinimal({ ... });
 
 ...
 

@@ -38,8 +38,18 @@
     transition: all .3s ease-in-out;
     transform: translateZ(0);
 
+    &:hover {
+      .fa {
+        transform: rotate(10deg) translate(-50%, -50%);
+      }
+    }
+
     &--fb {
       background-color: #3b5998;
+
+      &:hover {
+        background-color: #4264aa;
+      }
 
       .btn-social-counter__icon {
         background-color: #344e86;
@@ -47,7 +57,11 @@
     }
 
     &--twitter {
-      background-color: #35abf3;
+      background-color: #1da1f2;
+
+      &:hover {
+        background-color: #35abf3;
+      }
 
       .btn-social-counter__icon {
         background-color: #0d95e8;
@@ -56,6 +70,10 @@
 
     &--instagram {
       background-color: #e95950;
+
+      &:hover {
+        background-color: #FF736A;
+      }
 
       .btn-social-counter__icon {
         background-color: #FD1D1D;
@@ -88,6 +106,7 @@
       top: 50%;
       left: 50%;
       transform: translate(-50%, -50%);
+      transition: transform .25s ease-in-out;
     }
   }
 

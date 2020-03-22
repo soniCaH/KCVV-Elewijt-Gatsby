@@ -134,6 +134,92 @@ class Search extends Component {
     e.preventDefault()
   }
 
+  renderForm = searchQuery => (
+    <form onSubmit={this.handleSubmit}>
+      <div>
+        <label className={"search_input__label"} htmlFor="search">
+          <input
+            id="search"
+            onChange={this.searchData}
+            className={"search_input__input"}
+            placeholder="Spelersnaam, ploegnaam, deel van een artikel..."
+            value={searchQuery}
+            required
+          />
+          <span className={"search_input__label__inner_wrapper"}>
+            <span className={"search_input__label__inner_text"}>
+              Waar bent u naar op zoek?
+            </span>
+          </span>
+        </label>
+      </div>
+    </form>
+  )
+
+  renderQueryResultsCaption = () => (
+    <caption>
+      <i
+        className={`article__footer_related__icon article__footer_related__icon--node--article fa`}
+      />{" "}
+      Nieuwsbericht
+      <br />
+      <i
+        className={`article__footer_related__icon article__footer_related__icon--node--team fa`}
+      />{" "}
+      Ploeg
+      <br />
+      <i
+        className={`article__footer_related__icon article__footer_related__icon--node--player fa`}
+      />{" "}
+      Speler
+      <br />
+      <i
+        className={`article__footer_related__icon article__footer_related__icon--node--staff fa`}
+      />{" "}
+      Staflid
+      <br />
+      <i
+        className={`article__footer_related__icon article__footer_related__icon--node--event fa`}
+      />{" "}
+      Evenement
+      <br />
+    </caption>
+  )
+
+  renderQueryResultItem = item => (
+    <tr key={`row_${item.attributes.drupal_internal__nid}`}>
+      <td>
+        <Link to={item.attributes.path.alias}>
+          <i
+            className={`article__footer_related__icon article__footer_related__icon--${item.type} fa`}
+          />
+          {item.attributes.title}
+        </Link>
+      </td>
+    </tr>
+  )
+
+  renderQueryResults = queryResults => (
+    <div>
+      <h3>Gevonden resultaten: {queryResults.length}</h3>
+      <table>
+        <thead>
+          <tr>
+            <th>Titel</th>
+          </tr>
+        </thead>
+        <tbody>
+          {/* eslint-disable */}
+          {queryResults.map(item => {
+            return this.renderQueryResultItem(item)
+          })}
+          {/* eslint-enable */}
+        </tbody>
+        {this.renderQueryResultsCaption()}
+      </table>
+    </div>
+  )
+
   render() {
     const { isError, isLoading, searchResults, searchQuery } = this.state
     const queryResults = searchQuery === `` ? [] : searchResults
@@ -153,84 +239,12 @@ class Search extends Component {
         </>
       )
     }
+
     return (
       <div className={"search--placeholder"}>
-        <form onSubmit={this.handleSubmit}>
-          <div>
-            <label className={"search_input__label"} htmlFor="search">
-              <input
-                id="search"
-                onChange={this.searchData}
-                className={"search_input__input"}
-                placeholder="Spelersnaam, ploegnaam, deel van een artikel..."
-                value={searchQuery}
-                required
-              />
-              <span className={"search_input__label__inner_wrapper"}>
-                <span className={"search_input__label__inner_text"}>
-                  Waar bent u naar op zoek?
-                </span>
-              </span>
-            </label>
-          </div>
-        </form>
-        {queryResults.length > 0 && (
-          <div>
-            <h3>Gevonden resultaten: {queryResults.length}</h3>
-            <table>
-              <thead>
-                <tr>
-                  <th>Titel</th>
-                </tr>
-              </thead>
-              <tbody>
-                {/* eslint-disable */}
-                {queryResults.map(item => {
-                  return (
-                    <tr key={`row_${item.attributes.drupal_internal__nid}`}>
-                      <td>
-                        <Link to={item.attributes.path.alias}>
-                          <i
-                            className={`article__footer_related__icon article__footer_related__icon--${item.type} fa`}
-                          />
-                          {item.attributes.title}
-                        </Link>
-                      </td>
-                    </tr>
-                  )
-                })}
-                {/* eslint-enable */}
-              </tbody>
-              <caption>
-                <i
-                  className={`article__footer_related__icon article__footer_related__icon--node--article fa`}
-                />{" "}
-                Nieuwsbericht
-                <br />
-                <i
-                  className={`article__footer_related__icon article__footer_related__icon--node--team fa`}
-                />{" "}
-                Ploeg
-                <br />
-                <i
-                  className={`article__footer_related__icon article__footer_related__icon--node--player fa`}
-                />{" "}
-                Speler
-                <br />
-                <i
-                  className={`article__footer_related__icon article__footer_related__icon--node--staff fa`}
-                />{" "}
-                Staflid
-                <br />
-                <i
-                  className={`article__footer_related__icon article__footer_related__icon--node--event fa`}
-                />{" "}
-                Evenement
-                <br />
-              </caption>
-            </table>
-          </div>
-        )}
+        {this.renderForm(searchQuery)}
+
+        {queryResults.length > 0 && this.renderQueryResults(queryResults)}
       </div>
     )
   }
