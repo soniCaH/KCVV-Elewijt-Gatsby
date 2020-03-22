@@ -4,23 +4,24 @@ import Layout from "../../layouts/index"
 
 import SEO from "../../components/seo"
 import PlayerFeatured from "../../components/player--featured"
+import { PlayerMinimal } from "../../components/objects/player"
 
 class DesignPage extends Component {
   render() {
-    const player1 = {
-      field_firstname: "Nick",
-      field_lastname: "De Letter",
-      field_shirtnumber: 11,
-      field_stats_games: 11,
-      field_position: "a",
-      field_stats_cleansheets: 0,
-      field_stats_goals: 2,
-      field_stats_cards_yellow: 2,
-      field_stats_cards_red: 0,
-      relationships: {
-        field_image: null,
-      },
-    }
+    const player1 = new PlayerMinimal({
+      nameFirst: "Nick",
+      nameLast: "De Letter",
+      shirtNr: 11,
+      gamesPlayed: 11,
+      position: "a",
+      cleanSheets: 0,
+      goalsScored: 2,
+      cardsYellow: 2,
+      cardsRed: 0,
+      imageSrc:
+        "https://api.kcvvelewijt.be/sites/default/files/fallback/kcvv-player-bg.png",
+      link: "/player/nick-de-letter",
+    })
 
     return (
       <Layout>

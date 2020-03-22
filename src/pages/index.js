@@ -160,6 +160,23 @@ class IndexPage extends Component {
     </>
   )
 
+  convertGraphqlToPlayerObject = player => {
+    return {
+      nameFirst: player.field_firstname,
+      nameLast: player.field_lastname,
+      shirtNr: player.field_shirtnumber,
+      position: player.field_position,
+      gamesPlayed: player.field_stats_games,
+      cleanSheets: player.field_stats_cleansheets,
+      goalsScored: player.field_stats_goals,
+      cardsYellow: player.field_stats_cards_yellow,
+      cardsRed: player.field_stats_cards_red,
+      imageSrc:
+        player.relationships.field_image.localFile.childImageSharp.fixed.src,
+      link: player.path.alias,
+    }
+  }
+
   renderPlayerOfTheWeek = featuredPlayer =>
     featuredPlayer.edges.map(
       ({ node: potw }) =>
@@ -171,7 +188,11 @@ class IndexPage extends Component {
             <header className={"card__header"}>
               <h4>Speler van de week</h4>
             </header>
-            <PlayerFeatured player={potw.relationships.field_player} />
+            <PlayerFeatured
+              player={this.convertGraphqlToPlayerObject(
+                potw.relationships.field_player
+              )}
+            />
           </article>
         )
     )
