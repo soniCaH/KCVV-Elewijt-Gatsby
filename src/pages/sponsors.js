@@ -14,6 +14,7 @@ class SponsorsPage extends Component {
         <SEO
           lang="nl-BE"
           title="Sponsors"
+          description="Overzicht van de sponsors die KCVV Elewijt steunen."
           path={this.props.location.pathname}
         />
         <div className={"sponsors-overview__wrapper limited-width_wrapper"}>

@@ -13,6 +13,7 @@ class EventsPage extends Component {
         <SEO
           lang="nl-BE"
           title="Evenementen"
+          description="Alle toekomstige evenementen van KCVV Elewijt"
           path={this.props.location.pathname}
         />
 

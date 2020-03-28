@@ -60,7 +60,13 @@ export default ({ data }) => {
 
   return (
     <Layout>
-      <SEO lang="nl-BE" title={post.title} path={pathUrl} image={ogImage} />
+      <SEO
+        lang="nl-BE"
+        title={post.title}
+        description={post.body.description}
+        path={pathUrl}
+        image={ogImage}
+      />
 
       <article className={"article__wrapper"}>
         <header className={"article__header"}>
@@ -151,6 +157,7 @@ export const query = graphql`
       created(formatString: "DD/MM/YYYY")
       body {
         processed
+        summary
       }
       title
       relationships {

@@ -15,6 +15,7 @@ class PageNotFoundPage extends Component {
         <SEO
           lang="nl-BE"
           title="Pagina niet gevonden"
+          description="Deze pagina werd niet gevonden op kcvvelewijt.be"
           path="/404/"
           image={{ src: ogImage, width: 1989, height: 437 }}
         />

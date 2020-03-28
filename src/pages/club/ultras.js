@@ -18,6 +18,7 @@ class UltrasPage extends Component {
         <SEO
           lang="nl-BE"
           title="KCVV Ultra's"
+          description="Supportersclub van KCVV Elewijt: De Ultra's!"
           path={this.props.location.pathname}
           image={{ src: ogImage, width: 1949, height: 863 }}
         />

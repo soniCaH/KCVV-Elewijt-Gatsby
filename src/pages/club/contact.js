@@ -14,6 +14,7 @@ class ContactPage extends Component {
         <SEO
           lang="nl-BE"
           title="Contact"
+          description="Overzicht van de contactmogelijkheden."
           path={this.props.location.pathname}
           image={{ src: ogImage, width: 2048, height: 546 }}
         />

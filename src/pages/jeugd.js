@@ -16,6 +16,7 @@ class JeugdPage extends Component {
         <SEO
           lang="nl-BE"
           title="Jeugdwerking"
+          description="Jeugdwerking van KCVV Elewijt"
           path={this.props.location.pathname}
         />
 

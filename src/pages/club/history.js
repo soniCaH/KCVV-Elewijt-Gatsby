@@ -606,6 +606,7 @@ class HistoryPage extends Component {
         <SEO
           lang="nl-BE"
           title="Geschiedenis"
+          description="Tijdslijn van de rijkgevulde geschiedenis van KCVV Elewijt van 1909 tot nu!"
           path={this.props.location.pathname}
           image={{ src: ogImage, width: 943, height: 597 }}
         />

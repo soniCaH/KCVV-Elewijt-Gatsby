@@ -7,7 +7,7 @@ import PlayerDetail from "../components/player-staff"
 export default ({ data }) => {
   const node = data.nodeStaff
   const pathUrl = node.path.alias + "/"
-  const ogImage = {
+  const ogImage = node.relationships.field_image && {
     src: node.relationships.field_image.localFile.childImageSharp.fixed.src,
     width: node.relationships.field_image.localFile.childImageSharp.fixed.width,
     height:
@@ -16,7 +16,13 @@ export default ({ data }) => {
 
   return (
     <Layout>
-      <SEO lang="nl-BE" title={node.title} path={pathUrl} image={ogImage} />
+      <SEO
+        lang="nl-BE"
+        title={node.title}
+        description={node.title + " - Staflid KCVV Elewijt"}
+        path={pathUrl}
+        image={ogImage}
+      />
       <PlayerDetail player={node} />
     </Layout>
   )

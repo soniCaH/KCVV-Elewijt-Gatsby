@@ -58,7 +58,13 @@ export default ({ data }) => {
 
   return (
     <Layout>
-      <SEO lang="nl-BE" title={node.title} path={pathUrl} image={ogImage} />
+      <SEO
+        lang="nl-BE"
+        title={node.title + " / " + node.field_division_full}
+        description={"KCVV Elewijt " + node.field_division_full}
+        path={pathUrl}
+        image={ogImage || null}
+      />
 
       <article className={"team-detail"}>
         <header className={"team-detail__header"}>

@@ -296,7 +296,11 @@ class IndexPage extends Component {
   render() {
     return (
       <Layout>
-        <SEO lang="nl-BE" title="Er is maar één plezante compagnie" />
+        <SEO
+          lang="nl-BE"
+          title="Er is maar één plezante compagnie"
+          description="Startpagina van stamnummer 00055: KCVV Elewijt."
+        />
 
         <section className="grid-container site-content">
           <div className="grid-x grid-margin-x">
