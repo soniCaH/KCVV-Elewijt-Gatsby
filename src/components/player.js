@@ -5,7 +5,7 @@ import "./player.scss"
 import { Link } from "gatsby"
 
 // eslint-disable-next-line
-String.prototype.replaceAll = function(search, replacement) {
+String.prototype.replaceAll = function (search, replacement) {
   var target = this
   return target.replace(new RegExp(search, "g"), replacement)
 }
@@ -13,7 +13,7 @@ String.prototype.replaceAll = function(search, replacement) {
 /**
  */
 class PlayerDetail extends Component {
-  renderPlayerName = player => (
+  renderPlayerName = (player) => (
     <h1 className={"player-detail__name"}>
       <span className={"player-detail__name-first"}>
         {player.field_firstname}
@@ -23,7 +23,7 @@ class PlayerDetail extends Component {
       </span>
     </h1>
   )
-  renderPlayerImage = player => (
+  renderPlayerImage = (player) => (
     <div className={"bg-green-mask"}>
       <div
         className={"player-detail__bg-avatar"}
@@ -36,7 +36,7 @@ class PlayerDetail extends Component {
       <div className={"bg-white-end"} />
     </div>
   )
-  renderPlayerHeader = player => (
+  renderPlayerHeader = (player) => (
     <header className={"player-detail__header"}>
       {this.renderPlayerName(player)}
       {this.renderPlayerImage(player)}
@@ -46,7 +46,7 @@ class PlayerDetail extends Component {
       </div>
     </header>
   )
-  renderPlayerStats = player => (
+  renderPlayerStats = (player) => (
     <aside className={"player-detail__statistics"}>
       <section className={"player-detail__statistics-item"}>
         <div className={"player-detail__statistics-item__number"}>
@@ -95,7 +95,7 @@ class PlayerDetail extends Component {
       </section>
     </aside>
   )
-  renderPlayerBirthdate = player => (
+  renderPlayerBirthdate = (player) => (
     <div
       className={"player-detail__data-item player-detail__data-item--birthdate"}
     >
@@ -105,7 +105,7 @@ class PlayerDetail extends Component {
       </span>
     </div>
   )
-  renderPlayerPosition = player => (
+  renderPlayerPosition = (player) => (
     <div
       className={"player-detail__data-item player-detail__data-item--position"}
     >
@@ -121,7 +121,7 @@ class PlayerDetail extends Component {
       </span>
     </div>
   )
-  renderPlayerJoinDate = player => {
+  renderPlayerJoinDate = (player) => {
     const currentlyPlaying = !player.field_date_leave
     return (
       <div
@@ -145,14 +145,14 @@ class PlayerDetail extends Component {
       </div>
     )
   }
-  renderPlayerData = player => (
+  renderPlayerData = (player) => (
     <section className={"player-detail__data"}>
       {this.renderPlayerBirthdate(player)}
       {this.renderPlayerPosition(player)}
       {this.renderPlayerJoinDate(player)}
     </section>
   )
-  renderPlayerBody = player => {
+  renderPlayerBody = (player) => {
     const cleanBody =
       (player.body &&
         player.body.processed.replaceAll(

@@ -8,10 +8,23 @@ import PlayerDetail from "../components/player"
 
 export default ({ data }) => {
   const node = data.nodePlayer
+  const pathUrl = node.path.alias + "/"
+  const ogImage = node.relationships.field_image && {
+    src: node.relationships.field_image.localFile.childImageSharp.fixed.src,
+    width: node.relationships.field_image.localFile.childImageSharp.fixed.width,
+    height:
+      node.relationships.field_image.localFile.childImageSharp.fixed.height,
+  }
 
   return (
     <Layout>
-      <SEO lang="nl-BE" title={node.title} />
+      <SEO
+        lang="nl-BE"
+        title={node.title}
+        description={node.title + " - (ex-)speler van KCVV Elewijt"}
+        path={pathUrl}
+        image={ogImage}
+      />
       <PlayerDetail player={node} />
     </Layout>
   )

@@ -4,14 +4,14 @@ module.exports = {
   siteMetadata: {
     title: `KCVV Elewijt`,
     subTitle: `Er is maar één plezante compagnie`,
-    description: `KCVV Elewijt`,
+    description: `KCVV Elewijt voetbalclub met stamnummer 55 - Er is maar één plezante compagnie`,
     author: `@KevinVRansbeeck`,
     serverUrl: `${process.env.FOOTBEL_API_DOMAIN}`,
     logoUrl: `${process.env.FOOTBEL_API_DOMAIN}/logo`,
     refreshRate: 360000,
-    url: "https://www.kcvvelewijt.be",
     siteUrl: "https://www.kcvvelewijt.be",
     twitterHandle: "kcvve",
+    fbAppId: "679332239478086",
   },
   plugins: [
     `gatsby-plugin-sass`,

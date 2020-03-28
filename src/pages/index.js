@@ -160,7 +160,7 @@ class IndexPage extends Component {
     </>
   )
 
-  convertGraphqlToPlayerObject = player => {
+  convertGraphqlToPlayerObject = (player) => {
     return {
       nameFirst: player.field_firstname,
       nameLast: player.field_lastname,
@@ -177,7 +177,7 @@ class IndexPage extends Component {
     }
   }
 
-  renderPlayerOfTheWeek = featuredPlayer =>
+  renderPlayerOfTheWeek = (featuredPlayer) =>
     featuredPlayer.edges.map(
       ({ node: potw }) =>
         potw.relationships.field_player && (
@@ -197,7 +197,7 @@ class IndexPage extends Component {
         )
     )
 
-  renderPosts = posts => {
+  renderPosts = (posts) => {
     let articleCount = 0
     let kcvvTvCount = 0
 
@@ -296,7 +296,11 @@ class IndexPage extends Component {
   render() {
     return (
       <Layout>
-        <SEO lang="nl-BE" title="Er is maar één plezante compagnie" />
+        <SEO
+          lang="nl-BE"
+          title="Er is maar één plezante compagnie"
+          description="Startpagina van stamnummer 00055: KCVV Elewijt."
+        />
 
         <section className="grid-container site-content">
           <div className="grid-x grid-margin-x">

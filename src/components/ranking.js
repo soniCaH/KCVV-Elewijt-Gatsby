@@ -22,8 +22,10 @@ class RankingRow extends Component {
         </td>
         <td
           className={`team-ranking__column team-ranking__column--string team-ranking__column--team
-            ${this.props.result.team.includes("Elewijt") &&
-              "team-ranking__winner"}`}
+            ${
+              this.props.result.team.includes("Elewijt") &&
+              "team-ranking__winner"
+            }`}
         >
           {this.props.result.team}
         </td>
@@ -93,8 +95,8 @@ class Ranking extends Component {
     fetch(
       `${this.apiServerUrl}/seasons/${season}/regions/${region}/rankings/${division}`
     )
-      .then(response => response.json())
-      .then(json => this.setState({ data: json, loading: false }))
+      .then((response) => response.json())
+      .then((json) => this.setState({ data: json, loading: false }))
 
     this.timeout = setTimeout(() => {
       this.updateData(() => {})
@@ -226,7 +228,7 @@ const query = graphql`
 export default ({ season, region, division, highlight }) => (
   <StaticQuery
     query={query}
-    render={data => (
+    render={(data) => (
       <Ranking
         config={data}
         season={season}

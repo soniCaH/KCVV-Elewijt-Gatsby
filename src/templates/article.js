@@ -9,7 +9,7 @@ import Share from "../components/share"
 import "./article.scss"
 
 // eslint-disable-next-line
-String.prototype.replaceAll = function(search, replacement) {
+String.prototype.replaceAll = function (search, replacement) {
   var target = this
   return target.replace(new RegExp(search, "g"), replacement)
 }
@@ -19,7 +19,7 @@ export default ({ data }) => {
 
   const {
     site: {
-      siteMetadata: { url, twitterHandle },
+      siteMetadata: { siteUrl, twitterHandle },
     },
   } = data
 
@@ -37,6 +37,18 @@ export default ({ data }) => {
       alt={post.title}
     />
   )
+
+  const ogImage = {
+    src:
+      post.relationships.field_media_article_image.relationships
+        .field_media_image.localFile.childImageSharp.resize.src,
+    width:
+      post.relationships.field_media_article_image.relationships
+        .field_media_image.localFile.childImageSharp.resize.width,
+    height:
+      post.relationships.field_media_article_image.relationships
+        .field_media_image.localFile.childImageSharp.resize.height,
+  }
   const relatedArticles = post.relationships.field_related_content || []
   const relatedTags = post.relationships.field_tags || []
   const cleanBody = post.body.processed.replaceAll(
@@ -44,9 +56,17 @@ export default ({ data }) => {
     `${process.env.GATSBY_API_DOMAIN}/sites/default/`
   )
 
+  const pathUrl = post.path.alias + "/"
+
   return (
     <Layout>
-      <SEO lang="nl-BE" title={post.title} />
+      <SEO
+        lang="nl-BE"
+        title={post.title}
+        description={post.body.description}
+        path={pathUrl}
+        image={ogImage}
+      />
 
       <article className={"article__wrapper"}>
         <header className={"article__header"}>
@@ -86,7 +106,7 @@ export default ({ data }) => {
                 socialConfig={{
                   twitterHandle,
                   config: {
-                    url: `${url}${post.path.alias}`,
+                    url: `${siteUrl}${post.path.alias}`,
                     title: post.title,
                   },
                 }}
@@ -126,7 +146,7 @@ export const query = graphql`
   query($slug: String!) {
     site {
       siteMetadata {
-        url
+        siteUrl
         twitterHandle
       }
     }
@@ -137,6 +157,7 @@ export const query = graphql`
       created(formatString: "DD/MM/YYYY")
       body {
         processed
+        summary
       }
       title
       relationships {

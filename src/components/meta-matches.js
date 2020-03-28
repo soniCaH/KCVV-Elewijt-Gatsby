@@ -28,14 +28,14 @@ class MetaMatches extends Component {
     fetch(
       `${this.apiServerUrl}/meta/${season}/${region}/${division}/${regnumber}`
     )
-      .then(response => response.json())
-      .then(json => this.setState({ data: json, loading1: false }))
+      .then((response) => response.json())
+      .then((json) => this.setState({ data: json, loading1: false }))
 
     fetch(
       `${this.apiServerUrl}/seasons/${season}/regions/${region}/rankings/${division}`
     )
-      .then(response => response.json())
-      .then(json => this.setState({ globalRanking: json, loading2: false }))
+      .then((response) => response.json())
+      .then((json) => this.setState({ globalRanking: json, loading2: false }))
 
     this.timeout = setTimeout(() => {
       this.updateData(() => {})
@@ -141,7 +141,7 @@ const query = graphql`
 export default ({ season, region, division, regnumber }) => (
   <StaticQuery
     query={query}
-    render={data => (
+    render={(data) => (
       <MetaMatches
         config={data}
         season={season}

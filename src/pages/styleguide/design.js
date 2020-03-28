@@ -25,7 +25,11 @@ class DesignPage extends Component {
 
     return (
       <Layout>
-        <SEO lang="nl-BE" title="Er is maar één plezante compagnie" />
+        <SEO
+          lang="nl-BE"
+          title="Er is maar één plezante compagnie"
+          path={this.props.location.pathname}
+        />
 
         <section className="grid-container site-content">
           <div className="grid-x grid-margin-x">

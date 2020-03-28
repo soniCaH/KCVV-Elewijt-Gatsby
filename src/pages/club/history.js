@@ -8,6 +8,8 @@ import Layout from "../../layouts/index"
 import SEO from "../../components/seo"
 import HeaderBgTitle from "../../components/header-bg-title"
 
+import ogImage from "../../images/history-bvb.png"
+
 class HistoryPage extends Component {
   renderItem1909 = () => (
     <div class="timeline-item">
@@ -601,7 +603,13 @@ class HistoryPage extends Component {
   render() {
     return (
       <Layout>
-        <SEO lang="nl-BE" title="Geschiedenis" />
+        <SEO
+          lang="nl-BE"
+          title="Geschiedenis"
+          description="Tijdslijn van de rijkgevulde geschiedenis van KCVV Elewijt van 1909 tot nu!"
+          path={this.props.location.pathname}
+          image={{ src: ogImage, width: 943, height: 597 }}
+        />
 
         <HeaderBgTitle
           title="Geschiedenis"
