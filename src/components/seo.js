@@ -3,19 +3,23 @@ import PropTypes from "prop-types"
 import Helmet from "react-helmet"
 import { StaticQuery, graphql } from "gatsby"
 
-function SEO({ description, lang, meta, keywords, title }) {
+import defaultOgImage from "../images/preseason.jpg"
+
+// function SEO({ description, lang, meta, keywords, title }) {
+function SEO({ lang, title, description, meta, keywords, path, image }) {
   return (
     <StaticQuery
       query={detailsQuery}
       render={({ site }) => {
         const metaDescription = description || site.siteMetadata.description
-        const pageTitle = `${title}`
+        const canonicalUrl = site.siteMetadata.siteUrl + path
+        const imageUrl = site.siteMetadata.siteUrl + image
         return (
           <Helmet
             htmlAttributes={{
               lang,
             }}
-            title={pageTitle}
+            title={title}
             titleTemplate={`%s | ${site.siteMetadata.title}`}
             meta={[
               {
@@ -54,6 +58,14 @@ function SEO({ description, lang, meta, keywords, title }) {
                 property: `fb:app_id`,
                 content: site.siteMetadata.fbAppId,
               },
+              {
+                property: `og:url`,
+                content: canonicalUrl,
+              },
+              {
+                property: `og:image`,
+                content: imageUrl,
+              },
             ]
               .concat(
                 keywords.length > 0
@@ -75,6 +87,8 @@ SEO.defaultProps = {
   lang: `nl-BE`,
   meta: [],
   keywords: [],
+  path: "/",
+  image: defaultOgImage,
 }
 
 SEO.propTypes = {
@@ -84,6 +98,8 @@ SEO.propTypes = {
   meta: PropTypes.array,
   keywords: PropTypes.arrayOf(PropTypes.string),
   title: PropTypes.string.isRequired,
+  path: PropTypes.string,
+  image: PropTypes.string,
 }
 
 export default SEO
@@ -96,6 +112,7 @@ const detailsQuery = graphql`
         subTitle
         description
         author
+        siteUrl
         fbAppId
       }
     }
