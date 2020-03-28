@@ -7,17 +7,18 @@ import "./categoryPage.scss"
 import { NewsItemCardRatio } from "../components/news-item"
 
 // eslint-disable-next-line
-String.prototype.replaceAll = function(search, replacement) {
+String.prototype.replaceAll = function (search, replacement) {
   const target = this
   return target.replace(new RegExp(search, "g"), replacement)
 }
 
 export default ({ data }) => {
   const { articles, term, categoryTags } = data
+  const pathUrl = term.path.alias + "/"
 
   return (
     <Layout>
-      <SEO lang="nl-BE" title={term.name} />
+      <SEO lang="nl-BE" title={term.name} path={pathUrl} />
 
       <div className="grid-container site-content">
         <div className="grid-x grid-margin-x">
@@ -94,6 +95,9 @@ export const query = graphql`
     }
     term: taxonomyTermCategory(path: { alias: { eq: $slug } }) {
       name
+      path {
+        alias
+      }
     }
     categoryTags: allTaxonomyTermCategory(
       sort: { fields: name, order: ASC }

@@ -6,14 +6,25 @@ import { StaticQuery, graphql } from "gatsby"
 import defaultOgImage from "../images/preseason.jpg"
 
 // function SEO({ description, lang, meta, keywords, title }) {
-function SEO({ lang, title, description, meta, keywords, path, image }) {
+function SEO({
+  lang,
+  title,
+  description,
+  meta,
+  keywords,
+  path,
+  image: metaImage,
+}) {
   return (
     <StaticQuery
       query={detailsQuery}
       render={({ site }) => {
         const metaDescription = description || site.siteMetadata.description
-        const canonicalUrl = site.siteMetadata.siteUrl + path
-        const imageUrl = site.siteMetadata.siteUrl + image
+        const canonicalUrl = path ? `${site.siteMetadata.siteUrl}${path}` : null
+        const image =
+          metaImage && metaImage.src
+            ? `${site.siteMetadata.siteUrl}${metaImage.src}`
+            : null
         return (
           <Helmet
             htmlAttributes={{
@@ -21,6 +32,16 @@ function SEO({ lang, title, description, meta, keywords, path, image }) {
             }}
             title={title}
             titleTemplate={`%s | ${site.siteMetadata.title}`}
+            link={
+              canonicalUrl
+                ? [
+                    {
+                      rel: "canonical",
+                      href: canonicalUrl,
+                    },
+                  ]
+                : []
+            }
             meta={[
               {
                 name: `description`,
@@ -58,15 +79,42 @@ function SEO({ lang, title, description, meta, keywords, path, image }) {
                 property: `fb:app_id`,
                 content: site.siteMetadata.fbAppId,
               },
-              {
-                property: `og:url`,
-                content: canonicalUrl,
-              },
-              {
-                property: `og:image`,
-                content: imageUrl,
-              },
             ]
+              .concat(
+                canonicalUrl
+                  ? {
+                      property: `og:url`,
+                      content: canonicalUrl,
+                    }
+                  : []
+              )
+              .concat(
+                metaImage
+                  ? [
+                      {
+                        property: "og:image",
+                        content: image,
+                      },
+                      {
+                        property: "og:image:width",
+                        content: metaImage.width,
+                      },
+                      {
+                        property: "og:image:height",
+                        content: metaImage.height,
+                      },
+                      {
+                        name: "twitter:card",
+                        content: "summary_large_image",
+                      },
+                    ]
+                  : [
+                      {
+                        name: "twitter:card",
+                        content: "summary",
+                      },
+                    ]
+              )
               .concat(
                 keywords.length > 0
                   ? {
@@ -88,7 +136,11 @@ SEO.defaultProps = {
   meta: [],
   keywords: [],
   path: "/",
-  image: defaultOgImage,
+  image: {
+    src: defaultOgImage,
+    width: 2000,
+    height: 1000,
+  },
 }
 
 SEO.propTypes = {
@@ -99,7 +151,11 @@ SEO.propTypes = {
   keywords: PropTypes.arrayOf(PropTypes.string),
   title: PropTypes.string.isRequired,
   path: PropTypes.string,
-  image: PropTypes.string,
+  image: PropTypes.shape({
+    src: PropTypes.string.isRequired,
+    height: PropTypes.number.isRequired,
+    width: PropTypes.number.isRequired,
+  }),
 }
 
 export default SEO

@@ -160,7 +160,7 @@ class IndexPage extends Component {
     </>
   )
 
-  convertGraphqlToPlayerObject = player => {
+  convertGraphqlToPlayerObject = (player) => {
     return {
       nameFirst: player.field_firstname,
       nameLast: player.field_lastname,
@@ -177,7 +177,7 @@ class IndexPage extends Component {
     }
   }
 
-  renderPlayerOfTheWeek = featuredPlayer =>
+  renderPlayerOfTheWeek = (featuredPlayer) =>
     featuredPlayer.edges.map(
       ({ node: potw }) =>
         potw.relationships.field_player && (
@@ -197,7 +197,7 @@ class IndexPage extends Component {
         )
     )
 
-  renderPosts = posts => {
+  renderPosts = (posts) => {
     let articleCount = 0
     let kcvvTvCount = 0
 

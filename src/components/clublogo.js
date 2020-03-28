@@ -69,7 +69,7 @@ export default ({
 }) => (
   <StaticQuery
     query={query}
-    render={data => (
+    render={(data) => (
       <ClubLogo
         // Data is the result of our query.
         config={data}

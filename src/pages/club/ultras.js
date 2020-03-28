@@ -7,12 +7,20 @@ import { StaticQuery, graphql } from "gatsby"
 import { CardImage } from "../../components/cards"
 import HeaderBgTitle from "../../components/header-bg-title"
 
+import ogImage from "../../images/header-ultras.jpg"
+
 class UltrasPage extends Component {
   render() {
+    console.log(this.props)
     const { sjr, champ } = this.props.data
     return (
       <Layout>
-        <SEO lang="nl-BE" title="KCVV Ultra's" />
+        <SEO
+          lang="nl-BE"
+          title="KCVV Ultra's"
+          path={this.props.location.pathname}
+          image={{ src: ogImage, width: 1949, height: 863 }}
+        />
 
         <HeaderBgTitle
           title="KCVV"
@@ -133,6 +141,4 @@ export const query = graphql`
   }
 `
 
-export default () => (
-  <StaticQuery query={query} render={data => <UltrasPage data={data} />} />
-)
+export default UltrasPage

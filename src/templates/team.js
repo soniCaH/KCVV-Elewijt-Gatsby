@@ -10,7 +10,7 @@ import TeamCalendarMatches from "../components/team-calendar-matches"
 import TeamCalendarMetaMatches from "../components/team-calendar-meta-matches"
 
 // Generic helper function to group an array by a property.
-const groupBy = key => array =>
+const groupBy = (key) => (array) =>
   array.reduce((objectsByKeyValue, obj) => {
     const value = obj[key]
     objectsByKeyValue[value] = (objectsByKeyValue[value] || []).concat(obj)
@@ -43,9 +43,22 @@ export default ({ data }) => {
   // Helper variable so we don't have to do the check over and over again.
   const hasDivision = node.field_fb_id || node.field_fb_id_2
 
+  const pathUrl = node.path.alias + "/"
+  const ogImage = picture && {
+    src:
+      node.relationships.field_media_article_image.relationships
+        .field_media_image.localFile.childImageSharp.resize.src,
+    width:
+      node.relationships.field_media_article_image.relationships
+        .field_media_image.localFile.childImageSharp.resize.width,
+    height:
+      node.relationships.field_media_article_image.relationships
+        .field_media_image.localFile.childImageSharp.resize.height,
+  }
+
   return (
     <Layout>
-      <SEO lang="nl-BE" title={node.title} />
+      <SEO lang="nl-BE" title={node.title} path={pathUrl} image={ogImage} />
 
       <article className={"team-detail"}>
         <header className={"team-detail__header"}>

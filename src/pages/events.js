@@ -10,7 +10,11 @@ class EventsPage extends Component {
     const { events } = this.props.data
     return (
       <Layout>
-        <SEO lang="nl-BE" title="Evenementen" />
+        <SEO
+          lang="nl-BE"
+          title="Evenementen"
+          path={this.props.location.pathname}
+        />
 
         <div className={"limited-width_wrapper"}>
           <h1>Evenementen</h1>

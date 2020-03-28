@@ -11,7 +11,11 @@ class SponsorsPage extends Component {
     const { goldSponsors, silverSponsors, bronzeSponsors } = this.props.data
     return (
       <Layout>
-        <SEO lang="nl-BE" title="Sponsors" />
+        <SEO
+          lang="nl-BE"
+          title="Sponsors"
+          path={this.props.location.pathname}
+        />
         <div className={"sponsors-overview__wrapper limited-width_wrapper"}>
           <section
             className={

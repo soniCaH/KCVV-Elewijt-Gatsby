@@ -54,7 +54,7 @@ class PlayerFeatured extends Component {
       </div>
     </div>
   )
-  renderGamesPlayed = gamesPlayed => (
+  renderGamesPlayed = (gamesPlayed) => (
     <section className={"player--featured__statistics-item"}>
       <div className={"player--featured__statistics-item__number"}>
         {gamesPlayed || "0"}
@@ -64,7 +64,7 @@ class PlayerFeatured extends Component {
       </div>
     </section>
   )
-  renderCleansheets = cleanSheets => (
+  renderCleansheets = (cleanSheets) => (
     <section className={"player--featured__statistics-item"}>
       <div className={"player--featured__statistics-item__number"}>
         {cleanSheets || "0"}
@@ -74,7 +74,7 @@ class PlayerFeatured extends Component {
       </div>
     </section>
   )
-  renderGoals = goalsScored => (
+  renderGoals = (goalsScored) => (
     <section className={"player--featured__statistics-item"}>
       <div className={"player--featured__statistics-item__number"}>
         {goalsScored || "0"}

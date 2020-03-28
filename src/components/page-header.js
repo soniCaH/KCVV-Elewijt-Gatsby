@@ -24,7 +24,7 @@ const getClosest = (elem, selector) => {
       Element.prototype.msMatchesSelector ||
       Element.prototype.oMatchesSelector ||
       Element.prototype.webkitMatchesSelector ||
-      function(s) {
+      function (s) {
         const matches = (this.document || this.ownerDocument).querySelectorAll(
           s
         )
@@ -55,7 +55,7 @@ class MenuItems extends Component {
     const activeLinks = document.querySelectorAll(".active")
     let parent = null
 
-    activeLinks.forEach(activeLink => {
+    activeLinks.forEach((activeLink) => {
       parent = getClosest(activeLink, ".submenu")
       if (parent !== null) {
         parent.classList.add("is-active")

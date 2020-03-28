@@ -10,6 +10,11 @@ export const KCVVFluid960 = graphql`
         srcSet
         sizes
       }
+      resize(width: 960) {
+        src
+        width
+        height
+      }
     }
   }
 `

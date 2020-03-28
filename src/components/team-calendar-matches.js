@@ -45,9 +45,9 @@ class CalendarRow extends Component {
         </header>
         <div className={"team-calendar-match__main"}>
           <div
-            className={`team-calendar-match__team team-calendar-match__team--home ${matchPlayed &&
-              resultHome > resultAway &&
-              "match-winner"}`}
+            className={`team-calendar-match__team team-calendar-match__team--home ${
+              matchPlayed && resultHome > resultAway && "match-winner"
+            }`}
           >
             {home}
 
@@ -71,9 +71,9 @@ class CalendarRow extends Component {
             )}
           </div>
           <div
-            className={`team-calendar-match__team team-calendar-match__team--away ${matchPlayed &&
-              resultAway > resultHome &&
-              "match-winner"}`}
+            className={`team-calendar-match__team team-calendar-match__team--away ${
+              matchPlayed && resultAway > resultHome && "match-winner"
+            }`}
           >
             <ClubLogo
               regNumber={regNumberAway}
@@ -111,8 +111,8 @@ class TeamCalendarMatches extends React.Component {
     fetch(
       `${this.apiServerUrl}/seasons/${season}/regions/${region}/matches/${division}`
     )
-      .then(response => response.json())
-      .then(json => this.setState({ data: json, loading: false }))
+      .then((response) => response.json())
+      .then((json) => this.setState({ data: json, loading: false }))
 
     this.timeout = setTimeout(() => {
       this.updateData(() => {})
@@ -165,7 +165,7 @@ const query = graphql`
 export default ({ season, region, division }) => (
   <StaticQuery
     query={query}
-    render={data => (
+    render={(data) => (
       <TeamCalendarMatches
         config={data}
         season={season}

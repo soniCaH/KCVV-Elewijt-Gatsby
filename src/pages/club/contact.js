@@ -5,11 +5,18 @@ import Layout from "../../layouts/index"
 import SEO from "../../components/seo"
 import HeaderBgTitle from "../../components/header-bg-title"
 
+import ogImage from "../../images/header-contact.jpg"
+
 class ContactPage extends Component {
   render() {
     return (
       <Layout>
-        <SEO lang="nl-BE" title="Contact" />
+        <SEO
+          lang="nl-BE"
+          title="Contact"
+          path={this.props.location.pathname}
+          image={{ src: ogImage, width: 2048, height: 546 }}
+        />
 
         <HeaderBgTitle title="Contact" classes={"contact-page"} />
 

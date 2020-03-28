@@ -8,4 +8,4 @@
 
 import "./src/styles/global.scss"
 
-export const onServiceWorkerUpdateReady = () => window.location.reload(true);
+export const onServiceWorkerUpdateReady = () => window.location.reload(true)

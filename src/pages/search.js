@@ -9,7 +9,7 @@ class SearchPage extends Component {
   render() {
     return (
       <Layout>
-        <SEO lang="nl-BE" title="Zoeken" />
+        <SEO lang="nl-BE" title="Zoeken" path={this.props.location.pathname} />
 
         <div className={"limited-width_wrapper"}>
           <h1>Zoeken</h1>

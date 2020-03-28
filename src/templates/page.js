@@ -7,7 +7,7 @@ import Img from "gatsby-image"
 import "./article.scss"
 
 // eslint-disable-next-line
-String.prototype.replaceAll = function(search, replacement) {
+String.prototype.replaceAll = function (search, replacement) {
   var target = this
   return target.replace(new RegExp(search, "g"), replacement)
 }
@@ -39,10 +39,11 @@ export default ({ data }) => {
     "/sites/default/",
     `${process.env.GATSBY_API_DOMAIN}/sites/default/`
   )
+  const pathUrl = post.path.alias + "/"
 
   return (
     <Layout>
-      <SEO lang="nl-BE" title={post.title} />
+      <SEO lang="nl-BE" title={post.title} path={pathUrl} />
 
       <article className={"article__wrapper"}>
         <header

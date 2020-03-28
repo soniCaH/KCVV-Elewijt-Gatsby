@@ -60,7 +60,7 @@ class MatchWithLogo extends Component {
     )
   }
 
-  renderMatchWithoutStatusHeader = matchTime => {
+  renderMatchWithoutStatusHeader = (matchTime) => {
     return (
       <>
         <time

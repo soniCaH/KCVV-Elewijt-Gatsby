@@ -8,7 +8,11 @@ class ResponsibilitiesPage extends Component {
   render() {
     return (
       <Layout>
-        <SEO lang="nl-BE" title="Verantwoordelijkheden" />
+        <SEO
+          lang="nl-BE"
+          title="Verantwoordelijkheden"
+          path={this.props.location.pathname}
+        />
 
         <div className={"limited-width_wrapper"}>
           <h1>Verantwoordelijkheden</h1>
