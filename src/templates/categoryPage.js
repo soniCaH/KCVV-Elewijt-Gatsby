@@ -14,7 +14,7 @@ String.prototype.replaceAll = function (search, replacement) {
 
 export default ({ data }) => {
   const { articles, term, categoryTags } = data
-  const pathUrl = term.path.alias + "/"
+  const pathUrl = term.path.alias
 
   return (
     <Layout>
