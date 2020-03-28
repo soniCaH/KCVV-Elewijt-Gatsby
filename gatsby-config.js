@@ -9,9 +9,9 @@ module.exports = {
     serverUrl: `${process.env.FOOTBEL_API_DOMAIN}`,
     logoUrl: `${process.env.FOOTBEL_API_DOMAIN}/logo`,
     refreshRate: 360000,
-    url: "https://www.kcvvelewijt.be",
     siteUrl: "https://www.kcvvelewijt.be",
     twitterHandle: "kcvve",
+    fbAppId: "679332239478086",
   },
   plugins: [
     `gatsby-plugin-sass`,

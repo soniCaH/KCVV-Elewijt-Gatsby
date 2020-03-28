@@ -19,7 +19,7 @@ export default ({ data }) => {
 
   const {
     site: {
-      siteMetadata: { url, twitterHandle },
+      siteMetadata: { siteUrl, twitterHandle },
     },
   } = data
 
@@ -86,7 +86,7 @@ export default ({ data }) => {
                 socialConfig={{
                   twitterHandle,
                   config: {
-                    url: `${url}${post.path.alias}`,
+                    url: `${siteUrl}${post.path.alias}`,
                     title: post.title,
                   },
                 }}
@@ -126,7 +126,7 @@ export const query = graphql`
   query($slug: String!) {
     site {
       siteMetadata {
-        url
+        siteUrl
         twitterHandle
       }
     }
