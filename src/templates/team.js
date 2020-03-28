@@ -43,7 +43,7 @@ export default ({ data }) => {
   // Helper variable so we don't have to do the check over and over again.
   const hasDivision = node.field_fb_id || node.field_fb_id_2
 
-  const pathUrl = node.path.alias + "/"
+  const pathUrl = node.path.alias
   const ogImage = picture && {
     src:
       node.relationships.field_media_article_image.relationships

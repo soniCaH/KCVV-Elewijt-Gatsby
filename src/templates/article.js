@@ -56,7 +56,7 @@ export default ({ data }) => {
     `${process.env.GATSBY_API_DOMAIN}/sites/default/`
   )
 
-  const pathUrl = post.path.alias + "/"
+  const pathUrl = post.path.alias
 
   return (
     <Layout>
