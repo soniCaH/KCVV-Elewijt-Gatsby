@@ -6127,7 +6127,7 @@ gatsby-plugin-google-tagmanager@2.2.1:
   dependencies:
     "@babel/runtime" "^7.8.7"
 
-gatsby-plugin-guess-js@^1.2.1:
+gatsby-plugin-guess-js@1.2.1:
   version "1.2.1"
   resolved "https://registry.yarnpkg.com/gatsby-plugin-guess-js/-/gatsby-plugin-guess-js-1.2.1.tgz#ed6557035ff986f97849fe553aad9606d569f80e"
   integrity sha512-kCJU+PUE8QhfToK3A7zwdBXb37y1e1FpztPiDOfpnrKPpqNUD/hSwi12+wiRtA8uVtPRzEsgn9qwqvc/5P+hZA==
@@ -6153,7 +6153,7 @@ gatsby-plugin-netlify-cache@1.2.0:
     babel-runtime "^6.26.0"
     fs-extra "^7.0.0"
 
-gatsby-plugin-netlify@^2.2.1:
+gatsby-plugin-netlify@2.2.1:
   version "2.2.1"
   resolved "https://registry.yarnpkg.com/gatsby-plugin-netlify/-/gatsby-plugin-netlify-2.2.1.tgz#d819cba997a1613a3c38146c1877bb9a6a3fcdfa"
   integrity sha512-O/rYqFi1qqvKGQFOrQC5TWY74VDamFEqCRfAhQaLdtH610dnLvKJ88SOvvx0rBQcH2S/Do2b2LtpscAWNFqRmg==
