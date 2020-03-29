@@ -67,5 +67,5 @@ const query = graphql`
 `
 
 export default () => (
-  <StaticQuery query={query} render={data => <SponsorsBlock data={data} />} />
+  <StaticQuery query={query} render={(data) => <SponsorsBlock data={data} />} />
 )

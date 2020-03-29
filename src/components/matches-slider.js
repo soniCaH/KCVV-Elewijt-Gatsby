@@ -25,8 +25,8 @@ class MatchesSlider extends Component {
     fetch(
       `${this.apiServerUrl}/seasons/${season}/matches/upcoming/${regnumber}`
     )
-      .then(response => response.json())
-      .then(json => this.setState({ data: json, loading: false }))
+      .then((response) => response.json())
+      .then((json) => this.setState({ data: json, loading: false }))
 
     this.timeout = setTimeout(() => {
       this.updateData(() => {})
@@ -117,7 +117,7 @@ const query = graphql`
 export default ({ season, regnumber }) => (
   <StaticQuery
     query={query}
-    render={data => (
+    render={(data) => (
       <MatchesSlider config={data} season={season} regnumber={regnumber} />
     )}
   />

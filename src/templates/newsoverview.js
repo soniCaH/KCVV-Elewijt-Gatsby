@@ -27,9 +27,15 @@ const NewsOverviewPage = ({ pageContext, data }) => {
 
   const { categoryTags } = data
 
+  const pathName = `/${pathPrefix}/${index}`
+
   return (
     <Layout>
-      <SEO lang="nl-BE" title={`Nieuwsarchief - Pagina ${index}`} />
+      <SEO
+        lang="nl-BE"
+        title={`Nieuwsarchief - Pagina ${index}`}
+        path={pathName}
+      />
 
       <div className="grid-container site-content">
         <div className="grid-x grid-margin-x">

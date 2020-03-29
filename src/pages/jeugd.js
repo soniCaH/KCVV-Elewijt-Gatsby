@@ -13,7 +13,12 @@ class JeugdPage extends Component {
 
     return (
       <Layout>
-        <SEO lang="nl-BE" title="Jeugd" />
+        <SEO
+          lang="nl-BE"
+          title="Jeugdwerking"
+          description="Jeugdwerking van KCVV Elewijt"
+          path={this.props.location.pathname}
+        />
 
         <section className="grid-container site-content">
           <div className="grid-x grid-margin-x">

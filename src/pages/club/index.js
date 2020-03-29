@@ -9,7 +9,7 @@ class IndexPage extends Component {
   render() {
     return (
       <Layout>
-        <SEO lang="nl-BE" title="De Club" />
+        <SEO lang="nl-BE" title="De Club" path={this.props.location.pathname} />
 
         <div className={"limited-width_wrapper"}>
           <header>

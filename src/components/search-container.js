@@ -24,7 +24,7 @@ class Search extends Component {
    */
   async componentDidMount() {
     Axios.get(`https://api.kcvvelewijt.be/jsonapi/node/article?sort=-created`)
-      .then(result => {
+      .then((result) => {
         const articleData = result.data.data
         console.log(`Articles loaded: ${articleData.length}`)
         this.setState({ articleList: articleData })
@@ -33,7 +33,7 @@ class Search extends Component {
           `https://api.kcvvelewijt.be/jsonapi/node/team?sort=title`
         )
       })
-      .then(result => {
+      .then((result) => {
         const teamData = result.data.data
         console.log(`Teams loaded: ${teamData.length}`)
         this.setState({ teamList: teamData })
@@ -42,7 +42,7 @@ class Search extends Component {
           `https://api.kcvvelewijt.be/jsonapi/node/player?sort=title`
         )
       })
-      .then(result => {
+      .then((result) => {
         const playerData = result.data.data
         console.log(`Players loaded: ${playerData.length}`)
         this.setState({ playerList: playerData })
@@ -51,7 +51,7 @@ class Search extends Component {
           `https://api.kcvvelewijt.be/jsonapi/node/staff?sort=title`
         )
       })
-      .then(result => {
+      .then((result) => {
         const staffData = result.data.data
         console.log(`Staff loaded: ${staffData.length}`)
         this.setState({ staffList: staffData })
@@ -60,7 +60,7 @@ class Search extends Component {
           `https://api.kcvvelewijt.be/jsonapi/node/event?sort=title`
         )
       })
-      .then(result => {
+      .then((result) => {
         const eventData = result.data.data
         console.log(`Events loaded: ${eventData.length}`)
         this.setState({ eventList: eventData })
@@ -69,7 +69,7 @@ class Search extends Component {
           this.rebuildIndex()
         }, 250)
       })
-      .catch(err => {
+      .catch((err) => {
         this.setState({ isError: true })
         console.log(`====================================`)
         console.log(`Something bad happened while fetching some data\n${err}`)
@@ -123,16 +123,102 @@ class Search extends Component {
    * handles the input change and perform a search with js-search
    * in which the results will be added to the state
    */
-  searchData = e => {
+  searchData = (e) => {
     const { search } = this.state
     const queryResult = search.search(e.target.value)
 
     this.setState({ searchQuery: e.target.value, searchResults: queryResult })
   }
 
-  handleSubmit = e => {
+  handleSubmit = (e) => {
     e.preventDefault()
   }
+
+  renderForm = (searchQuery) => (
+    <form onSubmit={this.handleSubmit}>
+      <div>
+        <label className={"search_input__label"} htmlFor="search">
+          <input
+            id="search"
+            onChange={this.searchData}
+            className={"search_input__input"}
+            placeholder="Spelersnaam, ploegnaam, deel van een artikel..."
+            value={searchQuery}
+            required
+          />
+          <span className={"search_input__label__inner_wrapper"}>
+            <span className={"search_input__label__inner_text"}>
+              Waar bent u naar op zoek?
+            </span>
+          </span>
+        </label>
+      </div>
+    </form>
+  )
+
+  renderQueryResultsCaption = () => (
+    <caption>
+      <i
+        className={`article__footer_related__icon article__footer_related__icon--node--article fa`}
+      />{" "}
+      Nieuwsbericht
+      <br />
+      <i
+        className={`article__footer_related__icon article__footer_related__icon--node--team fa`}
+      />{" "}
+      Ploeg
+      <br />
+      <i
+        className={`article__footer_related__icon article__footer_related__icon--node--player fa`}
+      />{" "}
+      Speler
+      <br />
+      <i
+        className={`article__footer_related__icon article__footer_related__icon--node--staff fa`}
+      />{" "}
+      Staflid
+      <br />
+      <i
+        className={`article__footer_related__icon article__footer_related__icon--node--event fa`}
+      />{" "}
+      Evenement
+      <br />
+    </caption>
+  )
+
+  renderQueryResultItem = (item) => (
+    <tr key={`row_${item.attributes.drupal_internal__nid}`}>
+      <td>
+        <Link to={item.attributes.path.alias}>
+          <i
+            className={`article__footer_related__icon article__footer_related__icon--${item.type} fa`}
+          />
+          {item.attributes.title}
+        </Link>
+      </td>
+    </tr>
+  )
+
+  renderQueryResults = (queryResults) => (
+    <div>
+      <h3>Gevonden resultaten: {queryResults.length}</h3>
+      <table>
+        <thead>
+          <tr>
+            <th>Titel</th>
+          </tr>
+        </thead>
+        <tbody>
+          {/* eslint-disable */}
+          {queryResults.map((item) => {
+            return this.renderQueryResultItem(item)
+          })}
+          {/* eslint-enable */}
+        </tbody>
+        {this.renderQueryResultsCaption()}
+      </table>
+    </div>
+  )
 
   render() {
     const { isError, isLoading, searchResults, searchQuery } = this.state
@@ -153,84 +239,12 @@ class Search extends Component {
         </>
       )
     }
+
     return (
       <div className={"search--placeholder"}>
-        <form onSubmit={this.handleSubmit}>
-          <div>
-            <label className={"search_input__label"} htmlFor="search">
-              <input
-                id="search"
-                onChange={this.searchData}
-                className={"search_input__input"}
-                placeholder="Spelersnaam, ploegnaam, deel van een artikel..."
-                value={searchQuery}
-                required
-              />
-              <span className={"search_input__label__inner_wrapper"}>
-                <span className={"search_input__label__inner_text"}>
-                  Waar bent u naar op zoek?
-                </span>
-              </span>
-            </label>
-          </div>
-        </form>
-        {queryResults.length > 0 && (
-          <div>
-            <h3>Gevonden resultaten: {queryResults.length}</h3>
-            <table>
-              <thead>
-                <tr>
-                  <th>Titel</th>
-                </tr>
-              </thead>
-              <tbody>
-                {/* eslint-disable */}
-                {queryResults.map(item => {
-                  return (
-                    <tr key={`row_${item.attributes.drupal_internal__nid}`}>
-                      <td>
-                        <Link to={item.attributes.path.alias}>
-                          <i
-                            className={`article__footer_related__icon article__footer_related__icon--${item.type} fa`}
-                          />
-                          {item.attributes.title}
-                        </Link>
-                      </td>
-                    </tr>
-                  )
-                })}
-                {/* eslint-enable */}
-              </tbody>
-              <caption>
-                <i
-                  className={`article__footer_related__icon article__footer_related__icon--node--article fa`}
-                />{" "}
-                Nieuwsbericht
-                <br />
-                <i
-                  className={`article__footer_related__icon article__footer_related__icon--node--team fa`}
-                />{" "}
-                Ploeg
-                <br />
-                <i
-                  className={`article__footer_related__icon article__footer_related__icon--node--player fa`}
-                />{" "}
-                Speler
-                <br />
-                <i
-                  className={`article__footer_related__icon article__footer_related__icon--node--staff fa`}
-                />{" "}
-                Staflid
-                <br />
-                <i
-                  className={`article__footer_related__icon article__footer_related__icon--node--event fa`}
-                />{" "}
-                Evenement
-                <br />
-              </caption>
-            </table>
-          </div>
-        )}
+        {this.renderForm(searchQuery)}
+
+        {queryResults.length > 0 && this.renderQueryResults(queryResults)}
       </div>
     )
   }

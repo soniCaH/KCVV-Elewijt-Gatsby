@@ -31,17 +31,21 @@
             width: 100%;
 
             color: #FFF;
-            font-size: 2.5rem;
+            font-size: 1.5rem;
             font-style: normal;
             font-weight: normal;
             line-height: 1;
             text-transform: uppercase;
 
             @include break(medium-up) {
-                font-size: 3.5rem;
+                font-size: 2.5rem;
             }
 
             @include break(large-up) {
+                font-size: 3.5rem;
+            }
+
+            @include break(xlarge-up) {
                 font-size: 4.5rem;
             }
 

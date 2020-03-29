@@ -178,7 +178,12 @@ class GamesPage extends Component {
     }
     return (
       <Layout>
-        <SEO lang="nl-BE" title="Matchoverzicht voorbereiding" />
+        <SEO
+          lang="nl-BE"
+          title="Matchoverzicht voorbereiding"
+          description="Overzicht van alle gespeelde en toekomstige wedstrijden tijdens de voorbereiding van het nieuwe seizoen."
+          path={this.props.location.pathname}
+        />
         <div className={"games__template"}>
           <MatchWithLogo match={wedstrijd1} />
           <MatchWithLogo match={wedstrijd2} />

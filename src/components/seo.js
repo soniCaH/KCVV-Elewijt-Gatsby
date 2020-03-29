@@ -3,62 +3,56 @@ import PropTypes from "prop-types"
 import Helmet from "react-helmet"
 import { StaticQuery, graphql } from "gatsby"
 
-function SEO({ description, lang, meta, keywords, title }) {
+import defaultOgImage from "../images/preseason.jpg"
+
+// function SEO({ description, lang, meta, keywords, title }) {
+function SEO({
+  lang,
+  title,
+  description,
+  meta,
+  keywords,
+  path,
+  image: metaImage,
+}) {
   return (
     <StaticQuery
       query={detailsQuery}
       render={({ site }) => {
         const metaDescription = description || site.siteMetadata.description
-        const pageTitle = `${title}`
+        const canonicalUrl = path ? `${site.siteMetadata.siteUrl}${path}` : null
+
         return (
           <Helmet
             htmlAttributes={{
               lang,
             }}
-            title={pageTitle}
+            title={title}
             titleTemplate={`%s | ${site.siteMetadata.title}`}
+            link={
+              canonicalUrl
+                ? [
+                    {
+                      rel: "canonical",
+                      href: canonicalUrl,
+                    },
+                  ]
+                : []
+            }
             meta={[
               {
                 name: `description`,
                 content: metaDescription,
               },
               {
-                property: `og:title`,
-                content: title,
-              },
-              {
-                property: `og:description`,
-                content: metaDescription,
-              },
-              {
-                property: `og:type`,
-                content: `website`,
-              },
-              {
-                name: `twitter:card`,
-                content: `summary`,
-              },
-              {
-                name: `twitter:creator`,
-                content: site.siteMetadata.author,
-              },
-              {
-                name: `twitter:title`,
-                content: title,
-              },
-              {
-                name: `twitter:description`,
-                content: metaDescription,
+                property: `fb:app_id`,
+                content: site.siteMetadata.fbAppId,
               },
             ]
-              .concat(
-                keywords.length > 0
-                  ? {
-                      name: `keywords`,
-                      content: keywords.join(`, `),
-                    }
-                  : []
-              )
+              .concat(getOgMeta(title, metaDescription, canonicalUrl))
+              .concat(getOgImage(site, metaImage))
+              .concat(getTwitterMeta(site, title, metaDescription, metaImage))
+              .concat(getKeywords(keywords))
               .concat(meta)}
           />
         )
@@ -66,11 +60,102 @@ function SEO({ description, lang, meta, keywords, title }) {
     />
   )
 }
+const getOgMeta = (title, metaDescription, canonicalUrl) => {
+  const ogMeta = [
+    {
+      property: `og:title`,
+      content: title,
+    },
+    {
+      property: `og:description`,
+      content: metaDescription,
+    },
+    {
+      property: `og:type`,
+      content: `website`,
+    },
+  ].concat(getOgUrl(canonicalUrl))
+  return ogMeta
+}
+
+const getTwitterMeta = (site, title, metaDescription, metaImage) => {
+  const twitterMeta = [
+    {
+      name: `twitter:creator`,
+      content: site.siteMetadata.author,
+    },
+    {
+      name: `twitter:title`,
+      content: title,
+    },
+    {
+      name: `twitter:description`,
+      content: metaDescription,
+    },
+  ].concat(getTwitterCard(site, metaImage))
+  return twitterMeta
+}
+
+const getOgImage = ({ siteMetadata }, metaImage) => {
+  const image =
+    metaImage && metaImage.src
+      ? `${siteMetadata.siteUrl}${metaImage.src}`
+      : null
+  return metaImage
+    ? [
+        {
+          property: "og:image",
+          content: image,
+        },
+        {
+          property: "og:image:width",
+          content: metaImage.width,
+        },
+        {
+          property: "og:image:height",
+          content: metaImage.height,
+        },
+      ]
+    : []
+}
+
+const getTwitterCard = (metaImage) =>
+  metaImage
+    ? {
+        name: "twitter:card",
+        content: "summary_large_image",
+      }
+    : {
+        name: "twitter:card",
+        content: "summary",
+      }
+
+const getOgUrl = (canonicalUrl) =>
+  canonicalUrl
+    ? {
+        property: `og:url`,
+        content: canonicalUrl,
+      }
+    : []
+
+const getKeywords = (keywords) =>
+  keywords.length > 0
+    ? {
+        name: `keywords`,
+        content: keywords.join(`, `),
+      }
+    : []
 
 SEO.defaultProps = {
   lang: `nl-BE`,
   meta: [],
   keywords: [],
+  path: "/",
+  image: {
+    src: defaultOgImage,
+    width: 2000,
+    height: 1000,
+  },
 }
 
 SEO.propTypes = {
@@ -80,6 +165,12 @@ SEO.propTypes = {
   meta: PropTypes.array,
   keywords: PropTypes.arrayOf(PropTypes.string),
   title: PropTypes.string.isRequired,
+  path: PropTypes.string,
+  image: PropTypes.shape({
+    src: PropTypes.string.isRequired,
+    height: PropTypes.number.isRequired,
+    width: PropTypes.number.isRequired,
+  }),
 }
 
 export default SEO
@@ -92,6 +183,8 @@ const detailsQuery = graphql`
         subTitle
         description
         author
+        siteUrl
+        fbAppId
       }
     }
   }

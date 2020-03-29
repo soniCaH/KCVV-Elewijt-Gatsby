@@ -6,11 +6,19 @@ import SEO from "../components/seo"
 import HeaderBgTitle from "../components/header-bg-title"
 import { Link } from "gatsby"
 
+import ogImage from "../images/header-404.jpg"
+
 class PageNotFoundPage extends Component {
   render() {
     return (
       <Layout>
-        <SEO lang="nl-BE" title="Pagina niet gevonden" />
+        <SEO
+          lang="nl-BE"
+          title="Pagina niet gevonden"
+          description="Deze pagina werd niet gevonden op kcvvelewijt.be"
+          path="/404/"
+          image={{ src: ogImage, width: 1989, height: 437 }}
+        />
 
         <HeaderBgTitle
           title="Pagina"

@@ -66,5 +66,5 @@ const query = graphql`
 `
 
 export default () => (
-  <StaticQuery query={query} render={data => <UpcomingEvent data={data} />} />
+  <StaticQuery query={query} render={(data) => <UpcomingEvent data={data} />} />
 )
