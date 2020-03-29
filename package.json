@@ -62,10 +62,10 @@
     "test": "jest"
   },
   "devDependencies": {
-    "babel-jest": "25.2.3",
+    "babel-jest": "25.2.4",
     "babel-preset-gatsby": "0.3.1",
     "identity-obj-proxy": "3.0.0",
-    "jest": "25.2.3",
+    "jest": "25.2.4",
     "prettier": "2.0.2",
     "react-test-renderer": "16.13.1"
   },
