@@ -41,7 +41,7 @@
     "react": "16.13.1",
     "react-animate-on-scroll": "2.1.5",
     "react-dom": "16.13.1",
-    "react-helmet": "5.2.1",
+    "react-helmet": "6.0.0",
     "react-lazy-load": "3.0.13",
     "react-masonry-responsive": "2.1.2",
     "react-share": "4.1.0",
