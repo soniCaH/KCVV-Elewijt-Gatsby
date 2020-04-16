@@ -4,7 +4,7 @@
     "config:js-app",
     "packages:gatsby",
     "group:gatsbyMonorepo",
-    "schedule:daily"
+    "schedule:weekly"
   ],
   "packageRules": [
     {
