@@ -50,7 +50,7 @@ function SEO({
               },
             ]
               .concat(getOgMeta(title, metaDescription, canonicalUrl))
-              .concat(getOgImage(site, metaImage, escapedTitle))
+              .concat(getOgImage(site, metaImage, title))
               .concat(getTwitterMeta(site, title, metaDescription, metaImage))
               .concat(getKeywords(keywords))
               .concat(meta)}
