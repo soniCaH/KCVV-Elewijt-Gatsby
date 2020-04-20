@@ -101,7 +101,6 @@ const getOgImage = ({ siteMetadata }, metaImage, title) => {
     metaImage && metaImage.src
       ? `${siteMetadata.siteUrl}${metaImage.src}`
       : null
-  const escapedTitle = title.replace(/"/g, "'")
   return metaImage
     ? [
         {
@@ -126,7 +125,7 @@ const getOgImage = ({ siteMetadata }, metaImage, title) => {
         },
         {
           property: `og:image:alt`,
-          content: escapedTitle,
+          content: title,
         },
       ]
     : []
