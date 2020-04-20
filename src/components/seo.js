@@ -21,7 +21,7 @@ function SEO({
       render={({ site }) => {
         const metaDescription = description || site.siteMetadata.description
         const canonicalUrl = path ? `${site.siteMetadata.siteUrl}${path}` : null
-        const escapedTitle = title.replace(/"/g, '\\\"');
+        const escapedTitle = title.replace(/"/g, '&quot;');
 
         return (
           <Helmet
