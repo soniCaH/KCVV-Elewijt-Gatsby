@@ -16,7 +16,8 @@ import { CardImage } from "../components/cards"
 import UpcomingEvent from "../components/upcoming-event"
 import PlayerFeatured from "../components/player--featured"
 
-import MyMakro from "../images/mymakrokcvv.jpg"
+import MyMakro from "../images/tag-mymakro.png"
+import Trooper from "../images/tag-trooper.png"
 
 class IndexPage extends Component {
   renderMatchSlider = () => (
@@ -92,6 +93,35 @@ class IndexPage extends Component {
           .
         </p>
         <p>Onze vereniging dankt jullie van harte!</p>
+      </div>
+    </article>
+  )
+  renderTrooperArticle = () => (
+    <article className={"medium-6 large-12 cell card"}>
+      <header className={"card__header"}>
+        <h4>Trooper</h4>
+      </header>
+      <div className={"card__content"}>
+        <p>
+          Trooper werkt samen met een groot aantal webshops die zich in de kijker willen zetten. In ruil voor een extra klik via Trooper krijgen wij een percentje op jouw volgende bestelling.
+        </p>
+        <p>
+          <img src={Trooper} alt="QR Code Trooper" style={{ width: "100%" }} />
+        </p>
+        <p>
+          Scan bovenstaande QR-code met je camera op GSM, of surf naar{" "}
+          <a
+            href="https://trooper.be/kcvvelewijt"
+            target="_blank"
+            rel="noopener noreferrer"
+            title="Trooper link voor KCVV Elewijt"
+            className={"rich-link"}
+          >
+          https://trooper.be/kcvvelewijt
+          </a>
+          .
+        </p>
+        <p><a href="/news/2020-04-12-steun-kcvv-elewijt-trooper-mymakro" className={"rich-link"}>Lees er hier meer over!</a></p>
       </div>
     </article>
   )
@@ -273,6 +303,9 @@ class IndexPage extends Component {
 
         {/* INFO ARTICLE WITH REQUEST FOR WEBSITE FEEDBACK */}
         {this.renderWebsiteFeedbackArticle()}
+
+        {/* INFO ARTICLE WITH "TROOPER" CONTENT */}
+        {this.renderTrooperArticle()}
 
         {/* INFO ARTICLE WITH "MYMAKRO" CONTENT */}
         {this.renderMakroArticle()}

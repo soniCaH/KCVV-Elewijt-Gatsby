@@ -50,7 +50,7 @@ function SEO({
               },
             ]
               .concat(getOgMeta(title, metaDescription, canonicalUrl))
-              .concat(getOgImage(site, metaImage))
+              .concat(getOgImage(site, metaImage, title))
               .concat(getTwitterMeta(site, title, metaDescription, metaImage))
               .concat(getKeywords(keywords))
               .concat(meta)}
@@ -96,7 +96,7 @@ const getTwitterMeta = (site, title, metaDescription, metaImage) => {
   return twitterMeta
 }
 
-const getOgImage = ({ siteMetadata }, metaImage) => {
+const getOgImage = ({ siteMetadata }, metaImage, title) => {
   const image =
     metaImage && metaImage.src
       ? `${siteMetadata.siteUrl}${metaImage.src}`
@@ -104,16 +104,28 @@ const getOgImage = ({ siteMetadata }, metaImage) => {
   return metaImage
     ? [
         {
-          property: "og:image",
+          property: `og:image`,
           content: image,
         },
         {
-          property: "og:image:width",
+          property: `og:image:width`,
           content: metaImage.width,
         },
         {
-          property: "og:image:height",
+          property: `og:image:type`,
+          content: "image/jpeg",
+        },
+        {
+          property: `og:image:height`,
           content: metaImage.height,
+        },
+        {
+          property: `og:image:title`,
+          content: title,
+        },
+        {
+          property: `og:image:alt`,
+          content: title,
         },
       ]
     : []

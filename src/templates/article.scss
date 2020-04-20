@@ -128,7 +128,7 @@
 
     &__body {
 
-        a {
+        a:not(.btn) {
             @include rich-link;
         }
 
