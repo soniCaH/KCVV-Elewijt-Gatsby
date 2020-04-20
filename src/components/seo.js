@@ -21,13 +21,14 @@ function SEO({
       render={({ site }) => {
         const metaDescription = description || site.siteMetadata.description
         const canonicalUrl = path ? `${site.siteMetadata.siteUrl}${path}` : null
+        const escapedTitle = title.replace(/"/g, '\\\"');
 
         return (
           <Helmet
             htmlAttributes={{
               lang,
             }}
-            title={title}
+            title={escapedTitle}
             titleTemplate={`%s | ${site.siteMetadata.title}`}
             link={
               canonicalUrl
@@ -50,7 +51,7 @@ function SEO({
               },
             ]
               .concat(getOgMeta(title, metaDescription, canonicalUrl))
-              .concat(getOgImage(site, metaImage))
+              .concat(getOgImage(site, metaImage, escapedTitle))
               .concat(getTwitterMeta(site, title, metaDescription, metaImage))
               .concat(getKeywords(keywords))
               .concat(meta)}
@@ -96,7 +97,7 @@ const getTwitterMeta = (site, title, metaDescription, metaImage) => {
   return twitterMeta
 }
 
-const getOgImage = ({ siteMetadata }, metaImage) => {
+const getOgImage = ({ siteMetadata }, metaImage, title) => {
   const image =
     metaImage && metaImage.src
       ? `${siteMetadata.siteUrl}${metaImage.src}`
@@ -112,8 +113,20 @@ const getOgImage = ({ siteMetadata }, metaImage) => {
           content: metaImage.width,
         },
         {
+          property: "og:image:type",
+          content: "image/jpeg",
+        },
+        {
           property: "og:image:height",
           content: metaImage.height,
+        },
+        {
+          property: "og:image:title",
+          content: title,
+        },
+        {
+          property: "og:image:alt",
+          content: title,
         },
       ]
     : []
