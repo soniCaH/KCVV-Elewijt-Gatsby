@@ -21,14 +21,13 @@ function SEO({
       render={({ site }) => {
         const metaDescription = description || site.siteMetadata.description
         const canonicalUrl = path ? `${site.siteMetadata.siteUrl}${path}` : null
-        const escapedTitle = title.replace(/"/g, '&quot;');
 
         return (
           <Helmet
             htmlAttributes={{
               lang,
             }}
-            title={escapedTitle}
+            title={title}
             titleTemplate={`%s | ${site.siteMetadata.title}`}
             link={
               canonicalUrl
@@ -102,31 +101,32 @@ const getOgImage = ({ siteMetadata }, metaImage, title) => {
     metaImage && metaImage.src
       ? `${siteMetadata.siteUrl}${metaImage.src}`
       : null
+  const escapedTitle = title.replace(/"/g, "'")
   return metaImage
     ? [
         {
-          property: "og:image",
+          property: `og:image`,
           content: image,
         },
         {
-          property: "og:image:width",
+          property: `og:image:width`,
           content: metaImage.width,
         },
         {
-          property: "og:image:type",
+          property: `og:image:type`,
           content: "image/jpeg",
         },
         {
-          property: "og:image:height",
+          property: `og:image:height`,
           content: metaImage.height,
         },
         {
-          property: "og:image:title",
+          property: `og:image:title`,
           content: title,
         },
         {
-          property: "og:image:alt",
-          content: title,
+          property: `og:image:alt`,
+          content: escapedTitle,
         },
       ]
     : []
