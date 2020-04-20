@@ -63,7 +63,7 @@ export default ({ data }) => {
       <SEO
         lang="nl-BE"
         title={post.title}
-        description={post.body.description}
+        description={post.body.summary}
         path={pathUrl}
         image={ogImage}
       />
