@@ -48,7 +48,7 @@
     "react-slick": "0.25.2",
     "sharp": "0.25.2",
     "slick-carousel": "1.8.1",
-    "snyk": "1.317.0"
+    "snyk": "^1.317.0"
   },
   "keywords": [
     "gatsby"
@@ -61,7 +61,8 @@
     "clean": "rm -rf public",
     "format:js": "prettier '**/*.{js,jsx}' --write",
     "test": "jest",
-    "snyk-protect": "snyk protect"
+    "snyk-protect": "snyk protect",
+    "prepare": "yarn run snyk-protect"
   },
   "devDependencies": {
     "babel-jest": "25.4.0",
