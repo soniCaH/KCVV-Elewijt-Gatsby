@@ -47,8 +47,7 @@
     "react-share": "4.1.0",
     "react-slick": "0.25.2",
     "sharp": "0.25.2",
-    "slick-carousel": "1.8.1",
-    "snyk": "1.317.0"
+    "slick-carousel": "1.8.1"
   },
   "keywords": [
     "gatsby"
@@ -60,8 +59,7 @@
     "start": "yarn run develop",
     "clean": "rm -rf public",
     "format:js": "prettier '**/*.{js,jsx}' --write",
-    "test": "jest",
-    "snyk-protect": "snyk protect"
+    "test": "jest"
   },
   "devDependencies": {
     "babel-jest": "25.5.1",
@@ -77,6 +75,5 @@
   },
   "bugs": {
     "url": "https://github.com/gatsbyjs/gatsby/issues"
-  },
-  "snyk": true
+  }
 }
