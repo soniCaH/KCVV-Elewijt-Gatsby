@@ -79,7 +79,7 @@ class MetaMatches extends Component {
                 <MiniRanking ranking={[previous.opponent.ranking, ranking]} />
               )}
 
-              {!previous && <span className="matches_overview__wrapper">Geen vorige wedstrijden gevonden</span>}
+              {!previous && <div className="matches_overview__wrapper">Geen vorige wedstrijden gevonden</div>}
             </div>
             <div
               className="tabs-panel is-active"
@@ -89,7 +89,7 @@ class MetaMatches extends Component {
               {next && (
                 <MiniRanking ranking={[next.opponent.ranking, ranking]} />
               )}
-              {!next && <span className="matches_overview__wrapper">Geen volgende wedstrijden gevonden</span>}
+              {!next && <div className="matches_overview__wrapper">Geen volgende wedstrijden gevonden</div>}
             </div>
             <div className="tabs-panel" id={`matches-${this.uuid}-rank`}>
               <MiniRanking ranking={this.state.globalRanking} />
