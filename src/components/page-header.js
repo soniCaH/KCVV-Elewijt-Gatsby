@@ -364,6 +364,7 @@ class PageHeader extends Component {
               type="button"
               className="menu-icon"
               data-toggle="responsiveNavigation"
+              aria-label="Toggle Responsive navigation"
             />
             <div className="header-mobile__logo">
               <Link to="/">
