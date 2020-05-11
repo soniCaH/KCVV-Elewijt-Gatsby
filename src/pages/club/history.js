@@ -69,7 +69,7 @@ class HistoryPage extends Component {
   renderItemLeopold = () => (
     <div class="timeline-item">
       <div class="timeline-icon"></div>
-      <ScrollAnimation animateOnce="true" animateIn="fadeInLeftBig">
+      <ScrollAnimation animateOnce="true" animateIn="animate__fadeInLeftBig">
         <div class="timeline-content">
           <p class="timeline-content-date">De “Leopold”</p>
           <p>
@@ -89,7 +89,7 @@ class HistoryPage extends Component {
   renderItemOnenigheid = () => (
     <div class="timeline-item">
       <div class="timeline-icon"></div>
-      <ScrollAnimation animateOnce="true" animateIn="fadeInRightBig">
+      <ScrollAnimation animateOnce="true" animateIn="animate__fadeInRightBig">
         <div class="timeline-content right">
           <p class="timeline-content-date">Onenigheid</p>
           <p>
@@ -109,7 +109,7 @@ class HistoryPage extends Component {
   renderItem1935 = () => (
     <div class="timeline-item">
       <div class="timeline-icon"></div>
-      <ScrollAnimation animateOnce="true" animateIn="fadeInLeftBig">
+      <ScrollAnimation animateOnce="true" animateIn="animate__fadeInLeftBig">
         <div class="timeline-content">
           <p class="timeline-content-date">1935</p>
           <p>
@@ -126,7 +126,7 @@ class HistoryPage extends Component {
   renderItemSportkring = () => (
     <div class="timeline-item">
       <div class="timeline-icon"></div>
-      <ScrollAnimation animateOnce="true" animateIn="fadeInRightBig">
+      <ScrollAnimation animateOnce="true" animateIn="animate__fadeInRightBig">
         <div class="timeline-content right">
           <p class="timeline-content-date">Sportkring Elewijt</p>
           <p>
@@ -144,7 +144,7 @@ class HistoryPage extends Component {
   renderItemFcElewijt = () => (
     <div class="timeline-item">
       <div class="timeline-icon"></div>
-      <ScrollAnimation animateOnce="true" animateIn="fadeInLeftBig">
+      <ScrollAnimation animateOnce="true" animateIn="animate__fadeInLeftBig">
         <div class="timeline-content">
           <p class="timeline-content-date">FC Elewijt</p>
           <p>
@@ -163,7 +163,7 @@ class HistoryPage extends Component {
   renderItemFusiegeruchten = () => (
     <div class="timeline-item">
       <div class="timeline-icon"></div>
-      <ScrollAnimation animateOnce="true" animateIn="fadeInRightBig">
+      <ScrollAnimation animateOnce="true" animateIn="animate__fadeInRightBig">
         <div class="timeline-content right">
           <p class="timeline-content-date">Eerste fusiegeruchten</p>
           <p>
@@ -181,7 +181,7 @@ class HistoryPage extends Component {
   renderItemRivaliteit = () => (
     <div class="timeline-item">
       <div class="timeline-icon"></div>
-      <ScrollAnimation animateOnce="true" animateIn="fadeInLeftBig">
+      <ScrollAnimation animateOnce="true" animateIn="animate__fadeInLeftBig">
         <div class="timeline-content">
           <p class="timeline-content-date">Rivaliteit</p>
           <p>
@@ -204,7 +204,7 @@ class HistoryPage extends Component {
   renderItemTweedeWO = () => (
     <div class="timeline-item">
       <div class="timeline-icon"></div>
-      <ScrollAnimation animateOnce="true" animateIn="fadeInRightBig">
+      <ScrollAnimation animateOnce="true" animateIn="animate__fadeInRightBig">
         <div class="timeline-content right">
           <p class="timeline-content-date">Tweede wereldoorlog</p>
           <p>
@@ -225,7 +225,7 @@ class HistoryPage extends Component {
   renderItem1941 = () => (
     <div class="timeline-item">
       <div class="timeline-icon"></div>
-      <ScrollAnimation animateOnce="true" animateIn="fadeInLeftBig">
+      <ScrollAnimation animateOnce="true" animateIn="animate__fadeInLeftBig">
         <div class="timeline-content">
           <p class="timeline-content-date">1941</p>
           <p>
@@ -301,7 +301,7 @@ class HistoryPage extends Component {
   renderItemFcElewijtHoogtepunten = () => (
     <div class="timeline-item">
       <div class="timeline-icon"></div>
-      <ScrollAnimation animateOnce="true" animateIn="fadeInRightBig">
+      <ScrollAnimation animateOnce="true" animateIn="animate__fadeInRightBig">
         <div class="timeline-content right">
           <p class="timeline-content-date">FC Elewijt</p>
           <p>
@@ -375,7 +375,7 @@ class HistoryPage extends Component {
   renderItem1971 = () => (
     <div class="timeline-item">
       <div class="timeline-icon"></div>
-      <ScrollAnimation animateOnce="true" animateIn="fadeInLeftBig">
+      <ScrollAnimation animateOnce="true" animateIn="animate__fadeInLeftBig">
         <div class="timeline-content">
           <p class="timeline-content-date">1971 - 1983</p>
           <p>
@@ -392,7 +392,7 @@ class HistoryPage extends Component {
   renderItem1983 = () => (
     <div class="timeline-item">
       <div class="timeline-icon"></div>
-      <ScrollAnimation animateOnce="true" animateIn="fadeInRightBig">
+      <ScrollAnimation animateOnce="true" animateIn="animate__fadeInRightBig">
         <div class="timeline-content right">
           <p class="timeline-content-date">1983 - 1991</p>
           <p>
@@ -447,7 +447,7 @@ class HistoryPage extends Component {
   renderItem1990 = () => (
     <div class="timeline-item">
       <div class="timeline-icon"></div>
-      <ScrollAnimation animateOnce="true" animateIn="fadeInRightBig">
+      <ScrollAnimation animateOnce="true" animateIn="animate__fadeInRightBig">
         <div class="timeline-content right">
           <p>
             In het seizoen 1990-1991 werd Crossing Elewijt veertiende in eerste
@@ -469,7 +469,7 @@ class HistoryPage extends Component {
   renderItem1991 = () => (
     <div class="timeline-item">
       <div class="timeline-icon"></div>
-      <ScrollAnimation animateOnce="true" animateIn="fadeInLeftBig">
+      <ScrollAnimation animateOnce="true" animateIn="animate__fadeInLeftBig">
         <div class="timeline-content">
           <p class="timeline-content-date">1991 - 2018</p>
           <p>
@@ -524,7 +524,7 @@ class HistoryPage extends Component {
   renderItem2018 = () => (
     <div class="timeline-item">
       <div class="timeline-icon"></div>
-      <ScrollAnimation animateOnce="true" animateIn="fadeInRightBig">
+      <ScrollAnimation animateOnce="true" animateIn="animate__fadeInRightBig">
         <div class="timeline-content right">
           <p class="timeline-content-date">2018 - ...</p>
           <p>
