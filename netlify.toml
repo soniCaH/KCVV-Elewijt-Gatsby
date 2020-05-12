@@ -15,3 +15,13 @@
 
 [[plugins]]
 package = "netlify-plugin-gatsby-cache"
+
+[[plugins]]
+package = "@netlify/plugin-sitemap"
+
+  [plugins.inputs]
+  buildDir = "public"
+  exclude = [
+    # By file Path
+    '**/**/styleguide/design/*.html',
+  ]
