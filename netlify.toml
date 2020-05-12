@@ -1,7 +1,17 @@
 [build]
-  publish = "public"
+  base = ""
+  publish = "public/"
   # Default build command.
   command = "yarn run build"
+
+[[headers]]
+  for = "/*"
+  [headers.values]
+    cache-control = '''
+    max-age=0,
+    no-cache,
+    no-store,
+    must-revalidate'''
 
 [[plugins]]
 package = "netlify-plugin-gatsby-cache"
