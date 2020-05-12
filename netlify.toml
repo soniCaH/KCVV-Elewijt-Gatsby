@@ -23,6 +23,8 @@ package = "@netlify/plugin-sitemap"
   buildDir = "public"
   exclude = [
     # By file Path
+    '**/**/styleguide/**/*.html',
     '**/**/styleguide/design/*.html',
-    '**/**/offline-plugin-app-shell-fallback/*.html'
+    '**/**/offline-plugin-app-shell-fallback/*.html',
+    'public/offline-plugin-app-shell-fallback/index.html'
   ]
