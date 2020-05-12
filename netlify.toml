@@ -6,6 +6,7 @@
 
 [[headers]]
   for = "/*"
+
   [headers.values]
     cache-control = '''
     max-age=0,
@@ -14,17 +15,25 @@
     must-revalidate'''
 
 [[plugins]]
-package = "netlify-plugin-gatsby-cache"
+  package = "netlify-plugin-gatsby-cache"
 
 [[plugins]]
-package = "@netlify/plugin-sitemap"
+  package = "@netlify/plugin-sitemap"
 
   [plugins.inputs]
-  buildDir = "public"
-  exclude = [
-    # By file Path
-    '**/**/styleguide/**/*.html',
-    '**/**/styleguide/design/*.html',
-    '**/**/offline-plugin-app-shell-fallback/*.html',
-    'public/offline-plugin-app-shell-fallback/index.html'
-  ]
+    buildDir = "public"
+    prettyURLs = true
+    exclude = [
+      # By file Path
+      '**/**/styleguide/**/*.html',
+      '**/**/styleguide/design/*.html',
+      '**/**/offline-plugin-app-shell-fallback/*.html',
+      './public/offline-plugin-app-shell-fallback/index.html'
+    ]
+
+[[plugins]]
+  package = "netlify-plugin-no-more-404"
+
+  [plugins.inputs]
+    on404 = 'warn' # either 'warn' or 'error'
+    cacheKey = '20200512'
