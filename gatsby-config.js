@@ -20,6 +20,7 @@ module.exports = {
       options: {
         baseUrl: process.env.GATSBY_API_DOMAIN,
         apiBase: `jsonapi`,
+        secret: process.env.GATSBY_CLOUD_SECRET
       },
     },
     `gatsby-transformer-sharp`,
