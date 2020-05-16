@@ -2,38 +2,38 @@
   base = ""
   publish = "public/"
   # Default build command.
-  command = "gatsby-parallel-runner"
+  command = "yarn run build"
 
-# [[headers]]
-#   for = "/*"
+[[headers]]
+  for = "/*"
 
-#   [headers.values]
-#     cache-control = '''
-#     max-age=0,
-#     no-cache,
-#     no-store,
-#     must-revalidate'''
+  [headers.values]
+    cache-control = '''
+    max-age=0,
+    no-cache,
+    no-store,
+    must-revalidate'''
 
-# [[plugins]]
-#   package = "netlify-plugin-gatsby-cache"
+[[plugins]]
+  package = "netlify-plugin-gatsby-cache"
 
-# [[plugins]]
-#   package = "@netlify/plugin-sitemap"
+[[plugins]]
+  package = "@netlify/plugin-sitemap"
 
-#   [plugins.inputs]
-#     buildDir = "public"
-#     prettyURLs = true
-#     exclude = [
-#       # By file Path
-#       '**/**/styleguide/**/*.html',
-#       '**/**/styleguide/design/*.html',
-#       '**/**/offline-plugin-app-shell-fallback/*.html',
-#       './public/offline-plugin-app-shell-fallback/index.html'
-#     ]
+  [plugins.inputs]
+    buildDir = "public"
+    prettyURLs = true
+    exclude = [
+      # By file Path
+      '**/**/styleguide/**/*.html',
+      '**/**/styleguide/design/*.html',
+      '**/**/offline-plugin-app-shell-fallback/*.html',
+      './public/offline-plugin-app-shell-fallback/index.html'
+    ]
 
-# [[plugins]]
-#   package = "netlify-plugin-no-more-404"
+[[plugins]]
+  package = "netlify-plugin-no-more-404"
 
-#   [plugins.inputs]
-#     on404 = 'warn' # either 'warn' or 'error'
-#     cacheKey = '20200512'
+  [plugins.inputs]
+    on404 = 'warn' # either 'warn' or 'error'
+    cacheKey = '20200512'
