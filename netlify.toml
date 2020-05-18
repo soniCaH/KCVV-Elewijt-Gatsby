@@ -14,8 +14,8 @@
     no-store,
     must-revalidate'''
 
-[[plugins]]
-  package = "netlify-plugin-gatsby-cache"
+# [[plugins]]
+  # package = "netlify-plugin-gatsby-cache"
 
 [[plugins]]
   package = "@netlify/plugin-sitemap"
@@ -36,4 +36,4 @@
 
   [plugins.inputs]
     on404 = 'warn' # either 'warn' or 'error'
-    cacheKey = '20200512'
+    cacheKey = '20200518'
