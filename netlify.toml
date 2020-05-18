@@ -3,5 +3,5 @@
   # Default build command.
   command = "yarn run build"
 
-# [[plugins]]
-# package = "netlify-plugin-gatsby-cache"
+[[plugins]]
+package = "netlify-plugin-gatsby-cache"
