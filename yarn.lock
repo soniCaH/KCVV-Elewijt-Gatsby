@@ -6857,7 +6857,7 @@ gatsby-paginate@1.1.1:
   dependencies:
     path "^0.12.7"
 
-gatsby-parallel-runner@^1.2.7:
+gatsby-parallel-runner@1.2.7:
   version "1.2.7"
   resolved "https://registry.yarnpkg.com/gatsby-parallel-runner/-/gatsby-parallel-runner-1.2.7.tgz#7b2f564b61d4e46cc488a7ec2d06815a6c547988"
   integrity sha512-5mc6eJn5XZy5A9yl6Xe5Hcw26mraOAgPckSAfpsuHBMQLgDXKgDuM7Kg5vHPuYNp8sHY6JmEl6jE9HyV5gVKyg==
