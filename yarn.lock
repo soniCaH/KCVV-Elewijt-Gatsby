@@ -6857,10 +6857,10 @@ gatsby-paginate@1.1.1:
   dependencies:
     path "^0.12.7"
 
-gatsby-parallel-runner@1.2.7:
-  version "1.2.7"
-  resolved "https://registry.yarnpkg.com/gatsby-parallel-runner/-/gatsby-parallel-runner-1.2.7.tgz#7b2f564b61d4e46cc488a7ec2d06815a6c547988"
-  integrity sha512-5mc6eJn5XZy5A9yl6Xe5Hcw26mraOAgPckSAfpsuHBMQLgDXKgDuM7Kg5vHPuYNp8sHY6JmEl6jE9HyV5gVKyg==
+gatsby-parallel-runner@1.2.8:
+  version "1.2.8"
+  resolved "https://registry.yarnpkg.com/gatsby-parallel-runner/-/gatsby-parallel-runner-1.2.8.tgz#351f9d5a9106a34358374d869fc16833f7d7b5b7"
+  integrity sha512-ZjtYh3YkMJDzxUBmZ7QM+RCfpYsFyKCrM+Gt1qHXVesy3zb0zf1OrNlnMz0Kz1zZ4qmi4fl6fIXg1B+pX/MagQ==
   dependencies:
     "@google-cloud/pubsub" "^0.29.1"
     "@google-cloud/storage" "^4.3.0"
