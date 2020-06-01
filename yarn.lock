@@ -2655,6 +2655,24 @@
     native-url "^0.2.6"
     schema-utils "^2.6.5"
 
+"@prefresh/core@0.6.0":
+  version "0.6.0"
+  resolved "https://registry.yarnpkg.com/@prefresh/core/-/core-0.6.0.tgz#b7801ad3d16de9d21ed0824db6c85707f93cf93c"
+  integrity sha512-xhhBgQeMmyoSYEr8F27oypxRTWysIKPnc+Ed6U5OmEwPtLeKsccI3UCpSQyrcv5/HmPNPjAYHPqNC0uH57rIkw==
+
+"@prefresh/utils@0.1.0":
+  version "0.1.0"
+  resolved "https://registry.yarnpkg.com/@prefresh/utils/-/utils-0.1.0.tgz#9b69c9ecd6002e72e096e5e72f4bd4f88d15284c"
+  integrity sha512-xtUsQMJIHwBuiXu1E1iiXNVfn60N6zpVUo67ZvQVA6OMlslQzWtbdnTXRT+iplBBgfLmQvXR0bKsNz1+ZYSMgw==
+
+"@prefresh/webpack@^0.6.0":
+  version "0.6.0"
+  resolved "https://registry.yarnpkg.com/@prefresh/webpack/-/webpack-0.6.0.tgz#fec281c8b94e5455646686eb4c123a7b22004dd3"
+  integrity sha512-z9S1jknJZsc9xmMsX/3nNae8CxKavlOH0YydDjdld41WYB4A2UkC7+rl4P+XH7www9HpGcXzmqgDfFKGGJnNEg==
+  dependencies:
+    "@prefresh/core" "0.6.0"
+    "@prefresh/utils" "0.1.0"
+
 "@protobufjs/aspromise@^1.1.1", "@protobufjs/aspromise@^1.1.2":
   version "1.1.2"
   resolved "https://registry.yarnpkg.com/@protobufjs/aspromise/-/aspromise-1.1.2.tgz#9b8b0cc663d669a7d8f6f5d0893a14d348f30fbf"
@@ -8497,12 +8515,13 @@ gatsby-plugin-page-creator@^2.3.7:
     lodash "^4.17.15"
     micromatch "^3.1.10"
 
-gatsby-plugin-preact@3.3.2:
-  version "3.3.2"
-  resolved "https://registry.yarnpkg.com/gatsby-plugin-preact/-/gatsby-plugin-preact-3.3.2.tgz#53c7c5ac0cc1d78f285829040e265648a6e69195"
-  integrity sha512-Q06YHMCAm8yh8X6xbTsE10FPh0hpikpQvDpeUmIrV37mb0+Pm8PKG3w9vW4z9mm7fsGyKUaykp53wBMhW9VGTw==
+gatsby-plugin-preact@4.0.0:
+  version "4.0.0"
+  resolved "https://registry.yarnpkg.com/gatsby-plugin-preact/-/gatsby-plugin-preact-4.0.0.tgz#fac323a20162ae4ecf80412e508be27f007435c6"
+  integrity sha512-QvntARJf340Yiq6jLaJW0GHL5KSJRRvRzPBZODTNTfk47nkPodSCGzcNr8cH9ek4yAm4iLLuDhJWG9nijixivA==
   dependencies:
-    "@babel/runtime" "^7.9.6"
+    "@prefresh/webpack" "^0.6.0"
+    react-refresh "^0.8.2"
 
 gatsby-plugin-react-helmet@3.3.2:
   version "3.3.2"
@@ -14919,6 +14938,11 @@ react-refresh@^0.7.0:
   version "0.7.2"
   resolved "https://registry.yarnpkg.com/react-refresh/-/react-refresh-0.7.2.tgz#f30978d21eb8cac6e2f2fde056a7d04f6844dd50"
   integrity sha512-u5l7fhAJXecWUJzVxzMRU2Zvw8m4QmDNHlTrT5uo3KBlYBhmChd7syAakBoay1yIiVhx/8Fi7a6v6kQZfsw81Q==
+
+react-refresh@^0.8.2:
+  version "0.8.3"
+  resolved "https://registry.yarnpkg.com/react-refresh/-/react-refresh-0.8.3.tgz#721d4657672d400c5e3c75d063c4a85fb2d5d68f"
+  integrity sha512-X8jZHc7nCMjaCqoU+V2I0cOhNW+QMBwSUkeXnTi8IPe6zaRWfn60ZzvFDZqWPfmSJfjub7dDW1SP0jaHWLu/hg==
 
 react-remove-scroll-bar@^2.1.0:
   version "2.1.0"
