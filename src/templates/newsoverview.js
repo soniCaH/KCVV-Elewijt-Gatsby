@@ -20,10 +20,6 @@ const NewsOverviewPage = ({ pageContext, data }) => {
   const { group, index, first, last, pathPrefix } = pageContext
   let previousUrl = index - 1 === 1 ? "/" : (index - 1).toString()
   let nextUrl = (index + 1).toString()
-  if (pathPrefix) {
-    previousUrl = `${pathPrefix}/${previousUrl}`
-    nextUrl = `${pathPrefix}/${nextUrl}`
-  }
 
   const { categoryTags } = data
 
