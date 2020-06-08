@@ -30,10 +30,3 @@
       '**/**/offline-plugin-app-shell-fallback/*.html',
       './public/offline-plugin-app-shell-fallback/index.html'
     ]
-
-[[plugins]]
-  package = "netlify-plugin-no-more-404"
-
-  [plugins.inputs]
-    on404 = 'warn' # either 'warn' or 'error'
-    cacheKey = '20200512'
