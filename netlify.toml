@@ -51,3 +51,20 @@
     [[plugins.inputs.dimensions]]
       width = 1920
       height = 1080
+
+[[plugins]]
+  package = "netlify-plugin-submit-sitemap"
+
+	[plugins.inputs]
+
+	# The base url of your site (optional, default = main URL set in Netlify)
+	baseUrl = "https://www.kcvvelewijt.be"
+
+	# Path to the sitemap URL (optional, default = /sitemap.xml)
+	sitemapPath = "/sitemap.xml"
+
+	# Enabled providers to submit sitemap to (optional, default = 'google', 'bing'). Possible providers are currently only 'google' and 'bing'.
+	providers = [
+		"google",
+		"bing"
+	]
