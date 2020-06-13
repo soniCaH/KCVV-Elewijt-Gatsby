@@ -32,7 +32,7 @@ class IndexPage extends Component {
               Sinds 1983 is die thuishaven Elewijt.
             </p>
 
-            <Link to="club/history" className={"btn btn--arrow"}>
+            <Link to="/club/history" className={"btn btn--arrow"}>
               Meer over de geschiedenis
             </Link>
           </section>
@@ -47,7 +47,7 @@ class IndexPage extends Component {
               gecombineerd kunnen worden.
             </p>
 
-            <Link to="club/bestuur" className={"btn btn--arrow"}>
+            <Link to="/club/bestuur" className={"btn btn--arrow"}>
               Maak kennis met het bestuur
             </Link>
           </section>
@@ -64,7 +64,7 @@ class IndexPage extends Component {
               opvolgen, gestaafd met leerrijke opleidingsplannen.
             </p>
 
-            <Link to="club/jeugdbestuur" className={"btn btn--arrow"}>
+            <Link to="/club/jeugdbestuur" className={"btn btn--arrow"}>
               Ontmoet het jeugdbestuur
             </Link>
           </section>
@@ -77,7 +77,7 @@ class IndexPage extends Component {
               startpunt hebben we onmiddellijk een rechtstreekse lijn!
             </p>
 
-            <Link to="club/contact" className={"btn btn--arrow"}>
+            <Link to="/club/contact" className={"btn btn--arrow"}>
               Neem contact op
             </Link>
           </section>
@@ -105,7 +105,7 @@ class IndexPage extends Component {
               kregen uitbreiding op verplaatsing: met de bierfiets de ploeg over
               de streep gaan trekken op FC Zemst, met de bus naar Mollem enz...
             </p>
-            <Link to="club/ultras" className={"btn btn--arrow"}>
+            <Link to="/club/ultras" className={"btn btn--arrow"}>
               Meer over de supportersclub
             </Link>
           </section>
