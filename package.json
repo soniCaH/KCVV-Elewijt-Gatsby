@@ -5,6 +5,7 @@
   "version": "0.1.0",
   "author": "Kevin Van Ransbeeck <kevin.van.ransbeeck@gmail.com>",
   "dependencies": {
+    "@netlify/plugin-lighthouse": "^1.1.0",
     "animate.css": "4.1.0",
     "axios": "0.19.2",
     "babel-plugin-lodash": "3.3.4",
