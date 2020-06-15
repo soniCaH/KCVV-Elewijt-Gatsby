@@ -12561,7 +12561,7 @@ neo-async@^2.5.0, neo-async@^2.6.1:
   resolved "https://registry.yarnpkg.com/neo-async/-/neo-async-2.6.1.tgz#ac27ada66167fa8849a6addd837f6b189ad2081c"
   integrity sha512-iyam8fBuCUpWeKPGpaNMetEocMt364qkCsfL9JuhjXX6dRnguRVOfk2GZaDpPjcOKiiXCPINZC1GczQ7iTq3Zw==
 
-netlify-plugin-submit-sitemap@^0.1.4:
+netlify-plugin-submit-sitemap@0.1.4:
   version "0.1.4"
   resolved "https://registry.yarnpkg.com/netlify-plugin-submit-sitemap/-/netlify-plugin-submit-sitemap-0.1.4.tgz#e3ae4f03987b17625062bd0882cc6050af6d1b6b"
   integrity sha512-HtAqNa6QIS4WRbDIiX9I1N5tm5zNl3h/VJY5Ol5fs65Z7cki/E+MWZI25x6uqczk8ZGFHKWbxVoEU11guXfmBw==
