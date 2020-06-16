@@ -11,7 +11,6 @@ import ogImage from "../../images/header-ultras.jpg"
 
 class UltrasPage extends Component {
   render() {
-    console.log(this.props)
     const { sjr, champ } = this.props.data
     return (
       <Layout>
