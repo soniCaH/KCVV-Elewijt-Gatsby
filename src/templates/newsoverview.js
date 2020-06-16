@@ -18,8 +18,8 @@ const NavLink = ({ test, url, text }) => {
 
 const NewsOverviewPage = ({ pageContext, data }) => {
   const { group, index, first, last, pathPrefix } = pageContext
-  let previousUrl = index - 1 === 1 ? "/" : (index - 1).toString()
-  let nextUrl = (index + 1).toString()
+  let previousUrl = index - 1 === 1 ? `/${pathPrefix}/` : `/${pathPrefix}/${(index - 1).toString()}`
+  let nextUrl = `/${pathPrefix}/${(index + 1).toString()}`
 
   const { categoryTags } = data
 
