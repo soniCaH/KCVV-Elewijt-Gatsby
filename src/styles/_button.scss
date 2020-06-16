@@ -40,6 +40,15 @@
     }
 
     &--arrow {
+        @include breakpoint(small only) {
+            display: block;
+
+            +.btn.btn--arrow {
+                margin-left: 0;
+                margin-right: 0;
+            }
+        }
+
         &::before {
             content: "\F178";
 
@@ -64,6 +73,7 @@
 
     &+.btn {
         margin: .25rem;
+
         @include breakpoint(medium up) {
             margin-left: 2rem;
         }
