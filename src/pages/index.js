@@ -190,42 +190,42 @@ class IndexPage extends Component {
     </>
   )
 
-  convertGraphqlToPlayerObject = (player) => {
-    return {
-      nameFirst: player.field_firstname,
-      nameLast: player.field_lastname,
-      shirtNr: player.field_shirtnumber,
-      position: player.field_position,
-      gamesPlayed: player.field_stats_games,
-      cleanSheets: player.field_stats_cleansheets,
-      goalsScored: player.field_stats_goals,
-      cardsYellow: player.field_stats_cards_yellow,
-      cardsRed: player.field_stats_cards_red,
-      imageSrc:
-        player.relationships.field_image.localFile.childImageSharp.fixed.src,
-      link: player.path.alias,
-    }
-  }
+  // convertGraphqlToPlayerObject = (player) => {
+  //   return {
+  //     nameFirst: player.field_firstname,
+  //     nameLast: player.field_lastname,
+  //     shirtNr: player.field_shirtnumber,
+  //     position: player.field_position,
+  //     gamesPlayed: player.field_stats_games,
+  //     cleanSheets: player.field_stats_cleansheets,
+  //     goalsScored: player.field_stats_goals,
+  //     cardsYellow: player.field_stats_cards_yellow,
+  //     cardsRed: player.field_stats_cards_red,
+  //     imageSrc:
+  //       player.relationships.field_image.localFile.childImageSharp.fixed.src,
+  //     link: player.path.alias,
+  //   }
+  // }
 
-  renderPlayerOfTheWeek = (featuredPlayer) =>
-    featuredPlayer.edges.map(
-      ({ node: potw }) =>
-        potw.relationships.field_player && (
-          <article
-            className={"medium-6 large-12 cell card"}
-            key={potw.relationships.field_player.field_firstname}
-          >
-            <header className={"card__header"}>
-              <h4>Speler van de week</h4>
-            </header>
-            <PlayerFeatured
-              player={this.convertGraphqlToPlayerObject(
-                potw.relationships.field_player
-              )}
-            />
-          </article>
-        )
-    )
+  // renderPlayerOfTheWeek = (featuredPlayer) =>
+  //   featuredPlayer.edges.map(
+  //     ({ node: potw }) =>
+  //       potw.relationships.field_player && (
+  //         <article
+  //           className={"medium-6 large-12 cell card"}
+  //           key={potw.relationships.field_player.field_firstname}
+  //         >
+  //           <header className={"card__header"}>
+  //             <h4>Speler van de week</h4>
+  //           </header>
+  //           <PlayerFeatured
+  //             player={this.convertGraphqlToPlayerObject(
+  //               potw.relationships.field_player
+  //             )}
+  //           />
+  //         </article>
+  //       )
+  //   )
 
   renderPosts = (posts) => {
     let articleCount = 0
@@ -296,7 +296,7 @@ class IndexPage extends Component {
         {this.renderYouthCalendarArticle()}
 
         {/* PLAYER OF THE WEEK ARTICLE IF ANY */}
-        {featuredPlayer && this.renderPlayerOfTheWeek(featuredPlayer)}
+        {/* {featuredPlayer && this.renderPlayerOfTheWeek(featuredPlayer)} */}
 
         {/* INFO ARTICLE WITH SOCIAL MEDIA LINKS */}
         {this.renderSocialMediaArticle()}
