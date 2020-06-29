@@ -2,8 +2,7 @@
   base = ""
   publish = "public/"
   # Default build command.
-  # command = "yarn run build"
-  command = "gatsby build"
+  command = "yarn run build"
 
 [[headers]]
   for = "/*"
