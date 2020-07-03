@@ -89,14 +89,14 @@ class GamesPage extends Component {
       region: "bra",
       division: "FR",
       dateTime: 1597339800000,
-      home: "KCVV Elewijt A",
-      away: "SK Rapid Leest",
+      home: "SK Rapid Leest",
+      away: "KCVV Elewijt A",
       resultHome: "",
       resultAway: "",
       status: "",
       // matchDay,
-      regNumberHome: "00055",
-      regNumberAway: "03737",
+      regNumberHome: "03737",
+      regNumberAway: "00055",
     }
     const wedstrijd9 = {
       region: "bra",
