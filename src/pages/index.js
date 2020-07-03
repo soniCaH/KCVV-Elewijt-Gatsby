@@ -22,7 +22,7 @@ import Trooper from "../images/tag-trooper.png"
 class IndexPage extends Component {
   renderMatchSlider = () => (
     <section className={"grid-container full"}>
-      <MatchesSlider season="1920" regnumber="00055" />
+      <MatchesSlider season="2021" regnumber="00055" />
     </section>
   )
   renderSocialMediaArticle = () => (
@@ -130,7 +130,7 @@ class IndexPage extends Component {
       <header className="card__header">
         <h4>Jeugdploegen</h4>
       </header>
-      <MatchesOverview season="1920" regnumber="00055" exclude="['2A', '4D']" />
+      <MatchesOverview season="2021" regnumber="00055" exclude="['2A', '4E']" />
     </article>
   )
 
@@ -139,7 +139,7 @@ class IndexPage extends Component {
       <header className={"card__header"}>
         <h4>The B-Team</h4>
       </header>
-      <MetaMatches season="1920" region="bra" division="4D" regnumber="00055" />
+      <MetaMatches season="2021" region="bra" division="4E" regnumber="00055" />
     </article>
   )
   renderATeamCalendarArticle = () => (
@@ -147,7 +147,7 @@ class IndexPage extends Component {
       <header className={"card__header"}>
         <h4>The A-Team</h4>
       </header>
-      <MetaMatches season="1920" region="bra" division="2A" regnumber="00055" />
+      <MetaMatches season="2021" region="bra" division="2A" regnumber="00055" />
     </article>
   )
 
