@@ -61,7 +61,7 @@ class GamesPage extends Component {
     }
     const wedstrijd5 = {
       region: "bra",
-      division: "BCB",
+      division: "ESCA",
       dateTime: 1596981600000,
       home: "KCVV Elewijt B",
       away: "KFC Wambeek Ternat B",
@@ -100,7 +100,7 @@ class GamesPage extends Component {
     }
     const wedstrijd9 = {
       region: "bra",
-      division: "BCB",
+      division: "ESCA",
       dateTime: 1597510800000,
       home: "VV Kester-Gooik B",
       away: "KCVV Elewijt B",
@@ -152,7 +152,7 @@ class GamesPage extends Component {
     }
     const wedstrijd13 = {
       region: "bra",
-      division: "BCB",
+      division: "ESCA",
       dateTime: 1598191200000,
       home: "KCVV Elewijt B",
       away: "Sp. Eizeringen B",
@@ -178,7 +178,7 @@ class GamesPage extends Component {
     }
     const wedstrijd15 = {
       region: "bra",
-      division: "BCB",
+      division: "ESCA",
       dateTime: 1598796000000,
       home: "VK Borchtlombeek B",
       away: "KCVV Elewijt B",
