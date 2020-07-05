@@ -67,27 +67,30 @@
   //   }
   // }
 
-  .match-details__lineup-inner {
-    flex-direction: row;
-    justify-content: space-between;
-  }
+  @media(min-width: 61rem) {
+    .match-details__lineup-inner {
 
-  .match-details__teamname {
-    height: unset;
-    margin-right: 1.5rem;
-  }
-
-  .match-details__vs {
-    ~.match-details__lineup-inner {
-      img {
-        order: 2;
-      }
+      flex-direction: row;
+      justify-content: space-between;
 
       .match-details__teamname {
-        margin-left: 1.5rem;
-        margin-right: 0;
+        height: unset;
+        margin-right: 1.5rem;
       }
     }
+  }
+}
+
+.match-details__vs~.match-details__lineup-inner img {
+  @media(min-width: 61rem) {
+    order: 2;
+  }
+}
+
+.match-details__vs~.match-details__lineup-inner .match-details__teamname {
+  @media(min-width: 61rem) {
+    margin-left: 1.5rem;
+    margin-right: 0;
   }
 }
 
@@ -101,7 +104,6 @@
       width: 48%;
       margin: .5%;
       float: left;
-      //   height: calc(20vh - 1%);
 
       .match-details__logo {
         max-height: 30px;
