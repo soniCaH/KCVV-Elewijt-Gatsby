@@ -62,9 +62,9 @@ class JeugdPage extends Component {
             <section className={"cell large-12 featured-article"}>
               <h2 style={{ marginTop: `${2}rem` }}>Volgende wedstrijden</h2>
               <MatchesOverview
-                season="1920"
+                season="2021"
                 regnumber="00055"
-                exclude="['2A', '4D']"
+                exclude="['2A', '4E']"
               />
             </section>
           </div>
