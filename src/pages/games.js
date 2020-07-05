@@ -246,13 +246,26 @@ class GamesPage extends Component {
       division: "FR",
       dateTime: 1598464800000,
       home: "KCVV Elewijt B",
-      away: "FC St Jozef Londerzeel",
+      away: "FC St Jozef Londerzeel B",
       resultHome: "",
       resultAway: "",
       status: "",
       // matchDay,
       regNumberHome: "00055",
       regNumberAway: "03959",
+    }
+    const wedstrijd21 = {
+      region: "bra",
+      division: "FR",
+      dateTime: 1598461200000,
+      home: "KCVV Elewijt A",
+      away: "KV Mechelen Beloften",
+      resultHome: "",
+      resultAway: "",
+      status: "",
+      // matchDay,
+      regNumberHome: "00055",
+      regNumberAway: "00025",
     }
     return (
       <Layout>
@@ -279,6 +292,7 @@ class GamesPage extends Component {
           <MatchWithLogo match={wedstrijd11} />
           <MatchWithLogo match={wedstrijd12} />
           <MatchWithLogo match={wedstrijd13} />
+          <MatchWithLogo match={wedstrijd21} />
           <MatchWithLogo match={wedstrijd20} />
           <MatchWithLogo match={wedstrijd14} />
           <MatchWithLogo match={wedstrijd15} />
