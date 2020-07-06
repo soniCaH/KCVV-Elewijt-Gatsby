@@ -192,7 +192,7 @@ class GamesPage extends Component {
     const wedstrijd16 = {
       region: "bra",
       division: "FR",
-      dateTime: 1596562200000,
+      dateTime: 1596560400000,
       home: "SK Heffen",
       away: "KCVV Elewijt B",
       resultHome: "",
