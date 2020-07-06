@@ -410,7 +410,7 @@ export const pageQuery = graphql`
         }
       }
     }
-    preseason: file(name: { eq: "preseason" }) {
+    preseason: file(name: { eq: "preseason2020" }) {
       ...KCVVFluid960
     }
     kcvvTv: allNodeKcvvTv(
