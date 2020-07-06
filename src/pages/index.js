@@ -103,7 +103,9 @@ class IndexPage extends Component {
       </header>
       <div className={"card__content"}>
         <p>
-          Trooper werkt samen met een groot aantal webshops die zich in de kijker willen zetten. In ruil voor een extra klik via Trooper krijgen wij een percentje op jouw volgende bestelling.
+          Trooper werkt samen met een groot aantal webshops die zich in de
+          kijker willen zetten. In ruil voor een extra klik via Trooper krijgen
+          wij een percentje op jouw volgende bestelling.
         </p>
         <p>
           <img src={Trooper} alt="QR Code Trooper" style={{ width: "100%" }} />
@@ -117,11 +119,18 @@ class IndexPage extends Component {
             title="Trooper link voor KCVV Elewijt"
             className={"rich-link"}
           >
-          https://trooper.be/kcvvelewijt
+            https://trooper.be/kcvvelewijt
           </a>
           .
         </p>
-        <p><a href="/news/2020-04-12-steun-kcvv-elewijt-trooper-mymakro" className={"rich-link"}>Lees er hier meer over!</a></p>
+        <p>
+          <a
+            href="/news/2020-04-12-steun-kcvv-elewijt-trooper-mymakro"
+            className={"rich-link"}
+          >
+            Lees er hier meer over!
+          </a>
+        </p>
       </div>
     </article>
   )
@@ -173,21 +182,19 @@ class IndexPage extends Component {
       </div>
     </article>
   )
-  renderExtraContentFooter = () => (
-    <>
-      {/* <section className="grid-container site-content">
-          <div className="grid-x grid-margin-x">
-            <section className={'cell large-12 featured-article'}>
-              <CardImage
-                title="Voorbereidings- en bekerwedstrijden"
-                localFile={data.preseason}
-                link="/games"
-                metadata={false}
-              />
-            </section>
-          </div>
-        </section> */}
-    </>
+  renderExtraContentFooter = (preseason) => (
+    <section className="grid-container site-content">
+      <div className="grid-x grid-margin-x">
+        <section className={"cell large-12 featured-article"}>
+          <CardImage
+            title="Voorbereidings- en bekerwedstrijden 2020-2021"
+            localFile={preseason}
+            link="/games"
+            metadata={false}
+          />
+        </section>
+      </div>
+    </section>
   )
 
   // convertGraphqlToPlayerObject = (player) => {
@@ -334,8 +341,11 @@ class IndexPage extends Component {
           title="Er is maar één plezante compagnie"
           description="Startpagina van stamnummer 00055: KCVV Elewijt."
         />
+        {this.renderExtraContentFooter(this.props.data.preseason)}
 
         <section className="grid-container site-content">
+          {/* LIMITED-WIDTH CONTAINER WITH EXTRA (STICKY) CONTENT, IF ANY */}
+
           <div className="grid-x grid-margin-x">
             <section className="cell large-8 news_overview__wrapper">
               {/* MAIN CONTENT AREA */}
@@ -352,9 +362,6 @@ class IndexPage extends Component {
 
         {/* FULL-WIDTH SLICK SLIDER WITH UPCOMING MATCHES */}
         {this.renderMatchSlider()}
-
-        {/* LIMITED-WIDTH CONTAINER WITH EXTRA (STICKY) CONTENT, IF ANY */}
-        {this.renderExtraContentFooter()}
       </Layout>
     )
   }
@@ -403,7 +410,7 @@ export const pageQuery = graphql`
         }
       }
     }
-    preseason: file(name: { eq: "preseason" }) {
+    preseason: file(name: { eq: "preseason2020" }) {
       ...KCVVFluid960
     }
     kcvvTv: allNodeKcvvTv(
