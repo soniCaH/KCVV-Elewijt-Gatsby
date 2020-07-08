@@ -286,7 +286,7 @@ export const query = graphql`
         processed
       }
       field_fb_id
-      field_fb_id_2
+      # field_fb_id_2
       field_division_full
       field_tagline
       relationships {

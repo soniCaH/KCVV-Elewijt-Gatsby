@@ -223,15 +223,6 @@ class MenuItems extends Component {
             </li>
             <li>
               <Link
-                to="/jeugd/u8/"
-                activeClassName="active"
-                partiallyActive={true}
-              >
-                U8
-              </Link>
-            </li>
-            <li>
-              <Link
                 to="/jeugd/u7/"
                 activeClassName="active"
                 partiallyActive={true}
