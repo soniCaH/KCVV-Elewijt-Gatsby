@@ -267,6 +267,19 @@ class GamesPage extends Component {
       regNumberHome: "00055",
       regNumberAway: "00025",
     }
+    const wedstrijd22 = {
+      region: "bra",
+      division: "FR",
+      dateTime: 1596130200000,
+      home: "FC Ramsdonk A",
+      away: "KCVV Elewijt B",
+      resultHome: "",
+      resultAway: "",
+      status: "",
+      // matchDay,
+      regNumberHome: "07300",
+      regNumberAway: "00055",
+    }
     return (
       <Layout>
         <SEO
@@ -277,6 +290,7 @@ class GamesPage extends Component {
         />
         <div className={"games__template"}>
           <MatchWithLogo match={wedstrijd1} />
+          <MatchWithLogo match={wedstrijd22} />
           <MatchWithLogo match={wedstrijd16} />
           <MatchWithLogo match={wedstrijd2} />
           <MatchWithLogo match={wedstrijd3} />
