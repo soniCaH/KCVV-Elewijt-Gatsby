@@ -289,7 +289,15 @@ class GamesPage extends Component {
           path={this.props.location.pathname}
         />
         <div className={"games__template"}>
-          <MatchWithLogo match={wedstrijd1} />
+          <p>
+            Zoals reeds bekend worden alle wedstrijden verboden tot en met
+            (minstens) 25 augustus 2020. De Beker van Brabant werd ook volledig
+            geannuleerd. Van ons oefenprogramma blijft dus voorlopig niet veel
+            over, en de vraag is nog maar hoe dit zal overeind blijven. Indien
+            meer details gekend zijn, vullen we het programma uiteraard verder
+            aan.
+          </p>
+          {/* <MatchWithLogo match={wedstrijd1} />
           <MatchWithLogo match={wedstrijd22} />
           <MatchWithLogo match={wedstrijd16} />
           <MatchWithLogo match={wedstrijd2} />
@@ -305,11 +313,11 @@ class GamesPage extends Component {
           <MatchWithLogo match={wedstrijd19} />
           <MatchWithLogo match={wedstrijd11} />
           <MatchWithLogo match={wedstrijd12} />
-          <MatchWithLogo match={wedstrijd13} />
+          <MatchWithLogo match={wedstrijd13} /> */}
           <MatchWithLogo match={wedstrijd21} />
           <MatchWithLogo match={wedstrijd20} />
-          <MatchWithLogo match={wedstrijd14} />
-          <MatchWithLogo match={wedstrijd15} />
+          {/* <MatchWithLogo match={wedstrijd14} />
+          <MatchWithLogo match={wedstrijd15} /> */}
         </div>
       </Layout>
     )
