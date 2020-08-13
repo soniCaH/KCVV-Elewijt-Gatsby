@@ -9,21 +9,22 @@ class GamesPage extends Component {
   render() {
     const wedstrijd1 = {
       region: "bra",
-      division: "BVZ",
-      dateTime: 1596044700000,
+      division: "FR",
+      dateTime: 1597586400000,
       home: "KCVV Elewijt A",
-      away: "Verbroedering Hofstade",
+      away: "KFC Meise A",
       resultHome: "",
       resultAway: "",
       status: "",
       // matchDay,
       regNumberHome: "00055",
-      regNumberAway: "03526",
+      regNumberAway: "01943",
     }
+
     const wedstrijd2 = {
       region: "bra",
       division: "FR",
-      dateTime: 1596650400000,
+      dateTime: 1599397200000,
       home: "KCVV Elewijt A",
       away: "Sporting Kampenhout",
       resultHome: "",
@@ -75,7 +76,7 @@ class GamesPage extends Component {
     const wedstrijd6 = {
       region: "bra",
       division: "FR",
-      dateTime: 1597255200000,
+      dateTime: 1598191200000,
       home: "KCVV Elewijt A",
       away: "FC Melsbroek A",
       resultHome: "",
@@ -192,7 +193,7 @@ class GamesPage extends Component {
     const wedstrijd16 = {
       region: "bra",
       division: "FR",
-      dateTime: 1596560400000,
+      dateTime: 1597770000000,
       home: "SK Heffen",
       away: "KCVV Elewijt B",
       resultHome: "",
@@ -205,7 +206,7 @@ class GamesPage extends Component {
     const wedstrijd17 = {
       region: "bra",
       division: "FR",
-      dateTime: 1596736800000,
+      dateTime: 1599156000000,
       home: "SK Laar",
       away: "KCVV Elewijt B",
       resultHome: "",
@@ -231,7 +232,7 @@ class GamesPage extends Component {
     const wedstrijd19 = {
       region: "bra",
       division: "FR",
-      dateTime: 1597685400000,
+      dateTime: 1598895000000,
       home: "KCVV Elewijt B",
       away: "KFC Malderen B",
       resultHome: "",
@@ -270,15 +271,28 @@ class GamesPage extends Component {
     const wedstrijd22 = {
       region: "bra",
       division: "FR",
-      dateTime: 1596130200000,
-      home: "FC Ramsdonk A",
-      away: "KCVV Elewijt B",
+      dateTime: 1598796900000,
+      home: "KCVV Elewijt A",
+      away: "BOKA United A",
       resultHome: "",
       resultAway: "",
       status: "",
       // matchDay,
-      regNumberHome: "07300",
-      regNumberAway: "00055",
+      regNumberHome: "00055",
+      regNumberAway: "06439",
+    }
+    const wedstrijd23 = {
+      region: "bra",
+      division: "FR",
+      dateTime: 1599156900000,
+      home: "KCVV Elewijt A",
+      away: "KSC Grimbergen A",
+      resultHome: "",
+      resultAway: "",
+      status: "",
+      // matchDay,
+      regNumberHome: "00055",
+      regNumberAway: "01021",
     }
     return (
       <Layout>
@@ -290,34 +304,23 @@ class GamesPage extends Component {
         />
         <div className={"games__template"}>
           <p>
-            Zoals reeds bekend worden alle wedstrijden verboden tot en met
-            (minstens) 25 augustus 2020. De Beker van Brabant werd ook volledig
-            geannuleerd. Van ons oefenprogramma blijft dus voorlopig niet veel
-            over, en de vraag is nog maar hoe dit zal overeind blijven. Indien
-            meer details gekend zijn, vullen we het programma uiteraard verder
-            aan.
+            De competitiestart werd uitgesteld naar het weekend van 12 en 13
+            september 2020. Vanaf vrijdag 14 augustus 2020 hebben de Brabantse
+            ploegen ook opnieuw groen licht gekregen om oefenwedstrijden te
+            organiseren. Hieronder vind je het nieuwe oefenschema van KCVV
+            Elewijt.
           </p>
-          {/* <MatchWithLogo match={wedstrijd1} />
-          <MatchWithLogo match={wedstrijd22} />
+          <MatchWithLogo match={wedstrijd1} />
           <MatchWithLogo match={wedstrijd16} />
-          <MatchWithLogo match={wedstrijd2} />
-          <MatchWithLogo match={wedstrijd3} />
-          <MatchWithLogo match={wedstrijd17} />
-          <MatchWithLogo match={wedstrijd4} />
-          <MatchWithLogo match={wedstrijd5} />
-          <MatchWithLogo match={wedstrijd18} />
-          <MatchWithLogo match={wedstrijd6} />
-          <MatchWithLogo match={wedstrijd7} />
-          <MatchWithLogo match={wedstrijd9} />
-          <MatchWithLogo match={wedstrijd10} />
-          <MatchWithLogo match={wedstrijd19} />
           <MatchWithLogo match={wedstrijd11} />
-          <MatchWithLogo match={wedstrijd12} />
-          <MatchWithLogo match={wedstrijd13} /> */}
+          <MatchWithLogo match={wedstrijd6} />
           <MatchWithLogo match={wedstrijd21} />
           <MatchWithLogo match={wedstrijd20} />
-          {/* <MatchWithLogo match={wedstrijd14} />
-          <MatchWithLogo match={wedstrijd15} /> */}
+          <MatchWithLogo match={wedstrijd22} />
+          <MatchWithLogo match={wedstrijd19} />
+          <MatchWithLogo match={wedstrijd17} />
+          <MatchWithLogo match={wedstrijd23} />
+          <MatchWithLogo match={wedstrijd2} />
         </div>
       </Layout>
     )
