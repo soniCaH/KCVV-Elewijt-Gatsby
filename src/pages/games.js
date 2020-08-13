@@ -272,14 +272,14 @@ class GamesPage extends Component {
       region: "bra",
       division: "FR",
       dateTime: 1598796900000,
-      home: "KCVV Elewijt A",
-      away: "BOKA United A",
+      home: "BOKA United A",
+      away: "KCVV Elewijt A",
       resultHome: "",
       resultAway: "",
       status: "",
       // matchDay,
-      regNumberHome: "00055",
-      regNumberAway: "06439",
+      regNumberHome: "06439",
+      regNumberAway: "00055",
     }
     const wedstrijd23 = {
       region: "bra",
