@@ -182,14 +182,14 @@ class IndexPage extends Component {
       </div>
     </article>
   )
-  renderExtraContentFooter = (corona) => (
+  renderExtraContentFooter = (preseason) => (
     <section className="grid-container site-content">
       <div className="grid-x grid-margin-x">
         <section className={"cell large-12 featured-article"}>
           <CardImage
-            title="Update corona maatregelen."
-            localFile={corona}
-            link="/news/2020-07-26-covid-19-geen-senior-wedstrijden-tot-minstens-25-augustus-update-2907"
+            title="Voorbereidings- en bekerwedstrijden 2020-2021"
+            localFile={preseason}
+            link="/games"
             metadata={false}
           />
         </section>
@@ -341,7 +341,7 @@ class IndexPage extends Component {
           title="Er is maar één plezante compagnie"
           description="Startpagina van stamnummer 00055: KCVV Elewijt."
         />
-        {this.renderExtraContentFooter(this.props.data.corona)}
+        {this.renderExtraContentFooter(this.props.data.preseason)}
 
         <section className="grid-container site-content">
           {/* LIMITED-WIDTH CONTAINER WITH EXTRA (STICKY) CONTENT, IF ANY */}
@@ -411,9 +411,6 @@ export const pageQuery = graphql`
       }
     }
     preseason: file(name: { eq: "preseason2020" }) {
-      ...KCVVFluid960
-    }
-    corona: file(name: { eq: "corona" }) {
       ...KCVVFluid960
     }
     kcvvTv: allNodeKcvvTv(
