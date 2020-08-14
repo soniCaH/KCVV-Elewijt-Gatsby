@@ -187,7 +187,7 @@ class IndexPage extends Component {
       <div className="grid-x grid-margin-x">
         <section className={"cell large-12 featured-article"}>
           <CardImage
-            title="Voorbereidings- en bekerwedstrijden 2020-2021"
+            title="Update voorbereiding 2020-2021"
             localFile={preseason}
             link="/games"
             metadata={false}
@@ -410,7 +410,7 @@ export const pageQuery = graphql`
         }
       }
     }
-    preseason: file(name: { eq: "preseason2020" }) {
+    preseason: file(name: { eq: "preseason2020-2021" }) {
       ...KCVVFluid960
     }
     kcvvTv: allNodeKcvvTv(
