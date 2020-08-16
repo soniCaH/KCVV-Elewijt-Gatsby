@@ -153,16 +153,16 @@ class GamesPage extends Component {
     }
     const wedstrijd13 = {
       region: "bra",
-      division: "ESCA",
-      dateTime: 1598191200000,
-      home: "KCVV Elewijt B",
-      away: "Sp. Eizeringen B",
+      division: "FR",
+      dateTime: 1598722200000,
+      home: "SK Nossegem B",
+      away: "KCVV Elewijt B",
       resultHome: "",
       resultAway: "",
       status: "",
       // matchDay,
-      regNumberHome: "00055",
-      regNumberAway: "07579",
+      regNumberHome: "06053",
+      regNumberAway: "00055",
     }
     const wedstrijd14 = {
       region: "bra",
@@ -219,15 +219,15 @@ class GamesPage extends Component {
     const wedstrijd18 = {
       region: "bra",
       division: "FR",
-      dateTime: 1597080600000,
-      home: "KCVV Elewijt B",
-      away: "KFC Katelijne-Waver B",
+      dateTime: 1599501600000,
+      home: "KFC Katelijne-Waver B",
+      away: "KCVV Elewijt B",
       resultHome: "",
       resultAway: "",
       status: "",
       // matchDay,
-      regNumberHome: "00055",
-      regNumberAway: "04453",
+      regNumberHome: "04453",
+      regNumberAway: "00055",
     }
     const wedstrijd19 = {
       region: "bra",
@@ -316,11 +316,13 @@ class GamesPage extends Component {
           <MatchWithLogo match={wedstrijd6} />
           <MatchWithLogo match={wedstrijd21} />
           <MatchWithLogo match={wedstrijd20} />
+          <MatchWithLogo match={wedstrijd13} />
           <MatchWithLogo match={wedstrijd22} />
           <MatchWithLogo match={wedstrijd19} />
           <MatchWithLogo match={wedstrijd17} />
           <MatchWithLogo match={wedstrijd23} />
           <MatchWithLogo match={wedstrijd2} />
+          <MatchWithLogo match={wedstrijd18} />
         </div>
       </Layout>
     )
