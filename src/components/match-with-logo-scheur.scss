@@ -1,0 +1,152 @@
+.match-details {
+  display: block;
+  padding: 1em;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 700;
+
+  &--with-logo {
+    background: #FFF;
+
+    .LazyLoad:not(.is-visible) {
+      width: 100%;
+      height: 100px;
+    }
+  }
+
+  header {
+    line-height: 1.2em;
+    margin-bottom: .75em;
+    text-align: center;
+    text-transform: uppercase;
+  }
+
+  &__logo {
+    max-height: 100px;
+  }
+}
+
+.match-details__datetime {
+  display: block;
+  letter-spacing: -.02em;
+  line-height: 1.2em;
+  text-align: center;
+  text-transform: uppercase;
+
+  &--date {
+    color: var(--color-gray-light);
+    font-size: .75rem;
+  }
+
+  &--time {
+    color: var(--color-gray-medium);
+    font-size: 1.25rem;
+  }
+}
+
+.match-details__status {
+  letter-spacing: -.02em;
+  line-height: 1.2em;
+}
+
+.match-details__lineup {
+  color: var(--color-gray-medium);
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+  height: 100%;
+  width: 100%;
+
+  &--teams {
+    header {
+      margin-bottom: -2rem;
+    }
+  }
+}
+
+.match-details__lineup-inner {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  width: 45%;
+}
+
+.match-details__vs {
+  margin: 0 1%;
+  width: 10%;
+
+  font-family: var(--font-title);
+  font-size: 1.25rem;
+  font-weight: 700;
+  letter-spacing: -.04em;
+  text-transform: uppercase;
+
+  &--score {
+    color: var(--color-gray-light);
+    font-size: 1.25rem;
+  }
+}
+
+
+.match-details__inner {
+  header {
+    margin-bottom: -5em;
+  }
+}
+
+.match-details__winner {
+  color: var(--color-gray-medium);
+  font-weight: 700;
+
+  position: relative;
+
+  &:before {
+    content: "";
+    display: block;
+    position: absolute;
+    left: -15px;
+    top: 50%;
+    width: 0;
+    height: 0;
+    border-left: 8px solid var(--color-green-dark);
+    border-top: 8px solid transparent;
+    border-bottom: 8px solid transparent;
+    transform: translateY(-50%);
+  }
+
+  &--away {
+    &:before {
+      border-left: 0;
+      border-right: 8px solid var(--color-green-dark);
+      left: auto;
+      right: -15px;
+    }
+  }
+}
+
+.match-details__divider {
+  color: var(--color-gray-medium);
+  font-weight: 700;
+}
+
+.match-details__teamname {
+  font-size: 1.55rem;
+  height: auto;
+  line-height: 1.2;
+  text-align: center;
+  justify-content: flex-start;
+}
+
+.match-details__logo {
+  max-height: unset;
+  width: 250px;
+  height: auto;
+  margin: 0 -100px;
+
+  &--away {
+    order: 2;
+  }
+}

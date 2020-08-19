@@ -6,6 +6,7 @@ import moment from "moment-timezone"
 import "moment/locale/nl-be"
 
 import ClubLogo from "./clublogo"
+import MatchWithLogo from "./match-with-logo-scheur"
 
 import "./team-calendar-matches.scss"
 
@@ -141,7 +142,7 @@ class TeamCalendarMatches extends React.Component {
       return (
         <section className={"team-calendar-matches"}>
           {elewijtMatches.map((result, i) => (
-            <CalendarRow result={result} key={i} />
+            <MatchWithLogo match={result} lazyload={true} />
           ))}
         </section>
       )
