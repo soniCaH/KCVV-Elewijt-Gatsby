@@ -130,6 +130,15 @@
 
         a:not(.btn) {
             @include rich-link;
+
+            &[target="_blank"] {
+                &:after {
+                    font: normal normal normal 14px/1 FontAwesome;
+                    display: inline-block;
+                    content: '\f08e';
+                    margin-left: .5em;
+                }
+            }
         }
 
         div[data-entity-type="media"] {
@@ -159,11 +168,12 @@
     }
 
     &__footer {
-        columns: 3 250px;
+        display: grid;
+        grid-template-columns: repeat(3, minmax(250px, 1fr));
 
-            h3 {
-                column-span: all;
-            }
+        h3 {
+            grid-column: span 3;
+        }
     }
 
     &__footer__wrapper {
@@ -174,6 +184,10 @@
     }
 
     &__footer_related {
+
+        &:only-of-type {
+            grid-column: span 3;
+        }
         a {
             color: #FFF;
 
