@@ -1,11 +1,5 @@
-import React, { Component } from "react"
+import React from "react"
 
-class Icon extends Component {
-  render() {
-    const { icon } = this.props
-
-    return <i className={`fa ${icon}`} aria-hidden={true}></i>
-  }
-}
+const Icon = ({ icon }) => <i className={`fa ${icon}`} aria-hidden={true}></i>
 
 export default Icon
