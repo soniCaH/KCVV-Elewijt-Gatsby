@@ -51,7 +51,7 @@ $responsive-card-table-label-bg: $light-gray;
       grid-template-columns: repeat(2, 1fr);
       background: #f8f8f8;
 
-      &:before {
+      &::before {
         content: attr(data-label);
         font-weight: bold;
         position: relative;

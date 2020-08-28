@@ -46,7 +46,7 @@
             text-decoration: none;
             transition: color 0.3s ease;
 
-            &:before {
+            &::before {
                 background-color: transparent;
                 bottom: 0;
                 content: "";
@@ -62,7 +62,7 @@
 
             &.active,
             &:hover {
-                &:before {
+                &::before {
                     background-color: var(--color-green-dark);
                 }
             }
@@ -173,7 +173,7 @@
     background: var(--color-black);
     position: relative;
 
-    &:after {
+    &::after {
         background: var(--color-gray-dark);
         content: "";
         position: absolute;
@@ -192,7 +192,7 @@
     background-color: var(--color-gray-dark);
     position: relative;
 
-    &:before {
+    &::before {
         content: "";
         position: absolute;
         top: 0;
@@ -289,7 +289,7 @@
 
 .is-dropdown-submenu-parent {
     >a {
-        &:after {
+        &::after {
             content: "";
             display: inline-block;
             margin-left: 9px;
