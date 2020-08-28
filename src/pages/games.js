@@ -170,14 +170,14 @@ class GamesPage extends Component {
       region: "bra",
       division: "FR",
       dateTime: 1599501600000,
-      home: "KFC Katelijne-Waver B",
-      away: "KCVV Elewijt B",
+      home: "KCVV Elewijt B",
+      away: "KFC Katelijne-Waver B",
       resultHome: "",
       resultAway: "",
       status: "",
       // matchDay,
-      regNumberHome: "04453",
-      regNumberAway: "00055",
+      regNumberHome: "00055",
+      regNumberAway: "04453",
     }
 
     return (
