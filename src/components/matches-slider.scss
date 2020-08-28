@@ -32,7 +32,7 @@
     width: 50px;
     transition: all 0.5s;
 
-    &:before {
+    &::before {
       opacity: 1;
     }
 

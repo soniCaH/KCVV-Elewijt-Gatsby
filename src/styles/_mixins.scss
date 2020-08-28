@@ -3,7 +3,7 @@
         display: block;
         text-align: right;
 
-        &:after {
+        &::after {
             display: inline-block;
             content: url('../images/arrow-dark.svg');
             margin: 0 .25em;
@@ -14,7 +14,7 @@
         }
 
         &:hover {
-            &:after {
+            &::after {
                 transform: translateX(2px);
             }
         }

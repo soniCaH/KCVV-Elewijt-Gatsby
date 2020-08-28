@@ -2,6 +2,8 @@ import React, { Component } from "react"
 import { Link } from "gatsby"
 import Img from "gatsby-image"
 
+import Icon from "./icon"
+
 import "./cards.scss"
 
 /**
@@ -11,6 +13,7 @@ export class Card extends Component {
   render() {
     const {
       title,
+      icon = null,
       body = null,
       localFile,
       link,
@@ -41,7 +44,7 @@ export class Card extends Component {
 
             <main className={"cardItem__summary"}>
               <div className={"cardItem__heading"}>
-                <h3>{title}</h3>
+                <h3>{icon && <Icon icon={icon}/>} {title}</h3>
               </div>
 
               {body && <div dangerouslySetInnerHTML={{ __html: body }}></div>}
@@ -57,7 +60,7 @@ export class Card extends Component {
 
             <main className={"cardItem__summary"}>
               <div className={"cardItem__heading"}>
-                <h3>{title}</h3>
+                <h3>{icon && <i className={`fa ${icon}`} aria-hidden={true}></i>} {title}</h3>
               </div>
 
               {body && <div dangerouslySetInnerHTML={{ __html: body }}></div>}
