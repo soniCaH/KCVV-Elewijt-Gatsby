@@ -7,7 +7,7 @@ class GamesPage extends Component {
     return (
       <div className={"kiosk__matches"}>
         <MatchesOverviewDetails
-          season="1920"
+          season="2021"
           regnumber="00055"
           previous={true}
         />
