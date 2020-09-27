@@ -43,8 +43,8 @@
     }
 
     &__item {
-        border: 1px solid var(--color-green-dark);
-        background:url(../images/bg-teaser2.jpg) no-repeat #4b9b48;
+        // border: 1px solid var(--color-green-dark);
+        background:url(../images/bg-teaser.png) no-repeat transparent;
         background-size: contain;
 
         padding: 1rem;
