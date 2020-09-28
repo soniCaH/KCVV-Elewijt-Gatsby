@@ -341,7 +341,7 @@ class IndexPage extends Component {
           title="Er is maar één plezante compagnie"
           description="Startpagina van stamnummer 00055: KCVV Elewijt."
         />
-        {this.renderExtraContentFooter(this.props.data.preseason)}
+        {/* {this.renderExtraContentFooter(this.props.data.preseason)} */}
 
         <section className="grid-container site-content">
           {/* LIMITED-WIDTH CONTAINER WITH EXTRA (STICKY) CONTENT, IF ANY */}
