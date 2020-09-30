@@ -174,7 +174,12 @@ class IndexPage extends Component {
             jaarlijkse Mosselfestijn weer plaats. Om de spreiding te kunnen
             garanderen en wachttijden aan de ingang zoveel mogelijk te beperken
             werken we dit jaar met een reservatiesysteem. Hieronder kan je zelf
-            jouw gewenste tijdstip en gezelschap selecteren en een tafel boeken.
+            jouw gewenste tijdstip en gezelschap selecteren en een tafel boeken
+            (voor 07/10/2020).
+          </p>
+          <p>
+            Telefonisch reserveren kan dagelijks tussen 18u en 21u op het nummer{" "}
+            <a href="tel:+32498735984">0498.73.59.84</a>
           </p>
           <p>
             Ter plaatse een tafel vragen kan, naargelang de beschikbaarheid op
