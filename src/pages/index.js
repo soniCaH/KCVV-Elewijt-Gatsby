@@ -180,8 +180,7 @@ class IndexPage extends Component {
             Ter plaatse een tafel vragen kan, naargelang de beschikbaarheid op
             dat moment, maar hou er rekening mee dat we onze capaciteit hebben
             moeten verlagen om aan de regelgeving te kunnen voldoen. Wie zeker
-            wil zijn van zijn plek kan beter reserveren (dit kan in principe tot
-            de moment zelf).
+            wil zijn van zijn plek kan beter reserveren.
           </p>
         </div>
       </article>
