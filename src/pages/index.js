@@ -174,7 +174,7 @@ class IndexPage extends Component {
             jaarlijkse Mosselfestijn weer plaats. Om de spreiding te kunnen
             garanderen en wachttijden aan de ingang zoveel mogelijk te beperken
             werken we dit jaar met een reservatiesysteem. Hieronder kan je zelf
-            jou gewenste tijdstip en gezelschap selecteren en een tafel boeken.
+            jouw gewenste tijdstip en gezelschap selecteren en een tafel boeken.
           </p>
           <p>
             Ter plaatse een tafel vragen kan, naargelang de beschikbaarheid op
