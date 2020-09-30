@@ -160,6 +160,48 @@ class IndexPage extends Component {
     </article>
   )
 
+  renderTablebooker = () => (
+    <>
+      <article className={"medium-6 large-12 cell card"}>
+        <header className={"card__header"}>
+          <h4>
+            <i className={"fa fa-cutlery"} aria-hidden="true"></i> Mosselfestijn
+          </h4>
+        </header>
+        <div className={"card__content"}>
+          <p>
+            Op vrijdag 9, zaterdag 10 en zondag 11 oktober 2020 vindt ons
+            jaarlijkse Mosselfestijn weer plaats. Om de spreiding te kunnen
+            garanderen en wachttijden aan de ingang zoveel mogelijk te beperken
+            werken we dit jaar met een reservatiesysteem. Hieronder kan je zelf
+            jouw gewenste tijdstip en gezelschap selecteren en een tafel boeken
+            (voor 07/10/2020).
+          </p>
+          <p>
+            Telefonisch reserveren kan dagelijks tussen 18u en 21u op het nummer{" "}
+            <a href="tel:+32498735984">0498.73.59.84</a>
+          </p>
+          <p>
+            Ter plaatse een tafel vragen kan, naargelang de beschikbaarheid op
+            dat moment, maar hou er rekening mee dat we onze capaciteit hebben
+            moeten verlagen om aan de regelgeving te kunnen voldoen. Wie zeker
+            wil zijn van zijn plek kan beter reserveren.
+          </p>
+        </div>
+      </article>
+      <article className={"medium-6 large-12 cell tablebooker"}>
+        <tbkr-bm-widget
+          restaurant-id="34742560"
+          source="website"
+          use-modal="0"
+          lang="nl"
+          theme="light"
+        ></tbkr-bm-widget>
+        <script src="https://reservations.tablebooker.com/tbkr-widget-import.min.js"></script>
+      </article>
+    </>
+  )
+
   renderWebsiteFeedbackArticle = () => (
     <article className={"medium-6 large-12 cell card"}>
       <header className={"card__header"}>
@@ -293,6 +335,9 @@ class IndexPage extends Component {
     const { featuredPlayer } = this.props.data
     return (
       <>
+        {/* TABLEBOOKER WIDGET */}
+        {this.renderTablebooker()}
+
         {/* A TEAM OVERVIEW - SUMMARY OF MATCHES AND RANKING*/}
         {this.renderATeamCalendarArticle()}
 
