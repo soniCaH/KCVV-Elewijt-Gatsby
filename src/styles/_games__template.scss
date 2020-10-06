@@ -130,6 +130,10 @@
       }
 
       &__inner {
+        img {
+          order: -1;
+        }
+
         header {
           text-align: right;
 
@@ -152,6 +156,10 @@
           //       margin: 0 1rem;
           //   }
         }
+      }
+
+      &__teamname {
+        margin: 0;
       }
     }
   }
