@@ -66,7 +66,7 @@ class MatchesOverviewDetails extends Component {
               return <Fragment key={i} />
             }
 
-            return <MatchWithLogo match={match} lazyload={true} />
+            return <MatchWithLogo match={match} lazyload={false} />
           })}
         </div>
       )
