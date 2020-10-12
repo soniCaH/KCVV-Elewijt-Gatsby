@@ -336,7 +336,7 @@ class IndexPage extends Component {
     return (
       <>
         {/* TABLEBOOKER WIDGET */}
-        {this.renderTablebooker()}
+        {/* this.renderTablebooker() */}
 
         {/* A TEAM OVERVIEW - SUMMARY OF MATCHES AND RANKING*/}
         {this.renderATeamCalendarArticle()}
