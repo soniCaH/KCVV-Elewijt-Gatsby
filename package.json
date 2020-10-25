@@ -6,7 +6,7 @@
   "author": "Kevin Van Ransbeeck <kevin.van.ransbeeck@gmail.com>",
   "dependencies": {
     "animate.css": "4.1.1",
-    "axios": "0.20.0",
+    "axios": "0.21.0",
     "babel-plugin-lodash": "3.3.4",
     "babel-plugin-remove-graphql-queries": "2.9.20",
     "dotenv": "8.2.0",
