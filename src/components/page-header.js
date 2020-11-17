@@ -46,11 +46,6 @@ const getClosest = (elem, selector) => {
  * Render the menu items with proper <Link>'s.
  */
 class MenuItems extends Component {
-  constructor(props) {
-    super(props)
-    this.teamsClick = this.teamsClick.bind(this)
-  }
-
   componentDidMount() {
     const activeLinks = document.querySelectorAll(".active")
     let parent = null
@@ -61,10 +56,6 @@ class MenuItems extends Component {
         parent.classList.add("is-active")
       }
     })
-  }
-
-  teamsClick(e) {
-    console.log(e)
   }
 
   render() {
@@ -228,15 +219,6 @@ class MenuItems extends Component {
                 partiallyActive={true}
               >
                 U9
-              </Link>
-            </li>
-            <li>
-              <Link
-                to="/jeugd/u8/"
-                activeClassName="active"
-                partiallyActive={true}
-              >
-                U8
               </Link>
             </li>
             <li>

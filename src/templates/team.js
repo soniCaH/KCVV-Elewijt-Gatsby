@@ -207,7 +207,7 @@ export default ({ data }) => {
                     {/* Metamatches is the big banner on top with the previous and next match highlighted. */}
                     {!node.field_fb_id && (
                       <TeamCalendarMetaMatches
-                        season="1920"
+                        season="2021"
                         region="bra"
                         division={node.field_fb_id_2}
                         regnumber="00055"
@@ -215,7 +215,7 @@ export default ({ data }) => {
                     )}
 
                     <TeamCalendarMatches
-                      season="1920"
+                      season="2021"
                       region="bra"
                       division={node.field_fb_id_2}
                     />
@@ -228,7 +228,7 @@ export default ({ data }) => {
                     {/* Metamatches is the big banner on top with the previous and next match highlighted. */}
                     {!node.field_fb_id_2 && (
                       <TeamCalendarMetaMatches
-                        season="1920"
+                        season="2021"
                         region="bra"
                         division={node.field_fb_id}
                         regnumber="00055"
@@ -236,7 +236,7 @@ export default ({ data }) => {
                     )}
 
                     <TeamCalendarMatches
-                      season="1920"
+                      season="2021"
                       region="bra"
                       division={node.field_fb_id}
                     />
@@ -248,7 +248,7 @@ export default ({ data }) => {
                   <div className={"team-ranking__wrapper"}>
                     {node.field_fb_id && <h2>Ranking na nieuwjaar</h2>}
                     <Ranking
-                      season="1920"
+                      season="2021"
                       region="bra"
                       division={node.field_fb_id_2}
                       highlight="KCVV.Elewijt A"
@@ -259,7 +259,7 @@ export default ({ data }) => {
                   <div className={"team-ranking__wrapper"}>
                     {node.field_fb_id_2 && <h2>Ranking voor nieuwjaar</h2>}
                     <Ranking
-                      season="1920"
+                      season="2021"
                       region="bra"
                       division={node.field_fb_id}
                       highlight="KCVV.Elewijt A"
@@ -286,7 +286,7 @@ export const query = graphql`
         processed
       }
       field_fb_id
-      field_fb_id_2
+      # field_fb_id_2
       field_division_full
       field_tagline
       relationships {

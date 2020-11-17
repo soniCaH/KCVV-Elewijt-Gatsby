@@ -41,9 +41,6 @@ class JeugdPage extends Component {
               <Link to="/jeugd/u9/" className={"btn btn--arrow"}>
                 U9
               </Link>
-              <Link to="/jeugd/u8/" className={"btn btn--arrow"}>
-                U8
-              </Link>
               <Link to="/jeugd/u7/" className={"btn btn--arrow"}>
                 U7
               </Link>
@@ -62,9 +59,9 @@ class JeugdPage extends Component {
             <section className={"cell large-12 featured-article"}>
               <h2 style={{ marginTop: `${2}rem` }}>Volgende wedstrijden</h2>
               <MatchesOverview
-                season="1920"
+                season="2021"
                 regnumber="00055"
-                exclude="['2A', '4D']"
+                exclude="['2A', '4E']"
               />
             </section>
           </div>

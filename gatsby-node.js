@@ -63,7 +63,7 @@ exports.createPages = async ({ graphql, actions }) => {
     createPage,
     newsOverviewTemplate,
     "news",
-    60
+    18
   )
 
   createCategoryPages(

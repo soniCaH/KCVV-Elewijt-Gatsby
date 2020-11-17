@@ -26,7 +26,6 @@ class Search extends Component {
     Axios.get(`https://api.kcvvelewijt.be/jsonapi/node/article?sort=-created`)
       .then((result) => {
         const articleData = result.data.data
-        console.log(`Articles loaded: ${articleData.length}`)
         this.setState({ articleList: articleData })
 
         return Axios.get(
@@ -35,7 +34,6 @@ class Search extends Component {
       })
       .then((result) => {
         const teamData = result.data.data
-        console.log(`Teams loaded: ${teamData.length}`)
         this.setState({ teamList: teamData })
 
         return Axios.get(
@@ -44,7 +42,6 @@ class Search extends Component {
       })
       .then((result) => {
         const playerData = result.data.data
-        console.log(`Players loaded: ${playerData.length}`)
         this.setState({ playerList: playerData })
 
         return Axios.get(
@@ -53,7 +50,6 @@ class Search extends Component {
       })
       .then((result) => {
         const staffData = result.data.data
-        console.log(`Staff loaded: ${staffData.length}`)
         this.setState({ staffList: staffData })
 
         return Axios.get(
@@ -62,7 +58,6 @@ class Search extends Component {
       })
       .then((result) => {
         const eventData = result.data.data
-        console.log(`Events loaded: ${eventData.length}`)
         this.setState({ eventList: eventData })
 
         setTimeout(() => {
@@ -72,7 +67,7 @@ class Search extends Component {
       .catch((err) => {
         this.setState({ isError: true })
         console.log(`====================================`)
-        console.log(`Something bad happened while fetching some data\n${err}`)
+        console.log(`Something bad happened while fetching some data for the search.\n${err}`)
         console.log(`====================================`)
       })
   }
@@ -108,15 +103,10 @@ class Search extends Component {
     dataToSearch.addIndex([`attributes`, `body`, `processed`])
     dataToSearch.addIndex([`attributes`, `title`])
     dataToSearch.addDocuments(articleList)
-    console.log(`articleList added - ${articleList.length} articles indexed`)
     dataToSearch.addDocuments(teamList)
-    console.log(`teamList added - ${teamList.length} articles indexed`)
     dataToSearch.addDocuments(playerList)
-    console.log(`playerList added - ${playerList.length} articles indexed`)
     dataToSearch.addDocuments(staffList)
-    console.log(`staffList added - ${staffList.length} articles indexed`)
     dataToSearch.addDocuments(eventList)
-    console.log(`eventList added - ${eventList.length} articles indexed`)
     this.setState({ search: dataToSearch, isLoading: false })
   }
   /**

@@ -6,7 +6,7 @@ class GamesPage extends Component {
   render() {
     return (
       <div className={"kiosk__matches"}>
-        <MatchesOverviewDetails season="1920" regnumber="00055" />
+        <MatchesOverviewDetails season="2021" regnumber="00055" />
       </div>
     )
   }

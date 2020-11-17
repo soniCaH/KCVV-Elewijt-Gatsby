@@ -22,7 +22,7 @@ import Trooper from "../images/tag-trooper.png"
 class IndexPage extends Component {
   renderMatchSlider = () => (
     <section className={"grid-container full"}>
-      <MatchesSlider season="1920" regnumber="00055" />
+      <MatchesSlider season="2021" regnumber="00055" />
     </section>
   )
   renderSocialMediaArticle = () => (
@@ -103,7 +103,9 @@ class IndexPage extends Component {
       </header>
       <div className={"card__content"}>
         <p>
-          Trooper werkt samen met een groot aantal webshops die zich in de kijker willen zetten. In ruil voor een extra klik via Trooper krijgen wij een percentje op jouw volgende bestelling.
+          Trooper werkt samen met een groot aantal webshops die zich in de
+          kijker willen zetten. In ruil voor een extra klik via Trooper krijgen
+          wij een percentje op jouw volgende bestelling.
         </p>
         <p>
           <img src={Trooper} alt="QR Code Trooper" style={{ width: "100%" }} />
@@ -117,11 +119,18 @@ class IndexPage extends Component {
             title="Trooper link voor KCVV Elewijt"
             className={"rich-link"}
           >
-          https://trooper.be/kcvvelewijt
+            https://trooper.be/kcvvelewijt
           </a>
           .
         </p>
-        <p><a href="/news/2020-04-12-steun-kcvv-elewijt-trooper-mymakro" className={"rich-link"}>Lees er hier meer over!</a></p>
+        <p>
+          <a
+            href="/news/2020-04-12-steun-kcvv-elewijt-trooper-mymakro"
+            className={"rich-link"}
+          >
+            Lees er hier meer over!
+          </a>
+        </p>
       </div>
     </article>
   )
@@ -130,7 +139,7 @@ class IndexPage extends Component {
       <header className="card__header">
         <h4>Jeugdploegen</h4>
       </header>
-      <MatchesOverview season="1920" regnumber="00055" exclude="['2A', '4D']" />
+      <MatchesOverview season="2021" regnumber="00055" exclude="['2A', '4E']" />
     </article>
   )
 
@@ -139,7 +148,7 @@ class IndexPage extends Component {
       <header className={"card__header"}>
         <h4>The B-Team</h4>
       </header>
-      <MetaMatches season="1920" region="bra" division="4D" regnumber="00055" />
+      <MetaMatches season="2021" region="bra" division="4E" regnumber="00055" />
     </article>
   )
   renderATeamCalendarArticle = () => (
@@ -147,8 +156,50 @@ class IndexPage extends Component {
       <header className={"card__header"}>
         <h4>The A-Team</h4>
       </header>
-      <MetaMatches season="1920" region="bra" division="2A" regnumber="00055" />
+      <MetaMatches season="2021" region="bra" division="2A" regnumber="00055" />
     </article>
+  )
+
+  renderTablebooker = () => (
+    <>
+      <article className={"medium-6 large-12 cell card"}>
+        <header className={"card__header"}>
+          <h4>
+            <i className={"fa fa-cutlery"} aria-hidden="true"></i> Mosselfestijn
+          </h4>
+        </header>
+        <div className={"card__content"}>
+          <p>
+            Op vrijdag 9, zaterdag 10 en zondag 11 oktober 2020 vindt ons
+            jaarlijkse Mosselfestijn weer plaats. Om de spreiding te kunnen
+            garanderen en wachttijden aan de ingang zoveel mogelijk te beperken
+            werken we dit jaar met een reservatiesysteem. Hieronder kan je zelf
+            jouw gewenste tijdstip en gezelschap selecteren en een tafel boeken
+            (voor 07/10/2020).
+          </p>
+          <p>
+            Telefonisch reserveren kan dagelijks tussen 18u en 21u op het nummer{" "}
+            <a href="tel:+32498735984">0498.73.59.84</a>
+          </p>
+          <p>
+            Ter plaatse een tafel vragen kan, naargelang de beschikbaarheid op
+            dat moment, maar hou er rekening mee dat we onze capaciteit hebben
+            moeten verlagen om aan de regelgeving te kunnen voldoen. Wie zeker
+            wil zijn van zijn plek kan beter reserveren.
+          </p>
+        </div>
+      </article>
+      <article className={"medium-6 large-12 cell tablebooker"}>
+        <tbkr-bm-widget
+          restaurant-id="34742560"
+          source="website"
+          use-modal="0"
+          lang="nl"
+          theme="light"
+        ></tbkr-bm-widget>
+        <script src="https://reservations.tablebooker.com/tbkr-widget-import.min.js"></script>
+      </article>
+    </>
   )
 
   renderWebsiteFeedbackArticle = () => (
@@ -173,59 +224,57 @@ class IndexPage extends Component {
       </div>
     </article>
   )
-  renderExtraContentFooter = () => (
-    <>
-      {/* <section className="grid-container site-content">
-          <div className="grid-x grid-margin-x">
-            <section className={'cell large-12 featured-article'}>
-              <CardImage
-                title="Voorbereidings- en bekerwedstrijden"
-                localFile={data.preseason}
-                link="/games"
-                metadata={false}
-              />
-            </section>
-          </div>
-        </section> */}
-    </>
+  renderExtraContentFooter = (preseason) => (
+    <section className="grid-container site-content">
+      <div className="grid-x grid-margin-x">
+        <section className={"cell large-12 featured-article"}>
+          <CardImage
+            title="Update voorbereiding 2020-2021"
+            localFile={preseason}
+            link="/games"
+            metadata={false}
+          />
+        </section>
+      </div>
+    </section>
   )
 
-  convertGraphqlToPlayerObject = (player) => {
-    return {
-      nameFirst: player.field_firstname,
-      nameLast: player.field_lastname,
-      shirtNr: player.field_shirtnumber,
-      position: player.field_position,
-      gamesPlayed: player.field_stats_games,
-      cleanSheets: player.field_stats_cleansheets,
-      goalsScored: player.field_stats_goals,
-      cardsYellow: player.field_stats_cards_yellow,
-      cardsRed: player.field_stats_cards_red,
-      imageSrc:
-        player.relationships.field_image.localFile.childImageSharp.fixed.src,
-      link: player.path.alias,
-    }
-  }
+  // convertGraphqlToPlayerObject = (player) => {
+  //   return {
+  //     nameFirst: player.field_firstname,
+  //     nameLast: player.field_lastname,
+  //     shirtNr: player.field_shirtnumber,
+  //     position: player.field_position,
+  //     gamesPlayed: player.field_stats_games,
+  //     cleanSheets: player.field_stats_cleansheets,
+  //     goalsScored: player.field_stats_goals,
+  //     cardsYellow: player.field_stats_cards_yellow,
+  //     cardsRed: player.field_stats_cards_red,
+  //     imageSrc:
+  //       player.relationships.field_image.localFile.childImageSharp.fixed.src,
+  //     link: player.path.alias,
+  //   }
+  // }
 
-  renderPlayerOfTheWeek = (featuredPlayer) =>
-    featuredPlayer.edges.map(
-      ({ node: potw }) =>
-        potw.relationships.field_player && (
-          <article
-            className={"medium-6 large-12 cell card"}
-            key={potw.relationships.field_player.field_firstname}
-          >
-            <header className={"card__header"}>
-              <h4>Speler van de week</h4>
-            </header>
-            <PlayerFeatured
-              player={this.convertGraphqlToPlayerObject(
-                potw.relationships.field_player
-              )}
-            />
-          </article>
-        )
-    )
+  // renderPlayerOfTheWeek = (featuredPlayer) =>
+  //   featuredPlayer.edges.map(
+  //     ({ node: potw }) =>
+  //       potw.relationships.field_player && (
+  //         <article
+  //           className={"medium-6 large-12 cell card"}
+  //           key={potw.relationships.field_player.field_firstname}
+  //         >
+  //           <header className={"card__header"}>
+  //             <h4>Speler van de week</h4>
+  //           </header>
+  //           <PlayerFeatured
+  //             player={this.convertGraphqlToPlayerObject(
+  //               potw.relationships.field_player
+  //             )}
+  //           />
+  //         </article>
+  //       )
+  //   )
 
   renderPosts = (posts) => {
     let articleCount = 0
@@ -286,6 +335,9 @@ class IndexPage extends Component {
     const { featuredPlayer } = this.props.data
     return (
       <>
+        {/* TABLEBOOKER WIDGET */}
+        {/* this.renderTablebooker() */}
+
         {/* A TEAM OVERVIEW - SUMMARY OF MATCHES AND RANKING*/}
         {this.renderATeamCalendarArticle()}
 
@@ -296,7 +348,7 @@ class IndexPage extends Component {
         {this.renderYouthCalendarArticle()}
 
         {/* PLAYER OF THE WEEK ARTICLE IF ANY */}
-        {featuredPlayer && this.renderPlayerOfTheWeek(featuredPlayer)}
+        {/* {featuredPlayer && this.renderPlayerOfTheWeek(featuredPlayer)} */}
 
         {/* INFO ARTICLE WITH SOCIAL MEDIA LINKS */}
         {this.renderSocialMediaArticle()}
@@ -334,8 +386,11 @@ class IndexPage extends Component {
           title="Er is maar één plezante compagnie"
           description="Startpagina van stamnummer 00055: KCVV Elewijt."
         />
+        {/* {this.renderExtraContentFooter(this.props.data.preseason)} */}
 
         <section className="grid-container site-content">
+          {/* LIMITED-WIDTH CONTAINER WITH EXTRA (STICKY) CONTENT, IF ANY */}
+
           <div className="grid-x grid-margin-x">
             <section className="cell large-8 news_overview__wrapper">
               {/* MAIN CONTENT AREA */}
@@ -352,9 +407,6 @@ class IndexPage extends Component {
 
         {/* FULL-WIDTH SLICK SLIDER WITH UPCOMING MATCHES */}
         {this.renderMatchSlider()}
-
-        {/* LIMITED-WIDTH CONTAINER WITH EXTRA (STICKY) CONTENT, IF ANY */}
-        {this.renderExtraContentFooter()}
       </Layout>
     )
   }
@@ -403,7 +455,7 @@ export const pageQuery = graphql`
         }
       }
     }
-    preseason: file(name: { eq: "preseason" }) {
+    preseason: file(name: { eq: "preseason2020-2021" }) {
       ...KCVVFluid960
     }
     kcvvTv: allNodeKcvvTv(

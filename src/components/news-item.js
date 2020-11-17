@@ -105,6 +105,7 @@ export class KcvvTvCard extends Component {
     return (
       <Card
         title={"KCVV TV"}
+        icon={"fa-facebook-square"}
         body={summary}
         localFile={localFile}
         link={node.field_website.uri}
