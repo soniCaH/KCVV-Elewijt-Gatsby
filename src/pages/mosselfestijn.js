@@ -54,7 +54,7 @@ class MosselfestijnPage extends Component {
               fluid={{
                 ...affiche.childImageSharp.fluid,
               }}
-              alt="Figuur 1: SK Elewijt kampioen 52-53"
+              alt="Mosselfestijn 2020"
             />
           </footer>
         </div>
