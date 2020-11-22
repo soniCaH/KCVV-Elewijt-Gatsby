@@ -11657,10 +11657,10 @@ neo-async@^2.5.0, neo-async@^2.6.1:
   resolved "https://registry.yarnpkg.com/neo-async/-/neo-async-2.6.1.tgz#ac27ada66167fa8849a6addd837f6b189ad2081c"
   integrity sha512-iyam8fBuCUpWeKPGpaNMetEocMt364qkCsfL9JuhjXX6dRnguRVOfk2GZaDpPjcOKiiXCPINZC1GczQ7iTq3Zw==
 
-netlify-plugin-submit-sitemap@0.2.2:
-  version "0.2.2"
-  resolved "https://registry.yarnpkg.com/netlify-plugin-submit-sitemap/-/netlify-plugin-submit-sitemap-0.2.2.tgz#ce1d03f2a0e7fbe8bda3aa78a8f54bfd5e2c7235"
-  integrity sha512-TPGq6tigciQSsXYMtFNd7YESbQfFg2hLv3Qina/TGeY+l7rW1wMsb7g/PKEnS9EJ6HOoFlb04hL6WRtAOVqc3A==
+netlify-plugin-submit-sitemap@0.2.3:
+  version "0.2.3"
+  resolved "https://registry.yarnpkg.com/netlify-plugin-submit-sitemap/-/netlify-plugin-submit-sitemap-0.2.3.tgz#f2b0ba60d0b90e9d75554fa118b4b7973610aea4"
+  integrity sha512-OmRZgqCkigLcb9p7ri/gw7XecZjCH4cEh1SLUb819weT5bk2ly6PO46wbHsaZARDgM7UMmj1QzkJyjH53ECtTQ==
   dependencies:
     node-fetch "^2.6.0"
 
