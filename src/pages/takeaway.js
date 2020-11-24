@@ -39,7 +39,7 @@ class MosselfestijnPage extends Component {
             </p>
             <p>
               Opgelet: Je kan een afhaalmoment kiezen bij het bestellen. Betalen
-              kan ter plaatste cash of via Payconiq.
+              kan ter plaatse cash of via Payconiq.
             </p>
 
             <tbkr-bm-widget
