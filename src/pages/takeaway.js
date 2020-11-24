@@ -22,7 +22,13 @@ class MosselfestijnPage extends Component {
             <h1>Sinterklaas Takeaway</h1>
           </header>
           <main>
-            <tbkr-bm-widget
+          <p>KCVV Elewijt organiseert een afhaal Sinterklaasmaaltijd op <strong>zaterdag 5 december 2020</strong>.</p>
+
+          <p>Wachten op de sint zou dit jaar wel eens extra lang kunnen duren, maak het jezelf daarom dit jaar extra aangenaam en geniet van een heerlijk tapasbordje, pasta naar keuze en een lekker dessert, vergezeld van een Zuid-Afrikaans wijntje terwijl de Goedheilig man over de daken hobbelt.</p>
+          <p><strong>Bestellen kan tot en met zondag 29 november 2020</strong>.</p>
+          <p>Opgelet: Je kan een afhaalmoment kiezen bij het bestellen. Betalen kan ter plaatste cash of via Payconiq.</p>
+
+          <tbkr-bm-widget
               restaurant-id="34742560"
               source="website"
               use-modal="0"
