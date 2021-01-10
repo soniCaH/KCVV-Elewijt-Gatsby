@@ -41,6 +41,9 @@ class JeugdPage extends Component {
               <Link to="/jeugd/u9/" className={"btn btn--arrow"}>
                 U9
               </Link>
+              <Link to="/jeugd/u8/" className={"btn btn--arrow"}>
+                U8
+              </Link>
               <Link to="/jeugd/u7/" className={"btn btn--arrow"}>
                 U7
               </Link>

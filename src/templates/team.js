@@ -43,6 +43,8 @@ export default ({ data }) => {
   // Helper variable so we don't have to do the check over and over again.
   const hasDivision = node.field_fb_id || node.field_fb_id_2
 
+  console.log(hasDivision);
+
   const pathUrl = node.path.alias
   const ogImage = picture && {
     src:
@@ -286,7 +288,7 @@ export const query = graphql`
         processed
       }
       field_fb_id
-      # field_fb_id_2
+      field_fb_id_2
       field_division_full
       field_tagline
       relationships {
