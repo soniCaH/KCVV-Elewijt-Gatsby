@@ -13,33 +13,52 @@ class MosselfestijnPage extends Component {
       <Layout>
         <SEO
           lang="nl-BE"
-          title="Sinterklaas Takeaway!"
-          description="Sinterklaas Takeaway! - Bestelformulier"
+          title="Lunch vd lege portemonnee - Takeaway!"
+          description="Lege portemonnee Takeaway! - Bestelformulier"
           path={this.props.location.pathname}
         />
         <div className={"limited-width_wrapper"}>
           <header>
-            <h1>Sinterklaas Takeaway</h1>
+            <h1>Lunch van de lege portemonnee - Takeaway</h1>
           </header>
           <main>
+            <h2>Zaterdag 20 februari 2021</h2>
             <p>
-              KCVV Elewijt organiseert een afhaal Sinterklaasmaaltijd op{" "}
-              <strong>zaterdag 5 december 2020</strong>.
+              Door de corona-beperkingen wordt de Lunch vd Lege Portemonne
+              helaas een Take Away versie. Daarom stellen we een aantal
+              gerechten voor, die standaard bij onze Lunch horen en waarvan u
+              kan genieten bij een wijntje of drankje bij u thuis.
+            </p>
+
+            <p>Op het menu:</p>
+            <ul>
+              <li>Ajuinsoep met kaas - 1L: 8€ per portie</li>
+              <li>Balletjes in tomatensaus met puree: 10€ per portie</li>
+              <li>Winterstoemp met spekjes en chipolatta: 11€ per portie</li>
+              <li>Witloof in den oven met puree: 12€ per portie</li>
+              <li>Dessert - chocomousse of pannenkoeken met suiker (2): 5€</li>
+            </ul>
+            <p>
+              <strong>
+                Bestellen kan tot en met woensdag 17 februari 2021!
+              </strong>
+            </p>
+            <p>
+              Opgelet: Je kan een afhaalmoment kiezen bij het bestellen (16:00 -
+              20:00). Betalen kan ter plaatse cash (liefst gepast).
+            </p>
+            <p>
+              Indien u niet in de mogelijkheid tot afhaling bent, is er de
+              mogelijkheid tot thuislevering de dag zelf tussen 16 en 18u.
+              Opgelet: dit dient vermeld te worden bij bestelling! Bij levering
+              thuis vragen we ook graag gepaste cash.
             </p>
 
             <p>
-              Wachten op de sint zou dit jaar wel eens extra lang kunnen duren,
-              maak het jezelf daarom dit jaar extra aangenaam en geniet van een
-              heerlijk tapasbordje, pasta naar keuze en een lekker dessert,
-              vergezeld van een Zuid-Afrikaans wijntje terwijl de Goedheilig man
-              over de daken hobbelt.
-            </p>
-            <p>
-              <strong>Bestellen kan tot en met zondag 29 november 2020</strong>.
-            </p>
-            <p>
-              Opgelet: Je kan een afhaalmoment kiezen bij het bestellen. Betalen
-              kan ter plaatse cash of via Payconiq.
+              Wie bijkomende vragen heeft kan terecht op
+              evenementen@kcvvelewijt.be Alvast bedankt! En graag tot in 2022
+              voor opnieuw een face-to-face versie van deze Lunch vd Leige
+              Portemonnee!
             </p>
 
             <tbkr-bm-widget
@@ -68,7 +87,7 @@ class MosselfestijnPage extends Component {
 
 export const pageQuery = graphql`
   query {
-    affiche: file(name: { eq: "takeaway-affiche" }) {
+    affiche: file(name: { eq: "takeaway-lunch" }) {
       ...KCVVFluid960
     }
   }
