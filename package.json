@@ -38,7 +38,7 @@
     "moment-timezone": "0.5.32",
     "netlify-plugin-submit-sitemap": "0.2.3",
     "node-sass": "4.14.1",
-    "preact": "10.5.10",
+    "preact": "10.5.11",
     "prop-types": "15.7.2",
     "react": "17.0.1",
     "react-animate-on-scroll": "2.1.5",
