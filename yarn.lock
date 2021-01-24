@@ -11616,10 +11616,10 @@ mkdirp@^1.0.4:
   resolved "https://registry.yarnpkg.com/mkdirp/-/mkdirp-1.0.4.tgz#3eb5ed62622756d79a5f0e2a221dfebad75c2f7e"
   integrity sha512-vVqVZQyf3WLx2Shd0qJ9xuvqgAyKPLAiqITEtqW0oIUjzo3PePDd6fW9iFz30ef7Ysp/oiWqbhszeGWW2T6Gzw==
 
-modern-css-reset@1.3.0:
-  version "1.3.0"
-  resolved "https://registry.yarnpkg.com/modern-css-reset/-/modern-css-reset-1.3.0.tgz#f624af50b09be902398b52c580fc47125ff8110b"
-  integrity sha512-9XGozQ7NTrnAOTxtvNeFxmcmmqFSfsMT+VBg8k6PHtsRt+fsV5PH984W8l19a0QSzy7QuwYqBy4JUEreiZkgYQ==
+modern-css-reset@1.4.0:
+  version "1.4.0"
+  resolved "https://registry.yarnpkg.com/modern-css-reset/-/modern-css-reset-1.4.0.tgz#5bee4d11eeca2ff19b882c6e8f1769773e792d04"
+  integrity sha512-0crZmSFmrxkI7159rvQWjpDhy0u4+Awg/iOycJdlVn0RSeft/a+6BrQHR3IqvmdK25sqt0o6Z5Ap7cWgUee2rw==
 
 moment-timezone@0.5.32:
   version "0.5.32"
