@@ -47,12 +47,6 @@ class MosselfestijnPage extends Component {
               Opgelet: Je kan een afhaalmoment kiezen bij het bestellen (16:00 -
               20:00). Betalen kan ter plaatse cash (liefst gepast).
             </p>
-            <p>
-              Indien u niet in de mogelijkheid tot afhaling bent, is er de
-              mogelijkheid tot thuislevering de dag zelf tussen 16 en 18u.
-              Opgelet: dit dient vermeld te worden bij bestelling! Bij levering
-              thuis vragen we ook graag gepaste cash.
-            </p>
 
             <p>
               Wie bijkomende vragen heeft kan terecht op
