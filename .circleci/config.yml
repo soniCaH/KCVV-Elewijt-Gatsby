@@ -5,10 +5,9 @@ jobs:
   build-and-test:
     executor:
       name: node/default
+      tag: '12.21.0'
     steps:
       - checkout
-      - node/install:
-          install-yarn: true
       - restore_cache:
           key: dependency-cache-{{ checksum "yarn.lock" }}
       - run: # run tests
