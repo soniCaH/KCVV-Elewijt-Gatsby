@@ -8023,7 +8023,7 @@ gatsby-plugin-page-creator@^3.0.0:
     globby "^11.0.2"
     lodash "^4.17.20"
 
-gatsby-plugin-preact@^5.0.0:
+gatsby-plugin-preact@5.0.0:
   version "5.0.0"
   resolved "https://registry.yarnpkg.com/gatsby-plugin-preact/-/gatsby-plugin-preact-5.0.0.tgz#aabc6c7625855454d0a5d94703776c405391d97b"
   integrity sha512-snW1+lXk0LoZjkmeUpMAhQVNw47IGxqOtvnAwAVqqMAMuj9jFx6cJy6TP63/f2yXXHi+LfcJxPK34iV/t+ddJw==
@@ -8241,7 +8241,7 @@ gatsby-transformer-sharp@3.0.0:
     semver "^7.3.4"
     sharp "^0.27.0"
 
-gatsby@^3.0.4:
+gatsby@3.0.4:
   version "3.0.4"
   resolved "https://registry.yarnpkg.com/gatsby/-/gatsby-3.0.4.tgz#dce3e44cb85ee6a4cdc71a5be9b3485206bea0fc"
   integrity sha512-LIBeox/O4XlgfpPYScS5LwFreWlZuuz4OZl0cnkA3M8EfxelHwLpqMvOeSYsoMHvogBJzlLocfRQIgzqvXS7kA==
@@ -13847,14 +13847,14 @@ potrace@^2.1.8:
   dependencies:
     jimp "^0.14.0"
 
-preact-render-to-string@^5.1.15:
+preact-render-to-string@5.1.15:
   version "5.1.15"
   resolved "https://registry.yarnpkg.com/preact-render-to-string/-/preact-render-to-string-5.1.15.tgz#9d1dadcd5d7b403015b11a5a1fdb4885c3649a30"
   integrity sha512-xjtHq/RQGUISoptT24qFiEUp+lJJ+QlxeO69i9nJShPWQm8RY5syqi8sycY68MhfV8oGBx/rRq8LQ8rPp2ESZA==
   dependencies:
     pretty-format "^3.8.0"
 
-preact@^10.5.12:
+preact@10.5.12:
   version "10.5.12"
   resolved "https://registry.yarnpkg.com/preact/-/preact-10.5.12.tgz#6a8ee8bf40a695c505df9abebacd924e4dd37704"
   integrity sha512-r6siDkuD36oszwlCkcqDJCAKBQxGoeEGytw2DGMD5A/GGdu5Tymw+N2OBXwvOLxg6d1FeY8MgMV3cc5aVQo4Cg==
