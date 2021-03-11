@@ -4,7 +4,7 @@ import Layout from "../layouts/index"
 import SEO from "../components/seo"
 import PlayerDetail from "../components/player-staff"
 
-export default ({ data }) => {
+const PlayerStaffTemplate = ({ data }) => {
   const node = data.nodeStaff
   const pathUrl = node.path.alias
   const ogImage = node.relationships.field_image && {
@@ -60,3 +60,5 @@ export const query = graphql`
     }
   }
 `
+
+export default PlayerStaffTemplate;

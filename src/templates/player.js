@@ -6,7 +6,7 @@ import PlayerDetail from "../components/player"
 
 // import './article.scss'
 
-export default ({ data }) => {
+const PlayerTemplate = ({ data }) => {
   const node = data.nodePlayer
   const pathUrl = node.path.alias
   const ogImage = node.relationships.field_image && {
@@ -68,3 +68,5 @@ export const query = graphql`
     }
   }
 `
+
+export default PlayerTemplate;

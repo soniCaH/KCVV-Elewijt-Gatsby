@@ -12,7 +12,7 @@ String.prototype.replaceAll = function (search, replacement) {
   return target.replace(new RegExp(search, "g"), replacement)
 }
 
-export default ({ data }) => {
+const PageTemplate = ({ data }) => {
   const post = data.nodePage
   let image = null
 
@@ -89,3 +89,5 @@ export const query = graphql`
     }
   }
 `
+
+export default PageTemplate;

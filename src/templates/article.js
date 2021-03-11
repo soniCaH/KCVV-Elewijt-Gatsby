@@ -14,7 +14,7 @@ String.prototype.replaceAll = function (search, replacement) {
   return target.replace(new RegExp(search, "g"), replacement)
 }
 
-export default ({ data }) => {
+const ArticleTemplate = ({ data }) => {
   const post = data.nodeArticle
 
   const {
@@ -215,3 +215,5 @@ export const query = graphql`
     }
   }
 `
+
+export default ArticleTemplate;
