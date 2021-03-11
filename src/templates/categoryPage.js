@@ -12,7 +12,7 @@ String.prototype.replaceAll = function (search, replacement) {
   return target.replace(new RegExp(search, "g"), replacement)
 }
 
-export default ({ data }) => {
+const CategoryPageTemplate = ({ data }) => {
   const { articles, term, categoryTags } = data
   const pathUrl = term.path.alias
 
@@ -124,3 +124,5 @@ export const query = graphql`
     }
   }
 `
+
+export default CategoryPageTemplate;

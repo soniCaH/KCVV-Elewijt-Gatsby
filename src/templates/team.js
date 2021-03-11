@@ -20,7 +20,7 @@ const groupBy = (key) => (array) =>
 // Specific implementation of our groupBy function, to group by a property "field_position".
 const groupByPosition = groupBy("field_position")
 
-export default ({ data }) => {
+const TeamTemplate = ({ data }) => {
   const node = data.nodeTeam
 
   // If we have players, group them by their position.
@@ -333,3 +333,5 @@ export const query = graphql`
     }
   }
 `
+
+export default TeamTemplate;
