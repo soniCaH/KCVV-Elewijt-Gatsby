@@ -50,9 +50,10 @@ class MosselfestijnPage extends Component {
 
             <p>
               Wie bijkomende vragen heeft kan terecht op
-              evenementen@kcvvelewijt.be Alvast bedankt! En graag tot in 2022
-              voor opnieuw een face-to-face versie van deze Lunch vd Leige
-              Portemonnee!
+              evenementen@kcvvelewijt.be.
+              <br />
+              Alvast bedankt! En graag tot in 2022 voor opnieuw een face-to-face
+              versie van deze Lunch vd Leige Portemonnee!
             </p>
 
             <tbkr-bm-widget
