@@ -1,6 +1,9 @@
 @import '~foundation-sites/scss/util/util';
 
-.event__wrapper {}
+.lineup__wrapper,
+.event_wrapper {
+  margin-bottom: 2em;
+}
 
 .event__row {
   &--home {
@@ -28,4 +31,22 @@
   }
 }
 
-.event__row__item {}
+.event__row__item {
+  &--home {
+    &.lineup__item--name {
+      @include breakpoint(large up) {
+        text-align: right;
+      }
+    }
+  }
+}
+
+.lineup__item {
+
+  &--status,
+  &--action {
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center center;
+  }
+}

@@ -6,6 +6,15 @@ import Layout from "../layouts/index"
 import SEO from "../components/seo"
 import Icon from "../components/icon"
 
+import iconBench from "../images/i_bench.png"
+import iconCardRed from "../images/i_card_red.png"
+import iconCardYellowRed from "../images/i_card_yellow_red.png"
+import iconCardYellow from "../images/i_card_yellow.png"
+import iconGoal from "../images/i_goal.png"
+import iconStart from "../images/i_start.png"
+import iconSubIn from "../images/i_sub_in.png"
+import iconSubOut from "../images/i_sub_out.png"
+
 class GamePage extends Component {
   constructor(props) {
     super(props)
@@ -77,17 +86,19 @@ class GamePage extends Component {
                 {general.competitionType}
               </div>
 
-              <div className={"cell large-6"}>
-                <strong>{general.homeClub.name}</strong>
-                {this.renderLineup(lineup.home, substitutes.home)}
-              </div>
-              <div className={"cell large-6"}>
-                <strong>{general.awayClub.name}</strong>
-                {this.renderLineup(lineup.away, substitutes.away)}
+              <div className={"lineup__wrapper grid-x grid-margin-x cell large-12"}>
+                <div className={"cell large-6 lineup__wrapper--home"}>
+                  <h3>{general.homeClub.name}</h3>
+                  {this.renderLineup(lineup.home, substitutes.home)}
+                </div>
+                <div className={"cell large-6 lineup__wrapper--away"}>
+                  <h3>{general.awayClub.name}</h3>
+                  {this.renderLineup(lineup.away, substitutes.away)}
+                </div>
               </div>
 
-              <div className={"cell large-12"}>
-                <strong>Events</strong>
+              <div className={"cell large-12 event__wrapper"}>
+                <h3>Events</h3>
                 {this.renderEvents(events, homeTeamId)}
               </div>
             </div>
@@ -107,43 +118,93 @@ class GamePage extends Component {
 
   renderEvents(events, homeTeamId) {
     return (
-      <div className={"event__wrapper"}>
-        {events.map((element, i) => this.renderEventLine(i, element, homeTeamId))}
-      </div>
+      <>
+        {events.map((element, i) =>
+          this.renderEventLine(i, element, homeTeamId)
+        )}
+      </>
     )
   }
 
   renderEventLine(i, element, homeTeamId) {
+    const homeTeam = element.clubId == homeTeamId
+    let actionIcon = null
+    let actionText = ""
+
+    switch (element.action) {
+      case "geel":
+        actionIcon = iconCardYellow
+        actionText = "Gele kaart voor"
+        break
+      case "rood":
+        actionIcon = iconCardRed
+        actionText = "Rode kaart voor"
+        break
+      case "doelpunt":
+        actionIcon = iconGoal
+        actionText = `${element?.goalsHome} - ${element?.goalsAway} — Doelpunt gescoord door`
+        break
+    }
+
     return (
       <div
-        className={`event__row ${element.clubId == homeTeamId ? 'event__row--home' : 'event__row--away'} grid-x grid-margin-x`}
+        className={`event__row ${
+          homeTeam ? "event__row--home" : "event__row--away"
+        } grid-x grid-margin-x`}
         key={i}
       >
-        <span className={"event__row__item event__row__item--home lineup__item--name cell small-10 large-4"}>
-          {element.playerName}
-        </span>
-        <span className={"event__row__item event__row__item--home lineup__item--number cell small-1 center"}>
-          {element.action}
-        </span>
-        <span className={"event__row__item lineup__item--time cell small-1 large-2 center"}>
+        {homeTeam && (
+          <span
+            className={
+              "event__row__item event__row__item--home lineup__item--name cell small-10 large-4"
+            }
+          >
+            {actionText} {element.playerName}
+          </span>
+        )}
+        {homeTeam && (
+          <span
+            className={
+              "event__row__item event__row__item--home lineup__item--action cell small-1 center"
+            }
+            style={{ backgroundImage: `url(${actionIcon})` }}
+          ></span>
+        )}
+        <span
+          className={
+            "event__row__item lineup__item--time cell small-1 large-2 center"
+          }
+        >
           {element.minute}'
         </span>
-        <span className={"event__row__item event__row__item--away lineup__item--number cell small-1 center"}>
-          {element.action}
-        </span>
-        <span className={"event__row__item event__row__item--away lineup__item--name cell small-10 large-4"}>
-          {element.playerName}
-        </span>
+        {homeTeam || (
+          <span
+            className={
+              "event__row__item event__row__item--away lineup__item--action cell small-1 center"
+            }
+            style={{ backgroundImage: `url(${actionIcon})` }}
+          ></span>
+        )}
+        {homeTeam || (
+          <span
+            className={
+              "event__row__item event__row__item--away lineup__item--name cell small-10 large-4"
+            }
+          >
+            {actionText} {element.playerName}
+          </span>
+        )}
       </div>
     )
   }
   renderLineup(lineup, substitutes) {
     return (
-      <div className={"lineup__wrapper"}>
+      <>
         {this.renderLineupHeader()}
         {lineup.map((element, i) => this.renderLineupLine(i, element))}
+        <hr />
         {substitutes.map((element, i) => this.renderSubLine(i, element))}
-      </div>
+      </>
     )
   }
 
@@ -178,16 +239,19 @@ class GamePage extends Component {
         className={"lineup__row lineup__row--substitute grid-x grid-margin-x"}
         key={i}
       >
-        <span className={"lineup__row__item lineup__item--status cell small-1"}>
-          {element.status}
-        </span>
+        <span
+          className={"lineup__row__item lineup__item--status cell small-1"}
+          style={{
+            backgroundImage: `url(${element.changed ? iconSubIn : iconBench})`,
+          }}
+        ></span>
         <span className={"lineup__row__item lineup__item--number cell small-1"}>
           {element.number}
         </span>
         <span className={"lineup__row__item lineup__item--name cell small-9"}>
           {element.playerName}
         </span>
-        <span className={"lineup__row__item lineup__item--time cell small-1 right"}>
+        <span className={"lineup__row__item lineup__item--time cell small-1"}>
           {element.minutesPlayed}'
         </span>
       </div>
@@ -200,16 +264,19 @@ class GamePage extends Component {
         className={"lineup__row lineup__row--lineup grid-x grid-margin-x"}
         key={i}
       >
-        <span className={"lineup__row__item lineup__item--status cell small-1"}>
-          {element.status}
-        </span>
+        <span
+          className={"lineup__row__item lineup__item--status cell small-1"}
+          style={{
+            backgroundImage: `url(${element.changed ? iconSubOut : iconStart})`,
+          }}
+        ></span>
         <span className={"lineup__row__item lineup__item--number cell small-1"}>
           {element.number}
         </span>
         <span className={"lineup__row__item lineup__item--name cell small-9"}>
           {element.playerName} {element.captain && `(C)`}
         </span>
-        <span className={"lineup__row__item lineup__item--time cell small-1 right"}>
+        <span className={"lineup__row__item lineup__item--time cell small-1"}>
           {element.minutesPlayed}'
         </span>
       </div>
