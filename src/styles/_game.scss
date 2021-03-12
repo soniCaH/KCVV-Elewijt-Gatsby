@@ -30,6 +30,36 @@
   align-items: center;
   position: relative;
   width: 100%;
+
+  .match-details__vs--score {
+    margin: 0 20px;
+    @include breakpoint(large up) {
+      font-size: 2rem;
+    }
+
+    .match-details__winner {
+      &::before {
+
+        @include breakpoint(large up) {
+          left: -15px;
+          border-left-width: 10px;
+          border-top-width: 6px;
+          border-bottom-width: 6px;
+        }
+      }
+
+      &--away {
+        &::before {
+          @include breakpoint(large up) {
+            left: auto;
+            right: -15px;
+            border-right-width: 10px;
+          }
+        }
+
+      }
+    }
+  }
 }
 
 .lineup__wrapper,

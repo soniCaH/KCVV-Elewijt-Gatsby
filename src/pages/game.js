@@ -33,18 +33,20 @@ class GamePage extends Component {
     const {
       data: {
         site: {
-          siteMetadata: { kcvvPsdApi, refreshRate },
+          siteMetadata: { kcvvPsdApi },
         },
       },
     } = this.props
 
     this.kcvvPsdApi = kcvvPsdApi
-    this.apiRefreshRate = refreshRate
-    this.timeout = {}
     this.matchId = this.props.id || null
   }
 
   updateData() {
+    if (this.matchId === null) {
+      return
+    }
+
     const apiUrl = `${this.kcvvPsdApi}/match/${this.matchId}`
 
     fetch(apiUrl)
@@ -57,6 +59,16 @@ class GamePage extends Component {
   }
 
   render() {
+    if (this.matchId === null) {
+      return (
+        <Layout>
+          <section className="grid-container site-content">
+            Geen match beschikbaar...
+          </section>
+        </Layout>
+      )
+    }
+
     moment.locale("nl-be")
 
     if (this.state.loading === false && this.state.data) {
@@ -100,7 +112,10 @@ class GamePage extends Component {
                       />
                     </LazyLoad>
                   </div>
-                  {this.renderScore(general.goalsHomeTeam, general.goalsAwayTeam)}
+                  {this.renderScore(
+                    general.goalsHomeTeam,
+                    general.goalsAwayTeam
+                  )}
                   <div className={"game__teams-inner"}>
                     <LazyLoad debounce={false}>
                       <img
@@ -159,7 +174,7 @@ class GamePage extends Component {
   }
 
   renderScore = (resultHome, resultAway) => {
-    return  resultHome !== null && resultAway !== null ? (
+    return resultHome !== null && resultAway !== null ? (
       <div className={"match-details__vs match-details__vs--score"}>
         {this.renderScoreWithWinnerIndicator(resultHome, resultAway, "home")}
         <span className={"match-details__divider"}> - </span>
@@ -195,24 +210,29 @@ class GamePage extends Component {
   renderEventLine(i, element, homeTeamId) {
     const homeTeam = element.clubId == homeTeamId
     let actionIcon = null
+    let actionMessage = ""
     let actionText = ""
 
     switch (element.action) {
       case "geel":
         actionIcon = iconCardYellow
         actionText = "Gele kaart voor"
+        actionMessage = "Gele kaart"
         break
       case "rood":
         actionIcon = iconCardRed
         actionText = "Rode kaart voor"
+        actionMessage = "Rode kaart"
         break
       case "tweedegeel":
         actionIcon = iconCardYellowRed
         actionText = "Tweede gele kaart voor"
+        actionMessage = "Tweede gele kaart"
         break
       case "doelpunt":
         actionIcon = iconGoal
         actionText = `${element?.goalsHome} - ${element?.goalsAway} — Doelpunt gescoord door`
+        actionMessage = "Doelpunt"
         break
     }
 
@@ -238,6 +258,7 @@ class GamePage extends Component {
               "event__row__item event__row__item--home lineup__item--action cell small-1 center"
             }
             style={{ backgroundImage: `url(${actionIcon})` }}
+            title={actionMessage}
           ></span>
         )}
         <span
@@ -253,6 +274,7 @@ class GamePage extends Component {
               "event__row__item event__row__item--away lineup__item--action cell small-1 center"
             }
             style={{ backgroundImage: `url(${actionIcon})` }}
+            title={actionMessage}
           ></span>
         )}
         {homeTeam || (
@@ -314,6 +336,7 @@ class GamePage extends Component {
           style={{
             backgroundImage: `url(${element.changed ? iconSubIn : iconBench})`,
           }}
+          title={`${element.changed ? "Wisselspeler ingevallen" : "Wisselspeler"}`}
         ></span>
         <span className={"lineup__row__item lineup__item--number cell small-1"}>
           {element.number}
@@ -337,8 +360,9 @@ class GamePage extends Component {
         <span
           className={"lineup__row__item lineup__item--status cell small-1"}
           style={{
-            backgroundImage: `url(${element.changed ? iconSubOut : iconStart})`,
+            backgroundImage: `url(${element.changed ? iconSubOut : iconStart})`
           }}
+          title={`${element.changed ? "Basisspeler gewisseld" : "Basisspeler"}`}
         ></span>
         <span className={"lineup__row__item lineup__item--number cell small-1"}>
           {element.number}
@@ -358,9 +382,7 @@ export const pageQuery = graphql`
   query {
     site {
       siteMetadata {
-        siteUrl
         kcvvPsdApi
-        refreshRate
       }
     }
   }
