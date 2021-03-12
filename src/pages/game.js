@@ -87,11 +87,6 @@ class GamePage extends Component {
             path={`/game/${general?.id}`}
             image={ogImage}
           />
-          {/* <header className="full">
-            <div className={"bg-green-mask bg-green-mask--minimal"}>
-              <div className={"bg-white-end"} />
-            </div>
-          </header> */}
 
           <section className="grid-container game-stats">
             <div className="grid-x grid-margin-x">

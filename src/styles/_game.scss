@@ -41,6 +41,16 @@
   }
 }
 
+.lineup__wrapper {
+  &--home {
+    margin-bottom: 2em;
+
+    @include breakpoint(large up) {
+      margin-bottom: 0;
+    }
+  }
+}
+
 .event__row {
   &--home {
     &.grid-x {
