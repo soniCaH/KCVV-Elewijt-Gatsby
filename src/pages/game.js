@@ -109,6 +109,7 @@ class GamePage extends Component {
                       <img
                         src={general.homeClub.logo}
                         alt={general.homeClub.name}
+                        title={general.homeClub.name}
                       />
                     </LazyLoad>
                   </div>
@@ -121,6 +122,7 @@ class GamePage extends Component {
                       <img
                         src={general.awayClub.logo}
                         alt={general.awayClub.name}
+                        title={general.awayClub.name}
                       />
                     </LazyLoad>
                   </div>
