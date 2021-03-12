@@ -1,12 +1,18 @@
 import React, { Component } from "react"
+import LazyLoad from "react-lazy-load"
 
 import { graphql } from "gatsby"
+
+import moment from "moment"
+import "moment/locale/nl-be"
+
+import { mapPsdStatus } from "../scripts/helper"
 
 import Layout from "../layouts/index"
 import SEO from "../components/seo"
 import Icon from "../components/icon"
 
-import iconBench from "../images/i_bench.png"
+import iconBench from "../images/i_bench_2.png"
 import iconCardRed from "../images/i_card_red.png"
 import iconCardYellowRed from "../images/i_card_yellow_red.png"
 import iconCardYellow from "../images/i_card_yellow.png"
@@ -51,15 +57,26 @@ class GamePage extends Component {
   }
 
   render() {
+    moment.locale("nl-be")
+
     if (this.state.loading === false && this.state.data) {
-      const { general, substitutes, lineup, events } = this.state.data
+      const {
+        general = {},
+        substitutes = {},
+        lineup = {},
+        events = [],
+      } = this.state.data
       const homeTeamId = general.homeClub.id
-      const awayTeamId = general.awayClub.id
       const ogImage = {
         src: general?.homeClub.logo,
         width: 180,
         height: 180,
       }
+
+      const { home: homeLineup = [], away: awayLineup = [] } = lineup || {}
+      const { home: homeSubs = [], away: awaySubs = [] } = substitutes || {}
+
+      const matchTime = moment(general.date)
 
       return (
         <Layout>
@@ -70,37 +87,67 @@ class GamePage extends Component {
             path={`/game/${general?.id}`}
             image={ogImage}
           />
-          <section className="grid-container site-content">
+          {/* <header className="full">
+            <div className={"bg-green-mask bg-green-mask--minimal"}>
+              <div className={"bg-white-end"} />
+            </div>
+          </header> */}
+
+          <section className="grid-container game-stats">
             <div className="grid-x grid-margin-x">
-              <div className={"cell large-12 center"}>
-                {general.date}
+              <div className={"cell large-12 center game__details"}>
+                <div className="game__teams">
+                  <div className={"game__teams-inner"}>
+                    <LazyLoad debounce={false}>
+                      <img
+                        src={general.homeClub.logo}
+                        alt={general.homeClub.name}
+                      />
+                    </LazyLoad>
+                  </div>
+                  {this.renderScore(general.goalsHomeTeam, general.goalsAwayTeam)}
+                  <div className={"game__teams-inner"}>
+                    <LazyLoad debounce={false}>
+                      <img
+                        src={general.awayClub.logo}
+                        alt={general.awayClub.name}
+                      />
+                    </LazyLoad>
+                  </div>
+                </div>
+                <h1>{`${general.homeClub.name} - ${general.awayClub.name}`}</h1>
+                <h4>{general.competitionType}</h4>
+                <time dateTime={matchTime.format("YYYY-MM-DD - H:mm")}>
+                  {matchTime.format("dddd DD MMMM YYYY - H:mm")}
+                </time>
                 <br />
-                {general.status}
+                {general.status !== 0 && mapPsdStatus(general.status)}
                 <br />
-                {general.homeClub.name}
-                <img src={general.homeClub.logo} alt={general.homeClub.name} />
-                {general.goalsHomeTeam} - {general.goalsAwayTeam}
-                {general.awayClub.name}
-                <img src={general.awayClub.logo} alt={general.awayClub.name} />
-                <br />
-                {general.competitionType}
               </div>
 
-              <div className={"lineup__wrapper grid-x grid-margin-x cell large-12"}>
-                <div className={"cell large-6 lineup__wrapper--home"}>
-                  <h3>{general.homeClub.name}</h3>
-                  {this.renderLineup(lineup.home, substitutes.home)}
+              {(homeLineup.length !== 0 || awayLineup.length !== 0) && (
+                <div
+                  className={
+                    "lineup__wrapper grid-x grid-margin-x cell large-12"
+                  }
+                >
+                  <div className={"cell large-6 lineup__wrapper--home"}>
+                    <h3>{general.homeClub.name}</h3>
+                    {homeLineup && this.renderLineup(homeLineup, homeSubs)}
+                  </div>
+                  <div className={"cell large-6 lineup__wrapper--away"}>
+                    <h3>{general.awayClub.name}</h3>
+                    {awayLineup && this.renderLineup(awayLineup, awaySubs)}
+                  </div>
                 </div>
-                <div className={"cell large-6 lineup__wrapper--away"}>
-                  <h3>{general.awayClub.name}</h3>
-                  {this.renderLineup(lineup.away, substitutes.away)}
-                </div>
-              </div>
+              )}
 
-              <div className={"cell large-12 event__wrapper"}>
-                <h3>Events</h3>
-                {this.renderEvents(events, homeTeamId)}
-              </div>
+              {events.length !== 0 && (
+                <div className={"cell large-12 event__wrapper"}>
+                  <h3>Gebeurtenissen</h3>
+                  {events && this.renderEvents(events, homeTeamId)}
+                </div>
+              )}
             </div>
           </section>
         </Layout>
@@ -114,6 +161,30 @@ class GamePage extends Component {
         </Layout>
       )
     }
+  }
+
+  renderScore = (resultHome, resultAway) => {
+    return  resultHome !== null && resultAway !== null ? (
+      <div className={"match-details__vs match-details__vs--score"}>
+        {this.renderScoreWithWinnerIndicator(resultHome, resultAway, "home")}
+        <span className={"match-details__divider"}> - </span>
+        {this.renderScoreWithWinnerIndicator(resultAway, resultHome, "away")}
+      </div>
+    ) : (
+      <div className={"match-details__vs"}>VS</div>
+    )
+  }
+
+  renderScoreWithWinnerIndicator = (result1, result2, extraClass) => {
+    return result1 > result2 ? (
+      <span
+        className={`match-details__winner match-details__winner--${extraClass}`}
+      >
+        {result1}
+      </span>
+    ) : (
+      <span className={"match-details__loser"}>{result1}</span>
+    )
   }
 
   renderEvents(events, homeTeamId) {
@@ -139,6 +210,10 @@ class GamePage extends Component {
       case "rood":
         actionIcon = iconCardRed
         actionText = "Rode kaart voor"
+        break
+      case "tweedegeel":
+        actionIcon = iconCardYellowRed
+        actionText = "Tweede gele kaart voor"
         break
       case "doelpunt":
         actionIcon = iconGoal

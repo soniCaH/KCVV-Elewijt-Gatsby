@@ -1,8 +1,44 @@
 @import '~foundation-sites/scss/util/util';
 
+.game-stats {
+  z-index: 2;
+  position: relative;
+}
+
+.game__details {
+  font-family: var(--font-title);
+  // color: #FFF;
+  margin-top: 2em;
+  text-transform: uppercase;
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    // color: #FFF;
+  }
+}
+
+.game__teams {
+  color: var(--color-gray-medium);
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  width: 100%;
+}
+
 .lineup__wrapper,
-.event_wrapper {
+.event__wrapper {
   margin-bottom: 2em;
+
+  h3 {
+    text-align: center;
+  }
 }
 
 .event__row {
