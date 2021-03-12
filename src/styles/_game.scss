@@ -1,0 +1,31 @@
+@import '~foundation-sites/scss/util/util';
+
+.event__wrapper {}
+
+.event__row {
+  &--home {
+    &.grid-x {
+      flex-direction: row-reverse;
+
+      @include breakpoint(large up) {
+        flex-direction: row;
+      }
+    }
+
+    .event__row__item--away {
+      display: none;
+    }
+  }
+
+  &--away {
+    &.grid-x {
+      justify-content: flex-end;
+    }
+
+    .event__row__item--home {
+      display: none;
+    }
+  }
+}
+
+.event__row__item {}
