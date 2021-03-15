@@ -52,6 +52,7 @@ export const query = graphql`
       field_stats_goals
       field_stats_cards_yellow
       field_stats_cards_red
+      field_vv_id
       relationships {
         node__team {
           title

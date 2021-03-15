@@ -1,4 +1,5 @@
 import React, { Component } from "react"
+import { graphql, StaticQuery } from "gatsby"
 import { mapPositionCode } from "../scripts/helper"
 
 import "./player.scss"
@@ -13,6 +14,43 @@ String.prototype.replaceAll = function (search, replacement) {
 /**
  */
 class PlayerDetail extends Component {
+  constructor(props) {
+    super(props)
+
+    this.state = {
+      data: [],
+      loading: true,
+    }
+
+    const {
+      config: {
+        site: {
+          siteMetadata: { kcvvPsdApi },
+        },
+      },
+      player: { field_vv_id: playerId },
+    } = this.props
+
+    this.kcvvPsdApi = kcvvPsdApi
+    this.playerId = playerId
+  }
+
+  updateData() {
+    if (this.matchId === null) {
+      return
+    }
+
+    const apiUrl = `${this.kcvvPsdApi}/stats/player/${this.playerId}`
+
+    fetch(apiUrl)
+      .then((response) => response.json())
+      .then((json) => this.setState({ data: json, loading: false }))
+  }
+
+  componentDidMount() {
+    this.updateData()
+  }
+
   renderPlayerName = (player) => (
     <h1 className={"player-detail__name"}>
       <span className={"player-detail__name-first"}>
@@ -46,55 +84,66 @@ class PlayerDetail extends Component {
       </div>
     </header>
   )
-  renderPlayerStats = (player) => (
-    <aside className={"player-detail__statistics"}>
-      <section className={"player-detail__statistics-item"}>
-        <div className={"player-detail__statistics-item__number"}>
-          {player.field_stats_games || "0"}
-        </div>
-        <div className={"player-detail__statistics-item__label"}>
-          Wedstrijden
-        </div>
-      </section>
+  renderPlayerStats = (player) => {
+    if (this.state.loading === false && this.state.data) {
+      const {
+        playerStatistics = [],
+        goals = [],
+        gameReports = [],
+      } = this.state.data
 
-      {player.field_position === "k" && (
-        <section className={"player-detail__statistics-item"}>
-          <div className={"player-detail__statistics-item__number"}>
-            {player.field_stats_cleansheets || "0"}
-          </div>
-          <div className={"player-detail__statistics-item__label"}>
-            Cleansheets
-          </div>
-        </section>
-      )}
-      {player.field_position !== "k" && (
-        <section className={"player-detail__statistics-item"}>
-          <div className={"player-detail__statistics-item__number"}>
-            {player.field_stats_goals || "0"}
-          </div>
-          <div className={"player-detail__statistics-item__label"}>
-            Doelpunten
-          </div>
-        </section>
-      )}
-      <section className={"player-detail__statistics-item"}>
-        <div className={"player-detail__statistics-item__number"}>
-          {player.field_stats_cards_yellow || "0"}
-        </div>
-        <div className={"player-detail__statistics-item__label"}>
-          Gele kaarten
-        </div>
-      </section>
-      <section className={"player-detail__statistics-item"}>
-        <div className={"player-detail__statistics-item__number"}>
-          {player.field_stats_cards_red || "0"}
-        </div>
-        <div className={"player-detail__statistics-item__label"}>
-          Rode kaarten
-        </div>
-      </section>
-    </aside>
-  )
+      return (
+        <aside className={"player-detail__statistics"}>
+          <section className={"player-detail__statistics-item"}>
+            <div className={"player-detail__statistics-item__number"}>
+              {playerStatistics[0]?.gamesPlayed || "0"}
+            </div>
+            <div className={"player-detail__statistics-item__label"}>
+              Wedstrijden
+            </div>
+          </section>
+
+          {(player.field_position === "k" || player.field_position === "d") && (
+            <section className={"player-detail__statistics-item"}>
+              <div className={"player-detail__statistics-item__number"}>
+                {playerStatistics[0]?.cleanSheets || "0"}
+              </div>
+              <div className={"player-detail__statistics-item__label"}>
+                Cleansheets
+              </div>
+            </section>
+          )}
+          {player.field_position !== "k" && (
+            <section className={"player-detail__statistics-item"}>
+              <div className={"player-detail__statistics-item__number"}>
+                {playerStatistics[0]?.goals || "0"}
+              </div>
+              <div className={"player-detail__statistics-item__label"}>
+                Doelpunten
+              </div>
+            </section>
+          )}
+          <section className={"player-detail__statistics-item"}>
+            <div className={"player-detail__statistics-item__number"}>
+              {playerStatistics[0]?.yellowCards || "0"}
+            </div>
+            <div className={"player-detail__statistics-item__label"}>
+              Gele kaarten
+            </div>
+          </section>
+          <section className={"player-detail__statistics-item"}>
+            <div className={"player-detail__statistics-item__number"}>
+              {playerStatistics[0]?.redCards|| "0"}
+            </div>
+            <div className={"player-detail__statistics-item__label"}>
+              Rode kaarten
+            </div>
+          </section>
+        </aside>
+      )
+    }
+  }
+
   renderPlayerBirthdate = (player) => (
     <div
       className={"player-detail__data-item player-detail__data-item--birthdate"}
@@ -174,15 +223,34 @@ class PlayerDetail extends Component {
       <article className={"player-detail"}>
         {this.renderPlayerHeader(player)}
         {this.renderPlayerStats(player)}
-
         <div className={"player-break"}></div>
-
         {this.renderPlayerData(player)}
-
-        {this.renderPlayerBody(player)}
+        {this.renderPlayerBody(player)} */}
       </article>
     )
   }
 }
 
-export default PlayerDetail
+// Retrieve endpoint of the logo's api from the site metadata (gatsby-config.js).
+const query = graphql`
+  query {
+    site {
+      siteMetadata {
+        kcvvPsdApi
+      }
+    }
+  }
+`
+
+export default ({ player }) => (
+  <StaticQuery
+    query={query}
+    render={(data) => (
+      <PlayerDetail
+        // Data is the result of our query.
+        config={data}
+        player={player}
+      />
+    )}
+  />
+)
