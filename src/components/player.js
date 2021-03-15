@@ -10,6 +10,7 @@ import { Link } from "gatsby"
 import Icon from "../components/icon"
 
 import iconBench from "../images/i_bench_2.png"
+import iconCleansheet from "../images/i_cleansheet.png"
 import iconCardRed from "../images/i_card_red.png"
 import iconCardYellowRed from "../images/i_card_yellow_red.png"
 import iconCardYellow from "../images/i_card_yellow.png"
@@ -103,11 +104,13 @@ class PlayerDetail extends Component {
         playerStatistics = [],
       } = this.state.data
 
+      console.log(playerStatistics.reduce((a, b) => a + b?.gamesPlayed, 0))
+
       return (
         <aside className={"player-detail__statistics"}>
           <section className={"player-detail__statistics-item"}>
             <div className={"player-detail__statistics-item__number"}>
-              {playerStatistics[0]?.gamesPlayed || "0"}
+              {playerStatistics.reduce((a, b) => a + (b?.gamesPlayed || 0), 0) || "0"}
             </div>
             <div className={"player-detail__statistics-item__label"}>
               Wedstrijden
@@ -117,7 +120,7 @@ class PlayerDetail extends Component {
           {(player.field_position === "k" || player.field_position === "d") && (
             <section className={"player-detail__statistics-item"}>
               <div className={"player-detail__statistics-item__number"}>
-                {playerStatistics[0]?.cleanSheets || "0"}
+              {playerStatistics.reduce((a, b) => a + (b?.cleanSheets || 0), 0) || "0"}
               </div>
               <div className={"player-detail__statistics-item__label"}>
                 Cleansheets
@@ -127,7 +130,7 @@ class PlayerDetail extends Component {
           {player.field_position !== "k" && (
             <section className={"player-detail__statistics-item"}>
               <div className={"player-detail__statistics-item__number"}>
-                {playerStatistics[0]?.goals || "0"}
+              {playerStatistics.reduce((a, b) => a + (b?.goals || 0), 0) || "0"}
               </div>
               <div className={"player-detail__statistics-item__label"}>
                 Doelpunten
@@ -136,7 +139,7 @@ class PlayerDetail extends Component {
           )}
           <section className={"player-detail__statistics-item"}>
             <div className={"player-detail__statistics-item__number"}>
-              {playerStatistics[0]?.yellowCards || "0"}
+            {playerStatistics.reduce((a, b) => a + (b?.yellowCards || 0), 0) || "0"}
             </div>
             <div className={"player-detail__statistics-item__label"}>
               Gele kaarten
@@ -144,7 +147,7 @@ class PlayerDetail extends Component {
           </section>
           <section className={"player-detail__statistics-item"}>
             <div className={"player-detail__statistics-item__number"}>
-              {playerStatistics[0]?.redCards|| "0"}
+            {playerStatistics.reduce((a, b) => a + (b?.redCards || 0), 0) || "0"}
             </div>
             <div className={"player-detail__statistics-item__label"}>
               Rode kaarten
@@ -162,9 +165,7 @@ class PlayerDetail extends Component {
       } = this.state.data
 
       return (
-        <article
-          className={"player-detail__stats medium-12 large-12 cell card"}
-        >
+        <article className={"player-detail__stats card"}>
           <header className={"card__header"}>
             <h4>Statistieken</h4>
           </header>
@@ -172,20 +173,46 @@ class PlayerDetail extends Component {
             <table className={"player-detail__stats__table"}>
               <thead>
                 <tr>
-                  <th>Team</th>
-                  <th>
+                  <th
+                    className={
+                      "player-detail__column player-detail__column--string"
+                    }
+                  >
+                    Team
+                  </th>
+                  <th
+                    className={
+                      "player-detail__column player-detail__column--number"
+                    }
+                  >
                     <span title="Wedstrijden gespeeld">P</span>
                   </th>
-                  <th>
+                  <th
+                    className={
+                      "player-detail__column player-detail__column--number"
+                    }
+                  >
                     <span title="Wedstrijden gewonnen">W</span>
                   </th>
-                  <th>
+                  <th
+                    className={
+                      "player-detail__column player-detail__column--number"
+                    }
+                  >
                     <span title="Wedstrijden gelijkgespeeld">D</span>
                   </th>
-                  <th>
+                  <th
+                    className={
+                      "player-detail__column player-detail__column--number"
+                    }
+                  >
                     <span title="Wedstrijden verloren">L</span>
                   </th>
-                  <th>
+                  <th
+                    className={
+                      "player-detail__column player-detail__column--number"
+                    }
+                  >
                     <img
                       src={iconCardYellow}
                       title="Gele kaart"
@@ -193,7 +220,11 @@ class PlayerDetail extends Component {
                       className="player-detail__stats--header_icon"
                     />
                   </th>
-                  <th>
+                  <th
+                    className={
+                      "player-detail__column player-detail__column--number"
+                    }
+                  >
                     <img
                       src={iconCardRed}
                       title="Rode kaart"
@@ -201,18 +232,35 @@ class PlayerDetail extends Component {
                       className="player-detail__stats--header_icon"
                     />
                   </th>
-                  <th>
+                  <th
+                    className={
+                      "player-detail__column player-detail__column--number"
+                    }
+                  >
                     <img
                       src={iconGoal}
-                      title="Doelpunten gescoord"
-                      alt="Rode kaart"
+                      title="Doelpunt(en) gescoord"
+                      alt="Doelpunt(en) gescoord"
                       className="player-detail__stats--header_icon"
                     />
                   </th>
-                  <th>
-                    <span title="Cleansheets">C</span>
+                  <th
+                    className={
+                      "player-detail__column player-detail__column--number"
+                    }
+                  >
+                    <img
+                      src={iconCleansheet}
+                      title="Cleansheets"
+                      alt="Cleansheets"
+                      className="player-detail__stats--header_icon"
+                    />
                   </th>
-                  <th>
+                  <th
+                    className={
+                      "player-detail__column player-detail__column--number"
+                    }
+                  >
                     <span title="Minuten gespeeld">
                       <Icon icon="fa-clock-o" />
                     </span>
@@ -223,16 +271,76 @@ class PlayerDetail extends Component {
                 {playerStatistics.map(function (stats) {
                   return (
                     <tr>
-                      <td>{stats.team.replace("Voetbal : ", "")}</td>
-                      <td>{stats.gamesPlayed}</td>
-                      <td>{stats.gamesWon}</td>
-                      <td>{stats.gamesEqual}</td>
-                      <td>{stats.gamesLost}</td>
-                      <td>{stats.yellowCards}</td>
-                      <td>{stats.redCards}</td>
-                      <td>{stats.goals}</td>
-                      <td>{stats.cleanSheets}</td>
-                      <td>{stats.minutes}'</td>
+                      <td
+                        className={
+                          "player-detail__column player-detail__column--string"
+                        }
+                      >
+                        {stats.team.replace("Voetbal : ", "")}
+                      </td>
+                      <td
+                        className={
+                          "player-detail__column player-detail__column--number"
+                        }
+                      >
+                        {stats.gamesPlayed}
+                      </td>
+                      <td
+                        className={
+                          "player-detail__column player-detail__column--number"
+                        }
+                      >
+                        {stats.gamesWon}
+                      </td>
+                      <td
+                        className={
+                          "player-detail__column player-detail__column--number"
+                        }
+                      >
+                        {stats.gamesEqual}
+                      </td>
+                      <td
+                        className={
+                          "player-detail__column player-detail__column--number"
+                        }
+                      >
+                        {stats.gamesLost}
+                      </td>
+                      <td
+                        className={
+                          "player-detail__column player-detail__column--number"
+                        }
+                      >
+                        {stats.yellowCards}
+                      </td>
+                      <td
+                        className={
+                          "player-detail__column player-detail__column--number"
+                        }
+                      >
+                        {stats.redCards}
+                      </td>
+                      <td
+                        className={
+                          "player-detail__column player-detail__column--number"
+                        }
+                      >
+                        {stats.goals}
+                      </td>
+                      <td
+                        className={
+                          "player-detail__column player-detail__column--number"
+                        }
+                      >
+                        {stats.cleanSheets}
+                      </td>
+                      <td
+                        className={
+                          "player-detail__column player-detail__column--number"
+                        }
+                      >
+                        {stats.minutes}'
+                      </td>
                     </tr>
                   )
                 })}
@@ -251,7 +359,7 @@ class PlayerDetail extends Component {
 
       return (
         <article
-          className={"player-detail__games medium-12 large-12 cell card"}
+          className={"player-detail__games card"}
         >
           <header className={"card__header"}>
             <h4>Wedstrijden</h4>
@@ -260,13 +368,13 @@ class PlayerDetail extends Component {
             <table className={"player-detail__games__table responsive-card-table"}>
               <thead>
                 <tr>
-                  <th>Team</th>
-                  <th>Type</th>
-                  <th>Datum</th>
-                  <th><span title="Thuis/uit">H/A</span></th>
-                  <th>Score</th>
-                  <th>Tegenstander</th>
-                  <th>
+                  <th className={"player-detail__column player-detail__column--string"}>Team</th>
+                  <th className={"player-detail__column player-detail__column--string"}>Type</th>
+                  <th className={"player-detail__column player-detail__column--string"}>Datum</th>
+                  <th className={"player-detail__column player-detail__column--number"}><span title="Thuis/uit">H/A</span></th>
+                  <th className={"player-detail__column player-detail__column--score"}>Score</th>
+                  <th className={"player-detail__column player-detail__column--string"}>Tegenstander</th>
+                  <th className={"player-detail__column player-detail__column--number"}>
                     <img
                       src={iconCardYellow}
                       title="Gele kaart"
@@ -274,7 +382,7 @@ class PlayerDetail extends Component {
                       className="player-detail__stats--header_icon"
                     />
                   </th>
-                  <th>
+                  <th className={"player-detail__column player-detail__column--number"}>
                     <img
                       src={iconCardRed}
                       title="Rode kaart"
@@ -282,7 +390,7 @@ class PlayerDetail extends Component {
                       className="player-detail__stats--header_icon"
                     />
                   </th>
-                  <th>
+                  <th className={"player-detail__column player-detail__column--number"}>
                     <img
                       src={iconGoal}
                       title="Doelpunten gescoord"
@@ -290,7 +398,7 @@ class PlayerDetail extends Component {
                       className="player-detail__stats--header_icon"
                     />
                   </th>
-                  <th>
+                  <th className={"player-detail__column player-detail__column--number"}>
                     <span title="Minuten gespeeld">
                       <Icon icon="fa-clock-o" />
                     </span>
@@ -301,10 +409,10 @@ class PlayerDetail extends Component {
                 {gameReports.map(function (game) {
                   return (
                     <tr>
-                      <td data-label="Team">{game.team.replace("Voetbal : ", "")}</td>
-                      <td data-label="Type">{game.competition}</td>
-                      <td data-label="Datum">{moment(game.date).format("DD/MM/YYYY")}</td>
-                      <td data-label="Thuis/uit">
+                      <td data-label="Team" className={"player-detail__column player-detail__column--string"}>{game.team.replace("Voetbal : ", "")}</td>
+                      <td data-label="Type" className={"player-detail__column player-detail__column--string"}>{game.competition}</td>
+                      <td data-label="Datum" className={"player-detail__column player-detail__column--string"}>{moment(game.date).format("DD/MM/YYYY")}</td>
+                      <td data-label="Thuis/uit" className={"player-detail__column player-detail__column--number"}>
                         {game.home ? (
                           <span
                             className={"player-detail__games__home"}
@@ -321,14 +429,14 @@ class PlayerDetail extends Component {
                           </span>
                         )}
                       </td>
-                      <td data-label="Score">
+                      <td data-label="Score" className={"player-detail__column player-detail__column--score"}>
                         {game.goalsHomeTeam}&nbsp;-&nbsp;{game.goalsAwayTeam}
                       </td>
-                      <td data-label="Tegenstander">{game.opponent}</td>
-                      <td data-label="Gele kaart(en)">{game.yellowCards}</td>
-                      <td  data-label="Rode kaart(en)">{game.redCards}</td>
-                      <td data-label="Doelpunten">{game.goals}</td>
-                      <td data-label="Speeltijd">{game.minutesPlayed}'</td>
+                      <td data-label="Tegenstander" className={"player-detail__column player-detail__column--string"}>{game.opponent}</td>
+                      <td data-label="Gele kaart(en)" className={"player-detail__column player-detail__column--number"}>{game.yellowCards}</td>
+                      <td  data-label="Rode kaart(en)" className={"player-detail__column player-detail__column--number"}>{game.redCards}</td>
+                      <td data-label="Doelpunten" className={"player-detail__column player-detail__column--number"}>{game.goals}</td>
+                      <td data-label="Speeltijd" className={"player-detail__column player-detail__column--number"}>{game.minutesPlayed}'</td>
                     </tr>
                   )
                 })}
