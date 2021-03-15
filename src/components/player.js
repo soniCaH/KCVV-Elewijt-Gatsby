@@ -2,8 +2,21 @@ import React, { Component } from "react"
 import { graphql, StaticQuery } from "gatsby"
 import { mapPositionCode } from "../scripts/helper"
 
+import moment from "moment"
+
 import "./player.scss"
 import { Link } from "gatsby"
+
+import Icon from "../components/icon"
+
+import iconBench from "../images/i_bench_2.png"
+import iconCardRed from "../images/i_card_red.png"
+import iconCardYellowRed from "../images/i_card_yellow_red.png"
+import iconCardYellow from "../images/i_card_yellow.png"
+import iconGoal from "../images/i_goal.png"
+import iconStart from "../images/i_start.png"
+import iconSubIn from "../images/i_sub_in.png"
+import iconSubOut from "../images/i_sub_out.png"
 
 // eslint-disable-next-line
 String.prototype.replaceAll = function (search, replacement) {
@@ -88,8 +101,6 @@ class PlayerDetail extends Component {
     if (this.state.loading === false && this.state.data) {
       const {
         playerStatistics = [],
-        goals = [],
-        gameReports = [],
       } = this.state.data
 
       return (
@@ -140,6 +151,191 @@ class PlayerDetail extends Component {
             </div>
           </section>
         </aside>
+      )
+    }
+  }
+
+  renderPlayerStatsFull = (player) => {
+    if (this.state.loading === false && this.state.data) {
+      const {
+        playerStatistics = [],
+      } = this.state.data
+
+      return (
+        <article
+          className={"player-detail__stats medium-12 large-12 cell card"}
+        >
+          <header className={"card__header"}>
+            <h4>Statistieken</h4>
+          </header>
+          <div className={"card__content"}>
+            <table className={"player-detail__stats__table"}>
+              <thead>
+                <tr>
+                  <th>Team</th>
+                  <th>
+                    <span title="Wedstrijden gespeeld">P</span>
+                  </th>
+                  <th>
+                    <span title="Wedstrijden gewonnen">W</span>
+                  </th>
+                  <th>
+                    <span title="Wedstrijden gelijkgespeeld">D</span>
+                  </th>
+                  <th>
+                    <span title="Wedstrijden verloren">L</span>
+                  </th>
+                  <th>
+                    <img
+                      src={iconCardYellow}
+                      title="Gele kaart"
+                      alt="Gele kaart"
+                      className="player-detail__stats--header_icon"
+                    />
+                  </th>
+                  <th>
+                    <img
+                      src={iconCardRed}
+                      title="Rode kaart"
+                      alt="Rode kaart"
+                      className="player-detail__stats--header_icon"
+                    />
+                  </th>
+                  <th>
+                    <img
+                      src={iconGoal}
+                      title="Doelpunten gescoord"
+                      alt="Rode kaart"
+                      className="player-detail__stats--header_icon"
+                    />
+                  </th>
+                  <th>
+                    <span title="Cleansheets">C</span>
+                  </th>
+                  <th>
+                    <span title="Minuten gespeeld">
+                      <Icon icon="fa-clock-o" />
+                    </span>
+                  </th>
+                </tr>
+              </thead>
+              <tbody>
+                {playerStatistics.map(function (stats) {
+                  return (
+                    <tr>
+                      <td>{stats.team.replace("Voetbal : ", "")}</td>
+                      <td>{stats.gamesPlayed}</td>
+                      <td>{stats.gamesWon}</td>
+                      <td>{stats.gamesEqual}</td>
+                      <td>{stats.gamesLost}</td>
+                      <td>{stats.yellowCards}</td>
+                      <td>{stats.redCards}</td>
+                      <td>{stats.goals}</td>
+                      <td>{stats.cleanSheets}</td>
+                      <td>{stats.minutes}'</td>
+                    </tr>
+                  )
+                })}
+              </tbody>
+            </table>
+          </div>
+        </article>
+      )
+    }
+  }
+  renderPlayerGamesFull = (player) => {
+    if (this.state.loading === false && this.state.data) {
+      const {
+        gameReports = [],
+      } = this.state.data
+
+      return (
+        <article
+          className={"player-detail__games medium-12 large-12 cell card"}
+        >
+          <header className={"card__header"}>
+            <h4>Wedstrijden</h4>
+          </header>
+          <div className={"card__content"}>
+            <table className={"player-detail__games__table responsive-card-table"}>
+              <thead>
+                <tr>
+                  <th>Team</th>
+                  <th>Type</th>
+                  <th>Datum</th>
+                  <th><span title="Thuis/uit">H/A</span></th>
+                  <th>Score</th>
+                  <th>Tegenstander</th>
+                  <th>
+                    <img
+                      src={iconCardYellow}
+                      title="Gele kaart"
+                      alt="Gele kaart"
+                      className="player-detail__stats--header_icon"
+                    />
+                  </th>
+                  <th>
+                    <img
+                      src={iconCardRed}
+                      title="Rode kaart"
+                      alt="Rode kaart"
+                      className="player-detail__stats--header_icon"
+                    />
+                  </th>
+                  <th>
+                    <img
+                      src={iconGoal}
+                      title="Doelpunten gescoord"
+                      alt="Rode kaart"
+                      className="player-detail__stats--header_icon"
+                    />
+                  </th>
+                  <th>
+                    <span title="Minuten gespeeld">
+                      <Icon icon="fa-clock-o" />
+                    </span>
+                  </th>
+                </tr>
+              </thead>
+              <tbody>
+                {gameReports.map(function (game) {
+                  return (
+                    <tr>
+                      <td data-label="Team">{game.team.replace("Voetbal : ", "")}</td>
+                      <td data-label="Type">{game.competition}</td>
+                      <td data-label="Datum">{moment(game.date).format("DD/MM/YYYY")}</td>
+                      <td data-label="Thuis/uit">
+                        {game.home ? (
+                          <span
+                            className={"player-detail__games__home"}
+                            title="Thuiswedstrijd"
+                          >
+                            H
+                          </span>
+                        ) : (
+                          <span
+                            className={"player-detail__games__away"}
+                            title="Uitwedstrijd"
+                          >
+                            A
+                          </span>
+                        )}
+                      </td>
+                      <td data-label="Score">
+                        {game.goalsHomeTeam}&nbsp;-&nbsp;{game.goalsAwayTeam}
+                      </td>
+                      <td data-label="Tegenstander">{game.opponent}</td>
+                      <td data-label="Gele kaart(en)">{game.yellowCards}</td>
+                      <td  data-label="Rode kaart(en)">{game.redCards}</td>
+                      <td data-label="Doelpunten">{game.goals}</td>
+                      <td data-label="Speeltijd">{game.minutesPlayed}'</td>
+                    </tr>
+                  )
+                })}
+              </tbody>
+            </table>
+          </div>
+        </article>
       )
     }
   }
@@ -225,7 +421,9 @@ class PlayerDetail extends Component {
         {this.renderPlayerStats(player)}
         <div className={"player-break"}></div>
         {this.renderPlayerData(player)}
-        {this.renderPlayerBody(player)} */}
+        {this.renderPlayerBody(player)}
+        {this.renderPlayerStatsFull(player)}
+        {this.renderPlayerGamesFull(player)}
       </article>
     )
   }

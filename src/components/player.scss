@@ -265,5 +265,25 @@
         .bg-white-end {
             z-index: 10;
         }
+
+        &__stats, &__games {
+            width: 100%;
+            max-width: 60em;
+            margin: 0 auto 2em;
+
+            .card__content {
+                padding: 0;
+            }
+
+            table {
+                margin: 0;
+                padding: 0;
+                border: 0;
+            }
+        }
     }
+}
+
+.player-detail__stats--header_icon {
+    height: 1em;
 }
