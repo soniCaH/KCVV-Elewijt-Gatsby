@@ -43,6 +43,21 @@
             top: 270px;
         }
     }
+
+    &--minimal {
+        padding-top: 263px;
+
+        @media (min-width: 992px) {
+            padding-top: 450px;
+        }
+
+        .bg-white-end {
+            top: 50px;
+            @media (min-width: 992px) {
+                top: 170px;
+            }
+        }
+    }
 }
 
 

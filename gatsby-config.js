@@ -1,6 +1,7 @@
 require("dotenv").config()
 
 module.exports = {
+  // flags: { PRESERVE_WEBPACK_CACHE: true, FAST_DEV: true, DEV_SSR: true,  PRESERVE_FILE_DOWNLOAD_CACHE: true, PARALLEL_SOURCING: true},
   siteMetadata: {
     title: `KCVV Elewijt`,
     subTitle: `Er is maar één plezante compagnie`,
@@ -8,6 +9,7 @@ module.exports = {
     author: `@KevinVRansbeeck`,
     serverUrl: `${process.env.FOOTBEL_API_DOMAIN}`,
     logoUrl: `${process.env.FOOTBEL_API_DOMAIN}/logo`,
+    kcvvPsdApi: `${process.env.KCVV_PSD_API}`,
     refreshRate: 360000,
     siteUrl: "https://www.kcvvelewijt.be",
     twitterHandle: "kcvve",

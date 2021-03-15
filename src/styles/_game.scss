@@ -1,0 +1,128 @@
+@import '~foundation-sites/scss/util/util';
+
+.game-stats {
+  z-index: 2;
+  position: relative;
+}
+
+.game__details {
+  font-family: var(--font-title);
+  // color: #FFF;
+  margin-top: 2em;
+  text-transform: uppercase;
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    // color: #FFF;
+  }
+}
+
+.game__teams {
+  color: var(--color-gray-medium);
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  width: 100%;
+
+  .match-details__vs--score {
+    margin: 0 20px;
+    @include breakpoint(large up) {
+      font-size: 2rem;
+    }
+
+    .match-details__winner {
+      &::before {
+
+        @include breakpoint(large up) {
+          left: -15px;
+          border-left-width: 10px;
+          border-top-width: 6px;
+          border-bottom-width: 6px;
+        }
+      }
+
+      &--away {
+        &::before {
+          @include breakpoint(large up) {
+            left: auto;
+            right: -15px;
+            border-right-width: 10px;
+          }
+        }
+
+      }
+    }
+  }
+}
+
+.lineup__wrapper,
+.event__wrapper {
+  margin-bottom: 2em;
+
+  h3 {
+    text-align: center;
+  }
+}
+
+.lineup__wrapper {
+  &--home {
+    margin-bottom: 2em;
+
+    @include breakpoint(large up) {
+      margin-bottom: 0;
+    }
+  }
+}
+
+.event__row {
+  &--home {
+    &.grid-x {
+      flex-direction: row-reverse;
+
+      @include breakpoint(large up) {
+        flex-direction: row;
+      }
+    }
+
+    .event__row__item--away {
+      display: none;
+    }
+  }
+
+  &--away {
+    &.grid-x {
+      justify-content: flex-end;
+    }
+
+    .event__row__item--home {
+      display: none;
+    }
+  }
+}
+
+.event__row__item {
+  &--home {
+    &.lineup__item--name {
+      @include breakpoint(large up) {
+        text-align: right;
+      }
+    }
+  }
+}
+
+.lineup__item {
+
+  &--status,
+  &--action {
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center center;
+  }
+}
