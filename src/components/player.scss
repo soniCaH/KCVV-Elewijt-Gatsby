@@ -265,5 +265,49 @@
         .bg-white-end {
             z-index: 10;
         }
+
+        &__stats,
+        &__games {
+            margin: 0 .25rem 2rem;
+            position: relative;
+            z-index: 2;
+
+            @include break(large-up) {
+                margin: 0 1rem 2rem;
+            }
+
+            @include break(xlarge-up) {
+                margin: 0 14% 2rem;
+            }
+
+            .card__content {
+                padding: 0;
+            }
+
+            table {
+                margin: 0;
+                padding: 0;
+                border: 0;
+
+                .player-detail__column {
+                    &--string {
+                        @include break(large-up) {
+                            text-align: left;
+                        }
+                    }
+
+                    &--number,
+                    &--score {
+                        @include break(large-up) {
+                            text-align: center;
+                        }
+                    }
+                }
+            }
+        }
     }
+}
+
+.player-detail__stats--header_icon {
+    height: 1em;
 }
