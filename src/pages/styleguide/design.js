@@ -5,6 +5,7 @@ import Layout from "../../layouts/index"
 import SEO from "../../components/seo"
 import PlayerFeatured from "../../components/player--featured"
 import { PlayerMinimal } from "../../components/objects/player"
+import Card from "../../components/Card"
 
 class DesignPage extends Component {
   render() {
@@ -372,22 +373,20 @@ class DesignPage extends Component {
                 </tbody>
               </table>
             </section>
-            <section className={"cell large-8 featured-article card"}>
-              <header className={"card__header"}>
-                <h4>Speler van de week</h4>
-              </header>
-              <section className={""}>
-                <PlayerFeatured player={player1} />
-              </section>
-            </section>
-            <section className={"cell large-4 featured-article card"}>
-              <header className={"card__header"}>
-                <h4>Speler van de week</h4>
-              </header>
-              <section className={""}>
-                <PlayerFeatured player={player1} />
-              </section>
-            </section>
+            <Card
+              className={"cell large-8 featured-article"}
+              title="Speler van de week"
+              hasTable={true}
+            >
+              <PlayerFeatured player={player1} />
+            </Card>
+            <Card
+              className={"cell large-4 featured-article"}
+              title="Speler van de week"
+              hasTable={true}
+            >
+              <PlayerFeatured player={player1} />
+            </Card>
           </div>
         </section>
       </Layout>

@@ -18,6 +18,7 @@ import PlayerFeatured from "../components/player--featured"
 
 import MyMakro from "../images/tag-mymakro.png"
 import Trooper from "../images/tag-trooper.png"
+import  Card  from "../components/Card"
 
 class IndexPage extends Component {
   renderMatchSlider = () => (
@@ -67,128 +68,118 @@ class IndexPage extends Component {
     </article>
   )
   renderMakroArticle = () => (
-    <article className={"medium-6 large-12 cell card"}>
-      <header className={"card__header"}>
-        <h4>MyMakro</h4>
-      </header>
-      <div className={"card__content"}>
-        <p>
-          Link nu jouw Makro voordeelkaart aan onze vereniging. Bij elke aankoop
-          bij Makro en partners steun je KCVV Elewijt!
-        </p>
-        <p>
-          <img src={MyMakro} alt="QR Code MyMakro" style={{ width: "100%" }} />
-        </p>
-        <p>
-          Scan bovenstaande QR-code met je camera op GSM, of surf naar{" "}
-          <a
-            href="https://my.makro.be/nl/link-vereniging/02277464"
-            target="_blank"
-            rel="noopener noreferrer"
-            title="MyMakro link voor KCVV Elewijt"
-            className={"rich-link"}
-          >
-            https://my.makro.be/nl/link-vereniging/02277464
-          </a>
-          .
-        </p>
-        <p>Onze vereniging dankt jullie van harte!</p>
-      </div>
-    </article>
+    <Card className={"medium-6 large-12 cell card"} title="MyMakro">
+      <p>
+        Link nu jouw Makro voordeelkaart aan onze vereniging. Bij elke aankoop
+        bij Makro en partners steun je KCVV Elewijt!
+      </p>
+      <p>
+        <img src={MyMakro} alt="QR Code MyMakro" style={{ width: "100%" }} />
+      </p>
+      <p>
+        Scan bovenstaande QR-code met je camera op GSM, of surf naar{" "}
+        <a
+          href="https://my.makro.be/nl/link-vereniging/02277464"
+          target="_blank"
+          rel="noopener noreferrer"
+          title="MyMakro link voor KCVV Elewijt"
+          className={"rich-link"}
+        >
+          https://my.makro.be/nl/link-vereniging/02277464
+        </a>
+        .
+      </p>
+      <p>Onze vereniging dankt jullie van harte!</p>
+    </Card>
   )
   renderTrooperArticle = () => (
-    <article className={"medium-6 large-12 cell card"}>
-      <header className={"card__header"}>
-        <h4>Trooper</h4>
-      </header>
-      <div className={"card__content"}>
-        <p>
-          Trooper werkt samen met een groot aantal webshops die zich in de
-          kijker willen zetten. In ruil voor een extra klik via Trooper krijgen
-          wij een percentje op jouw volgende bestelling.
-        </p>
-        <p>
-          <img src={Trooper} alt="QR Code Trooper" style={{ width: "100%" }} />
-        </p>
-        <p>
-          Scan bovenstaande QR-code met je camera op GSM, of surf naar{" "}
-          <a
-            href="https://trooper.be/kcvvelewijt"
-            target="_blank"
-            rel="noopener noreferrer"
-            title="Trooper link voor KCVV Elewijt"
-            className={"rich-link"}
-          >
-            https://trooper.be/kcvvelewijt
-          </a>
-          .
-        </p>
-        <p>
-          <a
-            href="/news/2020-04-12-steun-kcvv-elewijt-trooper-mymakro"
-            className={"rich-link"}
-          >
-            Lees er hier meer over!
-          </a>
-        </p>
-      </div>
-    </article>
+    <Card className={"medium-6 large-12 cell card"} title="Trooper">
+      <p>
+        Trooper werkt samen met een groot aantal webshops die zich in de kijker
+        willen zetten. In ruil voor een extra klik via Trooper krijgen wij een
+        percentje op jouw volgende bestelling.
+      </p>
+      <p>
+        <img src={Trooper} alt="QR Code Trooper" style={{ width: "100%" }} />
+      </p>
+      <p>
+        Scan bovenstaande QR-code met je camera op GSM, of surf naar{" "}
+        <a
+          href="https://trooper.be/kcvvelewijt"
+          target="_blank"
+          rel="noopener noreferrer"
+          title="Trooper link voor KCVV Elewijt"
+          className={"rich-link"}
+        >
+          https://trooper.be/kcvvelewijt
+        </a>
+        .
+      </p>
+      <p>
+        <a
+          href="/news/2020-04-12-steun-kcvv-elewijt-trooper-mymakro"
+          className={"rich-link"}
+        >
+          Lees er hier meer over!
+        </a>
+      </p>
+    </Card>
   )
   renderYouthCalendarArticle = () => (
-    <article className={"medium-6 large-12 cell card"}>
-      <header className="card__header">
-        <h4>Jeugdploegen</h4>
-      </header>
+    <Card
+      className={"medium-6 large-12 cell"}
+      title="Jeugdploegen"
+      hasTable={true}
+    >
       <MatchesOverview season="2021" regnumber="00055" exclude="['2A', '4E']" />
-    </article>
+    </Card>
   )
 
   renderBTeamCalendarArticle = () => (
-    <article className={"medium-6 large-12 cell card"}>
-      <header className={"card__header"}>
-        <h4>The B-Team</h4>
-      </header>
+    <Card
+      className={"medium-6 large-12 cell"}
+      title="The B-Team"
+      hasTable={true}
+    >
       <MetaMatches season="2021" region="bra" division="4E" regnumber="00055" />
-    </article>
+    </Card>
   )
   renderATeamCalendarArticle = () => (
-    <article className={"medium-6 large-12 cell card"}>
-      <header className={"card__header"}>
-        <h4>The A-Team</h4>
-      </header>
+    <Card
+      className={"medium-6 large-12 cell"}
+      title="The A-Team"
+      hasTable={true}
+    >
       <MetaMatches season="2021" region="bra" division="2A" regnumber="00055" />
-    </article>
+    </Card>
   )
 
   renderTablebooker = () => (
     <>
-      <article className={"medium-6 large-12 cell card"}>
-        <header className={"card__header"}>
-          <h4>
-            <i className={"fa fa-cutlery"} aria-hidden="true"></i> Mosselfestijn
-          </h4>
-        </header>
-        <div className={"card__content"}>
-          <p>
-            Op vrijdag 9, zaterdag 10 en zondag 11 oktober 2020 vindt ons
-            jaarlijkse Mosselfestijn weer plaats. Om de spreiding te kunnen
-            garanderen en wachttijden aan de ingang zoveel mogelijk te beperken
-            werken we dit jaar met een reservatiesysteem. Hieronder kan je zelf
-            jouw gewenste tijdstip en gezelschap selecteren en een tafel boeken
-            (voor 07/10/2020).
-          </p>
-          <p>
-            Telefonisch reserveren kan dagelijks tussen 18u en 21u op het nummer{" "}
-            <a href="tel:+32498735984">0498.73.59.84</a>
-          </p>
-          <p>
-            Ter plaatse een tafel vragen kan, naargelang de beschikbaarheid op
-            dat moment, maar hou er rekening mee dat we onze capaciteit hebben
-            moeten verlagen om aan de regelgeving te kunnen voldoen. Wie zeker
-            wil zijn van zijn plek kan beter reserveren.
-          </p>
-        </div>
-      </article>
+      <Card
+        className={"medium-6 large-12 cell card"}
+        title="Mosselfestijn"
+        titleIcon="fa-cutlery"
+      >
+        <p>
+          Op vrijdag 9, zaterdag 10 en zondag 11 oktober 2020 vindt ons
+          jaarlijkse Mosselfestijn weer plaats. Om de spreiding te kunnen
+          garanderen en wachttijden aan de ingang zoveel mogelijk te beperken
+          werken we dit jaar met een reservatiesysteem. Hieronder kan je zelf
+          jouw gewenste tijdstip en gezelschap selecteren en een tafel boeken
+          (voor 07/10/2020).
+        </p>
+        <p>
+          Telefonisch reserveren kan dagelijks tussen 18u en 21u op het nummer{" "}
+          <a href="tel:+32498735984">0498.73.59.84</a>
+        </p>
+        <p>
+          Ter plaatse een tafel vragen kan, naargelang de beschikbaarheid op dat
+          moment, maar hou er rekening mee dat we onze capaciteit hebben moeten
+          verlagen om aan de regelgeving te kunnen voldoen. Wie zeker wil zijn
+          van zijn plek kan beter reserveren.
+        </p>
+      </Card>
       <article className={"medium-6 large-12 cell tablebooker"}>
         <tbkr-bm-widget
           restaurant-id="34742560"
@@ -203,26 +194,22 @@ class IndexPage extends Component {
   )
 
   renderWebsiteFeedbackArticle = () => (
-    <article className={"medium-6 large-12 cell card"}>
-      <header className={"card__header"}>
-        <h4>
-          <i className={"fa fa-commenting-o"} aria-hidden="true"></i> Website
-          feedback
-        </h4>
-      </header>
-      <div className={"card__content"}>
-        <p>
-          Na lang zwoegen is onze nieuwe website eíndelijk online geraakt! We
-          zijn heel benieuwd naar jullie mening of feedback. Als jullie vinden
-          dat er iets ontbreekt, of als je bepaalde fouten tegenkomt, zouden we
-          het ten zeerste appreciëren als je ons even iets laat weten op{" "}
-          <a href="mailto:website@kcvvelewijt.be" className={"rich-link"}>
-            website@kcvvelewijt.be
-          </a>
-          !
-        </p>
-      </div>
-    </article>
+    <Card
+      className={"medium-6 large-12 cell card"}
+      title="Website feedback"
+      titleIcon="fa-commenting-o"
+    >
+      <p>
+        Na lang zwoegen is onze nieuwe website eíndelijk online geraakt! We zijn
+        heel benieuwd naar jullie mening of feedback. Als jullie vinden dat er
+        iets ontbreekt, of als je bepaalde fouten tegenkomt, zouden we het ten
+        zeerste appreciëren als je ons even iets laat weten op{" "}
+        <a href="mailto:website@kcvvelewijt.be" className={"rich-link"}>
+          website@kcvvelewijt.be
+        </a>
+        !
+      </p>
+    </Card>
   )
   renderExtraContentFooter = (preseason) => (
     <section className="grid-container site-content">
@@ -336,7 +323,7 @@ class IndexPage extends Component {
     return (
       <>
         {/* TABLEBOOKER WIDGET */}
-        {/* this.renderTablebooker() */}
+        {/* { this.renderTablebooker() } */}
 
         {/* A TEAM OVERVIEW - SUMMARY OF MATCHES AND RANKING*/}
         {this.renderATeamCalendarArticle()}
