@@ -153,6 +153,15 @@ export function mapPsdStatus(statusCode) {
   return statusCodes.get(statusCode) || null
 }
 
+export function translateGameResult(result) {
+  const statusCodes = new Map([
+    ["WON", "Gewonnen"],
+    ["EQUAL", "Gelijkgespeeld"],
+    ["LOST", "Verloren"],
+  ]);
+  return statusCodes.get(result) || null
+}
+
 export default {
   mapMatchStatus,
   mapDivision,
@@ -160,5 +169,6 @@ export default {
   truncate,
   mapPositionCode,
   getPositions,
-  mapPsdStatus
+  mapPsdStatus,
+  translateGameResult
 }

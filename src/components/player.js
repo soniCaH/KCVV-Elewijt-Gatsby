@@ -50,7 +50,7 @@ class PlayerDetail extends Component {
   }
 
   updateData() {
-    if (this.matchId === null) {
+    if (this.playerId === null) {
       return
     }
 

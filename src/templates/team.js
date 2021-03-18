@@ -8,6 +8,7 @@ import "./team.scss"
 import Ranking from "../components/ranking"
 import TeamCalendarMatches from "../components/team-calendar-matches"
 import TeamCalendarMetaMatches from "../components/team-calendar-meta-matches"
+import TeamStats from "../components/team--stats"
 
 // Generic helper function to group an array by a property.
 const groupBy = (key) => (array) =>
@@ -42,8 +43,6 @@ const TeamTemplate = ({ data }) => {
 
   // Helper variable so we don't have to do the check over and over again.
   const hasDivision = node.field_fb_id || node.field_fb_id_2
-
-  console.log(hasDivision);
 
   const pathUrl = node.path.alias
   const ogImage = picture && {
@@ -151,6 +150,7 @@ const TeamTemplate = ({ data }) => {
                 }}
               />
             )}
+            <TeamStats team={node} />
           </div>
           {/* If our page displays staff only (e.g. the "board" page), we change the title. */}
           {node.relationships.field_staff && !playersByPosition && (
