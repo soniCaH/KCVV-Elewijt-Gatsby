@@ -1,21 +1,17 @@
-import React, { Component } from "react"
+import React, { Component, Fragment } from "react"
 import { graphql, StaticQuery } from "gatsby"
 
 import { translateGameResult } from "../scripts/helper"
 
 import Icon from "../components/icon"
 
-import iconBench from "../images/i_bench_2.png"
 import iconCleansheet from "../images/i_cleansheet.png"
 import iconCardRed from "../images/i_card_red.png"
-import iconCardYellowRed from "../images/i_card_yellow_red.png"
 import iconCardYellow from "../images/i_card_yellow.png"
 import iconGoal from "../images/i_goal.png"
-import iconStart from "../images/i_start.png"
-import iconSubIn from "../images/i_sub_in.png"
-import iconSubOut from "../images/i_sub_out.png"
 
 import "./team--stats.scss"
+import Card from "./Card"
 
 class TeamStats extends Component {
   constructor(props) {
@@ -55,21 +51,11 @@ class TeamStats extends Component {
     this.updateData()
   }
 
-  mapGameStatus(status) {
-
-  }
-
-  renderTeamStats = (team) => {
+  renderTeamStats = () => {
     if (this.state.loading === false && this.state.data) {
-      const {
-        extraStats = {}
-      } = this.state.data
+      const { extraStats = {} } = this.state.data
       return (
-        <article className={"team__stats__detail card"}>
-          <header className={"card__header"}>
-            <h4>Overzicht</h4>
-          </header>
-          <div className={"card__content  team__stats__detail--team_stats"}>
+        <Card className={"team__stats__detail team__stats__detail--stats"} title={"Statistieken"}>
             <span className={"team__stats--label"}>Gespeeld</span>
             <span className={"team__stats--stat"}>
               {extraStats.gamesPlayed}
@@ -115,9 +101,13 @@ class TeamStats extends Component {
             </span>
             <span className={"team__stats--label"}>Topschutters</span>
             <span className={"team__stats--stat"}>
-              {extraStats.topscorers.sort((a, b) => b.value - a.value).map((player, i) => (
-                <>{player.firstName} {player.lastName} ({player.value})<br/></>
-              ))}
+              {extraStats.topscorers
+                .sort((a, b) => b.value - a.value)
+                .map((player, i) => (
+                  <Fragment>
+                    {player.firstName} {player.lastName} ({player.value})<br />
+                  </Fragment>
+                ))}
             </span>
             <span className={"team__stats--label"}>Laatste wedstrijden</span>
             <span className={"team__stats--stat"}>
@@ -130,213 +120,188 @@ class TeamStats extends Component {
                 </span>
               ))}
             </span>
-          </div>
-        </article>
+          </Card>
       )
     }
   }
 
   renderTeamSquadStats = (team) => {
     if (this.state.loading === false && this.state.data) {
-      const {
-        squadPlayerStatistics = [],
-      } = this.state.data
+      const { squadPlayerStatistics = [] } = this.state.data
 
       squadPlayerStatistics.sort((a, b) => b.minutes - a.minutes)
 
       return (
-        <article className={"team__stats__detail card"}>
-          <header className={"card__header"}>
-            <h4>Spelers</h4>
-          </header>
-          <div className={"card__content"}>
-            <table className={"team__stats__table team__stats__table--players"}>
-              <thead>
-                <tr>
-                  <th
-                    className={
-                      "team__stats__column team__stats__column--string"
-                    }
-                  >
-                    Speler
-                  </th>
-                  <th
-                    className={
-                      "team__stats__column team__stats__column--number"
-                    }
-                  >
-                    <span title="Wedstrijden gespeeld">P</span>
-                  </th>
-                  <th
-                    className={
-                      "team__stats__column team__stats__column--number"
-                    }
-                  >
-                    <span title="Wedstrijden gewonnen">W</span>
-                  </th>
-                  <th
-                    className={
-                      "team__stats__column team__stats__column--number"
-                    }
-                  >
-                    <span title="Wedstrijden gelijkgespeeld">D</span>
-                  </th>
-                  <th
-                    className={
-                      "team__stats__column team__stats__column--number"
-                    }
-                  >
-                    <span title="Wedstrijden verloren">L</span>
-                  </th>
-                  <th
-                    className={
-                      "team__stats__column team__stats__column--number"
-                    }
-                  >
-                    <img
-                      src={iconCardYellow}
-                      title="Gele kaart"
-                      alt="Gele kaart"
-                      className="team__stats__header_icon"
-                    />
-                  </th>
-                  <th
-                    className={
-                      "team__stats__column team__stats__column--number"
-                    }
-                  >
-                    <img
-                      src={iconCardRed}
-                      title="Rode kaart"
-                      alt="Rode kaart"
-                      className="team__stats__header_icon"
-                    />
-                  </th>
-                  <th
-                    className={
-                      "team__stats__column team__stats__column--number"
-                    }
-                  >
-                    <img
-                      src={iconGoal}
-                      title="Doelpunt(en) gescoord"
-                      alt="Doelpunt(en) gescoord"
-                      className="team__stats__header_icon"
-                    />
-                  </th>
-                  <th
-                    className={
-                      "team__stats__column team__stats__column--number"
-                    }
-                  >
-                    <img
-                      src={iconCleansheet}
-                      title="Cleansheets"
-                      alt="Cleansheets"
-                      className="team__stats__header_icon"
-                    />
-                  </th>
-                  <th
-                    className={
-                      "team__stats__column team__stats__column--number"
-                    }
-                  >
-                    <span title="Minuten gespeeld">
-                      <Icon icon="fa-clock-o" />
-                    </span>
-                  </th>
-                </tr>
-              </thead>
-              <tbody>
-                {squadPlayerStatistics.map(function (player) {
-                  return (
-                    <tr>
-                      <td
-                        className={
-                          "team__stats__column team__stats__column--string"
-                        }
-                      >
-                        {player.firstName} {player.lastName}
-                      </td>
-                      <td
-                        className={
-                          "team__stats__column team__stats__column--number"
-                        }
-                      >
-                        {player.gamesPlayed}
-                      </td>
-                      <td
-                        className={
-                          "team__stats__column team__stats__column--number"
-                        }
-                      >
-                        {player.gamesWon}
-                      </td>
-                      <td
-                        className={
-                          "team__stats__column team__stats__column--number"
-                        }
-                      >
-                        {player.gamesEqual}
-                      </td>
-                      <td
-                        className={
-                          "team__stats__column team__stats__column--number"
-                        }
-                      >
-                        {player.gamesLost}
-                      </td>
-                      <td
-                        className={
-                          "team__stats__column team__stats__column--number"
-                        }
-                      >
-                        {player.yellowCards}
-                      </td>
-                      <td
-                        className={
-                          "team__stats__column team__stats__column--number"
-                        }
-                      >
-                        {player.redCards}
-                      </td>
-                      <td
-                        className={
-                          "team__stats__column team__stats__column--number"
-                        }
-                      >
-                        {player.goals}
-                      </td>
-                      <td
-                        className={
-                          "team__stats__column team__stats__column--number"
-                        }
-                      >
-                        {player.cleanSheets}
-                      </td>
-                      <td
-                        className={
-                          "team__stats__column team__stats__column--number"
-                        }
-                      >
-                        {player.minutes || "0"}'
-                      </td>
-                    </tr>
-                  )
-                })}
-              </tbody>
-            </table>
-          </div>
-        </article>
+        <Card className={"team__stats__detail"} title="Spelers" hasTable={true}>
+          <table className={"team__stats__table team__stats__table--players"}>
+            <thead>
+              <tr>
+                <th
+                  className={"team__stats__column team__stats__column--string"}
+                >
+                  Speler
+                </th>
+                <th
+                  className={"team__stats__column team__stats__column--number"}
+                >
+                  <span title="Wedstrijden gespeeld">P</span>
+                </th>
+                <th
+                  className={"team__stats__column team__stats__column--number"}
+                >
+                  <span title="Wedstrijden gewonnen">W</span>
+                </th>
+                <th
+                  className={"team__stats__column team__stats__column--number"}
+                >
+                  <span title="Wedstrijden gelijkgespeeld">D</span>
+                </th>
+                <th
+                  className={"team__stats__column team__stats__column--number"}
+                >
+                  <span title="Wedstrijden verloren">L</span>
+                </th>
+                <th
+                  className={"team__stats__column team__stats__column--number"}
+                >
+                  <img
+                    src={iconCardYellow}
+                    title="Gele kaart"
+                    alt="Gele kaart"
+                    className="team__stats__header_icon"
+                  />
+                </th>
+                <th
+                  className={"team__stats__column team__stats__column--number"}
+                >
+                  <img
+                    src={iconCardRed}
+                    title="Rode kaart"
+                    alt="Rode kaart"
+                    className="team__stats__header_icon"
+                  />
+                </th>
+                <th
+                  className={"team__stats__column team__stats__column--number"}
+                >
+                  <img
+                    src={iconGoal}
+                    title="Doelpunt(en) gescoord"
+                    alt="Doelpunt(en) gescoord"
+                    className="team__stats__header_icon"
+                  />
+                </th>
+                <th
+                  className={"team__stats__column team__stats__column--number"}
+                >
+                  <img
+                    src={iconCleansheet}
+                    title="Cleansheets"
+                    alt="Cleansheets"
+                    className="team__stats__header_icon"
+                  />
+                </th>
+                <th
+                  className={"team__stats__column team__stats__column--number"}
+                >
+                  <span title="Minuten gespeeld">
+                    <Icon icon="fa-clock-o" />
+                  </span>
+                </th>
+              </tr>
+            </thead>
+            <tbody>
+              {squadPlayerStatistics.map(function (player) {
+                return (
+                  <tr>
+                    <td
+                      className={
+                        "team__stats__column team__stats__column--string"
+                      }
+                    >
+                      {player.firstName} {player.lastName}
+                    </td>
+                    <td
+                      className={
+                        "team__stats__column team__stats__column--number"
+                      }
+                    >
+                      {player.gamesPlayed}
+                    </td>
+                    <td
+                      className={
+                        "team__stats__column team__stats__column--number"
+                      }
+                    >
+                      {player.gamesWon}
+                    </td>
+                    <td
+                      className={
+                        "team__stats__column team__stats__column--number"
+                      }
+                    >
+                      {player.gamesEqual}
+                    </td>
+                    <td
+                      className={
+                        "team__stats__column team__stats__column--number"
+                      }
+                    >
+                      {player.gamesLost}
+                    </td>
+                    <td
+                      className={
+                        "team__stats__column team__stats__column--number"
+                      }
+                    >
+                      {player.yellowCards}
+                    </td>
+                    <td
+                      className={
+                        "team__stats__column team__stats__column--number"
+                      }
+                    >
+                      {player.redCards}
+                    </td>
+                    <td
+                      className={
+                        "team__stats__column team__stats__column--number"
+                      }
+                    >
+                      {player.goals}
+                    </td>
+                    <td
+                      className={
+                        "team__stats__column team__stats__column--number"
+                      }
+                    >
+                      {player.cleanSheets}
+                    </td>
+                    <td
+                      className={
+                        "team__stats__column team__stats__column--number"
+                      }
+                    >
+                      {player.minutes || "0"}'
+                    </td>
+                  </tr>
+                )
+              })}
+            </tbody>
+          </table>
+        </Card>
       )
     }
   }
 
-  render () {
-    const { team } = this.props;
+  render() {
+    const { team } = this.props
 
     return (
-      <section className={"team__stats__wrapper"}>{this.renderTeamStats(team)}{this.renderTeamSquadStats(team)}</section>
+      <section className={"team__stats__wrapper"}>
+        {this.renderTeamStats(team)}
+        {this.renderTeamSquadStats(team)}
+      </section>
     )
   }
 }

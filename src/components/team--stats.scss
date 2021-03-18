@@ -12,10 +12,6 @@
   @include break(xlarge-up) {
     margin: 0 14% 2rem;
   }
-
-  .card__content:not(.team__stats__detail--team_stats) {
-    padding: 0;
-  }
 }
 
 .team__stats__table {
@@ -43,12 +39,11 @@
   height: 1em;
 }
 
-.team__stats__detail--team_stats {
-  // display: flex;
-  // flex-direction: row;
-  // flex-wrap: nowrap;
-  display: grid;
-  grid-template-columns: minmax(250px, 1fr) 3fr;
+.team__stats__detail--stats {
+  .card__content {
+    display: grid;
+    grid-template-columns: minmax(250px, 1fr) 3fr;
+  }
 }
 
 .team__stats--label {
