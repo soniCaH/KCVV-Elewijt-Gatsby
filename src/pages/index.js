@@ -232,11 +232,6 @@ class IndexPage extends Component {
   //     nameLast: player.field_lastname,
   //     shirtNr: player.field_shirtnumber,
   //     position: player.field_position,
-  //     gamesPlayed: player.field_stats_games,
-  //     cleanSheets: player.field_stats_cleansheets,
-  //     goalsScored: player.field_stats_goals,
-  //     cardsYellow: player.field_stats_cards_yellow,
-  //     cardsRed: player.field_stats_cards_red,
   //     imageSrc:
   //       player.relationships.field_image.localFile.childImageSharp.fixed.src,
   //     link: player.path.alias,
@@ -482,12 +477,7 @@ export const pageQuery = graphql`
               field_firstname
               field_lastname
               field_shirtnumber
-              field_stats_games
               field_position
-              field_stats_cleansheets
-              field_stats_goals
-              field_stats_cards_yellow
-              field_stats_cards_red
               relationships {
                 field_image {
                   localFile {

@@ -1,5 +1,5 @@
 import { graphql } from "gatsby"
-import React from "react"
+import React, { Fragment } from "react"
 import SEO from "../components/seo"
 import Layout from "../layouts/index"
 import Img from "gatsby-image"
@@ -118,7 +118,7 @@ const TeamTemplate = ({ data }) => {
                 </li>
               )}
               {hasDivision && (
-                <>
+                <Fragment>
                   <li className={"tabs-title"}>
                     <a data-tabs-target="team-matches" href="#team-matches">
                       Wedstrijden
@@ -129,13 +129,12 @@ const TeamTemplate = ({ data }) => {
                       Stand
                     </a>
                   </li>
-                </>
+                </Fragment>
               )}
             </ul>
           </section>
         )}
 
-        {/* Foundation content of the tabs. */}
         <div
           className={"tabs-content"}
           data-tabs-content="team-subnavigation_tabs"
@@ -150,7 +149,7 @@ const TeamTemplate = ({ data }) => {
                 }}
               />
             )}
-            <TeamStats />
+            {node.field_vv_id && <TeamStats teamId={node.field_vv_id} />}
           </div>
           {/* If our page displays staff only (e.g. the "board" page), we change the title. */}
           {node.relationships.field_staff && !playersByPosition && (
@@ -289,6 +288,7 @@ export const query = graphql`
       }
       field_fb_id
       field_fb_id_2
+      field_vv_id
       field_division_full
       field_tagline
       relationships {

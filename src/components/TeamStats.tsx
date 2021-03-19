@@ -1,4 +1,4 @@
-import React, { Fragment } from "react"
+import React from "react"
 import { useStaticQuery, graphql } from "gatsby"
 
 import { translateGameResult } from "../scripts/helper"
@@ -12,17 +12,17 @@ import iconGoal from "../images/i_goal.png"
 import "./TeamStats.scss"
 import Card from "./Card"
 
-
 class TeamStats extends React.Component<TeamStatsProps, TeamStatsState> {
   public static defaultProps = {
-    teamId: 1
+    teamId: 1,
   }
 
   teamId: number
   kcvvPsdApi: string
 
   constructor(props: TeamStatsProps) {
-    super(props);
+    console.log(props);
+    super(props)
 
     this.state = {
       data: {
@@ -50,12 +50,12 @@ class TeamStats extends React.Component<TeamStatsProps, TeamStatsState> {
       loading: true,
     }
 
-    this.kcvvPsdApi = '';
-    this.teamId = this.props.teamId;
+    this.kcvvPsdApi = ``
+    this.teamId = props.teamId
   }
 
   updateData() {
-    if (this.teamId === null || this.kcvvPsdApi === '') {
+    if (this.teamId === null || this.kcvvPsdApi === "") {
       return
     }
 
@@ -70,15 +70,11 @@ class TeamStats extends React.Component<TeamStatsProps, TeamStatsState> {
     this.updateData()
   }
 
-
   renderTeamStats = () => {
     if (this.state.loading === false && this.state.data) {
       const { extraStats } = this.state.data
       return (
-        <Card
-          className={"team_stats__team"}
-          title="Statistieken"
-        >
+        <Card className={"team_stats__team"} title="Statistieken">
           <span className={"team_stats__label"}>Gespeeld</span>
           <span>{extraStats.gamesPlayed}</span>
           <span className={"team_stats__label"}>Gewonnen</span>
@@ -157,19 +153,13 @@ class TeamStats extends React.Component<TeamStatsProps, TeamStatsState> {
                 <th className={"table__column__number"}>
                   <span title="Wedstrijden gewonnen">W</span>
                 </th>
-                <th
-                  className={"table__column__number"}
-                >
+                <th className={"table__column__number"}>
                   <span title="Wedstrijden gelijkgespeeld">D</span>
                 </th>
-                <th
-                  className={"table__column__number"}
-                >
+                <th className={"table__column__number"}>
                   <span title="Wedstrijden verloren">L</span>
                 </th>
-                <th
-                  className={"table__column__number"}
-                >
+                <th className={"table__column__number"}>
                   <img
                     src={iconCardYellow}
                     title="Gele kaart"
@@ -177,9 +167,7 @@ class TeamStats extends React.Component<TeamStatsProps, TeamStatsState> {
                     className="table__header__icon"
                   />
                 </th>
-                <th
-                  className={"table__column__number"}
-                >
+                <th className={"table__column__number"}>
                   <img
                     src={iconCardRed}
                     title="Rode kaart"
@@ -187,9 +175,7 @@ class TeamStats extends React.Component<TeamStatsProps, TeamStatsState> {
                     className="table__header__icon"
                   />
                 </th>
-                <th
-                  className={"table__column__number"}
-                >
+                <th className={"table__column__number"}>
                   <img
                     src={iconGoal}
                     title="Doelpunt(en) gescoord"
@@ -197,9 +183,7 @@ class TeamStats extends React.Component<TeamStatsProps, TeamStatsState> {
                     className="table__header__icon"
                   />
                 </th>
-                <th
-                  className={"table__column__number show-for-medium"}
-                >
+                <th className={"table__column__number show-for-medium"}>
                   <img
                     src={iconCleansheet}
                     title="Cleansheets"
@@ -207,9 +191,7 @@ class TeamStats extends React.Component<TeamStatsProps, TeamStatsState> {
                     className="table__header__icon"
                   />
                 </th>
-                <th
-                  className={"table__column__number"}
-                >
+                <th className={"table__column__number"}>
                   <span title="Minuten gespeeld">
                     <Icon icon="fa-clock-o" />
                   </span>
@@ -278,7 +260,6 @@ class TeamStats extends React.Component<TeamStatsProps, TeamStatsState> {
       </section>
     )
   }
-
 }
 
 export default TeamStats;
