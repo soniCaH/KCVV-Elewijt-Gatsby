@@ -21,7 +21,6 @@ class TeamStats extends React.Component<TeamStatsProps, TeamStatsState> {
   kcvvPsdApi: string
 
   constructor(props: TeamStatsProps) {
-    console.log(props);
     super(props)
 
     this.state = {
@@ -54,8 +53,8 @@ class TeamStats extends React.Component<TeamStatsProps, TeamStatsState> {
     this.teamId = props.teamId
   }
 
-  updateData() {
-    if (this.teamId === null || this.kcvvPsdApi === "") {
+  updateData(): void {
+    if (this.teamId === null || this.kcvvPsdApi === ``) {
       return
     }
 
@@ -66,51 +65,49 @@ class TeamStats extends React.Component<TeamStatsProps, TeamStatsState> {
       .then((json) => this.setState({ data: json, loading: false }))
   }
 
-  componentDidMount() {
+  componentDidMount(): void {
     this.updateData()
   }
 
-  renderTeamStats = () => {
+  renderTeamStats = (): JSX.Element => {
     if (this.state.loading === false && this.state.data) {
       const { extraStats } = this.state.data
       return (
-        <Card className={"team_stats__team"} title="Statistieken">
-          <span className={"team_stats__label"}>Gespeeld</span>
+        <Card className={`team_stats__team`} title="Statistieken">
+          <span className={`team_stats__label`}>Gespeeld</span>
           <span>{extraStats.gamesPlayed}</span>
-          <span className={"team_stats__label"}>Gewonnen</span>
+          <span className={`team_stats__label`}>Gewonnen</span>
           <span>{extraStats.gamesWon}</span>
-          <span className={"team_stats__label"}>Gelijk</span>
+          <span className={`team_stats__label`}>Gelijk</span>
           <span>{extraStats.gamesEqual}</span>
-          <span className={"team_stats__label"}>Verloren</span>
+          <span className={`team_stats__label`}>Verloren</span>
           <span>{extraStats.gamesLost}</span>
-          <span className={"team_stats__label"}>Doelpunten</span>
+          <span className={`team_stats__label`}>Doelpunten</span>
           <span>
             {extraStats.goalsScored} voor / {extraStats.goalsAgainst} tegen
           </span>
-          <span className={"team_stats__label"}>Cleansheets</span>
+          <span className={`team_stats__label`}>Cleansheets</span>
           <span>{extraStats.cleanSheets}</span>
-          <span className={"team_stats__label"}>Gele kaarten</span>
+          <span className={`team_stats__label`}>Gele kaarten</span>
           <span>{extraStats.yellowCards}</span>
-          <span className={"team_stats__label"}>Rode kaarten</span>
+          <span className={`team_stats__label`}>Rode kaarten</span>
           <span>{extraStats.redCards}</span>
-          <span className={"team_stats__label"}>Wedstrijden niet gescoord</span>
+          <span className={`team_stats__label`}>Wedstrijden niet gescoord</span>
           <span>{extraStats.notScored}</span>
-          <span className={"team_stats__label"}>Grootste overwinning</span>
+          <span className={`team_stats__label`}>Grootste overwinning</span>
           <span>
-            {extraStats.biggestWin.result} tegen{" "}
-            {extraStats.biggestWin.opponent}
+            {extraStats.biggestWin.result} tegen {extraStats.biggestWin.opponent}
           </span>
-          <span className={"team_stats__label"}>Grootste verlies</span>
+          <span className={`team_stats__label`}>Grootste verlies</span>
           <span>
-            {extraStats.biggestLoss.result} tegen{" "}
-            {extraStats.biggestLoss.opponent}
+            {extraStats.biggestLoss.result} tegen {extraStats.biggestLoss.opponent}
           </span>
-          <span className={"team_stats__label"}>Meeste doelpunten</span>
+          <span className={`team_stats__label`}>Meeste doelpunten</span>
           <span>
             {extraStats.mostGoals.result} tegen {extraStats.mostGoals.opponent}
           </span>
-          <span className={"team_stats__label"}>Topschutters</span>
-          <ul className={"team_stats__list"}>
+          <span className={`team_stats__label`}>Topschutters</span>
+          <ul className={`team_stats__list`}>
             {extraStats.topscorers
               .sort((a, b) => b.value - a.value)
               .map((player, i) => (
@@ -119,19 +116,21 @@ class TeamStats extends React.Component<TeamStatsProps, TeamStatsState> {
                 </li>
               ))}
           </ul>
-          <span className={"team_stats__label"}>Laatste wedstrijden</span>
+          <span className={`team_stats__label`}>Laatste wedstrijden</span>
           <span>
             {extraStats.gameStreak.map((game, i) => (
               <span
                 className={`team_stats__streak team_stats__streak--${game.result.toLowerCase()}`}
                 title={`${translateGameResult(game.result)}`}
               >
-                {game.result.charAt(0) !== "E" ? game.result.charAt(0) : "D"}
+                {game.result.charAt(0) !== `E` ? game.result.charAt(0) : `D`}
               </span>
             ))}
           </span>
         </Card>
       )
+    } else {
+      return <div>Loading</div>
     }
   }
 
@@ -146,36 +145,26 @@ class TeamStats extends React.Component<TeamStatsProps, TeamStatsState> {
           <table>
             <thead>
               <tr>
-                <th className={"table__column__string"}>Speler</th>
-                <th className={"table__column__number show-for-medium"}>
+                <th className={`table__column__string`}>Speler</th>
+                <th className={`table__column__number show-for-medium`}>
                   <span title="Wedstrijden gespeeld">P</span>
                 </th>
-                <th className={"table__column__number"}>
+                <th className={`table__column__number`}>
                   <span title="Wedstrijden gewonnen">W</span>
                 </th>
-                <th className={"table__column__number"}>
+                <th className={`table__column__number`}>
                   <span title="Wedstrijden gelijkgespeeld">D</span>
                 </th>
-                <th className={"table__column__number"}>
+                <th className={`table__column__number`}>
                   <span title="Wedstrijden verloren">L</span>
                 </th>
-                <th className={"table__column__number"}>
-                  <img
-                    src={iconCardYellow}
-                    title="Gele kaart"
-                    alt="Gele kaart"
-                    className="table__header__icon"
-                  />
+                <th className={`table__column__number`}>
+                  <img src={iconCardYellow} title="Gele kaart" alt="Gele kaart" className="table__header__icon" />
                 </th>
-                <th className={"table__column__number"}>
-                  <img
-                    src={iconCardRed}
-                    title="Rode kaart"
-                    alt="Rode kaart"
-                    className="table__header__icon"
-                  />
+                <th className={`table__column__number`}>
+                  <img src={iconCardRed} title="Rode kaart" alt="Rode kaart" className="table__header__icon" />
                 </th>
-                <th className={"table__column__number"}>
+                <th className={`table__column__number`}>
                   <img
                     src={iconGoal}
                     title="Doelpunt(en) gescoord"
@@ -183,15 +172,10 @@ class TeamStats extends React.Component<TeamStatsProps, TeamStatsState> {
                     className="table__header__icon"
                   />
                 </th>
-                <th className={"table__column__number show-for-medium"}>
-                  <img
-                    src={iconCleansheet}
-                    title="Cleansheets"
-                    alt="Cleansheets"
-                    className="table__header__icon"
-                  />
+                <th className={`table__column__number show-for-medium`}>
+                  <img src={iconCleansheet} title="Cleansheets" alt="Cleansheets" className="table__header__icon" />
                 </th>
-                <th className={"table__column__number"}>
+                <th className={`table__column__number`}>
                   <span title="Minuten gespeeld">
                     <Icon icon="fa-clock-o" />
                   </span>
@@ -202,34 +186,18 @@ class TeamStats extends React.Component<TeamStatsProps, TeamStatsState> {
               {squadPlayerStatistics.map(function (player) {
                 return (
                   <tr>
-                    <td className={"table__column__string"}>
+                    <td className={`table__column__string`}>
                       {player.firstName} {player.lastName}
                     </td>
-                    <td className={"table__column__number show-for-medium"}>
-                      {player.gamesPlayed}
-                    </td>
-                    <td className={"table__column__number"}>
-                      {player.gamesWon}
-                    </td>
-                    <td className={"table__column__number"}>
-                      {player.gamesEqual}
-                    </td>
-                    <td className={"table__column__number"}>
-                      {player.gamesLost}
-                    </td>
-                    <td className={"table__column__number"}>
-                      {player.yellowCards}
-                    </td>
-                    <td className={"table__column__number"}>
-                      {player.redCards}
-                    </td>
-                    <td className={"table__column__number"}>{player.goals}</td>
-                    <td className={"table__column__number show-for-medium"}>
-                      {player.cleanSheets}
-                    </td>
-                    <td className={"table__column__number"}>
-                      {player.minutes || "0"}'
-                    </td>
+                    <td className={`table__column__number show-for-medium`}>{player.gamesPlayed}</td>
+                    <td className={`table__column__number`}>{player.gamesWon}</td>
+                    <td className={`table__column__number`}>{player.gamesEqual}</td>
+                    <td className={`table__column__number`}>{player.gamesLost}</td>
+                    <td className={`table__column__number`}>{player.yellowCards}</td>
+                    <td className={`table__column__number`}>{player.redCards}</td>
+                    <td className={`table__column__number`}>{player.goals}</td>
+                    <td className={`table__column__number show-for-medium`}>{player.cleanSheets}</td>
+                    <td className={`table__column__number`}>{player.minutes || `0`}'</td>
                   </tr>
                 )
               })}
@@ -240,7 +208,7 @@ class TeamStats extends React.Component<TeamStatsProps, TeamStatsState> {
     }
   }
 
-  render() {
+  render(): JSX.Element {
     const config: TeamStatsData = useStaticQuery(graphql`
       query {
         site {
@@ -254,7 +222,7 @@ class TeamStats extends React.Component<TeamStatsProps, TeamStatsState> {
     this.kcvvPsdApi = config.site.siteMetadata.kcvvPsdApi
 
     return (
-      <section className={"team__stats__wrapper"}>
+      <section className={`team__stats__wrapper`}>
         {this.renderTeamStats()}
         {this.renderTeamSquadStats()}
       </section>
@@ -262,4 +230,4 @@ class TeamStats extends React.Component<TeamStatsProps, TeamStatsState> {
   }
 }
 
-export default TeamStats;
+export default TeamStats
