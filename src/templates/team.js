@@ -8,7 +8,7 @@ import "./team.scss"
 import Ranking from "../components/ranking"
 import TeamCalendarMatches from "../components/team-calendar-matches"
 import TeamCalendarMetaMatches from "../components/team-calendar-meta-matches"
-import TeamStats from "../components/team--stats"
+import TeamStats from "../components/TeamStats"
 
 // Generic helper function to group an array by a property.
 const groupBy = (key) => (array) =>
@@ -150,7 +150,7 @@ const TeamTemplate = ({ data }) => {
                 }}
               />
             )}
-            <TeamStats team={node} />
+            <TeamStats />
           </div>
           {/* If our page displays staff only (e.g. the "board" page), we change the title. */}
           {node.relationships.field_staff && !playersByPosition && (

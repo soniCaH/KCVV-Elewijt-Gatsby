@@ -1,3 +1,5 @@
+@import '../styles/mixins';
+
 $responsive-card-table-bottom-gap: 1.5rem;
 $responsive-card-table-border: 0;
 $responsive-card-table-stack-point: 980px;
@@ -61,14 +63,15 @@ $responsive-card-table-label-bg: $light-gray;
   }
 }
 
-.data-table--small-text {
-  font-size: 75%;
+.table__header__icon {
+  height: 1em;
+}
 
-  left: 50%;
-  margin-left: -50vw;
-  margin-right: -50vw;
-  max-width: 100vw;
-  position: relative;
-  right: 50%;
-  width: 100vw;
+.table__column__string {
+  text-align: left;
+}
+
+.table__column__number,
+.table__column__score {
+  text-align: center;
 }
