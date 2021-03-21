@@ -21,18 +21,13 @@ interface ClublogoData {
 }
 
 const getLogoImageSrcUrl = (apiUrl: string, regNumber: string) => {
-  if (regNumber === "00055") {
+  if (regNumber === `00055`) {
     return flatLogoElewijt
   }
   return `${apiUrl}/${regNumber}`
 }
 
-const ClubLogo: FunctionComponent<ClublogoProps> = ({
-  lazyload,
-  regNumber,
-  title,
-  className,
-}) => {
+const ClubLogo: FunctionComponent<ClublogoProps> = ({ lazyload, regNumber, title, className }) => {
   function imageErrorHandler(e: React.SyntheticEvent<HTMLImageElement, Event>) {
     const el = e.target as HTMLImageElement
     el.onerror = null
@@ -49,19 +44,10 @@ const ClubLogo: FunctionComponent<ClublogoProps> = ({
     }
   `)
 
-  const logoSourceUrl = getLogoImageSrcUrl(
-    data.site.siteMetadata.logoUrl,
-    regNumber
-  )
+  const logoSourceUrl = getLogoImageSrcUrl(data.site.siteMetadata.logoUrl, regNumber)
 
   const image = (
-    <img
-      src={logoSourceUrl}
-      role="presentation"
-      onError={imageErrorHandler}
-      alt={title}
-      className={className}
-    />
+    <img src={logoSourceUrl} role="presentation" onError={imageErrorHandler} alt={title} className={className} />
   )
 
   if (lazyload === true) {
@@ -73,9 +59,9 @@ const ClubLogo: FunctionComponent<ClublogoProps> = ({
 
 ClubLogo.defaultProps = {
   lazyload: false,
-  regNumber: "00055",
-  title: "KCVV Elewijt",
-  className: "",
+  regNumber: `00055`,
+  title: `KCVV Elewijt`,
+  className: ``,
 }
 
 export default ClubLogo
