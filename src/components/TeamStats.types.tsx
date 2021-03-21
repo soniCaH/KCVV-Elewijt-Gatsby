@@ -1,5 +1,3 @@
-
-
 interface SquadPlayerStatisticsData {
   firstName: string
   lastName: string
@@ -24,7 +22,7 @@ interface TopScorer {
 
 interface GameStreak {
   result: string
-  game: any
+  game: never
 }
 
 interface ExtraStatsData {
@@ -46,9 +44,9 @@ interface ExtraStatsData {
 }
 
 interface TeamStatsDataObject {
-  squadPlayerStatistics: Array<SquadPlayerStatisticsData>,
-  goalsScored: Array<object>,
-  goalsAgainst: Array<object>,
+  squadPlayerStatistics: Array<SquadPlayerStatisticsData>
+  goalsScored: Array<any>
+  goalsAgainst: Array<any>
   extraStats: ExtraStatsData
 }
 
@@ -57,7 +55,7 @@ interface TeamStatsProps {
 }
 
 interface TeamStatsState {
-  data: TeamStatsDataObject,
+  data: TeamStatsDataObject
   loading: boolean
 }
 

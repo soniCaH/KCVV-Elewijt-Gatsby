@@ -75,3 +75,23 @@ $responsive-card-table-label-bg: $light-gray;
 .table__column__score {
   text-align: center;
 }
+
+.table__column {
+  &--highlight {
+    position: relative;
+
+    &::before {
+      content: "";
+      display: block;
+      position: absolute;
+      left: -13px;
+      top: 50%;
+      width: 0;
+      height: 0;
+      border-left: 6px solid var(--color-green-dark);
+      border-top: 4px solid transparent;
+      border-bottom: 4px solid transparent;
+      transform: translateY(-50%);
+    }
+  }
+}

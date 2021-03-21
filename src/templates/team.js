@@ -5,9 +5,10 @@ import Layout from "../layouts/index"
 import Img from "gatsby-image"
 import { TeamSection } from "../components/team--section"
 import "./team.scss"
-import Ranking from "../components/ranking"
 import TeamCalendarMatches from "../components/team-calendar-matches"
 import TeamCalendarMetaMatches from "../components/team-calendar-meta-matches"
+
+import Ranking from "../components/Ranking"
 import TeamStats from "../components/TeamStats"
 
 // Generic helper function to group an array by a property.
@@ -198,18 +199,7 @@ const TeamTemplate = ({ data }) => {
                 )}
               </div>
               <div className={`tabs-panel`} id="team-ranking">
-                {node.field_fb_id_2 && (
-                  <div className={`team-ranking__wrapper`}>
-                    {node.field_fb_id && <h2>Ranking na nieuwjaar</h2>}
-                    <Ranking season="2021" region="bra" division={node.field_fb_id_2} highlight="KCVV.Elewijt A" />
-                  </div>
-                )}
-                {node.field_fb_id && (
-                  <div className={`team-ranking__wrapper`}>
-                    {node.field_fb_id_2 && <h2>Ranking voor nieuwjaar</h2>}
-                    <Ranking season="2021" region="bra" division={node.field_fb_id} highlight="KCVV.Elewijt A" />
-                  </div>
-                )}
+                {node.field_vv_id && <Ranking teamId={node.field_vv_id} />}
               </div>
             </Fragment>
           )}
