@@ -164,7 +164,7 @@ const TeamTemplate = ({ data }) => {
             <Fragment>
               <div className={`tabs-panel`} id="team-matches">
                 {node.field_fb_id_2 && (
-                  <div className={`team-ranking__wrapper`}>
+                  <div className={`team-matches__wrapper`}>
                     {node.field_fb_id && <h2>Wedstrijden na nieuwjaar</h2>}
 
                     {/* Metamatches is the big banner on top with the previous and next match highlighted. */}
@@ -181,7 +181,7 @@ const TeamTemplate = ({ data }) => {
                   </div>
                 )}
                 {node.field_fb_id && (
-                  <div className={`team-ranking__wrapper`}>
+                  <div className={`team-matches__wrapper`}>
                     {node.field_fb_id_2 && <h2>Wedstrijden voor nieuwjaar</h2>}
 
                     {/* Metamatches is the big banner on top with the previous and next match highlighted. */}

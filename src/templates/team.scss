@@ -121,7 +121,7 @@
     &__team-picture {
         z-index: 3;
 
-        + .team-detail__team-info {
+        +.team-detail__team-info {
             margin-top: 2rem;
         }
     }
@@ -176,10 +176,6 @@
                 margin: 0 1rem 2rem;
             }
 
-            @include break(xlarge-up) {
-                margin: 0 14% 2rem;
-            }
-
             &::before {
                 display: table;
                 content: ' ';
@@ -224,6 +220,20 @@
                     }
                 }
             }
+        }
+    }
+
+    &-matches__wrapper {
+        margin: 0 .25rem 2rem;
+        position: relative;
+        z-index: 2;
+
+        @include break(large-up) {
+            margin: 0 1rem 2rem;
+        }
+
+        @include break(xlarge-up) {
+            margin: 0 14% 2rem;
         }
     }
 }
