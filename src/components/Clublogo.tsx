@@ -5,21 +5,6 @@ import LazyLoad from "react-lazyload"
 import defaultLogo from "../images/default.png"
 import flatLogoElewijt from "../images/logo-flat.png"
 
-interface ClublogoProps {
-  lazyload: boolean
-  regNumber: string
-  title: string
-  className: string
-}
-
-interface ClublogoData {
-  site: {
-    siteMetadata: {
-      logoUrl: string
-    }
-  }
-}
-
 const getLogoImageSrcUrl = (apiUrl: string, regNumber: string) => {
   if (regNumber === `00055`) {
     return flatLogoElewijt
