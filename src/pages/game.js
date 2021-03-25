@@ -10,7 +10,7 @@ import { mapPsdStatus } from "../scripts/helper"
 
 import Layout from "../layouts/index"
 import SEO from "../components/seo"
-import Icon from "../components/icon"
+import Icon from "../components/Icon"
 import MiniRanking from "../components/MiniRanking"
 
 import iconBench from "../images/i_bench_2.png"

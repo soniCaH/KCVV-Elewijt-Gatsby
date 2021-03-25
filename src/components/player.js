@@ -7,7 +7,7 @@ import moment from "moment"
 import "./player.scss"
 import { Link } from "gatsby"
 
-import Icon from "../components/icon"
+import Icon from "../components/Icon"
 
 import iconCleansheet from "../images/i_cleansheet.png"
 import iconCardRed from "../images/i_card_red.png"

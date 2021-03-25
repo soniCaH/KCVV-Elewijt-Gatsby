@@ -2,7 +2,7 @@ import React from "react"
 import { useStaticQuery, graphql } from "gatsby"
 
 import { translateGameResult } from "../scripts/helper"
-import Icon from "../components/icon"
+import Icon from "../components/Icon"
 
 import iconCleansheet from "../images/i_cleansheet.png"
 import iconCardRed from "../images/i_card_red.png"
