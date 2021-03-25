@@ -32,6 +32,9 @@
     ]
 
 [[plugins]]
+  package = "netlify-plugin-image-optim"
+
+[[plugins]]
   package = "netlify-plugin-inline-critical-css"
 
   # All inputs are optional, so you can omit this section.
