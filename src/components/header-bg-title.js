@@ -3,7 +3,7 @@ import PropTypes from "prop-types"
 
 import "./header-bg-title.scss"
 
-class HeaderBgTitle extends Component {
+class HeaderBgTitle extends React.Component {
   render() {
     return (
       <header className={`page-header-title ${this.props.classes || ""}`}>

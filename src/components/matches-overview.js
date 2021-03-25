@@ -1,5 +1,5 @@
 import React, { Component, Fragment } from "react"
-import { graphql, StaticQuery } from "gatsby"
+import { graphql, Link, StaticQuery } from "gatsby"
 import "./matches-overview.scss"
 import moment from "moment"
 import { mapMatchStatus, formatDivision } from "../scripts/helper"
