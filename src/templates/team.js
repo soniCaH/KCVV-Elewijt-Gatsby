@@ -5,9 +5,9 @@ import Layout from "../layouts/index"
 import Img from "gatsby-image"
 import { TeamSection } from "../components/team--section"
 import "./team.scss"
-import TeamCalendarMetaMatches from "../components/team-calendar-meta-matches"
 
 import Matches from "../components/Matches"
+import { MatchTeasers } from "../components/MatchTeaser"
 
 import Ranking from "../components/Ranking"
 import TeamStats from "../components/TeamStats"
@@ -164,6 +164,7 @@ const TeamTemplate = ({ data }) => {
           {hasDivision && (
             <Fragment>
               <div className={`tabs-panel`} id="team-matches">
+              {node.field_vv_id && <MatchTeasers teamId={node.field_vv_id} />}
                 {node.field_vv_id && <Matches teamId={node.field_vv_id} />}
               </div>
               <div className={`tabs-panel`} id="team-ranking">

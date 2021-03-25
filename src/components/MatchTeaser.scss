@@ -1,0 +1,106 @@
+@import '../styles/mixins';
+
+.match__teasers {
+  margin: 0 .25rem 2rem;
+  position: relative;
+  z-index: 2;
+
+  @include break(medium-up) {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 1rem;
+}
+
+  @include break(large-up) {
+      margin: 0 1rem;
+  }
+
+  @include break(xlarge-up) {
+      margin: 0 14%;
+  }
+}
+
+.match__teaser {
+  background: #FFF;
+  display: block;
+  padding: 1em;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 700;
+
+  header {
+    line-height: 1.2em;
+    margin-bottom: .75em;
+    text-align: center;
+    text-transform: uppercase;
+  }
+
+  h2,
+  h3 {
+    font-size: 1.2rem;
+  }
+
+  main {
+    color: var(--color-gray-medium);
+    display: flex;
+    flex-direction: row;
+    align-items: stretch;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    height: 100%;
+    width: 100%;
+  }
+}
+
+.match__teaser__status {}
+
+.match__teaser__datetime {
+  display: block;
+  letter-spacing: -.02em;
+  line-height: 1.2em;
+  text-align: center;
+  text-transform: uppercase;
+
+  &--date {
+    color: var(--color-gray-light);
+    font-size: .75rem;
+  }
+
+  &--time {
+    color: var(--color-gray-medium);
+    font-size: 1.25rem;
+  }
+
+  &--status {
+    color: var(--color-gray-medium);
+    font-size: 1.25rem;
+    letter-spacing: -.02em;
+    line-height: 1.2em;
+  }
+}
+
+.match__teaser__team {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+  align-items: center;
+  width: 35%;
+}
+
+.match__teaser__vs {
+  margin: 0 1%;
+  width: 28%;
+
+  font-family: var(--font-title);
+  font-size: 1.875rem;
+  font-weight: 700;
+  letter-spacing: -.04em;
+  text-align: center;
+  text-transform: uppercase;
+
+  &--score {
+    color: var(--color-gray-light);
+    font-size: 1.25rem;
+  }
+}

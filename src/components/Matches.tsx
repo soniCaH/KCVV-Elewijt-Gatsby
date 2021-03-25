@@ -7,7 +7,6 @@ import classNames from "classnames"
 import Moment from "moment-timezone"
 import "moment/locale/nl-be"
 
-import Card from "./Card"
 import { mapPsdStatus, mapPsdStatusShort } from "../scripts/helper"
 
 import "./Matches.scss"
@@ -77,7 +76,6 @@ const MatchesRow: FunctionComponent<MatchesRowProps> = ({ match }: MatchesRowPro
 
 const Matches: FunctionComponent<MatchesProps> = ({ teamId }: MatchesProps) => {
   const [data, setData] = useState<Match[]>([])
-  // const [loading, setLoading] = useState<boolean>(true)
 
   const {
     site: {
@@ -99,7 +97,6 @@ const Matches: FunctionComponent<MatchesProps> = ({ teamId }: MatchesProps) => {
     async function getData() {
       const response = await axios.get(`${kcvvPsdApi}/matches/${teamId}`)
       setData(response.data)
-      console.log(response.data)
     }
     getData()
   }, [])
