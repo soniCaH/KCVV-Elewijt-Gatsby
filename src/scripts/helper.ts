@@ -1,8 +1,3 @@
-/**
- * Map a statusCode to a descriptive label.
- *
- * @param {string} statusCode
- */
 export function mapMatchStatus(statusCode) {
   const statusCodes = new Map([
     [`PP`, `Uitgesteld`],

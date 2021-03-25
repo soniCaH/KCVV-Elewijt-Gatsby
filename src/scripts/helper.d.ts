@@ -1,4 +1,9 @@
 export function getPositions(): Map<string, string>
+/**
+ * Map a statusCode to a descriptive label.
+ *
+ * @param {string} statusCode
+ */
 export function mapPsdStatus(statusCode: string): string
 export function mapPsdStatusShort(statusCode: string): string
 export function translateGameResult(result: string): string

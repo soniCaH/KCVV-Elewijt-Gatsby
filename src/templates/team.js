@@ -5,8 +5,9 @@ import Layout from "../layouts/index"
 import Img from "gatsby-image"
 import { TeamSection } from "../components/team--section"
 import "./team.scss"
-import TeamCalendarMatches from "../components/team-calendar-matches"
 import TeamCalendarMetaMatches from "../components/team-calendar-meta-matches"
+
+import Matches from "../components/Matches"
 
 import Ranking from "../components/Ranking"
 import TeamStats from "../components/TeamStats"
@@ -163,40 +164,7 @@ const TeamTemplate = ({ data }) => {
           {hasDivision && (
             <Fragment>
               <div className={`tabs-panel`} id="team-matches">
-                {node.field_fb_id_2 && (
-                  <div className={`team-matches__wrapper`}>
-                    {node.field_fb_id && <h2>Wedstrijden na nieuwjaar</h2>}
-
-                    {/* Metamatches is the big banner on top with the previous and next match highlighted. */}
-                    {!node.field_fb_id && (
-                      <TeamCalendarMetaMatches
-                        season="2021"
-                        region="bra"
-                        division={node.field_fb_id_2}
-                        regnumber="00055"
-                      />
-                    )}
-
-                    <TeamCalendarMatches season="2021" region="bra" division={node.field_fb_id_2} />
-                  </div>
-                )}
-                {node.field_fb_id && (
-                  <div className={`team-matches__wrapper`}>
-                    {node.field_fb_id_2 && <h2>Wedstrijden voor nieuwjaar</h2>}
-
-                    {/* Metamatches is the big banner on top with the previous and next match highlighted. */}
-                    {!node.field_fb_id_2 && (
-                      <TeamCalendarMetaMatches
-                        season="2021"
-                        region="bra"
-                        division={node.field_fb_id}
-                        regnumber="00055"
-                      />
-                    )}
-
-                    <TeamCalendarMatches season="2021" region="bra" division={node.field_fb_id} />
-                  </div>
-                )}
+                {node.field_vv_id && <Matches teamId={node.field_vv_id} />}
               </div>
               <div className={`tabs-panel`} id="team-ranking">
                 {node.field_vv_id && <Ranking teamId={node.field_vv_id} />}
