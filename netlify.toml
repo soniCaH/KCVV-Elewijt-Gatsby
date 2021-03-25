@@ -68,3 +68,6 @@
 		"google",
 		"bing"
 	]
+
+[[plugins]]
+  package = "netlify-plugin-hashfiles"
