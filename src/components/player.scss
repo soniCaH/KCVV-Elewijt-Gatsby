@@ -280,10 +280,6 @@
                 margin: 0 14% 2rem;
             }
 
-            .card__content {
-                padding: 0;
-            }
-
             table {
                 margin: 0;
                 padding: 0;
@@ -310,4 +306,5 @@
 
 .player-detail__stats--header_icon {
     height: 1em;
+    min-width: 1em;
 }

@@ -5,7 +5,7 @@ import { mapMatchStatus } from "../scripts/helper"
 import moment from "moment-timezone"
 import "moment/locale/nl-be"
 
-import ClubLogo from "./clublogo"
+import ClubLogo from "./Clublogo"
 
 import "./team-calendar-matches.scss"
 

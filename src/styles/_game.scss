@@ -33,6 +33,7 @@
 
   .match-details__vs--score {
     margin: 0 20px;
+
     @include breakpoint(large up) {
       font-size: 2rem;
     }
@@ -124,5 +125,7 @@
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center center;
+    max-height: 1em;
+    margin-top: .35em;
   }
 }

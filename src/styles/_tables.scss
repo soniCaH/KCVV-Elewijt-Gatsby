@@ -1,3 +1,5 @@
+@import '../styles/mixins';
+
 $responsive-card-table-bottom-gap: 1.5rem;
 $responsive-card-table-border: 0;
 $responsive-card-table-stack-point: 980px;
@@ -61,14 +63,45 @@ $responsive-card-table-label-bg: $light-gray;
   }
 }
 
-.data-table--small-text {
-  font-size: 75%;
+.table__header__icon {
+  height: 1em;
+  min-width: 1em;
+}
 
-  left: 50%;
-  margin-left: -50vw;
-  margin-right: -50vw;
-  max-width: 100vw;
-  position: relative;
-  right: 50%;
-  width: 100vw;
+.table__column__string {
+  text-align: left;
+}
+
+.table__column__number,
+.table__column__score {
+  text-align: center;
+}
+
+.table__column {
+  &--highlight {
+    position: relative;
+
+    margin: 0 0 0 8px;
+    @include break(large up) {
+      margin-left: 15px;
+    }
+
+    &::before {
+      content: "";
+      display: block;
+      position: absolute;
+      left: -5px;
+      top: 50%;
+      width: 0;
+      height: 0;
+      border-left: 6px solid var(--color-green-dark);
+      border-top: 4px solid transparent;
+      border-bottom: 4px solid transparent;
+      transform: translateY(-50%);
+
+      @include break(large up) {
+        left: -13px;
+      }
+    }
+  }
 }
