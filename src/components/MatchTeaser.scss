@@ -4,11 +4,13 @@
   margin: 0 .25rem 2rem;
   position: relative;
   z-index: 2;
+  line-height: 1;
 
   @include break(medium-up) {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     grid-gap: 1rem;
+    line-height: 1.5;
 }
 
   @include break(large-up) {
