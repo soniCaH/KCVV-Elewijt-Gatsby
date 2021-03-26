@@ -2,6 +2,7 @@ import React, { Fragment } from "react"
 import { graphql, useStaticQuery } from "gatsby"
 
 import "./Ranking.scss"
+import Spinner from "./Spinner"
 
 class Ranking extends React.Component<RankingProps, RankingState> {
   public static defaultProps = {
@@ -98,7 +99,7 @@ class Ranking extends React.Component<RankingProps, RankingState> {
         </Fragment>
       )
     } else {
-      return <div>Loading...</div>
+      return <Spinner />
     }
   }
 

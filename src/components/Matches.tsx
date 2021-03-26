@@ -1,4 +1,4 @@
-import React, { FunctionComponent, useEffect, useState, Suspense } from "react"
+import React, { FunctionComponent, useEffect, useState } from "react"
 import { graphql, useStaticQuery } from "gatsby"
 
 import axios from "axios"
@@ -103,13 +103,11 @@ const Matches: FunctionComponent<MatchesProps> = ({ teamId }: MatchesProps) => {
 
   return (
     <div className={`matches__wrapper`}>
-      <Suspense fallback="Loading">
-        {data
-          .sort((a, b) => a.timestamp - b.timestamp)
-          .map((match, i) => (
-            <MatchesRow match={match} key={i} />
-          ))}
-      </Suspense>
+      {data
+        .sort((a, b) => a.timestamp - b.timestamp)
+        .map((match, i) => (
+          <MatchesRow match={match} key={i} />
+        ))}
     </div>
   )
 }

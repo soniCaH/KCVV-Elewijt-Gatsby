@@ -1,4 +1,4 @@
-import React, { FunctionComponent, useState, useEffect, Suspense, Fragment } from "react"
+import React, { FunctionComponent, useState, useEffect, Fragment } from "react"
 import { graphql, useStaticQuery } from "gatsby"
 
 import axios from "axios"
@@ -120,7 +120,7 @@ export const MatchTeaser: FunctionComponent<MatchTeaserProps> = ({ teamId, actio
     getData()
   }, [])
 
-  return <Suspense fallback="Loading">{data.length > 0 && <MatchTeaserDetail match={data[0]} />}</Suspense>
+  return <Fragment>{data.length > 0 && <MatchTeaserDetail match={data[0]} />}</Fragment>
 }
 
 export const MatchTeasers: FunctionComponent<MatchTeasersProps> = ({ teamId }: MatchTeasersProps) => (

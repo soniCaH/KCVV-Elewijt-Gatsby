@@ -6,11 +6,15 @@ import Img from "gatsby-image"
 import { TeamSection } from "../components/team--section"
 import "./team.scss"
 
-import Matches from "../components/Matches"
+const Matches = lazy(() => {
+  return new Promise((resolve) => setTimeout(resolve, 3000)).then(() => import(`../components/Matches`))
+})
+
 import { MatchTeasers } from "../components/MatchTeaser"
 
 import Ranking from "../components/Ranking"
 import TeamStats from "../components/TeamStats"
+import Spinner from "../components/Spinner"
 
 // Generic helper function to group an array by a property.
 const groupBy = (key) => (array) =>
@@ -164,7 +168,7 @@ const TeamTemplate = ({ data }) => {
           {hasDivision && (
             <Fragment>
               <div className={`tabs-panel`} id="team-matches">
-              {node.field_vv_id && <MatchTeasers teamId={node.field_vv_id} />}
+                {node.field_vv_id && <MatchTeasers teamId={node.field_vv_id} />}
                 {node.field_vv_id && <Matches teamId={node.field_vv_id} />}
               </div>
               <div className={`tabs-panel`} id="team-ranking">

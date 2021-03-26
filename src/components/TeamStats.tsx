@@ -11,6 +11,7 @@ import iconGoal from "../images/i_goal.png"
 
 import "./TeamStats.scss"
 import Card from "./Card"
+import Spinner from "./Spinner"
 
 class TeamStats extends React.Component<TeamStatsProps, TeamStatsState> {
   public static defaultProps = {
@@ -130,7 +131,7 @@ class TeamStats extends React.Component<TeamStatsProps, TeamStatsState> {
         </Card>
       )
     } else {
-      return <div>Loading</div>
+      return <Spinner />
     }
   }
 
