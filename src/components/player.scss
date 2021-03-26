@@ -285,19 +285,19 @@
                 padding: 0;
                 border: 0;
 
-                .player-detail__column {
-                    &--string {
-                        @include break(large-up) {
-                            text-align: left;
-                        }
-                    }
+                font-size: .75em;
 
-                    &--number,
-                    &--score {
-                        @include break(large-up) {
-                            text-align: center;
-                        }
+                td,
+                th {
+                    padding: 0.25rem 0.3125rem 0.3125rem;
+
+                    @include break(medium-up) {
+                        padding: 0.5rem 0.625rem 0.625rem;
                     }
+                }
+
+                @include break(medium-up) {
+                    font-size: 1em;
                 }
             }
         }
@@ -307,4 +307,25 @@
 .player-detail__stats--header_icon {
     height: 1em;
     min-width: 1em;
+}
+
+.player-detail__column {
+
+    &--number,
+    &--score {
+        text-align: center;
+    }
+}
+
+.player-detail__games__table {
+    .player-detail__column {
+        &--number,
+        &--score {
+            text-align: left;
+
+            @include break(large-up) {
+                text-align: center;
+            }
+        }
+    }
 }

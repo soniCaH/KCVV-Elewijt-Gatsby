@@ -15,16 +15,36 @@
     @include break(xlarge-up) {
       margin: 0 14% 2rem;
     }
+
+    table {
+      font-size: .75em;
+
+      td, th {
+        padding: 0.25rem 0.3125rem 0.3125rem;
+
+        @include break(medium-up) {
+          padding: 0.5rem 0.625rem 0.625rem;
+        }
+      }
+
+      @include break(medium-up) {
+        font-size: 1em;
+      }
+    }
   }
 
   &__team {
     .card__content {
-      display: grid;
-      grid-template-columns: minmax(200px, 1fr) 3fr;
-      grid-gap: .5em;
+      display: block;
 
       @include break(large-up) {
+        display: grid;
+        grid-gap: .5em;
         grid-template-columns: repeat(4, 1fr);
+      }
+
+      span:not(.team_stats__streak) {
+        display: block;
       }
     }
   }
@@ -53,12 +73,12 @@
 
 .team_stats__label {
   font-weight: bold;
-  width: 25%;
-  min-width: 250px;
+  min-width: 150px;
 }
 
 .team_stats__list {
   list-style: none;
+  margin-bottom: 0;
   margin-left: 15px;
 
   li {
@@ -69,7 +89,7 @@
       display: block;
       position: absolute;
       left: -13px;
-      top: 50%;
+      top: 1em;
       width: 0;
       height: 0;
       border-left: 6px solid var(--color-green-dark);
