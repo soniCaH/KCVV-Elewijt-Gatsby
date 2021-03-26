@@ -12,11 +12,11 @@
 }
 
   @include break(large-up) {
-      margin: 0 1rem;
+      margin: 0 1rem 2rem;
   }
 
   @include break(xlarge-up) {
-      margin: 0 14%;
+      margin: 0 14% 2rem;
   }
 }
 

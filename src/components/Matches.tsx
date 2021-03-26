@@ -1,5 +1,5 @@
 import React, { FunctionComponent, useEffect, useState } from "react"
-import { graphql, useStaticQuery } from "gatsby"
+import { graphql, Link, useStaticQuery } from "gatsby"
 
 import axios from "axios"
 import LazyLoad from "react-lazyload"
@@ -10,6 +10,7 @@ import "moment/locale/nl-be"
 import { mapPsdStatus, mapPsdStatusShort } from "../scripts/helper"
 
 import "./Matches.scss"
+import Icon from "./Icon"
 
 const MatchesRow: FunctionComponent<MatchesRowProps> = ({ match }: MatchesRowProps) => {
   const d = Moment.tz(match.date, `Europe/Brussels`)
@@ -69,6 +70,10 @@ const MatchesRow: FunctionComponent<MatchesRowProps> = ({ match }: MatchesRowPro
           </LazyLoad>
           {match.awayClub.abbreviation || match.awayClub.name}
         </div>
+
+        <Link to={`/game/${match.id}`} className="matches__calendar__link">
+          <Icon icon="fa-info-circle" />
+        </Link>
       </main>
     </article>
   )
