@@ -117,7 +117,11 @@ class GamePage extends Component {
                   {matchTime.format(`dddd DD MMMM YYYY - H:mm`)}
                 </time>
                 <br />
-                {general.status !== 0 && mapPsdStatus(general.status)}
+
+                {general.status !== 0 && (
+                  <span className={`game__status game__status--${general.status}`}>{mapPsdStatus(general.status)}</span>
+                )}
+
                 <br />
               </div>
               {(homeLineup.length !== 0 || awayLineup.length !== 0) && (
