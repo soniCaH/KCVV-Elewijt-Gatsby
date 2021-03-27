@@ -3,22 +3,13 @@
 .game-stats {
   z-index: 2;
   position: relative;
+  margin-bottom: 2em;
 }
 
 .game__details {
   font-family: var(--font-title);
-  // color: #FFF;
   margin-top: 2em;
   text-transform: uppercase;
-
-  h1,
-  h2,
-  h3,
-  h4,
-  h5,
-  h6 {
-    // color: #FFF;
-  }
 }
 
 .game__teams {
@@ -60,6 +51,32 @@
 
       }
     }
+  }
+}
+
+.game__status {
+  display: inline-block;
+  margin: 1em 0;
+  padding: .5em 1em;
+  font-weight: bold;
+
+  &--0 {
+    background: #8dba62;
+    color: #FFF;
+  }
+
+  &--1 {
+    background: #ff5538;
+    color: #FFF;
+  }
+
+  &--2 {
+    background: #ffcb1e;
+  }
+
+  &--3 {
+    background: #ff5538;
+    color: #FFF;
   }
 }
 

@@ -1,8 +1,9 @@
-import React, { Component } from "react"
+import React, { Component, Fragment } from "react"
 import { graphql, StaticQuery } from "gatsby"
 import Slider from "react-slick"
 import "./matches-slider.scss"
 import MatchWithLogo from "./match-with-logo"
+import Spinner from "./Spinner"
 
 class MatchesSlider extends Component {
   constructor(props) {
@@ -22,9 +23,7 @@ class MatchesSlider extends Component {
   updateData() {
     const { season, regnumber } = this.props
 
-    fetch(
-      `${this.apiServerUrl}/seasons/${season}/matches/upcoming/${regnumber}`
-    )
+    fetch(`${this.apiServerUrl}/seasons/${season}/matches/upcoming/${regnumber}`)
       .then((response) => response.json())
       .then((json) => this.setState({ data: json, loading: false }))
 
@@ -44,7 +43,7 @@ class MatchesSlider extends Component {
   render() {
     if (this.state.loading === false && this.state.data) {
       if (this.state.data.length <= 0) {
-        return <></>
+        return <Fragment></Fragment>
       }
       const settings_slickslider = {
         slidesToShow: 3,
@@ -82,14 +81,10 @@ class MatchesSlider extends Component {
 
       return (
         <div className="matchesSlider--wrapper">
-          <Slider className={"matchesSlider"} {...settings_slickslider}>
+          <Slider className={`matchesSlider`} {...settings_slickslider}>
             {this.state.data.map((match, i) => {
               return (
-                <div
-                  className="matchesSlider__item"
-                  key={i}
-                  data-equalizer-watch="true"
-                >
+                <div className="matchesSlider__item" key={i} data-equalizer-watch="true">
                   <MatchWithLogo match={match} lazyload={false} />
                 </div>
               )
@@ -98,7 +93,7 @@ class MatchesSlider extends Component {
         </div>
       )
     } else {
-      return <div>Loading...</div>
+      return <Spinner />
     }
   }
 }
@@ -115,10 +110,5 @@ const query = graphql`
 `
 
 export default ({ season, regnumber }) => (
-  <StaticQuery
-    query={query}
-    render={(data) => (
-      <MatchesSlider config={data} season={season} regnumber={regnumber} />
-    )}
-  />
+  <StaticQuery query={query} render={(data) => <MatchesSlider config={data} season={season} regnumber={regnumber} />} />
 )

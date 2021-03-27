@@ -1,4 +1,4 @@
-import React, { Component } from "react"
+import React, { Component, Fragment } from "react"
 import LazyLoad from "react-lazy-load"
 
 import { graphql } from "gatsby"
@@ -10,8 +10,9 @@ import { mapPsdStatus } from "../scripts/helper"
 
 import Layout from "../layouts/index"
 import SEO from "../components/seo"
-import Icon from "../components/icon"
+import Icon from "../components/Icon"
 import MiniRanking from "../components/MiniRanking"
+import Spinner from "../components/Spinner"
 
 import iconBench from "../images/i_bench_2.png"
 import iconCardRed from "../images/i_card_red.png"
@@ -116,7 +117,11 @@ class GamePage extends Component {
                   {matchTime.format(`dddd DD MMMM YYYY - H:mm`)}
                 </time>
                 <br />
-                {general.status !== 0 && mapPsdStatus(general.status)}
+
+                {general.status !== 0 && (
+                  <span className={`game__status game__status--${general.status}`}>{mapPsdStatus(general.status)}</span>
+                )}
+
                 <br />
               </div>
               {(homeLineup.length !== 0 || awayLineup.length !== 0) && (
@@ -151,7 +156,9 @@ class GamePage extends Component {
     } else {
       return (
         <Layout>
-          <section className="grid-container site-content">Matchverslag inladen...</section>
+          <section className="grid-container site-content">
+            <Spinner />
+          </section>
         </Layout>
       )
     }
@@ -178,7 +185,7 @@ class GamePage extends Component {
   }
 
   renderEvents(events, homeTeamId) {
-    return <>{events.map((element, i) => this.renderEventLine(i, element, homeTeamId))}</>
+    return <Fragment>{events.map((element, i) => this.renderEventLine(i, element, homeTeamId))}</Fragment>
   }
 
   renderEventLine(i, element, homeTeamId) {
@@ -242,12 +249,12 @@ class GamePage extends Component {
   }
   renderLineup(lineup, substitutes) {
     return (
-      <>
+      <Fragment>
         {this.renderLineupHeader()}
         {lineup.map((element, i) => this.renderLineupLine(i, element))}
         <hr />
         {substitutes.map((element, i) => this.renderSubLine(i, element))}
-      </>
+      </Fragment>
     )
   }
 

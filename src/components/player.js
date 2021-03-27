@@ -1,4 +1,4 @@
-import React, { Component } from "react"
+import React, { Component, Fragment } from "react"
 import { graphql, StaticQuery } from "gatsby"
 import { mapPositionCode } from "../scripts/helper"
 
@@ -7,7 +7,7 @@ import moment from "moment"
 import "./player.scss"
 import { Link } from "gatsby"
 
-import Icon from "../components/icon"
+import Icon from "../components/Icon"
 
 import iconCleansheet from "../images/i_cleansheet.png"
 import iconCardRed from "../images/i_card_red.png"
@@ -357,9 +357,9 @@ class PlayerDetail extends Component {
         <span className={`player-detail__data-item__data`}>
           {player.field_join_date || `Onbekend`}
           {!currentlyPlaying && (
-            <>
+            <Fragment>
               <span className={`text--regular`}> en </span> {player.field_date_leave}
-            </>
+            </Fragment>
           )}
         </span>
       </div>
