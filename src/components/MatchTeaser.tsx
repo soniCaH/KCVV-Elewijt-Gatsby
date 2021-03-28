@@ -77,12 +77,12 @@ export const MatchTeaserDetail: FunctionComponent<MatchTeaserDetailProps> = ({ m
         >
           <LazyLoad debounce={false}>
             <img
-              src={match.awayClub.logo}
-              alt={match.awayClub.name}
+              src={match.awayClub?.logo}
+              alt={match.awayClub?.name}
               className="match__teaser__logo match__teaser__logo--away"
             />
           </LazyLoad>
-          {match.awayClub.abbreviation || match.awayClub.name}
+          {match.awayClub?.abbreviation || match.awayClub?.name}
         </div>
       </main>
     </article>
