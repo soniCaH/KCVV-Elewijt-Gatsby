@@ -2,6 +2,7 @@ import React, { Component, Fragment } from "react"
 import { graphql, StaticQuery } from "gatsby"
 import "./matches-overview.scss"
 import MatchWithLogo from "./match-with-logo"
+import Spinner from "./Spinner"
 
 class MatchesOverviewDetails extends Component {
   constructor(props) {
@@ -45,16 +46,10 @@ class MatchesOverviewDetails extends Component {
 
   render() {
     if (this.state.loading === false && this.state.data) {
-      this.state.data.sort(
-        (a, b) => a.dateTime - b.dateTime || a.division - b.division
-      )
+      this.state.data.sort((a, b) => a.dateTime - b.dateTime || a.division - b.division)
 
       if (this.state.data.length <= 0) {
-        return (
-          <div className="matches_overview__wrapper">
-            Geen wedstrijden gevonden.
-          </div>
-        )
+        return <div className="matches_overview__wrapper">Geen wedstrijden gevonden.</div>
       }
 
       const ignore = this.props.exclude || []
@@ -71,7 +66,7 @@ class MatchesOverviewDetails extends Component {
         </div>
       )
     } else {
-      return <div>Loading...</div>
+      return <Spinner />
     }
   }
 }

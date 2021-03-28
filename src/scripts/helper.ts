@@ -1,17 +1,12 @@
-/**
- * Map a statusCode to a descriptive label.
- *
- * @param {string} statusCode
- */
 export function mapMatchStatus(statusCode) {
   const statusCodes = new Map([
-    ["PP", "Uitgesteld"],
-    ["ST", "Stopgezet"],
-    ["F1", "Forfait"],
-    ["FI", "Forfait"],
-    ["F2", "Forfait"],
-    ["FF", "Forfait"],
-    ["AMC", "Algemeen forfait"],
+    [`PP`, `Uitgesteld`],
+    [`ST`, `Stopgezet`],
+    [`F1`, `Forfait`],
+    [`FI`, `Forfait`],
+    [`F2`, `Forfait`],
+    [`FF`, `Forfait`],
+    [`AMC`, `Algemeen forfait`],
   ])
 
   return statusCodes.get(statusCode) || null
@@ -58,23 +53,19 @@ export function replaceFirstCharIfNumber(division) {
  * @param {array} divisionArray
  * @param {string} level
  */
-export function outputDivision(divisionArray, level = "") {
-  if (divisionArray[0] === "BCA") {
+export function outputDivision(divisionArray, level = ``) {
+  if (divisionArray[0] === `BCA`) {
     return `Beker van Brabant`
-  } else if (divisionArray[0] === "ESCA") {
+  } else if (divisionArray[0] === `ESCA`) {
     return `Beker voor B-ploegen`
-  } else if (divisionArray[0] === "FR") {
+  } else if (divisionArray[0] === `FR`) {
     return `Vriendschappelijk`
-  } else if (divisionArray[0] === "BVZ") {
+  } else if (divisionArray[0] === `BVZ`) {
     return `Beker van Zemst`
   } else if (divisionArray[2] <= 4) {
-    return `${divisionArray[2]}e ${level !== "nat" ? "Prov." : "Nationale"} ${
-      divisionArray[3]
-    }`
+    return `${divisionArray[2]}e ${level !== `nat` ? `Prov.` : `Nationale`} ${divisionArray[3]}`
   } else {
-    return `U${divisionArray[2]} / ${divisionArray[3]}${
-      divisionArray[4] ? ` / ${divisionArray[4]}` : ""
-    }`
+    return `U${divisionArray[2]} / ${divisionArray[3]}${divisionArray[4] ? ` / ${divisionArray[4]}` : ``}`
   }
 }
 
@@ -84,9 +75,7 @@ export function outputDivision(divisionArray, level = "") {
  * @param {string} division
  */
 export function mapDivision(division) {
-  return /^([A-Z]+)?(\d+)?([a-zA-Z]+)(\d*)$/.exec(
-    replaceFirstCharIfNumber(division)
-  )
+  return /^([A-Z]+)?(\d+)?([a-zA-Z]+)(\d*)$/.exec(replaceFirstCharIfNumber(division))
 }
 
 /**
@@ -111,11 +100,7 @@ export function truncate(size, useWordBoundary = true) {
     return this
   }
   var subString = this.substr(0, size - 1)
-  return (
-    (useWordBoundary
-      ? subString.substr(0, subString.lastIndexOf(" "))
-      : subString) + "…"
-  )
+  return (useWordBoundary ? subString.substr(0, subString.lastIndexOf(` `)) : subString) + `…`
 }
 
 /**
@@ -134,31 +119,42 @@ export function mapPositionCode(positionCode) {
  */
 export function getPositions() {
   const positions = new Map([
-    ["k", "Doelman"],
-    ["d", "Verdediger"],
-    ["m", "Middenvelder"],
-    ["a", "Aanvaller"],
+    [`k`, `Doelman`],
+    [`d`, `Verdediger`],
+    [`m`, `Middenvelder`],
+    [`a`, `Aanvaller`],
   ])
   return positions
 }
 
 export function mapPsdStatus(statusCode) {
   const statusCodes = new Map([
-    [0, "Gepland"],
-    [1, "Forfait"],
-    [2, "Afgelast"],
-    [3, "Onderbroken"],
-  ]);
+    [0, `Gepland`],
+    [1, `Forfait`],
+    [2, `Afgelast`],
+    [3, `Onderbroken`],
+  ])
+
+  return statusCodes.get(statusCode) || null
+}
+
+export function mapPsdStatusShort(statusCode) {
+  const statusCodes = new Map([
+    [0, ``],
+    [1, `FF`],
+    [2, `AFG`],
+    [3, `STOP`],
+  ])
 
   return statusCodes.get(statusCode) || null
 }
 
 export function translateGameResult(result) {
   const statusCodes = new Map([
-    ["WON", "Gewonnen"],
-    ["EQUAL", "Gelijkgespeeld"],
-    ["LOST", "Verloren"],
-  ]);
+    [`WON`, `Gewonnen`],
+    [`EQUAL`, `Gelijkgespeeld`],
+    [`LOST`, `Verloren`],
+  ])
   return statusCodes.get(result) || null
 }
 
@@ -170,5 +166,6 @@ export default {
   mapPositionCode,
   getPositions,
   mapPsdStatus,
-  translateGameResult
+  mapPsdStatusShort,
+  translateGameResult,
 }
