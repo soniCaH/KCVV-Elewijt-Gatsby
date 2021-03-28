@@ -75,6 +75,6 @@
   package = 'netlify-plugin-search-index'
   # all inputs are optional, we just show you the defaults below
   [plugins.inputs]
-    exclude = ['/news.html', '''\/news\/[1-9]+''', '/404.html']
+    exclude = ['/news.html', '/news/index.html', '''\/news\/[1-9]+''', '/404.html', '/404/index.html', ''''\/404\/''']
     # generatedFunctionName = 'search' # change the name of generated folder in case of conflicts, use `null` to turn off
     # publishDirJSONFileName = 'searchIndex' # also use null to turn off
