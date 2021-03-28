@@ -2,6 +2,7 @@ import React, { Fragment } from "react"
 import { graphql, useStaticQuery } from "gatsby"
 
 import "./MiniRanking.scss"
+import Spinner from "./Spinner"
 
 class MiniRanking extends React.Component<MiniRankingProps, MiniRankingState> {
   kcvvPsdApi: string
@@ -101,7 +102,7 @@ class MiniRanking extends React.Component<MiniRankingProps, MiniRankingState> {
         </Fragment>
       )
     } else {
-      return <div>Loading...</div>
+      return <Spinner />
     }
   }
 

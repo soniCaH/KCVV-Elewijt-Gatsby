@@ -2,7 +2,7 @@ import React from "react"
 import { useStaticQuery, graphql } from "gatsby"
 
 import { translateGameResult } from "../scripts/helper"
-import Icon from "../components/icon"
+import Icon from "../components/Icon"
 
 import iconCleansheet from "../images/i_cleansheet.png"
 import iconCardRed from "../images/i_card_red.png"
@@ -11,6 +11,7 @@ import iconGoal from "../images/i_goal.png"
 
 import "./TeamStats.scss"
 import Card from "./Card"
+import Spinner from "./Spinner"
 
 class TeamStats extends React.Component<TeamStatsProps, TeamStatsState> {
   public static defaultProps = {
@@ -130,7 +131,7 @@ class TeamStats extends React.Component<TeamStatsProps, TeamStatsState> {
         </Card>
       )
     } else {
-      return <div>Loading</div>
+      return <Spinner />
     }
   }
 

@@ -4,7 +4,7 @@ import "./matches-overview.scss"
 import moment from "moment"
 import { mapMatchStatus, formatDivision } from "../scripts/helper"
 import "moment/locale/nl-be"
-
+import Spinner from "./Spinner"
 class MatchesOverview extends Component {
   constructor(props) {
     super(props)
@@ -23,9 +23,7 @@ class MatchesOverview extends Component {
   updateData() {
     const { season, regnumber } = this.props
 
-    fetch(
-      `${this.apiServerUrl}/seasons/${season}/matches/upcoming/${regnumber}`
-    )
+    fetch(`${this.apiServerUrl}/seasons/${season}/matches/upcoming/${regnumber}`)
       .then((response) => response.json())
       .then((json) => this.setState({ data: json, loading: false }))
 
@@ -47,14 +45,10 @@ class MatchesOverview extends Component {
       this.state.data.sort((a, b) => a.dateTime - b.dateTime)
 
       if (this.state.data.length <= 0) {
-        return (
-          <div className="matches_overview__wrapper">
-            Geen wedstrijden gevonden.
-          </div>
-        )
+        return <div className="matches_overview__wrapper">Geen wedstrijden gevonden.</div>
       }
 
-      moment.locale("nl-be")
+      moment.locale(`nl-be`)
       let matchTime = moment()
 
       const ignore = this.props.exclude || []
@@ -69,19 +63,13 @@ class MatchesOverview extends Component {
             matchTime = moment(match.dateTime)
             return (
               <div key={i}>
-                <span className={"label"}>
-                  {formatDivision(match.division, match.region)}
-                </span>
-                <span className={"matches_overview__date"}>
-                  {matchTime.format("ddd D MMMM - H:mm")}
-                </span>
+                <span className={`label`}>{formatDivision(match.division, match.region)}</span>
+                <span className={`matches_overview__date`}>{matchTime.format(`ddd D MMMM - H:mm`)}</span>
 
                 {match.status ? (
-                  <span className={"label alert matches_overview__status"}>
-                    {mapMatchStatus(match.status)}
-                  </span>
+                  <span className={`label alert matches_overview__status`}>{mapMatchStatus(match.status)}</span>
                 ) : (
-                  ""
+                  ``
                 )}
                 <h6>
                   {match.home} - {match.away}
@@ -92,7 +80,7 @@ class MatchesOverview extends Component {
         </div>
       )
     } else {
-      return <div>Loading...</div>
+      return <Spinner />
     }
   }
 }
@@ -111,13 +99,6 @@ const query = graphql`
 export default ({ season, regnumber, exclude }) => (
   <StaticQuery
     query={query}
-    render={(data) => (
-      <MatchesOverview
-        config={data}
-        season={season}
-        regnumber={regnumber}
-        exclude={exclude}
-      />
-    )}
+    render={(data) => <MatchesOverview config={data} season={season} regnumber={regnumber} exclude={exclude} />}
   />
 )
