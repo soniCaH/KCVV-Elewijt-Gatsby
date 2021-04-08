@@ -55,6 +55,7 @@ class PlayerDetail extends Component {
     fetch(apiUrl)
       .then((response) => response.json())
       .then((json) => this.setState({ data: json, loading: false }))
+      .catch(() => this.setState({ data: {}, loading: false }))
   }
 
   componentDidMount() {
@@ -93,8 +94,6 @@ class PlayerDetail extends Component {
   renderPlayerStats = (player) => {
     if (this.state.loading === false && this.state.data) {
       const { playerStatistics = [] } = this.state.data
-
-      console.log(playerStatistics.reduce((a, b) => a + b?.gamesPlayed, 0))
 
       return (
         <aside className={`player-detail__statistics`}>
