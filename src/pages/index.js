@@ -6,7 +6,7 @@ import Layout from "../layouts/index"
 import SEO from "../components/seo"
 import MetaMatches from "../components/meta-matches"
 import MatchesOverview from "../components/matches-overview"
-import MatchesSlider from "../components/matches-slider"
+import MatchesSlider from "../components/MatchesSlider"
 import {
   NewsItemFeatured,
   NewsItemCardRatio,
@@ -23,7 +23,7 @@ import  Card  from "../components/Card"
 class IndexPage extends Component {
   renderMatchSlider = () => (
     <section className={"grid-container full"}>
-      <MatchesSlider season="2021" regnumber="00055" />
+      <MatchesSlider />
     </section>
   )
   renderSocialMediaArticle = () => (

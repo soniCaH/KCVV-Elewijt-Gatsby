@@ -11,6 +11,7 @@ import { mapPsdStatus, mapPsdStatusShort } from "../scripts/helper"
 
 import "./Matches.scss"
 import Icon from "./Icon"
+import Spinner from "./Spinner"
 
 const MatchesRow: FunctionComponent<MatchesRowProps> = ({ match }: MatchesRowProps) => {
   const d = Moment.tz(match.date, `Europe/Brussels`)
@@ -108,6 +109,7 @@ const Matches: FunctionComponent<MatchesProps> = ({ teamId }: MatchesProps) => {
 
   return (
     <div className={`matches__wrapper`}>
+      {data || <Spinner />}
       {data
         .sort((a, b) => a.timestamp - b.timestamp)
         .map((match, i) => (
