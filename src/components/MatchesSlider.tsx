@@ -12,7 +12,6 @@ import Spinner from "./Spinner"
 const MatchesSlider: FunctionComponent = () => {
   const [data, setData] = useState<Match[]>([])
 
-  // https://s9nksrfku8.execute-api.eu-west-1.amazonaws.com/prod/matches/next
   const {
     site: {
       siteMetadata: { kcvvPsdApi },
