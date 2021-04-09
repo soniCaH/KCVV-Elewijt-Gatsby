@@ -34,7 +34,7 @@ const MatchesRow: FunctionComponent<MatchesRowProps> = ({ match }: MatchesRowPro
             "matches__calendar__team--winner": matchPlayed && match.goalsHomeTeam > match.goalsAwayTeam,
           })}
         >
-          {match.homeClub.abbreviation || match.homeClub.name}
+          {match.homeClub.name}
 
           <LazyLoad debounce={false}>
             <img
@@ -69,7 +69,7 @@ const MatchesRow: FunctionComponent<MatchesRowProps> = ({ match }: MatchesRowPro
               className="matches__calendar__logo matches__calendar__logo--away"
             />
           </LazyLoad>
-          {match.awayClub?.abbreviation || match.awayClub?.name}
+          {match.awayClub?.name}
         </div>
 
         <Link to={`/game/${match.id}`} className="matches__calendar__link">

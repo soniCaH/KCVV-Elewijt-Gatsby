@@ -60,7 +60,7 @@ export const MatchTeaserDetail: FunctionComponent<MatchTeaserDetailProps> = ({ m
               className="match__teaser__logo match__teaser__logo--home"
             />
           </LazyLoad>
-          {match.homeClub.abbreviation || match.homeClub.name}
+          {match.homeClub.name}
         </div>
 
         {matchPlayed || <span className="match__teaser__vs">vs</span>}
@@ -82,7 +82,7 @@ export const MatchTeaserDetail: FunctionComponent<MatchTeaserDetailProps> = ({ m
               className="match__teaser__logo match__teaser__logo--away"
             />
           </LazyLoad>
-          {match.awayClub?.abbreviation || match.awayClub?.name}
+          {match.awayClub?.name}
         </div>
       </main>
     </article>
