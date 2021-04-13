@@ -4,31 +4,27 @@ import { graphql, Link } from "gatsby"
 import Layout from "../layouts/index"
 
 import SEO from "../components/seo"
-import MetaMatches from "../components/meta-matches"
 import MatchesOverview from "../components/matches-overview"
 import MatchesSlider from "../components/MatchesSlider"
-import {
-  NewsItemFeatured,
-  NewsItemCardRatio,
-  KcvvTvCard,
-} from "../components/news-item"
+import MatchesTabs from "../components/MatchesTabs"
+import { NewsItemFeatured, NewsItemCardRatio, KcvvTvCard } from "../components/news-item"
 import { CardImage } from "../components/cards"
 import UpcomingEvent from "../components/upcoming-event"
 import PlayerFeatured from "../components/player--featured"
 
 import MyMakro from "../images/tag-mymakro.png"
 import Trooper from "../images/tag-trooper.png"
-import  Card  from "../components/Card"
+import Card from "../components/Card"
 
 class IndexPage extends Component {
   renderMatchSlider = () => (
-    <section className={"grid-container full"}>
+    <section className={`grid-container full`}>
       <MatchesSlider />
     </section>
   )
   renderSocialMediaArticle = () => (
-    <article className={"medium-6 large-12 cell social"}>
-      <div className={"social-sidebar__wrapper"}>
+    <article className={`medium-6 large-12 cell social`}>
+      <div className={`social-sidebar__wrapper`}>
         <a
           href="https://facebook.com/KCVVElewijt"
           className="btn-social-counter btn-social-counter--fb"
@@ -38,9 +34,7 @@ class IndexPage extends Component {
           <div className="btn-social-counter__icon">
             <i className="fa fa-facebook"></i>
           </div>
-          <h5 className="btn-social-counter__title">
-            Volg onze Facebook pagina
-          </h5>
+          <h5 className="btn-social-counter__title">Volg onze Facebook pagina</h5>
         </a>
         <a
           href="https://twitter.com/kcvve"
@@ -68,22 +62,22 @@ class IndexPage extends Component {
     </article>
   )
   renderMakroArticle = () => (
-    <Card className={"medium-6 large-12 cell card"} title="MyMakro">
+    <Card className={`medium-6 large-12 cell card`} title="MyMakro">
       <p>
-        Link nu jouw Makro voordeelkaart aan onze vereniging. Bij elke aankoop
-        bij Makro en partners steun je KCVV Elewijt!
+        Link nu jouw Makro voordeelkaart aan onze vereniging. Bij elke aankoop bij Makro en partners steun je KCVV
+        Elewijt!
       </p>
       <p>
-        <img src={MyMakro} alt="QR Code MyMakro" style={{ width: "100%" }} />
+        <img src={MyMakro} alt="QR Code MyMakro" style={{ width: `100%` }} />
       </p>
       <p>
-        Scan bovenstaande QR-code met je camera op GSM, of surf naar{" "}
+        Scan bovenstaande QR-code met je camera op GSM, of surf naar{` `}
         <a
           href="https://my.makro.be/nl/link-vereniging/02277464"
           target="_blank"
           rel="noopener noreferrer"
           title="MyMakro link voor KCVV Elewijt"
-          className={"rich-link"}
+          className={`rich-link`}
         >
           https://my.makro.be/nl/link-vereniging/02277464
         </a>
@@ -93,94 +87,71 @@ class IndexPage extends Component {
     </Card>
   )
   renderTrooperArticle = () => (
-    <Card className={"medium-6 large-12 cell card"} title="Trooper">
+    <Card className={`medium-6 large-12 cell card`} title="Trooper">
       <p>
-        Trooper werkt samen met een groot aantal webshops die zich in de kijker
-        willen zetten. In ruil voor een extra klik via Trooper krijgen wij een
-        percentje op jouw volgende bestelling.
+        Trooper werkt samen met een groot aantal webshops die zich in de kijker willen zetten. In ruil voor een extra
+        klik via Trooper krijgen wij een percentje op jouw volgende bestelling.
       </p>
       <p>
-        <img src={Trooper} alt="QR Code Trooper" style={{ width: "100%" }} />
+        <img src={Trooper} alt="QR Code Trooper" style={{ width: `100%` }} />
       </p>
       <p>
-        Scan bovenstaande QR-code met je camera op GSM, of surf naar{" "}
+        Scan bovenstaande QR-code met je camera op GSM, of surf naar{` `}
         <a
           href="https://trooper.be/kcvvelewijt"
           target="_blank"
           rel="noopener noreferrer"
           title="Trooper link voor KCVV Elewijt"
-          className={"rich-link"}
+          className={`rich-link`}
         >
           https://trooper.be/kcvvelewijt
         </a>
         .
       </p>
       <p>
-        <a
-          href="/news/2020-04-12-steun-kcvv-elewijt-trooper-mymakro"
-          className={"rich-link"}
-        >
+        <a href="/news/2020-04-12-steun-kcvv-elewijt-trooper-mymakro" className={`rich-link`}>
           Lees er hier meer over!
         </a>
       </p>
     </Card>
   )
   renderYouthCalendarArticle = () => (
-    <Card
-      className={"medium-6 large-12 cell"}
-      title="Jeugdploegen"
-      hasTable={true}
-    >
+    <Card className={`medium-6 large-12 cell`} title="Jeugdploegen" hasTable={true}>
       <MatchesOverview season="2021" regnumber="00055" exclude="['2A', '4E']" />
     </Card>
   )
 
   renderBTeamCalendarArticle = () => (
-    <Card
-      className={"medium-6 large-12 cell"}
-      title="The B-Team"
-      hasTable={true}
-    >
-      <MetaMatches season="2021" region="bra" division="4E" regnumber="00055" />
+    <Card className={`medium-6 large-12 cell`} title="The B-Team" hasTable={true}>
+      <MatchesTabs teamId="2" />
     </Card>
   )
   renderATeamCalendarArticle = () => (
-    <Card
-      className={"medium-6 large-12 cell"}
-      title="The A-Team"
-      hasTable={true}
-    >
-      <MetaMatches season="2021" region="bra" division="2A" regnumber="00055" />
+    <Card className={`medium-6 large-12 cell`} title="The A-Team" hasTable={true}>
+      <MatchesTabs teamId="1" />
     </Card>
   )
 
   renderTablebooker = () => (
     <>
-      <Card
-        className={"medium-6 large-12 cell card"}
-        title="Mosselfestijn"
-        titleIcon="fa-cutlery"
-      >
+      <Card className={`medium-6 large-12 cell card`} title="Mosselfestijn" titleIcon="fa-cutlery">
         <p>
-          Op vrijdag 9, zaterdag 10 en zondag 11 oktober 2020 vindt ons
-          jaarlijkse Mosselfestijn weer plaats. Om de spreiding te kunnen
-          garanderen en wachttijden aan de ingang zoveel mogelijk te beperken
-          werken we dit jaar met een reservatiesysteem. Hieronder kan je zelf
-          jouw gewenste tijdstip en gezelschap selecteren en een tafel boeken
-          (voor 07/10/2020).
+          Op vrijdag 9, zaterdag 10 en zondag 11 oktober 2020 vindt ons jaarlijkse Mosselfestijn weer plaats. Om de
+          spreiding te kunnen garanderen en wachttijden aan de ingang zoveel mogelijk te beperken werken we dit jaar met
+          een reservatiesysteem. Hieronder kan je zelf jouw gewenste tijdstip en gezelschap selecteren en een tafel
+          boeken (voor 07/10/2020).
         </p>
         <p>
-          Telefonisch reserveren kan dagelijks tussen 18u en 21u op het nummer{" "}
+          Telefonisch reserveren kan dagelijks tussen 18u en 21u op het nummer{` `}
           <a href="tel:+32498735984">0498.73.59.84</a>
         </p>
         <p>
-          Ter plaatse een tafel vragen kan, naargelang de beschikbaarheid op dat
-          moment, maar hou er rekening mee dat we onze capaciteit hebben moeten
-          verlagen om aan de regelgeving te kunnen voldoen. Wie zeker wil zijn
-          van zijn plek kan beter reserveren.
+          Ter plaatse een tafel vragen kan, naargelang de beschikbaarheid op dat moment, maar hou er rekening mee dat we
+          onze capaciteit hebben moeten verlagen om aan de regelgeving te kunnen voldoen. Wie zeker wil zijn van zijn
+          plek kan beter reserveren.
         </p>
       </Card>
-      <article className={"medium-6 large-12 cell tablebooker"}>
+      <article className={`medium-6 large-12 cell tablebooker`}>
         <tbkr-bm-widget
           restaurant-id="34742560"
           source="website"
@@ -194,17 +165,12 @@ class IndexPage extends Component {
   )
 
   renderWebsiteFeedbackArticle = () => (
-    <Card
-      className={"medium-6 large-12 cell card"}
-      title="Website feedback"
-      titleIcon="fa-commenting-o"
-    >
+    <Card className={`medium-6 large-12 cell card`} title="Website feedback" titleIcon="fa-commenting-o">
       <p>
-        Na lang zwoegen is onze nieuwe website eíndelijk online geraakt! We zijn
-        heel benieuwd naar jullie mening of feedback. Als jullie vinden dat er
-        iets ontbreekt, of als je bepaalde fouten tegenkomt, zouden we het ten
-        zeerste appreciëren als je ons even iets laat weten op{" "}
-        <a href="mailto:website@kcvvelewijt.be" className={"rich-link"}>
+        Na lang zwoegen is onze nieuwe website eíndelijk online geraakt! We zijn heel benieuwd naar jullie mening of
+        feedback. Als jullie vinden dat er iets ontbreekt, of als je bepaalde fouten tegenkomt, zouden we het ten
+        zeerste appreciëren als je ons even iets laat weten op{` `}
+        <a href="mailto:website@kcvvelewijt.be" className={`rich-link`}>
           website@kcvvelewijt.be
         </a>
         !
@@ -214,13 +180,8 @@ class IndexPage extends Component {
   renderExtraContentFooter = (preseason) => (
     <section className="grid-container site-content">
       <div className="grid-x grid-margin-x">
-        <section className={"cell large-12 featured-article"}>
-          <CardImage
-            title="Update voorbereiding 2020-2021"
-            localFile={preseason}
-            link="/games"
-            metadata={false}
-          />
+        <section className={`cell large-12 featured-article`}>
+          <CardImage title="Update voorbereiding 2020-2021" localFile={preseason} link="/games" metadata={false} />
         </section>
       </div>
     </section>
@@ -264,28 +225,23 @@ class IndexPage extends Component {
 
     return posts.map(({ node }, i) => {
       switch (node.internal.type) {
-        case "node__article":
+        case `node__article`:
           node.field_featured && (articleCount = articleCount + 2)
           !node.field_featured && articleCount++
           return (
             <Fragment key={i}>
               {node.field_featured && <NewsItemFeatured node={node} />}
-              {!node.field_featured && (
-                <NewsItemCardRatio node={node} teaser={true} />
-              )}
+              {!node.field_featured && <NewsItemCardRatio node={node} teaser={true} />}
             </Fragment>
           )
-        case "node__kcvv_tv":
+        case `node__kcvv_tv`:
           if (kcvvTvCount === 0) {
             articleCount = articleCount + 2
             kcvvTvCount++
             return (
               <CardImage
                 title={node.title}
-                localFile={
-                  node.relationships.field_media_article_image.relationships
-                    .field_media_image.localFile
-                }
+                localFile={node.relationships.field_media_article_image.relationships.field_media_image.localFile}
                 link={node.field_website.uri}
                 metadata={false}
                 key={i}
@@ -298,18 +254,14 @@ class IndexPage extends Component {
           }
 
         default:
-          return ""
+          return ``
       }
     })
   }
 
   combineAndSortPosts = (featuredPosts, kcvvTv) => {
     return [...featuredPosts.edges, ...kcvvTv.edges].sort((a, b) =>
-      a.node.timestamp < b.node.timestamp
-        ? 1
-        : b.node.timestamp < a.node.timestamp
-        ? -1
-        : 0
+      a.node.timestamp < b.node.timestamp ? 1 : b.node.timestamp < a.node.timestamp ? -1 : 0
     )
   }
 
@@ -465,11 +417,7 @@ export const pageQuery = graphql`
         }
       }
     }
-    featuredPlayer: allNodePotw(
-      sort: { fields: created, order: DESC }
-      filter: { status: { eq: true } }
-      limit: 1
-    ) {
+    featuredPlayer: allNodePotw(sort: { fields: created, order: DESC }, filter: { status: { eq: true } }, limit: 1) {
       edges {
         node {
           relationships {

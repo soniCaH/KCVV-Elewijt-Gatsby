@@ -109,7 +109,7 @@ const Matches: FunctionComponent<MatchesProps> = ({ teamId }: MatchesProps) => {
 
   return (
     <div className={`matches__wrapper`}>
-      {data || <Spinner />}
+      {data.length > 0 || <Spinner />}
       {data
         .sort((a, b) => a.timestamp - b.timestamp)
         .map((match, i) => (

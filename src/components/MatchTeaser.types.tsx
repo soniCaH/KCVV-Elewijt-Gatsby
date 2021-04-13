@@ -1,14 +1,17 @@
 interface MatchTeaserDetailProps {
   match: Match
+  includeRankings?: boolean
 }
 
 interface MatchTeaserProps {
   teamId: number
   action: string
+  includeRankings?: boolean
 }
 
 interface MatchTeasersProps {
   teamId: number
+  includeRankings?: boolean
 }
 
 interface MatchTeam {

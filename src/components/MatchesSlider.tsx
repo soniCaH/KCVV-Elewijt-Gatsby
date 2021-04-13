@@ -74,12 +74,11 @@ const MatchesSlider: FunctionComponent = () => {
 
   return (
     <div className="matches_slider__wrapper">
-      {data || <Spinner />}
+      {data.length > 0 || <Spinner />}
       <Slider className={`matches_slider`} {...settings_slickslider}>
         {data
           .sort((a, b) => a.timestamp - b.timestamp)
-          .map((match, i) => {
-            console.log(match)
+          .map((match: Match, i) => {
             return (
               <div className="matches_slider__item" key={i} data-equalizer-watch="true">
                 <MatchTeaserDetail match={match} />
