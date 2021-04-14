@@ -4,7 +4,7 @@ import { graphql, Link } from "gatsby"
 import Layout from "../layouts/index"
 
 import SEO from "../components/seo"
-import MatchesOverview from "../components/matches-overview"
+import MatchesOverview from "../components/MatchesOverview"
 import MatchesSlider from "../components/MatchesSlider"
 import MatchesTabs from "../components/MatchesTabs"
 import { NewsItemFeatured, NewsItemCardRatio, KcvvTvCard } from "../components/news-item"
@@ -117,7 +117,7 @@ class IndexPage extends Component {
   )
   renderYouthCalendarArticle = () => (
     <Card className={`medium-6 large-12 cell`} title="Jeugdploegen" hasTable={true}>
-      <MatchesOverview season="2021" regnumber="00055" exclude="['2A', '4E']" />
+      <MatchesOverview exclude={[`1`, `2`]} action="next" />
     </Card>
   )
 

@@ -1,6 +1,6 @@
 import React, { Component, Fragment } from "react"
 import { graphql, StaticQuery } from "gatsby"
-import "./matches-overview.scss"
+import "./MatchesOverview.scss"
 import MatchWithLogo from "./match-with-logo"
 import Spinner from "./Spinner"
 

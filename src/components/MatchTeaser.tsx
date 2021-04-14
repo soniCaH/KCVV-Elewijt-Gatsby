@@ -45,7 +45,6 @@ export const MatchTeaserDetail: FunctionComponent<MatchTeaserDetailProps> = ({
               </time>
               <time className="match__teaser__datetime match__teaser__datetime--time" dateTime={d.format(`H:mm`)}>
                 {d.format(`H:mm`)}
-                {` `}
               </time>
             </Fragment>
           )}
