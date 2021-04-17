@@ -1,10 +1,10 @@
 import React, { Component, Fragment } from "react"
 
 // import './index.scss'
-import PageHeader from "../components/page-header"
-import { PageHeaderMobile } from "../components/page-header"
+import PageHeader, { PageHeaderMobile } from "../components/page-header"
 import PageFooter from "../components/page-footer"
 
+import $ from "jquery"
 import { forceCheck } from "react-lazyload"
 
 class Layout extends Component {
@@ -28,7 +28,6 @@ class Layout extends Component {
   }
 
   componentDidMount() {
-    const $ = require(`jquery`)
     // eslint-disable-next-line
     const foundation = require("foundation-sites")
     $(document).foundation()
@@ -38,12 +37,12 @@ class Layout extends Component {
         const url = $(this).attr(`href`)
         const hash = url.substring(url.indexOf(`#`))
 
-        $(`.team-sub_navigation a[href="${hash}"]`).click()
+        $(`.team-sub_navigation a[href="${hash}"]`).trigger(`click`, [true])
       }
     })
 
     if (window.location.hash) {
-      $(`.team-sub_navigation a[href="${window.location.hash}"]`).click()
+      $(`.team-sub_navigation a[href="${window.location.hash}"]`).trigger(`click`, [true])
     }
     $(`.tabs`).on(`change.zf.tabs`, function () {
       forceCheck()
