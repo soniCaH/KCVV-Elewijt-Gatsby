@@ -5,7 +5,7 @@ import Layout from "../layouts/index"
 
 import SEO from "../components/seo"
 import { CardImage } from "../components/cards"
-import MatchesOverview from "../components/matches-overview"
+import MatchesOverview from "../components/MatchesOverview"
 
 class JeugdPage extends Component {
   render() {
@@ -22,36 +22,36 @@ class JeugdPage extends Component {
 
         <section className="grid-container site-content">
           <div className="grid-x grid-margin-x">
-            <section className={"cell large-12 youth_teams__overview"}>
-              <Link to="/jeugd/u15/" className={"btn btn--arrow"}>
+            <section className={`cell large-12 youth_teams__overview`}>
+              <Link to="/jeugd/u15/" className={`btn btn--arrow`}>
                 U15
               </Link>
-              <Link to="/jeugd/u13/" className={"btn btn--arrow"}>
+              <Link to="/jeugd/u13/" className={`btn btn--arrow`}>
                 U13
               </Link>
-              <Link to="/jeugd/u12/" className={"btn btn--arrow"}>
+              <Link to="/jeugd/u12/" className={`btn btn--arrow`}>
                 U12
               </Link>
-              <Link to="/jeugd/u11/" className={"btn btn--arrow"}>
+              <Link to="/jeugd/u11/" className={`btn btn--arrow`}>
                 U11
               </Link>
-              <Link to="/jeugd/u10/" className={"btn btn--arrow"}>
+              <Link to="/jeugd/u10/" className={`btn btn--arrow`}>
                 U10
               </Link>
-              <Link to="/jeugd/u9/" className={"btn btn--arrow"}>
+              <Link to="/jeugd/u9/" className={`btn btn--arrow`}>
                 U9
               </Link>
-              <Link to="/jeugd/u8/" className={"btn btn--arrow"}>
+              <Link to="/jeugd/u8/" className={`btn btn--arrow`}>
                 U8
               </Link>
-              <Link to="/jeugd/u7/" className={"btn btn--arrow"}>
+              <Link to="/jeugd/u7/" className={`btn btn--arrow`}>
                 U7
               </Link>
-              <Link to="/jeugd/u6/" className={"btn btn--arrow"}>
+              <Link to="/jeugd/u6/" className={`btn btn--arrow`}>
                 U6
               </Link>
             </section>
-            <section className={"cell large-12 featured-article"}>
+            <section className={`cell large-12 featured-article`}>
               <CardImage
                 title="Leerplannen voor de jeugdwerking"
                 localFile={data.leerplan}
@@ -59,13 +59,9 @@ class JeugdPage extends Component {
                 metadata={false}
               />
             </section>
-            <section className={"cell large-12 featured-article"}>
+            <section className={`cell large-12 featured-article`}>
               <h2 style={{ marginTop: `${2}rem` }}>Volgende wedstrijden</h2>
-              <MatchesOverview
-                season="2021"
-                regnumber="00055"
-                exclude="['2A', '4E']"
-              />
+              <MatchesOverview exclude={[`1`, `2`]} />
             </section>
           </div>
         </section>

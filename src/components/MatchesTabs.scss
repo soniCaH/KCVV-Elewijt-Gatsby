@@ -1,0 +1,70 @@
+.team_matches__tabs {
+  .ranking__wrapper {
+    margin-bottom: 0;
+    margin-left: 0;
+    margin-right: 0;
+  }
+
+  .ranking {
+    h4 {
+      display: none;
+    }
+
+    &+.ranking {
+      display: none;
+    }
+
+    th,
+    td {
+      &:nth-child(3) {
+        display: none;
+      }
+
+      &:nth-child(4) {
+        display: none;
+      }
+
+      &:nth-child(5) {
+        display: none;
+      }
+
+      &:nth-child(6) {
+        display: none;
+      }
+
+      &:nth-child(7) {
+        display: none;
+      }
+
+      &:nth-child(8) {
+        display: none;
+      }
+
+      &:nth-child(9) {
+        display: none;
+      }
+    }
+  }
+
+  table,
+  tbody,
+  thead {
+    border: none;
+  }
+
+  td {
+    font-weight: normal;
+  }
+
+  .match__teaser {
+    table {
+      margin: 0 -1em;
+      width: calc(100% + 2em);
+    }
+  }
+
+  .match__teaser__no_match {
+    padding: 1em;
+  }
+
+}

@@ -1,12 +1,12 @@
 import React, { Component } from "react"
 
-import MatchesOverviewDetails from "../../components/matches-overview-details"
+import MatchesOverview from "../../components/MatchesOverview"
 
 class GamesPage extends Component {
   render() {
     return (
-      <div className={"kiosk__matches"}>
-        <MatchesOverviewDetails season="2021" regnumber="00055" />
+      <div className={`kiosk__matches`}>
+        <MatchesOverview action="next" details={true} />
       </div>
     )
   }

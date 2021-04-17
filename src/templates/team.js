@@ -94,7 +94,7 @@ const TeamTemplate = ({ data }) => {
           <section className={`team-sub_navigation`}>
             {/* Foundation tabs structure */}
             <ul
-              className={`tabs team-sub_navigation__tabs `}
+              className={`tabs team-sub_navigation__tabs`}
               data-tabs
               data-deep-link="true"
               data-update-history="true"
