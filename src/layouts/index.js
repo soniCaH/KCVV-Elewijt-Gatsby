@@ -38,12 +38,12 @@ class Layout extends Component {
         const url = $(this).attr(`href`)
         const hash = url.substring(url.indexOf(`#`))
 
-        $(`.team-sub_navigation a[href="${hash}"]`).click()
+        $(`.team-sub_navigation a[href="${hash}"]`).trigger(`click`, [true])
       }
     })
 
     if (window.location.hash) {
-      $(`.team-sub_navigation a[href="${window.location.hash}"]`).click()
+      $(`.team-sub_navigation a[href="${window.location.hash}"]`).trigger(`click`, [true])
     }
     $(`.tabs`).on(`change.zf.tabs`, function () {
       forceCheck()
