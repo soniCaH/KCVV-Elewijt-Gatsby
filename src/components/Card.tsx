@@ -5,7 +5,7 @@ import Icon from "./Icon"
 
 import "./Card.scss"
 
-const Card: FunctionComponent<CardProps> = ({ className, hasTable, title, titleIcon, children }) => (
+const Card: FunctionComponent<CardProps> = ({ className, hasTable, title, titleIcon = ``, children }) => (
   <article
     className={classNames(`card`, className, {
       "card--has-table": hasTable,
