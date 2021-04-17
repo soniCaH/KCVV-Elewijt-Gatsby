@@ -48,7 +48,6 @@ const MatchesOverview: FunctionComponent<MatchesOverviewProps> = ({
         params = { include: include.join() }
       }
       if (exclude.length > 0) {
-        console.log(exclude)
         params = { exclude: exclude.join() }
       }
 
