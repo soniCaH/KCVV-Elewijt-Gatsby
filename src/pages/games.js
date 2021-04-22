@@ -3,7 +3,6 @@ import React, { Component } from "react"
 import Layout from "../layouts/index"
 
 import SEO from "../components/seo"
-import MatchWithLogo from "../components/match-with-logo"
 
 class GamesPage extends Component {
   render() {
@@ -196,19 +195,7 @@ class GamesPage extends Component {
             organiseren. Hieronder vind je het nieuwe oefenschema van KCVV
             Elewijt.
           </p>
-          <MatchWithLogo match={wedstrijd1} />
-          <MatchWithLogo match={wedstrijd16} />
-          <MatchWithLogo match={wedstrijd11} />
-          <MatchWithLogo match={wedstrijd6} />
-          <MatchWithLogo match={wedstrijd21} />
-          <MatchWithLogo match={wedstrijd20} />
-          <MatchWithLogo match={wedstrijd13} />
-          <MatchWithLogo match={wedstrijd24} />
-          <MatchWithLogo match={wedstrijd19} />
-          <MatchWithLogo match={wedstrijd17} />
-          <MatchWithLogo match={wedstrijd23} />
-          <MatchWithLogo match={wedstrijd2} />
-          <MatchWithLogo match={wedstrijd18} />
+          @TODO: Make teasers.
         </div>
       </Layout>
     )

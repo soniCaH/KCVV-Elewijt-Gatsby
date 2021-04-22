@@ -1,31 +1,35 @@
 @import "~slick-carousel/slick/slick.css";
 @import "~slick-carousel/slick/slick-theme.css";
 
-.matchesSlider--wrapper {
+.matches_slider__wrapper {
   background: white;
   padding: 2em 0;
 
   .slick-slide {
     padding: .5rem;
+    height: inherit !important;
+
+    div,
+    article {
+      height: 100%;
+    }
+
+    >div {
+      height: calc(100% - 20px);
+    }
 
     article {
-      box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
       margin-bottom: 20px;
     }
   }
-}
 
-.slick-track
-{
+  .slick-track {
     display: flex !important;
+  }
 }
 
-.slick-slide
-{
-    height: inherit !important;
-}
-
-.matchesSlider {
+.matches_slider {
   .slick-arrow {
     background: var(--color-green-dark);
     height: 100px;
@@ -51,11 +55,11 @@
     z-index: 5;
   }
 
-  .match-details__logo {
+  .match__teaser__logo {
     max-height: 100px;
   }
 }
 
-.matchesSlider__item {
+.matches_slider__item {
   padding: 0 1em;
 }

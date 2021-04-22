@@ -25,6 +25,7 @@ interface MatchTeam {
 
 interface Match {
   id: number
+  time: string
   competitionType: string
   timestamp: number
   date: string

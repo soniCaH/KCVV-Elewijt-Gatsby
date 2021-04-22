@@ -10,8 +10,12 @@ import "moment/locale/nl-be"
 import { mapPsdStatus } from "../scripts/helper"
 
 import "./MatchTeaser.scss"
+import MiniRanking from "./MiniRanking"
 
-export const MatchTeaserDetail: FunctionComponent<MatchTeaserDetailProps> = ({ match }: MatchTeaserDetailProps) => {
+export const MatchTeaserDetail: FunctionComponent<MatchTeaserDetailProps> = ({
+  match,
+  includeRankings = false,
+}: MatchTeaserDetailProps) => {
   Moment.locale(`nl-BE`)
   const d = Moment.tz(match.date, `Europe/Brussels`)
   const matchPlayed = (match.status === 0 && match.goalsHomeTeam !== null && match.goalsAwayTeam !== null) || false
@@ -41,7 +45,6 @@ export const MatchTeaserDetail: FunctionComponent<MatchTeaserDetailProps> = ({ m
               </time>
               <time className="match__teaser__datetime match__teaser__datetime--time" dateTime={d.format(`H:mm`)}>
                 {d.format(`H:mm`)}
-                {` `}
               </time>
             </Fragment>
           )}
@@ -60,7 +63,7 @@ export const MatchTeaserDetail: FunctionComponent<MatchTeaserDetailProps> = ({ m
               className="match__teaser__logo match__teaser__logo--home"
             />
           </LazyLoad>
-          {match.homeClub.abbreviation || match.homeClub.name}
+          {match.homeClub.name}
         </div>
 
         {matchPlayed || <span className="match__teaser__vs">vs</span>}
@@ -77,19 +80,30 @@ export const MatchTeaserDetail: FunctionComponent<MatchTeaserDetailProps> = ({ m
         >
           <LazyLoad debounce={false}>
             <img
-              src={match.awayClub.logo}
-              alt={match.awayClub.name}
+              src={match.awayClub?.logo}
+              alt={match.awayClub?.name}
               className="match__teaser__logo match__teaser__logo--away"
             />
           </LazyLoad>
-          {match.awayClub.abbreviation || match.awayClub.name}
+          {match.awayClub?.name}
         </div>
       </main>
+      {includeRankings && (
+        <MiniRanking
+          teamId={match.homeTeamId || match.awayTeamId}
+          homeTeam={match.homeClub.name}
+          awayTeam={match.awayClub?.name}
+        />
+      )}
     </article>
   )
 }
 
-export const MatchTeaser: FunctionComponent<MatchTeaserProps> = ({ teamId, action }: MatchTeaserProps) => {
+export const MatchTeaser: FunctionComponent<MatchTeaserProps> = ({
+  teamId,
+  action,
+  includeRankings = false,
+}: MatchTeaserProps) => {
   if (action !== `prev` && action !== `next`) {
     throw new Error(`Invalid action provided`)
   }
@@ -120,12 +134,19 @@ export const MatchTeaser: FunctionComponent<MatchTeaserProps> = ({ teamId, actio
     getData()
   }, [])
 
-  return <Fragment>{data.length > 0 && <MatchTeaserDetail match={data[0]} />}</Fragment>
+  if (data.length > 0) {
+    return <MatchTeaserDetail match={data[0]} includeRankings={includeRankings} />
+  } else {
+    return <div className="match__teaser__no_match">Geen wedstrijd gevonden</div>
+  }
 }
 
-export const MatchTeasers: FunctionComponent<MatchTeasersProps> = ({ teamId }: MatchTeasersProps) => (
+export const MatchTeasers: FunctionComponent<MatchTeasersProps> = ({
+  teamId,
+  includeRankings = false,
+}: MatchTeasersProps) => (
   <div className="match__teasers">
-    <MatchTeaser teamId={teamId} action="prev" />
-    <MatchTeaser teamId={teamId} action="next" />
+    <MatchTeaser teamId={teamId} action="prev" includeRankings={includeRankings} />
+    <MatchTeaser teamId={teamId} action="next" includeRankings={includeRankings} />
   </div>
 )
