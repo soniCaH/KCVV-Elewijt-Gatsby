@@ -20,10 +20,10 @@ const Search: FunctionComponent = () => {
   async function searchData(e: ChangeEvent<HTMLInputElement>) {
     console.log(e.target)
     console.log(
-      `https://deploy-preview-384--kcvvelewijt.netlify.app/.netlify/functions/searchIndex?search=${e.target.value}&limit=25`
+      `https://deploy-preview-384--kcvvelewijt.netlify.app/.netlify/functions/search?search=${e.target.value}&limit=25`
     )
     const result = await fetch(
-      `https://deploy-preview-384--kcvvelewijt.netlify.app/.netlify/functions/searchIndex?search=${e.target.value}&limit=25`
+      `https://deploy-preview-384--kcvvelewijt.netlify.app/.netlify/functions/search?search=${e.target.value}&limit=25`
     ).then((x) => x.json())
     console.log(result)
   }
