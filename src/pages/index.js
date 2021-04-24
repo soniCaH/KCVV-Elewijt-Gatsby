@@ -350,7 +350,7 @@ export const pageQuery = graphql`
   query {
     featuredPosts: allNodeArticle(
       filter: { status: { eq: true }, promote: { eq: true } }
-      sort: { fields: changed, order: DESC }
+      sort: { fields: created, order: DESC }
       limit: 10
     ) {
       edges {
