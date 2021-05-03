@@ -149,6 +149,17 @@ export function mapPsdStatusShort(statusCode) {
   return statusCodes.get(statusCode) || null
 }
 
+export function mapPsdStatusIcon(statusCode) {
+  const statusCodes = new Map([
+    [0, ``],
+    [1, `fa-times`],
+    [2, `fa-times`],
+    [3, `fa-ban`],
+  ])
+
+  return statusCodes.get(statusCode) || null
+}
+
 export function translateGameResult(result) {
   const statusCodes = new Map([
     [`WON`, `Gewonnen`],
@@ -167,5 +178,6 @@ export default {
   getPositions,
   mapPsdStatus,
   mapPsdStatusShort,
+  mapPsdStatusIcon,
   translateGameResult,
 }
