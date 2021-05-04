@@ -291,11 +291,11 @@ class PlayerDetail extends Component {
                     <td data-label="Thuis/uit" className={`player-detail__column player-detail__column--number`}>
                       {game.home ? (
                         <span className={`player-detail__games__home`} title="Thuiswedstrijd">
-                          H
+                          <Icon icon="fa-home" alt="Thuiswedstrijd" />
                         </span>
                       ) : (
                         <span className={`player-detail__games__away`} title="Uitwedstrijd">
-                          A
+                          <Icon icon="fa-bus" alt="Uitwedstrijd" />
                         </span>
                       )}
                     </td>
