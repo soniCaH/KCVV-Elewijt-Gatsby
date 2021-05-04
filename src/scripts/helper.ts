@@ -169,6 +169,10 @@ export function translateGameResult(result) {
   return statusCodes.get(result) || null
 }
 
+export function capitalizeFirstLetter(string) {
+  return string.charAt(0).toUpperCase() + string.slice(1)
+}
+
 export default {
   mapMatchStatus,
   mapDivision,
@@ -180,4 +184,5 @@ export default {
   mapPsdStatusShort,
   mapPsdStatusIcon,
   translateGameResult,
+  capitalizeFirstLetter,
 }

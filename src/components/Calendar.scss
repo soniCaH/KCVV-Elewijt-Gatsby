@@ -1,0 +1,40 @@
+.calendar__event {
+  background: #FFF;
+  padding: 1em;
+
+  p {
+    margin-bottom: 0;
+
+    & + p {
+      margin-top: 1rem;
+    }
+  }
+}
+
+.calendar__date {
+  color: var(--color-gray-medium);
+  text-transform: uppercase;
+}
+
+.calendar__type {
+  background: var(--color-green-dark);
+  color: #FFF;
+  border-radius: 5px;
+  padding: .1em .25em;
+
+  &--game {
+    background: var(--color-green-dark);
+  }
+  &--training {
+    background: #fa9600;
+  }
+  &--agenda {
+    background: var(--color-green);
+  }
+}
+
+.calendar__status {
+  &--cancelled {
+    color: #9e0808;
+  }
+}
