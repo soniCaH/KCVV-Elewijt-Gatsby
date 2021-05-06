@@ -16,7 +16,7 @@ class CalendarPage extends Component {
           path="/club/calendar"
         />
 
-        <section className="limited-width_wrapper">
+        <section className="limited-width_wrapper club__calendar">
           <h1>Club kalender</h1>
           <Calendar />
         </section>

@@ -1,3 +1,5 @@
+@import '../styles/_mixins';
+
 .calendar__event {
   background: #FFF;
   padding: 1em;
@@ -5,29 +7,43 @@
   p {
     margin-bottom: 0;
 
-    & + p {
+    &+p {
       margin-top: 1rem;
     }
   }
 }
 
+.events__date_group {
+  &:first-of-type {
+    h2 {
+      @include featured-border;
+    }
+  }
+}
+
 .calendar__date {
-  color: var(--color-gray-medium);
   text-transform: uppercase;
+  font-family: "Montserrat", Verdana, sans-serif;
+  margin-bottom: .35rem;
 }
 
 .calendar__type {
+  text-transform: uppercase;
   background: var(--color-green-dark);
   color: #FFF;
+  display: inline-block;
   border-radius: 5px;
-  padding: .1em .25em;
+  padding: .2em .65em;
+  margin-bottom: .35rem;
 
   &--game {
     background: var(--color-green-dark);
   }
+
   &--training {
     background: #fa9600;
   }
+
   &--agenda {
     background: var(--color-green);
   }
@@ -36,5 +52,46 @@
 .calendar__status {
   &--cancelled {
     color: #9e0808;
+  }
+}
+
+.events__wrapper {
+  h2 {
+    color: var(--color-gray-medium);
+  }
+}
+
+.events__date {
+  display: flex;
+  overflow-x: scroll;
+  padding-top: 1rem;
+  margin-bottom: 2rem;
+
+  article {
+    min-width: 300px;
+    min-height: 350px;
+    height: 100%;
+    padding: 1.25rem;
+    border-radius: 16px;
+    transition: .2s;
+    margin: 0;
+    position: relative;
+
+    &+ article {
+      margin: 0;
+    }
+
+    &:not(:first-child) {
+      margin-left: -80px;
+      box-shadow: -2rem 0 3rem -2rem var(--color-gray-light);
+    }
+
+    &:hover {
+      transform: translateY(-1rem);
+
+      ~article {
+        transform: translateX(80px);
+      }
+    }
   }
 }

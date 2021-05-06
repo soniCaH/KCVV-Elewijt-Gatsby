@@ -99,7 +99,7 @@ export function truncate(size, useWordBoundary = true) {
   if (this.length <= size) {
     return this
   }
-  var subString = this.substr(0, size - 1)
+  const subString = this.substr(0, size - 1)
   return (useWordBoundary ? subString.substr(0, subString.lastIndexOf(` `)) : subString) + `…`
 }
 
@@ -173,6 +173,27 @@ export function capitalizeFirstLetter(string) {
   return string.charAt(0).toUpperCase() + string.slice(1)
 }
 
+export function groupByDate(data) {
+  const groups = data.reduce((groups, object) => {
+    const date = object.start.split(` `)[0]
+    if (!groups[date]) {
+      groups[date] = []
+    }
+    groups[date].push(object)
+    return groups
+  }, {})
+
+  // Edit: to add it in the array format instead
+  const groupArrays = Object.keys(groups).map((date) => {
+    return {
+      date,
+      objects: groups[date],
+    }
+  })
+
+  return groupArrays
+}
+
 export default {
   mapMatchStatus,
   mapDivision,
@@ -185,4 +206,5 @@ export default {
   mapPsdStatusIcon,
   translateGameResult,
   capitalizeFirstLetter,
+  groupByDate,
 }
