@@ -1,0 +1,113 @@
+@import '../styles/_mixins';
+
+.calendar__event {
+  background: #FFF;
+  padding: 1em;
+
+  border-style: solid;
+  border-width: 0 0 0 2px;
+  border-image: linear-gradient(to bottom, var(--color-green-dark) 5%, var(--color-green) 90%) 1;
+
+  p {
+    margin-bottom: 0;
+
+    &+p {
+      margin-top: 1rem;
+    }
+  }
+}
+
+.events__date_group {
+  position: relative;
+
+  // &:first-of-type {
+    h2 {
+      @include featured-border;
+    }
+  // }
+}
+
+.calendar__date {
+  text-transform: uppercase;
+  font-family: "Montserrat", Verdana, sans-serif;
+  margin-bottom: .35rem;
+}
+
+.calendar__type {
+  text-transform: uppercase;
+  background: var(--color-green-dark);
+  color: #FFF;
+  display: inline-block;
+  font-family: "Montserrat", Verdana, sans-serif;
+  font-size: .85rem;
+  border-radius: 5px;
+  padding: .2em .65em;
+  margin-bottom: .35rem;
+
+  &--game {
+    background: var(--color-green-dark);
+  }
+
+  &--training {
+    background: #fa9600;
+  }
+
+  &--agenda {
+    background: var(--color-green);
+  }
+}
+
+.calendar__status {
+  &--cancelled {
+    color: #9e0808;
+  }
+}
+
+.events__date {
+  display: flex;
+  background: #edeff4;
+  overflow-x: scroll;
+  padding: 1rem 0 0;
+  margin-bottom: 2rem;
+  position: relative;
+
+  article {
+    min-width: 300px;
+    min-height: 350px;
+    height: 100%;
+    padding: 1.25rem;
+    // border-radius: 16px;
+    transition: .2s;
+    margin: 0;
+    position: relative;
+
+    &+article {
+      margin: 0;
+    }
+
+    &:not(:first-child) {
+      margin-left: -80px;
+      box-shadow: -2rem 1rem 3rem -2rem var(--color-gray-light);
+    }
+
+    &:hover {
+      transform: translateY(-1rem);
+
+      ~article {
+        transform: translateX(80px);
+      }
+    }
+  }
+
+  &::-webkit-scrollbar {
+    width: 0.75em;
+    height: 0.75em;
+    margin-top: 1rem;
+    position: relative;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background: linear-gradient(to right, var(--color-green-dark) 5%, var(--color-green) 90%);
+    border-radius: 3px;
+  }
+}

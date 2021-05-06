@@ -99,7 +99,7 @@ export function truncate(size, useWordBoundary = true) {
   if (this.length <= size) {
     return this
   }
-  var subString = this.substr(0, size - 1)
+  const subString = this.substr(0, size - 1)
   return (useWordBoundary ? subString.substr(0, subString.lastIndexOf(` `)) : subString) + `…`
 }
 
@@ -149,6 +149,17 @@ export function mapPsdStatusShort(statusCode) {
   return statusCodes.get(statusCode) || null
 }
 
+export function mapPsdStatusIcon(statusCode) {
+  const statusCodes = new Map([
+    [0, ``],
+    [1, `fa-times`],
+    [2, `fa-times`],
+    [3, `fa-ban`],
+  ])
+
+  return statusCodes.get(statusCode) || null
+}
+
 export function translateGameResult(result) {
   const statusCodes = new Map([
     [`WON`, `Gewonnen`],
@@ -156,6 +167,31 @@ export function translateGameResult(result) {
     [`LOST`, `Verloren`],
   ])
   return statusCodes.get(result) || null
+}
+
+export function capitalizeFirstLetter(string) {
+  return string.charAt(0).toUpperCase() + string.slice(1)
+}
+
+export function groupByDate(data) {
+  const groups = data.reduce((groups, object) => {
+    const date = object.start.split(` `)[0]
+    if (!groups[date]) {
+      groups[date] = []
+    }
+    groups[date].push(object)
+    return groups
+  }, {})
+
+  // Edit: to add it in the array format instead
+  const groupArrays = Object.keys(groups).map((date) => {
+    return {
+      date,
+      objects: groups[date],
+    }
+  })
+
+  return groupArrays
 }
 
 export default {
@@ -167,5 +203,8 @@ export default {
   getPositions,
   mapPsdStatus,
   mapPsdStatusShort,
+  mapPsdStatusIcon,
   translateGameResult,
+  capitalizeFirstLetter,
+  groupByDate,
 }
