@@ -82,7 +82,7 @@ const MatchesOverview: FunctionComponent<MatchesOverviewProps> = ({
                     ``
                   )}
                   <h6>
-                    {match.homeClub.name} - {match.awayClub.name}
+                    {match.homeClub?.name} - {match.awayClub?.name}
                   </h6>
                 </div>
               )
