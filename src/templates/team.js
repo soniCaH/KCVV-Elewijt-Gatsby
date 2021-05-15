@@ -2,7 +2,7 @@ import { graphql } from "gatsby"
 import React, { Fragment } from "react"
 import SEO from "../components/seo"
 import Layout from "../layouts/index"
-import Img from "gatsby-image"
+import { GatsbyImage } from "gatsby-plugin-image";
 import { TeamSection } from "../components/team--section"
 import "./team.scss"
 
@@ -33,11 +33,10 @@ const TeamTemplate = ({ data }) => {
   const picture = node.relationships.field_media_article_image
   // Create a fluid/responsive team image instance.
   const teamPicture = picture && (
-    <Img
-      fluid={picture.relationships.field_media_image.localFile.childImageSharp.fluid}
+    <GatsbyImage
+      image={picture.relationships.field_media_image.localFile.childImageSharp.gatsbyImageData}
       alt={picture.field_media_image.alt}
-      className={`team-detail__team-picture`}
-    />
+      className={`team-detail__team-picture`} />
   )
 
   // Helper variable so we don't have to do the check over and over again.

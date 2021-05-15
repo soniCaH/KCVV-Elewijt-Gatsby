@@ -74,7 +74,7 @@ class PlayerDetail extends Component {
         className={`player-detail__bg-avatar`}
         style={
           player.relationships.field_image && {
-            backgroundImage: `url(${player.relationships.field_image.localFile.childImageSharp.fixed.src})`,
+            backgroundImage: `url(${player.relationships.field_image.localFile.childImageSharp.gatsbyImageData.src})`,
           }
         }
       />

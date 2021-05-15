@@ -2,7 +2,7 @@ import React from "react"
 import { graphql, Link } from "gatsby"
 import Layout from "../layouts/index"
 import SEO from "../components/seo"
-import Img from "gatsby-image"
+import { GatsbyImage } from "gatsby-plugin-image";
 
 import Share from "../components/share"
 
@@ -25,17 +25,16 @@ const ArticleTemplate = ({ data }) => {
 
   const aspectRatio =
     post.relationships.field_media_article_image.relationships.field_media_image
-      .localFile.childImageSharp.fluid
+      .localFile.childImageSharp.gatsbyImageData
 
   const image = (
-    <Img
-      fluid={{
+    <GatsbyImage
+      image={{
         ...post.relationships.field_media_article_image.relationships
-          .field_media_image.localFile.childImageSharp.fluid,
+          .field_media_image.localFile.childImageSharp.gatsbyImageData,
         aspectRatio: aspectRatio > 1 ? 2.5 / 1 : 1.5 / 1,
       }}
-      alt={post.title}
-    />
+      alt={post.title} />
   )
 
   const ogImage = {

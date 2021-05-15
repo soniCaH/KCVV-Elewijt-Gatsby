@@ -82,7 +82,7 @@ export class NewsItemCardRatio extends Component {
 
     const aspectRatio =
       node.relationships.field_media_article_image.relationships
-        .field_media_image.localFile.childImageSharp.fluid.aspectRatio
+        .field_media_image.localFile.childImageSharp.gatsbyImageData.aspectRatio
 
     if (aspectRatio >= 1) {
       return <NewsItemCard node={node} teaser={teaser} />

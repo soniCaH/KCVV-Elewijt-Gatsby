@@ -36,7 +36,7 @@ const wrapper = (promise) =>
 // data layer is bootstrapped to let plugins create pages from data.
 exports.createPages = async ({ graphql, actions }) => {
   const { createPage } = actions
-  const articleTemplate = path.resolve(`src/templates/article.js`)
+  const articleTemplate = path.resolve(`src/templates/Article.tsx`)
   const pageTemplate = path.resolve(`src/templates/page.js`)
   const teamTemplate = path.resolve(`src/templates/team.js`)
   const playerTemplate = path.resolve(`src/templates/player.js`)

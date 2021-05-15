@@ -1,6 +1,6 @@
 import React, { Component } from "react"
 import { Link } from "gatsby"
-import Img from "gatsby-image"
+import { GatsbyImage } from "gatsby-plugin-image";
 
 import Icon from "./Icon"
 
@@ -23,13 +23,12 @@ export class Card extends Component {
     } = this.props
 
     const image = (
-      <Img
-        fluid={{
-          ...localFile.childImageSharp.fluid,
+      <GatsbyImage
+        image={{
+          ...localFile.childImageSharp.gatsbyImageData,
           aspectRatio: 3 / 2,
         }}
-        alt={title}
-      />
+        alt={title} />
     )
 
     const absoluteUrlRegex = /^https?:\/\/|^\/\//i
@@ -96,13 +95,12 @@ export class CardImage extends Component {
     const absoluteUrlRegex = /^https?:\/\/|^\/\//i
 
     const image = (
-      <Img
-        fluid={{
-          ...localFile.childImageSharp.fluid,
+      <GatsbyImage
+        image={{
+          ...localFile.childImageSharp.gatsbyImageData,
           aspectRatio: 2 / 1,
         }}
-        alt={title}
-      />
+        alt={title} />
     )
 
     const content = (
@@ -138,12 +136,11 @@ export class SingleImageCard extends Component {
     const absoluteUrlRegex = /^https?:\/\/|^\/\//i
 
     const image = (
-      <Img
-        fluid={{
-          ...localFile.childImageSharp.fluid,
+      <GatsbyImage
+        image={{
+          ...localFile.childImageSharp.gatsbyImageData,
           aspectRatio: 2 / 1,
-        }}
-      />
+        }} />
     )
 
     return (
@@ -174,13 +171,12 @@ export class CardVertical extends Component {
     const absoluteUrlRegex = /^https?:\/\/|^\/\//i
 
     const image = (
-      <Img
-        fluid={{
-          ...localFile.childImageSharp.fluid,
+      <GatsbyImage
+        image={{
+          ...localFile.childImageSharp.gatsbyImageData,
           aspectRatio: 6 / 8,
         }}
-        alt={title}
-      />
+        alt={title} />
     )
 
     return (
