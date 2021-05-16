@@ -14,14 +14,13 @@ export interface RelatedArticle {
 }
 
 export interface DrupalArticle {
-  // path: { alias: string }
-  // created: string
-  // body: { processed: string; summary: string }
+  path: { alias: string }
+  created: string
+  body: { processed: string; summary: string }
   title: string
   relationships: {
-    //   uid: { display_name: string }
-    //   field_related_content: RelatedArticle[]
-    //
+    uid: { display_name: string }
+    field_related_content: RelatedArticle[]
     field_media_article_image: {
       relationships: {
         field_media_image: {
@@ -31,7 +30,7 @@ export interface DrupalArticle {
         }
       }
     }
-    // field_tags: DrupalTags[]
+    field_tags: DrupalTags[]
   }
 }
 

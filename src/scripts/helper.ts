@@ -194,6 +194,10 @@ export function groupByDate(data) {
   return groupArrays
 }
 
+export function replaceAll(source: string, search: string, replacement: string) {
+  return source.replace(new RegExp(search, `g`), replacement)
+}
+
 export default {
   mapMatchStatus,
   mapDivision,
@@ -207,4 +211,5 @@ export default {
   translateGameResult,
   capitalizeFirstLetter,
   groupByDate,
+  replaceAll,
 }

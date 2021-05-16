@@ -16,7 +16,7 @@ export const KCVVFullWidth = graphql`
 export const KCVVHeroImage = graphql`
   fragment KCVVHeroImage on File {
     childImageSharp {
-      gatsbyImageData(placeholder: DOMINANT_COLOR, layout: FULL_WIDTH)
+      gatsbyImageData(placeholder: DOMINANT_COLOR, layout: CONSTRAINED)
     }
   }
 `
