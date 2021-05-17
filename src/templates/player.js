@@ -4,7 +4,7 @@ import Layout from "../layouts/index"
 import SEO from "../components/seo"
 import PlayerDetail from "../components/player"
 
-// import './article.scss'
+// import './ArticleStyle.scss'
 
 const PlayerTemplate = ({ data }) => {
   const node = data.nodePlayer

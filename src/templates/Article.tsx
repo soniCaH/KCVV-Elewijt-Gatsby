@@ -7,7 +7,7 @@ import { FunctionComponent } from "react"
 import { GatsbyImage, getImage, getSrc, StaticImage } from "gatsby-plugin-image"
 import { ArticleQuery } from "./Article.types"
 
-import "./Article.scss"
+import "./ArticleStyle.scss"
 import { replaceAll } from "../scripts/helper"
 
 const Article: FunctionComponent<ArticleQuery> = ({ data }: ArticleQuery) => {

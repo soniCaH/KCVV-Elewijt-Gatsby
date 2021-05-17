@@ -4,7 +4,7 @@ import Layout from "../layouts/index"
 import SEO from "../components/seo"
 import { GatsbyImage } from "gatsby-plugin-image";
 
-import "./article.scss"
+import "./ArticleStyle.scss"
 
 // eslint-disable-next-line
 String.prototype.replaceAll = function (search, replacement) {

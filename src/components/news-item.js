@@ -10,9 +10,7 @@ import "./news-item.scss"
 export class NewsItemCard extends Component {
   render() {
     const { node, teaser = false } = this.props
-    const localFile =
-      node.relationships.field_media_article_image.relationships
-        .field_media_image.localFile
+    const localFile = node.relationships.field_media_article_image.relationships.field_media_image.localFile
     const summary = teaser && node.body.summary
 
     const relatedTags = node.relationships.field_tags || []
@@ -27,7 +25,7 @@ export class NewsItemCard extends Component {
         tags={relatedTags}
         created={node.created}
         key={node.nid}
-        className={"test"}
+        className={`test`}
       />
     )
   }
@@ -39,17 +37,9 @@ export class NewsItemCard extends Component {
 export class NewsItemFeatured extends Component {
   render() {
     const { node } = this.props
-    const localFile =
-      node.relationships.field_media_article_image.relationships
-        .field_media_image.localFile
+    const localFile = node.relationships.field_media_article_image.relationships.field_media_image.localFile
 
-    return (
-      <CardImage
-        title={node.title}
-        localFile={localFile}
-        link={node.path.alias}
-      />
-    )
+    return <CardImage title={node.title} localFile={localFile} link={node.path.alias} />
   }
 }
 
@@ -59,17 +49,9 @@ export class NewsItemFeatured extends Component {
 export class NewsItemSquare extends Component {
   render() {
     const { node } = this.props
-    const localFile =
-      node.relationships.field_media_article_image.relationships
-        .field_media_image.localFile
+    const localFile = node.relationships.field_media_article_image.relationships.field_media_image.localFile
 
-    return (
-      <CardVertical
-        title={node.title}
-        localFile={localFile}
-        link={node.path.alias}
-      />
-    )
+    return <CardVertical title={node.title} localFile={localFile} link={node.path.alias} />
   }
 }
 
@@ -81,8 +63,8 @@ export class NewsItemCardRatio extends Component {
     const { node, teaser = false } = this.props
 
     const aspectRatio =
-      node.relationships.field_media_article_image.relationships
-        .field_media_image.localFile.childImageSharp.gatsbyImageData.aspectRatio
+      node.relationships.field_media_article_image.relationships.field_media_image.localFile.childImageSharp
+        .gatsbyImageData.aspectRatio
 
     if (aspectRatio >= 1) {
       return <NewsItemCard node={node} teaser={teaser} />
@@ -98,14 +80,12 @@ export class NewsItemCardRatio extends Component {
 export class KcvvTvCard extends Component {
   render() {
     const { node } = this.props
-    const localFile =
-      node.relationships.field_media_article_image.relationships
-        .field_media_image.localFile
+    const localFile = node.relationships.field_media_article_image.relationships.field_media_image.localFile
     const summary = `${node.title}<br/><br/>Bekijk hier het wedstrijdverslag, interviews, nabespreking... en stem voor je man van de match!`
     return (
       <Card
-        title={"KCVV TV"}
-        icon={"fa-facebook-square"}
+        title={`KCVV TV`}
+        icon={`fa-facebook-square`}
         body={summary}
         localFile={localFile}
         link={node.field_website.uri}
