@@ -1,6 +1,8 @@
 import React, { Component } from "react"
 
 import { Card, CardImage, CardVertical } from "./cards"
+import { GatsbyImage, getImage, getSrc, StaticImage } from "gatsby-plugin-image"
+
 
 import "./news-item.scss"
 
@@ -62,9 +64,10 @@ export class NewsItemCardRatio extends Component {
   render() {
     const { node, teaser = false } = this.props
 
-    const aspectRatio =
+    const { gatsbyImageData: heroImage } =
       node.relationships.field_media_article_image.relationships.field_media_image.localFile.childImageSharp
-        .gatsbyImageData.aspectRatio
+
+    const aspectRatio = heroImage.width / heroImage.height
 
     if (aspectRatio >= 1) {
       return <NewsItemCard node={node} teaser={teaser} />

@@ -1,6 +1,7 @@
 import React, { Component, Fragment } from "react"
 import { graphql, StaticQuery } from "gatsby"
 import { mapPositionCode } from "../scripts/helper"
+import { getSrc } from "gatsby-plugin-image"
 
 import moment from "moment"
 
@@ -74,7 +75,9 @@ class PlayerDetail extends Component {
         className={`player-detail__bg-avatar`}
         style={
           player.relationships.field_image && {
-            backgroundImage: `url(${player.relationships.field_image.localFile.childImageSharp.gatsbyImageData.src})`,
+            backgroundImage: `url(${getSrc(
+              player.relationships.field_image.localFile.childImageSharp.gatsbyImageData
+            )})`,
           }
         }
       />

@@ -2,7 +2,7 @@ import { graphql } from "gatsby"
 import React, { Fragment } from "react"
 import SEO from "../components/seo"
 import Layout from "../layouts/index"
-import { GatsbyImage } from "gatsby-plugin-image";
+import { GatsbyImage, getSrc } from "gatsby-plugin-image"
 import { TeamSection } from "../components/team--section"
 import "./team.scss"
 
@@ -31,27 +31,25 @@ const TeamTemplate = ({ data }) => {
     node.relationships.field_players.length > 0 && groupByPosition(node.relationships.field_players)
 
   const picture = node.relationships.field_media_article_image
+
   // Create a fluid/responsive team image instance.
   const teamPicture = picture && (
     <GatsbyImage
       image={picture.relationships.field_media_image.localFile.childImageSharp.gatsbyImageData}
       alt={picture.field_media_image.alt}
-      className={`team-detail__team-picture`} />
+      className={`team-detail__team-picture`}
+    />
   )
 
   // Helper variable so we don't have to do the check over and over again.
   const hasDivision = node.field_fb_id || node.field_fb_id_2
 
   const pathUrl = node.path.alias
+
   const ogImage = picture && {
-    src:
-      node.relationships.field_media_article_image.relationships.field_media_image.localFile.childImageSharp.resize.src,
-    width:
-      node.relationships.field_media_article_image.relationships.field_media_image.localFile.childImageSharp.resize
-        .width,
-    height:
-      node.relationships.field_media_article_image.relationships.field_media_image.localFile.childImageSharp.resize
-        .height,
+    src: getSrc(picture.relationships.field_media_image.localFile.childImageSharp.gatsbyImageData),
+    width: picture.relationships.field_media_image.localFile.childImageSharp.gatsbyImageData.width,
+    height: picture.relationships.field_media_image.localFile.childImageSharp.gatsbyImageData.height,
   }
 
   return (
@@ -178,7 +176,7 @@ const TeamTemplate = ({ data }) => {
 }
 
 export const query = graphql`
-  query($slug: String!) {
+  query ($slug: String!) {
     nodeTeam(path: { alias: { eq: $slug } }) {
       path {
         alias
@@ -225,7 +223,7 @@ export const query = graphql`
           }
         }
         field_media_article_image {
-          ...ArticleImage
+          ...FullImage
           field_media_image {
             alt
           }

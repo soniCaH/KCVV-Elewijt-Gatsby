@@ -3,15 +3,15 @@ import { graphql } from "gatsby"
 import Layout from "../layouts/index"
 import SEO from "../components/seo"
 import PlayerDetail from "../components/player-staff"
+import { getSrc } from "gatsby-plugin-image"
 
 const PlayerStaffTemplate = ({ data }) => {
   const node = data.nodeStaff
   const pathUrl = node.path.alias
   const ogImage = node.relationships.field_image && {
-    src: node.relationships.field_image.localFile.childImageSharp.gatsbyImageData.src,
+    src: getSrc(node.relationships.field_image.localFile.childImageSharp.gatsbyImageData),
     width: node.relationships.field_image.localFile.childImageSharp.gatsbyImageData.width,
-    height:
-      node.relationships.field_image.localFile.childImageSharp.gatsbyImageData.height,
+    height: node.relationships.field_image.localFile.childImageSharp.gatsbyImageData.height,
   }
 
   return (
@@ -19,7 +19,7 @@ const PlayerStaffTemplate = ({ data }) => {
       <SEO
         lang="nl-BE"
         title={node.title}
-        description={node.title + " - Staflid KCVV Elewijt"}
+        description={node.title + ` - Staflid KCVV Elewijt`}
         path={pathUrl}
         image={ogImage}
       />
@@ -29,7 +29,7 @@ const PlayerStaffTemplate = ({ data }) => {
 }
 
 export const query = graphql`
-  query($slug: String!) {
+  query ($slug: String!) {
     nodeStaff(path: { alias: { eq: $slug } }) {
       path {
         alias
@@ -61,4 +61,4 @@ export const query = graphql`
   }
 `
 
-export default PlayerStaffTemplate;
+export default PlayerStaffTemplate
