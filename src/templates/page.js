@@ -2,7 +2,7 @@ import React from "react"
 import { graphql } from "gatsby"
 import Layout from "../layouts/index"
 import SEO from "../components/seo"
-import { GatsbyImage } from "gatsby-plugin-image";
+import { GatsbyImage } from "gatsby-plugin-image"
 
 import "./ArticleStyle.scss"
 
@@ -29,7 +29,8 @@ const PageTemplate = ({ data }) => {
             .field_media_image.localFile.childImageSharp.gatsbyImageData,
           aspectRatio: aspectRatio > 1 ? 1.7 / 1 : 2 / 1,
         }}
-        alt={post.title} />
+        alt={post.title}
+      />
     )
   }
 
@@ -71,7 +72,7 @@ const PageTemplate = ({ data }) => {
 }
 
 export const query = graphql`
-  query($slug: String!) {
+  query ($slug: String!) {
     nodePage(path: { alias: { eq: $slug } }) {
       path {
         alias
@@ -89,4 +90,4 @@ export const query = graphql`
   }
 `
 
-export default PageTemplate;
+export default PageTemplate

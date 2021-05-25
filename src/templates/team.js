@@ -28,14 +28,18 @@ const TeamTemplate = ({ data }) => {
 
   // If we have players, group them by their position.
   const playersByPosition =
-    node.relationships.field_players.length > 0 && groupByPosition(node.relationships.field_players)
+    node.relationships.field_players.length > 0 &&
+    groupByPosition(node.relationships.field_players)
 
   const picture = node.relationships.field_media_article_image
 
   // Create a fluid/responsive team image instance.
   const teamPicture = picture && (
     <GatsbyImage
-      image={picture.relationships.field_media_image.localFile.childImageSharp.gatsbyImageData}
+      image={
+        picture.relationships.field_media_image.localFile.childImageSharp
+          .gatsbyImageData
+      }
       alt={picture.field_media_image.alt}
       className={`team-detail__team-picture`}
     />
@@ -47,9 +51,16 @@ const TeamTemplate = ({ data }) => {
   const pathUrl = node.path.alias
 
   const ogImage = picture && {
-    src: getSrc(picture.relationships.field_media_image.localFile.childImageSharp.gatsbyImageData),
-    width: picture.relationships.field_media_image.localFile.childImageSharp.gatsbyImageData.width,
-    height: picture.relationships.field_media_image.localFile.childImageSharp.gatsbyImageData.height,
+    src: getSrc(
+      picture.relationships.field_media_image.localFile.childImageSharp
+        .gatsbyImageData
+    ),
+    width:
+      picture.relationships.field_media_image.localFile.childImageSharp
+        .gatsbyImageData.width,
+    height:
+      picture.relationships.field_media_image.localFile.childImageSharp
+        .gatsbyImageData.height,
   }
 
   return (
@@ -66,9 +77,13 @@ const TeamTemplate = ({ data }) => {
         <header className={`team-detail__header`}>
           <h1 className={`team-detail__name`}>
             {/* > GEWESTELIJKE U13 K */}
-            <span className={`team-detail__name-division`}>{node.field_division_full}</span>
+            <span className={`team-detail__name-division`}>
+              {node.field_division_full}
+            </span>
             {/* > The A-team */}
-            <span className={`team-detail__name-tagline`}>{node.field_tagline}</span>
+            <span className={`team-detail__name-tagline`}>
+              {node.field_tagline}
+            </span>
           </h1>
 
           <div className={`bg-green-mask`}>
@@ -126,7 +141,10 @@ const TeamTemplate = ({ data }) => {
           </section>
         )}
 
-        <div className={`tabs-content`} data-tabs-content="team-subnavigation_tabs">
+        <div
+          className={`tabs-content`}
+          data-tabs-content="team-subnavigation_tabs"
+        >
           <div className={`tabs-panel is-active`} id="team-info">
             {teamPicture || ``}
             {node.field_contact_info && (
@@ -141,20 +159,48 @@ const TeamTemplate = ({ data }) => {
           </div>
           {/* If our page displays staff only (e.g. the "board" page), we change the title. */}
           {node.relationships.field_staff && !playersByPosition && (
-            <main className={`team-detail__lineup team-detail__lineup--staff-only`}>
-              <TeamSection title="Stafleden" lineup={node.relationships.field_staff} />
+            <main
+              className={`team-detail__lineup team-detail__lineup--staff-only`}
+            >
+              <TeamSection
+                title="Stafleden"
+                lineup={node.relationships.field_staff}
+              />
             </main>
           )}
           {playersByPosition && (
             <div className={`tabs-panel`} id="team-lineup">
               <main className={`team-detail__lineup`}>
                 {node.relationships.field_staff && (
-                  <TeamSection title="Stafleden" lineup={node.relationships.field_staff} />
+                  <TeamSection
+                    title="Stafleden"
+                    lineup={node.relationships.field_staff}
+                  />
                 )}
-                {playersByPosition[`k`] && <TeamSection title="Doelmannen" lineup={playersByPosition[`k`]} />}
-                {playersByPosition[`d`] && <TeamSection title="Verdedigers" lineup={playersByPosition[`d`]} />}
-                {playersByPosition[`m`] && <TeamSection title="Middenvelder" lineup={playersByPosition[`m`]} />}
-                {playersByPosition[`a`] && <TeamSection title="Aanvallers" lineup={playersByPosition[`a`]} />}
+                {playersByPosition[`k`] && (
+                  <TeamSection
+                    title="Doelmannen"
+                    lineup={playersByPosition[`k`]}
+                  />
+                )}
+                {playersByPosition[`d`] && (
+                  <TeamSection
+                    title="Verdedigers"
+                    lineup={playersByPosition[`d`]}
+                  />
+                )}
+                {playersByPosition[`m`] && (
+                  <TeamSection
+                    title="Middenvelder"
+                    lineup={playersByPosition[`m`]}
+                  />
+                )}
+                {playersByPosition[`a`] && (
+                  <TeamSection
+                    title="Aanvallers"
+                    lineup={playersByPosition[`a`]}
+                  />
+                )}
               </main>
             </div>
           )}

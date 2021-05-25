@@ -1,6 +1,6 @@
 import React, { Component } from "react"
 import { graphql } from "gatsby"
-import { GatsbyImage } from "gatsby-plugin-image";
+import { GatsbyImage } from "gatsby-plugin-image"
 import ScrollAnimation from "react-animate-on-scroll"
 
 import Layout from "../../layouts/index"
@@ -251,7 +251,8 @@ class HistoryPage extends Component {
               image={{
                 ...history52.childImageSharp.gatsbyImageData,
               }}
-              alt="Figuur 1: SK Elewijt kampioen 52-53" />
+              alt="Figuur 1: SK Elewijt kampioen 52-53"
+            />
             <figcaption>
               <p>Figuur 1: SK Elewijt kampioen 52-53</p>
               <p>
@@ -266,7 +267,7 @@ class HistoryPage extends Component {
           </figure>
         </p>
       </div>
-    );
+    )
   }
   renderItem1958Image = () => {
     const { history58 } = this.props.data
@@ -278,7 +279,8 @@ class HistoryPage extends Component {
               image={{
                 ...history58.childImageSharp.gatsbyImageData,
               }}
-              alt="Figuur 2: SK Elewijt kampioen 58-59" />
+              alt="Figuur 2: SK Elewijt kampioen 58-59"
+            />
             <figcaption>
               <p>Figuur 2: SK Elewijt kampioen 58-59</p>
               <p>
@@ -293,7 +295,7 @@ class HistoryPage extends Component {
           </figure>
         </p>
       </div>
-    );
+    )
   }
 
   renderItemFcElewijtHoogtepunten = () => (
@@ -324,7 +326,8 @@ class HistoryPage extends Component {
               image={{
                 ...history63.childImageSharp.gatsbyImageData,
               }}
-              alt="Figuur 3: FC Elewijt kampioen 63-64" />
+              alt="Figuur 3: FC Elewijt kampioen 63-64"
+            />
             <figcaption>
               <p>Figuur 3: FC Elewijt kampioen 63-64</p>
               <p>
@@ -339,7 +342,7 @@ class HistoryPage extends Component {
           </figure>
         </p>
       </div>
-    );
+    )
   }
 
   renderItemFusieImage = () => {
@@ -353,7 +356,8 @@ class HistoryPage extends Component {
               image={{
                 ...historyfusie.childImageSharp.gatsbyImageData,
               }}
-              alt="Figuur 4: De fusieclub VV Elewijt" />
+              alt="Figuur 4: De fusieclub VV Elewijt"
+            />
             <figcaption>
               <p>
                 Figuur 4: De fusieclub VV Elewijt (rood-wit - op de foto Luc
@@ -365,7 +369,7 @@ class HistoryPage extends Component {
           </figure>
         </p>
       </div>
-    );
+    )
   }
 
   renderItem1971 = () => (
@@ -426,7 +430,8 @@ class HistoryPage extends Component {
               image={{
                 ...historybvb.childImageSharp.gatsbyImageData,
               }}
-              alt="Figuur 5: Crossing Elewijt won de beker van Brabant in 1988" />
+              alt="Figuur 5: Crossing Elewijt won de beker van Brabant in 1988"
+            />
             <figcaption>
               <p>
                 Figuur 5: Crossing Elewijt won de beker van Brabant in 1988 na
@@ -436,7 +441,7 @@ class HistoryPage extends Component {
           </figure>
         </p>
       </div>
-    );
+    )
   }
 
   renderItem1990 = () => (
@@ -502,7 +507,8 @@ class HistoryPage extends Component {
               image={{
                 ...history18.childImageSharp.gatsbyImageData,
               }}
-              alt="Figuur 6: KCVV Elewijt speelt kampioen in 2018-2019 met 79 punten op 90" />
+              alt="Figuur 6: KCVV Elewijt speelt kampioen in 2018-2019 met 79 punten op 90"
+            />
             <figcaption>
               <p>
                 Figuur 6: KCVV Elewijt speelt kampioen in 2018-2019 met 79
@@ -512,7 +518,7 @@ class HistoryPage extends Component {
           </figure>
         </p>
       </div>
-    );
+    )
   }
 
   renderItem2018 = () => (

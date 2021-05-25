@@ -58,7 +58,7 @@ const CategoryPageTemplate = ({ data }) => {
 }
 
 export const query = graphql`
-  query($slug: String!) {
+  query ($slug: String!) {
     articles: allNodeArticle(
       sort: { fields: changed, order: DESC }
       limit: 20
@@ -125,4 +125,4 @@ export const query = graphql`
   }
 `
 
-export default CategoryPageTemplate;
+export default CategoryPageTemplate

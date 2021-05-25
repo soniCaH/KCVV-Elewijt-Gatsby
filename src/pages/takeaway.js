@@ -1,6 +1,6 @@
 import React, { Component } from "react"
 import { graphql } from "gatsby"
-import { GatsbyImage } from "gatsby-plugin-image";
+import { GatsbyImage } from "gatsby-plugin-image"
 
 import Layout from "../layouts/index"
 
@@ -71,11 +71,12 @@ class MosselfestijnPage extends Component {
               image={{
                 ...affiche.childImageSharp.gatsbyImageData,
               }}
-              alt="Sinterklaas Takeaway" />
+              alt="Sinterklaas Takeaway"
+            />
           </main>
         </div>
       </Layout>
-    );
+    )
   }
 }
 
