@@ -16,7 +16,7 @@ export const KCVVFullWidth = graphql`
 export const KCVVHeroImage = graphql`
   fragment KCVVHeroImage on File {
     childImageSharp {
-      gatsbyImageData(placeholder: DOMINANT_COLOR, layout: CONSTRAINED)
+      gatsbyImageData(placeholder: TRACED_SVG, layout: CONSTRAINED)
     }
   }
 `
@@ -24,7 +24,13 @@ export const KCVVHeroImage = graphql`
 export const KCVVFluid960 = graphql`
   fragment KCVVFluid960 on File {
     childImageSharp {
-      gatsbyImageData(width: 960, placeholder: BLURRED, layout: CONSTRAINED)
+      gatsbyImageData(
+        width: 960
+        placeholder: DOMINANT_COLOR
+        layout: CONSTRAINED
+        aspectRatio: 1.5
+        transformOptions: { trim: 100, cropFocus: ATTENTION }
+      )
     }
   }
 `
