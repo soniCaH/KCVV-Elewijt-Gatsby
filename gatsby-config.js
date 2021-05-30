@@ -1,4 +1,4 @@
-require("dotenv").config()
+require(`dotenv`).config()
 
 module.exports = {
   // flags: { PRESERVE_WEBPACK_CACHE: true, FAST_DEV: true, DEV_SSR: true,  PRESERVE_FILE_DOWNLOAD_CACHE: true, PARALLEL_SOURCING: true},
@@ -8,9 +8,9 @@ module.exports = {
     description: `KCVV Elewijt voetbalclub met stamnummer 55 - Er is maar één plezante compagnie`,
     author: `@KevinVRansbeeck`,
     kcvvPsdApi: `${process.env.KCVV_PSD_API}`,
-    siteUrl: "https://www.kcvvelewijt.be",
-    twitterHandle: "kcvve",
-    fbAppId: "679332239478086",
+    siteUrl: `https://www.kcvvelewijt.be`,
+    twitterHandle: `kcvve`,
+    fbAppId: `679332239478086`,
   },
   plugins: [
     `gatsby-plugin-sass`,
@@ -31,11 +31,11 @@ module.exports = {
       },
     },
     {
-      resolve: "gatsby-plugin-google-tagmanager",
+      resolve: `gatsby-plugin-google-tagmanager`,
       options: {
         id: process.env.GATSBY_GTM_ID,
         includeInDevelopment: false,
-        defaultDataLayer: { platform: "gatsby" },
+        defaultDataLayer: { platform: `gatsby`, branch: process.env.BRANCH },
       },
     },
     `gatsby-plugin-preact`,
