@@ -13,10 +13,7 @@ class UpcomingEvent extends Component {
             <Event
               key={i}
               title={node.title}
-              localFile={
-                node.relationships.field_media_image.relationships
-                  .field_media_image.localFile
-              }
+              localFile={node.relationships.field_media_image.relationships.field_media_image.localFile}
               uri={node.field_event_link.uri}
               datetime_start={node.field_daterange.value}
               datetime_end={node.field_daterange.end_value}
@@ -65,6 +62,4 @@ const query = graphql`
   }
 `
 
-export default () => (
-  <StaticQuery query={query} render={(data) => <UpcomingEvent data={data} />} />
-)
+export default () => <StaticQuery query={query} render={(data) => <UpcomingEvent data={data} />} />
