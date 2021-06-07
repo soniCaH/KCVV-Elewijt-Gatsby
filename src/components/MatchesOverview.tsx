@@ -1,4 +1,4 @@
-import React, { Fragment, FunctionComponent, useEffect, useState } from "react"
+import React, { FunctionComponent, useEffect, useState } from "react"
 import { graphql, useStaticQuery } from "gatsby"
 
 import "./MatchesOverview.scss"
@@ -25,6 +25,7 @@ const MatchesOverview: FunctionComponent<MatchesOverviewProps> = ({
   }
 
   const [data, setData] = useState<Match[]>([])
+  const [loading, setLoading] = useState<boolean>(true)
 
   const {
     site: {
@@ -55,6 +56,7 @@ const MatchesOverview: FunctionComponent<MatchesOverviewProps> = ({
         params: params,
       })
       setData(response.data)
+      setLoading(false)
     }
     getData()
   }, [])
@@ -63,32 +65,35 @@ const MatchesOverview: FunctionComponent<MatchesOverviewProps> = ({
 
   return (
     <div className="matches_overview__wrapper">
-      {data.length > 0 || <Spinner />}
-      <div>
-        {data
-          .sort((a, b) => a.timestamp - b.timestamp)
-          .map((match: Match, i) => {
-            if (details) {
-              return <MatchTeaserDetail match={match} key={i} />
-            } else {
-              const matchTime = Moment.tz(match.date, `Europe/Brussels`)
-              return (
-                <div className="matches_overview__item" key={i}>
-                  <span className={`label`}>{match.teamName.replace(`Voetbal : `, ``)}</span>
-                  <span className={`matches_overview__date`}>{matchTime.format(`ddd D MMMM - H:mm`)}</span>
-                  {match.status !== 0 ? (
-                    <span className={`label alert matches_overview__status`}>{mapPsdStatus(match.status)}</span>
-                  ) : (
-                    ``
-                  )}
-                  <h6>
-                    {match.homeClub?.name} - {match.awayClub?.name}
-                  </h6>
-                </div>
-              )
-            }
-          })}
-      </div>
+      {data.length > 0 || loading === false || <Spinner />}
+      {data.length <= 0 && loading === false && <div>Er staan voorlopig geen wedstrijden gepland</div>}
+      {data.length > 0 && (
+        <div>
+          {data
+            .sort((a, b) => a.timestamp - b.timestamp)
+            .map((match: Match, i) => {
+              if (details) {
+                return <MatchTeaserDetail match={match} key={i} />
+              } else {
+                const matchTime = Moment.tz(match.date, `Europe/Brussels`)
+                return (
+                  <div className="matches_overview__item" key={i}>
+                    <span className={`label`}>{match.teamName.replace(`Voetbal : `, ``)}</span>
+                    <span className={`matches_overview__date`}>{matchTime.format(`ddd D MMMM - H:mm`)}</span>
+                    {match.status !== 0 ? (
+                      <span className={`label alert matches_overview__status`}>{mapPsdStatus(match.status)}</span>
+                    ) : (
+                      ``
+                    )}
+                    <h6>
+                      {match.homeClub?.name} - {match.awayClub?.name}
+                    </h6>
+                  </div>
+                )
+              }
+            })}
+        </div>
+      )}
     </div>
   )
 }

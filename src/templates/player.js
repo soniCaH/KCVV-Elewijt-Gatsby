@@ -3,17 +3,23 @@ import { graphql } from "gatsby"
 import Layout from "../layouts/index"
 import SEO from "../components/seo"
 import PlayerDetail from "../components/player"
+import { getSrc } from "gatsby-plugin-image"
 
-// import './article.scss'
+// import './ArticleStyle.scss'
 
 const PlayerTemplate = ({ data }) => {
   const node = data.nodePlayer
   const pathUrl = node.path.alias
   const ogImage = node.relationships.field_image && {
-    src: node.relationships.field_image.localFile.childImageSharp.fixed.src,
-    width: node.relationships.field_image.localFile.childImageSharp.fixed.width,
+    src: getSrc(
+      node.relationships.field_image.localFile.childImageSharp.gatsbyImageData
+    ),
+    width:
+      node.relationships.field_image.localFile.childImageSharp.gatsbyImageData
+        .width,
     height:
-      node.relationships.field_image.localFile.childImageSharp.fixed.height,
+      node.relationships.field_image.localFile.childImageSharp.gatsbyImageData
+        .height,
   }
 
   return (
@@ -21,7 +27,7 @@ const PlayerTemplate = ({ data }) => {
       <SEO
         lang="nl-BE"
         title={node.title}
-        description={node.title + " - (ex-)speler van KCVV Elewijt"}
+        description={node.title + ` - (ex-)speler van KCVV Elewijt`}
         path={pathUrl}
         image={ogImage}
       />
@@ -31,7 +37,7 @@ const PlayerTemplate = ({ data }) => {
 }
 
 export const query = graphql`
-  query($slug: String!) {
+  query ($slug: String!) {
     nodePlayer(path: { alias: { eq: $slug } }) {
       path {
         alias
@@ -65,4 +71,4 @@ export const query = graphql`
   }
 `
 
-export default PlayerTemplate;
+export default PlayerTemplate

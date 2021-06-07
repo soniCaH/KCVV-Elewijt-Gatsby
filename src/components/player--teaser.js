@@ -1,5 +1,5 @@
 import React, { Component } from "react"
-import Img from "gatsby-image"
+import { GatsbyImage } from "gatsby-plugin-image"
 
 // Fallback image if no image uploaded.
 import playerProfile from "../images/kcvv-player-bg.png"
@@ -19,8 +19,8 @@ export class PlayerTeaser extends Component {
     const picture = props.picture
     if (picture) {
       this.image = (
-        <Img
-          fluid={picture.localFile.childImageSharp.fluid}
+        <GatsbyImage
+          image={picture.localFile.childImageSharp.gatsbyImageData}
           alt={`"${this.first_name} ${this.last_name}"`}
         />
       )

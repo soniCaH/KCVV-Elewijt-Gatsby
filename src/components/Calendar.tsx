@@ -18,7 +18,7 @@ const CalendarEvent: FunctionComponent<CalendarEventProps> = ({ event }: Calenda
   const endDate = Moment.tz(event.end, `Europe/Brussels`)
 
   return (
-    <article className="calendar__event">
+    <article className={`calendar__event calendar__event--${event.type}`}>
       <div className="calendar__date">
         <Icon icon="fa-clock-o" /> {startDate.format(`HH:mm`)} - {endDate.format(`HH:mm`)}
       </div>
@@ -39,6 +39,7 @@ const CalendarEvent: FunctionComponent<CalendarEventProps> = ({ event }: Calenda
 
 const Calendar: FunctionComponent = () => {
   const [data, setData] = useState<CalendarEvent[]>([])
+  const [loading, setLoading] = useState<boolean>(true)
 
   const {
     site: {
@@ -60,6 +61,7 @@ const Calendar: FunctionComponent = () => {
     async function getData() {
       const response = await axios.get(`${kcvvPsdApi}/events/next`)
       setData(response.data)
+      setLoading(false)
     }
     getData()
   }, [])
@@ -68,7 +70,8 @@ const Calendar: FunctionComponent = () => {
 
   return (
     <div className={`events__wrapper`}>
-      {data.length > 0 || <Spinner />}
+      {data.length > 0 || loading === false || <Spinner />}
+      {data.length <= 0 && loading === false && <div>Er zijn voorlopig geen evenementen gepland</div>}
 
       {groupedEvents.map((group, i) => {
         const date = Moment.tz(group.date, `Europe/Brussels`)

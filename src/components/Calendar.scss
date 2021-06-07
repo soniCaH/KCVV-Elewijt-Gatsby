@@ -8,6 +8,18 @@
   border-width: 0 0 0 2px;
   border-image: linear-gradient(to bottom, var(--color-green-dark) 5%, var(--color-green) 90%) 1;
 
+  &--game {
+    border-image: linear-gradient(to bottom, var(--color-green-dark) 5%, #B2E8B0 90%) 1;
+  }
+
+  &--training {
+    border-image: linear-gradient(to bottom, #fa9600 5%, #FACB0C 90%) 1;
+  }
+
+  &--agenda {
+    border-image: linear-gradient(to bottom, var(--color-green) 5%, #CFDF9A 90%) 1;
+  }
+
   p {
     margin-bottom: 0;
 
@@ -21,9 +33,10 @@
   position: relative;
 
   // &:first-of-type {
-    h2 {
-      @include featured-border;
-    }
+  h2 {
+    @include featured-border;
+  }
+
   // }
 }
 
