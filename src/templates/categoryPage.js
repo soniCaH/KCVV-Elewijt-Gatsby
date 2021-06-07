@@ -9,7 +9,7 @@ import { NewsItemCardRatio } from "../components/news-item"
 // eslint-disable-next-line
 String.prototype.replaceAll = function (search, replacement) {
   const target = this
-  return target.replace(new RegExp(search, "g"), replacement)
+  return target.replace(new RegExp(search, `g`), replacement)
 }
 
 const CategoryPageTemplate = ({ data }) => {
@@ -23,19 +23,15 @@ const CategoryPageTemplate = ({ data }) => {
       <div className="grid-container site-content">
         <div className="grid-x grid-margin-x">
           <h2>KCVV Elewijt #{term.name}</h2>
-          <header className={"archive__filter_wrapper"}>
+          <header className={`archive__filter_wrapper`}>
             <h5>Filter op categorie</h5>
-            <section className={"archive__filter_filters"}>
-              <Link to={"/news/"} className={"btn btn--small"}>
+            <section className={`archive__filter_filters`}>
+              <Link to={`/news/`} className={`btn btn--small`}>
                 Alles
               </Link>
               {categoryTags.edges.map(({ node, i }) => {
                 return (
-                  <Link
-                    to={node.path.alias}
-                    className={"btn btn--small"}
-                    key={i}
-                  >
+                  <Link to={node.path.alias} className={`btn btn--small`} key={i}>
                     {node.name}
                   </Link>
                 )
@@ -43,9 +39,7 @@ const CategoryPageTemplate = ({ data }) => {
             </section>
           </header>
 
-          <main
-            className={"news_overview__wrapper news_overview__wrapper--archive"}
-          >
+          <main className={`news_overview__wrapper news_overview__wrapper--archive`}>
             {articles &&
               articles.edges.map(({ node }, i) => {
                 return <NewsItemCardRatio node={node} teaser={false} key={i} />
@@ -58,15 +52,11 @@ const CategoryPageTemplate = ({ data }) => {
 }
 
 export const query = graphql`
-  query($slug: String!) {
+  query ($slug: String!) {
     articles: allNodeArticle(
       sort: { fields: changed, order: DESC }
       limit: 20
-      filter: {
-        relationships: {
-          field_tags: { elemMatch: { path: { alias: { eq: $slug } } } }
-        }
-      }
+      filter: { relationships: { field_tags: { elemMatch: { path: { alias: { eq: $slug } } } } } }
     ) {
       edges {
         node {
@@ -103,9 +93,7 @@ export const query = graphql`
       sort: { fields: name, order: ASC }
       filter: {
         status: { eq: true }
-        relationships: {
-          node__article: { elemMatch: { drupal_internal__nid: { gte: 1 } } }
-        }
+        relationships: { node__article: { elemMatch: { drupal_internal__nid: { gte: 1 } } } }
       }
     ) {
       edges {
@@ -125,4 +113,4 @@ export const query = graphql`
   }
 `
 
-export default CategoryPageTemplate;
+export default CategoryPageTemplate

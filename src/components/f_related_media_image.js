@@ -10,4 +10,24 @@ export const query = graphql`
       }
     }
   }
+
+  fragment HeroImage on media__image {
+    relationships {
+      field_media_image {
+        localFile {
+          ...KCVVHeroImage
+        }
+      }
+    }
+  }
+
+  fragment FullImage on media__image {
+    relationships {
+      field_media_image {
+        localFile {
+          ...KCVVFullWidth
+        }
+      }
+    }
+  }
 `

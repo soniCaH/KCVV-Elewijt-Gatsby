@@ -1,6 +1,6 @@
 import React, { Component } from "react"
 import { Link } from "gatsby"
-import Img from "gatsby-image"
+import { GatsbyImage } from "gatsby-plugin-image"
 
 import Icon from "./Icon"
 
@@ -23,9 +23,9 @@ export class Card extends Component {
     } = this.props
 
     const image = (
-      <Img
-        fluid={{
-          ...localFile.childImageSharp.fluid,
+      <GatsbyImage
+        image={{
+          ...localFile.childImageSharp.gatsbyImageData,
           aspectRatio: 3 / 2,
         }}
         alt={title}
@@ -44,7 +44,9 @@ export class Card extends Component {
 
             <main className={"cardItem__summary"}>
               <div className={"cardItem__heading"}>
-                <h3>{icon && <Icon icon={icon}/>} {title}</h3>
+                <h3>
+                  {icon && <Icon icon={icon} />} {title}
+                </h3>
               </div>
 
               {body && <div dangerouslySetInnerHTML={{ __html: body }}></div>}
@@ -60,7 +62,10 @@ export class Card extends Component {
 
             <main className={"cardItem__summary"}>
               <div className={"cardItem__heading"}>
-                <h3>{icon && <i className={`fa ${icon}`} aria-hidden={true}></i>} {title}</h3>
+                <h3>
+                  {icon && <i className={`fa ${icon}`} aria-hidden={true}></i>}{" "}
+                  {title}
+                </h3>
               </div>
 
               {body && <div dangerouslySetInnerHTML={{ __html: body }}></div>}
@@ -96,9 +101,9 @@ export class CardImage extends Component {
     const absoluteUrlRegex = /^https?:\/\/|^\/\//i
 
     const image = (
-      <Img
-        fluid={{
-          ...localFile.childImageSharp.fluid,
+      <GatsbyImage
+        image={{
+          ...localFile.childImageSharp.gatsbyImageData,
           aspectRatio: 2 / 1,
         }}
         alt={title}
@@ -138,9 +143,9 @@ export class SingleImageCard extends Component {
     const absoluteUrlRegex = /^https?:\/\/|^\/\//i
 
     const image = (
-      <Img
-        fluid={{
-          ...localFile.childImageSharp.fluid,
+      <GatsbyImage
+        image={{
+          ...localFile.childImageSharp.gatsbyImageData,
           aspectRatio: 2 / 1,
         }}
       />
@@ -174,9 +179,9 @@ export class CardVertical extends Component {
     const absoluteUrlRegex = /^https?:\/\/|^\/\//i
 
     const image = (
-      <Img
-        fluid={{
-          ...localFile.childImageSharp.fluid,
+      <GatsbyImage
+        image={{
+          ...localFile.childImageSharp.gatsbyImageData,
           aspectRatio: 6 / 8,
         }}
         alt={title}

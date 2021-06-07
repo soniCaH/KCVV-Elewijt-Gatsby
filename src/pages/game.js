@@ -168,7 +168,7 @@ class GamePage extends Component {
     return resultHome !== null && resultAway !== null ? (
       <div className={`match-details__vs match-details__vs--score`}>
         {this.renderScoreWithWinnerIndicator(resultHome, resultAway, `home`)}
-        <span className={`match-details__divider`}> - </span>
+        <span className={`match-details__divider`}>&nbsp;-&nbsp;</span>
         {this.renderScoreWithWinnerIndicator(resultAway, resultHome, `away`)}
       </div>
     ) : (

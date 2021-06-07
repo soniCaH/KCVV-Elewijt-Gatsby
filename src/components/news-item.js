@@ -1,6 +1,7 @@
 import React, { Component } from "react"
 
 import { Card, CardImage, CardVertical } from "./cards"
+import { GatsbyImage, getImage, getSrc, StaticImage } from "gatsby-plugin-image"
 
 import "./news-item.scss"
 
@@ -27,7 +28,7 @@ export class NewsItemCard extends Component {
         tags={relatedTags}
         created={node.created}
         key={node.nid}
-        className={"test"}
+        className={`test`}
       />
     )
   }
@@ -80,9 +81,11 @@ export class NewsItemCardRatio extends Component {
   render() {
     const { node, teaser = false } = this.props
 
-    const aspectRatio =
+    const { gatsbyImageData: heroImage } =
       node.relationships.field_media_article_image.relationships
-        .field_media_image.localFile.childImageSharp.fluid.aspectRatio
+        .field_media_image.localFile.childImageSharp
+
+    const aspectRatio = heroImage.width / heroImage.height
 
     if (aspectRatio >= 1) {
       return <NewsItemCard node={node} teaser={teaser} />
@@ -104,8 +107,8 @@ export class KcvvTvCard extends Component {
     const summary = `${node.title}<br/><br/>Bekijk hier het wedstrijdverslag, interviews, nabespreking... en stem voor je man van de match!`
     return (
       <Card
-        title={"KCVV TV"}
-        icon={"fa-facebook-square"}
+        title={`KCVV TV`}
+        icon={`fa-facebook-square`}
         body={summary}
         localFile={localFile}
         link={node.field_website.uri}

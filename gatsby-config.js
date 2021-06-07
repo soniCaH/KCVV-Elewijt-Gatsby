@@ -21,6 +21,7 @@ module.exports = {
         apiBase: `jsonapi`,
       },
     },
+    `gatsby-plugin-image`,
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
     {

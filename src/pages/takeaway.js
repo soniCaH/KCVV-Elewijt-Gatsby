@@ -1,6 +1,6 @@
 import React, { Component } from "react"
 import { graphql } from "gatsby"
-import Img from "gatsby-image"
+import { GatsbyImage } from "gatsby-plugin-image"
 
 import Layout from "../layouts/index"
 
@@ -67,9 +67,9 @@ class MosselfestijnPage extends Component {
             ></tbkr-bm-widget>
             <script src="https://reservations.tablebooker.com/tbkr-widget-import.min.js"></script>
 
-            <Img
-              fluid={{
-                ...affiche.childImageSharp.fluid,
+            <GatsbyImage
+              image={{
+                ...affiche.childImageSharp.gatsbyImageData,
               }}
               alt="Sinterklaas Takeaway"
             />
