@@ -19,7 +19,13 @@ articles: allNodeArticle(sort: {fields: created, order: DESC}) {
                         field_media_image {
                             localFile {
                                 childImageSharp {
-                                    gatsbyImageData(width: 960, placeholder: BLURRED, layout: CONSTRAINED)
+                                    gatsbyImageData(
+                                        width: 960
+                                        placeholder: DOMINANT_COLOR
+                                        layout: CONSTRAINED
+                                        aspectRatio: 1.5
+                                        transformOptions: { trim: 100, cropFocus: ATTENTION }
+                                    )
                                 }
                             }
                         }
