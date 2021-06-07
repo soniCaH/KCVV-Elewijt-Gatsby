@@ -18,7 +18,7 @@ const CalendarEvent: FunctionComponent<CalendarEventProps> = ({ event }: Calenda
   const endDate = Moment.tz(event.end, `Europe/Brussels`)
 
   return (
-    <article className="calendar__event">
+    <article className={`calendar__event calendar__event--${event.type}`}>
       <div className="calendar__date">
         <Icon icon="fa-clock-o" /> {startDate.format(`HH:mm`)} - {endDate.format(`HH:mm`)}
       </div>
