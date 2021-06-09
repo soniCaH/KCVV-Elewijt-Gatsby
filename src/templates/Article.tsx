@@ -4,10 +4,10 @@ import Layout from "../layouts/index"
 import SEO from "../components/seo"
 import Share from "../components/share"
 import { FunctionComponent } from "react"
-import { GatsbyImage, getImage, getSrc, StaticImage } from "gatsby-plugin-image"
+import { GatsbyImage, getSrc } from "gatsby-plugin-image"
 import { ArticleQuery } from "./Article.types"
 
-import "./ArticleStyle.scss"
+import "./Article.scss"
 import { replaceAll } from "../scripts/helper"
 
 const Article: FunctionComponent<ArticleQuery> = ({ data }: ArticleQuery) => {
