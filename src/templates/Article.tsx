@@ -18,17 +18,17 @@ const Article: FunctionComponent<ArticleQuery> = ({ data }: ArticleQuery) => {
     },
   } = data
 
-  const { gatsbyImageData: heroImage } =
-    nodeArticle.relationships.field_media_article_image.relationships.field_media_image.localFile.childImageSharp
+  // const { gatsbyImageData: heroImage } =
+  //   nodeArticle.relationships.field_media_article_image.relationships.field_media_image.localFile.childImageSharp
 
-  // const relatedArticles = nodeArticle.relationships.field_related_content || []
+  const relatedArticles = nodeArticle.relationships.field_related_content || []
   const relatedTags = nodeArticle.relationships.field_tags || []
 
-  const ogImage = {
-    src: getSrc(heroImage),
-    width: heroImage.width,
-    height: heroImage.height,
-  }
+  // const ogImage = {
+  //   src: getSrc(heroImage),
+  //   width: heroImage.width,
+  //   height: heroImage.height,
+  // }
 
   const cleanBody = replaceAll(
     nodeArticle.body.processed,
@@ -45,13 +45,13 @@ const Article: FunctionComponent<ArticleQuery> = ({ data }: ArticleQuery) => {
         title={nodeArticle.title}
         description={nodeArticle.body.summary}
         path={pathUrl}
-        image={ogImage}
+        // image={ogImage}
       />
 
       <article className={`article__wrapper`}>
         <header className={`article__header`}>
           <div className={`article__hero_image`}>
-            <GatsbyImage image={heroImage} alt={nodeArticle.title} />
+            {/* <GatsbyImage image={heroImage} alt={nodeArticle.title} /> */}
           </div>
           <h1 className="article__title featured-border">{nodeArticle.title}</h1>
         </header>
@@ -91,7 +91,7 @@ const Article: FunctionComponent<ArticleQuery> = ({ data }: ArticleQuery) => {
           </section>
           <div dangerouslySetInnerHTML={{ __html: cleanBody }} />
         </div>
-        {/* <footer className={"article__footer__wrapper"}>
+        <footer className={"article__footer__wrapper"}>
           <section className={"article__footer"}>
             {relatedArticles.length > 0 && (
               <>
@@ -109,7 +109,7 @@ const Article: FunctionComponent<ArticleQuery> = ({ data }: ArticleQuery) => {
               </>
             )}
           </section>
-        </footer> */}
+        </footer>
       </article>
     </Layout>
   )
@@ -139,47 +139,47 @@ export const query = graphql`
         uid {
           display_name
         }
-        # field_related_content {
-        #   ... on node__article {
-        #     title
-        #     path {
-        #       alias
-        #     }
-        #     internal {
-        #       type
-        #     }
-        #   }
-        #   ... on node__player {
-        #     title
-        #     path {
-        #       alias
-        #     }
-        #     internal {
-        #       type
-        #     }
-        #   }
-        #   ... on node__staff {
-        #     title
-        #     path {
-        #       alias
-        #     }
-        #     internal {
-        #       type
-        #     }
-        #   }
-        #   ... on node__team {
-        #     title
-        #     path {
-        #       alias
-        #     }
-        #     internal {
-        #       type
-        #     }
-        #   }
-        # }
-        field_media_article_image {
-          ...HeroImage
+        field_related_content {
+          ... on node__article {
+            title
+            path {
+              alias
+            }
+            internal {
+              type
+            }
+          }
+          ... on node__player {
+            title
+            path {
+              alias
+            }
+            internal {
+              type
+            }
+          }
+          ... on node__staff {
+            title
+            path {
+              alias
+            }
+            internal {
+              type
+            }
+          }
+          ... on node__team {
+            title
+            path {
+              alias
+            }
+            internal {
+              type
+            }
+          }
         }
+        # field_media_article_image {
+        #   ...HeroImage
+        # }
         field_tags {
           name
           path {
