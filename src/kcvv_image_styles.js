@@ -62,7 +62,7 @@ export const KCVVFluid1280 = graphql`
 export const KCVVFluidPlayerTeaser = graphql`
   fragment KCVVFluidPlayerTeaser on File {
     childImageSharp {
-      gatsbyImageData(width: 615, placeholder: BLURRED, layout: CONSTRAINED)
+      gatsbyImageData(width: 615, placeholder: TRACED_SVG, layout: CONSTRAINED)
     }
   }
 `
@@ -70,7 +70,7 @@ export const KCVVFluidPlayerTeaser = graphql`
 export const KCVVFixedPlayerTeaser = graphql`
   fragment KCVVFixedPlayerTeaser on File {
     childImageSharp {
-      gatsbyImageData(height: 480, placeholder: BLURRED, layout: FIXED)
+      gatsbyImageData(height: 480, placeholder: TRACED_SVG, layout: FIXED)
     }
   }
 `
