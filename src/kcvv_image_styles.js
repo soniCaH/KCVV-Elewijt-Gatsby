@@ -7,7 +7,7 @@ export const KCVVFullWidth = graphql`
         placeholder: DOMINANT_COLOR
         layout: FULL_WIDTH
         aspectRatio: 1.7777
-        transformOptions: { trim: 100, cropFocus: ATTENTION }
+        transformOptions: { cropFocus: ATTENTION }
       )
     }
   }
@@ -16,7 +16,7 @@ export const KCVVFullWidth = graphql`
 export const KCVVHeroImage = graphql`
   fragment KCVVHeroImage on File {
     childImageSharp {
-      gatsbyImageData(placeholder: TRACED_SVG, layout: CONSTRAINED)
+      gatsbyImageData(placeholder: DOMINANT_COLOR, layout: CONSTRAINED)
     }
   }
 `
@@ -29,7 +29,7 @@ export const KCVVFluid960 = graphql`
         placeholder: DOMINANT_COLOR
         layout: CONSTRAINED
         aspectRatio: 1.5
-        transformOptions: { trim: 100, cropFocus: ATTENTION }
+        transformOptions: { cropFocus: ATTENTION }
       )
     }
   }
