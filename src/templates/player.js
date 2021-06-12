@@ -11,15 +11,9 @@ const PlayerTemplate = ({ data }) => {
   const node = data.nodePlayer
   const pathUrl = node.path.alias
   const ogImage = node.relationships.field_image && {
-    src: getSrc(
-      node.relationships.field_image.localFile.childImageSharp.gatsbyImageData
-    ),
-    width:
-      node.relationships.field_image.localFile.childImageSharp.gatsbyImageData
-        .width,
-    height:
-      node.relationships.field_image.localFile.childImageSharp.gatsbyImageData
-        .height,
+    src: getSrc(node.relationships.field_image.localFile.childImageSharp.gatsbyImageData),
+    width: node.relationships.field_image.localFile.childImageSharp.gatsbyImageData.width,
+    height: node.relationships.field_image.localFile.childImageSharp.gatsbyImageData.height,
   }
 
   return (
