@@ -1,5 +1,6 @@
 import React, { Component } from "react"
 import { GatsbyImage } from "gatsby-plugin-image"
+import { Link } from "gatsby"
 
 // Fallback image if no image uploaded.
 import playerProfile from "../images/kcvv-player-bg.png"
@@ -11,10 +12,12 @@ export class PlayerTeaser extends Component {
   constructor(props) {
     super(props)
 
-    this.linkUrl = props.url || "#"
-    this.position = props.position || ""
-    this.first_name = props.first_name || ""
-    this.last_name = props.last_name || ""
+    this.linkUrl = props.url || `#`
+    this.position = props.position || ``
+    this.first_name = props.first_name || ``
+    this.last_name = props.last_name || ``
+
+    console.log(this.linkUrl)
 
     const picture = props.picture
     if (picture) {
@@ -25,33 +28,24 @@ export class PlayerTeaser extends Component {
         />
       )
     } else {
-      this.image = (
-        <img
-          src={playerProfile}
-          alt={`"${this.first_name} ${this.last_name}"`}
-        />
-      )
+      this.image = <img src={playerProfile} alt={`"${this.first_name} ${this.last_name}"`} />
     }
   }
 
   render() {
     return (
-      <article className={"player_teaser"}>
-        <a href={this.linkUrl}>
-          <div className={"player_teaser__image"}>
+      <article className={`player_teaser`}>
+        <Link to={this.linkUrl}>
+          <div className={`player_teaser__image`}>
             {this.image}
-            <div className={"player_teaser__gradient"}></div>
+            <div className={`player_teaser__gradient`}></div>
           </div>
-          <div className={"player_teaser__info"}>
-            <div className={"player_teaser__info__number"}>{this.position}</div>
-            <div className={"player_teaser__info__firstname"}>
-              {this.first_name}
-            </div>
-            <div className={"player_teaser__info__lastname"}>
-              {this.last_name}
-            </div>
+          <div className={`player_teaser__info`}>
+            <div className={`player_teaser__info__number`}>{this.position}</div>
+            <div className={`player_teaser__info__firstname`}>{this.first_name}</div>
+            <div className={`player_teaser__info__lastname`}>{this.last_name}</div>
           </div>
-        </a>
+        </Link>
       </article>
     )
   }
