@@ -64,14 +64,17 @@
     "build": "cross-env GATSBY_EXPERIMENTAL_PAGE_BUILD_ON_DATA_CHANGES=true gatsby build --log-pages",
     "develop": "gatsby develop",
     "start": "yarn run develop",
-    "clean": "rm -rf public",
+    "clean": "gatsby clean",
     "type-check": "tsc --pretty --noEmit",
     "format:js": "prettier '**/*.{js,jsx}' --write",
     "lint": "eslint . --ignore-path .gitignore --ext .ts,.tsx,.js",
     "test": "jest"
   },
   "devDependencies": {
+    "@babel/preset-react": "^7.14.5",
+    "@babel/preset-typescript": "^7.14.5",
     "@types/classnames": "2.3.0",
+    "@types/jest": "^26.0.23",
     "@types/react-lazyload": "3.1.0",
     "@types/react-slick": "0.23.4",
     "@typescript-eslint/eslint-plugin": "4.26.1",
@@ -86,6 +89,9 @@
     "prettier": "2.3.1",
     "react-test-renderer": "17.0.2",
     "typescript": "4.3.2"
+  },
+  "jest": {
+    "testEnvironment": "jsdom"
   },
   "repository": {
     "type": "git",
