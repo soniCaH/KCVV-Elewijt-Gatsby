@@ -7104,10 +7104,10 @@ gatsby-recipes@^0.18.1:
     xstate "^4.9.1"
     yoga-layout-prebuilt "^1.9.6"
 
-gatsby-source-drupal@4.7.1:
-  version "4.7.1"
-  resolved "https://registry.yarnpkg.com/gatsby-source-drupal/-/gatsby-source-drupal-4.7.1.tgz#21d29735ad4e03f5c5da18102fd471730e42617a"
-  integrity sha512-AxdaDqbfXhpdbJ2fTL22ehhLZ2Vk9GeNYngcNOdiZLREhTQiE/LB/6X1R/JB6IuxocugVJETqqz285GWyQ8KmA==
+gatsby-source-drupal@4.7.2:
+  version "4.7.2"
+  resolved "https://registry.yarnpkg.com/gatsby-source-drupal/-/gatsby-source-drupal-4.7.2.tgz#cb686d25ca5898f99207587294a967cc39a42eb1"
+  integrity sha512-XoYKR5FVXczTMOF2vCpeQqjZZUkx513CPWtnKDbMFmqF3Byj0hJekQarY6d72yyGdzKIT+JYQfyYKoRo8F4/YQ==
   dependencies:
     "@babel/runtime" "^7.14.0"
     axios "^0.21.1"
@@ -7171,10 +7171,10 @@ gatsby-transformer-sharp@3.7.1:
     semver "^7.3.4"
     sharp "^0.28.0"
 
-gatsby@3.7.1:
-  version "3.7.1"
-  resolved "https://registry.yarnpkg.com/gatsby/-/gatsby-3.7.1.tgz#a9484399f9061135b61e4e8775e35326856f3326"
-  integrity sha512-DZlUr5ZERpD+3G+itMlK7YDtj5QRrq3hbP1NvjZAOhrZwn0nneFj4lmF2nnmQXLqR0x7RPPG3iQaxk/18UlUQw==
+gatsby@3.7.2:
+  version "3.7.2"
+  resolved "https://registry.yarnpkg.com/gatsby/-/gatsby-3.7.2.tgz#e45174d86c4eb6cb1bf9bc89722f550352ad9aef"
+  integrity sha512-grweoXdoE/Y6f1/qj3wDJ5JVQvfEwz/EPqPF9IXE3fbHdItr6hFCfYW9TmQopSHMuCxzvNhoCgwtyUL6sobBgw==
   dependencies:
     "@babel/code-frame" "^7.14.0"
     "@babel/core" "^7.14.0"
