@@ -1,7 +1,7 @@
 import React, { Component } from "react"
 import { graphql, StaticQuery } from "gatsby"
 
-import Event from "./event"
+import EventCard from "./EventCard"
 
 class UpcomingEvent extends Component {
   render() {
@@ -10,13 +10,13 @@ class UpcomingEvent extends Component {
       <>
         {events.edges.map(({ node }, i) => {
           return (
-            <Event
+            <EventCard
               key={i}
               title={node.title}
-              localFile={node.relationships.field_media_image.relationships.field_media_image.localFile}
-              uri={node.field_event_link.uri}
-              datetime_start={node.field_daterange.value}
-              datetime_end={node.field_daterange.end_value}
+              picture={node.relationships.field_media_image.relationships.field_media_image.localFile}
+              link={node.field_event_link.uri}
+              datetimeStart={node.field_daterange.value}
+              datetimeEnd={node.field_daterange.end_value}
             />
           )
         })}
