@@ -4,7 +4,7 @@ import { graphql, Link } from "gatsby"
 import Layout from "../layouts/index"
 
 import SEO from "../components/seo"
-import { CardImage } from "../components/cards"
+import { CardImage } from "../components/Card"
 import MatchesOverview from "../components/MatchesOverview"
 
 class JeugdPage extends Component {
@@ -54,7 +54,7 @@ class JeugdPage extends Component {
             <section className={`cell large-12 featured-article`}>
               <CardImage
                 title="Leerplannen voor de jeugdwerking"
-                localFile={data.leerplan}
+                picture={data.leerplan}
                 link="/news/2019-08-08-leerplan-kcvv-elewijt-jeugd"
                 metadata={false}
               />

@@ -4,7 +4,7 @@ import Layout from "../../layouts/index"
 
 import SEO from "../../components/seo"
 import { StaticQuery, graphql } from "gatsby"
-import { CardImage } from "../../components/cards"
+import { CardImage } from "../../components/Card"
 import HeaderBgTitle from "../../components/header-bg-title"
 
 import ogImage from "../../images/header-ultras.jpg"
@@ -33,7 +33,7 @@ class UltrasPage extends Component {
             <h1>KCVV Ultras</h1>
             <CardImage
               title="KCVV ULtras op kampioenenmatch"
-              localFile={champ}
+              picture={champ}
               metadata={false}
               link={false}
             />
@@ -102,7 +102,7 @@ class UltrasPage extends Component {
             </p>
             <CardImage
               title="Schijt je rijk"
-              localFile={sjr}
+              picture={sjr}
               metadata={false}
               link={false}
             />

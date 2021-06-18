@@ -12,7 +12,7 @@ import {
   NewsItemCardRatio,
   KcvvTvCard,
 } from "../components/news-item"
-import { CardImage } from "../components/cards"
+import { CardImage } from "../components/Card"
 import UpcomingEvent from "../components/upcoming-event"
 import PlayerFeatured from "../components/player--featured"
 
@@ -218,7 +218,7 @@ class IndexPage extends Component {
         <section className={`cell large-12 featured-article`}>
           <CardImage
             title="Update voorbereiding 2020-2021"
-            localFile={preseason}
+            picture={preseason}
             link="/games"
             metadata={false}
           />
@@ -283,7 +283,7 @@ class IndexPage extends Component {
             return (
               <CardImage
                 title={node.title}
-                localFile={
+                picture={
                   node.relationships.field_media_article_image.relationships
                     .field_media_image.localFile
                 }
