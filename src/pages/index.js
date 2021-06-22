@@ -13,7 +13,7 @@ import {
   KcvvTvCard,
 } from "../components/news-item"
 import { CardImage } from "../components/Card"
-import UpcomingEvent from "../components/upcoming-event"
+import UpcomingEvent from "../components/UpcomingEvent.tsx"
 import PlayerFeatured from "../components/player--featured"
 
 import MyMakro from "../images/tag-mymakro.png"
