@@ -23,6 +23,17 @@ class JeugdPage extends Component {
         <section className="grid-container site-content">
           <div className="grid-x grid-margin-x">
             <section className={`cell large-12 youth_teams__overview`}>
+              <Link to="/team/zondagsreserven/" className={`btn btn--arrow`}>
+                Zondagsreserven
+              </Link>
+              <Link to="/team/veteranen/" className={`btn btn--arrow`}>
+                Veteranen
+              </Link>
+            </section>
+            <section className={`cell large-12 youth_teams__overview`}>
+              <Link to="/jeugd/u17/" className={`btn btn--arrow`}>
+                U17
+              </Link>
               <Link to="/jeugd/u15/" className={`btn btn--arrow`}>
                 U15
               </Link>
@@ -73,7 +84,7 @@ class JeugdPage extends Component {
 export const pageQuery = graphql`
   query {
     leerplan: file(name: { eq: "leerplan_header" }) {
-      ...KCVVFluid960
+      ...KCVVFullWidth
     }
   }
 `
