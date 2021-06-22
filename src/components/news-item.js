@@ -1,7 +1,6 @@
 import React, { Component } from "react"
 
-import { Card, CardImage, CardVertical } from "./cards"
-import { GatsbyImage, getImage, getSrc, StaticImage } from "gatsby-plugin-image"
+import { CardTeaser, CardImage, CardTeaserVertical } from "./Card"
 
 import "./news-item.scss"
 
@@ -11,22 +10,20 @@ import "./news-item.scss"
 export class NewsItemCard extends Component {
   render() {
     const { node, teaser = false } = this.props
-    const localFile =
-      node.relationships.field_media_article_image.relationships
-        .field_media_image.localFile
+    const localFile = node.relationships.field_media_article_image.relationships.field_media_image.localFile
     const summary = teaser && node.body.summary
 
     const relatedTags = node.relationships.field_tags || []
 
     return (
-      <Card
+      <CardTeaser
         title={node.title}
         body={summary}
-        localFile={localFile}
+        picture={localFile}
         link={node.path.alias}
         metadata={true}
         tags={relatedTags}
-        created={node.created}
+        createTime={node.created}
         key={node.nid}
         className={`test`}
       />
@@ -40,17 +37,9 @@ export class NewsItemCard extends Component {
 export class NewsItemFeatured extends Component {
   render() {
     const { node } = this.props
-    const localFile =
-      node.relationships.field_media_article_image.relationships
-        .field_media_image.localFile
+    const localFile = node.relationships.field_media_article_image.relationships.field_media_image.localFile
 
-    return (
-      <CardImage
-        title={node.title}
-        localFile={localFile}
-        link={node.path.alias}
-      />
-    )
+    return <CardImage title={node.title} localFile={localFile} link={node.path.alias} />
   }
 }
 
@@ -60,17 +49,9 @@ export class NewsItemFeatured extends Component {
 export class NewsItemSquare extends Component {
   render() {
     const { node } = this.props
-    const localFile =
-      node.relationships.field_media_article_image.relationships
-        .field_media_image.localFile
+    const localFile = node.relationships.field_media_article_image.relationships.field_media_image.localFile
 
-    return (
-      <CardVertical
-        title={node.title}
-        localFile={localFile}
-        link={node.path.alias}
-      />
-    )
+    return <CardTeaserVertical title={node.title} picture={localFile} link={node.path.alias} />
   }
 }
 
@@ -82,8 +63,7 @@ export class NewsItemCardRatio extends Component {
     const { node, teaser = false } = this.props
 
     const { gatsbyImageData: heroImage } =
-      node.relationships.field_media_article_image.relationships
-        .field_media_image.localFile.childImageSharp
+      node.relationships.field_media_article_image.relationships.field_media_image.localFile.childImageSharp
 
     const aspectRatio = heroImage.width / heroImage.height
 
@@ -101,20 +81,18 @@ export class NewsItemCardRatio extends Component {
 export class KcvvTvCard extends Component {
   render() {
     const { node } = this.props
-    const localFile =
-      node.relationships.field_media_article_image.relationships
-        .field_media_image.localFile
+    const localFile = node.relationships.field_media_article_image.relationships.field_media_image.localFile
     const summary = `${node.title}<br/><br/>Bekijk hier het wedstrijdverslag, interviews, nabespreking... en stem voor je man van de match!`
     return (
-      <Card
+      <CardTeaser
         title={`KCVV TV`}
         icon={`fa-facebook-square`}
         body={summary}
-        localFile={localFile}
+        picture={localFile}
         link={node.field_website.uri}
         metadata={true}
         key={node.nid}
-        created={node.created}
+        createTime={node.created}
       />
     )
   }

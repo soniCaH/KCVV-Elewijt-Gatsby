@@ -34,7 +34,7 @@ const MatchesSlider: FunctionComponent = () => {
     arrows: true,
     centerMode: true,
     focusOnSelect: true,
-    infinite: true,
+    infinite: false,
     lazyLoad: `progressive` as LazyLoadTypes,
 
     responsive: [

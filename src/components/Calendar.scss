@@ -1,82 +1,14 @@
 @import '../styles/_mixins';
 
-.calendar__event {
-  background: #FFF;
-  padding: 1em;
-
-  border-style: solid;
-  border-width: 0 0 0 2px;
-  border-image: linear-gradient(to bottom, var(--color-green-dark) 5%, var(--color-green) 90%) 1;
-
-  &--game {
-    border-image: linear-gradient(to bottom, var(--color-green-dark) 5%, #B2E8B0 90%) 1;
-  }
-
-  &--training {
-    border-image: linear-gradient(to bottom, #fa9600 5%, #FACB0C 90%) 1;
-  }
-
-  &--agenda {
-    border-image: linear-gradient(to bottom, var(--color-green) 5%, #CFDF9A 90%) 1;
-  }
-
-  p {
-    margin-bottom: 0;
-
-    &+p {
-      margin-top: 1rem;
-    }
-  }
-}
-
-.events__date_group {
+.calendar__events__group {
   position: relative;
 
-  // &:first-of-type {
   h2 {
     @include featured-border;
   }
-
-  // }
 }
 
-.calendar__date {
-  text-transform: uppercase;
-  font-family: "Montserrat", Verdana, sans-serif;
-  margin-bottom: .35rem;
-}
-
-.calendar__type {
-  text-transform: uppercase;
-  background: var(--color-green-dark);
-  color: #FFF;
-  display: inline-block;
-  font-family: "Montserrat", Verdana, sans-serif;
-  font-size: .85rem;
-  border-radius: 5px;
-  padding: .2em .65em;
-  margin-bottom: .35rem;
-
-  &--game {
-    background: var(--color-green-dark);
-  }
-
-  &--training {
-    background: #fa9600;
-  }
-
-  &--agenda {
-    background: var(--color-green);
-  }
-}
-
-.calendar__status {
-  &--cancelled {
-    color: #9e0808;
-  }
-}
-
-.events__date {
+.calendar__events {
   display: flex;
   background: #edeff4;
   overflow-x: scroll;
@@ -89,7 +21,6 @@
     min-height: 350px;
     height: 100%;
     padding: 1.25rem;
-    // border-radius: 16px;
     transition: .2s;
     margin: 0;
     position: relative;
@@ -122,5 +53,70 @@
   &::-webkit-scrollbar-thumb {
     background: linear-gradient(to right, var(--color-green-dark) 5%, var(--color-green) 90%);
     border-radius: 3px;
+  }
+}
+
+.calendar__event {
+  background: #FFF;
+  padding: 1em;
+
+  border-style: solid;
+  border-width: 0 0 0 2px;
+  border-image: linear-gradient(to bottom, var(--color-green-dark) 5%, var(--color-green) 90%) 1;
+
+  &--game {
+    border-image: linear-gradient(to bottom, var(--color-green-dark) 5%, #B2E8B0 90%) 1;
+  }
+
+  &--training {
+    border-image: linear-gradient(to bottom, #fa9600 5%, #FACB0C 90%) 1;
+  }
+
+  &--agenda {
+    border-image: linear-gradient(to bottom, var(--color-green) 5%, #CFDF9A 90%) 1;
+  }
+
+  p {
+    margin-bottom: 0;
+
+    &+p {
+      margin-top: 1rem;
+    }
+  }
+}
+
+.calendar__event__date {
+  text-transform: uppercase;
+  font-family: "Montserrat", Verdana, sans-serif;
+  margin-bottom: .35rem;
+}
+
+.calendar__event__type {
+  text-transform: uppercase;
+  background: var(--color-green-dark);
+  color: #FFF;
+  display: inline-block;
+  font-family: "Montserrat", Verdana, sans-serif;
+  font-size: .85rem;
+  border-radius: 5px;
+  padding: .2em .65em;
+  margin-bottom: .35rem;
+
+  &--game {
+    background: var(--color-green-dark);
+  }
+
+  &--training {
+    background: #fa9600;
+  }
+
+  &--agenda {
+    background: var(--color-green);
+  }
+}
+
+.calendar__event__status {
+  &--cancelled {
+    color: #9e0808;
   }
 }

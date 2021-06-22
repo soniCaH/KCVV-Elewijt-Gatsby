@@ -7,7 +7,7 @@ export const KCVVFullWidth = graphql`
         placeholder: DOMINANT_COLOR
         layout: FULL_WIDTH
         aspectRatio: 1.7777
-        transformOptions: { cropFocus: ATTENTION }
+        transformOptions: { cropFocus: ENTROPY }
       )
     }
   }
@@ -29,7 +29,7 @@ export const KCVVFluid960 = graphql`
         placeholder: DOMINANT_COLOR
         layout: CONSTRAINED
         aspectRatio: 1.5
-        transformOptions: { cropFocus: ATTENTION }
+        transformOptions: { cropFocus: ENTROPY }
       )
     }
   }
