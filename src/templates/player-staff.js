@@ -1,24 +1,23 @@
 import React from "react"
 import { graphql } from "gatsby"
+
 import Layout from "../layouts/index"
 import SEO from "../components/seo"
 import PlayerDetail from "../components/player-staff"
+import RelatedNews from "../components/RelatedNews"
+
 import { getSrc } from "gatsby-plugin-image"
 
 const PlayerStaffTemplate = ({ data }) => {
   const node = data.nodeStaff
   const pathUrl = node.path.alias
   const ogImage = node.relationships.field_image && {
-    src: getSrc(
-      node.relationships.field_image.localFile.childImageSharp.gatsbyImageData
-    ),
-    width:
-      node.relationships.field_image.localFile.childImageSharp.gatsbyImageData
-        .width,
-    height:
-      node.relationships.field_image.localFile.childImageSharp.gatsbyImageData
-        .height,
+    src: getSrc(node.relationships.field_image.localFile.childImageSharp.gatsbyImageData),
+    width: node.relationships.field_image.localFile.childImageSharp.gatsbyImageData.width,
+    height: node.relationships.field_image.localFile.childImageSharp.gatsbyImageData.height,
   }
+  const team = node.relationships.node__team || []
+  const articles = node.relationships.node__article || []
 
   return (
     <Layout>
@@ -30,6 +29,7 @@ const PlayerStaffTemplate = ({ data }) => {
         image={ogImage}
       />
       <PlayerDetail player={node} />
+      {(team || articles) && <RelatedNews items={team.concat(articles)} />}
     </Layout>
   )
 }
@@ -51,8 +51,25 @@ export const query = graphql`
       field_birth_date
       field_position_short
       relationships {
+        node__article {
+          title
+          path {
+            alias
+          }
+          timestamp: created(formatString: "x")
+          relationships {
+            field_media_article_image {
+              ...ArticleImage
+            }
+          }
+        }
         node__team {
           title
+          relationships {
+            field_media_article_image {
+              ...ArticleImage
+            }
+          }
           path {
             alias
           }
