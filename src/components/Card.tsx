@@ -14,7 +14,8 @@ import {
   CardImageOnlyProps,
   CardTeaserVerticalProps,
 } from "./Card.types"
-import { GatsbyImage, getImage, getImageData } from "gatsby-plugin-image"
+
+import { GatsbyImage, getImage } from "gatsby-plugin-image"
 import { Link } from "gatsby"
 
 import "./Card.scss"

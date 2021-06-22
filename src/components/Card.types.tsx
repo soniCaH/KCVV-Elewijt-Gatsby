@@ -1,4 +1,6 @@
 import { IGatsbyImageData } from "gatsby-plugin-image"
+import { Pathalias } from "../types/Drupal"
+
 export interface CardProps {
   title: string
   className?: string
@@ -57,11 +59,7 @@ export interface CardTeaserVerticalProps {
   link: string
 }
 
-interface CardTags {
+export interface CardTags {
   path: Pathalias
   name: string
-}
-
-interface Pathalias {
-  alias: string
 }
