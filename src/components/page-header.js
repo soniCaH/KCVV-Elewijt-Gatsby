@@ -25,9 +25,7 @@ const getClosest = (elem, selector) => {
       Element.prototype.oMatchesSelector ||
       Element.prototype.webkitMatchesSelector ||
       function (s) {
-        const matches = (this.document || this.ownerDocument).querySelectorAll(
-          s
-        )
+        const matches = (this.document || this.ownerDocument).querySelectorAll(s)
         let i = matches.length
         while (--i >= 0 && matches.item(i) !== this) {}
         return i > -1
@@ -47,13 +45,13 @@ const getClosest = (elem, selector) => {
  */
 class MenuItems extends Component {
   componentDidMount() {
-    const activeLinks = document.querySelectorAll(".active")
+    const activeLinks = document.querySelectorAll(`.active`)
     let parent = null
 
     activeLinks.forEach((activeLink) => {
-      parent = getClosest(activeLink, ".submenu")
+      parent = getClosest(activeLink, `.submenu`)
       if (parent !== null) {
-        parent.classList.add("is-active")
+        parent.classList.add(`is-active`)
       }
     })
   }
@@ -77,86 +75,46 @@ class MenuItems extends Component {
           </Link>
         </li>
         <li>
-          <Link
-            to="/team/a-ploeg"
-            activeClassName="active"
-            partiallyActive={true}
-          >
+          <Link to="/team/a-ploeg" activeClassName="active" partiallyActive={true}>
             A-Ploeg
           </Link>
           <ul className="vertical menu submenu">
             <li>
-              <Link
-                to="/team/a-ploeg#team-info"
-                activeClassName="active"
-                partiallyActive={true}
-              >
+              <Link to="/team/a-ploeg#team-info" activeClassName="active" partiallyActive={true}>
                 Info
               </Link>
-              <Link
-                to="/team/a-ploeg#team-lineup"
-                activeClassName="active"
-                partiallyActive={true}
-              >
+              <Link to="/team/a-ploeg#team-lineup" activeClassName="active" partiallyActive={true}>
                 Spelers &amp; Staff
               </Link>
-              <Link
-                to="/team/a-ploeg#team-matches"
-                activeClassName="active"
-                partiallyActive={true}
-              >
+              <Link to="/team/a-ploeg#team-matches" activeClassName="active" partiallyActive={true}>
                 Wedstrijden
               </Link>
             </li>
             <li>
-              <Link
-                to="/team/a-ploeg#team-ranking"
-                activeClassName="active"
-                partiallyActive={true}
-              >
+              <Link to="/team/a-ploeg#team-ranking" activeClassName="active" partiallyActive={true}>
                 Stand
               </Link>
             </li>
           </ul>
         </li>
         <li>
-          <Link
-            to="/team/b-ploeg"
-            activeClassName="active"
-            partiallyActive={true}
-          >
+          <Link to="/team/b-ploeg" activeClassName="active" partiallyActive={true}>
             B-Ploeg
           </Link>
           <ul className="vertical menu submenu">
             <li>
-              <Link
-                to="/team/b-ploeg#team-info"
-                activeClassName="active"
-                partiallyActive={true}
-              >
+              <Link to="/team/b-ploeg#team-info" activeClassName="active" partiallyActive={true}>
                 Info
               </Link>
-              <Link
-                to="/team/b-ploeg#team-lineup"
-                activeClassName="active"
-                partiallyActive={true}
-              >
+              <Link to="/team/b-ploeg#team-lineup" activeClassName="active" partiallyActive={true}>
                 Spelers &amp; Staff
               </Link>
-              <Link
-                to="/team/b-ploeg#team-matches"
-                activeClassName="active"
-                partiallyActive={true}
-              >
+              <Link to="/team/b-ploeg#team-matches" activeClassName="active" partiallyActive={true}>
                 Wedstrijden
               </Link>
             </li>
             <li>
-              <Link
-                to="/team/b-ploeg#team-ranking"
-                activeClassName="active"
-                partiallyActive={true}
-              >
+              <Link to="/team/b-ploeg#team-ranking" activeClassName="active" partiallyActive={true}>
                 Stand
               </Link>
             </li>
@@ -168,83 +126,67 @@ class MenuItems extends Component {
           </Link>
           <ul className="vertical menu submenu">
             <li>
+              <Link to="/team/zondagsreserven/" activeClassName="active" partiallyActive={true}>
+                Zondagsreserven
+              </Link>
+            </li>
+            <li>
               <Link
-                to="/jeugd/u15/"
+                to="/team/veteranen/"
                 activeClassName="active"
                 partiallyActive={true}
+                className="menu_item--border-bottom"
               >
+                Veteranen
+              </Link>
+            </li>
+            <li>
+              <Link to="/jeugd/u17/" activeClassName="active" partiallyActive={true}>
+                U17
+              </Link>
+            </li>
+            <li>
+              <Link to="/jeugd/u15/" activeClassName="active" partiallyActive={true}>
                 U15
               </Link>
             </li>
             <li>
-              <Link
-                to="/jeugd/u13/"
-                activeClassName="active"
-                partiallyActive={true}
-              >
+              <Link to="/jeugd/u13/" activeClassName="active" partiallyActive={true}>
                 U13
               </Link>
             </li>
             <li>
-              <Link
-                to="/jeugd/u12/"
-                activeClassName="active"
-                partiallyActive={true}
-              >
+              <Link to="/jeugd/u12/" activeClassName="active" partiallyActive={true}>
                 U12
               </Link>
             </li>
             <li>
-              <Link
-                to="/jeugd/u11/"
-                activeClassName="active"
-                partiallyActive={true}
-              >
+              <Link to="/jeugd/u11/" activeClassName="active" partiallyActive={true}>
                 U11
               </Link>
             </li>
             <li>
-              <Link
-                to="/jeugd/u10/"
-                activeClassName="active"
-                partiallyActive={true}
-              >
+              <Link to="/jeugd/u10/" activeClassName="active" partiallyActive={true}>
                 U10
               </Link>
             </li>
             <li>
-              <Link
-                to="/jeugd/u9/"
-                activeClassName="active"
-                partiallyActive={true}
-              >
+              <Link to="/jeugd/u9/" activeClassName="active" partiallyActive={true}>
                 U9
               </Link>
             </li>
             <li>
-              <Link
-                to="/jeugd/u8/"
-                activeClassName="active"
-                partiallyActive={true}
-              >
+              <Link to="/jeugd/u8/" activeClassName="active" partiallyActive={true}>
                 U8
               </Link>
             </li>
             <li>
-              <Link
-                to="/jeugd/u7/"
-                activeClassName="active"
-                partiallyActive={true}
-              >
+              <Link to="/jeugd/u7/" activeClassName="active" partiallyActive={true}>
                 U7
               </Link>
             </li>
             <li>
-              <Link
-                to="/jeugd/u6/"
-                activeClassName="active"
-                partiallyActive={true}
-              >
+              <Link to="/jeugd/u6/" activeClassName="active" partiallyActive={true}>
                 U6
               </Link>
             </li>
@@ -261,56 +203,32 @@ class MenuItems extends Component {
           </Link>
           <ul className="vertical menu submenu">
             <li>
-              <Link
-                to="/club/history/"
-                activeClassName="active"
-                partiallyActive={true}
-              >
+              <Link to="/club/history/" activeClassName="active" partiallyActive={true}>
                 Geschiedenis
               </Link>
             </li>
             <li>
-              <Link
-                to="/club/bestuur/"
-                activeClassName="active"
-                partiallyActive={true}
-              >
+              <Link to="/club/bestuur/" activeClassName="active" partiallyActive={true}>
                 Bestuur
               </Link>
             </li>
             <li>
-              <Link
-                to="/club/jeugdbestuur/"
-                activeClassName="active"
-                partiallyActive={true}
-              >
+              <Link to="/club/jeugdbestuur/" activeClassName="active" partiallyActive={true}>
                 Jeugdbestuur
               </Link>
             </li>
             <li>
-              <Link
-                to="/club/responsibilities/"
-                activeClassName="active"
-                partiallyActive={true}
-              >
+              <Link to="/club/responsibilities/" activeClassName="active" partiallyActive={true}>
                 Verantwoordelijkheden
               </Link>
             </li>
             <li>
-              <Link
-                to="/club/ultras/"
-                activeClassName="active"
-                partiallyActive={true}
-              >
+              <Link to="/club/ultras/" activeClassName="active" partiallyActive={true}>
                 KCVV Ultras
               </Link>
             </li>
             <li>
-              <Link
-                to="/club/contact/"
-                activeClassName="active"
-                partiallyActive={true}
-              >
+              <Link to="/club/contact/" activeClassName="active" partiallyActive={true}>
                 Contact
               </Link>
             </li>
@@ -318,14 +236,9 @@ class MenuItems extends Component {
         </li>
         <li>
           <Link to="/search/" activeClassName="active" partiallyActive={true}>
-            <i className={"fa fa-search"} aria-hidden="true"></i>{" "}
-            <span
-              className={
-                "display-mobile--inline-block display-mobile search--label"
-              }
-            >
-              Zoeken
-            </span>
+            <i className={`fa fa-search`} aria-hidden="true"></i>
+            {` `}
+            <span className={`display-mobile--inline-block display-mobile search--label`}>Zoeken</span>
           </Link>
         </li>
       </Fragment>
@@ -346,11 +259,7 @@ class PageHeader extends Component {
         {/* <div data-sticky data-options="marginTop:0;"> */}
         <div>
           {/* <!-- START MOBILE NAV BAR --> */}
-          <div
-            className="header--mobile"
-            data-responsive-toggle="responsive-menu"
-            data-hide-for="large"
-          >
+          <div className="header--mobile" data-responsive-toggle="responsive-menu" data-hide-for="large">
             <button
               type="button"
               className="menu-icon"
@@ -359,11 +268,7 @@ class PageHeader extends Component {
             />
             <div className="header-mobile__logo">
               <Link to="/">
-                <img
-                  src={logo}
-                  alt="KCVV Elewijt"
-                  className="header-mobile__logo-img"
-                />
+                <img src={logo} alt="KCVV Elewijt" className="header-mobile__logo-img" />
               </Link>
             </div>
           </div>
@@ -386,18 +291,11 @@ class PageHeader extends Component {
                   {/* LOGO */}
                   <div className="header-logo">
                     <Link to="/">
-                      <img
-                        src={logo}
-                        alt="KCVV Elewijt"
-                        className="header__logo-img"
-                      />
+                      <img src={logo} alt="KCVV Elewijt" className="header__logo-img" />
                     </Link>
                   </div>
                   <nav className="main-nav">
-                    <ul
-                      className="main-nav__list--desktop menu dropdown"
-                      data-dropdown-menu
-                    >
+                    <ul className="main-nav__list--desktop menu dropdown" data-dropdown-menu>
                       <MenuItems />
                     </ul>
                   </nav>
@@ -421,31 +319,15 @@ class PageHeader extends Component {
 export class PageHeaderMobile extends Component {
   render() {
     return (
-      <nav
-        className="off-canvas position-left"
-        id="responsiveNavigation"
-        data-off-canvas
-      >
-        <ul
-          className="main-nav__list vertical menu"
-          data-responsive-menu="accordion large-dropdown"
-        >
+      <nav className="off-canvas position-left" id="responsiveNavigation" data-off-canvas>
+        <ul className="main-nav__list vertical menu" data-responsive-menu="accordion large-dropdown">
           <div className="header-mobile__logo">
-            <button
-              aria-label="Close menu"
-              type="button"
-              data-toggle=""
-              className="button--back"
-            >
+            <button aria-label="Close menu" type="button" data-toggle="" className="button--back">
               {/* <span aria-hidden="true" /> */}
             </button>
 
             <Link to="/">
-              <img
-                src={logo}
-                alt="KCVV Elewijt"
-                className="header-mobile__logo-img"
-              />
+              <img src={logo} alt="KCVV Elewijt" className="header-mobile__logo-img" />
             </Link>
           </div>
 

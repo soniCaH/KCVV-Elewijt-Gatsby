@@ -2,8 +2,9 @@ import { graphql } from "gatsby"
 import React, { Fragment } from "react"
 import SEO from "../components/seo"
 import Layout from "../layouts/index"
-import Img from "gatsby-image"
+import { GatsbyImage, getSrc } from "gatsby-plugin-image"
 import { TeamSection } from "../components/team--section"
+import RelatedNews from "../components/RelatedNews"
 import "./team.scss"
 
 import Matches from "../components/Matches"
@@ -31,10 +32,11 @@ const TeamTemplate = ({ data }) => {
     node.relationships.field_players.length > 0 && groupByPosition(node.relationships.field_players)
 
   const picture = node.relationships.field_media_article_image
+
   // Create a fluid/responsive team image instance.
   const teamPicture = picture && (
-    <Img
-      fluid={picture.relationships.field_media_image.localFile.childImageSharp.fluid}
+    <GatsbyImage
+      image={picture.relationships.field_media_image.localFile.childImageSharp.gatsbyImageData}
       alt={picture.field_media_image.alt}
       className={`team-detail__team-picture`}
     />
@@ -44,16 +46,14 @@ const TeamTemplate = ({ data }) => {
   const hasDivision = node.field_fb_id || node.field_fb_id_2
 
   const pathUrl = node.path.alias
+
   const ogImage = picture && {
-    src:
-      node.relationships.field_media_article_image.relationships.field_media_image.localFile.childImageSharp.resize.src,
-    width:
-      node.relationships.field_media_article_image.relationships.field_media_image.localFile.childImageSharp.resize
-        .width,
-    height:
-      node.relationships.field_media_article_image.relationships.field_media_image.localFile.childImageSharp.resize
-        .height,
+    src: getSrc(picture.relationships.field_media_image.localFile.childImageSharp.gatsbyImageData),
+    width: picture.relationships.field_media_image.localFile.childImageSharp.gatsbyImageData.width,
+    height: picture.relationships.field_media_image.localFile.childImageSharp.gatsbyImageData.height,
   }
+
+  const articles = node.relationships.node__article || []
 
   return (
     <Layout>
@@ -141,6 +141,7 @@ const TeamTemplate = ({ data }) => {
               />
             )}
             {node.field_vv_id && <TeamStats teamId={node.field_vv_id} />}
+            {articles && <RelatedNews items={articles} limit={6} />}
           </div>
           {/* If our page displays staff only (e.g. the "board" page), we change the title. */}
           {node.relationships.field_staff && !playersByPosition && (
@@ -179,7 +180,7 @@ const TeamTemplate = ({ data }) => {
 }
 
 export const query = graphql`
-  query($slug: String!) {
+  query ($slug: String!) {
     nodeTeam(path: { alias: { eq: $slug } }) {
       path {
         alias
@@ -226,9 +227,21 @@ export const query = graphql`
           }
         }
         field_media_article_image {
-          ...ArticleImage
+          ...FullImage
           field_media_image {
             alt
+          }
+        }
+        node__article {
+          title
+          timestamp: created(formatString: "x")
+          path {
+            alias
+          }
+          relationships {
+            field_media_article_image {
+              ...ArticleImage
+            }
           }
         }
       }

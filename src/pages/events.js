@@ -3,7 +3,7 @@ import { graphql } from "gatsby"
 
 import Layout from "../layouts/index"
 import SEO from "../components/seo"
-import Event from "../components/event"
+import EventCard from "../components/EventCard"
 
 class EventsPage extends Component {
   render() {
@@ -17,33 +17,27 @@ class EventsPage extends Component {
           path={this.props.location.pathname}
         />
 
-        <div className={"limited-width_wrapper"}>
+        <div className={`limited-width_wrapper`}>
           <h1>Evenementen</h1>
 
           {events.edges.map(({ node }, i) => (
-            <Event
+            <EventCard
               key={i}
               title={node.title}
-              localFile={
-                node.relationships.field_media_image.relationships
-                  .field_media_image.localFile
-              }
-              uri={node.field_event_link.uri}
-              datetime_start={node.field_daterange.value}
-              datetime_end={node.field_daterange.end_value}
+              picture={node.relationships.field_media_image.relationships.field_media_image.localFile}
+              link={node.field_event_link.uri}
+              datetimeStart={node.field_daterange.value}
+              datetimeEnd={node.field_daterange.end_value}
             />
           ))}
 
           {events.edges.length === 0 && (
             <div>
-              Geen evenementen ingepland voorlopig. Check{" "}
-              <a
-                href="https://www.facebook.com/kcvvelewijt"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
+              Geen evenementen ingepland voorlopig. Check{` `}
+              <a href="https://www.facebook.com/kcvvelewijt" target="_blank" rel="noopener noreferrer">
                 Facebook
-              </a>{" "}
+              </a>
+              {` `}
               om op de hoogte te blijven.
             </div>
           )}

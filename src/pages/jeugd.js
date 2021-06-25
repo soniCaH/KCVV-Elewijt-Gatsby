@@ -4,7 +4,7 @@ import { graphql, Link } from "gatsby"
 import Layout from "../layouts/index"
 
 import SEO from "../components/seo"
-import { CardImage } from "../components/cards"
+import { CardImage } from "../components/Card"
 import MatchesOverview from "../components/MatchesOverview"
 
 class JeugdPage extends Component {
@@ -23,6 +23,17 @@ class JeugdPage extends Component {
         <section className="grid-container site-content">
           <div className="grid-x grid-margin-x">
             <section className={`cell large-12 youth_teams__overview`}>
+              <Link to="/team/zondagsreserven/" className={`btn btn--arrow`}>
+                Zondagsreserven
+              </Link>
+              <Link to="/team/veteranen/" className={`btn btn--arrow`}>
+                Veteranen
+              </Link>
+            </section>
+            <section className={`cell large-12 youth_teams__overview`}>
+              <Link to="/jeugd/u17/" className={`btn btn--arrow`}>
+                U17
+              </Link>
               <Link to="/jeugd/u15/" className={`btn btn--arrow`}>
                 U15
               </Link>
@@ -54,7 +65,7 @@ class JeugdPage extends Component {
             <section className={`cell large-12 featured-article`}>
               <CardImage
                 title="Leerplannen voor de jeugdwerking"
-                localFile={data.leerplan}
+                picture={data.leerplan}
                 link="/news/2019-08-08-leerplan-kcvv-elewijt-jeugd"
                 metadata={false}
               />
@@ -73,7 +84,7 @@ class JeugdPage extends Component {
 export const pageQuery = graphql`
   query {
     leerplan: file(name: { eq: "leerplan_header" }) {
-      ...KCVVFluid960
+      ...KCVVFullWidth
     }
   }
 `

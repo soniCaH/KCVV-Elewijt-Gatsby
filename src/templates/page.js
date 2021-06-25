@@ -2,9 +2,9 @@ import React from "react"
 import { graphql } from "gatsby"
 import Layout from "../layouts/index"
 import SEO from "../components/seo"
-import Img from "gatsby-image"
+import { GatsbyImage } from "gatsby-plugin-image"
 
-import "./article.scss"
+import "./ArticleStyle.scss"
 
 // eslint-disable-next-line
 String.prototype.replaceAll = function (search, replacement) {
@@ -19,14 +19,14 @@ const PageTemplate = ({ data }) => {
   if (post.relationships.field_media_article_image) {
     const aspectRatio =
       post.relationships.field_media_article_image.relationships
-        .field_media_image.localFile.childImageSharp.fluid
+        .field_media_image.localFile.childImageSharp.gatsbyImageData
 
     // Create a fluid image based on its original aspectRatio.
     image = (
-      <Img
-        fluid={{
+      <GatsbyImage
+        image={{
           ...post.relationships.field_media_article_image.relationships
-            .field_media_image.localFile.childImageSharp.fluid,
+            .field_media_image.localFile.childImageSharp.gatsbyImageData,
           aspectRatio: aspectRatio > 1 ? 1.7 / 1 : 2 / 1,
         }}
         alt={post.title}
@@ -72,7 +72,7 @@ const PageTemplate = ({ data }) => {
 }
 
 export const query = graphql`
-  query($slug: String!) {
+  query ($slug: String!) {
     nodePage(path: { alias: { eq: $slug } }) {
       path {
         alias
@@ -90,4 +90,4 @@ export const query = graphql`
   }
 `
 
-export default PageTemplate;
+export default PageTemplate

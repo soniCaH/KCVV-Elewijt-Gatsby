@@ -1,6 +1,6 @@
 import React, { Component } from "react"
 import { graphql } from "gatsby"
-import Img from "gatsby-image"
+import { GatsbyImage } from "gatsby-plugin-image"
 import ScrollAnimation from "react-animate-on-scroll"
 
 import Layout from "../../layouts/index"
@@ -247,9 +247,9 @@ class HistoryPage extends Component {
       <div class="timeline-image">
         <p>
           <figure>
-            <Img
-              fluid={{
-                ...history52.childImageSharp.fluid,
+            <GatsbyImage
+              image={{
+                ...history52.childImageSharp.gatsbyImageData,
               }}
               alt="Figuur 1: SK Elewijt kampioen 52-53"
             />
@@ -275,9 +275,9 @@ class HistoryPage extends Component {
       <div class="timeline-image">
         <p>
           <figure>
-            <Img
-              fluid={{
-                ...history58.childImageSharp.fluid,
+            <GatsbyImage
+              image={{
+                ...history58.childImageSharp.gatsbyImageData,
               }}
               alt="Figuur 2: SK Elewijt kampioen 58-59"
             />
@@ -322,9 +322,9 @@ class HistoryPage extends Component {
       <div class="timeline-image">
         <p>
           <figure>
-            <Img
-              fluid={{
-                ...history63.childImageSharp.fluid,
+            <GatsbyImage
+              image={{
+                ...history63.childImageSharp.gatsbyImageData,
               }}
               alt="Figuur 3: FC Elewijt kampioen 63-64"
             />
@@ -352,9 +352,9 @@ class HistoryPage extends Component {
       <div class="timeline-image">
         <p>
           <figure>
-            <Img
-              fluid={{
-                ...historyfusie.childImageSharp.fluid,
+            <GatsbyImage
+              image={{
+                ...historyfusie.childImageSharp.gatsbyImageData,
               }}
               alt="Figuur 4: De fusieclub VV Elewijt"
             />
@@ -426,9 +426,9 @@ class HistoryPage extends Component {
       <div class="timeline-image">
         <p>
           <figure>
-            <Img
-              fluid={{
-                ...historybvb.childImageSharp.fluid,
+            <GatsbyImage
+              image={{
+                ...historybvb.childImageSharp.gatsbyImageData,
               }}
               alt="Figuur 5: Crossing Elewijt won de beker van Brabant in 1988"
             />
@@ -503,9 +503,9 @@ class HistoryPage extends Component {
       <div class="timeline-image">
         <p>
           <figure>
-            <Img
-              fluid={{
-                ...history18.childImageSharp.fluid,
+            <GatsbyImage
+              image={{
+                ...history18.childImageSharp.gatsbyImageData,
               }}
               alt="Figuur 6: KCVV Elewijt speelt kampioen in 2018-2019 met 79 punten op 90"
             />

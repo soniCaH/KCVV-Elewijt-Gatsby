@@ -1,36 +1,38 @@
-import React, { Fragment, FunctionComponent, useEffect, useState } from "react"
-import { graphql, Link, useStaticQuery } from "gatsby"
+import React, { FunctionComponent, useEffect, useState } from "react"
+import { graphql, useStaticQuery } from "gatsby"
 
 import axios from "axios"
-import LazyLoad from "react-lazyload"
-import classNames from "classnames"
 import Moment from "moment-timezone"
 import "moment/locale/nl-be"
 
-import { mapPsdStatus, mapPsdStatusIcon, capitalizeFirstLetter, groupByDate } from "../scripts/helper"
+import { capitalizeFirstLetter, groupByDate } from "../scripts/helper"
 
 import "./Calendar.scss"
 import Icon from "./Icon"
 import Spinner from "./Spinner"
 
+const TIMEZONE = `Europe/Brussels`
+
 const CalendarEvent: FunctionComponent<CalendarEventProps> = ({ event }: CalendarEventProps) => {
-  const startDate = Moment.tz(event.start, `Europe/Brussels`)
-  const endDate = Moment.tz(event.end, `Europe/Brussels`)
+  const startDate = Moment.tz(event.start, TIMEZONE)
+  const endDate = Moment.tz(event.end, TIMEZONE)
 
   return (
-    <article className="calendar__event">
-      <div className="calendar__date">
+    <article className={`calendar__event calendar__event--${event.type}`}>
+      <div className="calendar__event__date">
         <Icon icon="fa-clock-o" /> {startDate.format(`HH:mm`)} - {endDate.format(`HH:mm`)}
       </div>
-      <div className={`calendar__type calendar__type--${event.type}`}>{capitalizeFirstLetter(event.type)}</div>
+      <div className={`calendar__event__type calendar__event__type--${event.type}`}>
+        {capitalizeFirstLetter(event.type)}
+      </div>
       <div>
         {event.cancelled && (
-          <span className="calendar__status calendar__status--cancelled">
+          <span className="calendar__event__status calendar__event__status--cancelled">
             <Icon icon={`fa-times`} alt={`Afgelast`} />
           </span>
         )}
         {` `}
-        <span className="calendar__title">{event.title}</span>
+        <span className="calendar__event__title">{event.title}</span>
       </div>
       {event.description && <p dangerouslySetInnerHTML={{ __html: event.description }} />}
     </article>
@@ -39,6 +41,7 @@ const CalendarEvent: FunctionComponent<CalendarEventProps> = ({ event }: Calenda
 
 const Calendar: FunctionComponent = () => {
   const [data, setData] = useState<CalendarEvent[]>([])
+  const [loading, setLoading] = useState<boolean>(true)
 
   const {
     site: {
@@ -60,6 +63,7 @@ const Calendar: FunctionComponent = () => {
     async function getData() {
       const response = await axios.get(`${kcvvPsdApi}/events/next`)
       setData(response.data)
+      setLoading(false)
     }
     getData()
   }, [])
@@ -67,15 +71,16 @@ const Calendar: FunctionComponent = () => {
   const groupedEvents = groupByDate(data)
 
   return (
-    <div className={`events__wrapper`}>
-      {data.length > 0 || <Spinner />}
+    <div className={`calendar`}>
+      {data.length > 0 || loading === false || <Spinner />}
+      {data.length <= 0 && loading === false && <div>Er zijn voorlopig geen evenementen gepland</div>}
 
       {groupedEvents.map((group, i) => {
-        const date = Moment.tz(group.date, `Europe/Brussels`)
+        const date = Moment.tz(group.date, TIMEZONE)
         return (
-          <div key={i} className="events__date_group">
+          <div key={i} className="calendar__events__group">
             <h2>{capitalizeFirstLetter(date.format(`dddd D MMM YYYY`))}</h2>
-            <div className={`events__date`}>
+            <div className={`calendar__events`}>
               {group.objects.map((event: CalendarEvent, j: number) => (
                 <CalendarEvent event={event} key={j} />
               ))}

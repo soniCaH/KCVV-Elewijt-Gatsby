@@ -1,8 +1,8 @@
 import React, { Fragment } from "react"
 import { graphql, useStaticQuery } from "gatsby"
+import Spinner from "./Spinner"
 
 import "./MiniRanking.scss"
-import Spinner from "./Spinner"
 
 class MiniRanking extends React.Component<MiniRankingProps, MiniRankingState> {
   kcvvPsdApi: string

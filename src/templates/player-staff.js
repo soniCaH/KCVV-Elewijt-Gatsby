@@ -1,35 +1,41 @@
 import React from "react"
 import { graphql } from "gatsby"
+
 import Layout from "../layouts/index"
 import SEO from "../components/seo"
 import PlayerDetail from "../components/player-staff"
+import RelatedNews from "../components/RelatedNews"
+
+import { getSrc } from "gatsby-plugin-image"
 
 const PlayerStaffTemplate = ({ data }) => {
   const node = data.nodeStaff
   const pathUrl = node.path.alias
   const ogImage = node.relationships.field_image && {
-    src: node.relationships.field_image.localFile.childImageSharp.fixed.src,
-    width: node.relationships.field_image.localFile.childImageSharp.fixed.width,
-    height:
-      node.relationships.field_image.localFile.childImageSharp.fixed.height,
+    src: getSrc(node.relationships.field_image.localFile.childImageSharp.gatsbyImageData),
+    width: node.relationships.field_image.localFile.childImageSharp.gatsbyImageData.width,
+    height: node.relationships.field_image.localFile.childImageSharp.gatsbyImageData.height,
   }
+  const team = node.relationships.node__team || []
+  const articles = node.relationships.node__article || []
 
   return (
     <Layout>
       <SEO
         lang="nl-BE"
         title={node.title}
-        description={node.title + " - Staflid KCVV Elewijt"}
+        description={node.title + ` - Staflid KCVV Elewijt`}
         path={pathUrl}
         image={ogImage}
       />
       <PlayerDetail player={node} />
+      {(team || articles) && <RelatedNews items={team.concat(articles)} />}
     </Layout>
   )
 }
 
 export const query = graphql`
-  query($slug: String!) {
+  query ($slug: String!) {
     nodeStaff(path: { alias: { eq: $slug } }) {
       path {
         alias
@@ -45,8 +51,25 @@ export const query = graphql`
       field_birth_date
       field_position_short
       relationships {
+        node__article {
+          title
+          path {
+            alias
+          }
+          timestamp: created(formatString: "x")
+          relationships {
+            field_media_article_image {
+              ...ArticleImage
+            }
+          }
+        }
         node__team {
           title
+          relationships {
+            field_media_article_image {
+              ...ArticleImage
+            }
+          }
           path {
             alias
           }
@@ -61,4 +84,4 @@ export const query = graphql`
   }
 `
 
-export default PlayerStaffTemplate;
+export default PlayerStaffTemplate

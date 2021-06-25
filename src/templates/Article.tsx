@@ -1,99 +1,74 @@
-import React from "react"
 import { graphql, Link } from "gatsby"
+import React from "react"
 import Layout from "../layouts/index"
 import SEO from "../components/seo"
-import Img from "gatsby-image"
-
 import Share from "../components/share"
+import { FunctionComponent } from "react"
+import { GatsbyImage, getSrc } from "gatsby-plugin-image"
+import { ArticleQuery } from "./Article.types"
 
-import "./article.scss"
+import "./ArticleStyle.scss"
+import { replaceAll } from "../scripts/helper"
 
-// eslint-disable-next-line
-String.prototype.replaceAll = function (search, replacement) {
-  var target = this
-  return target.replace(new RegExp(search, "g"), replacement)
-}
-
-const ArticleTemplate = ({ data }) => {
-  const post = data.nodeArticle
-
+const Article: FunctionComponent<ArticleQuery> = ({ data }: ArticleQuery) => {
   const {
+    nodeArticle,
     site: {
       siteMetadata: { siteUrl, twitterHandle },
     },
   } = data
 
-  const aspectRatio =
-    post.relationships.field_media_article_image.relationships.field_media_image
-      .localFile.childImageSharp.fluid
+  const { gatsbyImageData: heroImage } =
+    nodeArticle.relationships.field_media_article_image.relationships.field_media_image.localFile.childImageSharp
 
-  const image = (
-    <Img
-      fluid={{
-        ...post.relationships.field_media_article_image.relationships
-          .field_media_image.localFile.childImageSharp.fluid,
-        aspectRatio: aspectRatio > 1 ? 2.5 / 1 : 1.5 / 1,
-      }}
-      alt={post.title}
-    />
-  )
+  const relatedArticles = nodeArticle.relationships.field_related_content || []
+  const relatedTags = nodeArticle.relationships.field_tags || []
 
   const ogImage = {
-    src:
-      post.relationships.field_media_article_image.relationships
-        .field_media_image.localFile.childImageSharp.resize.src,
-    width:
-      post.relationships.field_media_article_image.relationships
-        .field_media_image.localFile.childImageSharp.resize.width,
-    height:
-      post.relationships.field_media_article_image.relationships
-        .field_media_image.localFile.childImageSharp.resize.height,
+    src: getSrc(heroImage),
+    width: heroImage.width,
+    height: heroImage.height,
   }
-  const relatedArticles = post.relationships.field_related_content || []
-  const relatedTags = post.relationships.field_tags || []
-  const cleanBody = post.body.processed.replaceAll(
-    "/sites/default/",
+
+  const cleanBody = replaceAll(
+    nodeArticle.body.processed,
+    `/sites/default/`,
     `${process.env.GATSBY_API_DOMAIN}/sites/default/`
   )
 
-  const pathUrl = post.path.alias
+  const pathUrl = nodeArticle.path.alias
 
   return (
     <Layout>
       <SEO
         lang="nl-BE"
-        title={post.title}
-        description={post.body.summary}
+        title={nodeArticle.title}
+        description={nodeArticle.body.summary}
         path={pathUrl}
         image={ogImage}
       />
 
-      <article className={"article__wrapper"}>
-        <header className={"article__header"}>
-          <figure className={"article__header_image"}>
-            {image}
-            <div className={"gradient gradient--70"}></div>
-          </figure>
-          <h3 className={"article__header__heading"}>
-            <span>{post.title}</span>
-          </h3>
+      <article className={`article__wrapper`}>
+        <header className={`article__header`}>
+          <div className={`article__hero_image`}>
+            <GatsbyImage image={heroImage} alt={nodeArticle.title} />
+          </div>
+          <h1 className="article__title featured-border">{nodeArticle.title}</h1>
         </header>
-        <main className={"article__body"}>
-          <section className={"article__metadata container clearfix"}>
-            <div className={"article__author"}>
-              Geschreven door {post.relationships.uid.display_name}.
-            </div>
-            <div className={"article__tags"}>
-              <span className={"datetime"}>
-                <i className={"fa fa-clock-o"} aria-hidden="true"></i>{" "}
-                {post.created}
+        <div className={`article__main`}>
+          <section className={`article__metadata container clearfix`}>
+            <div className={`article__author`}>Geschreven door {nodeArticle.relationships.uid.display_name}.</div>
+            <div className={`article__tags`}>
+              <span className={`datetime`}>
+                <i className={`fa fa-clock-o`} aria-hidden="true"></i> {nodeArticle.created}
               </span>
               {relatedTags.length > 0 && (
-                <span className={"tag__wrapper"}>
-                  <i className={"fa fa-tags"} aria-hidden="true"></i>{" "}
+                <span className={`tag__wrapper`}>
+                  <i className={`fa fa-tags`} aria-hidden="true"></i>
+                  {` `}
                   {relatedTags.map(({ path, name }, i) => (
                     <Link to={path.alias} key={i}>
-                      <span key={i} className={"tag__label"}>
+                      <span key={i} className={`tag__label`}>
                         #{name}
                       </span>
                     </Link>
@@ -101,23 +76,21 @@ const ArticleTemplate = ({ data }) => {
                 </span>
               )}
             </div>
-            <div className={"article__social-share"}>
+            <div className={`article__social-share`}>
               <Share
                 socialConfig={{
                   twitterHandle,
                   config: {
-                    url: `${siteUrl}${post.path.alias}`,
-                    title: post.title,
+                    url: `${siteUrl}${pathUrl}`,
+                    title: nodeArticle.title,
                   },
                 }}
                 tags={relatedTags}
               />
             </div>
           </section>
-          <section>
-            <div dangerouslySetInnerHTML={{ __html: cleanBody }} />
-          </section>
-        </main>
+          <div dangerouslySetInnerHTML={{ __html: cleanBody }} />
+        </div>
         <footer className={"article__footer__wrapper"}>
           <section className={"article__footer"}>
             {relatedArticles.length > 0 && (
@@ -142,8 +115,10 @@ const ArticleTemplate = ({ data }) => {
   )
 }
 
+export default Article
+
 export const query = graphql`
-  query($slug: String!) {
+  query ($slug: String!) {
     site {
       siteMetadata {
         siteUrl
@@ -203,7 +178,7 @@ export const query = graphql`
           }
         }
         field_media_article_image {
-          ...ArticleImage
+          ...HeroImage
         }
         field_tags {
           name
@@ -215,5 +190,3 @@ export const query = graphql`
     }
   }
 `
-
-export default ArticleTemplate;

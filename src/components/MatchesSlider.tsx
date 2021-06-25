@@ -1,4 +1,4 @@
-import React, { FunctionComponent, useState } from "react"
+import React, { Fragment, FunctionComponent, useState } from "react"
 
 import { graphql, useStaticQuery } from "gatsby"
 import axios from "axios"
@@ -11,6 +11,7 @@ import Spinner from "./Spinner"
 
 const MatchesSlider: FunctionComponent = () => {
   const [data, setData] = useState<Match[]>([])
+  const [loading, setLoading] = useState<boolean>(true)
 
   const {
     site: {
@@ -33,7 +34,7 @@ const MatchesSlider: FunctionComponent = () => {
     arrows: true,
     centerMode: true,
     focusOnSelect: true,
-    infinite: true,
+    infinite: false,
     lazyLoad: `progressive` as LazyLoadTypes,
 
     responsive: [
@@ -68,25 +69,34 @@ const MatchesSlider: FunctionComponent = () => {
     async function getData() {
       const response = await axios.get(`${kcvvPsdApi}/matches/next`)
       setData(response.data)
+      setLoading(false)
     }
     getData()
   }, [])
 
   return (
-    <div className="matches_slider__wrapper">
-      {data.length > 0 || <Spinner />}
-      <Slider className={`matches_slider`} {...settings_slickslider}>
-        {data
-          .sort((a, b) => a.timestamp - b.timestamp)
-          .map((match: Match, i) => {
-            return (
-              <div className="matches_slider__item" key={i} data-equalizer-watch="true">
-                <MatchTeaserDetail match={match} />
-              </div>
-            )
-          })}
-      </Slider>
-    </div>
+    <Fragment>
+      {data.length > 0 || loading === false || (
+        <div className="matches_slider__wrapper">
+          <Spinner />
+        </div>
+      )}
+      {data.length > 0 && (
+        <div className="matches_slider__wrapper">
+          <Slider className={`matches_slider`} {...settings_slickslider}>
+            {data
+              .sort((a, b) => a.timestamp - b.timestamp)
+              .map((match: Match, i) => {
+                return (
+                  <div className="matches_slider__item" key={i} data-equalizer-watch="true">
+                    <MatchTeaserDetail match={match} />
+                  </div>
+                )
+              })}
+          </Slider>
+        </div>
+      )}
+    </Fragment>
   )
 }
 
