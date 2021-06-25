@@ -40,7 +40,6 @@
     "moment": "2.29.1",
     "moment-timezone": "0.5.33",
     "netlify-plugin-submit-sitemap": "0.2.3",
-    "node-sass": "5.0.0",
     "preact": "10.5.13",
     "preact-render-to-string": "5.1.19",
     "prop-types": "15.7.2",
@@ -53,6 +52,7 @@
     "react-masonry-responsive": "2.1.2",
     "react-share": "4.4.0",
     "react-slick": "0.28.1",
+    "sass": "^1.35.1",
     "sharp": "0.28.3",
     "slick-carousel": "1.8.1"
   },
