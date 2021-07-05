@@ -13,7 +13,7 @@
     "cross-env": "7.0.3",
     "dotenv": "10.0.0",
     "foundation-sites": "6.6.3",
-    "gatsby": "3.8.0",
+    "gatsby": "3.8.1",
     "gatsby-background-image": "1.5.3",
     "gatsby-cli": "3.8.0",
     "gatsby-image": "3.8.0",
