@@ -60,3 +60,9 @@ export interface Event {
     }
   }
 }
+
+export interface TeamShort {
+  field_division_full?: string
+  field_vv_id: string
+  title: string
+}
