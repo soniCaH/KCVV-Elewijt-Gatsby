@@ -113,3 +113,13 @@ body blockquote {
 .rich-link {
     @include rich-link;
 }
+
+.select__input {
+    [type=text] {
+        margin-bottom: 0;
+
+        &, &:focus {
+            box-shadow: none;
+        }
+    }
+}
