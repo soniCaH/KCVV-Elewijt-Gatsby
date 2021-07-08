@@ -18,7 +18,9 @@ export const MatchTeaserDetail: FunctionComponent<MatchTeaserDetailProps> = ({
 }: MatchTeaserDetailProps) => {
   Moment.locale(`nl-BE`)
   const d = Moment.tz(match.date, `Europe/Brussels`)
-  const matchPlayed = (match.status === 0 && match.goalsHomeTeam !== null && match.goalsAwayTeam !== null) || false
+  const matchPlayed =
+    ((match.status === 0 || match.status === null) && match.goalsHomeTeam !== null && match.goalsAwayTeam !== null) ||
+    false
 
   return (
     <article className="match__teaser">
@@ -38,7 +40,7 @@ export const MatchTeaserDetail: FunctionComponent<MatchTeaserDetailProps> = ({
               </span>
             </Fragment>
           )}
-          {match.status === 0 && (
+          {(match.status === 0 || match.status === null) && (
             <Fragment>
               <time className="match__teaser__datetime match__teaser__datetime--date" dateTime={d.format(`YYYY-MM-DD`)}>
                 {d.format(`dddd DD MMMM`)}
