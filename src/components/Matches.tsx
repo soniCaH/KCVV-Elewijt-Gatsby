@@ -17,7 +17,9 @@ const MatchesRow: FunctionComponent<MatchesRowProps> = ({ match }: MatchesRowPro
   const d = Moment.tz(match.date, `Europe/Brussels`)
   const date = d.format(`dddd D MMMM YYYY`)
   const time = d.format(`HH:mm`)
-  const matchPlayed = (match.status === 0 && match.goalsHomeTeam !== null && match.goalsAwayTeam !== null) || false
+  const matchPlayed =
+    ((match.status === 0 || match.status === null) && match.goalsHomeTeam !== null && match.goalsAwayTeam !== null) ||
+    false
 
   return (
     <article>
@@ -49,7 +51,7 @@ const MatchesRow: FunctionComponent<MatchesRowProps> = ({ match }: MatchesRowPro
           {match.status !== 0 && (
             <span title={mapPsdStatus(match.status) || ``}>{mapPsdStatusShort(match.status)}</span>
           )}
-          {match.status === 0 && !matchPlayed && <span>{time}</span>}
+          {(match.status === 0 || match.status === null) && !matchPlayed && <span>{time}</span>}
           {matchPlayed && (
             <span>
               {match.goalsHomeTeam} - {match.goalsAwayTeam}
