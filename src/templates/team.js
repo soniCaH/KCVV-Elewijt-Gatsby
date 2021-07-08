@@ -43,7 +43,7 @@ const TeamTemplate = ({ data }) => {
   )
 
   // Helper variable so we don't have to do the check over and over again.
-  const hasDivision = node.field_fb_id || node.field_fb_id_2
+  const hasDivision = node.field_fb_id || node.field_fb_id_2 || node.field_vv_id
 
   const pathUrl = node.path.alias
 
