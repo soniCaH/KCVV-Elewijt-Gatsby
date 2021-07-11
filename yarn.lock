@@ -1856,7 +1856,7 @@
   dependencies:
     is-promise "^4.0.0"
 
-"@netlify/plugin-gatsby@^1.0.3":
+"@netlify/plugin-gatsby@1.0.3":
   version "1.0.3"
   resolved "https://registry.yarnpkg.com/@netlify/plugin-gatsby/-/plugin-gatsby-1.0.3.tgz#1f95af1f27be1882355ea168de51e32cc21726d8"
   integrity sha512-OyvD9AaZX3xkcBxdy2ubGqR5ad9ozr6ZE5vPoQIIwf8BCWw93GXSJJEuidtrF+JNP516fo2BJA+E98oYyTE9gg==
@@ -2291,7 +2291,7 @@
   resolved "https://registry.yarnpkg.com/@types/q/-/q-1.5.4.tgz#15925414e0ad2cd765bfef58842f7e26a7accb24"
   integrity sha512-1HcDas8SEj4z1Wc696tH56G8OlRaH/sqZOynNNB+HF0WOeXPaxTtbYzJY2oEfiUxjSKjhCKr+MvR7dCHcEelug==
 
-"@types/qrcode.react@^1.0.1":
+"@types/qrcode.react@1.0.1":
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/@types/qrcode.react/-/qrcode.react-1.0.1.tgz#0904e7a075a6274a5258f19567b4f64013c159d8"
   integrity sha512-PcVCjpsiT2KFKfJibOgTQtkt0QQT/6GbQUp1Np/hMPhwUzMJ2DRUkR9j7tXN9Q8X06qukw+RbaJ8lJ22SBod+Q==
@@ -2319,7 +2319,7 @@
   dependencies:
     "@types/react" "*"
 
-"@types/react-select@^4.0.16":
+"@types/react-select@4.0.16":
   version "4.0.16"
   resolved "https://registry.yarnpkg.com/@types/react-select/-/react-select-4.0.16.tgz#4883af396547065563bec3e2aeca252d670a201a"
   integrity sha512-DMmWIKxIC5RC0qQ2l7wDt5qvvVhbtBPK6IQn6LJXe/1KTsGkZajzoLZG8mQtL2nmKrXURq+wetLeHRvYD8CmDw==
@@ -9590,7 +9590,7 @@ lines-and-columns@^1.1.6:
   resolved "https://registry.yarnpkg.com/lines-and-columns/-/lines-and-columns-1.1.6.tgz#1c00c743b433cd0a4e80758f7b64a57440d9ff00"
   integrity sha1-HADHQ7QzzQpOgHWPe2SldEDZ/wA=
 
-lmdb-store@^1.6.0:
+lmdb-store@1.6.0:
   version "1.6.0"
   resolved "https://registry.yarnpkg.com/lmdb-store/-/lmdb-store-1.6.0.tgz#01af0b0af99d95427fb6461be0c6951ee48cb272"
   integrity sha512-Z+zu1HCeq70i+WaaoHraJYORuHr0rx0xIaIIp7ydVeWg1K+WtFn7x24chDvMY9IWDX7bjxK46sU3GReBMVljSA==
@@ -11938,7 +11938,7 @@ qr.js@0.0.0:
   resolved "https://registry.yarnpkg.com/qr.js/-/qr.js-0.0.0.tgz#cace86386f59a0db8050fa90d9b6b0e88a1e364f"
   integrity sha1-ys6GOG9ZoNuAUPqQ2baw6IoeNk8=
 
-qrcode.react@^1.0.1:
+qrcode.react@1.0.1:
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/qrcode.react/-/qrcode.react-1.0.1.tgz#2834bb50e5e275ffe5af6906eff15391fe9e38a5"
   integrity sha512-8d3Tackk8IRLXTo67Y+c1rpaiXjoz/Dd2HpcMdW//62/x8J1Nbho14Kh8x974t9prsLHN6XqVgcnRiBGFptQmg==
@@ -12177,7 +12177,7 @@ react-resize-detector@^1.1.0:
   dependencies:
     prop-types "^15.5.10"
 
-react-select@^4.3.1:
+react-select@4.3.1:
   version "4.3.1"
   resolved "https://registry.yarnpkg.com/react-select/-/react-select-4.3.1.tgz#389fc07c9bc7cf7d3c377b7a05ea18cd7399cb81"
   integrity sha512-HBBd0dYwkF5aZk1zP81Wx5UsLIIT2lSvAY2JiJo199LjoLHoivjn9//KsmvQMEFGNhe58xyuOITjfxKCcGc62Q==
