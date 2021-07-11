@@ -1,7 +1,6 @@
 require(`dotenv`).config()
 
 module.exports = {
-  // flags: { PRESERVE_WEBPACK_CACHE: true, FAST_DEV: true, DEV_SSR: true,  PRESERVE_FILE_DOWNLOAD_CACHE: true, PARALLEL_SOURCING: true},
   siteMetadata: {
     title: `KCVV Elewijt`,
     subTitle: `Er is maar één plezante compagnie`,
@@ -61,6 +60,7 @@ module.exports = {
   flags: {
     FAST_DEV: true,
     PRESERVE_WEBPACK_CACHE: true,
+    LMDB_STORE: true,
     PRESERVE_FILE_DOWNLOAD_CACHE: true,
     PARALLEL_SOURCING: true,
   },
