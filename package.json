@@ -35,6 +35,7 @@
     "global": "4.4.0",
     "jquery": "3.6.0",
     "js-search": "2.0.0",
+    "lmdb-store": "^1.6.0",
     "lodash": "4.17.21",
     "modern-css-reset": "1.4.0",
     "moment": "2.29.1",
