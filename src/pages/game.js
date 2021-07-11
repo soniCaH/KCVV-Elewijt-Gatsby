@@ -101,7 +101,7 @@ class GamePage extends Component {
                 <div className="game__teams">
                   <div className={`game__teams-inner`}>
                     <LazyLoad debounce={false}>
-                      <img src={general.homeClub.logo} alt={general.homeClub.name} title={general.homeClub.name} />
+                      <img src={general.homeClub.logo} alt={general.homeClub?.name} title={general.homeClub?.name} />
                     </LazyLoad>
                   </div>
                   {this.renderScore(general.goalsHomeTeam, general.goalsAwayTeam)}
@@ -111,7 +111,7 @@ class GamePage extends Component {
                     </LazyLoad>
                   </div>
                 </div>
-                <h1>{`${general.homeClub.name} - ${general.awayClub?.name}`}</h1>
+                <h1>{`${general.homeClub?.name} - ${general.awayClub?.name}`}</h1>
                 <h4>{general.competitionType}</h4>
                 <time dateTime={matchTime.format(`YYYY-MM-DD - H:mm`)}>
                   {matchTime.format(`dddd DD MMMM YYYY - H:mm`)}
@@ -127,7 +127,7 @@ class GamePage extends Component {
               {(homeLineup.length !== 0 || awayLineup.length !== 0) && (
                 <div className={`lineup__wrapper grid-x grid-margin-x cell large-12`}>
                   <div className={`cell large-6 lineup__wrapper--home`}>
-                    <h3>{general.homeClub.name}</h3>
+                    <h3>{general.homeClub?.name}</h3>
                     {homeLineup && this.renderLineup(homeLineup, homeSubs)}
                   </div>
                   <div className={`cell large-6 lineup__wrapper--away`}>
@@ -148,7 +148,7 @@ class GamePage extends Component {
 
           <MiniRanking
             teamId={general.homeTeamId || general.awayTeamId}
-            homeTeam={general.homeClub.name}
+            homeTeam={general.homeClub?.name}
             awayTeam={general.awayClub?.name}
           />
         </Layout>
