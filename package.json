@@ -73,6 +73,7 @@
     "test": "jest"
   },
   "devDependencies": {
+    "@netlify/plugin-gatsby": "^1.0.3",
     "@types/classnames": "2.3.0",
     "@types/qrcode.react": "^1.0.1",
     "@types/react-lazyload": "3.1.0",
