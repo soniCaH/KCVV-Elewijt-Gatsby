@@ -60,12 +60,12 @@ export const MatchTeaserDetail: FunctionComponent<MatchTeaserDetailProps> = ({
         >
           <LazyLoad debounce={false}>
             <img
-              src={match.homeClub.logo}
-              alt={match.homeClub.name}
+              src={match.homeClub?.logo}
+              alt={match.homeClub?.name}
               className="match__teaser__logo match__teaser__logo--home"
             />
           </LazyLoad>
-          {match.homeClub.name}
+          {match.homeClub?.name}
         </div>
 
         {matchPlayed || <span className="match__teaser__vs">vs</span>}
@@ -93,7 +93,7 @@ export const MatchTeaserDetail: FunctionComponent<MatchTeaserDetailProps> = ({
       {includeRankings && (
         <MiniRanking
           teamId={match.homeTeamId || match.awayTeamId}
-          homeTeam={match.homeClub.name}
+          homeTeam={match.homeClub?.name}
           awayTeam={match.awayClub?.name}
         />
       )}
