@@ -60,7 +60,7 @@ export const MatchTeaserDetail: FunctionComponent<MatchTeaserDetailProps> = ({
         >
           <LazyLoad debounce={false}>
             <img
-              src={match.homeClub.logo}
+              src={match.homeClub?.logo}
               alt={match.homeClub?.name}
               className="match__teaser__logo match__teaser__logo--home"
             />

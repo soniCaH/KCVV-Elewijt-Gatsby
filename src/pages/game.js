@@ -73,9 +73,9 @@ class GamePage extends Component {
 
     if (this.state.loading === false && this.state.data) {
       const { general = {}, substitutes = {}, lineup = {}, events = [] } = this.state.data
-      const homeTeamId = general.homeClub.id
+      const homeTeamId = general.homeClub?.id
       const ogImage = {
-        src: general?.homeClub.logo,
+        src: general?.homeClub?.logo,
         width: 180,
         height: 180,
       }
@@ -101,7 +101,7 @@ class GamePage extends Component {
                 <div className="game__teams">
                   <div className={`game__teams-inner`}>
                     <LazyLoad debounce={false}>
-                      <img src={general.homeClub.logo} alt={general.homeClub?.name} title={general.homeClub?.name} />
+                      <img src={general.homeClub?.logo} alt={general.homeClub?.name} title={general.homeClub?.name} />
                     </LazyLoad>
                   </div>
                   {this.renderScore(general.goalsHomeTeam, general.goalsAwayTeam)}

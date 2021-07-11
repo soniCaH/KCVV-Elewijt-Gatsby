@@ -40,7 +40,7 @@ const MatchesRow: FunctionComponent<MatchesRowProps> = ({ match }: MatchesRowPro
 
           <LazyLoad debounce={false}>
             <img
-              src={match.homeClub.logo}
+              src={match.homeClub?.logo}
               alt={match.homeClub?.name}
               className="matches__calendar__logo matches__calendar__logo--home"
             />
