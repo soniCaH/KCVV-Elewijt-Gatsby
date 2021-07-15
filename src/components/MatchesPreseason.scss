@@ -1,0 +1,66 @@
+@import '../styles/mixins';
+
+.preseason__wrapper {
+  background: #FFF;
+  margin: .25rem 0;
+  position: relative;
+  z-index: 2;
+
+  h3 {
+    margin: 1rem 1rem 0;
+    padding: 1rem 0;
+    @include after-border(90px);
+  }
+
+  .lazyload-wrapper {
+    display: inline;
+  }
+
+  .lazyload-placeholder {
+    display: inline-block;
+    height: 26px;
+    width: 26px;
+    margin: 0 0.25rem;
+
+    @include break(medium-up) {
+      margin: 0 0.875rem;
+    }
+  }
+
+  .matches__calendar__team {
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+  }
+}
+
+.matches__calendar__preseason {
+  display: grid;
+  grid-template-columns: 1fr 3fr 1fr;
+  grid-template-rows: auto;
+  grid-gap: 1rem;
+}
+
+.matches__preseason__divider {
+  font-weight: bold;
+  margin: 0 .35rem;
+  color: var(--color-green-dark);
+}
+
+.matches__preseason__date {
+  &--date {
+    --size: 25px;
+    color: #FFF;
+    background: var(--color-green-dark);
+    font-weight: bold;
+    height: var(--size);
+    width: var(--size);
+    line-height: var(--size);
+    text-align: center;
+    margin-right: .5rem;
+  }
+}
+
+.matches__preseason__type {
+  text-align: right;
+}
