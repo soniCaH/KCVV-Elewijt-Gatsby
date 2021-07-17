@@ -31,6 +31,14 @@
     text-overflow: ellipsis;
     overflow: hidden;
     white-space: nowrap;
+
+    &--home {
+      text-align: right;
+    }
+
+    &--away {
+      text-align: left;
+    }
   }
 }
 
@@ -39,6 +47,21 @@
   grid-template-columns: 1fr 3fr 1fr;
   grid-template-rows: auto;
   grid-gap: 1rem;
+
+  @include break(small-only) {
+    grid-template-columns: 1fr;
+  }
+}
+
+.matches__preseason__match {
+  display: flex;
+  align-items: center;
+
+  @include break(small-only) {
+    display: grid;
+    grid-template-columns: 3fr 1fr 3fr;
+    order: 3;
+  }
 }
 
 .matches__preseason__divider {
@@ -63,4 +86,8 @@
 
 .matches__preseason__type {
   text-align: right;
+
+  @include break(small-only) {
+    order: 2;
+  }
 }
