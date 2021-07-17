@@ -86,6 +86,7 @@
 
 .matches__preseason__type {
   text-align: right;
+
   @include break(small-only) {
     order: 2;
   }
