@@ -194,6 +194,28 @@ export function groupByDate(data) {
   return groupArrays
 }
 
+export function groupByMonth(data) {
+  const groups = data.reduce((groups, object) => {
+    const date = new Date(object.timestamp * 1000)
+    const month = date.toLocaleString(`nl-BE`, { month: `long` })
+    console.log(date, month)
+    if (!groups[month]) {
+      groups[month] = []
+    }
+    groups[month].push(object)
+    return groups
+  }, {})
+
+  const groupArrays = Object.keys(groups).map((date) => {
+    return {
+      date,
+      objects: groups[date],
+    }
+  })
+
+  return groupArrays
+}
+
 export function replaceAll(source: string, search: string, replacement: string) {
   return source.replace(new RegExp(search, `g`), replacement)
 }
@@ -211,5 +233,6 @@ export default {
   translateGameResult,
   capitalizeFirstLetter,
   groupByDate,
+  groupByMonth,
   replaceAll,
 }
