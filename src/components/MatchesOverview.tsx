@@ -80,10 +80,8 @@ const MatchesOverview: FunctionComponent<MatchesOverviewProps> = ({
                   <div className="matches_overview__item" key={i}>
                     <span className={`label`}>{match.teamName.replace(`Voetbal : `, ``)}</span>
                     <span className={`matches_overview__date`}>{matchTime.format(`ddd D MMMM - H:mm`)}</span>
-                    {match.status !== 0 ? (
+                    {+match.status !== 0 && (
                       <span className={`label alert matches_overview__status`}>{mapPsdStatus(match.status)}</span>
-                    ) : (
-                      ``
                     )}
                     <h6>
                       {match.homeClub?.name} - {match.awayClub?.name}
