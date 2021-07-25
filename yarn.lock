@@ -9974,10 +9974,10 @@ lines-and-columns@^1.1.6:
   resolved "https://registry.yarnpkg.com/lines-and-columns/-/lines-and-columns-1.1.6.tgz#1c00c743b433cd0a4e80758f7b64a57440d9ff00"
   integrity sha1-HADHQ7QzzQpOgHWPe2SldEDZ/wA=
 
-lmdb-store@1.6.0:
-  version "1.6.0"
-  resolved "https://registry.yarnpkg.com/lmdb-store/-/lmdb-store-1.6.0.tgz#01af0b0af99d95427fb6461be0c6951ee48cb272"
-  integrity sha512-Z+zu1HCeq70i+WaaoHraJYORuHr0rx0xIaIIp7ydVeWg1K+WtFn7x24chDvMY9IWDX7bjxK46sU3GReBMVljSA==
+lmdb-store@1.6.3:
+  version "1.6.3"
+  resolved "https://registry.yarnpkg.com/lmdb-store/-/lmdb-store-1.6.3.tgz#bdb0ba75f3fe0d3a11e8d1cd1491c26546c756b1"
+  integrity sha512-XelgbijLnAkY+FhC7CWy4kMoi7sBABhq7gAZxtiLIPMxfrMd/aXjmpdZQe7E5EjEBQokZAbEu47fL2DtKQ5TlA==
   dependencies:
     mkdirp "^1.0.4"
     nan "^2.14.2"
