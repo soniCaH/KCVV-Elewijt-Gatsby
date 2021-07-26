@@ -3271,7 +3271,7 @@ babel-plugin-polyfill-regenerator@^0.2.2:
   dependencies:
     "@babel/helper-define-polyfill-provider" "^0.2.2"
 
-babel-plugin-remove-graphql-queries@3.8.0, babel-plugin-remove-graphql-queries@^3.8.0:
+babel-plugin-remove-graphql-queries@^3.8.0:
   version "3.8.0"
   resolved "https://registry.yarnpkg.com/babel-plugin-remove-graphql-queries/-/babel-plugin-remove-graphql-queries-3.8.0.tgz#00bbb2a8a222d13e8f025b813bb117e8c5f1a5d5"
   integrity sha512-ArP55oowkMmMXxz1Q7OAsPUSt09gwRDzRtOi5cdrhhNsN7z4XOmy0n+ImYSyNxId0NL7wG2g2KT8wRdgmZ95Ig==
@@ -6787,13 +6787,6 @@ gatsby-plugin-preact@5.8.0:
     "@prefresh/babel-plugin" "^0.4.1"
     "@prefresh/webpack" "^3.2.2"
 
-gatsby-plugin-react-helmet@4.8.0:
-  version "4.8.0"
-  resolved "https://registry.yarnpkg.com/gatsby-plugin-react-helmet/-/gatsby-plugin-react-helmet-4.8.0.tgz#1d8d90859f3f7bc44f1a6317e4450d999ca803c8"
-  integrity sha512-MzsWiJFGKIYhIPLLp5zb0hX8ppL5tWpEuAHDeqI4DJ6egsAvcXt65RrunZNnAdP26367LKuz+X0ZEla0II3lsQ==
-  dependencies:
-    "@babel/runtime" "^7.14.0"
-
 gatsby-plugin-sass@4.8.0:
   version "4.8.0"
   resolved "https://registry.yarnpkg.com/gatsby-plugin-sass/-/gatsby-plugin-sass-4.8.0.tgz#64eef32d492bd0798be816e5cfd21cc409af8c7e"
@@ -7162,11 +7155,6 @@ gauge@~2.7.3:
     strip-ansi "^3.0.1"
     wide-align "^1.1.0"
 
-gbimage-bridge@0.1.4:
-  version "0.1.4"
-  resolved "https://registry.yarnpkg.com/gbimage-bridge/-/gbimage-bridge-0.1.4.tgz#e6c966c933a0b6669b11f6cf1a515abc76d0597e"
-  integrity sha512-Q/AS8DQ0vav2eNYYZKAtf7ROQhfZ3/uwT6y5yc/K+nhNkpbB9foizuCaAQh7op/lfoxRaIqe2iNl1gf2EnlwGg==
-
 gensync@^1.0.0-beta.1, gensync@^1.0.0-beta.2:
   version "1.0.0-beta.2"
   resolved "https://registry.yarnpkg.com/gensync/-/gensync-1.0.0-beta.2.tgz#32a6ee76c3d7f52d46b2b1ae5d93fea8580a25e0"
@@ -7326,7 +7314,7 @@ global-prefix@^3.0.0:
     kind-of "^6.0.2"
     which "^1.3.1"
 
-global@4.4.0, global@~4.4.0:
+global@~4.4.0:
   version "4.4.0"
   resolved "https://registry.yarnpkg.com/global/-/global-4.4.0.tgz#3e7b105179006a323ed71aafca3e9c57a5cc6406"
   integrity sha512-wv/LAoHdRE3BeTGz53FAamhGlPLhlssK45usmGFThIi4XqnBmjKQ16u+RNbP7WvigRZDxUsM0J3gcQ5yicaL0w==
@@ -9536,10 +9524,10 @@ lines-and-columns@^1.1.6:
   resolved "https://registry.yarnpkg.com/lines-and-columns/-/lines-and-columns-1.1.6.tgz#1c00c743b433cd0a4e80758f7b64a57440d9ff00"
   integrity sha1-HADHQ7QzzQpOgHWPe2SldEDZ/wA=
 
-lmdb-store@1.6.0:
-  version "1.6.0"
-  resolved "https://registry.yarnpkg.com/lmdb-store/-/lmdb-store-1.6.0.tgz#01af0b0af99d95427fb6461be0c6951ee48cb272"
-  integrity sha512-Z+zu1HCeq70i+WaaoHraJYORuHr0rx0xIaIIp7ydVeWg1K+WtFn7x24chDvMY9IWDX7bjxK46sU3GReBMVljSA==
+lmdb-store@^1.6.4-pre:
+  version "1.6.4-pre"
+  resolved "https://registry.yarnpkg.com/lmdb-store/-/lmdb-store-1.6.4-pre.tgz#d3272bf0bfde1a0c46bc8815ebbeccccc2b17187"
+  integrity sha512-S6ZR2VqZXL+/pVSR1RO8N3KclIrN956C7x2gYfRrDmHkZwBWLChxou4CYax/BO8+PBlWXqo+XCCCOv7r92jjyA==
   dependencies:
     mkdirp "^1.0.4"
     nan "^2.14.2"
@@ -9547,7 +9535,7 @@ lmdb-store@1.6.0:
     ordered-binary "^0.2.3"
     weak-lru-cache "^1.0.0"
   optionalDependencies:
-    msgpackr "^1.3.2"
+    msgpackr "^1.3.7"
 
 load-bmfont@^1.3.1, load-bmfont@^1.4.0:
   version "1.4.1"
@@ -9766,7 +9754,7 @@ lodash.without@^4.4.0:
   resolved "https://registry.yarnpkg.com/lodash.without/-/lodash.without-4.4.0.tgz#3cd4574a00b67bae373a94b748772640507b7aac"
   integrity sha1-PNRXSgC2e643OpS3SHcmQFB7eqw=
 
-lodash@4.17.21, lodash@^4.17.10, lodash@^4.17.11, lodash@^4.17.14, lodash@^4.17.15, lodash@^4.17.19, lodash@^4.17.20, lodash@^4.17.21, lodash@^4.17.4, lodash@^4.7.0:
+lodash@^4.17.10, lodash@^4.17.11, lodash@^4.17.14, lodash@^4.17.15, lodash@^4.17.19, lodash@^4.17.20, lodash@^4.17.21, lodash@^4.17.4, lodash@^4.7.0:
   version "4.17.21"
   resolved "https://registry.yarnpkg.com/lodash/-/lodash-4.17.21.tgz#679591c564c3bffaae8454cf0b3df370c3d6911c"
   integrity sha512-v2kDEe57lecTulaDIuNTPy3Ry4gLGJ6Z1O3vE1krgXZNrsQ+LFTGHVxVjcXPs17LhbZVGedAJv8XZ1tvj5FvSg==
@@ -10257,10 +10245,10 @@ msgpackr-extract@^1.0.13:
     nan "^2.14.2"
     node-gyp-build "^4.2.3"
 
-msgpackr@^1.3.2:
-  version "1.3.5"
-  resolved "https://registry.yarnpkg.com/msgpackr/-/msgpackr-1.3.5.tgz#4d1e8960545f7633e13c77979013f08fdc29d096"
-  integrity sha512-VdEfFg5Pyj1y3YC3TwJvCk6lfPjgZ0Q/wyXjSD48w4v2Atp/CZGmuMbUV2b4ldR18oYZh3eOJJe8+RUQIAt9/Q==
+msgpackr@^1.3.7:
+  version "1.3.9"
+  resolved "https://registry.yarnpkg.com/msgpackr/-/msgpackr-1.3.9.tgz#b78fbbb5665cc9d8b47c51f9892ce5507df24c8d"
+  integrity sha512-vKf5AduorqNcItGXuXh0h9LpNkkg6c3KEaRWeGgOF7+a7x0DcgRb4I29sewYvr8H7oRN5L2gjU9Lr4oRU5RIdA==
   optionalDependencies:
     msgpackr-extract "^1.0.13"
 
@@ -10364,13 +10352,6 @@ neo-async@^2.6.2:
   resolved "https://registry.yarnpkg.com/neo-async/-/neo-async-2.6.2.tgz#b4aafb93e3aeb2d8174ca53cf163ab7d7308305f"
   integrity sha512-Yd3UES5mWCSqR+qNT93S3UoYUkqAZ9lLg8a7g9rimsWmYGK8cVToA4/sF3RrshdyV3sAGMXVUmpMYOw+dLpOuw==
 
-netlify-plugin-submit-sitemap@0.2.3:
-  version "0.2.3"
-  resolved "https://registry.yarnpkg.com/netlify-plugin-submit-sitemap/-/netlify-plugin-submit-sitemap-0.2.3.tgz#f2b0ba60d0b90e9d75554fa118b4b7973610aea4"
-  integrity sha512-OmRZgqCkigLcb9p7ri/gw7XecZjCH4cEh1SLUb819weT5bk2ly6PO46wbHsaZARDgM7UMmj1QzkJyjH53ECtTQ==
-  dependencies:
-    node-fetch "^2.6.0"
-
 next-tick@1, next-tick@^1.1.0:
   version "1.1.0"
   resolved "https://registry.yarnpkg.com/next-tick/-/next-tick-1.1.0.tgz#1836ee30ad56d67ef281b22bd199f709449b35eb"
@@ -10411,7 +10392,7 @@ node-eta@^0.9.0:
   resolved "https://registry.yarnpkg.com/node-eta/-/node-eta-0.9.0.tgz#9fb0b099bcd2a021940e603c64254dc003d9a7a8"
   integrity sha1-n7CwmbzSoCGUDmA8ZCVNwAPZp6g=
 
-node-fetch@2.6.1, node-fetch@^2.5.0, node-fetch@^2.6.0, node-fetch@^2.6.1:
+node-fetch@2.6.1, node-fetch@^2.5.0, node-fetch@^2.6.1:
   version "2.6.1"
   resolved "https://registry.yarnpkg.com/node-fetch/-/node-fetch-2.6.1.tgz#045bd323631f76ed2e2b55573394416b639a0052"
   integrity sha512-V4aYg89jEoVRxRb2fJdAg8FHvI7cEyYdVAh94HH0UIK8oJxUfkjlDQN9RbMx+bEjP7+ggMiFRprSti032Oipxw==
@@ -11793,7 +11774,7 @@ prompts@2.4.0, prompts@^2.0.1, prompts@^2.3.2:
     kleur "^3.0.3"
     sisteransi "^1.0.5"
 
-prop-types@15.7.2, prop-types@^15.5.10, prop-types@^15.5.8, prop-types@^15.5.9, prop-types@^15.6.0, prop-types@^15.6.1, prop-types@^15.6.2, prop-types@^15.7.2:
+prop-types@15.7.2, prop-types@^15.5.8, prop-types@^15.5.9, prop-types@^15.6.0, prop-types@^15.6.1, prop-types@^15.6.2, prop-types@^15.7.2:
   version "15.7.2"
   resolved "https://registry.yarnpkg.com/prop-types/-/prop-types-15.7.2.tgz#52c41e75b8c87e72b9d9360e0206b99dcbffa6c5"
   integrity sha512-8QQikdH7//R2vurIJSutZ1smHYTcLpRWEOlHnzcWHmBYrOGUysKwSsrC89BCiFj3CbrfJ/nXFdJepOVrY1GCHQ==
@@ -12098,25 +12079,10 @@ react-lifecycles-compat@^3.0.4:
   resolved "https://registry.yarnpkg.com/react-lifecycles-compat/-/react-lifecycles-compat-3.0.4.tgz#4f1a273afdfc8f3488a8c516bfda78f872352362"
   integrity sha512-fBASbA6LnOU9dOU2eW7aQ8xmYBSXUIWr+UmF9b1efZBazGNO+rcXT/icdKnYm2pTwcRylVUYwW7H1PHfLekVzA==
 
-react-masonry-responsive@2.1.2:
-  version "2.1.2"
-  resolved "https://registry.yarnpkg.com/react-masonry-responsive/-/react-masonry-responsive-2.1.2.tgz#81ce9104568aecb03032e61edcb9ab1a75a85eaf"
-  integrity sha512-4H68V27uIrghfRX5z5jOnGNSPKZAvH4L0vq6uIBKYmiYMJRLaaiAKxWiR5JSf4ZaIQDtP2jq0JV56/vCE4ZN9w==
-  dependencies:
-    react-resize-detector "^1.1.0"
-    tslib "^1.8.1"
-
 react-refresh@^0.9.0:
   version "0.9.0"
   resolved "https://registry.yarnpkg.com/react-refresh/-/react-refresh-0.9.0.tgz#71863337adc3e5c2f8a6bfddd12ae3bfe32aafbf"
   integrity sha512-Gvzk7OZpiqKSkxsQvO/mbTN1poglhmAV7gR/DdIrRrSMXraRQQlfikRJOr3Nb9GTMPC5kof948Zy6jJZIFtDvQ==
-
-react-resize-detector@^1.1.0:
-  version "1.1.0"
-  resolved "https://registry.yarnpkg.com/react-resize-detector/-/react-resize-detector-1.1.0.tgz#4a9831fa3caad32230478dd0185cbd2aa91a5ebf"
-  integrity sha512-68KVcQlhcWQGXMAie82YueCa4f4yqwEoiQbVyYlSgJEin1zMtNBLLeU/+6FLNf1TTgjwSfpbMTJTw/uU0HNgtQ==
-  dependencies:
-    prop-types "^15.5.10"
 
 react-select@4.3.1:
   version "4.3.1"
@@ -12942,7 +12908,7 @@ shallow-compare@^1.2.2:
   resolved "https://registry.yarnpkg.com/shallow-compare/-/shallow-compare-1.2.2.tgz#fa4794627bf455a47c4f56881d8a6132d581ffdb"
   integrity sha512-LUMFi+RppPlrHzbqmFnINTrazo0lPNwhcgzuAXVVcfy/mqPDrQmHAyz5bvV0gDAuRFrk804V0HpQ6u9sZ0tBeg==
 
-sharp@0.28.3, sharp@^0.28.0, sharp@^0.28.1:
+sharp@^0.28.0, sharp@^0.28.1:
   version "0.28.3"
   resolved "https://registry.yarnpkg.com/sharp/-/sharp-0.28.3.tgz#ecd74cefd020bee4891bb137c9850ee2ce277a8b"
   integrity sha512-21GEP45Rmr7q2qcmdnjDkNP04Ooh5v0laGS5FDpojOO84D1DJwUijLiSq8XNNM6e8aGXYtoYRh3sVNdm8NodMA==
