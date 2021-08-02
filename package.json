@@ -43,7 +43,7 @@
     "react-select": "4.3.1",
     "react-share": "4.4.0",
     "react-slick": "0.28.1",
-    "sass": "1.36.0",
+    "sass": "1.37.0",
     "slick-carousel": "1.8.1"
   },
   "keywords": [
@@ -66,11 +66,11 @@
     "@types/react-lazyload": "3.1.1",
     "@types/react-select": "4.0.17",
     "@types/react-slick": "0.23.5",
-    "@typescript-eslint/eslint-plugin": "4.28.4",
-    "@typescript-eslint/parser": "4.28.4",
+    "@typescript-eslint/eslint-plugin": "4.28.5",
+    "@typescript-eslint/parser": "4.28.5",
     "babel-jest": "27.0.6",
     "babel-preset-gatsby": "1.10.0",
-    "eslint": "7.31.0",
+    "eslint": "7.32.0",
     "eslint-config-prettier": "8.3.0",
     "eslint-plugin-prettier": "3.4.0",
     "identity-obj-proxy": "3.0.0",
