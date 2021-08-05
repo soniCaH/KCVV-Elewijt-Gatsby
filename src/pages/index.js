@@ -1,5 +1,5 @@
 import React, { Component, Fragment } from "react"
-import { graphql, Link } from "gatsby"
+import { graphql } from "gatsby"
 
 import Layout from "../layouts/index"
 
@@ -10,12 +10,10 @@ import MatchesTabs from "../components/MatchesTabs"
 import { NewsItemFeatured, NewsItemCardRatio, KcvvTvCard } from "../components/news-item"
 import { CardImage } from "../components/Card"
 import UpcomingEvent from "../components/UpcomingEvent.tsx"
-import PlayerFeatured from "../components/player--featured"
 
 import MyMakro from "../images/tag-mymakro.png"
 import Trooper from "../images/tag-trooper.png"
 import Card from "../components/Card"
-import { StaticImage } from "gatsby-plugin-image"
 
 class IndexPage extends Component {
   renderMatchSlider = () => (
@@ -62,13 +60,7 @@ class IndexPage extends Component {
       </div>
     </article>
   )
-  renderBBQ = () => (
-    <Card className={`medium-6 large-12 cell`} title="BBQ">
-      <Link to="/bbq">
-        <StaticImage src="../images/bbq2021-square.jpg" alt="BBQ" />
-      </Link>
-    </Card>
-  )
+
   renderMakroArticle = () => (
     <Card className={`medium-6 large-12 cell card`} title="MyMakro">
       <p>
@@ -280,7 +272,6 @@ class IndexPage extends Component {
       <>
         {/* TABLEBOOKER WIDGET */}
         {/* { this.renderTablebooker() } */}
-        {this.renderBBQ()}
 
         {/* A TEAM OVERVIEW - SUMMARY OF MATCHES AND RANKING*/}
         {this.renderATeamCalendarArticle()}
