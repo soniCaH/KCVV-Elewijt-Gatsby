@@ -63,5 +63,6 @@ module.exports = {
     LMDB_STORE: true,
     PRESERVE_FILE_DOWNLOAD_CACHE: true,
     PARALLEL_SOURCING: true,
+    PARALLEL_QUERY_RUNNING: true,
   },
 }
