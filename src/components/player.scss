@@ -1,5 +1,13 @@
 @import '../styles/mixins';
 
+body.share {
+
+    .l--header,
+    .page-footer {
+        display: none;
+    }
+}
+
 .player,
 .team {
     &-detail {
@@ -319,6 +327,7 @@
 
 .player-detail__games__table {
     .player-detail__column {
+
         &--number,
         &--score {
             text-align: left;

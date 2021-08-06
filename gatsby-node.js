@@ -5,12 +5,12 @@
  */
 
 // You can delete this file if you're not using it
-require("dotenv").config({
+require(`dotenv`).config({
   path: `.env`,
 })
 const path = require(`path`)
 
-const gatsbyNodePageQueries = require("./src/gatsby/gatsbyNodePageQueries")
+const gatsbyNodePageQueries = require(`./src/gatsby/gatsbyNodePageQueries`)
 const {
   createArticles,
   createPages,
@@ -19,7 +19,7 @@ const {
   createStaff,
   createOverviewNews,
   createCategoryPages,
-} = require("./src/gatsby/pageCreator")
+} = require(`./src/gatsby/pageCreator`)
 
 const createPaginatedPages = require(`gatsby-paginate`)
 
@@ -40,6 +40,7 @@ exports.createPages = async ({ graphql, actions }) => {
   const pageTemplate = path.resolve(`src/templates/page.js`)
   const teamTemplate = path.resolve(`src/templates/team.js`)
   const playerTemplate = path.resolve(`src/templates/player.js`)
+  const playerShareTemplate = path.resolve(`src/templates/player-share.js`)
   const staffTemplate = path.resolve(`src/templates/player-staff.js`)
   const newsOverviewTemplate = path.resolve(`src/templates/newsoverview.js`)
   const categoryTemplate = path.resolve(`src/templates/categoryPage.js`)
@@ -54,23 +55,12 @@ exports.createPages = async ({ graphql, actions }) => {
   createArticles(result.data.articles.edges, createPage, articleTemplate)
   createPages(result.data.pages.edges, createPage, pageTemplate)
   createTeams(result.data.teams.edges, createPage, teamTemplate)
-  createPlayers(result.data.players.edges, createPage, playerTemplate)
+  createPlayers(result.data.players.edges, createPage, playerTemplate, playerShareTemplate)
   createStaff(result.data.staff.edges, createPage, staffTemplate)
 
-  createOverviewNews(
-    result.data.articles.edges,
-    createPaginatedPages,
-    createPage,
-    newsOverviewTemplate,
-    "news",
-    18
-  )
+  createOverviewNews(result.data.articles.edges, createPaginatedPages, createPage, newsOverviewTemplate, `news`, 18)
 
-  createCategoryPages(
-    result.data.categories.edges,
-    createPage,
-    categoryTemplate
-  )
+  createCategoryPages(result.data.categories.edges, createPage, categoryTemplate)
 }
 
 exports.onCreatePage = async ({ page, actions }) => {
@@ -78,8 +68,8 @@ exports.onCreatePage = async ({ page, actions }) => {
 
   if (page.path.match(/^\/game\//)) {
     createPage({
-      path: "/game/",
-      matchPath: "/game/:id",
+      path: `/game/`,
+      matchPath: `/game/:id`,
       component: path.resolve(`src/pages/game.js`),
     })
   }
