@@ -16,8 +16,8 @@ const renderPlayerName = (firstName: string, lastName: string) => (
   </h1>
 )
 
-const renderPlayerImage = (imageData: IGatsbyImageData) => (
-  <div className={`player-detail__bg-avatar`} style={{ backgroundImage: `url(${getSrc(imageData)})` }} />
+const renderPlayerImage = (imageData: IGatsbyImageData | undefined) => (
+  <div className={`player-detail__bg-avatar`} style={imageData && { backgroundImage: `url(${getSrc(imageData)})` }} />
 )
 
 const renderPlayerNumber = (shirtNumber: number) => (
@@ -29,8 +29,7 @@ const renderPlayerNumber = (shirtNumber: number) => (
 const renderPlayerHeader = (player: Player) => (
   <Fragment>
     {renderPlayerName(player.field_firstname, player.field_lastname)}
-    {player.relationships?.field_image &&
-      renderPlayerImage(player.relationships?.field_image?.localFile?.childImageSharp?.gatsbyImageData)}
+    {renderPlayerImage(player.relationships?.field_image?.localFile?.childImageSharp?.gatsbyImageData)}
     {player.field_shirtnumber && renderPlayerNumber(player.field_shirtnumber)}
   </Fragment>
 )

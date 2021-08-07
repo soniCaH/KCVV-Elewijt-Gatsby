@@ -112,3 +112,10 @@ export interface TeamShort {
   field_vv_id: string
   title: string
 }
+
+export interface PlayerShort {
+  field_vv_id?: string
+  field_firstname: string
+  field_lastname: string
+  path: Pathalias
+}
