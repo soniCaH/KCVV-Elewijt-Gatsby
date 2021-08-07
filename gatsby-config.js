@@ -56,6 +56,7 @@ module.exports = {
     },
     `gatsby-plugin-offline`,
     `gatsby-plugin-netlify`,
+    `gatsby-plugin-use-query-params`,
   ],
   flags: {
     FAST_DEV: true,
