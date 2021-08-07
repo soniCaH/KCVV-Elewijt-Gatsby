@@ -127,7 +127,7 @@ const CreateSharePage: FunctionComponent = () => (
 
     <div className={`limited-width_wrapper`}>
       <header>
-        <h1>Creeer afbeelding</h1>
+        <h1>Creëer afbeelding</h1>
       </header>
       <main>
         <ShareForm />
