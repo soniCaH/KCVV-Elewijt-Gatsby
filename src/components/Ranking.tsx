@@ -92,6 +92,7 @@ class Ranking extends React.Component<RankingProps, RankingState> {
       return (
         <Fragment>
           {rankings
+            .filter((ranking: RankingDataObject) => ranking.teams.length > 0)
             .sort((a, b) => a.name.localeCompare(b.name))
             .map((ranking: RankingDataObject, i: number) => {
               return this.renderRanking(ranking, i)

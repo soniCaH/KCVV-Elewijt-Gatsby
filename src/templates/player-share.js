@@ -1,34 +1,11 @@
 import React from "react"
 import { graphql } from "gatsby"
 
-import Layout from "../layouts/index"
-import SEO from "../components/seo"
-import PlayerDetail from "../components/player"
+import PlayerShare from "../components/PlayerShare"
 
-import { getSrc } from "gatsby-plugin-image"
-
-// import './ArticleStyle.scss'
-
-const PlayerTemplate = ({ data }) => {
+const PlayerShareTemplate = ({ data }) => {
   const node = data.nodePlayer
-  const pathUrl = node.path.alias
-  const ogImage = node.relationships.field_image && {
-    src: getSrc(node.relationships.field_image.localFile.childImageSharp.gatsbyImageData),
-    width: node.relationships.field_image.localFile.childImageSharp.gatsbyImageData.width,
-    height: node.relationships.field_image.localFile.childImageSharp.gatsbyImageData.height,
-  }
-  return (
-    <Layout>
-      <SEO
-        lang="nl-BE"
-        title={node.title}
-        description={node.title + ` - (ex-)speler van KCVV Elewijt`}
-        path={pathUrl}
-        image={ogImage}
-      />
-      <PlayerDetail player={node} />
-    </Layout>
-  )
+  return <PlayerShare player={node} />
 }
 
 export const query = graphql`
@@ -83,4 +60,4 @@ export const query = graphql`
   }
 `
 
-export default PlayerTemplate
+export default PlayerShareTemplate
