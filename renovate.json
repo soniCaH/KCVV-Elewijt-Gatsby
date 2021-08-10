@@ -3,21 +3,24 @@
     "config:base",
     "config:js-app",
     "packages:gatsby",
-    "group:gatsbyMonorepo"
+    "group:gatsbyMonorepo",
+    "schedule:weekly",
+    "schedule:weekends"
   ],
   "packageRules": [
     {
       "updateTypes": ["minor", "patch", "pin", "digest"],
-      "automerge": true
+      "automerge": false
     },
     {
       "depTypeList": ["devDependencies"],
-      "automerge": true
+      "automerge": false
     }
   ],
   "labels": [
     "dependencies"
   ],
+  "prConcurrentLimit": 1,
   "timezone": "Europe/Brussels",
   "masterIssue": true
 }
