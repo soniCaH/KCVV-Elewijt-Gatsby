@@ -215,6 +215,16 @@ class GamePage extends Component {
         actionText = `${element?.goalsHome} - ${element?.goalsAway} — Doelpunt gescoord door`
         actionMessage = `Doelpunt`
         break
+      case `minuteOut`:
+        actionIcon = iconSubOut
+        actionText = `Speler uit: `
+        actionMessage = `Wissel`
+        break
+      case `minuteIn`:
+        actionIcon = iconSubIn
+        actionText = `Speler in: `
+        actionMessage = `Wissel`
+        break
     }
 
     return (
