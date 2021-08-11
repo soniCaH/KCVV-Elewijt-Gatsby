@@ -7,7 +7,7 @@ import Select, { ValueType } from "react-select"
 import { TeamsListProps } from "../types/pages.types"
 
 const CalendarForm: FunctionComponent = () => {
-  const calendarUrl = `https://footbalisto.be/calendar`
+  const calendarUrl = `webcal://footbalisto.be/calendar`
   const [teamsSelected, setTeamSelected] = useState<string[]>([])
   const [sideSelected, setSideSelected] = useState<string>(``)
 
@@ -79,11 +79,11 @@ const CalendarForm: FunctionComponent = () => {
       <p>
         Calendar:{` `}
         <a
-          href={`webcal://${calendarUrl}?teams=${teamsSelected}&side=${sideSelected}`}
-        >{`webcal://${calendarUrl}?teams=${teamsSelected}&side=${sideSelected}`}</a>
+          href={`${calendarUrl}?teams=${teamsSelected}&side=${sideSelected}`}
+        >{`${calendarUrl}?teams=${teamsSelected}&side=${sideSelected}`}</a>
       </p>
       <p>
-        <QRCode value={`webcal://${calendarUrl}?teams=${teamsSelected}&side=${sideSelected}`} />
+        <QRCode value={`${calendarUrl}?teams=${teamsSelected}&side=${sideSelected}`} />
       </p>
     </div>
   )
