@@ -23,16 +23,16 @@ class MosselfestijnPage extends Component {
           </header>
           <main>
             <p>
-              Op vrijdag 9, zaterdag 10 en zondag 11 oktober 2020 vindt ons
+              Op vrijdag 10, zaterdag 11 en zondag 12 september 2021 vindt ons
               jaarlijkse Mosselfestijn weer plaats. Om de spreiding te kunnen
               garanderen en wachttijden aan de ingang zoveel mogelijk te
               beperken werken we dit jaar met een reservatiesysteem. Hieronder
               kan je zelf jouw gewenste tijdstip en gezelschap selecteren en een
-              tafel boeken (voor 07/10/2020).
+              tafel boeken (voor 08/09/2021).
             </p>
             <p>
               Telefonisch reserveren kan dagelijks tussen 18u en 21u op het
-              nummer <a href="tel:+32498735984">0498.73.59.84</a>
+              nummer <a href="tel:+32475981611" className="rich-link">0475/98.16.11</a>.
             </p>
             <p>
               Ter plaatse een tafel vragen kan, naargelang de beschikbaarheid op
@@ -54,7 +54,7 @@ class MosselfestijnPage extends Component {
               image={{
                 ...affiche.childImageSharp.gatsbyImageData,
               }}
-              alt="Mosselfestijn 2020"
+              alt="Mosselfestijn 2021"
             />
           </footer>
         </div>
@@ -65,8 +65,8 @@ class MosselfestijnPage extends Component {
 
 export const pageQuery = graphql`
   query {
-    affiche: file(name: { eq: "mossel2020-affiche" }) {
-      ...KCVVFluid960
+    affiche: file(name: { eq: "mossel2021-affiche" }) {
+      ...KCVVFullWidth
     }
   }
 `

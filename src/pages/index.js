@@ -133,18 +133,18 @@ class IndexPage extends Component {
   )
 
   renderTablebooker = () => (
-    <>
+    <Fragment>
       <Card className={`medium-6 large-12 cell card`} title="Mosselfestijn" titleIcon="fa-cutlery">
         <p>
-          Op vrijdag 9, zaterdag 10 en zondag 11 oktober 2020 vindt ons jaarlijkse Mosselfestijn weer plaats. Om de
-          spreiding te kunnen garanderen en wachttijden aan de ingang zoveel mogelijk te beperken werken we dit jaar met
-          een reservatiesysteem. Hieronder kan je zelf jouw gewenste tijdstip en gezelschap selecteren en een tafel
-          boeken (voor 07/10/2020).
+          Op vrijdag 10, zaterdag 11 en zondag 12 oktober 2021 vindt ons jaarlijkse Mosselfestijn weer plaats. Om de
+          spreiding te kunnen garanderen en wachttijden aan de ingang zoveel mogelijk te beperken werken we dit jaar
+          opnieuw met een reservatiesysteem. Hieronder kan je zelf jouw gewenste tijdstip en gezelschap selecteren en
+          een tafel boeken (voor 08/09/2021).
         </p>
         <p>
           Telefonisch reserveren kan dagelijks tussen 18u en 21u op het nummer
           {` `}
-          <a href="tel:+32498735984">0498.73.59.84</a>
+          <a href="tel:+32475981611">0475/98.16.11</a>
         </p>
         <p>
           Ter plaatse een tafel vragen kan, naargelang de beschikbaarheid op dat moment, maar hou er rekening mee dat we
@@ -162,7 +162,7 @@ class IndexPage extends Component {
         ></tbkr-bm-widget>
         <script src="https://reservations.tablebooker.com/tbkr-widget-import.min.js"></script>
       </article>
-    </>
+    </Fragment>
   )
 
   renderWebsiteFeedbackArticle = () => (
@@ -269,34 +269,26 @@ class IndexPage extends Component {
   renderLayoutSidebar = () => {
     const { featuredPlayer } = this.props.data
     return (
-      <>
+      <Fragment>
         {/* TABLEBOOKER WIDGET */}
-        {/* { this.renderTablebooker() } */}
-
+        {this.renderTablebooker()}
         {/* A TEAM OVERVIEW - SUMMARY OF MATCHES AND RANKING*/}
         {this.renderATeamCalendarArticle()}
-
         {/* B TEAM OVERVIEW - SUMMARY OF MATCHES AND RANKING */}
         {this.renderBTeamCalendarArticle()}
-
         {/* YOUTH TEAMS OVERVIEW - SUMMARY OF UPCOMING MATCHES */}
         {this.renderYouthCalendarArticle()}
-
         {/* PLAYER OF THE WEEK ARTICLE IF ANY */}
         {/* {featuredPlayer && this.renderPlayerOfTheWeek(featuredPlayer)} */}
-
         {/* INFO ARTICLE WITH SOCIAL MEDIA LINKS */}
         {this.renderSocialMediaArticle()}
-
         {/* INFO ARTICLE WITH REQUEST FOR WEBSITE FEEDBACK */}
         {this.renderWebsiteFeedbackArticle()}
-
         {/* INFO ARTICLE WITH "TROOPER" CONTENT */}
         {this.renderTrooperArticle()}
-
         {/* INFO ARTICLE WITH "MYMAKRO" CONTENT */}
         {this.renderMakroArticle()}
-      </>
+      </Fragment>
     )
   }
 
@@ -305,11 +297,11 @@ class IndexPage extends Component {
     const posts = this.combineAndSortPosts(featuredPosts, kcvvTv)
 
     return (
-      <>
+      <Fragment>
         <UpcomingEvent />
 
         {posts && this.renderPosts(posts)}
-      </>
+      </Fragment>
     )
   }
 
