@@ -4,7 +4,7 @@ import Layout from "../layouts/index"
 import SEO from "../components/seo"
 import { useStaticQuery, graphql } from "gatsby"
 import { PlayerListProps } from "../types/pages.types"
-import Select, { ValueType } from "react-select"
+import Select from "react-select"
 import Spinner from "../components/Spinner"
 
 const ShareForm: FunctionComponent = () => {
@@ -96,7 +96,7 @@ const ShareForm: FunctionComponent = () => {
             id="calendar__score"
             onChange={handleScoreChange}
             className={`input__input`}
-            placeholder="2 - 0"
+            placeholder="2-0"
             value={score}
             required={true}
           />

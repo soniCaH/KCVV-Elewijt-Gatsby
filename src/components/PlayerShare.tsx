@@ -52,15 +52,17 @@ const PlayerShare: FunctionComponent<PlayerShareProps> = ({ player }) => {
             class: `share`,
           }}
         />
+        <span className="player-detail--share__title">Goal!</span>
+
         <img src={fallback} className="player-detail__bg--fallback" />
 
         {renderPlayerHeader(player)}
 
         <div className={`bg-green-mask player-detail--share__details`}>
+          <div className={`bg-green-submask`}>
           <span className="player-detail--share__match">{match}</span>
-          <span className="player-detail--share__title">Goal!</span>
           <span className="player-detail--share__score">{score}</span>
-        </div>
+        </div></div>
       </article>
     </Fragment>
   )
