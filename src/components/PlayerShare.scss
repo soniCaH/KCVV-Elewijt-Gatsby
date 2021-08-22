@@ -1,111 +1,116 @@
 .player-detail--share {
-  width: 1080px;
-  height: 1920px;
-  overflow: hidden;
-  background-image: url("../images/share-instagram-bg2.jpg");
-  position: relative;
+    width: 1080px;
+    height: 1920px;
+    overflow: hidden;
+    background-image: url("../images/share-instagram-bg2.jpg");
+    position: relative;
 
-  .player-detail__bg-shirt-number {
-      color: rgba(255, 255, 255, 0.25);
-      font-size: 500px;
-      top: 60px;
-      right: 60px;
-  }
+    .player-detail__bg-shirt-number {
+        color: rgba(255, 255, 255, 0.25);
+        font-size: 500px;
+        top: 60px;
+        right: 60px;
+    }
 
-  .player-detail__name {
-      text-align: right;
-      top: 350px;
-      right: 60px;
-  }
+    .player-detail__name {
+        text-align: right;
+        top: 350px;
+        right: 60px;
+    }
 
-  .player-detail__name-first {
-      font-size: 48px;
-      color: rgba(255, 255, 255, 0.5);
-  }
+    .player-detail__name-first {
+        font-size: 48px;
+        color: rgba(255, 255, 255, 0.5);
+    }
 
-  .player-detail__name-last {
-      color: rgba(255, 255, 255, 1);
-      font-size: 64px;
-  }
+    .player-detail__name-last {
+        color: rgba(255, 255, 255, 1);
+        font-size: 64px;
+    }
 
-  .player-detail__bg--fallback {
-      opacity: 0.5;
-      height: 2500px;
-      width: auto;
-      max-width: unset;
-      position: absolute;
-      left: -1000px;
-  }
+    .player-detail__bg--fallback {
+        opacity: 0.5;
+        height: 2500px;
+        width: auto;
+        max-width: unset;
+        position: absolute;
+        left: -1000px;
+    }
 
-  .player-detail__bg-avatar {
-      height: 1500px;
-      position: absolute;
-      top: auto;
-      bottom: 0;
-      left: 0;
-      background-size: 1500px;
-      background-position: top;
-  }
+    .player-detail__bg-avatar {
+        height: 1500px;
+        position: absolute;
+        top: auto;
+        bottom: 0;
+        left: 0;
+        background-size: 1500px;
+        background-position: top;
+    }
 
-  .bg-green-mask {
-      background-image: linear-gradient(175deg, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0) 40%, #FFF 40.1%, #FFF 46%, #4B9B48 46.1%, #4B9B48 100%);
-      position: absolute;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      top: auto;
-      overflow: hidden;
-      padding-top: 400px;
-      z-index: 999;
-  }
+    .bg-green-mask {
+        background-image: linear-gradient(175deg, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0) 40%, #FFF 40.1%, #FFF 46%, rgb(4, 130, 51) 46.1%, rgb(4, 130, 51) 100%);
+        position: absolute;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        top: auto;
+        overflow: hidden;
+        padding-top: 400px;
+        z-index: 999;
+    }
 
-  .player-detail--share__details {
-  }
+    .player-detail--share__details {}
 
-  .player-detail--share__title {
-      display: block;
-      font-family: var(--font-title);
-      font-size: 150px;
-      font-weight: bold;
-      color: #FFF;
-      text-align: right;
-      margin-right: 60px;
-      z-index: 10;
-      line-height: 1;
-      margin-bottom: 76px;
-  }
+    .player-detail--share__title {
+        display: block;
+        font-family: var(--font-title);
+        font-size: 150px;
+        font-weight: bold;
+        color: #FFF;
+        margin-right: 60px;
+        z-index: 10;
+        line-height: 1;
+        z-index: 9999;
+        position: absolute;
+        left: 60px;
+        top: 150px;
+    }
 
-  .player-detail--share__score {
-      z-index: 10;
-      display: block;
-      text-align: center;
-      font-size: 250px;
-      position: absolute;
-      color: rgba(255, 255, 255, 0.5);
-      bottom: 60px;
-      line-height: 1;
-      left: 120px;
-  }
+    .player-detail--share__score {
+        z-index: 10;
+        display: block;
+        text-align: right;
+        font-size: 200px;
+        position: absolute;
+        color: rgba(255, 255, 255, 0.5);
+        bottom: 60px;
+        line-height: 1;
+        // left: 120px;
+        right: 60px;
+        font-weight: 900;
+    }
 
-  .player-detail--share__match {
-      display: block;
-      font-family: var(--font-title);
-      font-size: 40px;
-      font-weight: bold;
-      color: #FFF;
-      text-align: right;
-      margin-right: 60px;
-      line-height: 1;
-  }
+    .player-detail--share__match {
+        display: block;
+        font-family: var(--font-title);
+        font-size: 40px;
+        font-weight: bold;
+        color: #FFF;
+        text-align: right;
+        line-height: 1;
+        position: absolute;
+        right: 60px;
+        bottom: 30px;
+    }
 
-  .player-detail--share__assist {
-      display: block;
-      font-family: var(--font-title);
-      font-size: 20px;
-      font-weight: bold;
-      color: #FFF;
-      text-align: right;
-      margin-right: 60px;
-      line-height: 1;
-  }
+    .player-detail--share__assist {
+        display: block;
+        font-family: var(--font-title);
+        font-size: 20px;
+        font-weight: bold;
+        color: #FFF;
+        text-align: right;
+        margin-right: 60px;
+        line-height: 1;
+    }
 }
