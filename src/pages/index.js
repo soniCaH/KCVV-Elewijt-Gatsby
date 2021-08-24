@@ -136,7 +136,7 @@ class IndexPage extends Component {
     <Fragment>
       <Card className={`medium-6 large-12 cell card`} title="Mosselfestijn" titleIcon="fa-cutlery">
         <p>
-          Op vrijdag 10, zaterdag 11 en zondag 12 oktober 2021 vindt ons jaarlijkse Mosselfestijn weer plaats. Om de
+          Op vrijdag 10, zaterdag 11 en zondag 12 september 2021 vindt ons jaarlijkse Mosselfestijn weer plaats. Om de
           spreiding te kunnen garanderen en wachttijden aan de ingang zoveel mogelijk te beperken werken we dit jaar
           opnieuw met een reservatiesysteem. Hieronder kan je zelf jouw gewenste tijdstip en gezelschap selecteren en
           een tafel boeken (voor 08/09/2021).
