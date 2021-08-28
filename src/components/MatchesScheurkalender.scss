@@ -1,0 +1,59 @@
+.games__template.scheurkalender__template {
+  max-width: 2850px;
+
+  .match__teaser__series {
+    font-size: 2.25em;
+  }
+  .match__teaser__datetime {
+    &--date { font-size: 1.5em;}
+    &--time { font-size: 3em; }
+  }
+  .match__teaser__team {
+    font-size: 4em;
+  }
+
+  .match__teaser__vs {
+    font-size: 4em;
+  }
+
+
+  .match__teaser__logo {
+    width: 350px;
+  }
+}
+
+.scheurkalender__wrapper {
+  background-color: #FFF;
+  .match__teaser__series {
+    color: var(--color-gray-medium);
+    margin-bottom: 1em;
+  }
+
+  .match__teaser__team {
+    flex-direction: row;
+    font-size: 1.875rem;
+    width: 49%;
+    justify-content: space-between;
+    line-height: 1;
+
+    &--home { text-align: right; }
+    &--away { text-align: left; }
+  }
+
+  .match__teaser__vs {
+    color: var(--color-gray);
+    width: 2%;
+  }
+
+  .match__teaser__logo {
+    width: 180px;
+  }
+
+  .match__teaser {
+    margin-bottom: 8em;
+
+    header {
+      margin-bottom: -3em;
+    }
+  }
+}
