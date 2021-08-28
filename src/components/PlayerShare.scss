@@ -30,20 +30,21 @@
 
     .player-detail__bg--fallback {
         opacity: 0.5;
-        height: 2500px;
+        height: 2100px;
         width: auto;
         max-width: unset;
         position: absolute;
-        left: -1000px;
+        left: -200px;
+        bottom: 0;
     }
 
     .player-detail__bg-avatar {
-        height: 1500px;
+        height: 1920px;
         position: absolute;
         top: auto;
         bottom: 0;
         left: 0;
-        background-size: 1500px;
+        background-size: 1080px 1920px;
         background-position: top;
     }
 
@@ -59,7 +60,11 @@
         z-index: 999;
     }
 
-    .player-detail--share__details {}
+    .player-detail--share__details {
+        margin-top: 500px;
+        text-align: center;
+        position: relative;
+    }
 
     .player-detail--share__title {
         display: block;
@@ -77,17 +82,17 @@
     }
 
     .player-detail--share__score {
-        z-index: 10;
         display: block;
-        text-align: right;
         font-size: 200px;
-        position: absolute;
-        color: rgba(255, 255, 255, 0.5);
-        bottom: 60px;
+        color: #FFF;
         line-height: 1;
-        // left: 120px;
-        right: 60px;
         font-weight: 900;
+        z-index: 999;
+        top: 0;
+        position: absolute;
+        text-align: center;
+        width: 100%;
+        margin-top: 1rem;
     }
 
     .player-detail--share__match {
@@ -96,11 +101,11 @@
         font-size: 40px;
         font-weight: bold;
         color: #FFF;
-        text-align: right;
         line-height: 1;
+        z-index: 999;
         position: absolute;
-        right: 60px;
-        bottom: 30px;
+        text-align: center;
+        width: 100%;
     }
 
     .player-detail--share__assist {
@@ -112,5 +117,12 @@
         text-align: right;
         margin-right: 60px;
         line-height: 1;
+    }
+
+    .player-detail__footer {
+        position: absolute;
+bottom: 0;
+right: 0;
+z-index: 99999;
     }
 }
