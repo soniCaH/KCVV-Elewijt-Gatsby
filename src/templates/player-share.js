@@ -25,6 +25,11 @@ export const query = graphql`
             ...KCVVFixedPlayerTeaserShare
           }
         }
+        field_image_celebrate {
+          localFile {
+            ...KCVVFixedPlayerTeaserShare
+          }
+        }
       }
     }
   }
