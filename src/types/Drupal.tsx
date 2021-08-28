@@ -104,6 +104,11 @@ export interface Player {
         childImageSharp: { gatsbyImageData: IGatsbyImageData }
       }
     }
+    field_image_celebrate?: {
+      localFile?: {
+        childImageSharp: { gatsbyImageData: IGatsbyImageData }
+      }
+    }
   }
 }
 
