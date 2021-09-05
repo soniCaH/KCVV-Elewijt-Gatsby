@@ -3,12 +3,20 @@ import { graphql, useStaticQuery } from "gatsby"
 
 import "./MatchesOverview.scss"
 import Spinner from "./Spinner"
-import axios from "axios"
+import { setup } from "axios-cache-adapter"
 import Moment from "moment-timezone"
 import "moment/locale/nl-be"
 
 import { mapPsdStatus } from "../scripts/helper"
 import { MatchTeaserDetail } from "./MatchTeaser"
+
+const api = setup({
+  baseURL: `https://footbalisto.be`,
+  cache: {
+    maxAge: 15 * 60 * 1000,
+    exclude: { query: false },
+  },
+})
 
 const MatchesOverview: FunctionComponent<MatchesOverviewProps> = ({
   include = [],
@@ -52,9 +60,15 @@ const MatchesOverview: FunctionComponent<MatchesOverviewProps> = ({
         params = { exclude: exclude.join() }
       }
 
-      const response = await axios.get(`${kcvvPsdApi}/matches/${action}`, {
+      const response = await api.get(`/matches/${action}`, {
         params: params,
       })
+      const anotherResponse = await api.get(`/matches/${action}`, {
+        params: params,
+      })
+
+      console.log(response, anotherResponse)
+
       setData(response.data)
       setLoading(false)
     }
