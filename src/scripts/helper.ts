@@ -219,6 +219,60 @@ export function replaceAll(source: string, search: string, replacement: string) 
   return source.replace(new RegExp(search, `g`), replacement)
 }
 
+export function sortRankings(a: RankingDataTeamObject, b: RankingDataTeamObject) {
+  // Rank lager: A stijgt in sortering.
+  if (a.rank < b.rank) {
+    return -1
+  }
+  if (a.rank > b.rank) {
+    return 1
+  }
+  // Aantal overwinningen hoger: A stijgt in sortering.
+  if (a.wins > b.wins) {
+    return -1
+  }
+  if (a.wins < b.wins) {
+    return 1
+  }
+  // Doelpuntensaldo beter: A stijgt in sortering.
+  if (a.goalsScored - a.goalsConceded > b.goalsScored - b.goalsConceded) {
+    return -1
+  }
+  if (a.goalsScored - a.goalsConceded < b.goalsScored - b.goalsConceded) {
+    return 1
+  }
+  // Aantal gemaakte doelpunten hoger: A stijgt in sortering.
+  if (a.goalsScored > b.goalsScored) {
+    return -1
+  }
+  if (a.goalsScored < b.goalsScored) {
+    return 1
+  }
+  // Aantal uitoverwinningen hoger: A stijgt in sortering.
+  if (a.winsAway > b.winsAway) {
+    return -1
+  }
+  if (a.winsAway < b.winsAway) {
+    return 1
+  }
+  // Doelpuntensaldo op verplaatsing beter: A stijgt in sortering.
+  if (a.goalsScoredAway - a.goalsConcededAway > b.goalsScoredAway - b.goalsConcededAway) {
+    return -1
+  }
+  if (a.goalsScoredAway - a.goalsConcededAway < b.goalsScoredAway - b.goalsConcededAway) {
+    return 1
+  }
+  // Aantal gemaakte doelpunten op verplaatsing hoger: A stijgt in sortering.
+  if (a.goalsScoredAway > b.goalsScoredAway) {
+    return -1
+  }
+  if (a.goalsScoredAway < b.goalsScoredAway) {
+    return 1
+  }
+
+  return a.team?.club?.localName.localeCompare(b.team?.club?.localName)
+}
+
 export default {
   mapMatchStatus,
   mapDivision,
@@ -234,4 +288,5 @@ export default {
   groupByDate,
   groupByMonth,
   replaceAll,
+  sortRankings,
 }

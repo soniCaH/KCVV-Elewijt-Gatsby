@@ -3,6 +3,7 @@ import { graphql, useStaticQuery } from "gatsby"
 
 import "./Ranking.scss"
 import Spinner from "./Spinner"
+import { sortRankings } from "../scripts/helper"
 
 class Ranking extends React.Component<RankingProps, RankingState> {
   public static defaultProps = {
@@ -60,7 +61,7 @@ class Ranking extends React.Component<RankingProps, RankingState> {
             </tr>
           </thead>
           <tbody>
-            {ranking.teams.map((team: RankingDataTeamObject, j: number) => (
+            {ranking.teams.sort(sortRankings).map((team: RankingDataTeamObject, j: number) => (
               <tr key={j}>
                 <td className={`table__column__number`}>{team.rank || `-`}</td>
                 <td
