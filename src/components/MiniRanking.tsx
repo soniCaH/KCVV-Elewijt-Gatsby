@@ -3,6 +3,7 @@ import { graphql, useStaticQuery } from "gatsby"
 import Spinner from "./Spinner"
 
 import "./MiniRanking.scss"
+import { sortRankings } from "../scripts/helper"
 
 class MiniRanking extends React.Component<MiniRankingProps, MiniRankingState> {
   kcvvPsdApi: string
@@ -59,7 +60,7 @@ class MiniRanking extends React.Component<MiniRankingProps, MiniRankingState> {
             </tr>
           </thead>
           <tbody>
-            {ranking.teams.map(
+            {ranking.teams.sort(sortRankings).map(
               (team: RankingDataTeamObject, j: number) =>
                 (team.team?.club?.localName.includes(this.homeTeam) ||
                   team.team?.club?.localName.includes(this.awayTeam)) && (
