@@ -146,11 +146,13 @@ class GamePage extends Component {
             </div>
           </section>
 
-          <MiniRanking
-            teamId={general.homeTeamId || general.awayTeamId}
-            homeTeam={general.homeClub?.name}
-            awayTeam={general.awayClub?.name}
-          />
+          {general.competitionType === `Competitie` && (
+            <MiniRanking
+              teamId={general.homeTeamId || general.awayTeamId}
+              homeTeam={general.homeClub?.name}
+              awayTeam={general.awayClub?.name}
+            />
+          )}
         </Layout>
       )
     } else {

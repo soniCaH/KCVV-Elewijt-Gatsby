@@ -2,7 +2,6 @@ import React, { FunctionComponent, useEffect, useState, Fragment } from "react"
 import { graphql, useStaticQuery } from "gatsby"
 
 import "./MatchTeaser.scss"
-import MiniRanking from "./MiniRanking"
 
 import axios from "axios"
 import LazyLoad from "react-lazyload"
@@ -10,79 +9,12 @@ import classNames from "classnames"
 import Moment from "moment-timezone"
 import "moment/locale/nl-be"
 
-import { capitalizeFirstLetter, mapPsdStatus, mapPsdStatusShort } from "../scripts/helper"
+import { mapPsdStatus } from "../scripts/helper"
 
 import "./MatchesPreseason.scss"
 import "./MatchesScheurkalender.scss"
 import Spinner from "./Spinner"
 import { StaticImage } from "gatsby-plugin-image"
-
-const MatchOverviewMatch: FunctionComponent<MatchesRowProps> = ({ match }: MatchesRowProps) => {
-  const d = Moment.tz(match.date, `Europe/Brussels`)
-  const matchPlayed =
-    ((match.status === 0 || match.status === null) && match.goalsHomeTeam !== null && match.goalsAwayTeam !== null) ||
-    false
-
-  return (
-    <article>
-      <main className="matches__calendar__main matches__calendar__preseason">
-        <div className="matches__calendar__date matches__preseason__date">
-          <span className="matches__calendar__date matches__preseason__date--date">{d.format(`DD`)}</span>
-          <span className="matches__calendar__date matches__preseason__date--day">
-            {capitalizeFirstLetter(d.format(`dddd`))}
-          </span>
-          <span className="matches__preseason__divider"> // </span>
-          <span className="matches__calendar__date matches__preseason__date--day">{d.format(`HH:mm`)}</span>
-        </div>
-
-        <div className="matches__preseason__match">
-          <div
-            className={classNames(`matches__calendar__team`, `matches__calendar__team--home`, {
-              "matches__calendar__team--winner": matchPlayed && match.goalsHomeTeam > match.goalsAwayTeam,
-            })}
-          >
-            <LazyLoad debounce={false}>
-              <img
-                src={match.homeClub?.logo}
-                alt={match.homeClub?.name}
-                className="matches__calendar__logo matches__calendar__logo--home"
-              />
-            </LazyLoad>
-            {match.homeClub?.name} {match.homeTeamId === null || (match.homeTeamId === 1 ? `A` : `B`)}
-          </div>
-
-          <div className="matches__calendar__score">
-            {match.status !== 0 && (
-              <span title={mapPsdStatus(match.status) || ``}>{mapPsdStatusShort(match.status)}</span>
-            )}
-            {(match.status === 0 || match.status === null) && !matchPlayed && <span>-</span>}
-            {matchPlayed && (
-              <span>
-                {match.goalsHomeTeam} - {match.goalsAwayTeam}
-              </span>
-            )}
-          </div>
-
-          <div
-            className={classNames(`matches__calendar__team`, `matches__calendar__team--away`, {
-              "matches__calendar__team--winner": matchPlayed && match.goalsHomeTeam < match.goalsAwayTeam,
-            })}
-          >
-            {match.awayClub?.name} {match.awayTeamId === null || (match.awayTeamId === 1 ? `A` : `B`)}
-            <LazyLoad debounce={false}>
-              <img
-                src={match.awayClub?.logo}
-                alt={match.awayClub?.name}
-                className="matches__calendar__logo matches__calendar__logo--away"
-              />
-            </LazyLoad>
-          </div>
-        </div>
-        <div className="matches__calendar__type matches__preseason__type">{match.competitionType}</div>
-      </main>
-    </article>
-  )
-}
 
 const MatchesScheurkalenderOverview: FunctionComponent = () => {
   const [dataA, setDataA] = useState<Match[]>([])
@@ -132,10 +64,7 @@ const MatchesScheurkalenderOverview: FunctionComponent = () => {
   )
 }
 
-const MatchTeaserDetail: FunctionComponent<MatchTeaserDetailProps> = ({
-  match,
-  includeRankings = false,
-}: MatchTeaserDetailProps) => {
+const MatchTeaserDetail: FunctionComponent<MatchTeaserDetailProps> = ({ match }: MatchTeaserDetailProps) => {
   Moment.locale(`nl-BE`)
   const d = Moment.tz(match.date, `Europe/Brussels`)
   const matchPlayed =
@@ -191,7 +120,7 @@ const MatchTeaserDetail: FunctionComponent<MatchTeaserDetailProps> = ({
             </LazyLoad>
           )}
           {(match.homeTeamId === 1 || match.homeTeamId === 2) && (
-            <StaticImage src="../images/logo-flat.png" alt="KCVV ELEWIJT"  width={350}/>
+            <StaticImage src="../images/logo-flat.png" alt="KCVV ELEWIJT" width={350} />
           )}
           <div>
             {match.homeClub?.name.replace(`Kcvv`, `KCVV`)}
@@ -232,13 +161,6 @@ const MatchTeaserDetail: FunctionComponent<MatchTeaserDetailProps> = ({
           )}
         </div>
       </main>
-      {includeRankings && (
-        <MiniRanking
-          teamId={match.homeTeamId || match.awayTeamId}
-          homeTeam={match.homeClub?.name}
-          awayTeam={match.awayClub?.name}
-        />
-      )}
     </article>
   )
 }
