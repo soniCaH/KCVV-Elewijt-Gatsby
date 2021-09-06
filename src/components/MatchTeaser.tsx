@@ -90,7 +90,7 @@ export const MatchTeaserDetail: FunctionComponent<MatchTeaserDetailProps> = ({
           {match.awayClub?.name}
         </div>
       </main>
-      {includeRankings && (
+      {includeRankings && match.competitionType === `Competitie` && (
         <MiniRanking
           teamId={match.homeTeamId || match.awayTeamId}
           homeTeam={match.homeClub?.name}
