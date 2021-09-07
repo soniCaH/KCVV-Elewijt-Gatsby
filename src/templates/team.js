@@ -141,7 +141,7 @@ const TeamTemplate = ({ data }) => {
               />
             )}
             {node.field_vv_id && <TeamStats teamId={node.field_vv_id} />}
-            {articles && <RelatedNews items={articles} limit={6} />}
+            {articles && !node.relationships.field_staff && <RelatedNews items={articles} limit={6} />}
           </div>
           {/* If our page displays staff only (e.g. the "board" page), we change the title. */}
           {node.relationships.field_staff && !playersByPosition && (
