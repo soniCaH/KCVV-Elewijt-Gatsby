@@ -141,7 +141,6 @@ const TeamTemplate = ({ data }) => {
               />
             )}
             {node.field_vv_id && <TeamStats teamId={node.field_vv_id} />}
-            {articles && <RelatedNews items={articles} limit={6} />}
           </div>
           {/* If our page displays staff only (e.g. the "board" page), we change the title. */}
           {node.relationships.field_staff && !playersByPosition && (
@@ -149,6 +148,7 @@ const TeamTemplate = ({ data }) => {
               <TeamSection title="Stafleden" lineup={node.relationships.field_staff} />
             </main>
           )}
+          {articles && <RelatedNews items={articles} limit={6} />}
           {playersByPosition && (
             <div className={`tabs-panel`} id="team-lineup">
               <main className={`team-detail__lineup`}>
