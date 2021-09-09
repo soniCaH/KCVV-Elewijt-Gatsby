@@ -111,5 +111,9 @@
   &--score {
     color: var(--color-gray-light);
     font-size: 1.25rem;
+
+    #team-matches & {
+      font-size: 1.875rem;
+    }
   }
 }
