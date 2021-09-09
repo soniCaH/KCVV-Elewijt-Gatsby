@@ -184,24 +184,26 @@ class TeamStats extends React.Component<TeamStatsProps, TeamStatsState> {
               </tr>
             </thead>
             <tbody>
-              {squadPlayerStatistics.map(function (player) {
-                return (
-                  <tr>
-                    <td className={`table__column__string`}>
-                      {player.firstName} {player.lastName}
-                    </td>
-                    <td className={`table__column__number show-for-medium`}>{player.gamesPlayed}</td>
-                    <td className={`table__column__number`}>{player.gamesWon}</td>
-                    <td className={`table__column__number`}>{player.gamesEqual}</td>
-                    <td className={`table__column__number`}>{player.gamesLost}</td>
-                    <td className={`table__column__number`}>{player.yellowCards}</td>
-                    <td className={`table__column__number`}>{player.redCards}</td>
-                    <td className={`table__column__number`}>{player.goals}</td>
-                    <td className={`table__column__number show-for-medium`}>{player.cleanSheets}</td>
-                    <td className={`table__column__number`}>{player.minutes || `0`}'</td>
-                  </tr>
-                )
-              })}
+              {squadPlayerStatistics
+                .sort((a, b) => b.minutes - a.minutes)
+                .map(function (player) {
+                  return (
+                    <tr>
+                      <td className={`table__column__string`}>
+                        {player.firstName} {player.lastName}
+                      </td>
+                      <td className={`table__column__number show-for-medium`}>{player.gamesPlayed}</td>
+                      <td className={`table__column__number`}>{player.gamesWon}</td>
+                      <td className={`table__column__number`}>{player.gamesEqual}</td>
+                      <td className={`table__column__number`}>{player.gamesLost}</td>
+                      <td className={`table__column__number`}>{player.yellowCards}</td>
+                      <td className={`table__column__number`}>{player.redCards}</td>
+                      <td className={`table__column__number`}>{player.goals}</td>
+                      <td className={`table__column__number show-for-medium`}>{player.cleanSheets}</td>
+                      <td className={`table__column__number`}>{player.minutes || `0`}'</td>
+                    </tr>
+                  )
+                })}
             </tbody>
           </table>
         </Card>
