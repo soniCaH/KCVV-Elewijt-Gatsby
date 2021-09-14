@@ -271,7 +271,7 @@ class IndexPage extends Component {
     return (
       <Fragment>
         {/* TABLEBOOKER WIDGET */}
-        {this.renderTablebooker()}
+        {/* this.renderTablebooker() */}
         {/* A TEAM OVERVIEW - SUMMARY OF MATCHES AND RANKING*/}
         {this.renderATeamCalendarArticle()}
         {/* B TEAM OVERVIEW - SUMMARY OF MATCHES AND RANKING */}
