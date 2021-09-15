@@ -73,6 +73,17 @@
     background: transparent !important;
     padding: 0;
   }
+
+  tr {
+    @include break(small-only) {
+      display: grid;
+      margin-bottom: .5rem;
+
+      th {
+        text-decoration: underline;
+      }
+    }
+  }
 }
 
 .page-footer__sponsors {

@@ -35,8 +35,12 @@
 }
 
 .staff-break {
-    display: block;
-    padding-top: 460px;
+    padding-top: 400px;
+
+    @media (min-width: 992px) {
+        display: block;
+        padding-top: 460px;
+    }
 }
 
 .player-break {
