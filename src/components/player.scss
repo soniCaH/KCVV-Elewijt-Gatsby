@@ -123,7 +123,7 @@ body.share {
 
         &__statistics {
             margin: 0;
-            padding: 425px 4rem 4rem 4rem;
+            padding: 425px 1rem 1rem 1rem;
 
             color: var(--color-gray-blue);
             font-family: var(--font-title);
@@ -136,7 +136,7 @@ body.share {
             grid-gap: 2em 1em;
 
             @media (min-width: 992px) {
-                padding-top: 4rem;
+                padding: 4rem;
 
                 color: #fff;
                 line-height: 1;
@@ -213,8 +213,13 @@ body.share {
 
                 &__data {
                     color: #4B9B48;
-                    font-size: 1.5rem;
+                    font-size: 1rem;
                     justify-self: end;
+
+
+                    @media (min-width: 992px) {
+                        font-size: 1.5rem;
+                    }
                 }
 
                 &--birthdate {}
