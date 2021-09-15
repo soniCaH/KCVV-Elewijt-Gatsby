@@ -53,6 +53,7 @@
 
         .bg-white-end {
             top: 50px;
+
             @media (min-width: 992px) {
                 top: 170px;
             }
@@ -82,5 +83,16 @@
         top: 0;
         z-index: 4;
         transform: rotate(30deg);
+    }
+}
+
+.team-detail {
+    .bg-white-end {
+        top: -150px;
+
+        @media (min-width: 992px) {
+            transform: rotate(-2deg);
+            top: 270px;
+        }
     }
 }
