@@ -13,17 +13,38 @@ class SpaghettiPage extends Component {
       <Layout>
         <SEO
           lang="nl-BE"
-          title="Mosselfestijn reservaties"
-          description="Mosselfestijn 2020 - Inschrijvingen"
+          title="Spaghettislag Ultra's 55"
+          description="Spaghettislag Ultra's 55"
           path={this.props.location.pathname}
         />
-        <div className={"limited-width_wrapper"}>
+        <div className={`limited-width_wrapper`}>
           <header>
             <h1>Spaghettislag ULTRA'S 55</h1>
             <h2>Supportersclub KCVV Elewijt</h2>
           </header>
           <main>
-            <p>Lalala tekst enz...</p>
+            <p>Op zondag 3 oktober 2021 organiseert de supportersclub "Ultra's 55" zijn eerste spaghettislag.</p>
+            <p>
+              Kom tussen 11:00 en 13:30 smullen van onze heerlijke spaghetti bolognese in de kantine van KCVV Elewijt.
+            </p>
+            <p>Prijs is 10 euro voor volwassenen en 7 euro voor een kinderportie.</p>
+            <p>
+              Vooraf en nadien spelen onze drie seniorploegen hun competitiewedstrijd thuis:
+              <ul>
+                <li>10:15 - Zondagsreserven vs FC Ramsdonk</li>
+                <li>14:00 - KCVV Elewijt B vs VC Groot-Dilbeek B</li>
+                <li>15:00 - KCVV Elewijt A vs KFC Baal</li>
+              </ul>
+            </p>
+            <p>Inschrijven kan, maar is niet verplicht:</p>
+            <tbkr-bm-widget
+              restaurant-id="34742560"
+              source="website"
+              use-modal="0"
+              lang="nl"
+              theme="light"
+            ></tbkr-bm-widget>
+            <script src="https://reservations.tablebooker.com/tbkr-widget-import.min.js"></script>
           </main>
           <footer>
             <GatsbyImage
