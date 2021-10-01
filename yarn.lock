@@ -6245,15 +6245,6 @@ fs-extra@^4.0.2:
     jsonfile "^4.0.0"
     universalify "^0.1.0"
 
-fs-extra@^8.1.0:
-  version "8.1.0"
-  resolved "https://registry.yarnpkg.com/fs-extra/-/fs-extra-8.1.0.tgz#49d43c45a88cd9677668cb7be1b46efdb8d2e1c0"
-  integrity sha512-yhlQgA6mnOJUKOsRUFsgJdQCvkKhcz8tlZG5HBQfReYZy46OwLcY+Zia0mtdHsOo9y/hP+CxMN0TU9QxoOtG4g==
-  dependencies:
-    graceful-fs "^4.2.0"
-    jsonfile "^4.0.0"
-    universalify "^0.1.0"
-
 fs-monkey@1.0.1:
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/fs-monkey/-/fs-monkey-1.0.1.tgz#4a82f36944365e619f4454d9fff106553067b781"
@@ -6323,20 +6314,6 @@ gatsby-cli@3.14.0, gatsby-cli@^3.14.0:
     yargs "^15.4.1"
     yoga-layout-prebuilt "^1.9.6"
     yurnalist "^2.1.0"
-
-gatsby-core-utils@^2.13.0:
-  version "2.13.0"
-  resolved "https://registry.yarnpkg.com/gatsby-core-utils/-/gatsby-core-utils-2.13.0.tgz#8ba74904bdeb66d310325ca588d0ca7614efb351"
-  integrity sha512-fkMAxiWFY8N26Iui/Wq8yfE2FY2b31bGJVtlIlSwLgfsoO7fpta64lxeivRtfpNLbAoywmWY/L8TC74GFlnuWg==
-  dependencies:
-    ci-info "2.0.0"
-    configstore "^5.0.1"
-    file-type "^16.5.3"
-    fs-extra "^8.1.0"
-    node-object-hash "^2.3.8"
-    proper-lockfile "^4.1.2"
-    tmp "^0.2.1"
-    xdg-basedir "^4.0.0"
 
 gatsby-core-utils@^2.14.0:
   version "2.14.0"
@@ -6437,14 +6414,13 @@ gatsby-plugin-manifest@3.14.0:
     semver "^7.3.5"
     sharp "^0.29.0"
 
-gatsby-plugin-netlify@3.13.0:
-  version "3.13.0"
-  resolved "https://registry.yarnpkg.com/gatsby-plugin-netlify/-/gatsby-plugin-netlify-3.13.0.tgz#fe34a174537faf757d005a14321a7d7d297ee3c2"
-  integrity sha512-0ppaTwl+5UK4NitQdjigffUuJYZYTs5sT3TX7NJwyiTn7hm+/8hJ9lcd3UeYUcjrttp6vaUC8IyUiQ4wGhTEyw==
+gatsby-plugin-netlify@3.14.0:
+  version "3.14.0"
+  resolved "https://registry.yarnpkg.com/gatsby-plugin-netlify/-/gatsby-plugin-netlify-3.14.0.tgz#fa1b2441531d958a26b378c76753c5d24bd428d5"
+  integrity sha512-+lv5i0IhtIHFecP3uL6u/vF0DzDBGlkGzPyPIhgM1krZqlLy2LzKos1nyCMoi7aHm54/B8DENl4J+hMCkC0wjQ==
   dependencies:
     "@babel/runtime" "^7.14.8"
-    fs-extra "^8.1.0"
-    gatsby-core-utils "^2.13.0"
+    fs-extra "^10.0.0"
     kebab-hash "^0.1.2"
     lodash "^4.17.21"
     webpack-assets-manifest "^5.0.6"
@@ -9695,11 +9671,6 @@ node-modules-regexp@^1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/node-modules-regexp/-/node-modules-regexp-1.0.0.tgz#8d9dbe28964a4ac5712e9131642107c71e90ec40"
   integrity sha1-jZ2+KJZKSsVxLpExZCEHxx6Q7EA=
-
-node-object-hash@^2.3.8:
-  version "2.3.9"
-  resolved "https://registry.yarnpkg.com/node-object-hash/-/node-object-hash-2.3.9.tgz#d6bbea42201e7a7bf32a3064c44662c020653aaf"
-  integrity sha512-NQt1YURrMPeQGZzW4lRbshUEF2PqxJEZYY4XJ/L+q33dI8yPYvnb7QXmwUcl1EuXluzeY4TEV+H6H0EmtI6f5g==
 
 node-object-hash@^2.3.9:
   version "2.3.10"
