@@ -1,10 +1,9 @@
-import React, { Component, Fragment } from "react"
-
 // import './index.scss'
 import PageHeader, { PageHeaderMobile } from "../components/page-header"
-import PageFooter from "../components/page-footer"
+import React, { Component, Fragment } from "react"
 
 import $ from "jquery"
+import PageFooter from "../components/page-footer"
 import { forceCheck } from "react-lazyload"
 
 class Layout extends Component {
@@ -33,10 +32,7 @@ class Layout extends Component {
     $(document).foundation()
 
     $(`.main-nav a`).on(`click`, function () {
-      if (
-        $(this).attr(`href`).indexOf(window.location.pathname) === 0 &&
-        window.location.hash
-      ) {
+      if ($(this).attr(`href`).indexOf(window.location.pathname) === 0 && window.location.hash) {
         const url = $(this).attr(`href`)
         const hash = url.substring(url.indexOf(`#`))
 
@@ -45,10 +41,7 @@ class Layout extends Component {
     })
 
     if (window.location.hash) {
-      $(`.team-sub_navigation a[href="${window.location.hash}"]`).trigger(
-        `click`,
-        [true]
-      )
+      $(`.team-sub_navigation a[href="${window.location.hash}"]`).trigger(`click`, [true])
     }
     $(`.tabs`).on(`change.zf.tabs`, function () {
       forceCheck()

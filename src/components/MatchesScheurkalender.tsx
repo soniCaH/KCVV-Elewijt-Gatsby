@@ -1,20 +1,18 @@
-import React, { FunctionComponent, useEffect, useState, Fragment } from "react"
-import { graphql, useStaticQuery } from "gatsby"
-
 import "./MatchTeaser.scss"
-
-import axios from "axios"
-import LazyLoad from "react-lazyload"
-import classNames from "classnames"
-import Moment from "moment-timezone"
 import "moment/locale/nl-be"
-
-import { mapPsdStatus } from "../scripts/helper"
-
 import "./MatchesPreseason.scss"
 import "./MatchesScheurkalender.scss"
+
+import React, { Fragment, FunctionComponent, useEffect, useState } from "react"
+import { graphql, useStaticQuery } from "gatsby"
+
+import LazyLoad from "react-lazyload"
+import Moment from "moment-timezone"
 import Spinner from "./Spinner"
 import { StaticImage } from "gatsby-plugin-image"
+import axios from "axios"
+import classNames from "classnames"
+import { mapPsdStatus } from "../scripts/helper"
 
 const MatchesScheurkalenderOverview: FunctionComponent = () => {
   const [dataA, setDataA] = useState<Match[]>([])

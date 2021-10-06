@@ -63,6 +63,7 @@
     "test": "jest"
   },
   "devDependencies": {
+    "@trivago/prettier-plugin-sort-imports": "^2.0.4",
     "@types/classnames": "2.3.1",
     "@types/qrcode.react": "1.0.2",
     "@types/react-helmet": "6.1.3",

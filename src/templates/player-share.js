@@ -1,7 +1,6 @@
+import PlayerShare from "../components/PlayerShare"
 import React from "react"
 import { graphql } from "gatsby"
-
-import PlayerShare from "../components/PlayerShare"
 
 const PlayerShareTemplate = ({ data }) => {
   const node = data.nodePlayer

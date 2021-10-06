@@ -1,26 +1,25 @@
-import React, { Component, Fragment } from "react"
-import { graphql, StaticQuery } from "gatsby"
-import { mapPositionCode } from "../scripts/helper"
-import { getSrc } from "gatsby-plugin-image"
-import { useQueryParam, StringParam } from "use-query-params"
-
-import moment from "moment"
-
 import "./player.scss"
-import { Link } from "gatsby"
+
+import React, { Component, Fragment } from "react"
+import { StaticQuery, graphql } from "gatsby"
+import { StringParam, useQueryParam } from "use-query-params"
+
+import Card from "./Card"
 import Helmet from "react-helmet"
-
 import Icon from "../components/Icon"
+import { Link } from "gatsby"
 import RelatedNews from "../components/RelatedNews"
-
-import iconCleansheet from "../images/i_cleansheet.png"
+import { getSrc } from "gatsby-plugin-image"
 import iconCardRed from "../images/i_card_red.png"
 import iconCardYellow from "../images/i_card_yellow.png"
+import iconCleansheet from "../images/i_cleansheet.png"
 import iconGoal from "../images/i_goal.png"
-import Card from "./Card"
+import { mapPositionCode } from "../scripts/helper"
+import moment from "moment"
 
 // eslint-disable-next-line
 String.prototype.replaceAll = function (search, replacement) {
+  // eslint-disable-next-line @typescript-eslint/no-this-alias
   var target = this
   return target.replace(new RegExp(search, `g`), replacement)
 }

@@ -1,17 +1,16 @@
-import React, { FunctionComponent, useEffect, useState } from "react"
-import { graphql, Link, useStaticQuery } from "gatsby"
-
-import axios from "axios"
-import LazyLoad from "react-lazyload"
-import classNames from "classnames"
-import Moment from "moment-timezone"
 import "moment/locale/nl-be"
+import "./Matches.scss"
 
+import { Link, graphql, useStaticQuery } from "gatsby"
+import React, { FunctionComponent, useEffect, useState } from "react"
 import { mapPsdStatus, mapPsdStatusShort } from "../scripts/helper"
 
-import "./Matches.scss"
 import Icon from "./Icon"
+import LazyLoad from "react-lazyload"
+import Moment from "moment-timezone"
 import Spinner from "./Spinner"
+import axios from "axios"
+import classNames from "classnames"
 
 const MatchesRow: FunctionComponent<MatchesRowProps> = ({ match }: MatchesRowProps) => {
   const d = Moment.tz(match.date, `Europe/Brussels`)

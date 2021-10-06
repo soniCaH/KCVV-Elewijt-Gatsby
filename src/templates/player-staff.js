@@ -1,12 +1,10 @@
-import React from "react"
-import { graphql } from "gatsby"
-
 import Layout from "../layouts/index"
-import SEO from "../components/seo"
 import PlayerDetail from "../components/player-staff"
+import React from "react"
 import RelatedNews from "../components/RelatedNews"
-
+import SEO from "../components/seo"
 import { getSrc } from "gatsby-plugin-image"
+import { graphql } from "gatsby"
 
 const PlayerStaffTemplate = ({ data }) => {
   const node = data.nodeStaff

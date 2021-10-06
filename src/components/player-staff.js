@@ -1,12 +1,13 @@
+import "./player.scss"
+
 import React, { Component } from "react"
 
-import "./player.scss"
 import { Link } from "gatsby"
-
 import { getSrc } from "gatsby-plugin-image"
 
 // eslint-disable-next-line
 String.prototype.replaceAll = function (search, replacement) {
+  // eslint-disable-next-line @typescript-eslint/no-this-alias
   var target = this
   return target.replace(new RegExp(search, `g`), replacement)
 }
@@ -16,12 +17,8 @@ String.prototype.replaceAll = function (search, replacement) {
 class PlayerDetail extends Component {
   renderPlayerName = (player) => (
     <h1 className={`player-detail__name`}>
-      <span className={`player-detail__name-first`}>
-        {player.field_firstname}
-      </span>
-      <span className={`player-detail__name-last`}>
-        {player.field_lastname}
-      </span>
+      <span className={`player-detail__name-first`}>{player.field_firstname}</span>
+      <span className={`player-detail__name-last`}>{player.field_lastname}</span>
     </h1>
   )
   renderPlayerImage = (player) => {
@@ -32,8 +29,7 @@ class PlayerDetail extends Component {
           style={
             player.relationships.field_image && {
               backgroundImage: `url(${getSrc(
-                player.relationships.field_image.localFile.childImageSharp
-                  .gatsbyImageData
+                player.relationships.field_image.localFile.childImageSharp.gatsbyImageData
               )})`,
             }
           }
@@ -53,42 +49,26 @@ class PlayerDetail extends Component {
     </header>
   )
   renderPlayerBirthdate = (player) => (
-    <div
-      className={`player-detail__data-item player-detail__data-item--birthdate`}
-    >
+    <div className={`player-detail__data-item player-detail__data-item--birthdate`}>
       <span className={`player-detail__data-item__label`}>Geboortedatum</span>
-      <span className={`player-detail__data-item__data`}>
-        {player.field_birth_date || `Onbekend`}
-      </span>
+      <span className={`player-detail__data-item__data`}>{player.field_birth_date || `Onbekend`}</span>
     </div>
   )
 
   renderPlayerPosition = (player) => (
-    <div
-      className={`player-detail__data-item player-detail__data-item--position`}
-    >
-      <span className={`player-detail__date-item__data`}>
-        {player.field_position_staff || ``}
-      </span>
+    <div className={`player-detail__data-item player-detail__data-item--position`}>
+      <span className={`player-detail__date-item__data`}>{player.field_position_staff || ``}</span>
       <span className={`player-detail__data-item__label`}>
         {player.relationships.node__team && (
-          <Link to={player.relationships.node__team[0].path.alias}>
-            {player.relationships.node__team[0].title}
-          </Link>
+          <Link to={player.relationships.node__team[0].path.alias}>{player.relationships.node__team[0].title}</Link>
         )}
       </span>
     </div>
   )
   renderPlayerJoinDate = (player) => (
-    <div
-      className={`player-detail__data-item player-detail__data-item--joindate`}
-    >
-      <span className={`player-detail__data-item__label`}>
-        Aangesloten bij KCVV sinds
-      </span>
-      <span className={`player-detail__data-item__data`}>
-        {player.field_join_date || `Onbekend`}
-      </span>
+    <div className={`player-detail__data-item player-detail__data-item--joindate`}>
+      <span className={`player-detail__data-item__label`}>Aangesloten bij KCVV sinds</span>
+      <span className={`player-detail__data-item__data`}>{player.field_join_date || `Onbekend`}</span>
     </div>
   )
   renderPlayerData = (player) => (
@@ -101,10 +81,7 @@ class PlayerDetail extends Component {
   renderPlayerBody = (player) => {
     const cleanBody =
       (player.body &&
-        player.body.processed.replaceAll(
-          `/sites/default/`,
-          `${process.env.GATSBY_API_DOMAIN}/sites/default/`
-        )) ||
+        player.body.processed.replaceAll(`/sites/default/`, `${process.env.GATSBY_API_DOMAIN}/sites/default/`)) ||
       ``
 
     return (

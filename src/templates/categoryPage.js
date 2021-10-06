@@ -1,13 +1,15 @@
-import React from "react"
-import { graphql, Link } from "gatsby"
-import Layout from "../layouts/index"
-import SEO from "../components/seo"
-
 import "./categoryPage.scss"
+
+import { Link, graphql } from "gatsby"
+
+import Layout from "../layouts/index"
 import { NewsItemCardRatio } from "../components/news-item"
+import React from "react"
+import SEO from "../components/seo"
 
 // eslint-disable-next-line
 String.prototype.replaceAll = function (search, replacement) {
+  // eslint-disable-next-line @typescript-eslint/no-this-alias
   const target = this
   return target.replace(new RegExp(search, `g`), replacement)
 }

@@ -1,7 +1,8 @@
+import "./Ranking.scss"
+
 import React, { Fragment } from "react"
 import { graphql, useStaticQuery } from "gatsby"
 
-import "./Ranking.scss"
 import Spinner from "./Spinner"
 import { sortRankings } from "../scripts/helper"
 

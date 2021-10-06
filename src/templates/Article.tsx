@@ -1,13 +1,14 @@
-import { graphql, Link } from "gatsby"
-import React from "react"
+import "./ArticleStyle.scss"
+
+import { GatsbyImage, getSrc } from "gatsby-plugin-image"
+import { Link, graphql } from "gatsby"
+
+import { ArticleQuery } from "./Article.types"
+import { FunctionComponent } from "react"
 import Layout from "../layouts/index"
+import React from "react"
 import SEO from "../components/seo"
 import Share from "../components/share"
-import { FunctionComponent } from "react"
-import { GatsbyImage, getSrc } from "gatsby-plugin-image"
-import { ArticleQuery } from "./Article.types"
-
-import "./ArticleStyle.scss"
 import { replaceAll } from "../scripts/helper"
 
 const Article: FunctionComponent<ArticleQuery> = ({ data }: ArticleQuery) => {
@@ -91,14 +92,14 @@ const Article: FunctionComponent<ArticleQuery> = ({ data }: ArticleQuery) => {
           </section>
           <div dangerouslySetInnerHTML={{ __html: cleanBody }} />
         </div>
-        <footer className={"article__footer__wrapper"}>
-          <section className={"article__footer"}>
+        <footer className={`article__footer__wrapper`}>
+          <section className={`article__footer`}>
             {relatedArticles.length > 0 && (
               <>
                 <h3>Gerelateerde inhoud</h3>
                 {relatedArticles.map(({ path, title, internal }, i) => {
                   return (
-                    <article key={i} className={"article__footer_related"}>
+                    <article key={i} className={`article__footer_related`}>
                       <i
                         className={`article__footer_related__icon article__footer_related__icon--${internal.type} fa`}
                       />

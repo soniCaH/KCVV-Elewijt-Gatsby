@@ -1,10 +1,9 @@
 import React, { Component } from "react"
-import { graphql } from "gatsby"
+
 import { GatsbyImage } from "gatsby-plugin-image"
-
 import Layout from "../layouts/index"
-
 import SEO from "../components/seo"
+import { graphql } from "gatsby"
 
 class SpaghettiPage extends Component {
   render() {

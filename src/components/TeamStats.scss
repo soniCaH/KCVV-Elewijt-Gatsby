@@ -19,7 +19,8 @@
     table {
       font-size: .75em;
 
-      td, th {
+      td,
+      th {
         padding: 0.25rem 0.3125rem 0.3125rem;
 
         @include break(medium-up) {

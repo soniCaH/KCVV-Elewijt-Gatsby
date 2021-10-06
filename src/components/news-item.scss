@@ -28,6 +28,7 @@
             @include break(medium-up) {
                 grid-template-columns: repeat(2, 1fr);
             }
+
             @include break(large-up) {
                 grid-template-columns: repeat(3, 1fr);
             }

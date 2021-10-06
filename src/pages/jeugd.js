@@ -1,11 +1,10 @@
+import { Link, graphql } from "gatsby"
 import React, { Component } from "react"
-import { graphql, Link } from "gatsby"
 
-import Layout from "../layouts/index"
-
-import SEO from "../components/seo"
 import { CardImage } from "../components/Card"
+import Layout from "../layouts/index"
 import MatchesOverview from "../components/MatchesOverview"
+import SEO from "../components/seo"
 
 class JeugdPage extends Component {
   render() {

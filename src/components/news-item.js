@@ -1,8 +1,7 @@
-import React, { Component } from "react"
-
-import { CardTeaser, CardImage, CardTeaserVertical } from "./Card"
-
 import "./news-item.scss"
+
+import { CardImage, CardTeaser, CardTeaserVertical } from "./Card"
+import React, { Component } from "react"
 
 /**
  * Render a single news item in default card layout.

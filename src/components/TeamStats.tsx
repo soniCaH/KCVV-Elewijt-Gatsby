@@ -1,17 +1,16 @@
-import React from "react"
-import { useStaticQuery, graphql } from "gatsby"
+import "./TeamStats.scss"
 
-import { translateGameResult } from "../scripts/helper"
+import { graphql, useStaticQuery } from "gatsby"
+
+import Card from "./Card"
 import Icon from "../components/Icon"
-
-import iconCleansheet from "../images/i_cleansheet.png"
+import React from "react"
+import Spinner from "./Spinner"
 import iconCardRed from "../images/i_card_red.png"
 import iconCardYellow from "../images/i_card_yellow.png"
+import iconCleansheet from "../images/i_cleansheet.png"
 import iconGoal from "../images/i_goal.png"
-
-import "./TeamStats.scss"
-import Card from "./Card"
-import Spinner from "./Spinner"
+import { translateGameResult } from "../scripts/helper"
 
 class TeamStats extends React.Component<TeamStatsProps, TeamStatsState> {
   public static defaultProps = {

@@ -1,12 +1,13 @@
+import "./page-footer.scss"
+
 import React, { Component } from "react"
 
-import "./page-footer.scss"
-import logo from "../images/logo-flat.png"
 import SponsorsBlock from "./sponsors-block"
+import logo from "../images/logo-flat.png"
 
 class PageFooter extends Component {
   renderSocialLinks = () => (
-    <div className={"page-footer__contact--social"}>
+    <div className={`page-footer__contact--social`}>
       <ul className="social-links social-links--circle">
         <li className="social-links__item">
           <a
@@ -19,12 +20,7 @@ class PageFooter extends Component {
           </a>
         </li>
         <li className="social-links__item">
-          <a
-            href="https://twitter.com/kcvve"
-            className="social-links__link"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
+          <a href="https://twitter.com/kcvve" className="social-links__link" target="_blank" rel="noopener noreferrer">
             <i className="fa fa-twitter" />
           </a>
         </li>
@@ -46,9 +42,7 @@ class PageFooter extends Component {
       <tbody>
         <tr>
           <th className="page-footer__contact-details__label">KCVV Elewijt</th>
-          <td className="page-footer__contact-details__value">
-            Driesstraat 30, 1982 Elewijt
-          </td>
+          <td className="page-footer__contact-details__value">Driesstraat 30, 1982 Elewijt</td>
         </tr>
         <tr>
           <th className="page-footer__contact-details__label">Voorzitter</th>
@@ -57,17 +51,15 @@ class PageFooter extends Component {
         <tr>
           <th className="page-footer__contact-details__label">GC</th>
           <td className="page-footer__contact-details__value">
-            <a href="mailto:gc@kcvvelewijt.be" className={"rich-link"}>
+            <a href="mailto:gc@kcvvelewijt.be" className={`rich-link`}>
               John De Ron
             </a>
           </td>
         </tr>
         <tr>
-          <th className="page-footer__contact-details__label">
-            Algemeen contact
-          </th>
+          <th className="page-footer__contact-details__label">Algemeen contact</th>
           <td className="page-footer__contact-details__value">
-            <a href="mailto:info@kcvvelewijt.be" className={"rich-link"}>
+            <a href="mailto:info@kcvvelewijt.be" className={`rich-link`}>
               info@kcvvelewijt.be
             </a>
           </td>
@@ -75,17 +67,15 @@ class PageFooter extends Component {
         <tr>
           <th className="page-footer__contact-details__label">Jeugdwerking</th>
           <td className="page-footer__contact-details__value">
-            <a href="mailto:jeugd@kcvvelewijt.be" className={"rich-link"}>
+            <a href="mailto:jeugd@kcvvelewijt.be" className={`rich-link`}>
               jeugd@kcvvelewijt.be
             </a>
           </td>
         </tr>
         <tr>
-          <th className="page-footer__contact-details__label">
-            Verhuur kantine
-          </th>
+          <th className="page-footer__contact-details__label">Verhuur kantine</th>
           <td className="page-footer__contact-details__value">
-            <a href="mailto:verhuur@kcvvelewijt.be" className={"rich-link"}>
+            <a href="mailto:verhuur@kcvvelewijt.be" className={`rich-link`}>
               Ann Walgraef
             </a>
           </td>
@@ -93,17 +83,15 @@ class PageFooter extends Component {
         <tr>
           <th className="page-footer__contact-details__label">Website</th>
           <td className="page-footer__contact-details__value">
-            <a href="mailto:kevin@kcvvelewijt.be" className={"rich-link"}>
+            <a href="mailto:kevin@kcvvelewijt.be" className={`rich-link`}>
               Kevin Van Ransbeeck
             </a>
           </td>
         </tr>
         <tr>
-          <th className="page-footer__contact-details__label">
-            Privacy &amp; cookies
-          </th>
+          <th className="page-footer__contact-details__label">Privacy &amp; cookies</th>
           <td className="page-footer__contact-details__value">
-            <a href="/privacy" className={"rich-link"}>
+            <a href="/privacy" className={`rich-link`}>
               Privacyverklaring
             </a>
           </td>
@@ -117,15 +105,13 @@ class PageFooter extends Component {
         <div className="page-footer--widgets grid-container grid-x">
           <div className="small-12 large-6 cell page-footer__contact">
             <div className="page-footer__contact-top">
-              <div className={"page-footer__contact--logo"}>
+              <div className={`page-footer__contact--logo`}>
                 <img src={logo} alt="KCVV Elewijt" />
               </div>
 
               {this.renderSocialLinks()}
             </div>
-            <div className="page-footer__contact-middle">
-              {this.renderContactTable()}
-            </div>
+            <div className="page-footer__contact-middle">{this.renderContactTable()}</div>
           </div>
 
           <div className="small-12 large-6 cell page-footer__sponsors">

@@ -1,10 +1,9 @@
 import React, { Component } from "react"
-import { graphql } from "gatsby"
 
 import Layout from "../layouts/index"
-
 import SEO from "../components/seo"
 import Sponsor from "../components/sponsor"
+import { graphql } from "gatsby"
 
 class SponsorsPage extends Component {
   render() {
@@ -17,62 +16,38 @@ class SponsorsPage extends Component {
           description="Overzicht van de sponsors die KCVV Elewijt steunen."
           path={this.props.location.pathname}
         />
-        <div className={"sponsors-overview__wrapper limited-width_wrapper"}>
-          <section
-            className={
-              "sponsors-overview__section sponsors-overview__section--top"
-            }
-          >
+        <div className={`sponsors-overview__wrapper limited-width_wrapper`}>
+          <section className={`sponsors-overview__section sponsors-overview__section--top`}>
             {goldSponsors.edges.map(({ node }, i) => {
-              const website =
-                (node.field_website && node.field_website.uri) || ``
+              const website = (node.field_website && node.field_website.uri) || ``
               return (
                 <Sponsor
                   key={i}
-                  localFile={
-                    node.relationships.field_media_image.relationships
-                      .field_media_image.localFile
-                  }
+                  localFile={node.relationships.field_media_image.relationships.field_media_image.localFile}
                   uri={website}
                 />
               )
             })}
           </section>
-          <section
-            className={
-              "sponsors-overview__section sponsors-overview__section--middle"
-            }
-          >
+          <section className={`sponsors-overview__section sponsors-overview__section--middle`}>
             {silverSponsors.edges.map(({ node }, i) => {
-              const website =
-                (node.field_website && node.field_website.uri) || ""
+              const website = (node.field_website && node.field_website.uri) || ``
               return (
                 <Sponsor
                   key={i}
-                  localFile={
-                    node.relationships.field_media_image.relationships
-                      .field_media_image.localFile
-                  }
+                  localFile={node.relationships.field_media_image.relationships.field_media_image.localFile}
                   uri={website}
                 />
               )
             })}
           </section>
-          <section
-            className={
-              "sponsors-overview__section sponsors-overview__section--bottom"
-            }
-          >
+          <section className={`sponsors-overview__section sponsors-overview__section--bottom`}>
             {bronzeSponsors.edges.map(({ node }, i) => {
-              const website =
-                (node.field_website && node.field_website.uri) || ""
+              const website = (node.field_website && node.field_website.uri) || ``
               return (
                 <Sponsor
                   key={i}
-                  localFile={
-                    node.relationships.field_media_image.relationships
-                      .field_media_image.localFile
-                  }
+                  localFile={node.relationships.field_media_image.relationships.field_media_image.localFile}
                   uri={website}
                 />
               )
@@ -87,11 +62,7 @@ class SponsorsPage extends Component {
 export const pageQuery = graphql`
   query {
     goldSponsors: allNodeSponsor(
-      filter: {
-        promote: { eq: true }
-        status: { eq: true }
-        field_type: { in: ["crossing"] }
-      }
+      filter: { promote: { eq: true }, status: { eq: true }, field_type: { in: ["crossing"] } }
       sort: { fields: title, order: ASC }
     ) {
       edges {
@@ -119,11 +90,7 @@ export const pageQuery = graphql`
       }
     }
     silverSponsors: allNodeSponsor(
-      filter: {
-        promote: { eq: true }
-        status: { eq: true }
-        field_type: { in: ["green", "white"] }
-      }
+      filter: { promote: { eq: true }, status: { eq: true }, field_type: { in: ["green", "white"] } }
       sort: { fields: title, order: ASC }
     ) {
       edges {
@@ -151,11 +118,7 @@ export const pageQuery = graphql`
       }
     }
     bronzeSponsors: allNodeSponsor(
-      filter: {
-        promote: { eq: true }
-        status: { eq: true }
-        field_type: { in: ["training", "panel", "other"] }
-      }
+      filter: { promote: { eq: true }, status: { eq: true }, field_type: { in: ["training", "panel", "other"] } }
       sort: { fields: title, order: ASC }
     ) {
       edges {
