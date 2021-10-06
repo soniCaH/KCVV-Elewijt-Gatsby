@@ -11,6 +11,12 @@ module.exports = {
     twitterHandle: `kcvve`,
     fbAppId: `679332239478086`,
   },
+  flags: {
+    FAST_DEV: true,
+    // LMDB_STORE: true,
+    PRESERVE_FILE_DOWNLOAD_CACHE: true,
+    PARALLEL_SOURCING: true,
+  },
   plugins: [
     `gatsby-plugin-sass`,
     {
@@ -58,10 +64,4 @@ module.exports = {
     `gatsby-plugin-netlify`,
     `gatsby-plugin-use-query-params`,
   ],
-  flags: {
-    FAST_DEV: true,
-    // LMDB_STORE: true,
-    // PRESERVE_FILE_DOWNLOAD_CACHE: true,
-    // PARALLEL_SOURCING: true,
-  },
 }
