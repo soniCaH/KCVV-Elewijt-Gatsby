@@ -7,12 +7,6 @@ articles: allNodeArticle(sort: {fields: created, order: DESC}) {
             path {
                 alias
             }
-            body {
-                value
-                format
-                processed
-                summary
-            }
             relationships {
                 field_media_article_image {
                     relationships {
