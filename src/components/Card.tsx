@@ -1,23 +1,22 @@
-import React, { FunctionComponent } from "react"
-import classNames from "classnames"
-
-import Icon from "./Icon"
+import "./Card.scss"
 
 import {
+  CardImageHeaderProps,
+  CardImageOnlyProps,
+  CardImageProps,
   CardProps,
-  CardTeaserProps,
   CardTeaserBodyProps,
   CardTeaserFooterProps,
   CardTeaserHeaderProps,
-  CardImageProps,
-  CardImageHeaderProps,
-  CardImageOnlyProps,
+  CardTeaserProps,
   CardTeaserVerticalProps,
 } from "./Card.types"
 import { GatsbyImage, getImage } from "gatsby-plugin-image"
-import { Link } from "gatsby"
+import React, { FunctionComponent } from "react"
 
-import "./Card.scss"
+import Icon from "./Icon"
+import { Link } from "gatsby"
+import classNames from "classnames"
 
 const Card: FunctionComponent<CardProps> = ({ className, hasTable, title, titleIcon = ``, children }) => (
   <article

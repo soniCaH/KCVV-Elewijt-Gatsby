@@ -1,9 +1,8 @@
 import React, { Component } from "react"
 
+import Calendar from "../../components/Calendar"
 import Layout from "../../layouts/index"
 import SEO from "../../components/seo"
-
-import Calendar from "../../components/Calendar"
 
 class CalendarPage extends Component {
   render() {

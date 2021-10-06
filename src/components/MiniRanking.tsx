@@ -1,8 +1,9 @@
+import "./MiniRanking.scss"
+
 import React, { Fragment } from "react"
 import { graphql, useStaticQuery } from "gatsby"
-import Spinner from "./Spinner"
 
-import "./MiniRanking.scss"
+import Spinner from "./Spinner"
 import { sortRankings } from "../scripts/helper"
 
 class MiniRanking extends React.Component<MiniRankingProps, MiniRankingState> {

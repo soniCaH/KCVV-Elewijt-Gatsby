@@ -1,9 +1,9 @@
+import "./MatchesTabs.scss"
+
 import React, { FunctionComponent } from "react"
 
 import { MatchTeaser } from "./MatchTeaser"
 import Ranking from "./Ranking"
-
-import "./MatchesTabs.scss"
 
 const MatchesTabs: FunctionComponent<MatchesTabsProps> = ({ teamId }: MatchesTabsProps) => (
   <div className="team_matches__tabs">

@@ -1,13 +1,13 @@
-import React, { Fragment, FunctionComponent, useState } from "react"
-
-import { graphql, useStaticQuery } from "gatsby"
-import axios from "axios"
 import "./MatchesSlider.scss"
 
+import React, { Fragment, FunctionComponent, useState } from "react"
 import Slider, { LazyLoadTypes } from "react-slick"
-import { useEffect } from "react"
+import { graphql, useStaticQuery } from "gatsby"
+
 import { MatchTeaserDetail } from "./MatchTeaser"
 import Spinner from "./Spinner"
+import axios from "axios"
+import { useEffect } from "react"
 
 const MatchesSlider: FunctionComponent = () => {
   const [data, setData] = useState<Match[]>([])
@@ -34,7 +34,7 @@ const MatchesSlider: FunctionComponent = () => {
     arrows: true,
     centerMode: true,
     focusOnSelect: true,
-    infinite: false,
+    infinite: true,
     lazyLoad: `progressive` as LazyLoadTypes,
 
     responsive: [

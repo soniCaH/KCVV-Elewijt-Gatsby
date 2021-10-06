@@ -1,5 +1,5 @@
+import { Link, StaticQuery, graphql } from "gatsby"
 import React, { Component } from "react"
-import { graphql, StaticQuery, Link } from "gatsby"
 
 import Sponsor from "./sponsor"
 
@@ -9,19 +9,16 @@ class SponsorsBlock extends Component {
     return (
       <>
         {sponsors.edges.map(({ node }, i) => {
-          const website = (node.field_website && node.field_website.uri) || ""
+          const website = (node.field_website && node.field_website.uri) || ``
           return (
             <Sponsor
               key={i}
-              localFile={
-                node.relationships.field_media_image.relationships
-                  .field_media_image.localFile
-              }
+              localFile={node.relationships.field_media_image.relationships.field_media_image.localFile}
               uri={website}
             />
           )
         })}
-        <Link to="/sponsors" className={"read-more"}>
+        <Link to="/sponsors" className={`read-more`}>
           Alle sponsors &raquo;
         </Link>
       </>
@@ -32,11 +29,7 @@ class SponsorsBlock extends Component {
 const query = graphql`
   query {
     sponsors: allNodeSponsor(
-      filter: {
-        promote: { eq: true }
-        status: { eq: true }
-        field_type: { in: ["crossing", "green", "white"] }
-      }
+      filter: { promote: { eq: true }, status: { eq: true }, field_type: { in: ["crossing", "green", "white"] } }
       sort: { fields: [field_type, title], order: ASC }
     ) {
       edges {
@@ -66,6 +59,4 @@ const query = graphql`
   }
 `
 
-export default () => (
-  <StaticQuery query={query} render={(data) => <SponsorsBlock data={data} />} />
-)
+export default () => <StaticQuery query={query} render={(data) => <SponsorsBlock data={data} />} />

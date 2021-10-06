@@ -1,11 +1,9 @@
-import React from "react"
-import { graphql } from "gatsby"
-
 import Layout from "../layouts/index"
-import SEO from "../components/seo"
 import PlayerDetail from "../components/player"
-
+import React from "react"
+import SEO from "../components/seo"
 import { getSrc } from "gatsby-plugin-image"
+import { graphql } from "gatsby"
 
 // import './ArticleStyle.scss'
 

@@ -34,6 +34,7 @@
             }
 
         }
+
         h2 {
             color: var(--color-gray-blue);
             font-weight: normal;
@@ -44,7 +45,7 @@
 
     &__item {
         // border: 1px solid var(--color-green-dark);
-        background:url(../images/bg-teaser.png) no-repeat transparent;
+        background: url(../images/bg-teaser.png) no-repeat transparent;
         background-size: contain;
 
         padding: 1rem;

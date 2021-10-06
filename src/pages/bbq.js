@@ -1,9 +1,8 @@
 import React, { Component } from "react"
-import { StaticImage } from "gatsby-plugin-image"
 
 import Layout from "../layouts/index"
-
 import SEO from "../components/seo"
+import { StaticImage } from "gatsby-plugin-image"
 
 class BBQPage extends Component {
   render() {

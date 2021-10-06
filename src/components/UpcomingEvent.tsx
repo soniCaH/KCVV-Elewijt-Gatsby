@@ -1,5 +1,6 @@
-import { graphql, useStaticQuery } from "gatsby"
 import React, { Fragment, FunctionComponent } from "react"
+import { graphql, useStaticQuery } from "gatsby"
+
 import EventCard from "./EventCard"
 import { UpcomingEventProps } from "./UpcomingEvent.types"
 

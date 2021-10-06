@@ -1,10 +1,11 @@
-import React, { Component } from "react"
-import Axios from "axios"
-import { Link } from "gatsby"
+import "./search-container.scss"
 
 import * as JsSearch from "js-search"
 
-import "./search-container.scss"
+import React, { Component } from "react"
+
+import Axios from "axios"
+import { Link } from "gatsby"
 
 class Search extends Component {
   state = {
@@ -28,33 +29,25 @@ class Search extends Component {
         const articleData = result.data.data
         this.setState({ articleList: articleData })
 
-        return Axios.get(
-          `https://api.kcvvelewijt.be/jsonapi/node/team?sort=title`
-        )
+        return Axios.get(`https://api.kcvvelewijt.be/jsonapi/node/team?sort=title`)
       })
       .then((result) => {
         const teamData = result.data.data
         this.setState({ teamList: teamData })
 
-        return Axios.get(
-          `https://api.kcvvelewijt.be/jsonapi/node/player?sort=title`
-        )
+        return Axios.get(`https://api.kcvvelewijt.be/jsonapi/node/player?sort=title`)
       })
       .then((result) => {
         const playerData = result.data.data
         this.setState({ playerList: playerData })
 
-        return Axios.get(
-          `https://api.kcvvelewijt.be/jsonapi/node/staff?sort=title`
-        )
+        return Axios.get(`https://api.kcvvelewijt.be/jsonapi/node/staff?sort=title`)
       })
       .then((result) => {
         const staffData = result.data.data
         this.setState({ staffList: staffData })
 
-        return Axios.get(
-          `https://api.kcvvelewijt.be/jsonapi/node/event?sort=title`
-        )
+        return Axios.get(`https://api.kcvvelewijt.be/jsonapi/node/event?sort=title`)
       })
       .then((result) => {
         const eventData = result.data.data
@@ -67,9 +60,7 @@ class Search extends Component {
       .catch((err) => {
         this.setState({ isError: true })
         console.log(`====================================`)
-        console.log(
-          `Something bad happened while fetching some data for the search.\n${err}`
-        )
+        console.log(`Something bad happened while fetching some data for the search.\n${err}`)
         console.log(`====================================`)
       })
   }
@@ -77,8 +68,7 @@ class Search extends Component {
    * rebuilds the overall index based on the options
    */
   rebuildIndex = () => {
-    const { articleList, teamList, playerList, staffList, eventList } =
-      this.state
+    const { articleList, teamList, playerList, staffList, eventList } = this.state
     const dataToSearch = new JsSearch.Search(`id`)
     /**
      *  defines a indexing strategy for the data
@@ -134,9 +124,7 @@ class Search extends Component {
             required
           />
           <span className={`search_input__label__inner_wrapper`}>
-            <span className={`search_input__label__inner_text`}>
-              Waar bent u naar op zoek?
-            </span>
+            <span className={`search_input__label__inner_text`}>Waar bent u naar op zoek?</span>
           </span>
         </label>
       </div>
@@ -145,30 +133,15 @@ class Search extends Component {
 
   renderQueryResultsCaption = () => (
     <caption>
-      <i
-        className={`article__footer_related__icon article__footer_related__icon--node--article fa`}
-      />{" "}
-      Nieuwsbericht
+      <i className={`article__footer_related__icon article__footer_related__icon--node--article fa`} /> Nieuwsbericht
       <br />
-      <i
-        className={`article__footer_related__icon article__footer_related__icon--node--team fa`}
-      />{" "}
-      Ploeg
+      <i className={`article__footer_related__icon article__footer_related__icon--node--team fa`} /> Ploeg
       <br />
-      <i
-        className={`article__footer_related__icon article__footer_related__icon--node--player fa`}
-      />{" "}
-      Speler
+      <i className={`article__footer_related__icon article__footer_related__icon--node--player fa`} /> Speler
       <br />
-      <i
-        className={`article__footer_related__icon article__footer_related__icon--node--staff fa`}
-      />{" "}
-      Staflid
+      <i className={`article__footer_related__icon article__footer_related__icon--node--staff fa`} /> Staflid
       <br />
-      <i
-        className={`article__footer_related__icon article__footer_related__icon--node--event fa`}
-      />{" "}
-      Evenement
+      <i className={`article__footer_related__icon article__footer_related__icon--node--event fa`} /> Evenement
       <br />
     </caption>
   )
@@ -177,9 +150,7 @@ class Search extends Component {
     <tr key={`row_${item.attributes.drupal_internal__nid}`}>
       <td>
         <Link to={item.attributes.path.alias}>
-          <i
-            className={`article__footer_related__icon article__footer_related__icon--${item.type} fa`}
-          />
+          <i className={`article__footer_related__icon article__footer_related__icon--${item.type} fa`} />
           {item.attributes.title}
         </Link>
       </td>
@@ -219,9 +190,8 @@ class Search extends Component {
         <>
           <h2>Aiiii...</h2>
           <h3>
-            Er ging iets mis - gelieve{" "}
-            <a href="mailto:website@kcvvelewijt.be">contact op te nemen</a>{" "}
-            indien het probleem zich blijft voordoen.
+            Er ging iets mis - gelieve <a href="mailto:website@kcvvelewijt.be">contact op te nemen</a> indien het
+            probleem zich blijft voordoen.
           </h3>
         </>
       )

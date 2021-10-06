@@ -55,12 +55,28 @@ exports.createPages = async ({ graphql, actions }) => {
   createArticles(result.data.articles.edges, createPage, articleTemplate)
   createPages(result.data.pages.edges, createPage, pageTemplate)
   createTeams(result.data.teams.edges, createPage, teamTemplate)
-  createPlayers(result.data.players.edges, createPage, playerTemplate, playerShareTemplate)
+  createPlayers(
+    result.data.players.edges,
+    createPage,
+    playerTemplate,
+    playerShareTemplate
+  )
   createStaff(result.data.staff.edges, createPage, staffTemplate)
 
-  createOverviewNews(result.data.articles.edges, createPaginatedPages, createPage, newsOverviewTemplate, `news`, 18)
+  createOverviewNews(
+    result.data.articles.edges,
+    createPaginatedPages,
+    createPage,
+    newsOverviewTemplate,
+    `news`,
+    18
+  )
 
-  createCategoryPages(result.data.categories.edges, createPage, categoryTemplate)
+  createCategoryPages(
+    result.data.categories.edges,
+    createPage,
+    categoryTemplate
+  )
 }
 
 exports.onCreatePage = async ({ page, actions }) => {

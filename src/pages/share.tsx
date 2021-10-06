@@ -1,9 +1,9 @@
 import React, { FunctionComponent, useState } from "react"
+import { graphql, useStaticQuery } from "gatsby"
 
 import Layout from "../layouts/index"
-import SEO from "../components/seo"
-import { useStaticQuery, graphql } from "gatsby"
 import { PlayerListProps } from "../types/pages.types"
+import SEO from "../components/seo"
 import Select from "react-select"
 import Spinner from "../components/Spinner"
 

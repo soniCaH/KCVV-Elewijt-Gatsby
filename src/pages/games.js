@@ -1,10 +1,8 @@
 import React, { Component } from "react"
 
 import Layout from "../layouts/index"
-
-import SEO from "../components/seo"
-
 import MatchesOverview from "../components/MatchesPreseason"
+import SEO from "../components/seo"
 
 class GamesPage extends Component {
   render() {

@@ -1,17 +1,17 @@
-import { graphql } from "gatsby"
-import React, { Fragment } from "react"
-import SEO from "../components/seo"
-import Layout from "../layouts/index"
-import { GatsbyImage, getSrc } from "gatsby-plugin-image"
-import { TeamSection } from "../components/team--section"
-import RelatedNews from "../components/RelatedNews"
 import "./team.scss"
 
-import Matches from "../components/Matches"
-import { MatchTeasers } from "../components/MatchTeaser"
+import { GatsbyImage, getSrc } from "gatsby-plugin-image"
+import React, { Fragment } from "react"
 
+import Layout from "../layouts/index"
+import { MatchTeasers } from "../components/MatchTeaser"
+import Matches from "../components/Matches"
 import Ranking from "../components/Ranking"
+import RelatedNews from "../components/RelatedNews"
+import SEO from "../components/seo"
+import { TeamSection } from "../components/team--section"
 import TeamStats from "../components/TeamStats"
+import { graphql } from "gatsby"
 
 // Generic helper function to group an array by a property.
 const groupBy = (key) => (array) =>

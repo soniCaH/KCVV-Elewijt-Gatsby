@@ -1,20 +1,12 @@
-import React from "react"
-import PropTypes from "prop-types"
-import { Helmet } from "react-helmet"
 import { StaticQuery, graphql } from "gatsby"
 
+import { Helmet } from "react-helmet"
+import PropTypes from "prop-types"
+import React from "react"
 import defaultOgImage from "../images/preseason.jpg"
 
 // function SEO({ description, lang, meta, keywords, title }) {
-function SEO({
-  lang,
-  title,
-  description,
-  meta,
-  keywords,
-  path,
-  image: metaImage,
-}) {
+function SEO({ lang, title, description, meta, keywords, path, image: metaImage }) {
   return (
     <StaticQuery
       query={detailsQuery}
@@ -32,11 +24,11 @@ function SEO({
             link={
               canonicalUrl
                 ? [
-                    {
-                      rel: "canonical",
-                      href: canonicalUrl,
-                    },
-                  ]
+                  {
+                      rel: `canonical`,
+                    href: canonicalUrl,
+                  },
+                ]
                 : []
             }
             meta={[
@@ -97,72 +89,69 @@ const getTwitterMeta = (site, title, metaDescription, metaImage) => {
 }
 
 const getOgImage = ({ siteMetadata }, metaImage, title) => {
-  const image =
-    metaImage && metaImage.src
-      ? `${siteMetadata.siteUrl}${metaImage.src}`
-      : null
+  const image = metaImage && metaImage.src ? `${siteMetadata.siteUrl}${metaImage.src}` : null
   return metaImage
     ? [
-        {
-          property: `og:image`,
-          content: image,
-        },
-        {
-          property: `og:image:width`,
-          content: metaImage.width,
-        },
-        {
-          property: `og:image:type`,
-          content: "image/jpeg",
-        },
-        {
-          property: `og:image:height`,
-          content: metaImage.height,
-        },
-        {
-          property: `og:image:title`,
-          content: title,
-        },
-        {
-          property: `og:image:alt`,
-          content: title,
-        },
-      ]
+      {
+        property: `og:image`,
+        content: image,
+      },
+      {
+        property: `og:image:width`,
+        content: metaImage.width,
+      },
+      {
+        property: `og:image:type`,
+        content: `image/jpeg`,
+      },
+      {
+        property: `og:image:height`,
+        content: metaImage.height,
+      },
+      {
+        property: `og:image:title`,
+        content: title,
+      },
+      {
+        property: `og:image:alt`,
+        content: title,
+      },
+    ]
     : []
 }
 
 const getTwitterCard = (metaImage) =>
   metaImage
     ? {
-        name: "twitter:card",
-        content: "summary_large_image",
-      }
+      name: `twitter:card`,
+      content: `summary_large_image`,
+    }
     : {
-        name: "twitter:card",
-        content: "summary",
-      }
+      name: `twitter:card`,
+      content: `summary`,
+    }
 
 const getOgUrl = (canonicalUrl) =>
   canonicalUrl
     ? {
-        property: `og:url`,
-        content: canonicalUrl,
-      }
+      property: `og:url`,
+      content: canonicalUrl,
+    }
     : []
 
 const getKeywords = (keywords) =>
   keywords.length > 0
     ? {
-        name: `keywords`,
-        content: keywords.join(`, `),
-      }
+      name: `keywords`,
+      content: keywords.join(`, `),
+    }
     : []
 
 SEO.defaultProps = {
   lang: `nl-BE`,
   meta: [],
   keywords: [],
-  path: "/",
+  path: `/`,
   image: {
     src: defaultOgImage,
     width: 2000,

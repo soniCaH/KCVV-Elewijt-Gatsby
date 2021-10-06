@@ -1,13 +1,12 @@
-import React, { Fragment, FunctionComponent } from "react"
-import Helmet from "react-helmet"
-import { getSrc, IGatsbyImageData } from "gatsby-plugin-image"
-
-import { useQueryParam, StringParam } from "use-query-params"
-
-import { PlayerShareProps } from "./PlayerShare.types"
-import { Player } from "../types/Drupal"
-
 import "./PlayerShare.scss"
+
+import { IGatsbyImageData, getSrc } from "gatsby-plugin-image"
+import React, { Fragment, FunctionComponent } from "react"
+import { StringParam, useQueryParam } from "use-query-params"
+
+import Helmet from "react-helmet"
+import { Player } from "../types/Drupal"
+import { PlayerShareProps } from "./PlayerShare.types"
 
 const renderPlayerName = (firstName: string, lastName: string) => (
   <h1 className={`player-detail__name`}>

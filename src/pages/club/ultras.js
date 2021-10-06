@@ -1,12 +1,10 @@
 import React, { Component } from "react"
 
-import Layout from "../../layouts/index"
-
-import SEO from "../../components/seo"
-import { StaticQuery, graphql } from "gatsby"
 import { CardImage } from "../../components/Card"
 import HeaderBgTitle from "../../components/header-bg-title"
-
+import Layout from "../../layouts/index"
+import SEO from "../../components/seo"
+import { graphql } from "gatsby"
 import ogImage from "../../images/header-ultras.jpg"
 
 class UltrasPage extends Component {
