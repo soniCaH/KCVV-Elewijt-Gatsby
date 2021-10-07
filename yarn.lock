@@ -2064,7 +2064,7 @@
   resolved "https://registry.yarnpkg.com/@tootallnate/once/-/once-1.1.2.tgz#ccb91445360179a04e7fe6aff78c00ffc1eeaf82"
   integrity sha512-RbzJvlNzmRq5c3O09UipeuXno4tA1FE6ikOjxZK0tuxVv3412l64l5t1W5pj4+rJq9vpkm/kwiR07aZXnsKPxw==
 
-"@trivago/prettier-plugin-sort-imports@^2.0.4":
+"@trivago/prettier-plugin-sort-imports@2.0.4":
   version "2.0.4"
   resolved "https://registry.yarnpkg.com/@trivago/prettier-plugin-sort-imports/-/prettier-plugin-sort-imports-2.0.4.tgz#2e5bbf80bd87e919202f791008a2fbcdbb2a566f"
   integrity sha512-SCVUhQdbjn/Z4AY7b9JO00fZCeXxiVuarVxYP0n6cX2ijiQkE5HmGrOk32n0u385OebzQ9bZcrc51lAGLjXnFQ==
@@ -5852,7 +5852,7 @@ functional-red-black-tree@^1.0.1:
   resolved "https://registry.yarnpkg.com/functional-red-black-tree/-/functional-red-black-tree-1.0.1.tgz#1b0ab3bd553b2a0d6399d29c0e3ea0b252078327"
   integrity sha1-GwqzvVU7Kg1jmdKcDj6gslIHgyc=
 
-gatsby-cli@^4.0.0-zz-next.2:
+gatsby-cli@4.0.0-zz-next.2, gatsby-cli@^4.0.0-zz-next.2:
   version "4.0.0-zz-next.2"
   resolved "https://registry.yarnpkg.com/gatsby-cli/-/gatsby-cli-4.0.0-zz-next.2.tgz#c07c7d02e691104102f5df8132a3f9a78486630a"
   integrity sha512-+bGMgrt7O69YrC9liGUNvrRKqvXdX2TVlZYT+3j35Q31+oW3AlkzJbn89Uwnx0eFFw4RXMdtx/9F0gyX9eUzEg==
@@ -5983,7 +5983,7 @@ gatsby-paginate@1.1.1:
   dependencies:
     path "^0.12.7"
 
-gatsby-plugin-google-tagmanager@^4.0.0-zz-next.2:
+gatsby-plugin-google-tagmanager@4.0.0-zz-next.2:
   version "4.0.0-zz-next.2"
   resolved "https://registry.yarnpkg.com/gatsby-plugin-google-tagmanager/-/gatsby-plugin-google-tagmanager-4.0.0-zz-next.2.tgz#03169a2bef98e006b49820c945b0e1fb38e191fd"
   integrity sha512-2i8ha8/jOBr1qh8gDaVN1Vl2y3W9uf7bb7cct509Zxej41+IFXH9CiP0EaoONV66NI+YgBBjkLxm4ZL/oE1AoA==
@@ -5991,7 +5991,7 @@ gatsby-plugin-google-tagmanager@^4.0.0-zz-next.2:
     "@babel/runtime" "^7.15.4"
     web-vitals "^1.1.2"
 
-gatsby-plugin-image@^2.0.0-zz-next.2:
+gatsby-plugin-image@2.0.0-zz-next.2:
   version "2.0.0-zz-next.2"
   resolved "https://registry.yarnpkg.com/gatsby-plugin-image/-/gatsby-plugin-image-2.0.0-zz-next.2.tgz#2fe3a3f5cc89dff3b1e654335919b27d3cee2a1a"
   integrity sha512-tucki+xkPpeKrqwR1Ee7Uzg2FCKGMloH500SSsQNt2PgpmdsrT1tjouhgQbXKJAsuXHuz0SDDLQYM/UW9iTBnA==
@@ -6010,7 +6010,7 @@ gatsby-plugin-image@^2.0.0-zz-next.2:
     objectFitPolyfill "^2.3.5"
     prop-types "^15.7.2"
 
-gatsby-plugin-manifest@^4.0.0-zz-next.2:
+gatsby-plugin-manifest@4.0.0-zz-next.2:
   version "4.0.0-zz-next.2"
   resolved "https://registry.yarnpkg.com/gatsby-plugin-manifest/-/gatsby-plugin-manifest-4.0.0-zz-next.2.tgz#547d5b80cd6ee634aee47afa1f612d680dc3e115"
   integrity sha512-ViZhVG5UsA0/U6aOfs6d4DVuRrEyYNLDoTJTEZKc5C7SfxlUqIzpe+pu6jDxcvCKWpw/mMGzDX+yHBiKHSVs3Q==
@@ -6033,7 +6033,7 @@ gatsby-plugin-netlify@next:
     lodash "^4.17.21"
     webpack-assets-manifest "^5.0.6"
 
-gatsby-plugin-offline@^5.0.0-zz-next.2:
+gatsby-plugin-offline@5.0.0-zz-next.2:
   version "5.0.0-zz-next.2"
   resolved "https://registry.yarnpkg.com/gatsby-plugin-offline/-/gatsby-plugin-offline-5.0.0-zz-next.2.tgz#170e182072c7160880d8260ddc19e627e388ac69"
   integrity sha512-y5CQW8Oku5NJlPVR4y3ND3KEcp0H1f0uN+/dKpFedvO6mVqFftCDHJcfMKTa0vNEnLhNFqRpYteQNYrmVTmPdQ==
@@ -6073,7 +6073,7 @@ gatsby-plugin-preact@next:
     "@prefresh/babel-plugin" "^0.4.1"
     "@prefresh/webpack" "^3.3.2"
 
-gatsby-plugin-sass@^5.0.0-zz-next.2:
+gatsby-plugin-sass@5.0.0-zz-next.2:
   version "5.0.0-zz-next.2"
   resolved "https://registry.yarnpkg.com/gatsby-plugin-sass/-/gatsby-plugin-sass-5.0.0-zz-next.2.tgz#ef3b51245897706f63637f3a8493e6bd98cd4f49"
   integrity sha512-5T2/cTTk32I+k7L81bOGrc4hbvG/65eJnS5p93+7LhrLaSnrpJ6z8G6gg7j1p8NT9l6LXnMEfLjQr2ts1PHDJg==
@@ -6082,7 +6082,7 @@ gatsby-plugin-sass@^5.0.0-zz-next.2:
     resolve-url-loader "^3.1.2"
     sass-loader "^10.1.1"
 
-gatsby-plugin-sharp@^4.0.0-zz-next.2:
+gatsby-plugin-sharp@4.0.0-zz-next.2:
   version "4.0.0-zz-next.2"
   resolved "https://registry.yarnpkg.com/gatsby-plugin-sharp/-/gatsby-plugin-sharp-4.0.0-zz-next.2.tgz#da74066b21b46cf72e07c44edc5217d4f1ee3b88"
   integrity sha512-PWHE6sasUC/ATWX5nSR0wODhJnwo7HYtmU032OmCVrZFn9Wp0/L4VuvIVFoDggFB0CNbwbOOANn2TDs4U4+slA==
@@ -6204,7 +6204,7 @@ gatsby-recipes@^1.0.0-zz-next.2:
     xstate "^4.9.1"
     yoga-layout-prebuilt "^1.9.6"
 
-gatsby-source-drupal@^5.0.0-zz-next.2:
+gatsby-source-drupal@5.0.0-zz-next.2:
   version "5.0.0-zz-next.2"
   resolved "https://registry.yarnpkg.com/gatsby-source-drupal/-/gatsby-source-drupal-5.0.0-zz-next.2.tgz#a14b1df35f7281b730795da081c65183d5a9ebba"
   integrity sha512-Bwxs9q0drSuba3HO6jqzoJd3/Y8LS6faudr9DPmThQi/xH8kEn04vOsEw8InFU4KTBmhQrum1l7a6qOutV7oIA==
@@ -6223,7 +6223,7 @@ gatsby-source-drupal@^5.0.0-zz-next.2:
     tiny-async-pool "^1.2.0"
     url-join "^4.0.1"
 
-gatsby-source-filesystem@^4.0.0-zz-next.2:
+gatsby-source-filesystem@4.0.0-zz-next.2, gatsby-source-filesystem@^4.0.0-zz-next.2:
   version "4.0.0-zz-next.2"
   resolved "https://registry.yarnpkg.com/gatsby-source-filesystem/-/gatsby-source-filesystem-4.0.0-zz-next.2.tgz#621712426f91f94b44dc3c7a94ed2d49e01cc70f"
   integrity sha512-6m0oAk7jxJOPxVbPI1ffvsIMjmwphqHG4rw3YSwzmPWa7UFF8gkvkPGny+T4Hy6r9tQcpqbbZEmW5sx+UjAfgw==
@@ -6283,7 +6283,7 @@ gatsby-worker@^1.0.0-zz-next.2:
     "@babel/core" "^7.15.5"
     "@babel/runtime" "^7.15.4"
 
-gatsby@^4.0.0-zz-next.2:
+gatsby@4.0.0-zz-next.2:
   version "4.0.0-zz-next.2"
   resolved "https://registry.yarnpkg.com/gatsby/-/gatsby-4.0.0-zz-next.2.tgz#350e5b468ec87c361bb26e8d1191688518e5e146"
   integrity sha512-H/dzK6gRFdAYZVVmokJk91biYBDsQiVkrZgmyhPk+n5WvsJDaPvl4iguH9IoRZNX/IhiV1JQZ3xKS1eQSaRGsw==
