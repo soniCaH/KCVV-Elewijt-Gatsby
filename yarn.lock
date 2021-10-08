@@ -5983,10 +5983,10 @@ gatsby-paginate@1.1.1:
   dependencies:
     path "^0.12.7"
 
-gatsby-plugin-google-tagmanager@4.0.0-zz-next.2:
-  version "4.0.0-zz-next.2"
-  resolved "https://registry.yarnpkg.com/gatsby-plugin-google-tagmanager/-/gatsby-plugin-google-tagmanager-4.0.0-zz-next.2.tgz#03169a2bef98e006b49820c945b0e1fb38e191fd"
-  integrity sha512-2i8ha8/jOBr1qh8gDaVN1Vl2y3W9uf7bb7cct509Zxej41+IFXH9CiP0EaoONV66NI+YgBBjkLxm4ZL/oE1AoA==
+gatsby-plugin-google-tagmanager@4.0.0-zz-next.8:
+  version "4.0.0-zz-next.8"
+  resolved "https://registry.yarnpkg.com/gatsby-plugin-google-tagmanager/-/gatsby-plugin-google-tagmanager-4.0.0-zz-next.8.tgz#249d0345c268499908f42cde9381e0688cf98683"
+  integrity sha512-THD2sjM87nIaU+QPS6SuKwhDVpGpXL4clbOL2eKoWyhhe5SGaORvVtYCA6r1fuVZrT6Vunhu8P13ob6pWVfSnA==
   dependencies:
     "@babel/runtime" "^7.15.4"
     web-vitals "^1.1.2"
@@ -6073,10 +6073,10 @@ gatsby-plugin-preact@next:
     "@prefresh/babel-plugin" "^0.4.1"
     "@prefresh/webpack" "^3.3.2"
 
-gatsby-plugin-sass@5.0.0-zz-next.2:
-  version "5.0.0-zz-next.2"
-  resolved "https://registry.yarnpkg.com/gatsby-plugin-sass/-/gatsby-plugin-sass-5.0.0-zz-next.2.tgz#ef3b51245897706f63637f3a8493e6bd98cd4f49"
-  integrity sha512-5T2/cTTk32I+k7L81bOGrc4hbvG/65eJnS5p93+7LhrLaSnrpJ6z8G6gg7j1p8NT9l6LXnMEfLjQr2ts1PHDJg==
+gatsby-plugin-sass@5.0.0-zz-next.8:
+  version "5.0.0-zz-next.8"
+  resolved "https://registry.yarnpkg.com/gatsby-plugin-sass/-/gatsby-plugin-sass-5.0.0-zz-next.8.tgz#d54d9c18456615e1b896ba0bcdecb86f648440f8"
+  integrity sha512-AUAplTkFiue58yhdkO8ojGa60bZjBXpNnop/L5o2PCh4P0h8o9xLUELjm67BnrM7A0EOIc+tjFxFHsEhtTqibA==
   dependencies:
     "@babel/runtime" "^7.15.4"
     resolve-url-loader "^3.1.2"
