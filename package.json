@@ -53,7 +53,7 @@
   ],
   "license": "MIT",
   "scripts": {
-    "build": "cross-env GATSBY_EXPERIMENTAL_PAGE_BUILD_ON_DATA_CHANGES=true gatsby build --log-pages",
+    "build": "gatsby build --log-pages",
     "develop": "gatsby develop",
     "start": "yarn run develop",
     "clean": "rm -rf public",
