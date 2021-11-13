@@ -44,7 +44,7 @@
     "react-select": "5.1.0",
     "react-share": "4.4.0",
     "react-slick": "0.28.1",
-    "sass": "1.42.1",
+    "sass": "1.43.3",
     "slick-carousel": "1.8.1",
     "use-query-params": "1.2.3"
   },
