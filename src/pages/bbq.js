@@ -20,9 +20,7 @@ class BBQPage extends Component {
           </header>
           <main>
             <h2>Zaterdag 4 december 2021</h2>
-            <p>
-              <<< AAN TE VULLEN MET INFO >>>
-            </p>
+            <p>AAN TE VULLEN MET INFO</p>
             <p>
               Door de geldende Corona-maatregelen is het verplicht om op voorhand een tafel met je bubbel/gezin te
               reserveren.
