@@ -16,15 +16,12 @@ class BBQPage extends Component {
         />
         <div className={`limited-width_wrapper`}>
           <header>
-            <h1>Seizoensbarbecue - Inschrijving</h1>
+            <h1>Sinterklaasbarbecue - Inschrijving</h1>
           </header>
           <main>
-            <h2>Zaterdag 31 juli 2021</h2>
-            <p>Op zaterdag 31 juli 2021 starten we het nieuwe seizoen op met onze jaarlijkse seizoensbarbecue!</p>
+            <h2>Zaterdag 4 december 2021</h2>
             <p>
-              Vanaf 18:00 wordt het aperitief aangeboden en de barbecue aangestoken. Om 20:15 is er ook de mogelijkheid
-              om de nieuwe kern van de A-ploeg aan het werk te zien. Zij spelen dan een oefenwedstrijd tegen
-              eersteprovincialer H.O. Veltem.
+              <<< AAN TE VULLEN MET INFO >>>
             </p>
             <p>
               Door de geldende Corona-maatregelen is het verplicht om op voorhand een tafel met je bubbel/gezin te
