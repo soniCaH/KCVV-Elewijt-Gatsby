@@ -22,16 +22,16 @@ class BBQPage extends Component {
             <h2>Zaterdag 4 december 2021 // 18:30</h2>
             <p>De jeugd van KCVV Elewijt presenteert zijn jaarlijkse winterbarbecue</p>
             <p>Voor de prijs van 25 euro per volwassene en 15 euro per kind kan je genieten van</p>
-            <ol>
+            <ul>
               <li>3 stukken vlees (kinderen 2 stukken)</li>
               <li>Saladbar</li>
               <li>Pasta</li>
               <li>Sauzen</li>
               <li>Brood</li>
-            </ol>
+            </ul>
             <p>
               Door de geldende Corona-maatregelen is het verplicht om op voorhand een tafel met je bubbel/gezin te
-              reserveren.
+              reserveren. Inschrijven kan tot en met 2 december 2021.
             </p>
 
             <tbkr-bm-widget
