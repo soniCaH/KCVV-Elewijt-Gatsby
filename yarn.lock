@@ -8660,7 +8660,18 @@ lines-and-columns@^1.1.6:
   resolved "https://registry.yarnpkg.com/lines-and-columns/-/lines-and-columns-1.1.6.tgz#1c00c743b433cd0a4e80758f7b64a57440d9ff00"
   integrity sha1-HADHQ7QzzQpOgHWPe2SldEDZ/wA=
 
-lmdb-store@1.6.13, lmdb-store@^1.6.8:
+lmdb-store@1.6.14:
+  version "1.6.14"
+  resolved "https://registry.yarnpkg.com/lmdb-store/-/lmdb-store-1.6.14.tgz#8aa5f36fb04195f8639a3b01b32f6696867f2bc9"
+  integrity sha512-4woZfvfgolMEngjoMJrwePjdLotr3QKGJsDWURlJmKBed5JtE00IfAKo7ryPowl4ksGcs21pcdLkwrPnKomIuA==
+  dependencies:
+    msgpackr "^1.5.0"
+    nan "^2.14.2"
+    node-gyp-build "^4.2.3"
+    ordered-binary "^1.0.0"
+    weak-lru-cache "^1.0.0"
+
+lmdb-store@^1.6.8:
   version "1.6.13"
   resolved "https://registry.yarnpkg.com/lmdb-store/-/lmdb-store-1.6.13.tgz#ae4c9d4faccbc07aaf47a79664f703799fc61221"
   integrity sha512-WJPNfzSZXD6anGFdIEK/wq/HzAU5kfi7+LSUSzQ2Qo9uV9REeIYPGqWX+FKl/QCb6qK4ie1D4f44aEvvv7M7rw==
@@ -9616,6 +9627,13 @@ msgpackr@^1.4.7:
   version "1.5.0"
   resolved "https://registry.yarnpkg.com/msgpackr/-/msgpackr-1.5.0.tgz#a4495ea0e2ba7bca909463e45fb852c76540f464"
   integrity sha512-GWMowA95SOMkrFM+uKF/9MOIoZbDwoZ09XEqSoOwyt/IzohTfxfOJrIGW0fInvcZUEoZ0wHCwVg4K0UOOUA49A==
+  optionalDependencies:
+    msgpackr-extract "^1.0.14"
+
+msgpackr@^1.5.0:
+  version "1.5.1"
+  resolved "https://registry.yarnpkg.com/msgpackr/-/msgpackr-1.5.1.tgz#2a8e39d25458406034b8cb50dc7d6a7abd3dfff2"
+  integrity sha512-I1CXFG8BYYSeIhtDlHpUVMsdDiyvP9JAh1d9QoBnkPx3ETPeH/1lR14hweM9GETs09wCWlaOyhtXxIc9boxAAA==
   optionalDependencies:
     msgpackr-extract "^1.0.14"
 
