@@ -1,10 +1,9 @@
-import "./player--featured.scss"
-
+import { Link } from "gatsby"
+import { PropTypes } from "prop-types"
 import React, { Component } from "react"
 
-import { Link } from "gatsby"
 import { PlayerMinimal } from "./objects/player"
-import { PropTypes } from "prop-types"
+import "./player--featured.scss"
 
 class PlayerFeatured extends Component {
   renderPlayerHeader = () => (

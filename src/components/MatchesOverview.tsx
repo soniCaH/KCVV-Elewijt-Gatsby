@@ -1,14 +1,13 @@
-import "./MatchesOverview.scss"
-import "moment/locale/nl-be"
-
-import React, { FunctionComponent, useEffect, useState } from "react"
-import { graphql, useStaticQuery } from "gatsby"
-
-import { MatchTeaserDetail } from "./MatchTeaser"
-import Moment from "moment-timezone"
-import Spinner from "./Spinner"
 import axios from "axios"
+import { graphql, useStaticQuery } from "gatsby"
+import Moment from "moment-timezone"
+import "moment/locale/nl-be"
+import React, { FunctionComponent, useEffect, useState } from "react"
+
 import { mapPsdStatus } from "../scripts/helper"
+import { MatchTeaserDetail } from "./MatchTeaser"
+import "./MatchesOverview.scss"
+import Spinner from "./Spinner"
 
 const MatchesOverview: FunctionComponent<MatchesOverviewProps> = ({
   include = [],

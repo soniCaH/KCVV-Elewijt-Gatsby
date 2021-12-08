@@ -1,9 +1,9 @@
 import React, { Component } from "react"
 
 import HeaderBgTitle from "../../components/header-bg-title"
-import Layout from "../../layouts/index"
 import SEO from "../../components/seo"
 import ogImage from "../../images/header-contact.jpg"
+import Layout from "../../layouts/index"
 
 class ContactPage extends Component {
   render() {

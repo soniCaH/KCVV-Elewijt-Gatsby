@@ -1,19 +1,17 @@
-import React, { Component, Fragment } from "react"
 import { graphql } from "gatsby"
+import React, { Component, Fragment } from "react"
 
-import Layout from "../layouts/index"
-
-import SEO from "../components/seo"
+import { CardImage } from "../components/Card"
+import Card from "../components/Card"
 import MatchesOverview from "../components/MatchesOverview"
 import MatchesSlider from "../components/MatchesSlider"
 import MatchesTabs from "../components/MatchesTabs"
-import { NewsItemFeatured, NewsItemCardRatio, KcvvTvCard } from "../components/news-item"
-import { CardImage } from "../components/Card"
 import UpcomingEvent from "../components/UpcomingEvent.tsx"
-
+import { NewsItemFeatured, NewsItemCardRatio, KcvvTvCard } from "../components/news-item"
+import SEO from "../components/seo"
 import MyMakro from "../images/tag-mymakro.png"
 import Trooper from "../images/tag-trooper.png"
-import Card from "../components/Card"
+import Layout from "../layouts/index"
 
 class IndexPage extends Component {
   renderMatchSlider = () => (
@@ -267,7 +265,7 @@ class IndexPage extends Component {
   }
 
   renderLayoutSidebar = () => {
-    const { featuredPlayer } = this.props.data
+    // const { featuredPlayer } = this.props.data
     return (
       <Fragment>
         {/* TABLEBOOKER WIDGET */}

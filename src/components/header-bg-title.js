@@ -1,7 +1,7 @@
-import "./header-bg-title.scss"
-
 import PropTypes from "prop-types"
 import React from "react"
+
+import "./header-bg-title.scss"
 
 class HeaderBgTitle extends React.Component {
   render() {

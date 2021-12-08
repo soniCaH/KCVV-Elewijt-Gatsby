@@ -1,8 +1,7 @@
-import "./team--section.scss"
-
 import React, { Component } from "react"
 
 import PlayerTeaser from "./PlayerTeaser"
+import "./team--section.scss"
 
 export class TeamSection extends Component {
   render() {

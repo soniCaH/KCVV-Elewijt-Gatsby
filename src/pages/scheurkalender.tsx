@@ -1,8 +1,8 @@
 import React, { Component } from "react"
 
-import Layout from "../layouts/index"
 import MatchesScheurkalenderOverview from "../components/MatchesScheurkalender"
 import SEO from "../components/seo"
+import Layout from "../layouts/index"
 
 class ScheurkalenderPage extends Component {
   render() {

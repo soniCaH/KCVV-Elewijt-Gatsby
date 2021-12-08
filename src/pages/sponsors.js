@@ -1,9 +1,9 @@
+import { graphql } from "gatsby"
 import React, { Component } from "react"
 
-import Layout from "../layouts/index"
 import SEO from "../components/seo"
 import Sponsor from "../components/sponsor"
-import { graphql } from "gatsby"
+import Layout from "../layouts/index"
 
 class SponsorsPage extends Component {
   render() {

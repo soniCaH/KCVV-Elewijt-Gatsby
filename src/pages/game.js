@@ -1,14 +1,13 @@
+import { graphql } from "gatsby"
+import moment from "moment"
 import "moment/locale/nl-be"
-
 import React, { Component, Fragment } from "react"
+import LazyLoad from "react-lazy-load"
 
 import Icon from "../components/Icon"
-import Layout from "../layouts/index"
-import LazyLoad from "react-lazy-load"
 import MiniRanking from "../components/MiniRanking"
-import SEO from "../components/seo"
 import Spinner from "../components/Spinner"
-import { graphql } from "gatsby"
+import SEO from "../components/seo"
 import iconBench from "../images/i_bench_2.png"
 import iconCardRed from "../images/i_card_red.png"
 import iconCardYellow from "../images/i_card_yellow.png"
@@ -17,8 +16,8 @@ import iconGoal from "../images/i_goal.png"
 import iconStart from "../images/i_start.png"
 import iconSubIn from "../images/i_sub_in.png"
 import iconSubOut from "../images/i_sub_out.png"
+import Layout from "../layouts/index"
 import { mapPsdStatus } from "../scripts/helper"
-import moment from "moment"
 
 class GamePage extends Component {
   constructor(props) {

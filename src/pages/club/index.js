@@ -1,8 +1,8 @@
+import { Link } from "gatsby"
 import React, { Component } from "react"
 
-import Layout from "../../layouts/index"
-import { Link } from "gatsby"
 import SEO from "../../components/seo"
+import Layout from "../../layouts/index"
 
 class IndexPage extends Component {
   render() {

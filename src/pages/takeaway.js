@@ -1,9 +1,9 @@
+import { graphql } from "gatsby"
+import { GatsbyImage } from "gatsby-plugin-image"
 import React, { Component } from "react"
 
-import { GatsbyImage } from "gatsby-plugin-image"
-import Layout from "../layouts/index"
 import SEO from "../components/seo"
-import { graphql } from "gatsby"
+import Layout from "../layouts/index"
 
 class MosselfestijnPage extends Component {
   render() {
