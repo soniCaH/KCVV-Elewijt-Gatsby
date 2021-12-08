@@ -60,7 +60,7 @@ module.exports = {
         crossOrigin: `use-credentials`,
       },
     },
-    `gatsby-plugin-offline`,
+    `gatsby-plugin-remove-serviceworker`,
     `gatsby-plugin-netlify`,
     `gatsby-plugin-use-query-params`,
   ],
