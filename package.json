@@ -18,7 +18,6 @@
     "gatsby-plugin-image": "2.2.0",
     "gatsby-plugin-manifest": "4.1.4",
     "gatsby-plugin-netlify": "next",
-    "gatsby-plugin-offline": "5.1.4",
     "gatsby-plugin-preact": "6.2.0",
     "gatsby-plugin-remove-serviceworker": "^1.0.0",
     "gatsby-plugin-sass": "5.2.0",
