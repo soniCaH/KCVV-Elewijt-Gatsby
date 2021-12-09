@@ -1,9 +1,8 @@
-import "./page-header.scss"
-
+import { Link } from "gatsby"
 import React, { Component, Fragment } from "react"
 
-import { Link } from "gatsby"
 import logo from "../images/logo-flat.png"
+import "./page-header.scss"
 
 // import bauvall from '../images/bauvall.png'
 

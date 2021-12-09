@@ -1,5 +1,7 @@
 import { IGatsbyImageData } from "gatsby-plugin-image"
+
 import { Pathalias } from "../types/Drupal"
+
 export interface CardProps {
   title: string
   className?: string

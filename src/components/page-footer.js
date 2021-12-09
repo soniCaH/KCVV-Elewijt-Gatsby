@@ -1,9 +1,8 @@
-import "./page-footer.scss"
-
 import React, { Component } from "react"
 
-import SponsorsBlock from "./sponsors-block"
 import logo from "../images/logo-flat.png"
+import "./page-footer.scss"
+import SponsorsBlock from "./sponsors-block"
 
 class PageFooter extends Component {
   renderSocialLinks = () => (

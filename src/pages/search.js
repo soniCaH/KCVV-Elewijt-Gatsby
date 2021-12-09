@@ -1,8 +1,8 @@
 import React, { Component } from "react"
 
-import Layout from "../layouts/index"
-import SEO from "../components/seo"
 import Search from "../components/search-container"
+import SEO from "../components/seo"
+import Layout from "../layouts/index"
 
 class SearchPage extends Component {
   render() {

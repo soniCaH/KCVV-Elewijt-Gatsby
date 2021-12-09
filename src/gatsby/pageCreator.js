@@ -65,22 +65,14 @@ const createStaff = (list, createPage, template) => {
   })
 }
 
-const createOverviewNews = (
-  list,
-  createPaginatedPages,
-  createPage,
-  template,
-  pathPrefix,
-  itemsPerPage
-) => {
+const createOverviewNews = (list, createPaginatedPages, createPage, template, pathPrefix, itemsPerPage) => {
   createPaginatedPages({
     edges: list,
     createPage,
     pageTemplate: template,
     pageLength: itemsPerPage,
     pathPrefix,
-    buildPath: (index, pathPrefix) =>
-      index > 1 ? `${pathPrefix}/${index}` : `/${pathPrefix}`,
+    buildPath: (index, pathPrefix) => (index > 1 ? `${pathPrefix}/${index}` : `/${pathPrefix}`),
   })
 }
 

@@ -1,15 +1,14 @@
-import "moment/locale/nl-be"
-import "./MatchesPreseason.scss"
-
-import React, { FunctionComponent, useEffect, useState } from "react"
-import { capitalizeFirstLetter, groupByMonth, mapPsdStatus, mapPsdStatusShort } from "../scripts/helper"
-import { graphql, useStaticQuery } from "gatsby"
-
-import LazyLoad from "react-lazyload"
-import Moment from "moment-timezone"
-import Spinner from "./Spinner"
 import axios from "axios"
 import classNames from "classnames"
+import { graphql, useStaticQuery } from "gatsby"
+import Moment from "moment-timezone"
+import "moment/locale/nl-be"
+import React, { FunctionComponent, useEffect, useState } from "react"
+import LazyLoad from "react-lazyload"
+
+import { capitalizeFirstLetter, groupByMonth, mapPsdStatus, mapPsdStatusShort } from "../scripts/helper"
+import "./MatchesPreseason.scss"
+import Spinner from "./Spinner"
 
 const MatchOverviewMatch: FunctionComponent<MatchesRowProps> = ({ match }: MatchesRowProps) => {
   const d = Moment.tz(match.date, `Europe/Brussels`)

@@ -44,7 +44,6 @@ module.exports = {
         defaultDataLayer: { platform: `gatsby`, branch: process.env.BRANCH },
       },
     },
-    `gatsby-plugin-preact`,
     {
       resolve: `gatsby-plugin-manifest`,
       options: {

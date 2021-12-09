@@ -1,8 +1,8 @@
 import { StaticQuery, graphql } from "gatsby"
-
-import { Helmet } from "react-helmet"
 import PropTypes from "prop-types"
 import React from "react"
+import { Helmet } from "react-helmet"
+
 import defaultOgImage from "../images/preseason.jpg"
 
 // function SEO({ description, lang, meta, keywords, title }) {
@@ -21,16 +21,7 @@ function SEO({ lang, title, description, meta, keywords, path, image: metaImage 
             }}
             title={title}
             titleTemplate={`%s | ${site.siteMetadata.title}`}
-            link={
-              canonicalUrl
-                ? [
-                  {
-                      rel: `canonical`,
-                    href: canonicalUrl,
-                  },
-                ]
-                : []
-            }
+            link={canonicalUrl ? [{ rel: `canonical`, href: canonicalUrl }] : []}
             meta={[
               {
                 name: `description`,
