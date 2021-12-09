@@ -1,12 +1,12 @@
-import React, { Component } from "react"
-
-import { GatsbyImage } from "gatsby-plugin-image"
-import HeaderBgTitle from "../../components/header-bg-title"
-import Layout from "../../layouts/index"
-import SEO from "../../components/seo"
-import ScrollAnimation from "react-animate-on-scroll"
 import { graphql } from "gatsby"
+import { GatsbyImage } from "gatsby-plugin-image"
+import React, { Component } from "react"
+import ScrollAnimation from "react-animate-on-scroll"
+
+import HeaderBgTitle from "../../components/header-bg-title"
+import SEO from "../../components/seo"
 import ogImage from "../../images/history-bvb.png"
+import Layout from "../../layouts/index"
 
 class HistoryPage extends Component {
   renderItem1909 = () => (

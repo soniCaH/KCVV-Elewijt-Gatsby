@@ -2,9 +2,9 @@ import { Link, graphql } from "gatsby"
 import React, { Component } from "react"
 
 import { CardImage } from "../components/Card"
-import Layout from "../layouts/index"
 import MatchesOverview from "../components/MatchesOverview"
 import SEO from "../components/seo"
+import Layout from "../layouts/index"
 
 class JeugdPage extends Component {
   render() {

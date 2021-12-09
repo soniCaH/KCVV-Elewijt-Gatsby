@@ -1,10 +1,10 @@
+import { Link } from "gatsby"
 import React, { Component } from "react"
 
 import HeaderBgTitle from "../components/header-bg-title"
-import Layout from "../layouts/index"
-import { Link } from "gatsby"
 import SEO from "../components/seo"
 import ogImage from "../images/header-404.jpg"
+import Layout from "../layouts/index"
 
 class PageNotFoundPage extends Component {
   render() {

@@ -6,6 +6,6 @@
 
 exports.onRenderBody = ({ setHtmlAttributes }) => {
   setHtmlAttributes({
-    className: "no-js",
+    className: `no-js`,
   })
 }

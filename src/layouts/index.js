@@ -1,10 +1,10 @@
 // import './index.scss'
-import PageHeader, { PageHeaderMobile } from "../components/page-header"
-import React, { Component, Fragment } from "react"
-
 import $ from "jquery"
-import PageFooter from "../components/page-footer"
+import React, { Component, Fragment } from "react"
 import { forceCheck } from "react-lazyload"
+
+import PageFooter from "../components/page-footer"
+import PageHeader, { PageHeaderMobile } from "../components/page-header"
 
 class Layout extends Component {
   render() {

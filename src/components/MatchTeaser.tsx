@@ -1,15 +1,14 @@
-import "moment/locale/nl-be"
-import "./MatchTeaser.scss"
-
-import React, { Fragment, FunctionComponent, useEffect, useState } from "react"
-import { graphql, useStaticQuery } from "gatsby"
-
-import LazyLoad from "react-lazyload"
-import MiniRanking from "./MiniRanking"
-import Moment from "moment-timezone"
 import axios from "axios"
 import classNames from "classnames"
+import { graphql, useStaticQuery } from "gatsby"
+import Moment from "moment-timezone"
+import "moment/locale/nl-be"
+import React, { Fragment, FunctionComponent, useEffect, useState } from "react"
+import LazyLoad from "react-lazyload"
+
 import { mapPsdStatus } from "../scripts/helper"
+import "./MatchTeaser.scss"
+import MiniRanking from "./MiniRanking"
 
 export const MatchTeaserDetail: FunctionComponent<MatchTeaserDetailProps> = ({
   match,

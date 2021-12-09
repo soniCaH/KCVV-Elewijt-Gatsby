@@ -1,11 +1,11 @@
-import "./newsoverview.scss"
-
-import Layout from "../layouts/index"
-import Link from "gatsby-link"
-import { NewsItemCardRatio } from "../components/news-item"
-import React from "react"
-import SEO from "../components/seo"
 import { graphql } from "gatsby"
+import Link from "gatsby-link"
+import React from "react"
+
+import { NewsItemCardRatio } from "../components/news-item"
+import SEO from "../components/seo"
+import Layout from "../layouts/index"
+import "./newsoverview.scss"
 
 const NavLink = ({ test, url, text }) => {
   if (!test) {

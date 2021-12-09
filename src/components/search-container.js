@@ -1,11 +1,9 @@
-import "./search-container.scss"
-
-import * as JsSearch from "js-search"
-
-import React, { Component } from "react"
-
 import Axios from "axios"
 import { Link } from "gatsby"
+import * as JsSearch from "js-search"
+import React, { Component } from "react"
+
+import "./search-container.scss"
 
 class Search extends Component {
   state = {

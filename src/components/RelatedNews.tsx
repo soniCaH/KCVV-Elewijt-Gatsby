@@ -1,11 +1,10 @@
-import "./RelatedNews.scss"
-
-import React, { FunctionComponent } from "react"
-import RelatedNewsProps, { RelatedNewsItem } from "./RelatedNews.types"
 import { getImage, getImageData, getSrc } from "gatsby-plugin-image"
+import React, { FunctionComponent } from "react"
 
-import { CardTeaser } from "./Card"
 import fallbackImg from "../images/kcvv-player-bg.png"
+import { CardTeaser } from "./Card"
+import "./RelatedNews.scss"
+import RelatedNewsProps, { RelatedNewsItem } from "./RelatedNews.types"
 
 const shuffle = (array: RelatedNewsItem[]): RelatedNewsItem[] => {
   for (let i = array.length - 1; i > 0; i--) {

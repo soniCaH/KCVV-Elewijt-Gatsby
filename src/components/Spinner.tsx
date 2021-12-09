@@ -1,8 +1,7 @@
-import "./Spinner.scss"
-
 import React, { FunctionComponent } from "react"
 
 import logo from "../images/logo-flat.png"
+import "./Spinner.scss"
 
 const Spinner: FunctionComponent = () => (
   <div className="spinner">

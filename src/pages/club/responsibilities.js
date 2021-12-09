@@ -1,7 +1,7 @@
 import React, { Component } from "react"
 
-import Layout from "../../layouts/index"
 import SEO from "../../components/seo"
+import Layout from "../../layouts/index"
 
 class ResponsibilitiesPage extends Component {
   render() {

@@ -1,14 +1,13 @@
-import "moment/locale/nl-be"
-import "./Calendar.scss"
-
-import React, { FunctionComponent, useEffect, useState } from "react"
-import { capitalizeFirstLetter, groupByDate } from "../scripts/helper"
-import { graphql, useStaticQuery } from "gatsby"
-
-import Icon from "./Icon"
-import Moment from "moment-timezone"
-import Spinner from "./Spinner"
 import axios from "axios"
+import { graphql, useStaticQuery } from "gatsby"
+import Moment from "moment-timezone"
+import "moment/locale/nl-be"
+import React, { FunctionComponent, useEffect, useState } from "react"
+
+import { capitalizeFirstLetter, groupByDate } from "../scripts/helper"
+import "./Calendar.scss"
+import Icon from "./Icon"
+import Spinner from "./Spinner"
 
 const TIMEZONE = `Europe/Brussels`
 
