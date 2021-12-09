@@ -1,9 +1,9 @@
+import { graphql } from "gatsby"
 import React, { Component } from "react"
 
 import EventCard from "../components/EventCard"
-import Layout from "../layouts/index"
 import SEO from "../components/seo"
-import { graphql } from "gatsby"
+import Layout from "../layouts/index"
 
 class EventsPage extends Component {
   render() {

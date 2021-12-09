@@ -1,16 +1,15 @@
-import "moment/locale/nl-be"
-import "./Matches.scss"
-
-import { Link, graphql, useStaticQuery } from "gatsby"
-import React, { FunctionComponent, useEffect, useState } from "react"
-import { mapPsdStatus, mapPsdStatusShort } from "../scripts/helper"
-
-import Icon from "./Icon"
-import LazyLoad from "react-lazyload"
-import Moment from "moment-timezone"
-import Spinner from "./Spinner"
 import axios from "axios"
 import classNames from "classnames"
+import { Link, graphql, useStaticQuery } from "gatsby"
+import Moment from "moment-timezone"
+import "moment/locale/nl-be"
+import React, { FunctionComponent, useEffect, useState } from "react"
+import LazyLoad from "react-lazyload"
+
+import { mapPsdStatus, mapPsdStatusShort } from "../scripts/helper"
+import Icon from "./Icon"
+import "./Matches.scss"
+import Spinner from "./Spinner"
 
 const MatchesRow: FunctionComponent<MatchesRowProps> = ({ match }: MatchesRowProps) => {
   const d = Moment.tz(match.date, `Europe/Brussels`)
@@ -106,7 +105,7 @@ const Matches: FunctionComponent<MatchesProps> = ({ teamId }: MatchesProps) => {
       setData(response.data)
     }
     getData()
-  }, [])
+  }, [kcvvPsdApi, teamId])
 
   return (
     <div className={`matches__wrapper`}>

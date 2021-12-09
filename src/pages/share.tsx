@@ -1,11 +1,11 @@
-import React, { FunctionComponent, useState } from "react"
 import { graphql, useStaticQuery } from "gatsby"
+import React, { FunctionComponent, useState } from "react"
+import Select from "react-select"
 
+import Spinner from "../components/Spinner"
+import SEO from "../components/seo"
 import Layout from "../layouts/index"
 import { PlayerListProps } from "../types/pages.types"
-import SEO from "../components/seo"
-import Select from "react-select"
-import Spinner from "../components/Spinner"
 
 const ShareForm: FunctionComponent = () => {
   const templateUrl = `https://footbalisto.be/share/instagram/`

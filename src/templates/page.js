@@ -1,10 +1,10 @@
-import "./ArticleStyle.scss"
-
-import { GatsbyImage } from "gatsby-plugin-image"
-import Layout from "../layouts/index"
-import React from "react"
-import SEO from "../components/seo"
 import { graphql } from "gatsby"
+import { GatsbyImage } from "gatsby-plugin-image"
+import React from "react"
+
+import SEO from "../components/seo"
+import Layout from "../layouts/index"
+import "./ArticleStyle.scss"
 
 // eslint-disable-next-line
 String.prototype.replaceAll = function (search, replacement) {

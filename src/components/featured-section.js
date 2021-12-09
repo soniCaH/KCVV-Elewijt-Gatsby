@@ -1,7 +1,6 @@
-import "./featured-section.scss"
-
 import React, { Component } from "react"
 
+import "./featured-section.scss"
 import { NewsItemSquare } from "./news-item"
 
 class FeaturedSection extends Component {

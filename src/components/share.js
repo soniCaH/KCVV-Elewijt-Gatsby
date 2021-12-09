@@ -1,9 +1,8 @@
-import "./share.scss"
-
-import { FacebookShareButton, TwitterShareButton } from "react-share"
-
 import PropTypes from "prop-types"
 import React from "react"
+import { FacebookShareButton, TwitterShareButton } from "react-share"
+
+import "./share.scss"
 
 const Share = ({ socialConfig, tags }) => (
   <>

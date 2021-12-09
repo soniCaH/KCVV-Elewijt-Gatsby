@@ -1,10 +1,11 @@
-import Layout from "../layouts/index"
-import PlayerDetail from "../components/player-staff"
-import React from "react"
-import RelatedNews from "../components/RelatedNews"
-import SEO from "../components/seo"
-import { getSrc } from "gatsby-plugin-image"
 import { graphql } from "gatsby"
+import { getSrc } from "gatsby-plugin-image"
+import React from "react"
+
+import RelatedNews from "../components/RelatedNews"
+import PlayerDetail from "../components/player-staff"
+import SEO from "../components/seo"
+import Layout from "../layouts/index"
 
 const PlayerStaffTemplate = ({ data }) => {
   const node = data.nodeStaff

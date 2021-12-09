@@ -1,10 +1,10 @@
+import { graphql, useStaticQuery } from "gatsby"
+import QRCode from "qrcode.react"
 import React, { FunctionComponent, useState } from "react"
 import Select, { ValueType } from "react-select"
-import { graphql, useStaticQuery } from "gatsby"
 
-import Layout from "../layouts/index"
-import QRCode from "qrcode.react"
 import SEO from "../components/seo"
+import Layout from "../layouts/index"
 import { TeamsListProps } from "../types/pages.types"
 
 const CalendarForm: FunctionComponent = () => {

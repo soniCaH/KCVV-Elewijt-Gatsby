@@ -1,15 +1,14 @@
-import "./ArticleStyle.scss"
-
-import { GatsbyImage, getSrc } from "gatsby-plugin-image"
 import { Link, graphql } from "gatsby"
-
-import { ArticleQuery } from "./Article.types"
+import { GatsbyImage, getSrc } from "gatsby-plugin-image"
 import { FunctionComponent } from "react"
-import Layout from "../layouts/index"
 import React from "react"
+
 import SEO from "../components/seo"
 import Share from "../components/share"
+import Layout from "../layouts/index"
 import { replaceAll } from "../scripts/helper"
+import { ArticleQuery } from "./Article.types"
+import "./ArticleStyle.scss"
 
 const Article: FunctionComponent<ArticleQuery> = ({ data }: ArticleQuery) => {
   const {

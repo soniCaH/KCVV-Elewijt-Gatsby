@@ -1,9 +1,9 @@
 /**
  * @jest-environment jsdom
  */
-
 import React from "react"
 import renderer from "react-test-renderer"
+
 import HeaderBgTitle from "../header-bg-title"
 
 describe(`SimpleTitle`, () => {

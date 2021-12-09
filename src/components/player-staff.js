@@ -1,9 +1,8 @@
-import "./player.scss"
-
-import React, { Component } from "react"
-
 import { Link } from "gatsby"
 import { getSrc } from "gatsby-plugin-image"
+import React, { Component } from "react"
+
+import "./player.scss"
 
 // eslint-disable-next-line
 String.prototype.replaceAll = function (search, replacement) {
