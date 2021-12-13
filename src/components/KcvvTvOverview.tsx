@@ -1,11 +1,12 @@
-import { KcvvTv } from "../types/Drupal"
-import Icon from "./Icon"
-import "./KcvvTvOverview.scss"
-import { KcvvTvEdge, KcvvTvOverviewQueryData } from "./KcvvTvOverview.types"
 import { graphql, useStaticQuery } from "gatsby"
 import { GatsbyImage, getImage } from "gatsby-plugin-image"
 import React, { Fragment } from "react"
 import { FunctionComponent } from "react"
+
+import { KcvvTv } from "../types/Drupal"
+import Icon from "./Icon"
+import "./KcvvTvOverview.scss"
+import { KcvvTvEdge, KcvvTvOverviewQueryData } from "./KcvvTvOverview.types"
 
 const KcvvTvOverview: FunctionComponent = () => {
   const { videos }: KcvvTvOverviewQueryData = useStaticQuery(graphql`
@@ -65,6 +66,7 @@ const KcvvTvFeatured: FunctionComponent<KcvvTvEdge> = ({ node }: KcvvTvEdge) => 
               <Icon icon={`fa-facebook-square`} /> {node.title}
             </h3>
           </header>
+          <span className="kcvvtv__label">KCVV TV</span>
         </a>
       </article>
     )
@@ -82,9 +84,21 @@ const KcvvTvListItem: FunctionComponent<KcvvTvEdge> = ({ node }: KcvvTvEdge) => 
     return (
       <article className="kcvvtv-list-item">
         <a href={node.field_website.url} title={`${node.title}: Speel video af via Facebook`}>
-          <aside className="kcvvtv-teaser-image"><GatsbyImage image={image} alt={node.title} /><span className="kcvvtv__play" /></aside>
+          <aside className="kcvvtv-teaser-image">
+            <GatsbyImage image={image} alt={node.title} />
+            <span className="kcvvtv__play" />
+          </aside>
 
-          <h4 className="kcvvtv__title">{node.title}</h4>
+          <main className="kcvvtv-teaser-main">
+            <span className="kcvvtv__label">KCVV TV</span>
+            <h4 className="kcvvtv__title">
+              <Icon icon={`fa-facebook-square`} /> {node.title}
+            </h4>
+
+            <span className="kcvvtv__date">
+              <i className={`fa fa-clock-o`} aria-hidden="true"></i> {node.created}
+            </span>
+          </main>
         </a>
       </article>
     )
