@@ -1,0 +1,125 @@
+@import '../styles/_mixins';
+
+.kcvvtv-wrapper {
+  grid-column-end: span 2;
+  position: relative;
+
+  .gatsby-image-wrapper {
+    filter: brightness(60%);
+    transition: .3s;
+  }
+
+  a {
+    img {
+      transition: transform .5s ease !important;
+    }
+
+    &:hover {
+      img {
+        transform: scale(1.1);
+      }
+    }
+  }
+}
+
+.kcvvtv-list {
+  display: grid;
+  flex-direction: column;
+
+  .kcvvtv__play {
+    width: 30px;
+    height: 30px;
+    border-width: 2px;
+
+    &:before {
+      border-top-width: 6px;
+      border-bottom-width: 6px;
+      border-left-width: 10px;
+    }
+  }
+}
+
+.kcvvtv-list-item {
+  min-height: 30px;
+  margin-bottom: .5em;
+
+  a {
+    display: flex;
+    gap: 1em;
+    display: flex;
+    align-items: center;
+  }
+}
+
+.kcvvtv-teaser-image {
+  width: 200px;
+  position: relative;
+
+  .kcvvtv__play {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translateX(-50%) translateY(-50%);
+  }
+}
+
+.kcvvtv__heading {
+  display: flex;
+  align-items: center;
+}
+
+.kcvvtv-featured {
+  position: relative;
+  margin-bottom: 1em;
+
+  .kcvvtv__heading {
+    padding: 1.5rem 1.25rem 1rem;
+    position: absolute;
+    left: 0;
+    bottom: 1rem;
+  }
+
+  .kcvvtv__title {
+    margin-left: 70px;
+    color: #FFF;
+  }
+}
+
+.kcvvtv__title {
+  margin-left: calc(30px + 1em);
+  margin-bottom: 0;
+}
+
+.kcvvtv__title {
+  @include featured-border;
+}
+
+.kcvvtv__play {
+  width: 50px;
+  height: 50px;
+  background-color: #FFF;
+  border-radius: 50%;
+  display: block;
+  position: absolute;
+  border: 3px solid var(--color-green-dark);
+
+  &:before {
+    content: "";
+    display: block;
+    border-top: 14px solid transparent;
+    border-bottom: 14px solid transparent;
+    position: absolute;
+    top: 50%;
+    left: 58%;
+    transform: translateX(-58%) translateY(-50%);
+    transition: all .2s ease-in;
+
+    border-top-width: 9px;
+    border-bottom-width: 9px;
+    border-left-width: 13px;
+    border-left-style: solid;
+    border-left-color: var(--color-green-dark);
+  }
+}
+
+.kcvvtv-list-item {}

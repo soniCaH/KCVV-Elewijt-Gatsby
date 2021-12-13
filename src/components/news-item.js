@@ -1,7 +1,6 @@
-import React, { Component } from "react"
-
 import { CardImage, CardTeaser, CardTeaserVertical } from "./Card"
 import "./news-item.scss"
+import React, { Component } from "react"
 
 /**
  * Render a single news item in default card layout.
@@ -38,7 +37,7 @@ export class NewsItemFeatured extends Component {
     const { node } = this.props
     const localFile = node.relationships.field_media_article_image.relationships.field_media_image.localFile
 
-    return <CardImage title={node.title} localFile={localFile} link={node.path.alias} />
+    return <CardImage title={node.title} picture={localFile} link={node.path.alias} />
   }
 }
 
@@ -83,7 +82,7 @@ export class KcvvTvCard extends Component {
     const localFile = node.relationships.field_media_article_image.relationships.field_media_image.localFile
     const summary = `${node.title}<br/><br/>Bekijk hier het wedstrijdverslag, interviews, nabespreking... en stem voor je man van de match!`
     return (
-      <CardTeaser
+      <CardImage
         title={`KCVV TV`}
         icon={`fa-facebook-square`}
         body={summary}
