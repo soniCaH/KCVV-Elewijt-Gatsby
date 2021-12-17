@@ -11,6 +11,16 @@ export const query = graphql`
     }
   }
 
+  fragment ArticleImageSmall on media__image {
+    relationships {
+      field_media_image {
+        localFile {
+          ...KCVVFluid240
+        }
+      }
+    }
+  }
+
   fragment HeroImage on media__image {
     relationships {
       field_media_image {

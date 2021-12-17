@@ -1,8 +1,7 @@
-import { graphql, useStaticQuery } from "gatsby"
-import React, { Fragment, FunctionComponent } from "react"
-
 import EventCard from "./EventCard"
 import { UpcomingEventProps } from "./UpcomingEvent.types"
+import { graphql, useStaticQuery } from "gatsby"
+import React, { Fragment, FunctionComponent } from "react"
 
 const UpcomingEvent: FunctionComponent = () => {
   const { events }: UpcomingEventProps = useStaticQuery(graphql`
