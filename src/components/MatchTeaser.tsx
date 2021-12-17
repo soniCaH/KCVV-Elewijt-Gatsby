@@ -68,9 +68,10 @@ export const MatchTeaserDetail: FunctionComponent<MatchTeaserDetailProps> = ({
 
         {matchPlayed || <span className="match__teaser__vs">vs</span>}
         {matchPlayed && (
-          <span className="match__teaser__vs match__teaser__vs--score">
-            {match.goalsHomeTeam} - {match.goalsAwayTeam}
-          </span>
+          <div className="match__teaser__vs match__teaser__vs--score">
+            <div className="match__teaser__vs--score--home">{match.goalsHomeTeam}</div>
+            <div className="match__teaser__vs--score--away">{match.goalsAwayTeam}</div>
+          </div>
         )}
 
         <div
