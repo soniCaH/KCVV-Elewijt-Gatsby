@@ -57,7 +57,7 @@ export interface KcvvTv {
     }
   }
   field_website: {
-    url: string
+    uri: string
   }
 }
 

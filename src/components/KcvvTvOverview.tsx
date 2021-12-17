@@ -57,7 +57,7 @@ const KcvvTvFeatured: FunctionComponent<KcvvTvEdge> = ({ node }: KcvvTvEdge) => 
   if (image) {
     return (
       <article className="kcvvtv-featured">
-        <a href={node.field_website.url} title={`${node.title}: Speel video af via Facebook`}>
+        <a href={node.field_website.uri} title={`${node.title}: Speel video af via Facebook`} target={`_blank`}>
           <GatsbyImage image={image} alt={node.title} />
           <div className="gradient gradient--70"></div>
           <header className="kcvvtv__heading">
@@ -83,7 +83,7 @@ const KcvvTvListItem: FunctionComponent<KcvvTvEdge> = ({ node }: KcvvTvEdge) => 
   if (image) {
     return (
       <article className="kcvvtv-list-item">
-        <a href={node.field_website.url} title={`${node.title}: Speel video af via Facebook`}>
+        <a href={node.field_website.uri} title={`${node.title}: Speel video af via Facebook`} target={`_blank`}>
           <aside className="kcvvtv-teaser-image">
             <GatsbyImage image={image} alt={node.title} />
             <span className="kcvvtv__play" />

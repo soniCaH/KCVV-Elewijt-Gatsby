@@ -1,3 +1,6 @@
+import { graphql } from "gatsby"
+import React, { Component, Fragment } from "react"
+
 import { CardImage } from "../components/Card"
 import Card from "../components/Card"
 import KcvvTvOverview from "../components/KcvvTvOverview"
@@ -10,8 +13,6 @@ import SEO from "../components/seo"
 import MyMakro from "../images/tag-mymakro.png"
 import Trooper from "../images/tag-trooper.png"
 import Layout from "../layouts/index"
-import { graphql } from "gatsby"
-import React, { Component, Fragment } from "react"
 
 class IndexPage extends Component {
   renderMatchSlider = () => (
@@ -268,19 +269,19 @@ class IndexPage extends Component {
 
   renderLayoutMain = () => {
     const { featuredPosts } = this.props.data
-    const quotient1 = this.calcFeaturedPosts(featuredPosts.edges.slice(0, 5)) % 2
+    const quotient1 = this.calcFeaturedPosts(featuredPosts.edges.slice(0, 1)) % 2
     const quotient2 =
       (quotient1 !== 0
-        ? this.calcFeaturedPosts(featuredPosts.edges.slice(2))
-        : this.calcFeaturedPosts(featuredPosts.edges.slice(3))) % 2
+        ? this.calcFeaturedPosts(featuredPosts.edges.slice(0))
+        : this.calcFeaturedPosts(featuredPosts.edges.slice(1))) % 2
 
     return (
       <Fragment>
         <UpcomingEvent />
         {featuredPosts &&
           (quotient1 !== 0
-            ? this.renderPosts(featuredPosts.edges.slice(0, 2))
-            : this.renderPosts(featuredPosts.edges.slice(0, 3)))}
+            ? this.renderPosts(featuredPosts.edges.slice(0, 0))
+            : this.renderPosts(featuredPosts.edges.slice(0, 1)))}
 
         <KcvvTvOverview />
 
@@ -288,7 +289,7 @@ class IndexPage extends Component {
           featuredPosts.edges.length > 6 &&
           this.renderPosts(
             featuredPosts.edges.slice(
-              quotient1 !== 0 ? 2 : 3,
+              quotient1 !== 0 ? 0 : 1,
               quotient2 !== 0 ? featuredPosts.edges.length : featuredPosts.edges.length - 1
             )
           )}
