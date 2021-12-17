@@ -59,11 +59,11 @@ export const MatchTeaserDetail: FunctionComponent<MatchTeaserDetailProps> = ({
           <LazyLoad debounce={false}>
             <img
               src={match.homeClub?.logo}
-              alt={match.homeClub?.name}
+              alt={match.homeClub?.abbreviation}
               className="match__teaser__logo match__teaser__logo--home"
             />
           </LazyLoad>
-          {match.homeClub?.name}
+          {match.homeClub?.abbreviation || match.homeClub?.name}
         </div>
 
         {matchPlayed || <span className="match__teaser__vs">vs</span>}
@@ -81,11 +81,11 @@ export const MatchTeaserDetail: FunctionComponent<MatchTeaserDetailProps> = ({
           <LazyLoad debounce={false}>
             <img
               src={match.awayClub?.logo}
-              alt={match.awayClub?.name}
+              alt={match.awayClub?.abbreviation}
               className="match__teaser__logo match__teaser__logo--away"
             />
           </LazyLoad>
-          {match.awayClub?.name}
+          {match.awayClub?.abbreviation || match.awayClub?.name}
         </div>
       </main>
       {includeRankings && match.competitionType === `Competitie` && (
