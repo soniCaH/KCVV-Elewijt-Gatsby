@@ -3,11 +3,12 @@ import React, { Component, Fragment } from "react"
 
 import { CardImage } from "../components/Card"
 import Card from "../components/Card"
+import KcvvTvOverview from "../components/KcvvTvOverview"
 import MatchesOverview from "../components/MatchesOverview"
 import MatchesSlider from "../components/MatchesSlider"
 import MatchesTabs from "../components/MatchesTabs"
 import UpcomingEvent from "../components/UpcomingEvent.tsx"
-import { NewsItemFeatured, NewsItemCardRatio, KcvvTvCard } from "../components/news-item"
+import { NewsItemFeatured, NewsItemCardRatio } from "../components/news-item"
 import SEO from "../components/seo"
 import MyMakro from "../images/tag-mymakro.png"
 import Trooper from "../images/tag-trooper.png"
@@ -219,49 +220,14 @@ class IndexPage extends Component {
   //   )
 
   renderPosts = (posts) => {
-    let articleCount = 0
-    let kcvvTvCount = 0
-
     return posts.map(({ node }, i) => {
-      switch (node.internal.type) {
-        case `node__article`:
-          node.field_featured && (articleCount = articleCount + 2)
-          !node.field_featured && articleCount++
-          return (
-            <Fragment key={i}>
-              {node.field_featured && <NewsItemFeatured node={node} />}
-              {!node.field_featured && <NewsItemCardRatio node={node} teaser={true} />}
-            </Fragment>
-          )
-        case `node__kcvv_tv`:
-          if (kcvvTvCount === 0) {
-            articleCount = articleCount + 2
-            kcvvTvCount++
-            return (
-              <CardImage
-                title={node.title}
-                picture={node.relationships.field_media_article_image.relationships.field_media_image.localFile}
-                link={node.field_website.uri}
-                metadata={false}
-                key={i}
-              />
-            )
-          } else {
-            articleCount = articleCount + 2
-            kcvvTvCount++
-            return <KcvvTvCard node={node} teaser={true} key={i} />
-          }
-
-        default:
-          return ``
-      }
+      return (
+        <Fragment key={i}>
+          {node.field_featured && <NewsItemFeatured node={node} />}
+          {!node.field_featured && <NewsItemCardRatio node={node} teaser={true} />}
+        </Fragment>
+      )
     })
-  }
-
-  combineAndSortPosts = (featuredPosts, kcvvTv) => {
-    return [...featuredPosts.edges, ...kcvvTv.edges].sort((a, b) =>
-      a.node.timestamp < b.node.timestamp ? 1 : b.node.timestamp < a.node.timestamp ? -1 : 0
-    )
   }
 
   renderLayoutSidebar = () => {
@@ -290,15 +256,43 @@ class IndexPage extends Component {
     )
   }
 
+  calcFeaturedPosts = (posts) => {
+    let featured = 0
+    posts.forEach((post) => {
+      if (post.field_featured) {
+        featured++
+      }
+    })
+
+    return featured
+  }
+
   renderLayoutMain = () => {
-    const { featuredPosts, kcvvTv } = this.props.data
-    const posts = this.combineAndSortPosts(featuredPosts, kcvvTv)
+    const { featuredPosts } = this.props.data
+    const quotient1 = this.calcFeaturedPosts(featuredPosts.edges.slice(0, 1)) % 2
+    const quotient2 =
+      (quotient1 !== 0
+        ? this.calcFeaturedPosts(featuredPosts.edges.slice(0))
+        : this.calcFeaturedPosts(featuredPosts.edges.slice(1))) % 2
 
     return (
       <Fragment>
         <UpcomingEvent />
+        {featuredPosts &&
+          (quotient1 !== 0
+            ? this.renderPosts(featuredPosts.edges.slice(0, 0))
+            : this.renderPosts(featuredPosts.edges.slice(0, 1)))}
 
-        {posts && this.renderPosts(posts)}
+        <KcvvTvOverview />
+
+        {featuredPosts &&
+          featuredPosts.edges.length > 6 &&
+          this.renderPosts(
+            featuredPosts.edges.slice(
+              quotient1 !== 0 ? 0 : 1,
+              quotient2 !== 0 ? featuredPosts.edges.length : featuredPosts.edges.length - 1
+            )
+          )}
       </Fragment>
     )
   }
@@ -342,7 +336,7 @@ export const pageQuery = graphql`
     featuredPosts: allNodeArticle(
       filter: { status: { eq: true }, promote: { eq: true } }
       sort: { fields: created, order: DESC }
-      limit: 10
+      limit: 12
     ) {
       edges {
         node {
@@ -382,31 +376,6 @@ export const pageQuery = graphql`
     }
     preseason: file(name: { eq: "preseason2020-2021" }) {
       ...KCVVFluid960
-    }
-    kcvvTv: allNodeKcvvTv(
-      filter: { status: { eq: true }, promote: { eq: true } }
-      sort: { fields: created, order: DESC }
-      limit: 5
-    ) {
-      edges {
-        node {
-          id
-          created(formatString: "D/M/YYYY")
-          title
-          timestamp: created(formatString: "x")
-          relationships {
-            field_media_article_image {
-              ...ArticleImage
-            }
-          }
-          field_website {
-            uri
-          }
-          internal {
-            type
-          }
-        }
-      }
     }
     featuredPlayer: allNodePotw(sort: { fields: created, order: DESC }, filter: { status: { eq: true } }, limit: 1) {
       edges {

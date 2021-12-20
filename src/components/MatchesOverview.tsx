@@ -83,7 +83,8 @@ const MatchesOverview: FunctionComponent<MatchesOverviewProps> = ({
                       <span className={`label alert matches_overview__status`}>{mapPsdStatus(match.status)}</span>
                     )}
                     <h6>
-                      {match.homeClub?.name} - {match.awayClub?.name}
+                      {match.homeClub?.abbreviation || match.homeClub?.name} -{` `}
+                      {match.awayClub?.abbreviation || match.awayClub?.name}
                     </h6>
                   </div>
                 )
