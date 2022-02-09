@@ -80,7 +80,7 @@
     "lmdb-store": "1.6.14",
     "prettier": "2.5.1",
     "react-test-renderer": "17.0.2",
-    "typescript": "4.5.2"
+    "typescript": "4.5.5"
   },
   "repository": {
     "type": "git",
