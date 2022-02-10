@@ -11,6 +11,7 @@ module.exports = {
     twitterHandle: `kcvve`,
     fbAppId: `679332239478086`,
   },
+  trailingSlash: `always`,
   flags: {
     FAST_DEV: true,
     // LMDB_STORE: true,
