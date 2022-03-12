@@ -16,7 +16,7 @@ module.exports = {
     FAST_DEV: true,
     // LMDB_STORE: true,
     // PRESERVE_FILE_DOWNLOAD_CACHE: true,
-    // PARALLEL_SOURCING: true,
+    PARALLEL_SOURCING: false,
   },
   plugins: [
     `gatsby-plugin-sass`,
