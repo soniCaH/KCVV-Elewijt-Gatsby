@@ -31,6 +31,12 @@ jobs:
         run: |
           yarn install --production
           yarn run build
+      - name: Create .env file
+        uses: SpicyPizza/create-envfile@v1
+        with:
+          GATSBY_API_DOMAIN: ${{ secrets.GATSBY_API_DOMAIN }}
+          GATSBY_GTM_ID: ${{ secrets.GATSBY_GTM_ID }}
+          KCVV_PSD_API: ${{ secrets.KCVV_PSD_API }}
       - name: "Deploy to netlify"
         uses: nwtgck/actions-netlify@v1.2.3
         with:
