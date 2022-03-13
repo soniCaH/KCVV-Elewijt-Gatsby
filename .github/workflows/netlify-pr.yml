@@ -24,6 +24,16 @@ jobs:
         uses: actions/setup-node@v3.0.0
         with:
           node-version-file: .nvmrc
+      - name: Caching Gatsby
+        id: gatsby-cache-build
+        uses: actions/cache@v2
+        with:
+          path: |
+            public
+            .cache
+          key: ${{ runner.os }}-gatsby-build-${{ github.run_id }}
+          restore-keys: |
+            ${{ runner.os }}-gatsby-build-
 
       - name: Create .env file
         uses: SpicyPizza/create-envfile@v1
@@ -37,6 +47,9 @@ jobs:
         run: |
           yarn install --production
           yarn run build
+        env:
+          GATSBY_EXPERIMENTAL_PAGE_BUILD_ON_DATA_CHANGES: true
+          CI: true
 
       - name: "Deploy to netlify"
         uses: nwtgck/actions-netlify@v1.2.3
