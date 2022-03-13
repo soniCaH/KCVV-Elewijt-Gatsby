@@ -2,21 +2,15 @@
 
 name: "Build deploy preview"
 
-# Controls when the workflow will run
 on:
   pull_request:
     types: ['opened', 'edited', 'synchronize']
 
-# A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
-  # This workflow contains a single job called "build"
   build:
-    # The type of runner that the job will run on
     runs-on: ubuntu-latest
 
-    # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
-      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - name: "Checkout Source Code"
         uses: actions/checkout@v2
 
@@ -42,7 +36,6 @@ jobs:
           envkey_GATSBY_GTM_ID: ${{ secrets.GATSBY_GTM_ID }}
           envkey_KCVV_PSD_API: ${{ secrets.KCVV_PSD_API }}
 
-      # Runs a set of commands using the runners shell
       - name: "Build the website"
         run: |
           yarn install --production
