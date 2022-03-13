@@ -25,17 +25,19 @@ jobs:
         with:
           node-version-file: .nvmrc
 
+      - name: Create .env file
+        uses: SpicyPizza/create-envfile@v1
+        with:
+          envkey_GATSBY_API_DOMAIN: ${{ secrets.GATSBY_API_DOMAIN }}
+          envkey_GATSBY_GTM_ID: ${{ secrets.GATSBY_GTM_ID }}
+          envkey_KCVV_PSD_API: ${{ secrets.KCVV_PSD_API }}
+
       # Runs a set of commands using the runners shell
       - name: "Build the website"
         run: |
           yarn install --production
           yarn run build
-      - name: Create .env file
-        uses: SpicyPizza/create-envfile@v1
-        with:
-          GATSBY_API_DOMAIN: ${{ secrets.GATSBY_API_DOMAIN }}
-          GATSBY_GTM_ID: ${{ secrets.GATSBY_GTM_ID }}
-          KCVV_PSD_API: ${{ secrets.KCVV_PSD_API }}
+
       - name: "Deploy to netlify"
         uses: nwtgck/actions-netlify@v1.2.3
         with:
