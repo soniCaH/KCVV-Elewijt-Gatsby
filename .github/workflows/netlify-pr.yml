@@ -36,6 +36,13 @@ jobs:
           envkey_GATSBY_GTM_ID: ${{ secrets.GATSBY_GTM_ID }}
           envkey_KCVV_PSD_API: ${{ secrets.KCVV_PSD_API }}
 
+      - uses: chrnorm/deployment-action@releases/v1
+        name: Create GitHub deployment
+        id: deployment
+        with:
+          token: "${{ github.token }}"
+          environment: preview
+
       - name: "Build the website"
         run: |
           yarn install --production
@@ -74,6 +81,25 @@ jobs:
             🔍 Inspect: ${{ steps.deploy_preview.outputs.NETLIFY_LOGS_URL }}
             📝 Output: ${{  steps.deploy_preview.outputs.NETLIFY_OUTPUT}}
           edit-mode: replace
+
+      - name: Update deployment status (success)
+        if: success()
+        uses: chrnorm/deployment-status@releases/v1
+        with:
+          token: "${{ github.token }}"
+          target_url: ${{ steps.deploy_preview.outputs.NETLIFY_URL }}
+          state: "success"
+          deployment_id: ${{ steps.deployment.outputs.deployment_id }}
+
+      - name: Update deployment status (failure)
+        if: failure()
+        uses: chrnorm/deployment-status@releases/v1
+        with:
+          token: "${{ github.token }}"
+          target_url: ${{ steps.deploy_preview.outputs.NETLIFY_URL }}
+          state: "failure"
+          deployment_id: ${{ steps.deployment.outputs.deployment_id }}
+
       # - name: "Deploy to netlify"
       #   uses: nwtgck/actions-netlify@v1.2.3
       #   with:
