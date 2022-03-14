@@ -32,18 +32,27 @@ jobs:
           yarn install --production
           yarn run build
 
-      - name: "Deploy to netlify"
-        uses: nwtgck/actions-netlify@v1.2.3
-        with:
-          publish-dir: './public'
-          production-branch: 'master'
-          deploy-message: '${{ github.event.head_commit.message }}'
-          production-deploy: true
-          github-token: ${{ secrets.GITHUB_TOKEN }}
-          netlify-config-path: ./netlify.toml
+      - name: "Deploy to netlify server"
+        uses: netlify/actions/cli@master
         env:
-          NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
           NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
-          GATSBY_GTM_ID: ${{ secrets.GATSBY_GTM_ID }}
-          KCVV_PSD_API: ${{ secrets.KCVV_PSD_API }}
-          GATSBY_API_DOMAIN: ${{ secrets.GATSBY_API_DOMAIN }}
+          NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
+        with:
+          # 5. "gatsby build" creates "public" folder, which is what we are deploying
+          args: deploy --dir=public --prod
+          secrets: '["NETLIFY_AUTH_TOKEN", "NETLIFY_SITE_ID"]'
+      # - name: "Deploy to netlify"
+      #   uses: nwtgck/actions-netlify@v1.2.3
+      #   with:
+      #     publish-dir: './public'
+      #     production-branch: 'master'
+      #     deploy-message: '${{ github.event.head_commit.message }}'
+      #     production-deploy: true
+      #     github-token: ${{ secrets.GITHUB_TOKEN }}
+      #     netlify-config-path: ./netlify.toml
+      #   env:
+      #     NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
+      #     NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
+      #     GATSBY_GTM_ID: ${{ secrets.GATSBY_GTM_ID }}
+      #     KCVV_PSD_API: ${{ secrets.KCVV_PSD_API }}
+      #     GATSBY_API_DOMAIN: ${{ secrets.GATSBY_API_DOMAIN }}
