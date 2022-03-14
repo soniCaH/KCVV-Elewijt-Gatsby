@@ -1,8 +1,6 @@
-name: "Build production"
+name: "Deploy content to production"
 
-on:
-  push:
-    branches: [ master ]
+on: [ workflow_dispatch ]
 
 jobs:
   build:
@@ -16,7 +14,7 @@ jobs:
         uses: actions/setup-node@v3.0.0
         with:
           node-version-file: .nvmrc
-          
+
       - name: Caching Gatsby
         id: gatsby-cache-build
         uses: actions/cache@v2
@@ -49,18 +47,3 @@ jobs:
           # 5. "gatsby build" creates "public" folder, which is what we are deploying
           args: deploy --dir=public --prod
           secrets: '["NETLIFY_AUTH_TOKEN", "NETLIFY_SITE_ID"]'
-      # - name: "Deploy to netlify"
-      #   uses: nwtgck/actions-netlify@v1.2.3
-      #   with:
-      #     publish-dir: './public'
-      #     production-branch: 'master'
-      #     deploy-message: '${{ github.event.head_commit.message }}'
-      #     production-deploy: true
-      #     github-token: ${{ secrets.GITHUB_TOKEN }}
-      #     netlify-config-path: ./netlify.toml
-      #   env:
-      #     NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
-      #     NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
-      #     GATSBY_GTM_ID: ${{ secrets.GATSBY_GTM_ID }}
-      #     KCVV_PSD_API: ${{ secrets.KCVV_PSD_API }}
-      #     GATSBY_API_DOMAIN: ${{ secrets.GATSBY_API_DOMAIN }}
