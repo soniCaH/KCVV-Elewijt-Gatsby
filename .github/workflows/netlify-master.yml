@@ -41,6 +41,7 @@ jobs:
         with:
           token: "${{ github.token }}"
           environment: production
+          initial_status: queued
 
       - name: "Build the website (production build)"
         run: |
@@ -70,7 +71,7 @@ jobs:
         uses: chrnorm/deployment-status@releases/v1
         with:
           token: "${{ github.token }}"
-          target_url: ${{ steps.deploy_preview.outputs.NETLIFY_URL }}
+          environment_url: ${{ steps.deploy_preview.outputs.NETLIFY_LIVE_URL }}
           state: "failure"
           deployment_id: ${{ steps.deployment.outputs.deployment_id }}
       # - name: "Deploy to netlify"
