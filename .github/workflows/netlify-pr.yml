@@ -36,6 +36,15 @@ jobs:
           envkey_GATSBY_GTM_ID: ${{ secrets.GATSBY_GTM_ID }}
           envkey_KCVV_PSD_API: ${{ secrets.KCVV_PSD_API }}
 
+      - uses: chrnorm/deployment-action@releases/v1
+        name: Create GitHub deployment
+        id: deployment
+        with:
+          token: "${{ github.token }}"
+          environment: "${{ github.head_ref }}"
+          ref: ${{ github.event.pull_request.head.sha }}
+          initial_status: queued
+
       - name: "Build the website"
         run: |
           yarn install --production
@@ -54,25 +63,47 @@ jobs:
           args: deploy --dir=public
           secrets: '["NETLIFY_AUTH_TOKEN", "NETLIFY_SITE_ID"]'
 
-      - name: find the comment
+      - name: Find the comment
         uses: peter-evans/find-comment@v1
         id: fc
         with:
           issue-number: ${{ github.event.pull_request.number }}
           comment-author: 'github-actions[bot]'
           body-includes: Netlify Preview Deployment Information
-      - name: create or update comment
+
+      - name: Create or update comment with preview URL.
         uses: peter-evans/create-or-update-comment@v1
         with:
           comment-id: ${{ steps.fc.outputs.comment-id }}
           issue-number: ${{ github.event.pull_request.number }}
           body: |
-            Netlify Preview Deployment Information
-            - Netlify URL: ${{ steps.deploy_preview.outputs.NETLIFY_URL }}
-            - Log URL: ${{ steps.deploy_preview.outputs.NETLIFY_LOGS_URL }}
-            - Live URL: ${{ steps.deploy_preview.outputs.NETLIFY_LIVE_URL }}
-            - Output: ${{  steps.deploy_preview.outputs.NETLIFY_OUTPUT}}
+            🚀 This pull request is being automatically deployed to Netlify.
+
+            ✅ Preview: ${{ steps.deploy_preview.outputs.NETLIFY_URL }}
+            🔍 Inspect: ${{ steps.deploy_preview.outputs.NETLIFY_LOGS_URL }}
+            📝 Output: ${{  steps.deploy_preview.outputs.NETLIFY_OUTPUT}}
           edit-mode: replace
+
+      - name: Update deployment status (success)
+        if: success()
+        uses: chrnorm/deployment-status@releases/v1
+        with:
+          token: "${{ github.token }}"
+          target_url: ${{ steps.deploy_preview.outputs.NETLIFY_URL }}
+          log_url: ${{ steps.deploy_preview.outputs.NETLIFY_LOGS_URL }}
+          state: "success"
+          deployment_id: ${{ steps.deployment.outputs.deployment_id }}
+
+      - name: Update deployment status (failure)
+        if: failure()
+        uses: chrnorm/deployment-status@releases/v1
+        with:
+          token: "${{ github.token }}"
+          environment_url: ${{ steps.deploy_preview.outputs.NETLIFY_URL }}
+          log_url: ${{ steps.deploy_preview.outputs.NETLIFY_LOGS_URL }}
+          state: "failure"
+          deployment_id: ${{ steps.deployment.outputs.deployment_id }}
+
       # - name: "Deploy to netlify"
       #   uses: nwtgck/actions-netlify@v1.2.3
       #   with:

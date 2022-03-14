@@ -16,7 +16,7 @@ jobs:
         uses: actions/setup-node@v3.0.0
         with:
           node-version-file: .nvmrc
-          
+
       - name: Caching Gatsby
         id: gatsby-cache-build
         uses: actions/cache@v2
@@ -35,6 +35,14 @@ jobs:
           envkey_GATSBY_GTM_ID: ${{ secrets.GATSBY_GTM_ID }}
           envkey_KCVV_PSD_API: ${{ secrets.KCVV_PSD_API }}
 
+      - uses: chrnorm/deployment-action@releases/v1
+        name: Create GitHub deployment
+        id: deployment
+        with:
+          token: "${{ github.token }}"
+          environment: production
+          initial_status: queued
+
       - name: "Build the website (production build)"
         run: |
           yarn install --production
@@ -46,9 +54,26 @@ jobs:
           NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
           NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
         with:
-          # 5. "gatsby build" creates "public" folder, which is what we are deploying
           args: deploy --dir=public --prod
           secrets: '["NETLIFY_AUTH_TOKEN", "NETLIFY_SITE_ID"]'
+
+      - name: Update deployment status (success)
+        if: success()
+        uses: chrnorm/deployment-status@releases/v1
+        with:
+          token: "${{ github.token }}"
+          target_url: ${{ steps.deploy_preview.outputs.NETLIFY_URL }}
+          state: "success"
+          deployment_id: ${{ steps.deployment.outputs.deployment_id }}
+
+      - name: Update deployment status (failure)
+        if: failure()
+        uses: chrnorm/deployment-status@releases/v1
+        with:
+          token: "${{ github.token }}"
+          environment_url: ${{ steps.deploy_preview.outputs.NETLIFY_LIVE_URL }}
+          state: "failure"
+          deployment_id: ${{ steps.deployment.outputs.deployment_id }}
       # - name: "Deploy to netlify"
       #   uses: nwtgck/actions-netlify@v1.2.3
       #   with:
