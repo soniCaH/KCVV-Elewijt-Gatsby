@@ -1,4 +1,4 @@
-[![Netlify Status](https://api.netlify.com/api/v1/badges/418e0ffe-e0eb-46d1-84a1-43fec5698791/deploy-status)](https://app.netlify.com/sites/boring-thompson-91501c/deploys)
+[![Build production](https://github.com/soniCaH/KCVV-Elewijt-Gatsby/actions/workflows/netlify-master.yml/badge.svg)](https://github.com/soniCaH/KCVV-Elewijt-Gatsby/actions/workflows/netlify-master.yml)
 
 [![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/soniCaH/KCVV-Elewijt-Gatsby/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/soniCaH/KCVV-Elewijt-Gatsby/?branch=master)
 
