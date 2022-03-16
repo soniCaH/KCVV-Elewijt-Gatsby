@@ -43,7 +43,7 @@ jobs:
           token: "${{ github.token }}"
           environment: "${{ github.head_ref }}"
           ref: ${{ github.event.pull_request.head.sha }}
-          initial_status: queued
+          initial_status: pending
 
       - name: "Build the website"
         run: |
@@ -90,6 +90,7 @@ jobs:
         with:
           token: "${{ github.token }}"
           target_url: ${{ steps.deploy_preview.outputs.NETLIFY_URL }}
+          environment_url: ${{ steps.deploy_preview.outputs.NETLIFY_URL }}
           log_url: ${{ steps.deploy_preview.outputs.NETLIFY_LOGS_URL }}
           state: "success"
           deployment_id: ${{ steps.deployment.outputs.deployment_id }}
