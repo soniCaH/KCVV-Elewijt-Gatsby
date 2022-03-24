@@ -96,7 +96,7 @@ const ShareForm: FunctionComponent = () => {
             id="calendar__score"
             onChange={handleScoreChange}
             className={`input__input`}
-            placeholder="2-0"
+            placeholder="2 — 0"
             value={score}
             required={true}
           />
