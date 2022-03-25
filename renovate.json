@@ -18,7 +18,6 @@
   "labels": [
     "dependencies"
   ],
-  "prConcurrentLimit": 1,
   "timezone": "Europe/Brussels",
   "masterIssue": true
 }
