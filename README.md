@@ -6,8 +6,6 @@
 
 <img src="https://img.shields.io/website?down_color=red&down_message=CONTENT%20API%20DOWN&up_color=%23BADA55&up_message=CONTENT%20API%20UP&url=https%3A%2F%2Fapi.kcvvelewijt.be%2Fjsonapi" alt="Backend API monitor" />
 
-<img src="https://img.shields.io/website?down_color=red&down_message=FOOTBEL%20DATA%20DOWN&up_color=%23BADA55&up_message=FOOTBEL%20DATA%20UP&url=http%3A%2F%2Fstatic.belgianfootball.be%2Fproject%2Fpubliek%2Fdownload%2FbraresdownP.zip" alt="Footbel API monitor" />
-
 [![Renovate](https://img.shields.io/badge/renovate-enabled-brightgreen.svg)](https://renovatebot.com)
 
 # KCVV Elewijt
