@@ -1,7 +1,7 @@
 import axios from "axios"
 import { graphql, useStaticQuery } from "gatsby"
-import Moment from "moment-timezone"
-import "moment/locale/nl-be"
+import moment from "moment-timezone"
+import "moment-timezone/node_modules/moment/locale/nl-be"
 import React, { FunctionComponent, useEffect, useState } from "react"
 
 import { mapPsdStatus } from "../scripts/helper"
@@ -60,7 +60,9 @@ const MatchesOverview: FunctionComponent<MatchesOverviewProps> = ({
     getData()
   }, [])
 
-  Moment.locale(`nl-be`)
+  moment.tz.setDefault(`Europe/Brussels`)
+  moment.locale(`nl-be`)
+  moment.localeData(`nl-be`)
 
   return (
     <div className="matches_overview__wrapper">
@@ -74,7 +76,7 @@ const MatchesOverview: FunctionComponent<MatchesOverviewProps> = ({
               if (details) {
                 return <MatchTeaserDetail match={match} key={i} />
               } else {
-                const matchTime = Moment.tz(match.date, `Europe/Brussels`)
+                const matchTime = moment(match.date)
                 return (
                   <div className="matches_overview__item" key={i}>
                     <span className={`label`}>{match.teamName.replace(`Voetbal : `, ``)}</span>

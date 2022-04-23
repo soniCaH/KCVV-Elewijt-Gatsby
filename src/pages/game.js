@@ -1,6 +1,6 @@
 import { graphql } from "gatsby"
 import moment from "moment"
-import "moment/locale/nl-be"
+import "moment-timezone/node_modules/moment/locale/nl-be"
 import React, { Component, Fragment } from "react"
 import LazyLoad from "react-lazy-load"
 
@@ -65,7 +65,9 @@ class GamePage extends Component {
       )
     }
 
+    moment.tz.setDefault(`Europe/Brussels`)
     moment.locale(`nl-be`)
+    moment.localeData(`nl-be`)
 
     if (this.state.loading === false && this.state.data) {
       const { general = {}, substitutes = {}, lineup = {}, events = [] } = this.state.data

@@ -1,8 +1,8 @@
 import axios from "axios"
 import classNames from "classnames"
 import { Link, graphql, useStaticQuery } from "gatsby"
-import Moment from "moment-timezone"
-import "moment/locale/nl-be"
+import moment from "moment-timezone"
+import "moment-timezone/node_modules/moment/locale/nl-be"
 import React, { FunctionComponent, useEffect, useState } from "react"
 import LazyLoad from "react-lazyload"
 
@@ -12,7 +12,11 @@ import "./Matches.scss"
 import Spinner from "./Spinner"
 
 const MatchesRow: FunctionComponent<MatchesRowProps> = ({ match }: MatchesRowProps) => {
-  const d = Moment.tz(match.date, `Europe/Brussels`)
+  moment.tz.setDefault(`Europe/Brussels`)
+  moment.locale(`nl-be`)
+  moment.localeData(`nl-be`)
+
+  const d = moment(match.date)
   const date = d.format(`dddd D MMMM YYYY`)
   const time = d.format(`HH:mm`)
   const matchPlayed =
@@ -96,8 +100,6 @@ const Matches: FunctionComponent<MatchesProps> = ({ teamId }: MatchesProps) => {
       }
     }
   `)
-
-  Moment.locale(`nl-BE`)
 
   useEffect(() => {
     async function getData() {
