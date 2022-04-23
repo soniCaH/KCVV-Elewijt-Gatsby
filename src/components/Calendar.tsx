@@ -1,7 +1,7 @@
 import axios from "axios"
 import { graphql, useStaticQuery } from "gatsby"
-import Moment from "moment-timezone"
-import "moment/locale/nl-be"
+import moment from "moment-timezone"
+import "moment-timezone/node_modules/moment/locale/nl-be"
 import React, { FunctionComponent, useEffect, useState } from "react"
 
 import { capitalizeFirstLetter, groupByDate } from "../scripts/helper"
@@ -9,11 +9,13 @@ import "./Calendar.scss"
 import Icon from "./Icon"
 import Spinner from "./Spinner"
 
-const TIMEZONE = `Europe/Brussels`
-
 const CalendarEvent: FunctionComponent<CalendarEventProps> = ({ event }: CalendarEventProps) => {
-  const startDate = Moment.tz(event.start, TIMEZONE)
-  const endDate = Moment.tz(event.end, TIMEZONE)
+  moment.tz.setDefault(`Europe/Brussels`)
+  moment.locale(`nl-be`)
+  moment.localeData(`nl-be`)
+
+  const startDate = moment(event.start)
+  const endDate = moment(event.end)
 
   return (
     <article className={`calendar__event calendar__event--${event.type}`}>
@@ -55,7 +57,9 @@ const Calendar: FunctionComponent = () => {
     }
   `)
 
-  Moment.locale(`nl-BE`)
+  moment.tz.setDefault(`Europe/Brussels`)
+  moment.locale(`nl-be`)
+  moment.localeData(`nl-be`)
 
   useEffect(() => {
     async function getData() {
@@ -74,10 +78,10 @@ const Calendar: FunctionComponent = () => {
       {data.length <= 0 && loading === false && <div>Er zijn voorlopig geen evenementen gepland</div>}
 
       {groupedEvents.map((group, i) => {
-        const date = Moment.tz(group.date, TIMEZONE)
+        const date = moment(group.date)
         return (
           <div key={i} className="calendar__events__group">
-            <h2>{capitalizeFirstLetter(date.format(`dddd D MMM YYYY`))}</h2>
+            <h2>{capitalizeFirstLetter(date.format(`dddd D MMMM YYYY`))}</h2>
             <div className={`calendar__events`}>
               {group.objects.map((event: CalendarEvent, j: number) => (
                 <CalendarEvent event={event} key={j} />

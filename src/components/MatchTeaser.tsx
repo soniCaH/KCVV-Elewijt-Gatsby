@@ -1,8 +1,8 @@
 import axios from "axios"
 import classNames from "classnames"
 import { graphql, useStaticQuery } from "gatsby"
-import Moment from "moment-timezone"
-import "moment/locale/nl-be"
+import moment from "moment-timezone"
+import "moment-timezone/node_modules/moment/locale/nl-be"
 import React, { Fragment, FunctionComponent, useEffect, useState } from "react"
 import LazyLoad from "react-lazyload"
 
@@ -14,8 +14,11 @@ export const MatchTeaserDetail: FunctionComponent<MatchTeaserDetailProps> = ({
   match,
   includeRankings = false,
 }: MatchTeaserDetailProps) => {
-  Moment.locale(`nl-BE`)
-  const d = Moment.tz(match.date, `Europe/Brussels`)
+  moment.tz.setDefault(`Europe/Brussels`)
+  moment.locale(`nl-be`)
+  moment.localeData(`nl-be`)
+
+  const d = moment(match.date)
   const matchPlayed =
     ((match.status === 0 || match.status === null) && match.goalsHomeTeam !== null && match.goalsAwayTeam !== null) ||
     false
