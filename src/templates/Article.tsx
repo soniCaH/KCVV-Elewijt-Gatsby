@@ -1,5 +1,5 @@
 import { Link, graphql } from "gatsby"
-import { GatsbyImage, getSrc } from "gatsby-plugin-image"
+import { GatsbyImage, getImage, getSrc } from "gatsby-plugin-image"
 import { FunctionComponent } from "react"
 import React from "react"
 
@@ -38,6 +38,12 @@ const Article: FunctionComponent<ArticleQuery> = ({ data }: ArticleQuery) => {
 
   const pathUrl = nodeArticle.path.alias
 
+  const css = `
+    html {
+      --featured-img: url(${getSrc(heroImage)});
+    }
+  `
+
   return (
     <Layout>
       <SEO
@@ -48,11 +54,13 @@ const Article: FunctionComponent<ArticleQuery> = ({ data }: ArticleQuery) => {
         image={ogImage}
       />
 
+      <style>{css}</style>
+
       <article className={`article__wrapper`}>
         <header className={`article__header`}>
-          <div className={`article__hero_image`}>
+          {/* <div className={`article__hero_image`}>
             <GatsbyImage image={heroImage} alt={nodeArticle.title} />
-          </div>
+          </div> */}
           <h1 className="article__title featured-border">{nodeArticle.title}</h1>
         </header>
         <div className={`article__main`}>
