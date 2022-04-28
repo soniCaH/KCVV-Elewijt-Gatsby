@@ -131,11 +131,11 @@ class GamePage extends Component {
               {(homeLineup.length !== 0 || awayLineup.length !== 0) && (
                 <div className={`lineup__wrapper grid-x grid-margin-x cell large-12`}>
                   <div className={`cell large-6 lineup__wrapper--home`}>
-                    <h3>{general.homeClub?.name}</h3>
+                    <h3>{general.homeClub?.abbreviation || general.homeClub?.name}</h3>
                     {homeLineup && this.renderLineup(homeLineup, homeSubs)}
                   </div>
                   <div className={`cell large-6 lineup__wrapper--away`}>
-                    <h3>{general.awayClub?.name}</h3>
+                    <h3>{general.awayClub?.abbreviation || general.awayClub?.name}</h3>
                     {awayLineup && this.renderLineup(awayLineup, awaySubs)}
                   </div>
                 </div>
