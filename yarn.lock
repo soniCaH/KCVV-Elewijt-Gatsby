@@ -6835,10 +6835,10 @@ gatsby-sharp@^0.7.0:
     "@types/sharp" "^0.30.0"
     sharp "^0.30.3"
 
-gatsby-source-drupal@5.13.0:
-  version "5.13.0"
-  resolved "https://registry.yarnpkg.com/gatsby-source-drupal/-/gatsby-source-drupal-5.13.0.tgz#32e97c01a6fc5b34d1c7ead1b1c2ea00e86075c3"
-  integrity sha512-NdemLvRmw3lEmX3xrbBQemU3ZvS0O0BWKLircW6eow6FpTHzH13wZuzA+rAC0WiRQYmQbMnIuhPEcDoVttmofQ==
+gatsby-source-drupal@5.14.0:
+  version "5.14.0"
+  resolved "https://registry.yarnpkg.com/gatsby-source-drupal/-/gatsby-source-drupal-5.14.0.tgz#7ad58ec6e2bd47fff02bb0a901608575aef76bd4"
+  integrity sha512-b2AFdOfK2J+w4Pc96PD8wWti2iXNQTrlXeqFx3FPZoaBpExj0ONbKVON0LuJ7WajpF5Whp9zg7fGV61SjFM6pA==
   dependencies:
     "@babel/runtime" "^7.15.4"
     "@opentelemetry/semantic-conventions" "0.26.0"
@@ -6846,11 +6846,13 @@ gatsby-source-drupal@5.13.0:
     bluebird "^3.7.2"
     body-parser "^1.19.2"
     fastq "^1.13.0"
+    gatsby-plugin-utils "^3.7.0"
     gatsby-source-filesystem "^4.13.0"
     got "^11.8.3"
     http2-wrapper "^2.1.10"
     lodash "^4.17.21"
     opentracing "^0.14.7"
+    probe-image-size "^7.2.3"
     tiny-async-pool "^1.3.0"
     url-join "^4.0.1"
 
