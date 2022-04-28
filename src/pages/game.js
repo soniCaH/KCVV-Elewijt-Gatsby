@@ -87,8 +87,12 @@ class GamePage extends Component {
         <Layout>
           <SEO
             lang="nl-BE"
-            title={`Matchverslag ${general?.homeClub?.name} - ${general?.awayClub?.name}`}
-            description={`Matchverslag ${general?.homeClub?.name} - ${general?.awayClub?.name}`}
+            title={`Matchverslag ${general.homeClub?.abbreviation || general?.homeClub?.name} - ${
+              general.awayClub?.abbreviation || general?.awayClub?.name
+            }`}
+            description={`Matchverslag ${general.homeClub?.abbreviation || general?.homeClub?.name} - ${
+              general.awayClub?.abbreviation || general?.awayClub?.name
+            }`}
             path={`/game/${general?.id}`}
             image={ogImage}
           />
@@ -109,7 +113,9 @@ class GamePage extends Component {
                     </LazyLoad>
                   </div>
                 </div>
-                <h1>{`${general.homeClub?.name} - ${general.awayClub?.name}`}</h1>
+                <h1>{`${general.homeClub?.abbreviation || general.homeClub?.name} - ${
+                  general.awayClub?.abbreviation || general.awayClub?.name
+                }`}</h1>
                 <h4>{general.competitionType}</h4>
                 <time dateTime={matchTime.format(`YYYY-MM-DD - H:mm`)}>
                   {matchTime.format(`dddd DD MMMM YYYY - H:mm`)}
