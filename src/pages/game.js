@@ -1,5 +1,5 @@
 import { graphql } from "gatsby"
-import moment from "moment"
+import moment from "moment-timezone"
 import "moment-timezone/node_modules/moment/locale/nl-be"
 import React, { Component, Fragment } from "react"
 import LazyLoad from "react-lazy-load"
