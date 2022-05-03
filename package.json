@@ -22,6 +22,7 @@
     "gatsby-plugin-sass": "5.13.0",
     "gatsby-plugin-sharp": "4.13.0",
     "gatsby-plugin-use-query-params": "1.0.1",
+    "gatsby-plugin-web-font-loader": "^1.0.4",
     "gatsby-source-drupal": "5.14.0",
     "gatsby-source-filesystem": "4.13.0",
     "gatsby-transformer-sharp": "4.13.0",
@@ -69,25 +70,19 @@
     "@types/react-slick": "0.23.8",
     "@typescript-eslint/eslint-plugin": "5.21.0",
     "@typescript-eslint/parser": "5.21.0",
-    "babel-jest": "28.0.3",
-    "babel-preset-gatsby": "2.13.0",
     "eslint": "8.14.0",
     "eslint-config-prettier": "8.5.0",
     "eslint-plugin-prettier": "4.0.0",
     "eslint-plugin-react-hooks": "4.5.0",
-    "identity-obj-proxy": "3.0.0",
-    "jest": "28.0.3",
-    "jest-environment-jsdom": "28.0.2",
     "lmdb-store": "1.6.14",
     "prettier": "2.6.2",
-    "react-test-renderer": "18.1.0",
     "typescript": "4.6.4"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/gatsbyjs/gatsby-starter-default"
+    "url": "https://github.com/soniCaH/KCVV-Elewijt-Gatsby"
   },
   "bugs": {
-    "url": "https://github.com/gatsbyjs/gatsby/issues"
+    "url": "https://github.com/soniCaH/KCVV-Elewijt-Gatsby/issues"
   }
 }
