@@ -9,7 +9,7 @@
     "axios": "0.27.2",
     "classnames": "2.3.1",
     "cross-env": "7.0.3",
-    "dotenv": "16.0.0",
+    "dotenv": "16.0.1",
     "foundation-sites": "6.7.4",
     "gatsby": "4.14.0",
     "gatsby-cli": "4.14.0",
