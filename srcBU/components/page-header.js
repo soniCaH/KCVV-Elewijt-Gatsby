@@ -24,7 +24,6 @@ const getClosest = (elem, selector) => {
       Element.prototype.mozMatchesSelector ||
       Element.prototype.msMatchesSelector ||
       Element.prototype.oMatchesSelector ||
-      Element.prototype.webkitMatchesSelector ||
       function (s) {
         const matches = (this.document || this.ownerDocument).querySelectorAll(s)
         let i = matches.length
