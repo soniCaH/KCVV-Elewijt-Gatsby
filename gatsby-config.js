@@ -19,49 +19,57 @@ module.exports = {
     PARALLEL_SOURCING: false,
   },
   plugins: [
-    `gatsby-plugin-sass`,
-    {
-      resolve: `gatsby-source-drupal`,
-      options: {
-        baseUrl: process.env.GATSBY_API_DOMAIN,
-        apiBase: `jsonapi`,
-      },
-    },
-    `gatsby-plugin-image`,
-    `gatsby-transformer-sharp`,
-    `gatsby-plugin-sharp`,
-    {
-      resolve: `gatsby-source-filesystem`,
-      options: {
-        name: `images`,
-        path: `${__dirname}/src/images`,
-      },
-    },
-    {
-      resolve: `gatsby-plugin-google-tagmanager`,
-      options: {
-        id: process.env.GATSBY_GTM_ID,
-        includeInDevelopment: false,
-        defaultDataLayer: { platform: `gatsby`, branch: process.env.BRANCH },
-      },
-    },
-    {
-      resolve: `gatsby-plugin-manifest`,
-      options: {
-        name: `KCVV Elewijt Voetbalclub`,
-        description: `Website voor de voetbalclub KCVV Elewijt.`,
-        short_name: `KCVVElewijt`,
-        start_url: `/`,
-        lang: `nl`,
-        background_color: `#4B9B48`,
-        theme_color: `#4B9B48`,
-        display: `standalone`,
-        icon: `src/images/icon.png`,
-        crossOrigin: `use-credentials`,
-      },
-    },
-    `gatsby-plugin-offline`,
-    `gatsby-plugin-netlify`,
-    `gatsby-plugin-use-query-params`,
+    // {
+    //   resolve: `gatsby-plugin-web-font-loader`,
+    //   options: {
+    //     typekit: {
+    //       id: process.env.TYPEKIT_ID,
+    //     },
+    //   },
+    // },
+    // `gatsby-plugin-sass`,
+    // {
+    //   resolve: `gatsby-source-drupal`,
+    //   options: {
+    //     baseUrl: process.env.GATSBY_API_DOMAIN,
+    //     apiBase: `jsonapi`,
+    //   },
+    // },
+    // `gatsby-plugin-image`,
+    // `gatsby-transformer-sharp`,
+    // `gatsby-plugin-sharp`,
+    // {
+    //   resolve: `gatsby-source-filesystem`,
+    //   options: {
+    //     name: `images`,
+    //     path: `${__dirname}/src/images`,
+    //   },
+    // },
+    // {
+    //   resolve: `gatsby-plugin-google-tagmanager`,
+    //   options: {
+    //     id: process.env.GATSBY_GTM_ID,
+    //     includeInDevelopment: false,
+    //     defaultDataLayer: { platform: `gatsby`, branch: process.env.BRANCH },
+    //   },
+    // },
+    // {
+    //   resolve: `gatsby-plugin-manifest`,
+    //   options: {
+    //     name: `KCVV Elewijt Voetbalclub`,
+    //     description: `Website voor de voetbalclub KCVV Elewijt.`,
+    //     short_name: `KCVVElewijt`,
+    //     start_url: `/`,
+    //     lang: `nl`,
+    //     background_color: `#4B9B48`,
+    //     theme_color: `#4B9B48`,
+    //     display: `standalone`,
+    //     icon: `src/images/icon.png`,
+    //     crossOrigin: `use-credentials`,
+    //   },
+    // },
+    // `gatsby-plugin-offline`,
+    // `gatsby-plugin-netlify`,
+    // `gatsby-plugin-use-query-params`,
   ],
 }
