@@ -63,6 +63,7 @@
   "devDependencies": {
     "@trivago/prettier-plugin-sort-imports": "3.2.0",
     "@types/classnames": "2.3.1",
+    "@types/jquery": "^3.5.14",
     "@types/qrcode.react": "1.0.2",
     "@types/react-helmet": "6.1.5",
     "@types/react-lazyload": "3.2.0",

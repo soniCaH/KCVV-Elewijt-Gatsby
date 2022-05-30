@@ -1,0 +1,13 @@
+@import '~modern-css-reset/src/reset';
+
+@import './settings';
+
+@import '~foundation-sites/scss/foundation';
+@import "~animate.css/animate.min.css";
+@import './vendor_font_fa';
+@import './vendor_font_simple_lines';
+
+@import './layout';
+
+
+@include foundation-everything;
