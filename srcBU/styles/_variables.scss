@@ -11,6 +11,6 @@
     --color-green-dark-alpha: rgb(75, 155, 72, 0.1);
     --color-green-dark-alpha-2: rgb(75, 155, 72, 0.25);
 
-    --font-body: 'Source Sans Pro', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    --font-body: $body-font-family: acumin-pro, 'Source Sans Pro', 'Roboto', 'Helvetica Neue', Helvetica, Arial, sans-serif;
     --font-title: 'Montserrat', Verdana, sans-serif;
 }

@@ -2,6 +2,8 @@ import { Link } from "gatsby"
 import { StaticImage } from "gatsby-plugin-image"
 import React, { Fragment, FunctionComponent, useEffect } from "react"
 
+import "./PageHeader.scss"
+
 const MenuItems: FunctionComponent = () => {
   useEffect(() => {
     const activeLinks = document.querySelectorAll(`.active`)
@@ -41,9 +43,13 @@ const MenuItems: FunctionComponent = () => {
             <Link to="/team/a-ploeg#team-info" activeClassName="active" partiallyActive={true}>
               Info
             </Link>
+          </li>
+          <li>
             <Link to="/team/a-ploeg#team-lineup" activeClassName="active" partiallyActive={true}>
               Spelers &amp; Staff
             </Link>
+          </li>
+          <li>
             <Link to="/team/a-ploeg#team-matches" activeClassName="active" partiallyActive={true}>
               Wedstrijden
             </Link>
@@ -64,9 +70,13 @@ const MenuItems: FunctionComponent = () => {
             <Link to="/team/b-ploeg#team-info" activeClassName="active" partiallyActive={true}>
               Info
             </Link>
+          </li>
+          <li>
             <Link to="/team/b-ploeg#team-lineup" activeClassName="active" partiallyActive={true}>
               Spelers &amp; Staff
             </Link>
+          </li>
+          <li>
             <Link to="/team/b-ploeg#team-matches" activeClassName="active" partiallyActive={true}>
               Wedstrijden
             </Link>
@@ -224,6 +234,7 @@ export const PageHeader: FunctionComponent = () => (
               src="../images/logo-flat.png"
               alt="KCVV ELEWIJT"
               width={350}
+              placeholder="none"
               className="header-mobile__logo-img"
             />
           </Link>
@@ -252,6 +263,7 @@ export const PageHeader: FunctionComponent = () => (
                     src="../images/logo-flat.png"
                     alt="KCVV ELEWIJT"
                     width={350}
+                    placeholder="none"
                     className="header__logo-img"
                   />
                 </Link>
@@ -286,6 +298,7 @@ export const PageHeaderMobile: FunctionComponent = () => (
             src="../images/logo-flat.png"
             alt="KCVV ELEWIJT"
             width={350}
+            placeholder="none"
             className="header-mobile__logo-img"
           />
         </Link>
@@ -295,7 +308,7 @@ export const PageHeaderMobile: FunctionComponent = () => (
 
       <li className="main-nav__item--social-links">
         <a
-          href="index.html"
+          href="https://www.facebook.com/KCVVElewijt"
           className="social-links__link"
           data-toggle="tooltip"
           data-placement="bottom"
@@ -306,7 +319,7 @@ export const PageHeaderMobile: FunctionComponent = () => (
         </a>
 
         <a
-          href="index.html"
+          href="https://twitter.com/kcvve"
           className="social-links__link"
           data-toggle="tooltip"
           data-placement="bottom"
@@ -317,7 +330,7 @@ export const PageHeaderMobile: FunctionComponent = () => (
         </a>
 
         <a
-          href="index.html"
+          href="https://www.instagram.com/kcvve/"
           className="social-links__link"
           data-toggle="tooltip"
           data-placement="bottom"

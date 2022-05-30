@@ -19,15 +19,15 @@ module.exports = {
     PARALLEL_SOURCING: false,
   },
   plugins: [
-    // {
-    //   resolve: `gatsby-plugin-web-font-loader`,
-    //   options: {
-    //     typekit: {
-    //       id: process.env.TYPEKIT_ID,
-    //     },
-    //   },
-    // },
-    // `gatsby-plugin-sass`,
+    {
+      resolve: `gatsby-plugin-web-font-loader`,
+      options: {
+        typekit: {
+          id: process.env.TYPEKIT_ID,
+        },
+      },
+    },
+    `gatsby-plugin-sass`,
     // {
     //   resolve: `gatsby-source-drupal`,
     //   options: {
@@ -35,9 +35,9 @@ module.exports = {
     //     apiBase: `jsonapi`,
     //   },
     // },
-    // `gatsby-plugin-image`,
-    // `gatsby-transformer-sharp`,
-    // `gatsby-plugin-sharp`,
+    `gatsby-plugin-image`,
+    `gatsby-transformer-sharp`,
+    `gatsby-plugin-sharp`,
     // {
     //   resolve: `gatsby-source-filesystem`,
     //   options: {
