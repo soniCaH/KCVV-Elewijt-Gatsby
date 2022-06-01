@@ -7048,10 +7048,10 @@ gatsby-sharp@^0.9.0:
     "@types/sharp" "^0.30.0"
     sharp "^0.30.3"
 
-gatsby-source-drupal@5.16.1:
-  version "5.16.1"
-  resolved "https://registry.yarnpkg.com/gatsby-source-drupal/-/gatsby-source-drupal-5.16.1.tgz#29bc8b1a2b22d00b28e296a30ebaf02eac5665b0"
-  integrity sha512-WnGlT2gY75EYgUEkUgbJy3NK0lybM9a09br9Fcfc7juNLwuf3TKZgzGRk7e2UjOng9YZI9dr7uPDZ+P8Dm6c1Q==
+gatsby-source-drupal@5.16.2:
+  version "5.16.2"
+  resolved "https://registry.yarnpkg.com/gatsby-source-drupal/-/gatsby-source-drupal-5.16.2.tgz#c9b84a9d2a390175b3a213061617db35c0ffa098"
+  integrity sha512-stkcVLextv9w2C8Yl01cl2oPoj7NEl9zPumdrnPuUsg0WAV+0EQ7HP1LX4z3/+lReWWpuxI1eHclm7a7imQljA==
   dependencies:
     "@babel/runtime" "^7.15.4"
     "@opentelemetry/semantic-conventions" "0.26.0"
