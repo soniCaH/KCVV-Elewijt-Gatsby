@@ -6898,10 +6898,10 @@ gatsby-plugin-google-tagmanager@4.16.0:
     "@babel/runtime" "^7.15.4"
     web-vitals "^1.1.2"
 
-gatsby-plugin-image@2.16.0:
-  version "2.16.0"
-  resolved "https://registry.yarnpkg.com/gatsby-plugin-image/-/gatsby-plugin-image-2.16.0.tgz#b3fc58152efd866ffa5d20d36badef23151e7446"
-  integrity sha512-Vsw2HNBU7FYykiI+LMOWf7fJnO517FhCUkiPhbl77Dg2w4X7bNAtFQFOxfBzmrKqDDkJgEglVsdK8ntN1Jkslw==
+gatsby-plugin-image@2.16.1:
+  version "2.16.1"
+  resolved "https://registry.yarnpkg.com/gatsby-plugin-image/-/gatsby-plugin-image-2.16.1.tgz#4c6f7f0fee0bdb304207ff6f2e92cff36b106f52"
+  integrity sha512-PnCcJG7sE85xQhCFIMRUJr42T0eLRBJsERfhgHHaiCjUfNbpV02eQ30Wt8i3s3T6Ci/xPJYdnnqM9nTqiCJbTQ==
   dependencies:
     "@babel/code-frame" "^7.14.0"
     "@babel/parser" "^7.15.5"
@@ -6980,10 +6980,10 @@ gatsby-plugin-sass@5.16.0:
     resolve-url-loader "^3.1.4"
     sass-loader "^10.1.1"
 
-gatsby-plugin-sharp@4.16.0:
-  version "4.16.0"
-  resolved "https://registry.yarnpkg.com/gatsby-plugin-sharp/-/gatsby-plugin-sharp-4.16.0.tgz#21af434f31909fd49b8a9452d18f731d47cf2758"
-  integrity sha512-erX5pPDserEUwSKaUznOZi4ge7Z10M00jSUO+5ixZoJSMx8F3fzQ6PDzFF3f0h5jJ3PDJky1d1rR6Bz1MkprCQ==
+gatsby-plugin-sharp@4.16.1:
+  version "4.16.1"
+  resolved "https://registry.yarnpkg.com/gatsby-plugin-sharp/-/gatsby-plugin-sharp-4.16.1.tgz#47ac2cf8d2b375f2b26667214a67bccfd05c314f"
+  integrity sha512-XaeilX+SjLPIeE9JHS+vb5ozNa4IGCmjDr5CCv+Tae8CuRmS/q8ZYBQpu5I172mYKX6J0iDt0leMCL6D1MdWQA==
   dependencies:
     "@babel/runtime" "^7.15.4"
     "@gatsbyjs/potrace" "^2.2.0"
@@ -7060,10 +7060,10 @@ gatsby-sharp@^0.10.0:
     "@types/sharp" "^0.30.0"
     sharp "^0.30.3"
 
-gatsby-source-drupal@5.17.0:
-  version "5.17.0"
-  resolved "https://registry.yarnpkg.com/gatsby-source-drupal/-/gatsby-source-drupal-5.17.0.tgz#3f991df1ce1fec75150167e1f60f3347442f1836"
-  integrity sha512-woYKb6PJZTDvFNchndYMTWPBEIPSaVMSJdreiVSRAsxYKSzla7EkBC6cwaC/8oXzBKvEqKmz0rBxBI6082JouA==
+gatsby-source-drupal@5.17.1:
+  version "5.17.1"
+  resolved "https://registry.yarnpkg.com/gatsby-source-drupal/-/gatsby-source-drupal-5.17.1.tgz#099c0f2e4ad678fd1e51503f226f38e4a74cf0b4"
+  integrity sha512-mcBLdAVpyJFOrqrhwe4+CyEqZa5ehcyrtjuLS4F88DSHUlc0HXymcHaI+3SFGipUtKJksxrxSGyV/a6jlf+VIw==
   dependencies:
     "@babel/runtime" "^7.15.4"
     "@opentelemetry/semantic-conventions" "0.26.0"
