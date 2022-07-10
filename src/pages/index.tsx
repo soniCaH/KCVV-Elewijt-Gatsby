@@ -10,7 +10,7 @@ const IndexPage: FunctionComponent = () => {
     <Layout>
       <section className="frontpage__hero grid-container site-content">
         <div className="grid-x grid-margin-x" data-equalizer data-equalize-on="large">
-          <article className="frontpage__hero__article cell large-8">
+          {/* <article className="frontpage__hero__article cell large-8">
             <StaticImage
               src="https://www.kcvvelewijt.be/static/eea1218830f016dde0c90f688a629144/f067c/IMG_3322.webp"
               alt="Geert Deferm"
@@ -23,7 +23,7 @@ const IndexPage: FunctionComponent = () => {
             <header>
               <h3>KCVV TV</h3>
             </header>
-          </article>
+          </article> */}
         </div>
       </section>
     </Layout>
