@@ -219,9 +219,9 @@ export const PageHeader: FunctionComponent = () => (
   <header className="l--header">
     {/* <!-- START STICKY INNER --> */}
     {/* <div data-sticky data-options="marginTop:0;"> */}
-    <div>
+    <div className="navigation">
       {/* <!-- START MOBILE NAV BAR --> */}
-      <div className="header--mobile" data-responsive-toggle="responsive-menu" data-hide-for="large">
+      <div className="header--mobile">
         <button
           type="button"
           className="menu-icon"
@@ -244,38 +244,23 @@ export const PageHeader: FunctionComponent = () => (
 
       {/* <!-- START DESKTOP NAV BAR --> */}
       <div className="header--desktop">
-        <div className="header__secondary show-for-large">
-          <div className="grid-container">
-            <div className="grid-x">
-              <div className="medium-4 medium-offset-8">
-                <div className="sponsors--header"></div>
-              </div>
-            </div>
-          </div>
+        {/* LOGO */}
+        <div className="header-logo">
+          <Link to="/">
+            <StaticImage
+              src="../images/logo-flat.png"
+              alt="KCVV ELEWIJT"
+              placeholder="none"
+              height={112}
+              className="header__logo-img"
+            />
+          </Link>
         </div>
-        <div className="header__primary show-for-large">
-          <div className="grid-container">
-            <div className="header__primary-inner">
-              {/* LOGO */}
-              <div className="header-logo">
-                <Link to="/">
-                  <StaticImage
-                    src="../images/logo-flat.png"
-                    alt="KCVV ELEWIJT"
-                    width={350}
-                    placeholder="none"
-                    className="header__logo-img"
-                  />
-                </Link>
-              </div>
-              <nav className="main-nav">
-                <ul className="main-nav__list--desktop menu dropdown" data-dropdown-menu>
-                  <MenuItems />
-                </ul>
-              </nav>
-            </div>
-          </div>
-        </div>
+        <nav className="main-nav">
+          <ul className="main-nav__list--desktop menu dropdown" data-dropdown-menu>
+            <MenuItems />
+          </ul>
+        </nav>
       </div>
     </div>
     {/* <!-- END DESKTOP NAV BAR --> */}
