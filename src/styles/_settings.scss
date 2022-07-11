@@ -70,7 +70,7 @@
 $global-font-size: 100%;
 $global-width: rem-calc(1280);
 $global-lineheight: 1.5;
-$foundation-palette: (primary: #4B9B48,
+$foundation-palette: (primary: #4acf52,
   secondary: #767676,
   success: #3adb76,
   warning: #ffae00,
@@ -83,13 +83,7 @@ $black: #0a0a0a;
 $white: #fefefe;
 $body-background: transparent;
 $body-font-color: #292c31;
-$body-font-family: acumin-pro,
-'Source Sans Pro',
-'Roboto',
-'Helvetica Neue',
-Helvetica,
-Arial,
-sans-serif;
+$body-font-family: var(--font-body);
 $body-antialiased: true;
 $global-margin: 1rem;
 $global-padding: 1rem;
@@ -394,8 +388,8 @@ $dropdownmenu-arrows: false;
 // $dropdownmenu-arrow-size: 6px;
 // $dropdownmenu-arrow-padding: 1.5rem;
 // $dropdownmenu-min-width: 200px;
-$dropdownmenu-background: var(--color-black);
-$dropdownmenu-submenu-background: $dropdownmenu-background;
+// $dropdownmenu-background: var(--color-black);
+// $dropdownmenu-submenu-background: $dropdownmenu-background;
 // $dropdownmenu-padding: $global-menu-padding;
 // $dropdownmenu-nested-margin: 0;
 // $dropdownmenu-submenu-padding: $dropdownmenu-padding;
@@ -804,7 +798,7 @@ $titlebar-color: $white;
 $titlebar-padding: 1rem;
 $titlebar-text-font-weight: bold;
 $titlebar-icon-color: $white;
-$titlebar-icon-color-hover: $medium-gray;
+$titlebar-icon-color-hover: $white;
 $titlebar-icon-spacing: 0.25rem;
 
 // 54. Tooltip
