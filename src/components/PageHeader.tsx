@@ -1,10 +1,10 @@
 import { Link } from "gatsby"
 import { StaticImage } from "gatsby-plugin-image"
-import React, { Fragment, FunctionComponent, useEffect } from "react"
+import React, { Fragment, useEffect } from "react"
 
 import "./PageHeader.scss"
 
-const MenuItems: FunctionComponent = () => {
+const MenuItems = () => {
   useEffect(() => {
     const activeLinks = document.querySelectorAll(`.active`)
     let parent = null
@@ -213,7 +213,7 @@ const MenuItems: FunctionComponent = () => {
   )
 }
 
-export const PageHeader: FunctionComponent = () => (
+export const PageHeader = () => (
   // <!-- START STICKY CONTAINER --> //
   // <header data-sticky-container className="l--header">
   <header className="l--header">
@@ -270,7 +270,7 @@ export const PageHeader: FunctionComponent = () => (
   // <!-- END STICKY CONTAINER --> //
 )
 
-export const PageHeaderMobile: FunctionComponent = () => (
+export const PageHeaderMobile = () => (
   <nav className="off-canvas position-left" id="responsiveNavigation" data-off-canvas>
     <ul className="main-nav__list vertical menu" data-responsive-menu="accordion large-dropdown">
       <div className="header-mobile__logo">

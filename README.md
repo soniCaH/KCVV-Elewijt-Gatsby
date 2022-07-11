@@ -13,3 +13,8 @@
 <img src="https://github.com/soniCaH/KCVV-Elewijt-Gatsby/blob/master/src/images/logo-flat.png?raw=true" alt="KCVV Elewijt Logo kroon" />
 
 *Koninklijk Crossing Voetbal Vereniging Elewijt* is een Belgische voetbalclub uit het Brabantse Elewijt (een deelgemeente van Zemst). De club is aangesloten bij de KBVB met stamnummer 55 en speelt vanaf het seizoen 2019/20 in Tweede Provinciale. Het stamnummer 55 speelde in de jaren 70 als de Brusselse club Royal Crossing Club de Schaerbeek nog in de Eerste Klasse.
+
+
+// Typescript Functional components are transformed using
+
+```jscodeshift -t https://raw.githubusercontent.com/gndelia/codemod-replace-react-fc-typescript/main/dist/index.js --extensions=tsx --verbose=2 ./src/components```
