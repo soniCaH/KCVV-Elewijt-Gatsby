@@ -2,12 +2,14 @@ import { StaticImage } from "gatsby-plugin-image"
 import React from "react"
 import { FunctionComponent } from "react"
 
+import { Seo } from "../components/Seo"
 import Layout from "../layouts"
 import "./index.scss"
 
 const IndexPage: FunctionComponent = () => {
   return (
     <Layout>
+      <Seo title="Er is maar één plezante compagnie" description="Startpagina van stamnummer 00055: KCVV Elewijt." />
       <section className="frontpage__hero grid-container site-content">
         <div className="grid-x grid-margin-x" data-equalizer data-equalize-on="large">
           {/* <article className="frontpage__hero__article cell large-8">
