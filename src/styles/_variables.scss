@@ -1,22 +1,29 @@
 :root {
   --color-green--bright: #4acf52;
+  --color-green--dark: #4B9B48;
+
+  --color-black: #1E2024;
+  --color-gray-dark: #292c31;
 
   --max-width--outer: 90rem;
   --max-width--inner: 60rem;
 
+  --font-title: quasimoda, acumin-pro, 'Montserrat', Verdana, sans-serif;
+  --font-body: montserrat, -apple-system, system-ui, BlinkMacSystemFont,
+    "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  --font-alt: stenciletta, -apple-system, system-ui, BlinkMacSystemFont,
+    "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
 
-  --color-black: #1E2024;
-  --color-gray-dark: #292c31;
+
   --color-gray-medium: #62656A;
   --color-gray-light: #9A9DA2;
   --color-gray-blue: #31404b;
   --color-green: #BADA55;
   --color-green-alpha: rgb(186, 218, 85, 0.1);
-  --color-green-dark: #4B9B48;
   --color-green-dark-hover: #3f833d;
   --color-green-dark-alpha: rgb(75, 155, 72, 0.1);
   --color-green-dark-alpha-2: rgb(75, 155, 72, 0.25);
 
-  --font-body: $body-font-family: acumin-pro, 'Source Sans Pro', 'Roboto', 'Helvetica Neue', Helvetica, Arial, sans-serif;
-  --font-title: quasimoda, acumin-pro, 'Montserrat', Verdana, sans-serif;
+
+
 }
