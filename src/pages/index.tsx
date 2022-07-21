@@ -2,6 +2,7 @@ import { StaticImage } from "gatsby-plugin-image"
 import React from "react"
 import { FunctionComponent } from "react"
 
+import { AltTitle } from "../components/AltTitle"
 import { HeroSection2 } from "../components/Hero"
 import { Seo } from "../components/Seo"
 import Layout from "../layouts"
@@ -25,7 +26,7 @@ const IndexPage: FunctionComponent = () => {
                   <a href="#" id="href">
                     <div className="frontpage__hero__article__inner">
                       <header>
-                        <h3>A-Ploeg</h3>
+                        <h3>#A-Ploeg</h3>
                         <div className="frontpage__hero__article__title">
                           <h2>Geert Deferm nieuwe T1 van KCVV Elewijt</h2>
                         </div>
@@ -53,11 +54,30 @@ const IndexPage: FunctionComponent = () => {
       </section>
 
       <section className="frontpage__matches_carousel">
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Autem, mollitia.
+        <AltTitle title="matches" variant="black" />
+        <main>
+          <article className="frontpage__matches_carousel_item frontpage__matches_carousel_item--b">
+            <header className="frontpage__matches_carousel_item__header">B Team</header>
+            <main className="frontpage__matches_carousel_item__content"></main>
+            <footer className="frontpage__matches_carousel_item__footer">PREV / NEXT / RANK</footer>
+          </article>
+          <article className="frontpage__matches_carousel_item frontpage__matches_carousel_item--a">
+            <header className="frontpage__matches_carousel_item__header">A Team</header>
+            <main className="frontpage__matches_carousel_item__content"></main>
+            <footer className="frontpage__matches_carousel_item__footer">PREV / NEXT / RANK</footer>
+          </article>
+          <article className="frontpage__matches_carousel_item frontpage__matches_carousel_item--youth">
+            <header className="frontpage__matches_carousel_item__header">Jeugd</header>
+            <main className="frontpage__matches_carousel_item__content"></main>
+            <footer className="frontpage__matches_carousel_item__footer">PREV / NEXT / RANK</footer>
+          </article>
+        </main>
       </section>
       <section>Lorem ipsum dolor sit amet consectetur adipisicing elit. Autem, mollitia.</section>
       <section>Lorem ipsum dolor sit amet consectetur adipisicing elit. Autem, mollitia.</section>
-      <section>Lorem ipsum dolor sit amet consectetur adipisicing elit. Autem, mollitia.</section>
+      <section>
+        <AltTitle title="EXTRA" variant="white" />
+      </section>
     </Layout>
   )
 }

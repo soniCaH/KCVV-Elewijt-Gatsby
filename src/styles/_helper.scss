@@ -1,0 +1,13 @@
+.fancy_header {
+  display: grid;
+  grid-template-columns: minmax(50px, 1fr) auto minmax(50px, 1fr);
+  align-items: center;
+  text-align: center;
+  gap: 40px;
+
+  &::before,
+  &::after {
+    content: '';
+    border-top: 6px double;
+  }
+}
