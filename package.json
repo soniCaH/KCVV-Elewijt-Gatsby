@@ -11,7 +11,7 @@
     "cross-env": "7.0.3",
     "dotenv": "16.0.1",
     "foundation-sites": "6.7.5",
-    "gatsby": "4.19.1",
+    "gatsby": "4.19.2",
     "gatsby-cli": "4.19.0",
     "gatsby-paginate": "1.1.1",
     "gatsby-plugin-google-tagmanager": "4.19.0",
