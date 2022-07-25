@@ -4,6 +4,7 @@ import { FunctionComponent } from "react"
 
 import { AltTitle } from "../components/AltTitle"
 import { HeroSection2 } from "../components/Hero"
+import { MatchesTabs } from "../components/MatchesTabs"
 import { Seo } from "../components/Seo"
 import Layout from "../layouts"
 import "./index.scss"
@@ -58,18 +59,15 @@ const IndexPage: FunctionComponent = () => {
         <main>
           <article className="frontpage__matches_carousel_item frontpage__matches_carousel_item--b">
             <header className="frontpage__matches_carousel_item__header">B Team</header>
-            <main className="frontpage__matches_carousel_item__content"></main>
-            <footer className="frontpage__matches_carousel_item__footer">PREV / NEXT / RANK</footer>
+            <MatchesTabs teamId={2} />
           </article>
           <article className="frontpage__matches_carousel_item frontpage__matches_carousel_item--a">
             <header className="frontpage__matches_carousel_item__header">A Team</header>
-            <main className="frontpage__matches_carousel_item__content"></main>
-            <footer className="frontpage__matches_carousel_item__footer">PREV / NEXT / RANK</footer>
+            <MatchesTabs teamId={1} />
           </article>
           <article className="frontpage__matches_carousel_item frontpage__matches_carousel_item--youth">
             <header className="frontpage__matches_carousel_item__header">Jeugd</header>
             <main className="frontpage__matches_carousel_item__content"></main>
-            <footer className="frontpage__matches_carousel_item__footer">PREV / NEXT / RANK</footer>
           </article>
         </main>
       </section>

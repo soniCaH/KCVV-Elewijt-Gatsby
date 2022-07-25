@@ -1,3 +1,0 @@
-interface MatchesTabsProps {
-  teamId: number
-}
