@@ -68,25 +68,25 @@
   clear: both;
   background: #000;
   color: #FFF;
-  // margin-top: 6rem;
   padding: 1rem;
+}
 
+.frontpage__matches_carousel__content {
+  scroll-snap-type: x mandatory;
+  display: flex;
+  -webkit-overflow-scrolling: touch;
+  overflow-x: scroll;
 
-  main {
-    scroll-snap-type: x mandatory;
-    display: flex;
-    -webkit-overflow-scrolling: touch;
-    overflow-x: scroll;
-
-    @media screen and (min-width: 60rem) {
-      scroll-snap-type: none;
-      -webkit-overflow-scrolling: none;
-      overflow-x: auto;
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      grid-gap: 1rem;
-      grid-auto-rows: 1fr;
-    }
+  @media screen and (min-width: 60rem) {
+    scroll-snap-type: none;
+    -webkit-overflow-scrolling: none;
+    overflow-x: auto;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 1rem;
+    margin: 0 auto;
+    max-width: 60rem;
+    grid-auto-rows: 1fr;
   }
 }
 
@@ -99,50 +99,50 @@
   position: relative;
   background: var(--color-black);
 
-  display: grid;
-  grid-template-rows: 1fr 4fr 1fr;
+  // display: grid;
+  // grid-template-rows: 1fr 4fr 1fr;
+  grid-auto-rows: 1fr;
 
-  // @media screen and (min-width: 60rem) {
-  //   padding: 1rem;
-  // }
+  &--b {}
 
-  &--b {
-    order: 1;
-
-    @media screen and (min-width: 60rem) {
-      order: 0;
-    }
-  }
-
-  &--a {
-    order: 0;
-
-    @media screen and (min-width: 60rem) {
-      order: 1;
-    }
-  }
-
-  &--youth {
-    order: 2;
-
-    @media screen and (min-width: 60rem) {}
-  }
+  &--a {}
 
   @media screen and (min-width: 60rem) {
-    min-width: revert;
-    scroll-snap-align: revert;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
   }
+
+  .match__teaser {
+    h3 {
+      color: #FFF;
+    }
+  }
+
+  // &--youth {
+  //   order: 2;
+
+  //   @media screen and (min-width: 60rem) {}
+  // }
+
+  // @media screen and (min-width: 60rem) {
+  //   min-width: revert;
+  //   scroll-snap-align: revert;
+  // }
 }
 
 .frontpage__matches_carousel_item__header {
   color: var(--color-green--bright);
   padding: 1.25rem 1.5rem;
   border-bottom: 1px solid var(--color-green--bright);
+  font-weight: bold;
   text-transform: uppercase;
+
 }
 
-.frontpage__matches_carousel_item__footer {
+.team_matches__tabs--filter {
   border-top: 1px solid var(--color-green--bright);
+
 }
 
 .frontpage__hero__article {

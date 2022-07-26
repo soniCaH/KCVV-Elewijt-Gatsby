@@ -15,6 +15,7 @@
       transition: all .2s ease-in-out;
       color: #FFF;
       text-transform: uppercase;
+      font-weight: bold;
 
       &:focus,
       &[aria-selected=true] {
