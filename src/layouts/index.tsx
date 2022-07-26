@@ -28,7 +28,7 @@ const Layout: FunctionComponent = ({ children }) => {
     if (window.location.hash) {
       $(`.team-sub_navigation a[href="${window.location.hash}"]`).trigger(`click`, [true])
     }
-    $(`.tabs`).on(`change.zf.tabs`, function () {
+    $(`.widget__filter`).on(`change.zf.tabs`, function () {
       forceCheck()
     })
   }, [])

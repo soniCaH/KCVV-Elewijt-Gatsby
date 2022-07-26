@@ -4,6 +4,7 @@ import { FunctionComponent } from "react"
 
 import { AltTitle } from "../components/AltTitle"
 import { HeroSection2 } from "../components/Hero"
+import { MatchesOverview } from "../components/MatchesOverview"
 import { MatchesTabs } from "../components/MatchesTabs"
 import { Seo } from "../components/Seo"
 import Layout from "../layouts"
@@ -56,19 +57,19 @@ const IndexPage: FunctionComponent = () => {
 
       <section className="frontpage__matches_carousel">
         <AltTitle title="matches" variant="black" />
-        <main>
-          <article className="frontpage__matches_carousel_item frontpage__matches_carousel_item--b">
-            <header className="frontpage__matches_carousel_item__header">B Team</header>
-            <MatchesTabs teamId={2} />
-          </article>
+        <main className="frontpage__matches_carousel__content">
           <article className="frontpage__matches_carousel_item frontpage__matches_carousel_item--a">
             <header className="frontpage__matches_carousel_item__header">A Team</header>
             <MatchesTabs teamId={1} />
           </article>
-          <article className="frontpage__matches_carousel_item frontpage__matches_carousel_item--youth">
-            <header className="frontpage__matches_carousel_item__header">Jeugd</header>
-            <main className="frontpage__matches_carousel_item__content"></main>
+          <article className="frontpage__matches_carousel_item frontpage__matches_carousel_item--b">
+            <header className="frontpage__matches_carousel_item__header">B Team</header>
+            <MatchesTabs teamId={2} />
           </article>
+          {/* <article className="frontpage__matches_carousel_item frontpage__matches_carousel_item--youth">
+            <header className="frontpage__matches_carousel_item__header">Jeugd</header>
+            <MatchesOverview exclude={[`1`, `2`]} action="next" />
+          </article> */}
         </main>
       </section>
       <section>Lorem ipsum dolor sit amet consectetur adipisicing elit. Autem, mollitia.</section>

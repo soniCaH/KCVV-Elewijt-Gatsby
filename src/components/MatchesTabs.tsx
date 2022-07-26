@@ -1,6 +1,7 @@
 import React from "react"
 
 import { MatchesTabsProps } from "../Types/MatchesTabs"
+import { MatchTeaser } from "./MatchTeaser"
 import "./MatchesTabs.scss"
 
 export const MatchesTabs = ({ teamId }: MatchesTabsProps) => (
@@ -8,10 +9,10 @@ export const MatchesTabs = ({ teamId }: MatchesTabsProps) => (
     <div className="team_matches__tabs">
       <div data-tabs-content={`matches-${teamId}`}>
         <div className="tabs-panel" id={`matches-${teamId}-prev`}>
-          PREV
+          <MatchTeaser teamId={teamId} action="prev" />
         </div>
         <div className="tabs-panel is-active" id={`matches-${teamId}-next`}>
-          NEXT
+          <MatchTeaser teamId={teamId} action="next" />
         </div>
         <div className="tabs-panel" id={`matches-${teamId}-rank`}>
           RANK
