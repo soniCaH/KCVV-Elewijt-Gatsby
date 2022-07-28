@@ -1,14 +1,14 @@
 import axios from "axios"
-import { graphql, useStaticQuery } from "gatsby"
-import React, { Fragment, FunctionComponent, useEffect, useState } from "react"
+import { useStaticQuery, graphql } from "gatsby"
+import { useEffect, useState } from "react"
+import React from "react"
 
+import { RankingProps, RankingDataObject, RankingData, RankingDataTeamObject } from "../Types/Ranking"
 import { sortRankings } from "../scripts/helper"
-import "./Ranking.scss"
-import Spinner from "./Spinner"
+import { Spinner } from "./Spinner"
 
-const Ranking: FunctionComponent<RankingProps> = ({ teamId }: RankingProps) => {
+export const Ranking = ({ teamId }: RankingProps) => {
   const [data, setData] = useState<RankingDataObject[]>([])
-
   const {
     site: {
       siteMetadata: { kcvvPsdApi },
@@ -39,7 +39,7 @@ const Ranking: FunctionComponent<RankingProps> = ({ teamId }: RankingProps) => {
   )
 }
 
-const renderRanking = (ranking: RankingDataObject, i: number): JSX.Element => {
+const renderRanking = (ranking: RankingDataObject, i: number) => {
   return (
     <div className={`ranking`} key={i}>
       <h4>{ranking.name.replace(`Voetbal : `, ``)}</h4>
@@ -85,17 +85,15 @@ const renderRanking = (ranking: RankingDataObject, i: number): JSX.Element => {
   )
 }
 
-const renderRankings = (rankings: RankingDataObject[]): JSX.Element => {
+const renderRankings = (rankings: RankingDataObject[]) => {
   return (
-    <Fragment>
+    <>
       {rankings
         .filter((ranking: RankingDataObject) => ranking.teams.length > 0)
         .sort((a, b) => a.name.localeCompare(b.name))
         .map((ranking: RankingDataObject, i: number) => {
           return renderRanking(ranking, i)
         })}
-    </Fragment>
+    </>
   )
 }
-
-export default Ranking
