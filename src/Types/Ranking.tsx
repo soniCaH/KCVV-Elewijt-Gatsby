@@ -1,4 +1,4 @@
-interface RankingDataTeamObject {
+export interface RankingDataTeamObject {
   goalsScoredHome: number
   goalsConceded: number
   cleanSheetsAway: number
@@ -68,22 +68,22 @@ interface RankingDataTeamObject {
   cleanSheetsHome: number
 }
 
-interface RankingDataObject {
+export interface RankingDataObject {
   name: string
   teams: Array<RankingDataTeamObject>
   type: string
 }
 
-interface RankingState {
+export interface RankingState {
   data: Array<RankingDataObject>
   loading: boolean
 }
 
-interface RankingProps {
+export interface RankingProps {
   teamId: number
 }
 
-interface RankingData {
+export interface RankingData {
   site: {
     siteMetadata: {
       kcvvPsdApi: string

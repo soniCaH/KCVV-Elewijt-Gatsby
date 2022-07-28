@@ -40,7 +40,7 @@ const IndexPage: FunctionComponent = () => {
                     </div>
                   </a>
                 </article>
-                <div>
+                <div className="frontpage__hero__sponsor">
                   <StaticImage
                     src="../images/rbfa-lukaku.jpg"
                     alt="RBFA VVF - Romelu Lukaku"
@@ -72,7 +72,22 @@ const IndexPage: FunctionComponent = () => {
           </article> */}
         </main>
       </section>
-      <section>Lorem ipsum dolor sit amet consectetur adipisicing elit. Autem, mollitia.</section>
+      <section className="frontpage__main_content">
+        <article>ARTIKEL 1</article>
+        <article>ARTIKEL 2</article>
+        <article className="frontpage__main_content__youth">
+          <header className="frontpage__matches_carousel_item__header">Jeugd</header>
+          <MatchesOverview exclude={[`1`, `2`]} action="next" />
+        </article>
+        <article className="frontpage__main_content__kcvvtv">
+          <header>KCVV TV</header>
+        </article>
+        <article>ARTIKEL 3</article>
+        <article>ARTIKEL 4</article>
+        <article>ARTIKEL 5</article>
+        <article>ARTIKEL 6</article>
+        <article>ARTIKEL 7</article>
+      </section>
       <section>Lorem ipsum dolor sit amet consectetur adipisicing elit. Autem, mollitia.</section>
       <section>
         <AltTitle title="EXTRA" variant="white" />

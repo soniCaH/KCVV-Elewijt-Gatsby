@@ -10,6 +10,7 @@ import { Match } from "../Types/Match"
 import { MatchesOverviewProps, MatchesOverviewQueryData } from "../Types/MatchesOverview"
 import { mapPsdStatus } from "../scripts/helper"
 import { MatchTeaserDetail } from "./MatchTeaser"
+import { Spinner } from "./Spinner"
 
 export const MatchesOverview = ({
   include = [],
@@ -67,7 +68,7 @@ export const MatchesOverview = ({
 
   return (
     <div className="matches_overview__wrapper">
-      {/* {data.length > 0 || loading === false || <Spinner />} */}
+      {data.length > 0 || loading === false || <Spinner />}
       {data.length <= 0 && loading === false && <div>Er staan voorlopig geen wedstrijden gepland</div>}
       {data.length > 0 && (
         <div>

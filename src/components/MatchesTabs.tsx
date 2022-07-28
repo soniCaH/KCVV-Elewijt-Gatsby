@@ -3,6 +3,7 @@ import React from "react"
 import { MatchesTabsProps } from "../Types/MatchesTabs"
 import { MatchTeaser } from "./MatchTeaser"
 import "./MatchesTabs.scss"
+import { Ranking } from "./Ranking"
 
 export const MatchesTabs = ({ teamId }: MatchesTabsProps) => (
   <>
@@ -15,7 +16,7 @@ export const MatchesTabs = ({ teamId }: MatchesTabsProps) => (
           <MatchTeaser teamId={teamId} action="next" />
         </div>
         <div className="tabs-panel" id={`matches-${teamId}-rank`}>
-          RANK
+          <Ranking teamId={teamId} />
         </div>
       </div>
     </div>
