@@ -1,18 +1,84 @@
-import { graphql } from "gatsby"
+import { graphql, useStaticQuery } from "gatsby"
 import { StaticImage } from "gatsby-plugin-image"
 import React from "react"
-import { FunctionComponent } from "react"
 
+import { HomepageResponsePropsApi } from "../Types/Gatsby"
 import { AltTitle } from "../components/AltTitle"
-import { CardTeaser } from "../components/Card"
-import { HeroSection2 } from "../components/Hero"
+import { CardTeaser, CardTVTeaser } from "../components/Card"
 import { MatchesOverview } from "../components/MatchesOverview"
 import { MatchesTabs } from "../components/MatchesTabs"
 import { Seo } from "../components/Seo"
 import Layout from "../layouts"
 import "./index.scss"
 
-const IndexPage: FunctionComponent = () => {
+const IndexPage = () => {
+  const { articles, videos }: HomepageResponsePropsApi = useStaticQuery(graphql`
+    query {
+      articles: allNodeArticle(
+        filter: { status: { eq: true }, promote: { eq: true } }
+        sort: { fields: created, order: DESC }
+        limit: 13
+      ) {
+        edges {
+          node {
+            id
+            path {
+              alias
+            }
+            created(formatString: "D/M/YYYY")
+            changed(formatString: "D/M/YYYY")
+            timestamp: changed(formatString: "x")
+            title
+            promote
+            status
+            field_featured
+            body {
+              value
+              format
+              processed
+              summary
+            }
+            relationships {
+              field_media_article_image {
+                ...ArticleImage
+              }
+              field_tags {
+                name
+                path {
+                  alias
+                }
+              }
+            }
+            internal {
+              type
+            }
+          }
+        }
+      }
+      videos: allNodeKcvvTv(
+        filter: { status: { eq: true }, promote: { eq: true } }
+        sort: { fields: created, order: DESC }
+        limit: 3
+      ) {
+        edges {
+          node {
+            created(formatString: "D/M/YYYY")
+            title
+            timestamp: created(formatString: "x")
+            relationships {
+              field_media_article_image {
+                ...ArticleImage
+              }
+            }
+            field_website {
+              uri
+            }
+          }
+        }
+      }
+    }
+  `)
+
   return (
     <Layout>
       <Seo
@@ -68,60 +134,63 @@ const IndexPage: FunctionComponent = () => {
             <header className="frontpage__matches_carousel_item__header">B Team</header>
             <MatchesTabs teamId={2} />
           </article>
-          {/* <article className="frontpage__matches_carousel_item frontpage__matches_carousel_item--youth">
-            <header className="frontpage__matches_carousel_item__header">Jeugd</header>
-            <MatchesOverview exclude={[`1`, `2`]} action="next" />
-          </article> */}
         </main>
       </section>
       <section className="frontpage__main_content">
-        <article>ARTIKEL 1</article>
-        <article>ARTIKEL 2</article>
+        {articles.edges.slice(0, 4).map(({ node }) => (
+          <CardTeaser
+            key={node.id}
+            title={node.title}
+            picture={
+              node.relationships.field_media_article_image.relationships.field_media_image.localFile.childImageSharp
+                .gatsbyImageData
+            }
+            link={node.path.alias}
+            tags={node.relationships?.field_tags}
+            createTime={node.created}
+          />
+        ))}
+
         <article className="frontpage__main_content__youth">
           <header className="frontpage__matches_carousel_item__header">Jeugd</header>
           <MatchesOverview exclude={[`1`, `2`]} action="next" />
         </article>
-        <article>ARTIKEL 3</article>
-        <article>ARTIKEL 4</article>
       </section>
       <section className="frontpage__kcvvtv">
+        <AltTitle title="KCVV TV" variant="black" />
         <div className="frontpage__kcvvtv__content">
-          <AltTitle title="KCVV TV" variant="black" />
-          <article>TV 1</article>
+          {videos.edges.map(({ node }, i) => (
+            <CardTVTeaser
+              key={i}
+              title={node.title}
+              picture={
+                node.relationships.field_media_article_image.relationships.field_media_image.localFile.childImageSharp
+                  .gatsbyImageData
+              }
+              link={node.field_website.uri}
+              createTime={node.created}
+            />
+          ))}
         </div>
       </section>
 
       <section className="frontpage__main_content">
-        <article>
-          <CardTeaser title="Article1" picture={undefined} link={``} />
-        </article>
-        <article>ARTIKEL 6</article>
-        <article>ARTIKEL 7</article>
+        {articles.edges.slice(4, 13).map(({ node }, i) => (
+          <CardTeaser
+            key={node.id}
+            title={node.title}
+            picture={
+              node.relationships.field_media_article_image.relationships.field_media_image.localFile.childImageSharp
+                .gatsbyImageData
+            }
+            link={node.path.alias}
+            tags={node.relationships?.field_tags}
+            createTime={node.created}
+          />
+        ))}
       </section>
     </Layout>
   )
 }
-export const pageQuery = graphql`
-  query {
-    featuredPosts: allNodeArticle(
-      filter: { status: { eq: true }, promote: { eq: true } }
-      sort: { fields: created, order: DESC }
-      limit: 12
-    ) {
-      edges {
-        node {
-          id
-          path {
-            alias
-          }
-          created(formatString: "D/M/YYYY")
-          changed(formatString: "D/M/YYYY")
-          timestamp: changed(formatString: "x")
-          title
-        }
-      }
-    }
-  }
-`
 
 export default IndexPage
