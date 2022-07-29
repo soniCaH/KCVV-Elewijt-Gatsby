@@ -70,6 +70,7 @@
   background: #fff;
   flex: 1 1 70%;
   flex-direction: column;
+  will-change: translate;
 
   @media screen and (min-width: 60rem) {
     transition: transform .3s ease;

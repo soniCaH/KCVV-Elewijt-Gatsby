@@ -1,5 +1,5 @@
-import { graphql, useStaticQuery } from "gatsby"
-import { StaticImage } from "gatsby-plugin-image"
+import { graphql, Link, useStaticQuery } from "gatsby"
+import { GatsbyImage, StaticImage } from "gatsby-plugin-image"
 import React from "react"
 
 import { HomepageResponsePropsApi } from "../Types/Gatsby"
@@ -79,6 +79,8 @@ const IndexPage = () => {
     }
   `)
 
+  const featuredArticle = articles.edges.slice(0, 1)
+
   return (
     <Layout>
       <Seo
@@ -93,20 +95,27 @@ const IndexPage = () => {
             <div className="frontpage__hero__container">
               <div className="frontpage__hero__content">
                 <article className="frontpage__hero__article">
-                  <a href="#" id="href">
+                  <Link to={featuredArticle[0].node.path.alias}>
                     <div className="frontpage__hero__article__inner">
                       <header>
-                        <h3>#A-Ploeg</h3>
+                        <h3>
+                          {featuredArticle[0].node.relationships?.field_tags.map(({ name, path }) => (
+                            <span className={`tag__label`}>#{name}</span>
+                          ))}
+                        </h3>
                         <div className="frontpage__hero__article__title">
-                          <h2>Geert Deferm nieuwe T1 van KCVV Elewijt</h2>
+                          <h2>{featuredArticle[0].node.title}</h2>
                         </div>
                       </header>
-                      <StaticImage
-                        src="https://www.kcvvelewijt.be/static/eea1218830f016dde0c90f688a629144/f067c/IMG_3322.webp"
-                        alt="Geert Deferm"
-                      ></StaticImage>
+                      <GatsbyImage
+                        image={
+                          featuredArticle[0].node.relationships.field_media_article_image.relationships
+                            .field_media_image.localFile.childImageSharp.gatsbyImageData
+                        }
+                        alt={featuredArticle[0].node.title}
+                      />
                     </div>
-                  </a>
+                  </Link>
                 </article>
                 <div className="frontpage__hero__sponsor">
                   <StaticImage
@@ -137,7 +146,7 @@ const IndexPage = () => {
         </main>
       </section>
       <section className="frontpage__main_content">
-        {articles.edges.slice(0, 4).map(({ node }) => (
+        {articles.edges.slice(1, 5).map(({ node }) => (
           <CardTeaser
             key={node.id}
             title={node.title}
@@ -175,7 +184,7 @@ const IndexPage = () => {
       </section>
 
       <section className="frontpage__main_content">
-        {articles.edges.slice(4, 13).map(({ node }, i) => (
+        {articles.edges.slice(5, 11).map(({ node }, i) => (
           <CardTeaser
             key={node.id}
             title={node.title}
