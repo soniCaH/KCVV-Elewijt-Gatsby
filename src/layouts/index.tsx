@@ -10,7 +10,7 @@ declare global {
   }
 }
 
-const Layout: FunctionComponent = ({ children }) => {
+const Layout = ({ children }) => {
   useEffect(() => {
     // eslint-disable-next-line
     const foundation = require(`foundation-sites`)

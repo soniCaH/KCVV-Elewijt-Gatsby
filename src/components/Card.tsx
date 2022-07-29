@@ -5,7 +5,15 @@ import React, { FunctionComponent } from "react"
 import { CardTeaserProps } from "../Types/Card"
 import "./Card.scss"
 
-export const CardTeaser: FunctionComponent<CardTeaserProps> = ({ title, picture, link, tags, createTime }) => {
+export const CardTeaser = (
+  {
+    title,
+    picture,
+    link,
+    tags,
+    createTime
+  }: CardTeaserProps
+) => {
   const image = getImage(picture)
 
   return (
@@ -44,7 +52,13 @@ export const CardTeaser: FunctionComponent<CardTeaserProps> = ({ title, picture,
   )
 }
 
-export const CardTVTeaser: FunctionComponent<CardTeaserProps> = ({ title, picture, link }) => {
+export const CardTVTeaser = (
+  {
+    title,
+    picture,
+    link
+  }: CardTeaserProps
+) => {
   const image = getImage(picture)
 
   return (
