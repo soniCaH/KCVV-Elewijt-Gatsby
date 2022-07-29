@@ -7,7 +7,7 @@ import SEO from "../components/seo"
 import Layout from "../layouts/index"
 import { PlayerListProps } from "../types/pages.types"
 
-const ShareForm: FunctionComponent = () => {
+const ShareForm = () => {
   const templateUrl = `https://footbalisto.be/share/instagram/`
 
   const [playerSelected, setPlayerSelected] = useState<string>(``)
@@ -116,7 +116,7 @@ const ShareForm: FunctionComponent = () => {
   )
 }
 
-const CreateSharePage: FunctionComponent = () => (
+const CreateSharePage = () => (
   <Layout>
     <SEO
       lang="nl-BE"

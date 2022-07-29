@@ -1,0 +1,27 @@
+import { graphql } from "gatsby"
+
+export const KCVVFluid960 = graphql`
+  fragment KCVVFluid960 on File {
+    childImageSharp {
+      gatsbyImageData(
+        width: 960
+        placeholder: DOMINANT_COLOR
+        layout: CONSTRAINED
+        aspectRatio: 1.5
+        transformOptions: { cropFocus: ENTROPY }
+      )
+    }
+  }
+`
+
+export const query = graphql`
+  fragment ArticleImage on media__image {
+    relationships {
+      field_media_image {
+        localFile {
+          ...KCVVFluid960
+        }
+      }
+    }
+  }
+`

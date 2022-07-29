@@ -7,7 +7,7 @@ import SEO from "../components/seo"
 import Layout from "../layouts/index"
 import { TeamsListProps } from "../types/pages.types"
 
-const CalendarForm: FunctionComponent = () => {
+const CalendarForm = () => {
   const calendarUrl = `webcal://footbalisto.be/calendar`
   const [teamsSelected, setTeamSelected] = useState<string[]>([])
   const [sideSelected, setSideSelected] = useState<string>(``)
@@ -90,7 +90,7 @@ const CalendarForm: FunctionComponent = () => {
   )
 }
 
-const CalendarPage: FunctionComponent = () => {
+const CalendarPage = () => {
   return (
     <Layout>
       <SEO
