@@ -28,13 +28,13 @@ module.exports = {
       },
     },
     `gatsby-plugin-sass`,
-    // {
-    //   resolve: `gatsby-source-drupal`,
-    //   options: {
-    //     baseUrl: process.env.GATSBY_API_DOMAIN,
-    //     apiBase: `jsonapi`,
-    //   },
-    // },
+    {
+      resolve: `gatsby-source-drupal`,
+      options: {
+        baseUrl: process.env.GATSBY_API_DOMAIN,
+        apiBase: `jsonapi`,
+      },
+    },
     `gatsby-plugin-image`,
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,

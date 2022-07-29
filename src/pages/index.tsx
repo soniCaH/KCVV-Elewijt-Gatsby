@@ -1,8 +1,10 @@
+import { graphql } from "gatsby"
 import { StaticImage } from "gatsby-plugin-image"
 import React from "react"
 import { FunctionComponent } from "react"
 
 import { AltTitle } from "../components/AltTitle"
+import { CardTeaser } from "../components/Card"
 import { HeroSection2 } from "../components/Hero"
 import { MatchesOverview } from "../components/MatchesOverview"
 import { MatchesTabs } from "../components/MatchesTabs"
@@ -79,21 +81,47 @@ const IndexPage: FunctionComponent = () => {
           <header className="frontpage__matches_carousel_item__header">Jeugd</header>
           <MatchesOverview exclude={[`1`, `2`]} action="next" />
         </article>
-        <article className="frontpage__main_content__kcvvtv">
-          <header>KCVV TV</header>
-        </article>
         <article>ARTIKEL 3</article>
         <article>ARTIKEL 4</article>
-        <article>ARTIKEL 5</article>
+      </section>
+      <section className="frontpage__kcvvtv">
+        <div className="frontpage__kcvvtv__content">
+          <AltTitle title="KCVV TV" variant="black" />
+          <article>TV 1</article>
+        </div>
+      </section>
+
+      <section className="frontpage__main_content">
+        <article>
+          <CardTeaser title="Article1" picture={undefined} link={``} />
+        </article>
         <article>ARTIKEL 6</article>
         <article>ARTIKEL 7</article>
-      </section>
-      <section>Lorem ipsum dolor sit amet consectetur adipisicing elit. Autem, mollitia.</section>
-      <section>
-        <AltTitle title="EXTRA" variant="white" />
       </section>
     </Layout>
   )
 }
+export const pageQuery = graphql`
+  query {
+    featuredPosts: allNodeArticle(
+      filter: { status: { eq: true }, promote: { eq: true } }
+      sort: { fields: created, order: DESC }
+      limit: 12
+    ) {
+      edges {
+        node {
+          id
+          path {
+            alias
+          }
+          created(formatString: "D/M/YYYY")
+          changed(formatString: "D/M/YYYY")
+          timestamp: changed(formatString: "x")
+          title
+        }
+      }
+    }
+  }
+`
 
 export default IndexPage
