@@ -10,7 +10,7 @@ export const CardTeaser: FunctionComponent<CardTeaserProps> = ({ title, picture,
 
   return (
     <article className={`card card--teaser`}>
-      <Link to={link}>
+      <Link to={link} title={title}>
         <header className={`card_header`}>
           {image && (
             <figure>
@@ -31,7 +31,7 @@ export const CardTeaser: FunctionComponent<CardTeaserProps> = ({ title, picture,
               <div className={`card_tags`}>
                 <i className={`fa fa-tags`} aria-hidden="true"></i>
                 {tags.map(({ path, name }) => (
-                  <Link to={path.alias}>
+                  <Link to={path.alias} title={name}>
                     <span className={`tag__label`}>#{name}</span>
                   </Link>
                 ))}
@@ -49,7 +49,7 @@ export const CardTVTeaser: FunctionComponent<CardTeaserProps> = ({ title, pictur
 
   return (
     <article className={`card card--teaser card--teaser-tv`}>
-      <Link to={link}>
+      <Link to={link} title={title}>
         <header className={`card_header`}>
           {image && (
             <>

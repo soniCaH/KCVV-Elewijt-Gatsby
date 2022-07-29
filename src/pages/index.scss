@@ -71,7 +71,14 @@
   clear: both;
   background: #000;
   color: #FFF;
-  padding: 1rem;
+  padding-top: 1.5rem;
+  margin-bottom: var(--margin-hero--mobile);
+  padding-bottom: var(--margin-hero--mobile);
+
+  @media screen and (min-width: 60rem) {
+    padding-bottom: var(--margin-hero--desktop);
+    margin-bottom: var(--margin-hero--desktop);
+  }
 }
 
 .frontpage__matches_carousel__content {
@@ -86,7 +93,7 @@
     overflow-x: auto;
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    grid-gap: 1rem;
+    grid-gap: 2.5rem;
     margin: 0 auto;
     max-width: 60rem;
     grid-auto-rows: 1fr;
@@ -255,14 +262,20 @@
 }
 
 .frontpage__main_content {
-  padding: 1rem;
+  margin-bottom: var(--margin-hero--mobile);
+  padding-bottom: var(--margin-hero--mobile);
+
+  @media screen and (min-width: 60rem) {
+    padding-bottom: var(--margin-hero--desktop);
+    margin-bottom: var(--margin-hero--desktop);
+  }
 
   @media screen and (min-width: 60rem) {
     max-width: 90rem;
     margin: 0 auto;
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    grid-gap: 1rem;
+    grid-gap: 2.5rem;
     // grid-auto-rows: 1fr;
     grid-auto-rows: minmax(100px, auto);
   }
@@ -292,6 +305,14 @@
   background: #000;
   color: #FFF;
   padding: 1rem;
+
+  margin-bottom: var(--margin-hero--mobile);
+  padding-bottom: var(--margin-hero--mobile);
+
+  @media screen and (min-width: 60rem) {
+    padding-bottom: var(--margin-hero--desktop);
+    margin-bottom: var(--margin-hero--desktop);
+  }
 }
 
 .frontpage__kcvvtv__content {
@@ -301,7 +322,7 @@
     margin: 0 auto;
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    grid-gap: 1rem;
+    grid-gap: 2.5rem;
     // grid-auto-rows: 1fr;
     grid-auto-rows: minmax(100px, auto);
   }

@@ -293,7 +293,7 @@
 
 .main-nav__list {
     .is-accordion-submenu {
-        background-color: var(--color-gray-dark);
+        background-color: var(--color-gray--dark);
         box-shadow: inset 0 7px 9px -7px var(--color-black), inset 0 -7px 9px -7px var(--color-black);
 
         a {
@@ -321,7 +321,7 @@
 
 .is-dropdown-submenu {
     background-color: var(--color-black);
-    border: 1px solid var(--color-gray-dark);
+    border: 1px solid var(--color-gray--dark);
 
     z-index: 15;
 
