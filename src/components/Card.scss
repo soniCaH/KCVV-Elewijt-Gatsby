@@ -71,6 +71,7 @@
   flex: 1 1 70%;
   flex-direction: column;
   will-change: translate;
+  justify-content: space-between;
 
   @media screen and (min-width: 60rem) {
     transition: transform .3s ease;

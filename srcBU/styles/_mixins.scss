@@ -1,45 +1,10 @@
-@mixin readmore-link {
-    a {
-        display: block;
-        text-align: right;
-
-        &::after {
-            display: inline-block;
-            content: url('../images/arrow-dark.svg');
-            margin: 0 .25em;
-            height: 1em;
-            transform: translateX(0);
-            width: 1em;
-            transition: all .25s ease-out;
-        }
-
-        &:hover {
-            &::after {
-                transform: translateX(2px);
-            }
-        }
-    }
-}
-
-@mixin rich-link($color: var(--color-green)) {
-    background-image: linear-gradient(180deg, transparent 75%, $color 0);
-    background-size: 0 100%;
-    background-repeat: no-repeat;
-    text-decoration: none;
-    transition: background-size .4s ease;
-
-    &:hover {
-        background-size: 100% 100%;
-        cursor: pointer;
-    }
-}
-
 @mixin break($media) {
     @if $media==small-only {
         @media only screen and (max-width: 767px) {
             @content;
         }
     }
+
     @if $media==medium-up {
         @media only screen and (min-width: 768px) {
             @content;

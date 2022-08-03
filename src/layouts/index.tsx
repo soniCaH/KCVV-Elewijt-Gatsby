@@ -2,6 +2,7 @@ import $ from "jquery"
 import React, { Fragment, useEffect, FunctionComponent } from "react"
 import { forceCheck } from "react-lazyload"
 
+import { PageFooter } from "../components/PageFooter"
 import { PageHeader, PageHeaderMobile } from "../components/PageHeader"
 
 declare global {
@@ -42,6 +43,8 @@ const Layout = ({ children }) => {
         <main className={`off-canvas-content`} data-off-canvas-content>
           {children}
         </main>
+
+        <PageFooter />
       </div>
     </Fragment>
   )

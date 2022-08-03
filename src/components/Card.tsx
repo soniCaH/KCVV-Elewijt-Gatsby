@@ -1,19 +1,36 @@
 import { Link } from "gatsby"
 import { GatsbyImage, getImage } from "gatsby-plugin-image"
-import React, { FunctionComponent } from "react"
+import React from "react"
 
-import { CardTeaserProps } from "../Types/Card"
+import { CardImageOnlyProps, CardTeaserProps } from "../Types/Card"
 import "./Card.scss"
 
-export const CardTeaser = (
-  {
-    title,
-    picture,
-    link,
-    tags,
-    createTime
-  }: CardTeaserProps
-) => {
+export const CardImageOnly = ({ picture, link }: CardImageOnlyProps) => {
+  const image = getImage(picture)
+
+  return (
+    <article className={`card card--image-only`}>
+      {!CheckExternalLink(link) && image && (
+        <Link to={link}>
+          <header>
+            <figure>
+              <GatsbyImage image={image} alt={link} />
+            </figure>
+          </header>
+        </Link>
+      )}
+      {CheckExternalLink(link) && image && (
+        <a href={link} target="_blank" rel="noopener noreferrer">
+          <header>
+            <GatsbyImage image={image} alt={link} />
+          </header>
+        </a>
+      )}
+    </article>
+  )
+}
+
+export const CardTeaser = ({ title, picture, link, tags, createTime }: CardTeaserProps) => {
   const image = getImage(picture)
 
   return (
@@ -52,13 +69,7 @@ export const CardTeaser = (
   )
 }
 
-export const CardTVTeaser = (
-  {
-    title,
-    picture,
-    link
-  }: CardTeaserProps
-) => {
+export const CardTVTeaser = ({ title, picture, link }: CardTeaserProps) => {
   const image = getImage(picture)
 
   return (
@@ -88,4 +99,9 @@ CardTeaser.defaultProps = {
   metadata: false,
   tags: [],
   createTime: undefined,
+}
+
+const CheckExternalLink = (link: string) => {
+  const absoluteUrlRegex = /^https?:\/\/|^\/\//i
+  return absoluteUrlRegex.test(link)
 }

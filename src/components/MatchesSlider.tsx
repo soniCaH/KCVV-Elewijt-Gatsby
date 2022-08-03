@@ -4,9 +4,10 @@ import React, { Fragment, FunctionComponent, useState } from "react"
 import { useEffect } from "react"
 import Slider, { LazyLoadTypes } from "react-slick"
 
+import { Match, MatchesQueryData } from "../Types/Match"
 import { MatchTeaserDetail } from "./MatchTeaser"
 import "./MatchesSlider.scss"
-import Spinner from "./Spinner"
+import { Spinner } from "./Spinner"
 
 const MatchesSlider: FunctionComponent = () => {
   const [data, setData] = useState<Match[]>([])
@@ -71,7 +72,7 @@ const MatchesSlider: FunctionComponent = () => {
       setLoading(false)
     }
     getData()
-  }, [])
+  }, [kcvvPsdApi])
 
   return (
     <Fragment>
@@ -87,9 +88,9 @@ const MatchesSlider: FunctionComponent = () => {
               .sort((a, b) => a.timestamp - b.timestamp)
               .map((match: Match, i) => {
                 return (
-                  <div className="matches_slider__item" key={i} data-equalizer-watch="true">
-                    <MatchTeaserDetail match={match} />
-                  </div>
+                  // <div className="matches_slider__item" key={i} data-equalizer-watch="true">
+                  <MatchTeaserDetail match={match} key={i} />
+                  // </div>
                 )
               })}
           </Slider>

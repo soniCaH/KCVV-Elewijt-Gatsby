@@ -6,6 +6,7 @@ import { HomepageResponsePropsApi } from "../Types/Gatsby"
 import { AltTitle } from "../components/AltTitle"
 import { CardTeaser, CardTVTeaser } from "../components/Card"
 import { MatchesOverview } from "../components/MatchesOverview"
+import MatchesSlider from "../components/MatchesSlider"
 import { MatchesTabs } from "../components/MatchesTabs"
 import { Seo } from "../components/Seo"
 import Layout from "../layouts"
@@ -89,7 +90,7 @@ const IndexPage = () => {
         path={`/`}
       />
 
-      <section className="frontpage__wrapper">
+      <section className="frontpage__wrapper page__section">
         <div className="frontpage__hero">
           <div className="frontpage__hero__inner">
             <div className="frontpage__hero__container">
@@ -132,7 +133,7 @@ const IndexPage = () => {
         </div>
       </section>
 
-      <section className="frontpage__matches_carousel">
+      <section className="frontpage__matches_carousel page__section">
         <AltTitle title="matches" variant="black" />
         <main className="frontpage__matches_carousel__content">
           <article className="frontpage__matches_carousel_item frontpage__matches_carousel_item--a">
@@ -145,7 +146,8 @@ const IndexPage = () => {
           </article>
         </main>
       </section>
-      <section className="frontpage__main_content">
+
+      <section className="frontpage__main_content page__section">
         {articles.edges.slice(1, 5).map(({ node }) => (
           <CardTeaser
             key={node.id}
@@ -161,11 +163,12 @@ const IndexPage = () => {
         ))}
 
         <article className="frontpage__main_content__youth">
-          <header className="frontpage__matches_carousel_item__header">Jeugd</header>
+          <header className="frontpage__matches_carousel_item__header">Wedstrijden</header>
           <MatchesOverview exclude={[`1`, `2`]} action="next" />
         </article>
       </section>
-      <section className="frontpage__kcvvtv">
+
+      <section className="frontpage__kcvvtv page__section">
         <AltTitle title="KCVV TV" variant="black" />
         <div className="frontpage__kcvvtv__content">
           {videos.edges.map(({ node }, i) => (
@@ -183,7 +186,7 @@ const IndexPage = () => {
         </div>
       </section>
 
-      <section className="frontpage__main_content">
+      <section className="frontpage__main_content page__section">
         {articles.edges.slice(5, 11).map(({ node }, i) => (
           <CardTeaser
             key={node.id}
@@ -197,6 +200,14 @@ const IndexPage = () => {
             createTime={node.created}
           />
         ))}
+      </section>
+      {/*
+      <section className="frontpage__slogan page__section">
+        <AltTitle title="Er is maar één plezante compagnie" variant="green" />
+      </section> */}
+
+      <section className="frontpage__matches_slider page__section">
+        <MatchesSlider />
       </section>
     </Layout>
   )

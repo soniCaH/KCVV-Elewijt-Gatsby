@@ -13,6 +13,11 @@ export interface CardTeaserProps {
   createTime?: string
 }
 
+export interface CardImageOnlyProps {
+  picture: IGatsbyImageData
+  link: string
+}
+
 interface CardTags {
   path: Pathalias
   name: string

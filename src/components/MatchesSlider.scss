@@ -1,0 +1,51 @@
+@import "~slick-carousel/slick/slick.css";
+@import "~slick-carousel/slick/slick-theme.css";
+
+.slick-track {
+  >.slick-slide {
+    padding: 1em;
+
+    &:nth-child(even) {
+      background: rgba(240, 240, 240, 0.5);
+    }
+  }
+}
+
+.matches_slider {
+  .slick-arrow {
+    background: var(--color-green--bright);
+    height: 100px;
+    width: 50px;
+    opacity: .75;
+    transition: all 0.5s;
+
+    &::before {
+      opacity: 1;
+    }
+
+    &:hover {
+      width: 75px;
+      opacity: 1;
+    }
+  }
+
+  .slick-prev {
+    left: 0;
+    z-index: 5;
+  }
+
+  .slick-next {
+    right: 0;
+    z-index: 5;
+  }
+
+  .match__teaser {
+    header {
+      text-align: center;
+    }
+
+    img {
+      mix-blend-mode: darken;
+    }
+  }
+}

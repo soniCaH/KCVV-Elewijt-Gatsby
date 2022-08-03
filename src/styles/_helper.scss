@@ -1,3 +1,39 @@
+@mixin readmore-link {
+  a {
+    display: block;
+    text-align: right;
+
+    &::after {
+      display: inline-block;
+      content: url('../images/arrow-dark.svg');
+      margin: 0 .25em;
+      height: 1em;
+      transform: translateX(0);
+      width: 1em;
+      transition: all .25s ease-out;
+    }
+
+    &:hover {
+      &::after {
+        transform: translateX(2px);
+      }
+    }
+  }
+}
+
+@mixin rich-link($color: var(--color-green--bright)) {
+  background-image: linear-gradient(180deg, transparent 75%, $color 0);
+  background-size: 0 100%;
+  background-repeat: no-repeat;
+  text-decoration: none;
+  transition: background-size .4s ease;
+
+  &:hover {
+    background-size: 100% 100%;
+    cursor: pointer;
+  }
+}
+
 .fancy_header {
   display: grid;
   grid-template-columns: minmax(50px, 1fr) auto minmax(50px, 1fr);
@@ -10,4 +46,8 @@
     content: '';
     border-top: 6px double;
   }
+}
+
+.rich-link {
+  @include rich-link(var(--color-green--bright--alpha--75));
 }

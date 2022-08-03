@@ -1,6 +1,9 @@
 :root {
   --color-green--bright: #4acf52;
   --color-green--bright--dark: #41b147;
+  --color-green--bright--alpha--50: rgba(74, 207, 82, 0.5);
+  --color-green--bright--alpha--75: rgba(74, 207, 82, 0.75);
+  --color-green--bright--alpha--25: rgba(74, 207, 82, 0.25);
   --color-green--dark: #4B9B48;
 
   --color-black: #1E2024;
@@ -21,7 +24,7 @@
     "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
   --font-alt: stenciletta, -apple-system, system-ui, BlinkMacSystemFont,
     "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-
+  --font-numbers: ibm-plex-mono, sans-serif;
 
 
 

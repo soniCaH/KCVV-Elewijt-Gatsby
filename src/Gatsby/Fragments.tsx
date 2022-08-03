@@ -14,12 +14,30 @@ export const KCVVFluid960 = graphql`
   }
 `
 
+export const KCVVFluid240 = graphql`
+  fragment KCVVFluid240 on File {
+    childImageSharp {
+      gatsbyImageData(width: 240, placeholder: BLURRED, layout: CONSTRAINED)
+    }
+  }
+`
+
 export const query = graphql`
   fragment ArticleImage on media__image {
     relationships {
       field_media_image {
         localFile {
           ...KCVVFluid960
+        }
+      }
+    }
+  }
+
+  fragment SponsorImage on media__image {
+    relationships {
+      field_media_image {
+        localFile {
+          ...KCVVFluid240
         }
       }
     }
