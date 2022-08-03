@@ -1,5 +1,5 @@
 import $ from "jquery"
-import React, { Fragment, useEffect, FunctionComponent } from "react"
+import React, { Fragment, useEffect, PropsWithChildren } from "react"
 import { forceCheck } from "react-lazyload"
 
 import { PageFooter } from "../components/PageFooter"
@@ -11,7 +11,7 @@ declare global {
   }
 }
 
-const Layout = ({ children }) => {
+const Layout = ({ children }: PropsWithChildren) => {
   useEffect(() => {
     // eslint-disable-next-line
     const foundation = require(`foundation-sites`)
