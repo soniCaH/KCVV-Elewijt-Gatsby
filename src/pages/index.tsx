@@ -100,8 +100,10 @@ const IndexPage = () => {
                     <div className="frontpage__hero__article__inner">
                       <header>
                         <h3>
-                          {featuredArticle[0].node.relationships?.field_tags.map(({ name, path }) => (
-                            <span className={`tag__label`}>#{name}</span>
+                          {featuredArticle[0].node.relationships?.field_tags.map(({ name }, i) => (
+                            <span className={`tag__label`} key={`tag-${i}`}>
+                              #{name}
+                            </span>
                           ))}
                         </h3>
                         <div className="frontpage__hero__article__title">
@@ -187,7 +189,7 @@ const IndexPage = () => {
       </section>
 
       <section className="frontpage__main_content page__section">
-        {articles.edges.slice(5, 11).map(({ node }, i) => (
+        {articles.edges.slice(5, 11).map(({ node }) => (
           <CardTeaser
             key={node.id}
             title={node.title}

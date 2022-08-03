@@ -55,10 +55,8 @@ export const CardTeaser = ({ title, picture, link, tags, createTime }: CardTease
             {tags && tags?.length > 0 && (
               <div className={`card_tags`}>
                 <i className={`fa fa-tags`} aria-hidden="true"></i>
-                {tags.map(({ path, name }) => (
-                  <Link to={path.alias} title={name}>
-                    <span className={`tag__label`}>#{name}</span>
-                  </Link>
+                {tags.map(({ name }) => (
+                  <span className={`tag__label`}>#{name}</span>
                 ))}
               </div>
             )}
@@ -74,21 +72,40 @@ export const CardTVTeaser = ({ title, picture, link }: CardTeaserProps) => {
 
   return (
     <article className={`card card--teaser card--teaser-tv`}>
-      <Link to={link} title={title}>
-        <header className={`card_header`}>
-          {image && (
-            <>
-              <figure>
-                <GatsbyImage image={image} alt={title} />
-              </figure>
-              <span className={`kcvvtv__play`}></span>
-            </>
-          )}
-        </header>
-        <main className={`card_content`}>
-          <h4 className={`card_title`}>{title}</h4>
-        </main>
-      </Link>
+      {!CheckExternalLink(link) && (
+        <Link to={link} title={title}>
+          <header className={`card_header`}>
+            {image && (
+              <>
+                <figure>
+                  <GatsbyImage image={image} alt={title} />
+                </figure>
+                <span className={`kcvvtv__play`}></span>
+              </>
+            )}
+          </header>
+          <main className={`card_content`}>
+            <h4 className={`card_title`}>{title}</h4>
+          </main>
+        </Link>
+      )}
+      {CheckExternalLink(link) && (
+        <a href={link} title={title} target="_blank" rel="noopener noreferrer">
+          <header className={`card_header`}>
+            {image && (
+              <>
+                <figure>
+                  <GatsbyImage image={image} alt={title} />
+                </figure>
+                <span className={`kcvvtv__play`}></span>
+              </>
+            )}
+          </header>
+          <main className={`card_content`}>
+            <h4 className={`card_title`}>{title}</h4>
+          </main>
+        </a>
+      )}
     </article>
   )
 }
