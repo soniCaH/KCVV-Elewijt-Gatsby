@@ -1,7 +1,7 @@
 import axios from "axios"
 import { useStaticQuery, graphql } from "gatsby"
 import moment from "moment-timezone"
-import "moment-timezone/node_modules/moment/dist/locale/nl-be"
+import "moment/dist/locale/nl-be"
 import React from "react"
 import { useEffect, useState } from "react"
 

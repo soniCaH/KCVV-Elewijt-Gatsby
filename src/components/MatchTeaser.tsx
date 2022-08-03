@@ -2,7 +2,7 @@ import axios from "axios"
 import classNames from "classnames"
 import { graphql, useStaticQuery } from "gatsby"
 import moment from "moment-timezone"
-import "moment-timezone/node_modules/moment/dist/locale/nl-be"
+import "moment/dist/locale/nl-be"
 import React, { useEffect, useState } from "react"
 import LazyLoad from "react-lazyload"
 
