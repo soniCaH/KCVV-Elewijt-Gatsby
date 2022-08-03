@@ -36,7 +36,7 @@ export const PageFooter = () => {
         </div>
       </div>
       <div className="page-footer__bottom show-for-large">
-        <AltTitle title="Er is maar één plezante compagnie" variant="black" fitText={true} />
+        <AltTitle title="Er is maar één plezante compagnie" variant="black--alpha" fitText={true} />
       </div>
     </footer>
   )

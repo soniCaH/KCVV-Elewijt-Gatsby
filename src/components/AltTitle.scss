@@ -13,6 +13,15 @@
     --color-repeating_header-text: var(--color-green--bright);
   }
 
+  &--black--alpha {
+    --color-repeating_header-bg: #282828;
+    --color-repeating_header-text: var(--color-green--bright--alpha--75);
+
+    &:hover {
+      --color-repeating_header-text: var(--color-green--bright);
+    }
+  }
+
   &--white {
     --color-repeating_header-bg: #d4d7d5;
     --color-repeating_header-text: var(--color-green--bright);
@@ -31,6 +40,7 @@
   color: var(--color-repeating_header-text);
   position: relative;
   z-index: 4;
+  transition: color .5s ease;
 
   @media screen and (min-width: 60rem) {
     font-size: 4.5rem;

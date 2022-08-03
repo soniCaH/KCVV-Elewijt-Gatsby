@@ -1,7 +1,8 @@
 import axios from "axios"
 import { useStaticQuery, graphql } from "gatsby"
-import moment from "moment-timezone"
-import "moment/dist/locale/nl-be"
+import moment from "moment"
+import "moment-timezone"
+import "moment/locale/nl-be"
 import React from "react"
 import { useEffect, useState } from "react"
 
@@ -9,6 +10,7 @@ import { Match } from "../Types/Match"
 import { MatchesOverviewProps, MatchesOverviewQueryData } from "../Types/MatchesOverview"
 import { mapPsdStatus } from "../scripts/helper"
 import { MatchTeaserDetail } from "./MatchTeaser"
+import "./MatchesOverview.scss"
 import { Spinner } from "./Spinner"
 
 export const MatchesOverview = ({

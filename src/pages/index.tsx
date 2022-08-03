@@ -139,11 +139,11 @@ const IndexPage = () => {
         <AltTitle title="matches" variant="black" />
         <main className="frontpage__matches_carousel__content">
           <article className="frontpage__matches_carousel_item frontpage__matches_carousel_item--a">
-            <header className="frontpage__matches_carousel_item__header">A Team</header>
+            <header className="frontpage__matches_carousel_item__header">THE A Team</header>
             <MatchesTabs teamId={1} />
           </article>
           <article className="frontpage__matches_carousel_item frontpage__matches_carousel_item--b">
-            <header className="frontpage__matches_carousel_item__header">B Team</header>
+            <header className="frontpage__matches_carousel_item__header">THE B Team</header>
             <MatchesTabs teamId={2} />
           </article>
         </main>
