@@ -14,9 +14,11 @@
 
   .repeating_header {
     margin-top: calc(-0.5 * var(--margin-hero--mobile));
+    margin-bottom: 0;
 
     @media screen and (min-width: 60rem) {
       margin-top: calc(-0.5 * var(--margin-hero--desktop));
+      margin-bottom: 2rem;
     }
   }
 }
@@ -380,13 +382,13 @@
 }
 
 // .frontpage__slogan {
-  //   background: var(--color-green--bright);
+//   background: var(--color-green--bright);
 
-  //   .repeating_header {
-  //     margin: 1rem 0 0;
-  //   }
+//   .repeating_header {
+//     margin: 1rem 0 0;
+//   }
 
-  //   .repeating_header__title {
-  //     margin: 0;
-  //   }
-  // }
+//   .repeating_header__title {
+//     margin: 0;
+//   }
+// }

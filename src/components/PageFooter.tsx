@@ -88,7 +88,7 @@ const renderContactTable = () => (
       <tr>
         <th className="page-footer__contact-details__label">GC</th>
         <td className="page-footer__contact-details__value">
-          <a href="mailto:gc@kcvvelewijt.be" className={`rich-link`}>
+          <a href="mailto:gc@kcvvelewijt.be" className={`rich-link-center`}>
             John De Ron
           </a>
         </td>
@@ -96,7 +96,7 @@ const renderContactTable = () => (
       <tr>
         <th className="page-footer__contact-details__label">Algemeen contact</th>
         <td className="page-footer__contact-details__value">
-          <a href="mailto:info@kcvvelewijt.be" className={`rich-link`}>
+          <a href="mailto:info@kcvvelewijt.be" className={`rich-link-center`}>
             info@kcvvelewijt.be
           </a>
         </td>
@@ -104,7 +104,7 @@ const renderContactTable = () => (
       <tr>
         <th className="page-footer__contact-details__label">Jeugdwerking</th>
         <td className="page-footer__contact-details__value">
-          <a href="mailto:jeugd@kcvvelewijt.be" className={`rich-link`}>
+          <a href="mailto:jeugd@kcvvelewijt.be" className={`rich-link-center`}>
             jeugd@kcvvelewijt.be
           </a>
         </td>
@@ -112,7 +112,7 @@ const renderContactTable = () => (
       <tr>
         <th className="page-footer__contact-details__label">Verhuur kantine</th>
         <td className="page-footer__contact-details__value">
-          <a href="mailto:verhuur@kcvvelewijt.be" className={`rich-link`}>
+          <a href="mailto:verhuur@kcvvelewijt.be" className={`rich-link-center`}>
             Ann Walgraef
           </a>
         </td>
@@ -120,7 +120,7 @@ const renderContactTable = () => (
       <tr>
         <th className="page-footer__contact-details__label">Website</th>
         <td className="page-footer__contact-details__value">
-          <a href="mailto:kevin@kcvvelewijt.be" className={`rich-link`}>
+          <a href="mailto:kevin@kcvvelewijt.be" className={`rich-link-center`}>
             Kevin Van Ransbeeck
           </a>
         </td>
@@ -128,7 +128,7 @@ const renderContactTable = () => (
       <tr>
         <th className="page-footer__contact-details__label">Privacy &amp; cookies</th>
         <td className="page-footer__contact-details__value">
-          <a href="/privacy" className={`rich-link`}>
+          <a href="/privacy" className={`rich-link-center`}>
             Privacyverklaring
           </a>
         </td>

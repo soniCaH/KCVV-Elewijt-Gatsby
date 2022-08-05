@@ -34,6 +34,31 @@
   }
 }
 
+@mixin rich-link-center($color: var(--color-green--bright)) {
+  position: relative;
+
+  &:after {
+    background: none repeat scroll 0 0 transparent;
+    bottom: 0;
+    content: "";
+    display: block;
+    height: 2px;
+    left: 50%;
+    position: absolute;
+    background: $color;
+    transition: width 0.3s ease 0s, left 0.3s ease 0s;
+    width: 0;
+  }
+
+  &:hover,
+  &.active {
+    &:after {
+      width: 100%;
+      left: 0;
+    }
+  }
+}
+
 .fancy_header {
   display: grid;
   grid-template-columns: minmax(50px, 1fr) auto minmax(50px, 1fr);
@@ -50,4 +75,8 @@
 
 .rich-link {
   @include rich-link(var(--color-green--bright--alpha--75));
+}
+
+.rich-link-center {
+  @include rich-link-center(var(--color-green--bright--alpha--75));
 }
