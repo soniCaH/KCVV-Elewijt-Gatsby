@@ -88,7 +88,7 @@
 .card_title {
   overflow: hidden;
   display: block;
-  font-size: 20px;
+  font-size: 16px;
   line-height: 1.4;
   text-overflow: ellipsis;
   -webkit-line-clamp: 2;
@@ -96,6 +96,7 @@
   margin-bottom: 0;
 
   @media screen and (min-width: 60rem) {
+    font-size: 20px;
     height: 56px;
   }
 }
@@ -106,6 +107,12 @@
   color: var(--color-green--bright);
   display: flex;
   flex-direction: row;
+  flex-wrap: wrap;
+  font-size: 75%;
+
+  @media screen and (min-width: 60rem) {
+    font-size: 100%;
+  }
 
   .datetime {
     padding-right: 12px;
@@ -164,32 +171,39 @@
 }
 
 .kcvvtv__play {
-  width: 50px;
-  height: 50px;
+  width: 30px;
+  height: 30px;
   background-color: #FFF;
   border-radius: 50%;
   display: block;
   position: absolute;
   left: 50%;
   top: 50%;
-  border: 3px solid var(--color-green--bright);
+  border: 2px solid var(--color-green--bright);
   transform: translateX(-50%) translateY(-50%);
+
+  @media screen and (min-width: 60rem) {
+    width: 50px;
+    height: 50px;
+    border-width: 3px;
+  }
 
   &:before {
     content: "";
     display: block;
-    border-top: 14px solid transparent;
-    border-bottom: 14px solid transparent;
+    border-top: 5.4px solid transparent;
+    border-bottom: 5.4px solid transparent;
+    border-left: 7.8px solid var(--color-green--bright);
     position: absolute;
     top: 50%;
     left: 58%;
     transform: translateX(-58%) translateY(-50%);
     transition: all .2s ease-in;
 
-    border-top-width: 9px;
-    border-bottom-width: 9px;
-    border-left-width: 13px;
-    border-left-style: solid;
-    border-left-color: var(--color-green--bright);
+    @media screen and (min-width: 60rem) {
+      border-top-width: 9px;
+      border-bottom-width: 9px;
+      border-left-width: 13px;
+    }
   }
 }

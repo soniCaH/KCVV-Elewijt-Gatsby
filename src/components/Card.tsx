@@ -55,8 +55,10 @@ export const CardTeaser = ({ title, picture, link, tags, createTime }: CardTease
             {tags && tags?.length > 0 && (
               <div className={`card_tags`}>
                 <i className={`fa fa-tags`} aria-hidden="true"></i>
-                {tags.map(({ name }) => (
-                  <span className={`tag__label`}>#{name}</span>
+                {tags.map(({ name }, i) => (
+                  <span className={`tag__label`} key={i}>
+                    #{name}
+                  </span>
                 ))}
               </div>
             )}

@@ -1,6 +1,6 @@
 import { graphql, Link, useStaticQuery } from "gatsby"
 import { GatsbyImage, StaticImage } from "gatsby-plugin-image"
-import React from "react"
+import React, { MouseEventHandler } from "react"
 
 import { HomepageResponsePropsApi } from "../Types/Gatsby"
 import { AltTitle } from "../components/AltTitle"
@@ -135,7 +135,7 @@ const IndexPage = () => {
         </div>
       </section>
 
-      <section className="frontpage__matches_carousel page__section">
+      <section className="frontpage__matches_carousel page__section" id="frontpage__matches_carousel">
         <AltTitle title="matches" variant="black" />
         <main className="frontpage__matches_carousel__content">
           <article className="frontpage__matches_carousel_item frontpage__matches_carousel_item--a">
@@ -147,6 +147,10 @@ const IndexPage = () => {
             <MatchesTabs teamId={2} />
           </article>
         </main>
+        <footer className="frontpage__matches_carousel__buttons">
+          <span className="btn prev" onClick={previousMatches}></span>
+          <span className="btn next" onClick={nextMatches}></span>
+        </footer>
       </section>
 
       <section className="frontpage__main_content page__section">
@@ -213,6 +217,22 @@ const IndexPage = () => {
       </section>
     </Layout>
   )
+}
+
+const previousMatches = () => {
+  const gallery = document.querySelector(`#frontpage__matches_carousel`)
+  const gallery_scroller = gallery?.querySelector(`.frontpage__matches_carousel__content`)
+  const gallery_item_size = gallery_scroller?.querySelector(`article`)?.clientWidth || 0
+
+  gallery_scroller?.scrollBy(-gallery_item_size, 0)
+}
+
+const nextMatches = () => {
+  const gallery = document.querySelector(`#frontpage__matches_carousel`)
+  const gallery_scroller = gallery?.querySelector(`.frontpage__matches_carousel__content`)
+  const gallery_item_size = gallery_scroller?.querySelector(`article`)?.clientWidth || 0
+
+  gallery_scroller?.scrollBy(gallery_item_size, 0)
 }
 
 export default IndexPage
