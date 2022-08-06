@@ -35,3 +35,9 @@ interface RelatedArticle {
   path: Pathalias
   internal: { type: string }
 }
+export interface ArticleQuery {
+  data: {
+    site: { siteMetadata: { siteUrl: string; twitterHandle: string } }
+    nodeArticle: Article
+  }
+}

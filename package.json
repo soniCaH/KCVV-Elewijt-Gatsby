@@ -26,6 +26,7 @@
     "react-dom": "18.1.0",
     "react-helmet": "6.1.0",
     "react-lazyload": "3.2.0",
+    "react-share": "^4.4.0",
     "react-slick": "0.29.0",
     "sass": "1.54.1",
     "slick-carousel": "1.8.1"
@@ -42,6 +43,7 @@
     "type-check": "tsc --pretty --noEmit",
     "format:js": "prettier '**/*.{js,jsx}' --write",
     "lint": "eslint . --ignore-path .gitignore --ext .ts,.tsx,.js",
+    "lint:fix": "npm run lint -- --fix",
     "test": "jest"
   },
   "devDependencies": {

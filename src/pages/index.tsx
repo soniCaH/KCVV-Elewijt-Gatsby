@@ -1,6 +1,6 @@
 import { graphql, Link, useStaticQuery } from "gatsby"
 import { GatsbyImage, StaticImage } from "gatsby-plugin-image"
-import React, { MouseEventHandler } from "react"
+import React from "react"
 
 import { HomepageResponsePropsApi } from "../Types/Gatsby"
 import { AltTitle } from "../components/AltTitle"
@@ -90,7 +90,7 @@ const IndexPage = () => {
         path={`/`}
       />
 
-      <section className="frontpage__wrapper page__section">
+      <section className="frontpage__top__wrapper page__section">
         <div className="frontpage__hero">
           <div className="frontpage__hero__inner">
             <div className="frontpage__hero__container">

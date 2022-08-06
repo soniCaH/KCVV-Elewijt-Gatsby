@@ -3,6 +3,10 @@
     color: #FFF;
     height: 5rem;
 
+    @media screen and (min-width: 60rem) {
+        height: 7.5rem;
+    }
+
     .navigation {
         background: var(--color-green--bright);
         background-image: url('../images/header-pattern.png');
@@ -35,7 +39,7 @@
 .header--mobile {
     display: none;
 
-    @media screen and (max-width: 1024px) {
+    @media screen and (max-width: 60rem) {
         display: block;
     }
 }
@@ -56,7 +60,7 @@
     height: 100%;
     gap: 3rem;
 
-    @media screen and (max-width: 1024px) {
+    @media screen and (max-width: 60rem) {
         display: none !important;
     }
 }

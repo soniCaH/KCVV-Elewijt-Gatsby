@@ -22,6 +22,14 @@ export const KCVVFluid240 = graphql`
   }
 `
 
+export const KCVVHeroImage = graphql`
+  fragment KCVVHeroImage on File {
+    childImageSharp {
+      gatsbyImageData(placeholder: DOMINANT_COLOR, layout: FULL_WIDTH)
+    }
+  }
+`
+
 export const query = graphql`
   fragment ArticleImage on media__image {
     relationships {
@@ -38,6 +46,16 @@ export const query = graphql`
       field_media_image {
         localFile {
           ...KCVVFluid240
+        }
+      }
+    }
+  }
+
+  fragment HeroImage on media__image {
+    relationships {
+      field_media_image {
+        localFile {
+          ...KCVVHeroImage
         }
       }
     }

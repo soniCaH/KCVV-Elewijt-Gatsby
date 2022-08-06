@@ -1,6 +1,6 @@
 :root {
-  --margin-hero--mobile: 5vh;
-  --margin-hero--desktop: 5vh;
+  --margin-hero--mobile: 1.5rem;
+  --margin-hero--desktop: 2.5rem;
 }
 
 .page__section {
@@ -23,7 +23,7 @@
   }
 }
 
-.frontpage__wrapper {
+.frontpage__top__wrapper {
   position: relative;
   z-index: 1;
   background-color: transparent;
@@ -32,8 +32,19 @@
 
   margin-bottom: var(--margin-hero--mobile);
 
-  @media screen and (min-width: 60rem) {
+  @media screen and (min-width: 70rem) {
     margin-bottom: var(--margin-hero--desktop);
+  }
+
+  &:after {
+    content: "";
+    display: block;
+    margin-bottom: calc(2.2 * var(--margin-hero--mobile));
+    // padding: 0 var(--padding--mobile);
+
+    @media screen and (min-width: 60rem) {
+      margin-bottom: calc(3 * var(--margin-hero--desktop));
+    }
   }
 }
 
@@ -54,12 +65,12 @@
 }
 
 .frontpage__hero__inner {
-  margin-bottom: calc(-1 * var(--margin-hero--mobile));
+  margin-bottom: calc(-3 * var(--margin-hero--mobile));
   // padding: 0 var(--padding--mobile);
 
   @media screen and (min-width: 60rem) {
     padding: 0 var(--padding--desktop);
-    margin-bottom: calc(-1 * var(--margin-hero--desktop));
+    margin-bottom: calc(-3 * var(--margin-hero--desktop));
   }
 }
 
@@ -72,7 +83,7 @@
 .frontpage__hero__content {
   display: block;
 
-  @media screen and (min-width: 60rem) {
+  @media screen and (min-width: 70rem) {
     display: grid;
     grid-template-columns: 3fr 1fr;
     grid-auto-rows: 1fr;
@@ -84,7 +95,7 @@
   display: none;
   grid-column-end: span 1;
 
-  @media screen and (min-width: 60rem) {
+  @media screen and (min-width: 70rem) {
     display: block;
   }
 

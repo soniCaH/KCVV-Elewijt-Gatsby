@@ -2,6 +2,9 @@
 require(`dotenv`).config()
 
 module.exports = {
+  graphqlTypegen: {
+    typesOutputPath: `src/Types/gatsby-types.d.ts`,
+  },
   siteMetadata: {
     title: `KCVV Elewijt`,
     subTitle: `Er is maar één plezante compagnie`,

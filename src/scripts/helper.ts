@@ -64,3 +64,7 @@ export function sortRankings(a: RankingDataTeamObject, b: RankingDataTeamObject)
 
   return a.team?.club?.localName.localeCompare(b.team?.club?.localName)
 }
+
+export function replaceAll(source: string, search: string, replacement: string) {
+  return source.replace(new RegExp(search, `g`), replacement)
+}

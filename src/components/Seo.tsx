@@ -1,6 +1,7 @@
 import { useStaticQuery, graphql } from "gatsby"
 import React from "react"
 import { Helmet } from "react-helmet"
+import { SeoClassProps, SeoStaticSiteData } from "../Types/Seo"
 
 export const Seo = ({ title, path }: SeoClassProps) => {
   const {
@@ -31,23 +32,4 @@ export const Seo = ({ title, path }: SeoClassProps) => {
       // TODO: METADATA
     ></Helmet>
   )
-}
-
-type SeoStaticSiteData = {
-  site: {
-    siteMetadata: {
-      description?: string
-      siteUrl?: string
-      title: string
-      subTitle?: string
-      author?: string
-      fbAppId?: string
-    }
-  }
-}
-
-type SeoClassProps = {
-  title: string
-  path: string
-  description?: string
 }

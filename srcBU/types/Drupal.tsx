@@ -1,7 +1,5 @@
 import { IGatsbyImageData } from "gatsby-plugin-image"
 
-
-
 interface DaterangeField {
   value: string
   end_value: string

@@ -9,7 +9,7 @@ import { MatchTeaserDetail } from "./MatchTeaser"
 import "./MatchesSlider.scss"
 import { Spinner } from "./Spinner"
 
-const MatchesSlider: FunctionComponent = () => {
+const MatchesSlider = () => {
   const [data, setData] = useState<Match[]>([])
   const [loading, setLoading] = useState<boolean>(true)
 
