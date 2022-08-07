@@ -100,7 +100,7 @@
   }
 
   .gatsby-image-wrapper [data-main-image] {
-    will-change: scale, opacity;
+    will-change: transform, opacity;
     transition: all .3s ease;
     object-fit: cover;
     height: 100%;
@@ -233,7 +233,7 @@
   }
 
   .gatsby-image-wrapper [data-main-image] {
-    will-change: scale, opacity;
+    will-change: transform, opacity;
     transition: all .3s ease;
     object-fit: cover;
   }
@@ -241,7 +241,7 @@
   .frontpage__hero__article__title,
   h3 {
     transition: all .3s ease;
-    will-change: translate;
+    will-change: transform;
   }
 
 

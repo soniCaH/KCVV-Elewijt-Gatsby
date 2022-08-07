@@ -66,7 +66,7 @@ const Article = ({
             </div>
           </header>
 
-          <div className={`article__main`}>
+          <main className={`article__main`}>
             <section className={`article__metadata`}>
               <div className={`article__author`}>Geschreven door {nodeArticle.relationships.uid.display_name}.</div>
               <div className={`article__tags`}>
@@ -78,7 +78,7 @@ const Article = ({
                     <i className={`fa fa-tags`} aria-hidden="true"></i>
                     {` `}
                     {relatedTags.map(({ path, name }, i) => (
-                      <Link to={path.alias} key={i}>
+                      <Link to={path.alias} key={i} className="rich-link">
                         <span key={i} className={`tag__label`}>
                           #{name}
                         </span>
@@ -101,7 +101,29 @@ const Article = ({
               </div>
             </section>
             <div dangerouslySetInnerHTML={{ __html: cleanBody }} className="article__body" />
-          </div>
+          </main>
+
+          {relatedArticles.length > 0 && (
+            <footer className={`article__footer__wrapper`}>
+              <section className={`article__footer`}>
+                <h3>Gerelateerde inhoud</h3>
+                <div className="article__footer_content">
+                  {relatedArticles.map(({ path, title, internal }, i) => {
+                    return (
+                      <article key={i} className={`article__footer_related`}>
+                        <i
+                          className={`article__footer_related__icon article__footer_related__icon--${internal.type} fa`}
+                        />
+                        <Link to={path.alias} className="rich-link-center">
+                          {title}
+                        </Link>
+                      </article>
+                    )
+                  })}
+                </div>
+              </section>
+            </footer>
+          )}
         </article>
       </section>
     </Layout>

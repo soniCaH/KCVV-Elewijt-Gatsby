@@ -40,6 +40,7 @@
   padding: 75px 2em 2em;
   position: relative;
   margin-top: 50px;
+  z-index: 10;
 
   @media screen and (min-width: 20rem) {
     background: linear-gradient(to bottom, transparent 0%, transparent 50px, var(--color-black) 50px 100%),

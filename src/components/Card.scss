@@ -30,7 +30,7 @@
 
   img,
   .gatsby-image-wrapper [data-main-image] {
-    will-change: scale, opacity;
+    will-change: tranform, opacity;
     transition: all .3s ease;
     object-fit: cover;
   }
