@@ -1,6 +1,7 @@
 import { useStaticQuery, graphql } from "gatsby"
 import React from "react"
 import { Helmet } from "react-helmet"
+
 import { SeoClassProps, SeoStaticSiteData } from "../Types/Seo"
 
 export const Seo = ({ title, path }: SeoClassProps) => {

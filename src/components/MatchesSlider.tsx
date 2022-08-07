@@ -1,6 +1,6 @@
 import axios from "axios"
 import { graphql, useStaticQuery } from "gatsby"
-import React, { Fragment, FunctionComponent, useState } from "react"
+import React, { Fragment, useState } from "react"
 import { useEffect } from "react"
 import Slider, { LazyLoadTypes } from "react-slick"
 

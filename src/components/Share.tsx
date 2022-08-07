@@ -1,6 +1,7 @@
 import React from "react"
-import { ShareProps } from "../Types/ShareProps"
 import { FacebookShareButton, TwitterShareButton } from "react-share"
+
+import { ShareProps } from "../Types/ShareProps"
 import "./Share.scss"
 
 export const Share = ({ socialConfig, tags }: ShareProps) => (
