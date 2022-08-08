@@ -1,18 +1,66 @@
 import axios from "axios"
-import classNames from "classnames"
-import { graphql, useStaticQuery } from "gatsby"
+import { useStaticQuery, graphql } from "gatsby"
+import React, { Fragment } from "react"
+import { useEffect, useState } from "react"
+import { Match, MatchesQueryData } from "../Types/Match"
 import moment from "moment"
 import "moment-timezone"
 import "moment/locale/nl-be"
-import React, { useEffect, useState } from "react"
+import { Spinner } from "./Spinner"
+import "./ScheurkalenderMatches.scss"
+import { MatchTeaserDetailProps } from "../Types/MatchTeaser"
+import classNames from "classnames"
+import { StaticImage } from "gatsby-plugin-image"
 import LazyLoad from "react-lazyload"
-
-import { Match, MatchesQueryData } from "../Types/Match"
-import { MatchTeaserDetailProps, MatchTeaserProps } from "../Types/MatchTeaser"
 import { mapPsdStatus } from "../scripts/helper"
-import "./MatchTeaser.scss"
 
-export const MatchTeaserDetail = ({ match, includeRankings }: MatchTeaserDetailProps) => {
+export const ScheurkalenderMatches = () => {
+  const [dataA, setDataA] = useState<Match[]>([])
+  const [dataB, setDataB] = useState<Match[]>([])
+
+  const {
+    site: {
+      siteMetadata: { kcvvPsdApi },
+    },
+  }: MatchesQueryData = useStaticQuery(graphql`
+    {
+      site {
+        siteMetadata {
+          kcvvPsdApi
+        }
+      }
+    }
+  `)
+
+  useEffect(() => {
+    async function getDataA() {
+      const response = await axios.get(`${kcvvPsdApi}/matches/1`)
+      setDataA(response.data)
+    }
+    async function getDataB() {
+      const response = await axios.get(`${kcvvPsdApi}/matches/2`)
+      setDataB(response.data)
+    }
+    getDataA()
+    getDataB()
+  }, [kcvvPsdApi])
+
+  const data = dataA.concat(dataB)
+
+  return (
+    <div className={`scheurkalender__wrapper`}>
+      {data.length > 0 || <Spinner />}
+      {data
+        .filter((match: Match) => match.competitionType === `Competitie`)
+        .sort((a: Match, b: Match) => a.timestamp - b.timestamp)
+        .map((match: Match) => (
+          <MatchTeaserDetail match={match} key={match.id} />
+        ))}
+    </div>
+  )
+}
+
+export const MatchTeaserDetail = ({ match }: MatchTeaserDetailProps) => {
   moment.tz.setDefault(`Europe/Brussels`)
   moment.locale(`nl-be`)
   moment.localeData(`nl-be`)
@@ -25,7 +73,10 @@ export const MatchTeaserDetail = ({ match, includeRankings }: MatchTeaserDetailP
   return (
     <article className="match__teaser">
       <header>
-        <h3>{match.teamName.replace(`Voetbal : `, ``)}</h3>
+        <div className="match__teaser__series">
+          {(match.homeTeamId === 1 || match.awayTeamId === 1) && `1e Provinciale Vl. Brabant`}
+          {(match.homeTeamId === 2 || match.awayTeamId === 2) && `4e Provinciale C`}
+        </div>
         {match.status !== 0 && (
           <div className="match__teaser__datetime__wrapper match__teaser__datetime__wrapper--status">
             <time
@@ -44,7 +95,6 @@ export const MatchTeaserDetail = ({ match, includeRankings }: MatchTeaserDetailP
             <time className="match__teaser__datetime match__teaser__datetime--date" dateTime={d.format(`YYYY-MM-DD`)}>
               {d.format(`dddd DD MMMM`)}
             </time>
-            {` `}-{` `}
             <time className="match__teaser__datetime match__teaser__datetime--time" dateTime={d.format(`H:mm`)}>
               {d.format(`H:mm`)}
             </time>
@@ -57,14 +107,18 @@ export const MatchTeaserDetail = ({ match, includeRankings }: MatchTeaserDetailP
             "match__teaser__team--winner": matchPlayed && match.goalsHomeTeam > match.goalsAwayTeam,
           })}
         >
-          <LazyLoad debounce={false}>
+          {match.homeTeamId === null && (
             <img
               src={match.homeClub?.logo}
-              alt={match.homeClub?.abbreviation}
+              alt={match.homeClub?.name}
+              width={300}
               className="match__teaser__logo match__teaser__logo--home"
             />
-          </LazyLoad>
-          {match.homeClub?.abbreviation || match.homeClub?.name}
+          )}
+          {(match.homeTeamId === 1 || match.homeTeamId === 2) && (
+            <StaticImage src="../images/logo-flat.png" alt="KCVV ELEWIJT" width={300} />
+          )}
+          {match.homeClub?.name.replace(`Kcvv`, `KCVV`).replace(`K c v v`, `KCVV`)}
         </div>
 
         {matchPlayed || <span className="match__teaser__vs">vs</span>}
@@ -80,14 +134,21 @@ export const MatchTeaserDetail = ({ match, includeRankings }: MatchTeaserDetailP
             "match__teaser__team--winner": matchPlayed && match.goalsHomeTeam < match.goalsAwayTeam,
           })}
         >
-          <LazyLoad debounce={false}>
+          <div>
+            {match.awayClub?.name.replace(`Kcvv`, `KCVV`).replace(`K c v v`, `KCVV`)}
+            {` `}
+            {match.awayTeamId === null || (match.awayTeamId === 1 ? `A` : `B`)}
+          </div>
+          {match.awayTeamId === null && (
             <img
               src={match.awayClub?.logo}
-              alt={match.awayClub?.abbreviation}
+              alt={match.awayClub?.name}
               className="match__teaser__logo match__teaser__logo--away"
             />
-          </LazyLoad>
-          {match.awayClub?.abbreviation || match.awayClub?.name}
+          )}
+          {(match.awayTeamId === 1 || match.awayTeamId === 2) && (
+            <StaticImage src="../images/logo-flat.png" alt="KCVV ELEWIJT" width={300} />
+          )}
         </div>
       </main>
       {/* {includeRankings && match.competitionType === `Competitie` && (
@@ -100,44 +161,3 @@ export const MatchTeaserDetail = ({ match, includeRankings }: MatchTeaserDetailP
     </article>
   )
 }
-
-export const MatchTeaser = ({ teamId, action, includeRankings }: MatchTeaserProps) => {
-  if (action !== `prev` && action !== `next`) {
-    throw new Error(`Invalid action provided`)
-  }
-
-  const [data, setData] = useState<Match[]>([])
-
-  const {
-    site: {
-      siteMetadata: { kcvvPsdApi },
-    },
-  }: MatchesQueryData = useStaticQuery(graphql`
-    {
-      site {
-        siteMetadata {
-          kcvvPsdApi
-        }
-      }
-    }
-  `)
-
-  useEffect(() => {
-    async function getData() {
-      const response = await axios.get(`${kcvvPsdApi}/matches/${action}`, {
-        params: { include: teamId },
-      })
-      setData(response.data)
-    }
-    getData()
-  }, [action, kcvvPsdApi, teamId])
-
-  if (data.length > 0) {
-    return <MatchTeaserDetail match={data[0]} includeRankings={includeRankings} />
-  } else {
-    return <div className="match__teaser__no_match">Geen wedstrijd gevonden</div>
-  }
-}
-
-MatchTeaser.defaultProps = { includeRankings: false }
-MatchTeaserDetail.defaultProps = { includeRankings: false }

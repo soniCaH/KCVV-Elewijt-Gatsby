@@ -114,9 +114,7 @@ const Article = ({
                         <i
                           className={`article__footer_related__icon article__footer_related__icon--${internal.type} fa`}
                         />
-                        <Link to={path.alias} className="rich-link-center">
-                          {title}
-                        </Link>
+                        <Link to={path.alias}>{title}</Link>
                       </article>
                     )
                   })}

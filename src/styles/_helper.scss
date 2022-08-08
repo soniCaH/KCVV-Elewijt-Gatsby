@@ -80,3 +80,7 @@
 .rich-link-center {
   @include rich-link-center(var(--color-green--bright--alpha--75));
 }
+
+a:not([class]) {
+  text-decoration-skip-ink: auto;
+}

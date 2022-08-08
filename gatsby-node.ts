@@ -25,10 +25,6 @@ export const createPages: GatsbyNode["createPages"] = async ({ graphql, actions 
 
   const articlesTemplate = path.resolve(`./src/templates/Article.tsx`)
 
-  console.log(result.data)
-  console.log(result.data.articles)
-  console.log(result.data.articles.edges)
-
   const createArticlesPromise = result.data.articles.edges.map(({ node }) => {
     createPage({
       path: node.path.alias || ``,

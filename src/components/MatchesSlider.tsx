@@ -87,11 +87,7 @@ const MatchesSlider = () => {
             {data
               .sort((a, b) => a.timestamp - b.timestamp)
               .map((match: Match, i) => {
-                return (
-                  // <div className="matches_slider__item" key={i} data-equalizer-watch="true">
-                  <MatchTeaserDetail match={match} key={i} />
-                  // </div>
-                )
+                return <MatchTeaserDetail match={match} key={i} data-equalizer-watch="true" />
               })}
           </Slider>
         </div>
