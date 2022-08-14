@@ -10240,6 +10240,8 @@ type HeroImageFragment = { readonly relationships: { readonly field_media_image:
 
 type KCVVFluid240Fragment = { readonly childImageSharp: { readonly gatsbyImageData: import('gatsby-plugin-image').IGatsbyImageData } | null };
 
+type KCVVFluid480Fragment = { readonly childImageSharp: { readonly gatsbyImageData: import('gatsby-plugin-image').IGatsbyImageData } | null };
+
 type KCVVFluid960Fragment = { readonly childImageSharp: { readonly gatsbyImageData: import('gatsby-plugin-image').IGatsbyImageData } | null };
 
 type KCVVHeroImageFragment = { readonly childImageSharp: { readonly gatsbyImageData: import('gatsby-plugin-image').IGatsbyImageData } | null };

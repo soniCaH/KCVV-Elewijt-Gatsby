@@ -1,6 +1,4 @@
 .sponsors-overview {
-  &__wrapper {}
-
   &__section {
     display: grid;
     grid-gap: 1rem;
@@ -9,7 +7,7 @@
     &--top {
       grid-template-columns: 1fr;
 
-      @include break(medium-up) {
+      @media screen and (min-width: 60rem) {
         grid-template-columns: repeat(2, 1fr);
       }
     }
@@ -17,7 +15,7 @@
     &--middle {
       grid-template-columns: repeat(2, 1fr);
 
-      @include break(medium-up) {
+      @media screen and (min-width: 60rem) {
         grid-template-columns: repeat(3, 1fr);
       }
     }
@@ -25,7 +23,7 @@
     &--bottom {
       grid-template-columns: repeat(2, 1fr);
 
-      @include break(medium-up) {
+      @media screen and (min-width: 60rem) {
         grid-template-columns: repeat(4, 1fr);
       }
     }
@@ -37,13 +35,5 @@
 
   .cardItem {
     background: #FFF;
-  }
-}
-
-.page-footer__sponsors {
-  .read-more {
-    grid-column: 1/-1;
-    display: block;
-    text-align: right;
   }
 }

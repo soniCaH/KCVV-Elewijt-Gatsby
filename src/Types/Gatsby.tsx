@@ -9,3 +9,9 @@ export interface HomepageResponsePropsApi {
 export interface SponsorsResponsePropsApi {
   sponsors: { edges: SponsorNode[] }
 }
+
+export interface SponsorsPageResponsePropsApi {
+  goldSponsors: { edges: SponsorNode[] }
+  silverSponsors: { edges: SponsorNode[] }
+  bronzeSponsors: { edges: SponsorNode[] }
+}

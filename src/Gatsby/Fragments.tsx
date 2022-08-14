@@ -22,6 +22,14 @@ export const KCVVFluid240 = graphql`
   }
 `
 
+export const KCVVFluid480 = graphql`
+  fragment KCVVFluid480 on File {
+    childImageSharp {
+      gatsbyImageData(width: 480, placeholder: BLURRED, layout: CONSTRAINED)
+    }
+  }
+`
+
 export const KCVVHeroImage = graphql`
   fragment KCVVHeroImage on File {
     childImageSharp {

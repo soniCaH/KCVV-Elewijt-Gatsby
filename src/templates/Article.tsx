@@ -27,16 +27,8 @@ const Article = ({ data: { nodeArticle } }: ArticleQuery) => {
 
   const pathUrl = nodeArticle.path.alias
 
-  const css = `
-    html {
-      --featured-img: url(${getSrc(heroImage)});
-    }
-  `
-
   return (
     <Layout>
-      <style>{css}</style>
-
       <section className="article__wrapper page__section">
         <article className="article__full">
           <header className="article__header">
