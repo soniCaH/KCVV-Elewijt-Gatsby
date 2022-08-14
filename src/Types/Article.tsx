@@ -1,6 +1,6 @@
 import { IGatsbyImageData } from "gatsby-plugin-image"
 
-import { Pathalias, Tags } from "./Drupal"
+import { Pathalias, Tag } from "./Drupal"
 
 export interface Article {
   id: string
@@ -22,12 +22,25 @@ export interface Article {
         }
       }
     }
-    field_tags: Tags[]
+    image_og: {
+      relationships: {
+        field_media_image: {
+          localFile: {
+            childImageSharp: { gatsbyImageData: IGatsbyImageData }
+          }
+        }
+      }
+    }
+    field_tags: Tag[]
   }
 }
 
 export interface ArticleNode {
   node: Article
+}
+
+interface TagNode {
+  node: Tag
 }
 
 interface RelatedArticle {
@@ -37,7 +50,33 @@ interface RelatedArticle {
 }
 export interface ArticleQuery {
   data: {
-    site: { siteMetadata: { siteUrl: string; twitterHandle: string } }
     nodeArticle: Article
+  }
+}
+
+export interface NewsOverviewQuery {
+  pageContext: {
+    group: ArticleNode[]
+    index: number
+    first: boolean
+    last: boolean
+    pageCount: number
+    pathPrefix: string
+    extraContext: object
+  }
+  data: {
+    categoryTags: {
+      edges: TagNode[]
+    }
+  }
+}
+
+export interface NewsTagPageQuery {
+  data: {
+    categoryTags: {
+      edges: TagNode[]
+    }
+    term: Tag
+    articles: { edges: ArticleNode[] }
   }
 }

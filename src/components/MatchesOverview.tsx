@@ -12,6 +12,7 @@ import { mapPsdStatus } from "../scripts/helper"
 import { MatchTeaserDetail } from "./MatchTeaser"
 import "./MatchesOverview.scss"
 import { Spinner } from "./Spinner"
+import { useSiteMetaData } from "../hooks/use-site-metadata"
 
 export const MatchesOverview = ({
   include = [],
@@ -29,19 +30,7 @@ export const MatchesOverview = ({
   const [data, setData] = useState<Match[]>([])
   const [loading, setLoading] = useState<boolean>(true)
 
-  const {
-    site: {
-      siteMetadata: { kcvvPsdApi },
-    },
-  }: MatchesOverviewQueryData = useStaticQuery(graphql`
-    {
-      site {
-        siteMetadata {
-          kcvvPsdApi
-        }
-      }
-    }
-  `)
+  const { kcvvPsdApi } = useSiteMetaData()
 
   useEffect(() => {
     async function getData() {

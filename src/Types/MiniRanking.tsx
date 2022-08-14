@@ -3,11 +3,3 @@ export interface MiniRankingProps {
   homeTeam: string
   awayTeam: string
 }
-
-export interface MiniRankingData {
-  site: {
-    siteMetadata: {
-      kcvvPsdApi: string
-    }
-  }
-}

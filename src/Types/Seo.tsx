@@ -1,18 +1,11 @@
-export interface SeoStaticSiteData {
-  site: {
-    siteMetadata: {
-      description?: string
-      siteUrl?: string
-      title: string
-      subTitle?: string
-      author?: string
-      fbAppId?: string
-    }
-  }
-}
-
 export interface SeoClassProps {
   title: string
   path: string
+  keywords?: string[]
   description?: string
+  image?: {
+    src: string
+    width: number
+    height: number
+  }
 }

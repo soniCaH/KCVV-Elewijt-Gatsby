@@ -22,20 +22,7 @@ function SEO({ lang, title, description, meta, keywords, path, image: metaImage 
             title={title}
             titleTemplate={`%s | ${site.siteMetadata.title}`}
             link={canonicalUrl ? [{ rel: `canonical`, href: canonicalUrl }] : []}
-            meta={[
-              {
-                name: `description`,
-                content: metaDescription,
-              },
-              {
-                property: `fb:app_id`,
-                content: site.siteMetadata.fbAppId,
-              },
-            ]
-              .concat(getOgMeta(title, metaDescription, canonicalUrl))
-              .concat(getOgImage(site, metaImage, title))
-              .concat(getTwitterMeta(site, title, metaDescription, metaImage))
-              .concat(getKeywords(keywords))
+            meta={
               .concat(meta)}
           />
         )
@@ -43,100 +30,7 @@ function SEO({ lang, title, description, meta, keywords, path, image: metaImage 
     />
   )
 }
-const getOgMeta = (title, metaDescription, canonicalUrl) => {
-  const ogMeta = [
-    {
-      property: `og:title`,
-      content: title,
-    },
-    {
-      property: `og:description`,
-      content: metaDescription,
-    },
-    {
-      property: `og:type`,
-      content: `website`,
-    },
-  ].concat(getOgUrl(canonicalUrl))
-  return ogMeta
-}
 
-const getTwitterMeta = (site, title, metaDescription, metaImage) => {
-  const twitterMeta = [
-    {
-      name: `twitter:creator`,
-      content: site.siteMetadata.author,
-    },
-    {
-      name: `twitter:title`,
-      content: title,
-    },
-    {
-      name: `twitter:description`,
-      content: metaDescription,
-    },
-  ].concat(getTwitterCard(site, metaImage))
-  return twitterMeta
-}
-
-const getOgImage = ({ siteMetadata }, metaImage, title) => {
-  const image = metaImage && metaImage.src ? `${siteMetadata.siteUrl}${metaImage.src}` : null
-  return metaImage
-    ? [
-      {
-        property: `og:image`,
-        content: image,
-      },
-      {
-        property: `og:image:width`,
-        content: metaImage.width,
-      },
-      {
-        property: `og:image:type`,
-        content: `image/jpeg`,
-      },
-      {
-        property: `og:image:height`,
-        content: metaImage.height,
-      },
-      {
-        property: `og:image:title`,
-        content: title,
-      },
-      {
-        property: `og:image:alt`,
-        content: title,
-      },
-    ]
-    : []
-}
-
-const getTwitterCard = (metaImage) =>
-  metaImage
-    ? {
-      name: `twitter:card`,
-      content: `summary_large_image`,
-    }
-    : {
-      name: `twitter:card`,
-      content: `summary`,
-    }
-
-const getOgUrl = (canonicalUrl) =>
-  canonicalUrl
-    ? {
-      property: `og:url`,
-      content: canonicalUrl,
-    }
-    : []
-
-const getKeywords = (keywords) =>
-  keywords.length > 0
-    ? {
-      name: `keywords`,
-      content: keywords.join(`, `),
-    }
-    : []
 
 SEO.defaultProps = {
   lang: `nl-BE`,

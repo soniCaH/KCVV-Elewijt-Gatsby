@@ -13,24 +13,13 @@ import classNames from "classnames"
 import { StaticImage } from "gatsby-plugin-image"
 import LazyLoad from "react-lazyload"
 import { mapPsdStatus } from "../scripts/helper"
+import { useSiteMetaData } from "../hooks/use-site-metadata"
 
 export const ScheurkalenderMatches = () => {
   const [dataA, setDataA] = useState<Match[]>([])
   const [dataB, setDataB] = useState<Match[]>([])
 
-  const {
-    site: {
-      siteMetadata: { kcvvPsdApi },
-    },
-  }: MatchesQueryData = useStaticQuery(graphql`
-    {
-      site {
-        siteMetadata {
-          kcvvPsdApi
-        }
-      }
-    }
-  `)
+  const { kcvvPsdApi } = useSiteMetaData()
 
   useEffect(() => {
     async function getDataA() {

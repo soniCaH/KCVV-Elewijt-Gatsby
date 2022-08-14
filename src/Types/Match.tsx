@@ -7,14 +7,6 @@ interface MatchTeam {
   version: number
 }
 
-export interface MatchesQueryData {
-  site: {
-    siteMetadata: {
-      kcvvPsdApi: string
-    }
-  }
-}
-
 export interface Match {
   id: number
   competitionType: string

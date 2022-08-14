@@ -1,9 +1,3 @@
-// /**
-//  * Implement Gatsby's Node APIs in this file.
-//  *
-//  * See: https://www.gatsbyjs.org/docs/node-apis/
-//  */
-
 import * as dotenv from "dotenv"
 dotenv.config({ path: __dirname + `/.env` })
 
@@ -11,6 +5,7 @@ import path from "path"
 
 import type { GatsbyNode } from "gatsby"
 import { gatsbyNodePageQueries } from "./src/Gatsby/PageQueries"
+import createPaginatedPages from "gatsby-paginate"
 
 export const createPages: GatsbyNode["createPages"] = async ({ graphql, actions }) => {
   const { createPage } = actions
@@ -24,7 +19,6 @@ export const createPages: GatsbyNode["createPages"] = async ({ graphql, actions 
   )
 
   const articlesTemplate = path.resolve(`./src/templates/Article.tsx`)
-
   const createArticlesPromise = result.data.articles.edges.map(({ node }) => {
     createPage({
       path: node.path.alias || ``,
@@ -35,12 +29,39 @@ export const createPages: GatsbyNode["createPages"] = async ({ graphql, actions 
     })
   })
 
-  await Promise.all([createArticlesPromise])
+  const newsOverviewTemplate = path.resolve(`./src/templates/NewsOverview.tsx`)
+  const createNewsOverviewPromise = createPaginatedPages({
+    edges: result.data.articles.edges,
+    createPage,
+    pageTemplate: newsOverviewTemplate,
+    pageLength: 18,
+    pathPrefix: `news`,
+  })
+
+  const newsTagPageTemplate = path.resolve(`./src/templates/NewsTagPage.tsx`)
+  const createNewsTagPagePromise = result.data.categories.edges.map(({ node }) => {
+    createPage({
+      path: node.path.alias,
+      component: newsTagPageTemplate,
+      context: {
+        slug: node.path.alias,
+      },
+    })
+  })
+
+  const pageTemplate = path.resolve(`src/templates/Page.tsx`)
+  const createPagePromise = result.data.pages.edges.map(({ node }) => {
+    createPage({
+      path: node.path.alias,
+      component: pageTemplate,
+      context: {
+        slug: node.path.alias,
+      },
+    })
+  })
+
+  await Promise.all([createArticlesPromise, createNewsOverviewPromise, createNewsTagPagePromise, createPagePromise])
 }
-
-// import { createArticles } from "./src/Gatsby/CreatePages"
-
-// // const createPaginatedPages = require(`gatsby-paginate`)
 
 // graphql function doesn't throw an error
 // so we have to check to check for
@@ -55,33 +76,16 @@ const wrapper = (promise) =>
 
 // export const createPages: GatsbyNode["createPages"] = async ({ actions, graphql }) => {
 //   const { createPage } = actions
-//   const articleTemplate = path.resolve(`src/templates/Article.tsx`)
 //   // const pageTemplate = path.resolve(`src/templates/page.js`)
 //   // const teamTemplate = path.resolve(`src/templates/team.js`)
 //   // const playerTemplate = path.resolve(`src/templates/player.js`)
 //   // const playerShareTemplate = path.resolve(`src/templates/player-share.js`)
 //   // const staffTemplate = path.resolve(`src/templates/player-staff.js`)
-//   // const newsOverviewTemplate = path.resolve(`src/templates/newsoverview.js`)
-//   // const categoryTemplate = path.resolve(`src/templates/categoryPage.js`)
-//   const result = await wrapper(
-//     graphql(`
-//       query {
-//         ${gatsbyNodePageQueries}
-//       }
-//     `)
-//   )
-
-//   console.log(result.data.articles.edges)
-
-//   createArticles(result.data.articles.edges, createPage, articleTemplate)
 //   //   createPages(result.data.pages.edges, createPage, pageTemplate)
 //   //   createTeams(result.data.teams.edges, createPage, teamTemplate)
 //   //   createPlayers(result.data.players.edges, createPage, playerTemplate, playerShareTemplate)
 //   //   createStaff(result.data.staff.edges, createPage, staffTemplate)
 
-//   //   createOverviewNews(result.data.articles.edges, createPaginatedPages, createPage, newsOverviewTemplate, `news`, 18)
-
-//   //   createCategoryPages(result.data.categories.edges, createPage, categoryTemplate)
 //   // }
 
 //   // exports.onCreatePage = async ({ page, actions }) => {

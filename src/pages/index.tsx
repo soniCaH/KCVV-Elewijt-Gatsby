@@ -1,4 +1,4 @@
-import { graphql, Link, useStaticQuery } from "gatsby"
+import { graphql, Link, PageProps, useStaticQuery } from "gatsby"
 import { GatsbyImage, StaticImage } from "gatsby-plugin-image"
 import React from "react"
 
@@ -11,6 +11,15 @@ import { MatchesTabs } from "../components/MatchesTabs"
 import { Seo } from "../components/Seo"
 import Layout from "../layouts"
 import "./index.scss"
+
+export const Head = () => (
+  <Seo
+    title="Er is maar één plezante compagnie"
+    description="Startpagina van stamnummer 00055: KCVV Elewijt."
+    path={`/`}
+    keywords={[`KCVV`, `Voetbal`, `Elewijt`, `Crossing`, `KCVVE`, `Zemst`, `00055`, `55`, `1982`, `1980`]}
+  />
+)
 
 const IndexPage = () => {
   const { articles, videos }: HomepageResponsePropsApi = useStaticQuery(graphql`
@@ -84,12 +93,6 @@ const IndexPage = () => {
 
   return (
     <Layout>
-      <Seo
-        title="Er is maar één plezante compagnie"
-        description="Startpagina van stamnummer 00055: KCVV Elewijt."
-        path={`/`}
-      />
-
       <section className="frontpage__top__wrapper page__section">
         <div className="frontpage__hero">
           <div className="frontpage__hero__inner">

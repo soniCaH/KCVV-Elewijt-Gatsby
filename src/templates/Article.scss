@@ -75,7 +75,12 @@
 
   @media screen and (min-width: 60rem) {
     height: 35rem;
+
+    .gatsby-image-wrapper {
+      height: 35rem;
+    }
   }
+
 }
 
 .article__main {
@@ -147,7 +152,6 @@
 
   a:not(.btn) {
     position: relative;
-
     background-image: linear-gradient(180deg, transparent 75%, var(--color-green--bright) 0);
     background-size: 0 100%;
     background-repeat: no-repeat;

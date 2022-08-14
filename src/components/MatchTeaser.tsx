@@ -11,6 +11,7 @@ import { Match, MatchesQueryData } from "../Types/Match"
 import { MatchTeaserDetailProps, MatchTeaserProps } from "../Types/MatchTeaser"
 import { mapPsdStatus } from "../scripts/helper"
 import "./MatchTeaser.scss"
+import { useSiteMetaData } from "../hooks/use-site-metadata"
 
 export const MatchTeaserDetail = ({ match, includeRankings }: MatchTeaserDetailProps) => {
   moment.tz.setDefault(`Europe/Brussels`)
@@ -108,19 +109,7 @@ export const MatchTeaser = ({ teamId, action, includeRankings }: MatchTeaserProp
 
   const [data, setData] = useState<Match[]>([])
 
-  const {
-    site: {
-      siteMetadata: { kcvvPsdApi },
-    },
-  }: MatchesQueryData = useStaticQuery(graphql`
-    {
-      site {
-        siteMetadata {
-          kcvvPsdApi
-        }
-      }
-    }
-  `)
+  const { kcvvPsdApi } = useSiteMetaData()
 
   useEffect(() => {
     async function getData() {

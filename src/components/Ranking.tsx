@@ -1,27 +1,15 @@
 import axios from "axios"
-import { useStaticQuery, graphql } from "gatsby"
 import { useEffect, useState } from "react"
 import React from "react"
 
-import { RankingProps, RankingDataObject, RankingData, RankingDataTeamObject } from "../Types/Ranking"
+import { RankingProps, RankingDataObject, RankingDataTeamObject } from "../Types/Ranking"
 import { sortRankings } from "../scripts/helper"
 import { Spinner } from "./Spinner"
+import { useSiteMetaData } from "../hooks/use-site-metadata"
 
 export const Ranking = ({ teamId }: RankingProps) => {
   const [data, setData] = useState<RankingDataObject[]>([])
-  const {
-    site: {
-      siteMetadata: { kcvvPsdApi },
-    },
-  }: RankingData = useStaticQuery(graphql`
-    {
-      site {
-        siteMetadata {
-          kcvvPsdApi
-        }
-      }
-    }
-  `)
+  const { kcvvPsdApi } = useSiteMetaData()
 
   useEffect(() => {
     async function getData() {

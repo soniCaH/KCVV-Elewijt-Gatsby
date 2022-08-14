@@ -1,7 +1,9 @@
-// eslint-disable-next-line @typescript-eslint/no-var-requires
-require(`dotenv`).config()
+import * as dotenv from "dotenv"
+dotenv.config({ path: __dirname + `/.env` })
 
-module.exports = {
+import type { GatsbyConfig } from "gatsby"
+
+const config: GatsbyConfig = {
   graphqlTypegen: {
     typesOutputPath: `src/Types/gatsby-types.d.ts`,
   },
@@ -18,8 +20,6 @@ module.exports = {
   trailingSlash: `always`,
   flags: {
     FAST_DEV: true,
-    // LMDB_STORE: true,
-    // PRESERVE_FILE_DOWNLOAD_CACHE: true,
     PARALLEL_SOURCING: false,
   },
   plugins: [
@@ -57,23 +57,25 @@ module.exports = {
     //     defaultDataLayer: { platform: `gatsby`, branch: process.env.BRANCH },
     //   },
     // },
-    // {
-    //   resolve: `gatsby-plugin-manifest`,
-    //   options: {
-    //     name: `KCVV Elewijt Voetbalclub`,
-    //     description: `Website voor de voetbalclub KCVV Elewijt.`,
-    //     short_name: `KCVVElewijt`,
-    //     start_url: `/`,
-    //     lang: `nl`,
-    //     background_color: `#4B9B48`,
-    //     theme_color: `#4B9B48`,
-    //     display: `standalone`,
-    //     icon: `src/images/icon.png`,
-    //     crossOrigin: `use-credentials`,
-    //   },
-    // },
+    {
+      resolve: `gatsby-plugin-manifest`,
+      options: {
+        name: `KCVV Elewijt Voetbalclub`,
+        description: `Website voor de voetbalclub KCVV Elewijt.`,
+        short_name: `KCVVElewijt`,
+        start_url: `/`,
+        lang: `nl`,
+        background_color: `#4B9B48`,
+        theme_color: `#4B9B48`,
+        display: `standalone`,
+        icon: `src/images/logo-flat.png`,
+        crossOrigin: `use-credentials`,
+      },
+    },
     `gatsby-plugin-offline`,
     `gatsby-plugin-netlify`,
     // `gatsby-plugin-use-query-params`,
   ],
 }
+
+export default config

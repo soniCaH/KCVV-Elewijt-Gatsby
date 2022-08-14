@@ -8,24 +8,13 @@ import { Match, MatchesQueryData } from "../Types/Match"
 import { MatchTeaserDetail } from "./MatchTeaser"
 import "./MatchesSlider.scss"
 import { Spinner } from "./Spinner"
+import { useSiteMetaData } from "../hooks/use-site-metadata"
 
 const MatchesSlider = () => {
   const [data, setData] = useState<Match[]>([])
   const [loading, setLoading] = useState<boolean>(true)
 
-  const {
-    site: {
-      siteMetadata: { kcvvPsdApi },
-    },
-  }: MatchesQueryData = useStaticQuery(graphql`
-    {
-      site {
-        siteMetadata {
-          kcvvPsdApi
-        }
-      }
-    }
-  `)
+  const { kcvvPsdApi } = useSiteMetaData()
 
   const settings_slickslider = {
     slidesToShow: 4,

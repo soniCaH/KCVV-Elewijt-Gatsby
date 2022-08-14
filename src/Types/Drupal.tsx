@@ -2,7 +2,7 @@ export interface Pathalias {
   alias: string
 }
 
-export interface Tags {
+export interface Tag {
   name: string
   path: Pathalias
 }

@@ -11,7 +11,7 @@ declare global {
   }
 }
 
-const Layout = ({ children }: PropsWithChildren<void>) => {
+const Layout = ({ children }: PropsWithChildren) => {
   useEffect(() => {
     // eslint-disable-next-line
     const foundation = require(`foundation-sites`)

@@ -8,26 +8,16 @@ import { Share } from "../components/Share"
 import Layout from "../layouts"
 import { replaceAll } from "../scripts/helper"
 import "./Article.scss"
+import { useSiteMetaData } from "../hooks/use-site-metadata"
 
-const Article = ({
-  data: {
-    nodeArticle,
-    site: {
-      siteMetadata: { siteUrl, twitterHandle },
-    },
-  },
-}: ArticleQuery) => {
+const Article = ({ data: { nodeArticle } }: ArticleQuery) => {
+  const { siteUrl, twitterHandle } = useSiteMetaData()
+
   const { gatsbyImageData: heroImage } =
     nodeArticle.relationships.field_media_article_image.relationships.field_media_image.localFile.childImageSharp
 
   const relatedArticles = nodeArticle.relationships.field_related_content || []
   const relatedTags = nodeArticle.relationships.field_tags || []
-
-  const ogImage = {
-    src: getSrc(heroImage),
-    width: heroImage.width,
-    height: heroImage.height,
-  }
 
   const cleanBody = replaceAll(
     nodeArticle.body.processed,
@@ -45,7 +35,6 @@ const Article = ({
 
   return (
     <Layout>
-      <Seo title={nodeArticle.title} description={nodeArticle.body.summary} path={pathUrl} />
       <style>{css}</style>
 
       <section className="article__wrapper page__section">
@@ -90,7 +79,7 @@ const Article = ({
               <div className={`article__social-share`}>
                 <Share
                   socialConfig={{
-                    twitterHandle,
+                    twitterHandle: twitterHandle || ``,
                     config: {
                       url: `${siteUrl}${pathUrl}`,
                       title: nodeArticle.title,
@@ -130,14 +119,32 @@ const Article = ({
 
 export default Article
 
+export const Head = ({ data: { nodeArticle } }: ArticleQuery) => {
+  const { gatsbyImageData: heroImage } =
+    nodeArticle.relationships.image_og.relationships.field_media_image.localFile.childImageSharp
+
+  const relatedTags = nodeArticle.relationships.field_tags || []
+
+  const ogImage = {
+    src: getSrc(heroImage) || ``,
+    width: heroImage.width,
+    height: heroImage.height,
+  }
+
+  const pathUrl = nodeArticle.path.alias
+  return (
+    <Seo
+      title={nodeArticle.title}
+      keywords={relatedTags.map(({ name }) => name)}
+      image={ogImage}
+      description={nodeArticle.body.summary}
+      path={pathUrl}
+    />
+  )
+}
+
 export const query = graphql`
   query ($slug: String!) {
-    site {
-      siteMetadata {
-        siteUrl
-        twitterHandle
-      }
-    }
     nodeArticle(path: { alias: { eq: $slug } }) {
       path {
         alias
@@ -192,6 +199,9 @@ export const query = graphql`
         }
         field_media_article_image {
           ...HeroImage
+        }
+        image_og: field_media_article_image {
+          ...ArticleImage
         }
         field_tags {
           name

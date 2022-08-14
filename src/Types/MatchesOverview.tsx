@@ -4,11 +4,3 @@ export interface MatchesOverviewProps {
   action?: string
   details?: boolean
 }
-
-export interface MatchesOverviewQueryData {
-  site: {
-    siteMetadata: {
-      kcvvPsdApi: string
-    }
-  }
-}

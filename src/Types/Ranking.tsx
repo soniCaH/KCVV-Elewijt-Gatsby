@@ -82,11 +82,3 @@ export interface RankingState {
 export interface RankingProps {
   teamId: number
 }
-
-export interface RankingData {
-  site: {
-    siteMetadata: {
-      kcvvPsdApi: string
-    }
-  }
-}
