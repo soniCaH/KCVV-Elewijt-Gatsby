@@ -1,0 +1,61 @@
+body blockquote {
+  &::before {
+    color: var(--color-green--bright);
+    font-size: 15rem;
+    line-height: .8;
+
+    content: '\201C';
+
+    float: left;
+    margin-bottom: -6rem;
+    margin-left: -.5rem;
+    overflow: hidden;
+  }
+
+  font-size: 1.5rem;
+  font-weight: 500;
+  line-height: 1;
+
+  border: 0;
+  margin: 2rem 0;
+  padding: 0;
+  overflow: hidden;
+
+  &,
+  p {
+    color: var(--color-gray--dark);
+    line-height: 1.25;
+  }
+
+  p {
+    padding-left: 6rem;
+  }
+
+  @media screen and (min-width: 60rem) {
+    font-size: 1.5rem;
+  }
+}
+
+.featured-border {
+  &::before {
+    content: '';
+    display: block;
+    width: 4rem;
+    border-top: 2px solid var(--color-green--bright);
+    margin-bottom: 10px;
+  }
+}
+
+.after-border {
+  margin-bottom: 1rem;
+  position: relative;
+
+  &::after {
+    border-top: 2px solid var(--color-green--bright);
+    position: absolute;
+    width: 4rem;
+    bottom: -8px;
+    left: 0;
+    content: '';
+  }
+}

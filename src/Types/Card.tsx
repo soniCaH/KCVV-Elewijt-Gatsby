@@ -13,6 +13,13 @@ export interface CardTeaserProps {
   createTime?: string
 }
 
+export interface CardImageProps {
+  title: string
+  picture: IGatsbyImageData
+  link?: string
+  body?: string
+}
+
 export interface CardImageOnlyProps {
   picture: IGatsbyImageData
   link: string

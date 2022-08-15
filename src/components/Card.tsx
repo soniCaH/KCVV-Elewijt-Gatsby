@@ -2,7 +2,7 @@ import { Link } from "gatsby"
 import { GatsbyImage, getImage } from "gatsby-plugin-image"
 import React from "react"
 
-import { CardImageOnlyProps, CardTeaserProps } from "../Types/Card"
+import { CardImageOnlyProps, CardImageProps, CardTeaserProps } from "../Types/Card"
 import "./Card.scss"
 
 export const CardImageOnly = ({ picture, link }: CardImageOnlyProps) => {
@@ -24,6 +24,60 @@ export const CardImageOnly = ({ picture, link }: CardImageOnlyProps) => {
           <header>
             <GatsbyImage image={image} alt={link} />
           </header>
+        </a>
+      )}
+    </article>
+  )
+}
+
+export const CardImage = ({ title, picture, link = ``, body }: CardImageProps) => {
+  const image = getImage(picture)
+
+  return (
+    <article className={`card card--teaser`}>
+      {link || (
+        <>
+          <header className={`card_header`}>
+            {image && (
+              <figure>
+                <GatsbyImage image={image} alt={title} />
+              </figure>
+            )}
+          </header>
+          <main className={`card_content`}>
+            <h4 className={`card_title`}>{title}</h4>
+            {body && <div className={`card_body`} dangerouslySetInnerHTML={{ __html: body }}></div>}
+          </main>
+        </>
+      )}
+      {link && !CheckExternalLink(link) && (
+        <Link to={link} title={title}>
+          <header className={`card_header`}>
+            {image && (
+              <figure>
+                <GatsbyImage image={image} alt={title} />
+              </figure>
+            )}
+          </header>
+          <main className={`card_content`}>
+            <h4 className={`card_title`}>{title}</h4>
+            {body && <div className={`card_body`} dangerouslySetInnerHTML={{ __html: body }}></div>}
+          </main>
+        </Link>
+      )}
+      {link && CheckExternalLink(link) && (
+        <a href={link} title={title} target="_blank" rel="noopener noreferrer">
+          <header className={`card_header`}>
+            {image && (
+              <figure>
+                <GatsbyImage image={image} alt={title} />
+              </figure>
+            )}
+          </header>
+          <main className={`card_content`}>
+            <h4 className={`card_title`}>{title}</h4>
+            {body && <div className={`card_body`} dangerouslySetInnerHTML={{ __html: body }}></div>}
+          </main>
         </a>
       )}
     </article>

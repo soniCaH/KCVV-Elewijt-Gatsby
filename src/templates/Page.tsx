@@ -4,7 +4,6 @@ import React from "react"
 import { Seo } from "../components/Seo"
 import Layout from "../layouts"
 import { PageQuery } from "../Types/Page"
-import "./Article.scss"
 
 const PageTemplate = ({ data }: PageQuery) => {
   const post = data.nodePage
@@ -18,30 +17,25 @@ const PageTemplate = ({ data }: PageQuery) => {
 
   return (
     <Layout>
-      <section className="article__wrapper page__section">
-        <article className="article__full">
-          <header className="article__header">
-            <div className="article__header__title__wrapper">
-              <div className="article__header__title">
-                <h1>{post.title}</h1>
-              </div>
-            </div>
-            {image && (
-              <div className="article__header__image__wrapper">
-                <div className="article__header__image__bg">
-                  <GatsbyImage image={image} alt={``} />
-                </div>
-                <div className="article__header__image__hero">
-                  <GatsbyImage image={image} alt={``} />
-                </div>
-              </div>
-            )}
-          </header>
-          <main className={`article__main`}>
-            <div dangerouslySetInnerHTML={{ __html: cleanBody }} className="article__body" />
-          </main>
-        </article>
-      </section>
+      <header className="page_header__wrapper">
+        <div className="page_header">
+          <h1>{post.title}</h1>
+        </div>
+      </header>
+
+      {image && (
+        <div className="page__header__image__wrapper">
+          <div className="page__header__image__bg">
+            <GatsbyImage image={image} alt={``} />
+          </div>
+          <div className="page__header__image__hero">
+            <GatsbyImage image={image} alt={``} />
+          </div>
+        </div>
+      )}
+      <main className="page__wrapper page__wrapper--limited">
+        <div dangerouslySetInnerHTML={{ __html: cleanBody }} className="page__body" />
+      </main>
     </Layout>
   )
 }

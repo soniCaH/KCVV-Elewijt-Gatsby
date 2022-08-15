@@ -29,7 +29,7 @@ const Article = ({ data: { nodeArticle } }: ArticleQuery) => {
 
   return (
     <Layout>
-      <section className="article__wrapper page__section">
+      <section className="article__wrapper">
         <article className="article__full">
           <header className="article__header">
             <div className="article__header__title__wrapper">

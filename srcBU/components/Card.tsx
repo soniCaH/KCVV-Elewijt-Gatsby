@@ -6,13 +6,10 @@ import React, { FunctionComponent } from "react"
 import "./Card.scss"
 import {
   CardImageHeaderProps,
-  CardImageOnlyProps,
-  CardImageProps,
   CardProps,
   CardTeaserBodyProps,
   CardTeaserFooterProps,
   CardTeaserHeaderProps,
-  CardTeaserProps,
   CardTeaserVerticalProps,
 } from "./Card.types"
 import Icon from "./Icon"
@@ -96,93 +93,6 @@ const CardImageHeader: FunctionComponent<CardImageHeaderProps> = ({ title, image
     </div>
   </header>
 )
-
-export const CardTeaser: FunctionComponent<CardTeaserProps> = ({
-  title,
-  icon,
-  body,
-  link,
-  picture,
-  metadata,
-  tags,
-  createTime,
-}) => {
-  const image = getImage(picture)
-
-  return (
-    <article className={`cardItem`}>
-      {!CheckExternalLink(link) && (
-        <Link to={link}>
-          {image && <CardTeaserHeader title={title} image={image} />}
-          <CardTeaserBody title={title} icon={icon} body={body} />
-        </Link>
-      )}
-      {CheckExternalLink(link) && (
-        <a href={link} target="_blank" rel="noopener noreferrer">
-          {image && <CardTeaserHeader title={title} image={image} />}
-          <CardTeaserBody title={title} icon={icon} body={body} />
-        </a>
-      )}
-      {metadata && <CardTeaserFooter tags={tags || []} createTime={createTime || ``} />}
-    </article>
-  )
-}
-
-CardTeaser.defaultProps = {
-  icon: undefined,
-  body: undefined,
-  metadata: false,
-  tags: [],
-  createTime: undefined,
-}
-
-export const CardImage: FunctionComponent<CardImageProps> = ({ title, picture, link, body }) => {
-  const image = getImage(picture)
-  return (
-    <article className={`cardItem cardItem--image`}>
-      {link === undefined && image && <CardImageHeader title={title} image={image} body={body} />}
-      {link !== undefined && image && !CheckExternalLink(link) && (
-        <Link to={link}>
-          <CardImageHeader title={title} image={image} body={body} />
-        </Link>
-      )}
-      {link !== undefined && image && CheckExternalLink(link) && (
-        <a href={link} target="_blank" rel="noopener noreferrer">
-          <CardImageHeader title={title} image={image} body={body} />
-        </a>
-      )}
-    </article>
-  )
-}
-
-CardImage.defaultProps = {
-  link: undefined,
-  body: undefined,
-}
-
-export const CardImageOnly: FunctionComponent<CardImageOnlyProps> = ({ link, picture }) => {
-  const image = getImage(picture)
-  return (
-    <article className={`cardItem cardItem--vertical`}>
-      {!CheckExternalLink(link) && image && (
-        <Link to={link}>
-          <header>
-            <figure>
-              <GatsbyImage image={image} alt={``} />
-            </figure>
-          </header>
-        </Link>
-      )}
-      {CheckExternalLink(link) && image && (
-        <a href={link} target="_blank" rel="noopener noreferrer">
-          <header>
-            <GatsbyImage image={image} alt={``} />
-          </header>
-        </a>
-      )}
-    </article>
-  )
-}
 
 export const CardTeaserVertical: FunctionComponent<CardTeaserVerticalProps> = ({ title, picture, link }) => {
   const image = getImage({ ...picture, aspectRatio: 6 / 8 })

@@ -1,3 +1,14 @@
+.sponsors__wrapper {
+  padding-top: var(--padding--mobile);
+  padding-bottom: var(--padding--mobile);
+
+  @media screen and (min-width: 60rem) {
+    padding-top: var(--padding--desktop);
+    padding-bottom: var(--padding--desktop);
+  }
+}
+
+
 .sponsors-overview {
   &__section {
     display: grid;

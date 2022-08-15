@@ -1,0 +1,36 @@
+.page__contact-details {
+  margin-top: 2rem;
+
+  tbody,
+  tr,
+  th,
+  td {
+    border: 0;
+    background: transparent !important;
+    padding: 0;
+  }
+
+  tr {
+    @media screen and (max-width: 60rem) {
+      display: grid;
+      margin-bottom: .5rem;
+
+      th {
+        text-decoration: underline;
+      }
+    }
+  }
+
+  &__label {
+    text-align: left;
+    padding: 0;
+    text-transform: uppercase;
+  }
+
+  &__value {
+    text-align: left;
+    font-weight: normal;
+    padding: 0;
+    text-transform: uppercase;
+  }
+}

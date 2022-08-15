@@ -26,10 +26,6 @@ h6 {
     text-transform: none;
 }
 
-.featured-border {
-    @include featured-border;
-}
-
 .screenreader {
     position: absolute !important;
     left: -10000px;
@@ -65,9 +61,6 @@ figure {
     display: table;
 }
 
-body blockquote {
-    @include block-quote;
-}
 
 .stats__card {
     border: none;
@@ -93,9 +86,6 @@ body blockquote {
     text-align: center;
 }
 
-.rich-link {
-    @include rich-link;
-}
 
 .select__input {
     [type=text] {

@@ -64,10 +64,11 @@ export interface NewsOverviewQuery {
     pathPrefix: string
     extraContext: object
   }
-  data: {
-    categoryTags: {
-      edges: TagNode[]
-    }
+}
+
+export interface NewsOverviewCategoryResponsePropsApi {
+  categoryTags: {
+    edges: TagNode[]
   }
 }
 

@@ -104,7 +104,7 @@ const SponsorsPage = () => {
         </div>
       </header>
 
-      <div className="newsoverview__wrapper page__wrapper page__wrapper--limited">
+      <div className="sponsors__wrapper page__wrapper page__wrapper--limited">
         <section className={`sponsors-overview__section sponsors-overview__section--top`}>
           {goldSponsors.edges.map(({ node }, i) => {
             const website = (node.field_website && node.field_website.uri) || ``

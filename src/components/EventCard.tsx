@@ -1,11 +1,11 @@
-import moment from "moment-timezone"
-import "moment-timezone/node_modules/moment/locale/nl-be"
-import React, { FunctionComponent } from "react"
-
+import moment from "moment"
+import "moment-timezone"
+import "moment/locale/nl-be"
+import React from "react"
+import { EventCardProps } from "../Types/EventCard"
 import { CardImage } from "./Card"
-import { EventCardProps } from "./EventCard.types"
 
-const EventCard: FunctionComponent<EventCardProps> = ({ title, picture, link, datetimeStart, datetimeEnd }) => {
+const EventCard = ({ title, picture, link, datetimeStart, datetimeEnd }: EventCardProps) => {
   moment.tz.setDefault(`Europe/Brussels`)
   moment.locale(`nl-be`)
   moment.localeData(`nl-be`)

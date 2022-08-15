@@ -1,9 +1,5 @@
 import { IGatsbyImageData } from "gatsby-plugin-image"
 
-interface DaterangeField {
-  value: string
-  end_value: string
-}
 
 export interface KcvvTv {
   created: string
@@ -25,25 +21,7 @@ export interface KcvvTv {
   }
 }
 
-export interface Event {
-  field_daterange: DaterangeField
-  field_event_link: { uri: string }
-  title: string
-  relationships: {
-    field_media_image: {
-      field_media_image: {
-        alt: string
-      }
-      relationships: {
-        field_media_image: {
-          localFile: {
-            childImageSharp: { gatsbyImageData: IGatsbyImageData }
-          }
-        }
-      }
-    }
-  }
-}
+
 
 export interface Player {
   path: Pathalias

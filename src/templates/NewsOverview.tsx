@@ -1,14 +1,33 @@
-import { graphql, Link } from "gatsby"
+import { graphql, Link, useStaticQuery } from "gatsby"
 import React from "react"
 import { CardTeaser } from "../components/Card"
 import { Seo } from "../components/Seo"
 import Layout from "../layouts"
-import { NewsOverviewQuery } from "../Types/Article"
+import { NewsOverviewCategoryResponsePropsApi, NewsOverviewQuery } from "../Types/Article"
 import "./NewsOverview.scss"
 
-const NewsOverviewPage = ({ pageContext, data }: NewsOverviewQuery) => {
+const NewsOverviewPage = ({ pageContext }: NewsOverviewQuery) => {
   const { group, index, first, last, pathPrefix } = pageContext
-  const { categoryTags } = data
+  const { categoryTags }: NewsOverviewCategoryResponsePropsApi = useStaticQuery(graphql`
+    query {
+      categoryTags: allTaxonomyTermCategory(
+        sort: { fields: name, order: ASC }
+        filter: {
+          status: { eq: true }
+          relationships: { node__article: { elemMatch: { drupal_internal__nid: { gte: 1 } } } }
+        }
+      ) {
+        edges {
+          node {
+            path {
+              alias
+            }
+            name
+          }
+        }
+      }
+    }
+  `)
 
   const previousUrl = index - 1 === 1 ? `/${pathPrefix}/` : `/${pathPrefix}/${(index - 1).toString()}`
   const nextUrl = `/${pathPrefix}/${(index + 1).toString()}`
@@ -70,27 +89,6 @@ export const Head = ({ pageContext }: NewsOverviewQuery) => {
   const pathName = `/${pathPrefix}/${index}`
   return <Seo title={`Nieuwsarchief - Pagina ${index}`} path={pathName} />
 }
-
-export const query = graphql`
-  query {
-    categoryTags: allTaxonomyTermCategory(
-      sort: { fields: name, order: ASC }
-      filter: {
-        status: { eq: true }
-        relationships: { node__article: { elemMatch: { drupal_internal__nid: { gte: 1 } } } }
-      }
-    ) {
-      edges {
-        node {
-          path {
-            alias
-          }
-          name
-        }
-      }
-    }
-  }
-`
 
 interface NavLinkProps {
   test: boolean
