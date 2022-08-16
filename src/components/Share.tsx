@@ -2,13 +2,14 @@ import React from "react"
 import { FacebookShareButton, TwitterShareButton } from "react-share"
 
 import { ShareProps } from "../Types/ShareProps"
+import Icon from "./Icon"
 import "./Share.scss"
 
 export const Share = ({ socialConfig, tags }: ShareProps) => (
   <>
     <span className={`social-share-title`}>Delen op: </span>
     <FacebookShareButton url={socialConfig.config.url} className="social-share-btn is-outlined is-rounded facebook">
-      <i className={`fa fa-facebook-f`} /> Facebook
+      <Icon icon="fa-facebook-f" /> Facebook
     </FacebookShareButton>
     <TwitterShareButton
       url={socialConfig.config.url}
@@ -17,7 +18,7 @@ export const Share = ({ socialConfig, tags }: ShareProps) => (
       via={socialConfig.twitterHandle.split(`@`).join(``)}
       hashtags={tags.map(({ name }) => name)}
     >
-      <i className={`fa fa-twitter`} /> Twitter
+      <Icon icon="fa-twitter" /> Twitter
     </TwitterShareButton>
   </>
 )

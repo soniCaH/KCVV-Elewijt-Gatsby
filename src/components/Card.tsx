@@ -4,6 +4,7 @@ import React from "react"
 
 import { CardImageOnlyProps, CardImageProps, CardTeaserProps } from "../Types/Card"
 import "./Card.scss"
+import Icon from "./Icon"
 
 export const CardImageOnly = ({ picture, link }: CardImageOnlyProps) => {
   const image = getImage(picture)
@@ -102,13 +103,13 @@ export const CardTeaser = ({ title, picture, link, tags, createTime }: CardTease
           <div className={`card_meta`}>
             {createTime && (
               <span className={`datetime`}>
-                <i className={`fa fa-clock-o`} aria-hidden="true"></i>
+                <Icon icon="fa-clock-o" />
                 {createTime}
               </span>
             )}
             {tags && tags?.length > 0 && (
               <div className={`card_tags`}>
-                <i className={`fa fa-tags`} aria-hidden="true"></i>
+                <Icon icon="fa-tags" />
                 {tags.map(({ name }, i) => (
                   <span className={`tag__label`} key={i}>
                     #{name}

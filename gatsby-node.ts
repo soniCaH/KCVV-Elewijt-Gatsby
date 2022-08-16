@@ -60,7 +60,24 @@ export const createPages: GatsbyNode["createPages"] = async ({ graphql, actions 
     })
   })
 
-  await Promise.all([createArticlesPromise, createNewsOverviewPromise, createNewsTagPagePromise, createPagePromise])
+  const teamTemplate = path.resolve(`src/templates/Team.tsx`)
+  const createTeamPromise = result.data.teams.edges.map(({ node }) => {
+    createPage({
+      path: node.path.alias,
+      component: teamTemplate,
+      context: {
+        slug: node.path.alias,
+      },
+    })
+  })
+
+  await Promise.all([
+    createArticlesPromise,
+    createNewsOverviewPromise,
+    createNewsTagPagePromise,
+    createPagePromise,
+    createTeamPromise,
+  ])
 }
 
 // graphql function doesn't throw an error
@@ -82,7 +99,6 @@ const wrapper = (promise) =>
 //   // const playerShareTemplate = path.resolve(`src/templates/player-share.js`)
 //   // const staffTemplate = path.resolve(`src/templates/player-staff.js`)
 //   //   createPages(result.data.pages.edges, createPage, pageTemplate)
-//   //   createTeams(result.data.teams.edges, createPage, teamTemplate)
 //   //   createPlayers(result.data.players.edges, createPage, playerTemplate, playerShareTemplate)
 //   //   createStaff(result.data.staff.edges, createPage, staffTemplate)
 

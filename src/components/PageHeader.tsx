@@ -1,6 +1,7 @@
 import { Link } from "gatsby"
 import { StaticImage } from "gatsby-plugin-image"
 import React, { Fragment, useEffect } from "react"
+import Icon from "./Icon"
 
 import "./PageHeader.scss"
 
@@ -186,11 +187,6 @@ const MenuItems = () => {
             </Link>
           </li>
           <li>
-            <Link to="/club/responsibilities/" activeClassName="active" partiallyActive={true}>
-              Verantwoordelijkheden
-            </Link>
-          </li>
-          <li>
             <Link to="/club/ultras/" activeClassName="active" partiallyActive={true}>
               KCVV Ultras
             </Link>
@@ -204,7 +200,7 @@ const MenuItems = () => {
       </li>
       <li>
         <Link to="/search/" activeClassName="active" partiallyActive={true}>
-          <i className={`fa fa-search`} aria-hidden="true"></i>
+          <Icon icon="fa fa-search" />
           {` `}
           <span className={`display-mobile--inline-block display-mobile search--label`}>Zoeken</span>
         </Link>
@@ -300,7 +296,7 @@ export const PageHeaderMobile = () => (
           title=""
           data-original-title="Facebook"
         >
-          <i className="fa fa fa-facebook" />
+          <Icon icon="fa-facebook" />
         </a>
 
         <a
@@ -311,7 +307,7 @@ export const PageHeaderMobile = () => (
           title=""
           data-original-title="Twitter"
         >
-          <i className="fa fa fa-twitter" />
+          <Icon icon="fa-twitter" />
         </a>
 
         <a
@@ -322,7 +318,7 @@ export const PageHeaderMobile = () => (
           title=""
           data-original-title="Instagram"
         >
-          <i className="fa fa fa-instagram" />
+          <Icon icon="fa-instagram" />
         </a>
       </li>
     </ul>

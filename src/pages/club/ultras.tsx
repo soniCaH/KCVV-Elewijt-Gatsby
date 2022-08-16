@@ -1,7 +1,7 @@
 import { useStaticQuery, graphql } from "gatsby"
-import { getImage, getImageData, StaticImage } from "gatsby-plugin-image"
+import { StaticImage } from "gatsby-plugin-image"
 import React from "react"
-import { CardImage } from "../../components/Card"
+import Icon from "../../components/Icon"
 import { Seo } from "../../components/Seo"
 import ogImage from "../../images/header-ultras.jpg"
 import Layout from "../../layouts"
@@ -116,7 +116,7 @@ const UltrasPage = () => {
               target="_blank"
               rel="noopener noreferrer"
             >
-              <i className={`fa fa-facebook-square`} aria-hidden="true"></i> facebook.com/KCVV.ULTRAS.55
+              <Icon icon="fa-facebook-square" /> facebook.com/KCVV.ULTRAS.55
             </a>
           </p>
         </section>

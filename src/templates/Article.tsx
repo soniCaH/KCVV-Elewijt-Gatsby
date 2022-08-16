@@ -9,6 +9,7 @@ import Layout from "../layouts"
 import { replaceAll } from "../scripts/helper"
 import "./Article.scss"
 import { useSiteMetaData } from "../hooks/use-site-metadata"
+import Icon from "../components/Icon"
 
 const Article = ({ data: { nodeArticle } }: ArticleQuery) => {
   const { siteUrl, twitterHandle } = useSiteMetaData()
@@ -52,11 +53,11 @@ const Article = ({ data: { nodeArticle } }: ArticleQuery) => {
               <div className={`article__author`}>Geschreven door {nodeArticle.relationships.uid.display_name}.</div>
               <div className={`article__tags`}>
                 <span className={`datetime`}>
-                  <i className={`fa fa-clock-o`} aria-hidden="true"></i> {nodeArticle.created}
+                  <Icon icon="fa-clock-o" /> {nodeArticle.created}
                 </span>
                 {relatedTags.length > 0 && (
                   <span className={`tag__wrapper`}>
-                    <i className={`fa fa-tags`} aria-hidden="true"></i>
+                    <Icon icon="fa-tags" />
                     {` `}
                     {relatedTags.map(({ path, name }, i) => (
                       <Link to={path.alias} key={i} className="rich-link">

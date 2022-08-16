@@ -23,11 +23,9 @@ const NewsTagPage = ({ data }: NewsTagPageQuery) => {
         <section className={`archive__filter_wrapper`}>
           <h5>Filter op categorie</h5>
           <section className={`archive__filter_filters`}>
-            <Link to={`/news/`} className={`btn btn--small`}>
-              Alles
-            </Link>
+            <Link to={`/news/`}>Alles</Link>
             {categoryTags.edges.map(({ node }) => (
-              <Link to={node.path.alias} className={`btn btn--small`} key={node.name}>
+              <Link to={node.path.alias} key={node.name}>
                 {node.name}
               </Link>
             ))}

@@ -1,19 +1,5 @@
 import { graphql } from "gatsby"
 
-export const KCVVFluid960 = graphql`
-  fragment KCVVFluid960 on File {
-    childImageSharp {
-      gatsbyImageData(
-        width: 960
-        placeholder: DOMINANT_COLOR
-        layout: CONSTRAINED
-        aspectRatio: 1.5
-        transformOptions: { cropFocus: ENTROPY }
-      )
-    }
-  }
-`
-
 export const KCVVFluid240 = graphql`
   fragment KCVVFluid240 on File {
     childImageSharp {
@@ -30,10 +16,45 @@ export const KCVVFluid480 = graphql`
   }
 `
 
+export const KCVVFluid960 = graphql`
+  fragment KCVVFluid960 on File {
+    childImageSharp {
+      gatsbyImageData(
+        width: 960
+        placeholder: DOMINANT_COLOR
+        layout: CONSTRAINED
+        aspectRatio: 1.5
+        transformOptions: { cropFocus: ENTROPY }
+      )
+    }
+  }
+`
+
+export const KCVVFullWidth = graphql`
+  fragment KCVVFullWidth on File {
+    childImageSharp {
+      gatsbyImageData(
+        placeholder: DOMINANT_COLOR
+        layout: FULL_WIDTH
+        aspectRatio: 1.7777
+        transformOptions: { cropFocus: ENTROPY }
+      )
+    }
+  }
+`
+
 export const KCVVHeroImage = graphql`
   fragment KCVVHeroImage on File {
     childImageSharp {
       gatsbyImageData(placeholder: DOMINANT_COLOR, layout: FULL_WIDTH)
+    }
+  }
+`
+
+export const KCVVFluidPlayerTeaser = graphql`
+  fragment KCVVFluidPlayerTeaser on File {
+    childImageSharp {
+      gatsbyImageData(width: 615, placeholder: TRACED_SVG, layout: CONSTRAINED)
     }
   }
 `
@@ -64,6 +85,16 @@ export const query = graphql`
       field_media_image {
         localFile {
           ...KCVVHeroImage
+        }
+      }
+    }
+  }
+
+  fragment FullImage on media__image {
+    relationships {
+      field_media_image {
+        localFile {
+          ...KCVVFullWidth
         }
       }
     }

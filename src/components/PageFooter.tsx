@@ -3,6 +3,7 @@ import { StaticImage } from "gatsby-plugin-image"
 import React from "react"
 
 import { AltTitle } from "./AltTitle"
+import Icon from "./Icon"
 import "./PageFooter.scss"
 import { SponsorsBlock } from "./SponsorsBlock"
 
@@ -52,12 +53,12 @@ const renderSocialLinks = () => (
           target="_blank"
           rel="noopener noreferrer"
         >
-          <i className="fa fa-facebook" />
+          <Icon icon="fa-facebook" />
         </a>
       </li>
       <li className="social-links__item">
         <a href="https://twitter.com/kcvve" className="social-links__link" target="_blank" rel="noopener noreferrer">
-          <i className="fa fa-twitter" />
+          <Icon icon="fa-twitter" />
         </a>
       </li>
       <li className="social-links__item">
@@ -67,7 +68,7 @@ const renderSocialLinks = () => (
           target="_blank"
           rel="noopener noreferrer"
         >
-          <i className="fa fa-instagram" />
+          <Icon icon="fa fa-instagram" />
         </a>
       </li>
     </ul>
