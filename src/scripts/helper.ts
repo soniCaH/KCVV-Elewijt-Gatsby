@@ -68,3 +68,12 @@ export function sortRankings(a: RankingDataTeamObject, b: RankingDataTeamObject)
 export function replaceAll(source: string, search: string, replacement: string) {
   return source.replace(new RegExp(search, `g`), replacement)
 }
+
+export function translateGameResult(result: string) {
+  const statusCodes = new Map([
+    [`WON`, `Gewonnen`],
+    [`EQUAL`, `Gelijkgespeeld`],
+    [`LOST`, `Verloren`],
+  ])
+  return statusCodes.get(result) || null
+}

@@ -1,0 +1,145 @@
+.team__stats__players_overview {
+  margin-top: 3rem;
+}
+
+.team__stats__bars {
+  margin-top: 3rem;
+
+  td {
+    padding: 5px;
+    height: 30px;
+    vertical-align: middle;
+    text-align: left;
+  }
+
+  .team__stats__bars__label {
+    width: 16%;
+    color: gray;
+    font-size: 14px;
+    text-align: center;
+  }
+
+  .team__stats__bars__title {
+    column-span: 3;
+  }
+
+  .team__stats__bars__bars__wrapper {
+    overflow: hidden;
+    float: left;
+    width: 100%;
+    height: 10px;
+    margin: 10px 0;
+    background-color: #f5f5f5;
+  }
+
+  .team__stats__bars__bars__percent {
+    float: left;
+    height: 10px;
+    background: #e0e0e0;
+    text-align: right;
+    font-size: 0;
+    transition: width 0.2s;
+
+    &--home {
+      float: left;
+      text-align: left;
+      background: var(--color-green--bright);
+    }
+
+    &--away {
+      text-align: right;
+      float: right;
+    }
+  }
+}
+
+.team__stats__team,
+.team__stats__players {
+  position: relative;
+  z-index: 2;
+
+  table {
+    font-size: .75em;
+
+    td,
+    th {
+      padding: 0.25rem 0.3125rem 0.3125rem;
+
+      @media screen and (min-width: 60rem) {
+        padding: 0.5rem 0.625rem 0.625rem;
+      }
+    }
+
+    @media screen and (min-width: 60rem) {
+      font-size: 1em;
+    }
+  }
+}
+
+.team__stats__team {
+  .team__stats__stats {
+    display: block;
+
+    @media screen and (min-width: 70rem) {
+      display: grid;
+      grid-gap: .5em;
+      grid-template-columns: repeat(4, 1fr);
+    }
+
+    span:not(.team__stats__streak) {
+      display: block;
+    }
+  }
+}
+
+.team__stats__players {}
+
+.team__stats__label {
+  font-weight: bold;
+  min-width: 150px;
+}
+
+.team__stats__streak {
+  color: #FFF;
+  display: inline-block;
+  font-weight: bold;
+  padding: .25em;
+  width: 2em;
+  text-align: center;
+
+  &--won {
+    background: #8dba62;
+  }
+
+  &--equal {
+    background: #ffcb1e;
+  }
+
+  &--lost {
+    background: #ff5538;
+  }
+}
+
+.team__stats__list {
+  list-style: none;
+  margin-bottom: 0;
+  margin-left: 15px;
+
+  li {
+    position: relative;
+
+    &::before {
+      content: "";
+      display: block;
+      position: absolute;
+      left: -13px;
+      top: calc(1em - 2px);
+      width: 0;
+      height: 0;
+      border-left: 6px solid var(--color-green--bright);
+      border-top: 4px solid transparent;
+      border-bottom: 4px solid transparent;
+      transform: translateY(-50%);
+    }
+  }
+}

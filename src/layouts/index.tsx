@@ -22,12 +22,12 @@ const Layout = ({ children }: PropsWithChildren) => {
         const url = $(this).attr(`href`) || ``
         const hash = url.substring(url.indexOf(`#`))
 
-        $(`.team-sub_navigation a[href="${hash}"]`).trigger(`click`, [true])
+        $(`.team__sub_navigation a[href="${hash}"]`).trigger(`click`, [true])
       }
     })
 
     if (window.location.hash) {
-      $(`.team-sub_navigation a[href="${window.location.hash}"]`).trigger(`click`, [true])
+      $(`.team__sub_navigation a[href="${window.location.hash}"]`).trigger(`click`, [true])
     }
     $(`.widget__filter`).on(`change.zf.tabs`, function () {
       forceCheck()

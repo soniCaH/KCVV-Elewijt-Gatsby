@@ -1,10 +1,26 @@
+import classNames from "classnames"
 import { Link } from "gatsby"
 import { GatsbyImage, getImage } from "gatsby-plugin-image"
-import React from "react"
+import React, { PropsWithChildren } from "react"
 
-import { CardImageOnlyProps, CardImageProps, CardTeaserProps } from "../Types/Card"
+import { CardImageOnlyProps, CardImageProps, CardProps, CardTeaserProps } from "../Types/Card"
 import "./Card.scss"
 import Icon from "./Icon"
+
+export const Card = ({ className, hasTable, title, titleIcon = ``, children }: PropsWithChildren<CardProps>) => (
+  <article
+    className={classNames(`card`, className, {
+      "card--has-table": hasTable,
+    })}
+  >
+    <header className="card__header">
+      <h4 className="after-border">
+        {titleIcon !== `` && <Icon icon={titleIcon} />} {title}
+      </h4>
+    </header>
+    <div className="card__content">{children}</div>
+  </article>
+)
 
 export const CardImageOnly = ({ picture, link }: CardImageOnlyProps) => {
   const image = getImage(picture)

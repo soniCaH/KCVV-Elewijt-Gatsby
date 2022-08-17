@@ -5,6 +5,9 @@ import { Seo } from "../components/Seo"
 import Layout from "../layouts"
 import { TeamQuery } from "../Types/Team"
 import ReactFitText from "@kennethormandy/react-fittext"
+import "./Team.scss"
+import TeamStats from "../components/TeamStats"
+import Lineup from "../components/Lineup"
 
 const Team = ({ data: { nodeTeam } }: TeamQuery) => {
   const heroImage = nodeTeam?.relationships?.field_media_article_image
@@ -19,32 +22,114 @@ const Team = ({ data: { nodeTeam } }: TeamQuery) => {
   // Helper variable so we don't have to do the check over and over again.
   const hasDivision = nodeTeam?.field_fb_id || nodeTeam?.field_fb_id_2 || nodeTeam?.field_vv_id
   const articles = nodeTeam?.relationships?.node__article || []
+  const playersByPosition = false
 
   return (
     <Layout>
-      <header className="page_header__wrapper">
+      <header className="page_header__wrapper page_header__wrapper--inset-large">
         <div className="page_header">
-          <h1 className={`team-detail__name`}>
+          <h1 className="team__header__name">
             {/* > GEWESTELIJKE U13 K */}
-            <span className={`team-detail__name-division`}>
+            <span className="team__header_name__division">
               <ReactFitText compressor={1.5}>{nodeTeam?.field_division_full}</ReactFitText>
             </span>
             {/* > The A-team */}
-            <span className={`team-detail__name-tagline`}>{nodeTeam?.field_tagline}</span>
+            <span className="team__header_name__division__tagline">{nodeTeam?.field_tagline}</span>
           </h1>
           {hasDivision && (
-            <div className={`team-detail__division-number`} aria-hidden="true">
+            <div className="team__header_name__division__number" aria-hidden="true">
               {nodeTeam?.field_fb_id_2 ? nodeTeam?.field_fb_id_2 : nodeTeam?.field_fb_id}
             </div>
           )}
-          NAV LINKS RECHTS RANKING LINEUP
         </div>
       </header>
-      <div className="page__header__image__wrapper">
-        <div className="page__header__image__bg">{teamPicture}</div>
-        <div className="page__header__image__hero">{teamPicture}</div>
-      </div>
-      <article className="page__wrapper team__wrapper"></article>
+      {(playersByPosition || hasDivision) && (
+        <nav className="team__sub_navigation">
+          {/* Foundation tabs structure */}
+          <ul
+            className="tabs team__sub_navigation__tabs"
+            data-tabs
+            data-deep-link="true"
+            data-update-history="true"
+            data-deep-link-smudge="true"
+            data-deep-link-smudge-delay="500"
+            id="team-subnavigation_tabs"
+          >
+            <li className="tabs-title is-active">
+              <a href="#team-info" className="rich-link-center">
+                Info
+              </a>
+            </li>
+            {/* Youth teams don't have lineups, so we don't show the tab link. */}
+            {playersByPosition && (
+              <li className="tabs-title">
+                <a href="#team-lineup" className="rich-link-center">
+                  Lineup
+                </a>
+              </li>
+            )}
+            {hasDivision && (
+              <>
+                <li className={`tabs-title`}>
+                  <a data-tabs-target="team-matches" href="#team-matches" className="rich-link-center">
+                    Wedstrijden
+                  </a>
+                </li>
+                <li className={`tabs-title`}>
+                  <a data-tabs-target="team-ranking" href="#team-ranking" className="rich-link-center">
+                    Stand
+                  </a>
+                </li>
+              </>
+            )}
+          </ul>
+        </nav>
+      )}
+      <article className="page__wrapper team__wrapper">
+        <div className="tabs-content" data-tabs-content="team-subnavigation_tabs">
+          <div className="tabs-panel is-active" id="team-info">
+            <div className="team_info__hero_image">{teamPicture || ``}</div>
+            {nodeTeam?.field_contact_info && (
+              <div
+                className={`team_info__contact page__wrapper page__wrapper--limited`}
+                dangerouslySetInnerHTML={{
+                  __html: nodeTeam?.field_contact_info.processed || ``,
+                }}
+              />
+            )}
+            {nodeTeam?.field_vv_id && <TeamStats teamId={+nodeTeam?.field_vv_id} />}
+            {nodeTeam?.relationships?.field_staff && !playersByPosition && (
+              <main className={`team-detail__lineup team-detail__lineup--staff-only`}>
+                <Lineup title="Stafleden" lineup={nodeTeam?.relationships?.field_staff} />
+              </main>
+            )}
+          </div>
+          {playersByPosition && (
+            <div className={`tabs-panel`} id="team-lineup">
+              <main className={`team-detail__lineup`}>
+                {/* {nodeTeam?.relationships.field_staff && (
+                  <TeamSection title="Stafleden" lineup={node.relationships.field_staff} />
+                )} */}
+                {/* {playersByPosition[`k`] && <TeamSection title="Doelmannen" lineup={playersByPosition[`k`]} />} */}
+                {/* {playersByPosition[`d`] && <TeamSection title="Verdedigers" lineup={playersByPosition[`d`]} />} */}
+                {/* {playersByPosition[`m`] && <TeamSection title="Middenvelder" lineup={playersByPosition[`m`]} />} */}
+                {/* {playersByPosition[`a`] && <TeamSection title="Aanvallers" lineup={playersByPosition[`a`]} />} */}
+              </main>
+            </div>
+          )}
+          {hasDivision && (
+            <>
+              <div className={`tabs-panel`} id="team-matches">
+                {/* {nodeTeam?.field_vv_id && <MatchTeasers teamId={nodeTeam?.field_vv_id} />} */}
+                {/* {nodeTeam?.field_vv_id && <Matches teamId={nodeTeam?.field_vv_id} />} */}
+              </div>
+              <div className={`tabs-panel`} id="team-ranking">
+                {/* {nodeTeam?.field_vv_id && <Ranking teamId={nodeTeam?.field_vv_id} />} */}
+              </div>
+            </>
+          )}
+        </div>
+      </article>
     </Layout>
   )
 }

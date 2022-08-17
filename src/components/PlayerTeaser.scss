@@ -1,0 +1,146 @@
+.player__teaser {
+  a {
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 100%;
+    height: 285px;
+    padding: 0 0 27px 25px;
+    text-decoration: none;
+
+    @media screen and (min-width: 60rem) {
+      max-width: 340px;
+      height: 446px;
+      padding: 0 30px 24px;
+    }
+
+    &:before {
+      content: "";
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      z-index: 10;
+      width: 100%;
+      height: 30%;
+      background: linear-gradient(0deg, var(--color-green--bright) 10%, transparent 80%);
+    }
+  }
+}
+
+.player__teaser__bg {
+  background-color: initial;
+  position: absolute;
+  top: 54px;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: -10;
+
+  @media screen and (min-width: 60rem) {
+    top: 90px;
+  }
+}
+
+.player__teaser__image {
+  position: absolute !important;
+  right: 0;
+  bottom: 0;
+  top: 0;
+  left: 0;
+
+  .gatsby-image-wrapper {
+    position: absolute !important;
+    right: -34px;
+    bottom: 0;
+    z-index: 0;
+    width: 100%;
+    max-width: 232px;
+    height: 100%;
+    margin-left: 10px;
+
+    @media screen and (min-width: 60rem) {
+      left: 74px;
+      max-width: 299px;
+      height: calc(100% - 15px);
+    }
+
+    img {
+      position: absolute;
+      top: 0;
+      left: 0;
+      display: block;
+      width: 100%;
+      height: 100%;
+    }
+  }
+}
+
+@function textShadow($precision, $size, $color) {
+  $value: null;
+  $offset: 0;
+  $length: $size * (1 / $precision) - 1;
+
+  @for $i from 0 through $length {
+    $offset: $offset + $precision;
+    $shadow: (-1 * $offset) + px $offset + px $color;
+    $value: append($value, $shadow, comma);
+  }
+
+  @return $value;
+}
+
+.player__teaser__position {
+  max-width: 10px;
+  margin-top: 10px;
+  color: var(--color-green--dark);
+  font-family: var(--font-alt);
+  font-size: 11.25rem;
+  letter-spacing: -6px;
+  line-height: .71;
+  text-shadow: textShadow(0.25, 8, var(--color-green--dark));
+  z-index: -1;
+
+  @supports (-webkit-text-stroke: 4px var(--color-green--dark)) {
+    color: #FFF;
+    -webkit-text-stroke: 4px var(--color-green--dark);
+    -webkit-text-fill-color: white;
+    mix-blend-mode: darken;
+  }
+
+  @media screen and (min-width: 60rem) {
+    margin-top: 5px;
+    font-size: 14rem;
+  }
+}
+
+.player_teaser__name__wrapper {
+  font-weight: 400;
+  color: #FFF;
+  z-index: 10;
+}
+
+.player_teaser__name {
+  &--first {
+    font-size: 2rem;
+    font-family: var(--font-title);
+    text-transform: uppercase;
+    line-height: .91;
+    // text-shadow: textShadow(0.25, 5, var(--color-green--dark));
+  }
+
+  &--last {
+    font-family: var(--font-title);
+    font-size: 2rem;
+    font-weight: 600;
+    line-height: .91;
+    text-transform: uppercase;
+    word-break: break-all;
+
+    @media screen and (min-width: 60rem) {
+      font-size: 2.25rem;
+    }
+
+  }
+}

@@ -19,7 +19,7 @@
         top: 0;
         right: 0;
         left: 0;
-        z-index: 10;
+        z-index: 11;
         transform: translate3d(0, 0, 0);
         transition: height 0.3s;
 
@@ -331,7 +331,7 @@
     background-color: var(--color-black);
     border: 1px solid var(--color-gray--dark);
 
-    z-index: 15;
+    z-index: 10;
 
     a {
         text-align: left;
@@ -368,7 +368,7 @@
 
 .l--header {
     position: relative;
-    z-index: 9;
+    z-index: 12;
 }
 
 

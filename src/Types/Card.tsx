@@ -2,6 +2,13 @@ import { IGatsbyImageData } from "gatsby-plugin-image"
 
 import { Pathalias } from "./Drupal"
 
+export interface CardProps {
+  title: string
+  className?: string
+  hasTable?: boolean
+  titleIcon?: string
+}
+
 export interface CardTeaserProps {
   title: string
   icon?: string

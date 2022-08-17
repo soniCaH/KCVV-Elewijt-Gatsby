@@ -21,7 +21,7 @@ const Card: FunctionComponent<CardProps> = ({ className, hasTable, title, titleI
     })}
   >
     <header className={`card__header`}>
-      <h4>
+      <h4 className="after-border">
         {titleIcon !== `` && <Icon icon={titleIcon} />} {title}
       </h4>
     </header>
