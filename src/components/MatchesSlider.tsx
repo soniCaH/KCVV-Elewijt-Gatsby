@@ -1,14 +1,12 @@
-import axios from "axios"
-import { graphql, useStaticQuery } from "gatsby"
-import React, { Fragment, useState } from "react"
-import { useEffect } from "react"
-import Slider, { LazyLoadTypes } from "react-slick"
-
-import { Match, MatchesQueryData } from "../Types/Match"
+import { Match } from "../Types/Match"
+import { useSiteMetaData } from "../hooks/use-site-metadata"
 import { MatchTeaserDetail } from "./MatchTeaser"
 import "./MatchesSlider.scss"
 import { Spinner } from "./Spinner"
-import { useSiteMetaData } from "../hooks/use-site-metadata"
+import axios from "axios"
+import React, { Fragment, useState } from "react"
+import { useEffect } from "react"
+import Slider, { LazyLoadTypes } from "react-slick"
 
 const MatchesSlider = () => {
   const [data, setData] = useState<Match[]>([])

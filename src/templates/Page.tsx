@@ -1,9 +1,9 @@
+import { PageQuery } from "../Types/Page"
+import { Seo } from "../components/Seo"
+import Layout from "../layouts"
 import { graphql } from "gatsby"
 import { GatsbyImage, getImage, getSrc } from "gatsby-plugin-image"
 import React from "react"
-import { Seo } from "../components/Seo"
-import Layout from "../layouts"
-import { PageQuery } from "../Types/Page"
 
 const PageTemplate = ({ data }: PageQuery) => {
   const post = data.nodePage

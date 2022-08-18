@@ -1,11 +1,10 @@
+import { CardImageOnlyProps, CardImageProps, CardProps, CardTeaserProps } from "../Types/Card"
+import "./Card.scss"
+import Icon from "./Icon"
 import classNames from "classnames"
 import { Link } from "gatsby"
 import { GatsbyImage, getImage } from "gatsby-plugin-image"
 import React, { PropsWithChildren } from "react"
-
-import { CardImageOnlyProps, CardImageProps, CardProps, CardTeaserProps } from "../Types/Card"
-import "./Card.scss"
-import Icon from "./Icon"
 
 export const Card = ({ className, hasTable, title, titleIcon = ``, children }: PropsWithChildren<CardProps>) => (
   <article

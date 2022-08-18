@@ -1,17 +1,15 @@
+import { Match } from "../Types/Match"
+import { MatchTeaserDetailProps, MatchTeaserProps } from "../Types/MatchTeaser"
+import { useSiteMetaData } from "../hooks/use-site-metadata"
+import { mapPsdStatus } from "../scripts/helper"
+import "./MatchTeaser.scss"
 import axios from "axios"
 import classNames from "classnames"
-import { graphql, useStaticQuery } from "gatsby"
 import moment from "moment"
 import "moment-timezone"
 import "moment/locale/nl-be"
 import React, { useEffect, useState } from "react"
 import LazyLoad from "react-lazyload"
-
-import { Match, MatchesQueryData } from "../Types/Match"
-import { MatchTeaserDetailProps, MatchTeaserProps } from "../Types/MatchTeaser"
-import { mapPsdStatus } from "../scripts/helper"
-import "./MatchTeaser.scss"
-import { useSiteMetaData } from "../hooks/use-site-metadata"
 
 export const MatchTeaserDetail = ({ match, includeRankings }: MatchTeaserDetailProps) => {
   moment.tz.setDefault(`Europe/Brussels`)

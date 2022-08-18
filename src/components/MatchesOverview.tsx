@@ -1,17 +1,16 @@
+import { Match } from "../Types/Match"
+import { MatchesOverviewProps } from "../Types/MatchesOverview"
+import { useSiteMetaData } from "../hooks/use-site-metadata"
+import { mapPsdStatus } from "../scripts/helper"
+import { MatchTeaserDetail } from "./MatchTeaser"
+import "./MatchesOverview.scss"
+import { Spinner } from "./Spinner"
 import axios from "axios"
 import moment from "moment"
 import "moment-timezone"
 import "moment/locale/nl-be"
 import React from "react"
 import { useEffect, useState } from "react"
-
-import { Match } from "../Types/Match"
-import { MatchesOverviewProps } from "../Types/MatchesOverview"
-import { mapPsdStatus } from "../scripts/helper"
-import { MatchTeaserDetail } from "./MatchTeaser"
-import "./MatchesOverview.scss"
-import { Spinner } from "./Spinner"
-import { useSiteMetaData } from "../hooks/use-site-metadata"
 
 export const MatchesOverview = ({
   include = [],

@@ -1,6 +1,5 @@
-import React from "react"
-
 import { Article } from "../Types/Article"
+import React from "react"
 
 export const HeroSection2 = ({ article }: HeroClassProps) => <section>{article.title}</section>
 

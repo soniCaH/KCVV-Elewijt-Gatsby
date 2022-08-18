@@ -1,10 +1,10 @@
-import { graphql, Link } from "gatsby"
-import React from "react"
+import { NewsTagPageQuery } from "../Types/Article"
 import { CardTeaser } from "../components/Card"
 import { Seo } from "../components/Seo"
 import Layout from "../layouts"
-import { NewsTagPageQuery } from "../Types/Article"
 import "./NewsOverview.scss"
+import { graphql, Link } from "gatsby"
+import React from "react"
 
 const NewsTagPage = ({ data }: NewsTagPageQuery) => {
   const { articles, term, categoryTags } = data

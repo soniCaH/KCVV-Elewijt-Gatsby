@@ -1,10 +1,10 @@
-import { graphql, Link, useStaticQuery } from "gatsby"
-import React from "react"
+import { NewsOverviewCategoryResponsePropsApi, NewsOverviewQuery } from "../Types/Article"
 import { CardTeaser } from "../components/Card"
 import { Seo } from "../components/Seo"
 import Layout from "../layouts"
-import { NewsOverviewCategoryResponsePropsApi, NewsOverviewQuery } from "../Types/Article"
 import "./NewsOverview.scss"
+import { graphql, Link, useStaticQuery } from "gatsby"
+import React from "react"
 
 const NewsOverviewPage = ({ pageContext }: NewsOverviewQuery) => {
   const { group, index, first, last, pathPrefix } = pageContext

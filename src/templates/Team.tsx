@@ -1,13 +1,13 @@
-import { graphql } from "gatsby"
-import { GatsbyImage, getSrc, StaticImage } from "gatsby-plugin-image"
-import React from "react"
-import { Seo } from "../components/Seo"
-import Layout from "../layouts"
 import { TeamQuery } from "../Types/Team"
-import ReactFitText from "@kennethormandy/react-fittext"
-import "./Team.scss"
-import TeamStats from "../components/TeamStats"
 import Lineup from "../components/Lineup"
+import { Seo } from "../components/Seo"
+import TeamStats from "../components/TeamStats"
+import Layout from "../layouts"
+import "./Team.scss"
+import ReactFitText from "@kennethormandy/react-fittext"
+import { graphql } from "gatsby"
+import { GatsbyImage, getSrc } from "gatsby-plugin-image"
+import React from "react"
 
 const Team = ({ data: { nodeTeam } }: TeamQuery) => {
   const heroImage = nodeTeam?.relationships?.field_media_article_image

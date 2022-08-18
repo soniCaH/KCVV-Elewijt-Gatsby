@@ -1,9 +1,8 @@
-import React from "react"
-
 import { MatchesTabsProps } from "../Types/MatchesTabs"
 import { MatchTeaser } from "./MatchTeaser"
 import "./MatchesTabs.scss"
 import { Ranking } from "./Ranking"
+import React from "react"
 
 export const MatchesTabs = ({ teamId }: MatchesTabsProps) => (
   <>

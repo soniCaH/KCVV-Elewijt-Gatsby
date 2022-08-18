@@ -1,15 +1,14 @@
-import { graphql, Link } from "gatsby"
-import { GatsbyImage, getSrc } from "gatsby-plugin-image"
-import React from "react"
-
 import { ArticleQuery } from "../Types/Article"
+import Icon from "../components/Icon"
 import { Seo } from "../components/Seo"
 import { Share } from "../components/Share"
+import { useSiteMetaData } from "../hooks/use-site-metadata"
 import Layout from "../layouts"
 import { replaceAll } from "../scripts/helper"
 import "./Article.scss"
-import { useSiteMetaData } from "../hooks/use-site-metadata"
-import Icon from "../components/Icon"
+import { graphql, Link } from "gatsby"
+import { GatsbyImage, getSrc } from "gatsby-plugin-image"
+import React from "react"
 
 const Article = ({ data: { nodeArticle } }: ArticleQuery) => {
   const { siteUrl, twitterHandle } = useSiteMetaData()

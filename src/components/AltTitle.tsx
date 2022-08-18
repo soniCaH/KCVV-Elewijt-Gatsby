@@ -1,8 +1,7 @@
-import ReactFitText from "@kennethormandy/react-fittext"
-import React from "react"
-
 import { AltTitleProps } from "../Types/Title"
 import "./AltTitle.scss"
+import ReactFitText from "@kennethormandy/react-fittext"
+import React from "react"
 
 export const AltTitle = ({ variant, title, fitText }: AltTitleProps) => (
   <header className={`repeating_header repeating_header--${variant}`}>

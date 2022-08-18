@@ -1,11 +1,7 @@
-import { useStaticQuery, graphql } from "gatsby"
-import React, { PropsWithChildren } from "react"
-import { Helmet } from "react-helmet"
-
 import { SeoClassProps } from "../Types/Seo"
 import { useSiteMetaData } from "../hooks/use-site-metadata"
-
 import defaultOgImage from "../images/logo-flat.png"
+import React, { PropsWithChildren } from "react"
 
 export const Seo = ({ title, description, keywords, image, path, children }: PropsWithChildren<SeoClassProps>) => {
   const {

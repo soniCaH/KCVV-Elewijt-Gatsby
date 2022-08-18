@@ -1,7 +1,8 @@
-import React from "react"
 import { LineupPlayer, LineupProps, LineupStaff } from "../Types/Lineup"
-import PlayerTeaser from "./PlayerTeaser"
 import "./Lineup.scss"
+import PlayerTeaser from "./PlayerTeaser"
+import React from "react"
+
 const isPlayer = (object: LineupPlayer | LineupStaff): object is LineupPlayer => `field_shirtnumber` in (object || {})
 
 const Lineup = ({ title, lineup }: LineupProps) => {

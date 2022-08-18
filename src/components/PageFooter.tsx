@@ -1,11 +1,10 @@
-import { Link } from "gatsby"
-import { StaticImage } from "gatsby-plugin-image"
-import React from "react"
-
 import { AltTitle } from "./AltTitle"
 import Icon from "./Icon"
 import "./PageFooter.scss"
 import { SponsorsBlock } from "./SponsorsBlock"
+import { Link } from "gatsby"
+import { StaticImage } from "gatsby-plugin-image"
+import React from "react"
 
 export const PageFooter = () => {
   return (

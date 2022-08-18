@@ -1,9 +1,8 @@
+import Icon from "./Icon"
+import "./PageHeader.scss"
 import { Link } from "gatsby"
 import { StaticImage } from "gatsby-plugin-image"
 import React, { Fragment, useEffect } from "react"
-import Icon from "./Icon"
-
-import "./PageHeader.scss"
 
 const MenuItems = () => {
   useEffect(() => {

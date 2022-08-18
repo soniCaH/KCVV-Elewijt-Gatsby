@@ -80,7 +80,7 @@
 @function textShadow($precision, $size, $color) {
   $value: null;
   $offset: 0;
-  $length: $size * (1 / $precision) - 1;
+  $length: $size * calc(1 / $precision) - 1;
 
   @for $i from 0 through $length {
     $offset: $offset + $precision;

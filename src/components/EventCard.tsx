@@ -1,9 +1,9 @@
+import { EventCardProps } from "../Types/EventCard"
+import { CardImage } from "./Card"
 import moment from "moment"
 import "moment-timezone"
 import "moment/locale/nl-be"
 import React from "react"
-import { EventCardProps } from "../Types/EventCard"
-import { CardImage } from "./Card"
 
 const EventCard = ({ title, picture, link, datetimeStart, datetimeEnd }: EventCardProps) => {
   moment.tz.setDefault(`Europe/Brussels`)

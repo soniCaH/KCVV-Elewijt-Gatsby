@@ -1,8 +1,7 @@
-import { useStaticQuery, graphql, Link } from "gatsby"
-import React from "react"
-
 import { SponsorsResponsePropsApi } from "../Types/Gatsby"
 import { CardImageOnly } from "./Card"
+import { useStaticQuery, graphql, Link } from "gatsby"
+import React from "react"
 
 export const SponsorsBlock = () => {
   const { sponsors }: SponsorsResponsePropsApi = useStaticQuery(graphql`

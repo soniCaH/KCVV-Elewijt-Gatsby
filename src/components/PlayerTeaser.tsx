@@ -1,10 +1,9 @@
 // importing FunctionComponent
+import { PlayerTeaserProps } from "../Types/PlayerTeaser"
+import "./PlayerTeaser.scss"
 import { Link } from "gatsby"
 import { GatsbyImage, StaticImage } from "gatsby-plugin-image"
 import React from "react"
-import { PlayerTeaserProps } from "../Types/PlayerTeaser"
-
-import "./PlayerTeaser.scss"
 
 const PlayerTeaser = ({ url, position, first_name, last_name, picture }: PlayerTeaserProps) => {
   let image

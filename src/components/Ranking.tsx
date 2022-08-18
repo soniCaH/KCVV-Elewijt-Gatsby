@@ -1,11 +1,10 @@
+import { RankingProps, RankingDataObject, RankingDataTeamObject } from "../Types/Ranking"
+import { useSiteMetaData } from "../hooks/use-site-metadata"
+import { sortRankings } from "../scripts/helper"
+import { Spinner } from "./Spinner"
 import axios from "axios"
 import { useEffect, useState } from "react"
 import React from "react"
-
-import { RankingProps, RankingDataObject, RankingDataTeamObject } from "../Types/Ranking"
-import { sortRankings } from "../scripts/helper"
-import { Spinner } from "./Spinner"
-import { useSiteMetaData } from "../hooks/use-site-metadata"
 
 export const Ranking = ({ teamId }: RankingProps) => {
   const [data, setData] = useState<RankingDataObject[]>([])
