@@ -6,6 +6,11 @@ export interface MatchTeaserProps {
   includeRankings?: boolean
 }
 
+export interface MatchTeasersProps {
+  teamId: number
+  includeRankings?: boolean
+}
+
 export interface MatchTeaserDetailProps {
   match: Match
   includeRankings?: boolean

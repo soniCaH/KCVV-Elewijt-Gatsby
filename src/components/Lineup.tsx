@@ -5,10 +5,10 @@ import React from "react"
 
 const isPlayer = (object: LineupPlayer | LineupStaff): object is LineupPlayer => `field_shirtnumber` in (object || {})
 
-const Lineup = ({ title, lineup }: LineupProps) => {
+const Lineup = ({ title = ``, lineup }: LineupProps) => {
   return (
     <section className="team__lineup__section">
-      <h2 className="after-border">{title}</h2>
+      {title && <h2 className="after-border">{title}</h2>}
       <ul>
         {lineup?.map((player, i) => {
           return (

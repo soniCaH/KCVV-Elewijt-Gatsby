@@ -1,5 +1,5 @@
 import { Match } from "../Types/Match"
-import { MatchTeaserDetailProps, MatchTeaserProps } from "../Types/MatchTeaser"
+import { MatchTeaserDetailProps, MatchTeaserProps, MatchTeasersProps } from "../Types/MatchTeaser"
 import { useSiteMetaData } from "../hooks/use-site-metadata"
 import { mapPsdStatus } from "../scripts/helper"
 import "./MatchTeaser.scss"
@@ -126,5 +126,21 @@ export const MatchTeaser = ({ teamId, action, includeRankings }: MatchTeaserProp
   }
 }
 
+export const MatchTeasers = ({ teamId, includeRankings = false }: MatchTeasersProps) => (
+  <div className="match__teasers__wrapper full-width">
+    <div className="match__teasers__inner">
+      <div className="match__teasers match__teasers--prev">
+        <header className="match__teasers__header">Vorige</header>
+        <MatchTeaser teamId={teamId} action="prev" includeRankings={includeRankings} />
+      </div>
+      <div className="match__teasers match__teasers--next">
+        <header className="match__teasers__header">Volgende</header>
+        <MatchTeaser teamId={teamId} action="next" includeRankings={includeRankings} />
+      </div>
+    </div>
+  </div>
+)
+
 MatchTeaser.defaultProps = { includeRankings: false }
+MatchTeasers.defaultProps = { includeRankings: false }
 MatchTeaserDetail.defaultProps = { includeRankings: false }

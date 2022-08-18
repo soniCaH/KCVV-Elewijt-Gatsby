@@ -31,10 +31,6 @@ const PlayerTeaser = ({ url, position, first_name, last_name, picture }: PlayerT
           <div className={`player_teaser__name player_teaser__name--first`}>{first_name}</div>
           <div className={`player_teaser__name player_teaser__name--last`}>{last_name}</div>
         </div>
-        {/* <div className={`player_teaser__info`}>
-          <div className={`player_teaser__info__number`}>{position}</div>
-
-        </div> */}
       </Link>
     </article>
   )

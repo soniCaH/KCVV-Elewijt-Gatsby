@@ -33,6 +33,6 @@ export type LineupPlayer = Queries.Maybe<{
 
 /** Don't ask... */
 export interface LineupProps {
-  title: string
+  title?: string
   lineup: ReadonlyArray<LineupStaff | null> | ReadonlyArray<LineupPlayer | null> | null
 }

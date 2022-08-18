@@ -8,6 +8,7 @@ import ReactFitText from "@kennethormandy/react-fittext"
 import { graphql } from "gatsby"
 import { GatsbyImage, getSrc } from "gatsby-plugin-image"
 import React from "react"
+import { MatchTeasers } from "../components/MatchTeaser"
 
 const Team = ({ data: { nodeTeam } }: TeamQuery) => {
   const heroImage = nodeTeam?.relationships?.field_media_article_image
@@ -22,7 +23,11 @@ const Team = ({ data: { nodeTeam } }: TeamQuery) => {
   // Helper variable so we don't have to do the check over and over again.
   const hasDivision = nodeTeam?.field_fb_id || nodeTeam?.field_fb_id_2 || nodeTeam?.field_vv_id
   const articles = nodeTeam?.relationships?.node__article || []
-  const playersByPosition = false
+
+  const allPlayers = [...(nodeTeam?.relationships?.field_players || [])]
+
+  // Specific implementation of our groupBy function, to group by a property "field_position".
+  const groupByPosition = groupBy(allPlayers, (v) => v?.field_position || ``)
 
   return (
     <Layout>
@@ -43,7 +48,7 @@ const Team = ({ data: { nodeTeam } }: TeamQuery) => {
           )}
         </div>
       </header>
-      {(playersByPosition || hasDivision) && (
+      {(allPlayers.length > 0 || hasDivision) && (
         <nav className="team__sub_navigation">
           {/* Foundation tabs structure */}
           <ul
@@ -61,7 +66,7 @@ const Team = ({ data: { nodeTeam } }: TeamQuery) => {
               </a>
             </li>
             {/* Youth teams don't have lineups, so we don't show the tab link. */}
-            {playersByPosition && (
+            {allPlayers.length > 0 && (
               <li className="tabs-title">
                 <a href="#team-lineup" className="rich-link-center">
                   Lineup
@@ -98,29 +103,27 @@ const Team = ({ data: { nodeTeam } }: TeamQuery) => {
               />
             )}
             {nodeTeam?.field_vv_id && <TeamStats teamId={+nodeTeam?.field_vv_id} />}
-            {nodeTeam?.relationships?.field_staff && !playersByPosition && (
+            {nodeTeam?.relationships?.field_staff && allPlayers === [] && (
               <main className={`team-detail__lineup team-detail__lineup--staff-only`}>
-                <Lineup title="Stafleden" lineup={nodeTeam?.relationships?.field_staff} />
+                <Lineup lineup={nodeTeam?.relationships?.field_staff} />
               </main>
             )}
           </div>
-          {playersByPosition && (
+          {allPlayers.length > 0 && (
             <div className={`tabs-panel`} id="team-lineup">
               <main className={`team-detail__lineup`}>
-                {/* {nodeTeam?.relationships.field_staff && (
-                  <TeamSection title="Stafleden" lineup={node.relationships.field_staff} />
-                )} */}
-                {/* {playersByPosition[`k`] && <TeamSection title="Doelmannen" lineup={playersByPosition[`k`]} />} */}
-                {/* {playersByPosition[`d`] && <TeamSection title="Verdedigers" lineup={playersByPosition[`d`]} />} */}
-                {/* {playersByPosition[`m`] && <TeamSection title="Middenvelder" lineup={playersByPosition[`m`]} />} */}
-                {/* {playersByPosition[`a`] && <TeamSection title="Aanvallers" lineup={playersByPosition[`a`]} />} */}
+                {nodeTeam?.relationships?.field_staff && <Lineup lineup={nodeTeam.relationships.field_staff} />}
+                {groupByPosition[`k`] && <Lineup title="Doelmannen" lineup={groupByPosition[`k`]} />}
+                {groupByPosition[`d`] && <Lineup title="Verdedigers" lineup={groupByPosition[`d`]} />}
+                {groupByPosition[`m`] && <Lineup title="Middenvelder" lineup={groupByPosition[`m`]} />}
+                {groupByPosition[`a`] && <Lineup title="Aanvallers" lineup={groupByPosition[`a`]} />}
               </main>
             </div>
           )}
           {hasDivision && (
             <>
               <div className={`tabs-panel`} id="team-matches">
-                {/* {nodeTeam?.field_vv_id && <MatchTeasers teamId={nodeTeam?.field_vv_id} />} */}
+                {nodeTeam?.field_vv_id && <MatchTeasers teamId={+nodeTeam?.field_vv_id} />}
                 {/* {nodeTeam?.field_vv_id && <Matches teamId={nodeTeam?.field_vv_id} />} */}
               </div>
               <div className={`tabs-panel`} id="team-ranking">
@@ -147,6 +150,17 @@ export const Head = ({ data: { nodeTeam } }: TeamQuery) => {
     height: heroImage.height,
   }
   return <Seo title={`${nodeTeam?.title} / ${nodeTeam?.field_division_full}`} path={pathUrl} image={ogImage} />
+}
+
+const groupBy = <T, K extends keyof T>(array: T[], groupOn: K | ((i: T) => string)): Record<string, T[]> => {
+  const groupFn = typeof groupOn === `function` ? groupOn : (o: T) => o[groupOn]
+
+  return Object.fromEntries(
+    array.reduce((acc, obj) => {
+      const groupKey = groupFn(obj)
+      return acc.set(groupKey, [...(acc.get(groupKey) || []), obj])
+    }, new Map())
+  ) as Record<string, T[]>
 }
 
 export const query = graphql`

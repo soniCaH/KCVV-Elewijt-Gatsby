@@ -151,8 +151,8 @@ const IndexPage = () => {
           </article>
         </main>
         <footer className="frontpage__matches_carousel__buttons">
-          <span className="btn prev" onClick={previousMatches}></span>
-          <span className="btn next" onClick={nextMatches}></span>
+          <span className="nav-btn prev" onClick={previousMatches}></span>
+          <span className="nav-btn next" onClick={nextMatches}></span>
         </footer>
       </section>
 
