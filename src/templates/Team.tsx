@@ -9,6 +9,9 @@ import { graphql } from "gatsby"
 import { GatsbyImage, getSrc } from "gatsby-plugin-image"
 import React from "react"
 import { MatchTeasers } from "../components/MatchTeaser"
+import Matches from "../components/Matches"
+import { AltTitle } from "../components/AltTitle"
+import { Ranking } from "../components/Ranking"
 
 const Team = ({ data: { nodeTeam } }: TeamQuery) => {
   const heroImage = nodeTeam?.relationships?.field_media_article_image
@@ -124,10 +127,15 @@ const Team = ({ data: { nodeTeam } }: TeamQuery) => {
             <>
               <div className={`tabs-panel`} id="team-matches">
                 {nodeTeam?.field_vv_id && <MatchTeasers teamId={+nodeTeam?.field_vv_id} />}
-                {/* {nodeTeam?.field_vv_id && <Matches teamId={nodeTeam?.field_vv_id} />} */}
+                {nodeTeam?.field_vv_id && (
+                  <>
+                    <AltTitle title="KALENDER" variant="white" />
+                    <Matches teamId={+nodeTeam?.field_vv_id} />
+                  </>
+                )}
               </div>
               <div className={`tabs-panel`} id="team-ranking">
-                {/* {nodeTeam?.field_vv_id && <Ranking teamId={nodeTeam?.field_vv_id} />} */}
+                {nodeTeam?.field_vv_id && <Ranking teamId={+nodeTeam?.field_vv_id} />}
               </div>
             </>
           )}

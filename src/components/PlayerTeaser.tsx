@@ -21,15 +21,19 @@ const PlayerTeaser = ({ url, position, first_name, last_name, picture }: PlayerT
 
   return (
     <article className={`player__teaser`}>
-      <Link to={url}>
+      <Link to={url} title={`${position} - ${first_name} ${last_name}`}>
         <div className={`player__teaser__bg`}>
           <StaticImage src={`../images/player-bg.jpg`} alt="" />
         </div>
         <div className={`player__teaser__image`}>{image}</div>
         <span className={`player__teaser__position`}>{position}</span>
         <div className={`player_teaser__name__wrapper`}>
-          <div className={`player_teaser__name player_teaser__name--first`}>{first_name}</div>
-          <div className={`player_teaser__name player_teaser__name--last`}>{last_name}</div>
+          <div className={`player_teaser__name player_teaser__name--first`} title={`${first_name} ${last_name}`}>
+            {first_name}
+          </div>
+          <div className={`player_teaser__name player_teaser__name--last`} title={`${first_name} ${last_name}`}>
+            {last_name}
+          </div>
         </div>
       </Link>
     </article>

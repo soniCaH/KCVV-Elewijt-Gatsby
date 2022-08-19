@@ -137,6 +137,10 @@
   }
 }
 
+.team_info__hero_image {
+  min-height: 5rem;
+}
+
 .team__wrapper {
   .tabs-panel {
     padding: 0;
@@ -146,6 +150,10 @@
     background: transparent;
     border: none;
     color: inherit;
+  }
+
+  .match__teasers__wrapper {
+    margin-bottom: 3rem;
   }
 }
 

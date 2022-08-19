@@ -11,6 +11,17 @@ export function mapPsdStatus(statusCode: number): string | null {
   return statusCodes.get(statusCode) || null
 }
 
+export function mapPsdStatusShort(statusCode: number): string | null {
+  const statusCodes = new Map([
+    [0, ``],
+    [1, `FF`],
+    [2, `AFG`],
+    [3, `STOP`],
+  ])
+
+  return statusCodes.get(statusCode) || null
+}
+
 export function sortRankings(a: RankingDataTeamObject, b: RankingDataTeamObject) {
   // Rank lager: A stijgt in sortering.
   if (a.rank < b.rank) {
@@ -76,4 +87,28 @@ export function translateGameResult(result: string) {
     [`LOST`, `Verloren`],
   ])
   return statusCodes.get(result) || null
+}
+
+/**
+ * Map a positionCode to a descriptive label.
+ *
+ * @param {string} positionCode
+ */
+export function mapPositionCode(positionCode: string) {
+  return getPositions().get(positionCode) || null
+}
+
+/**
+ * List of all positions, in order of position on the fields.
+ *
+ * @param {string} positionCode
+ */
+export function getPositions() {
+  const positions = new Map([
+    [`k`, `Doelman`],
+    [`d`, `Verdediger`],
+    [`m`, `Middenvelder`],
+    [`a`, `Aanvaller`],
+  ])
+  return positions
 }

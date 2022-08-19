@@ -9,7 +9,11 @@
 
 .table__column__number,
 .table__column__score {
-  text-align: center;
+  text-align: left;
+
+  @media screen and (min-width: 60rem) {
+    text-align: center !important;
+  }
 }
 
 .table__column {
@@ -37,6 +41,69 @@
 
       @media screen and (min-width: 60rem) {
         left: -13px;
+      }
+    }
+  }
+}
+
+$responsive-card-table-bottom-gap: 1.5rem;
+$responsive-card-table-border: 0;
+$responsive-card-table-stack-point: 980px;
+$responsive-card-table-label-bg: $light-gray;
+
+.responsive-card-table {
+  border-collapse: collapse;
+
+  &.unstriped tbody {
+    background-color: transparent;
+  }
+
+  th {
+    padding: .5rem .625rem .625rem;
+    font-weight: bold;
+    text-align: left;
+  }
+
+  @media screen and (max-width: $responsive-card-table-stack-point) {
+    thead {
+      border: none;
+
+      tr {
+        position: absolute;
+        top: -9999em;
+        left: -9999em;
+      }
+    }
+
+    tr {
+      border: $responsive-card-table-border;
+      display: block;
+    }
+
+    tr+tr {
+      margin-top: $responsive-card-table-bottom-gap;
+    }
+
+    tbody {
+      border: none;
+
+      tr {
+        border: 1px solid #f1f1f1;
+      }
+    }
+
+    /* Get table cells to act like rows */
+
+    td {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      background: #f8f8f8;
+
+      &::before {
+        content: attr(data-label);
+        font-weight: bold;
+        position: relative;
+        z-index: 1;
       }
     }
   }

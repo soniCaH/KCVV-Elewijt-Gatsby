@@ -1,4 +1,4 @@
-import { Pathalias } from "./Drupal"
+// import { Pathalias } from "./Drupal"
 
 // interface Team {
 //   title: string

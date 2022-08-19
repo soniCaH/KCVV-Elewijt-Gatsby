@@ -95,51 +95,6 @@ class PlayerDetail extends Component {
       </div>
     </header>
   )
-  renderPlayerStats = (player) => {
-    if (this.state.loading === false && this.state.data) {
-      const { playerStatistics = [] } = this.state.data
-
-      return (
-        <aside className={`player-detail__statistics`}>
-          <section className={`player-detail__statistics-item`}>
-            <div className={`player-detail__statistics-item__number`}>
-              {playerStatistics.reduce((a, b) => a + (b?.gamesPlayed || 0), 0) || `0`}
-            </div>
-            <div className={`player-detail__statistics-item__label`}>Wedstrijden</div>
-          </section>
-
-          {(player.field_position === `k` || player.field_position === `d`) && (
-            <section className={`player-detail__statistics-item`}>
-              <div className={`player-detail__statistics-item__number`}>
-                {playerStatistics.reduce((a, b) => a + (b?.cleanSheets || 0), 0) || `0`}
-              </div>
-              <div className={`player-detail__statistics-item__label`}>Cleansheets</div>
-            </section>
-          )}
-          {player.field_position !== `k` && (
-            <section className={`player-detail__statistics-item`}>
-              <div className={`player-detail__statistics-item__number`}>
-                {playerStatistics.reduce((a, b) => a + (b?.goals || 0), 0) || `0`}
-              </div>
-              <div className={`player-detail__statistics-item__label`}>Doelpunten</div>
-            </section>
-          )}
-          <section className={`player-detail__statistics-item`}>
-            <div className={`player-detail__statistics-item__number`}>
-              {playerStatistics.reduce((a, b) => a + (b?.yellowCards || 0), 0) || `0`}
-            </div>
-            <div className={`player-detail__statistics-item__label`}>Gele kaarten</div>
-          </section>
-          <section className={`player-detail__statistics-item`}>
-            <div className={`player-detail__statistics-item__number`}>
-              {playerStatistics.reduce((a, b) => a + (b?.redCards || 0), 0) || `0`}
-            </div>
-            <div className={`player-detail__statistics-item__label`}>Rode kaarten</div>
-          </section>
-        </aside>
-      )
-    }
-  }
 
   renderPlayerStatsFull = (player) => {
     if (this.state.loading === false && this.state.data) {
@@ -368,25 +323,8 @@ class PlayerDetail extends Component {
       </div>
     )
   }
-  renderPlayerData = (player) => (
-    <section className={`player-detail__data`}>
-      {this.renderPlayerBirthdate(player)}
-      {this.renderPlayerPosition(player)}
-      {this.renderPlayerJoinDate(player)}
-    </section>
-  )
-  renderPlayerBody = (player) => {
-    const cleanBody =
-      (player.body &&
-        player.body.processed.replaceAll(`/sites/default/`, `${process.env.GATSBY_API_DOMAIN}/sites/default/`)) ||
-      ``
 
-    return (
-      <section className={`player-detail__body`}>
-        <div dangerouslySetInnerHTML={{ __html: cleanBody }} />
-      </section>
-    )
-  }
+
   render() {
     const { player } = this.props
 
@@ -396,9 +334,6 @@ class PlayerDetail extends Component {
     return (
       <Fragment>
         <article className={`player-detail`}>
-          {this.renderPlayerHeader(player)}
-          {this.renderPlayerStats(player)}
-          <div className={`player-break`}></div>
           {this.renderPlayerData(player)}
           {this.renderPlayerBody(player)}
           {this.renderPlayerStatsFull(player)}

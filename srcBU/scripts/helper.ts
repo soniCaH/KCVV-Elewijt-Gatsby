@@ -103,51 +103,6 @@ export function truncate(size, useWordBoundary = true) {
   return (useWordBoundary ? subString.substr(0, subString.lastIndexOf(` `)) : subString) + `…`
 }
 
-/**
- * Map a positionCode to a descriptive label.
- *
- * @param {string} positionCode
- */
-export function mapPositionCode(positionCode) {
-  return getPositions().get(positionCode) || null
-}
-
-/**
- * List of all positions, in order of position on the fields.
- *
- * @param {string} positionCode
- */
-export function getPositions() {
-  const positions = new Map([
-    [`k`, `Doelman`],
-    [`d`, `Verdediger`],
-    [`m`, `Middenvelder`],
-    [`a`, `Aanvaller`],
-  ])
-  return positions
-}
-
-export function mapPsdStatus(statusCode) {
-  const statusCodes = new Map([
-    [0, `Gepland`],
-    [1, `Forfait`],
-    [2, `Afgelast`],
-    [3, `Onderbroken`],
-  ])
-
-  return statusCodes.get(statusCode) || null
-}
-
-export function mapPsdStatusShort(statusCode) {
-  const statusCodes = new Map([
-    [0, ``],
-    [1, `FF`],
-    [2, `AFG`],
-    [3, `STOP`],
-  ])
-
-  return statusCodes.get(statusCode) || null
-}
 
 export function mapPsdStatusIcon(statusCode) {
   const statusCodes = new Map([

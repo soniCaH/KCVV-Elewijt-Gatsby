@@ -316,30 +316,3 @@ body.share {
         }
     }
 }
-
-.player-detail__stats--header_icon {
-    height: 1em;
-    min-width: 1em;
-}
-
-.player-detail__column {
-
-    &--number,
-    &--score {
-        text-align: center;
-    }
-}
-
-.player-detail__games__table {
-    .player-detail__column {
-
-        &--number,
-        &--score {
-            text-align: left;
-
-            @include break(large-up) {
-                text-align: center;
-            }
-        }
-    }
-}

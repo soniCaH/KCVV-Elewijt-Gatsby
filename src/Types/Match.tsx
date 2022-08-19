@@ -25,3 +25,11 @@ export interface Match {
   teamName: string
   age: string
 }
+
+export interface MatchesProps {
+  teamId: number
+}
+
+export interface MatchesRowProps {
+  match: Match
+}

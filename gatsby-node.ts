@@ -71,12 +71,24 @@ export const createPages: GatsbyNode["createPages"] = async ({ graphql, actions 
     })
   })
 
+  const playerTemplate = path.resolve(`src/templates/Player.tsx`)
+  const createPlayerPromise = result.data.players.edges.map(({ node }) => {
+    createPage({
+      path: node.path.alias,
+      component: playerTemplate,
+      context: {
+        slug: node.path.alias,
+      },
+    })
+  })
+
   await Promise.all([
     createArticlesPromise,
     createNewsOverviewPromise,
     createNewsTagPagePromise,
     createPagePromise,
     createTeamPromise,
+    createPlayerPromise,
   ])
 }
 
