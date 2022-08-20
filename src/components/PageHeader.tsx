@@ -277,7 +277,7 @@ export const PageHeaderMobile = () => (
           <StaticImage
             src="../images/logo-flat.png"
             alt="KCVV ELEWIJT"
-            width={350}
+            width={100}
             placeholder="none"
             className="header-mobile__logo-img"
           />

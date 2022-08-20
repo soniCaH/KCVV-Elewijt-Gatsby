@@ -1,28 +1,10 @@
-import axios from "axios"
 import { graphql, Link } from "gatsby"
 import { GatsbyImage, getSrc, StaticImage } from "gatsby-plugin-image"
-import React, { useEffect, useState } from "react"
-import { Card } from "../components/Card"
-import Icon from "../components/Icon"
+import React from "react"
 import { Seo } from "../components/Seo"
-import { useSiteMetaData } from "../hooks/use-site-metadata"
 import Layout from "../layouts"
-import moment from "moment"
-import "moment-timezone"
-import "moment/locale/nl-be"
-import { mapPositionCode } from "../scripts/helper"
-import {
-  PlayerQuery,
-  PlayerStatsDataObject,
-  PlayerStatsDataResponseObject,
-  PlayerStatsReportsResponseObject,
-  StaffQuery,
-} from "../Types/Player"
+import { StaffQuery } from "../Types/Player"
 import "./Player.scss"
-import iconCardRed from "../images/i_card_red.png"
-import iconCardYellow from "../images/i_card_yellow.png"
-import iconCleansheet from "../images/i_cleansheet.png"
-import iconGoal from "../images/i_goal.png"
 
 const Staff = ({ data: { nodeStaff } }: StaffQuery) => {
   const cleanBody =

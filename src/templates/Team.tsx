@@ -24,7 +24,7 @@ const Team = ({ data: { nodeTeam } }: TeamQuery) => {
   )
 
   // Helper variable so we don't have to do the check over and over again.
-  const hasDivision = nodeTeam?.field_fb_id || nodeTeam?.field_fb_id_2 || nodeTeam?.field_vv_id
+  const hasDivision = nodeTeam?.field_vv_id
   const articles = nodeTeam?.relationships?.node__article || []
 
   const allPlayers = [...(nodeTeam?.relationships?.field_players || [])]
@@ -46,7 +46,7 @@ const Team = ({ data: { nodeTeam } }: TeamQuery) => {
           </h1>
           {hasDivision && (
             <div className="team__header_name__division__number" aria-hidden="true">
-              {nodeTeam?.field_fb_id_2 ? nodeTeam?.field_fb_id_2 : nodeTeam?.field_fb_id}
+              {nodeTeam?.field_fb_id}
             </div>
           )}
         </div>
@@ -182,7 +182,6 @@ export const query = graphql`
         processed
       }
       field_fb_id
-      field_fb_id_2
       field_vv_id
       field_division_full
       field_tagline

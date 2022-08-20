@@ -51,7 +51,7 @@ export const CardImage = ({ title, picture, link = ``, body }: CardImageProps) =
 
   return (
     <article className={`card card--teaser`}>
-      {link || (
+      {link !== `` || (
         <>
           <header className={`card_header`}>
             {image && (
@@ -66,7 +66,7 @@ export const CardImage = ({ title, picture, link = ``, body }: CardImageProps) =
           </main>
         </>
       )}
-      {link && !CheckExternalLink(link) && (
+      {link !== `` && !CheckExternalLink(link) && (
         <Link to={link} title={title}>
           <header className={`card_header`}>
             {image && (
@@ -81,7 +81,7 @@ export const CardImage = ({ title, picture, link = ``, body }: CardImageProps) =
           </main>
         </Link>
       )}
-      {link && CheckExternalLink(link) && (
+      {link !== `` && CheckExternalLink(link) && (
         <a href={link} title={title} target="_blank" rel="noopener noreferrer">
           <header className={`card_header`}>
             {image && (
@@ -171,6 +171,44 @@ export const CardTVTeaser = ({ title, picture, link }: CardTeaserProps) => {
                 </figure>
                 <span className={`kcvvtv__play`}></span>
               </>
+            )}
+          </header>
+          <main className={`card_content`}>
+            <h4 className={`card_title`}>{title}</h4>
+          </main>
+        </a>
+      )}
+    </article>
+  )
+}
+
+export const CardHorizontal = ({ title, picture, link, body = `` }: CardTeaserProps) => {
+  const image = getImage(picture)
+
+  return (
+    <article className={`card card--teaser card--teaser-horizontal`}>
+      {!CheckExternalLink(link) && (
+        <Link to={link} title={title}>
+          <header className={`card_header`}>
+            {image && (
+              <figure>
+                <GatsbyImage image={image} alt={title} />
+              </figure>
+            )}
+          </header>
+          <main className={`card_content`}>
+            <h4 className={`card_title`}>{title}</h4>
+            <p dangerouslySetInnerHTML={{ __html: body }} />
+          </main>
+        </Link>
+      )}
+      {CheckExternalLink(link) && (
+        <a href={link} title={title} target="_blank" rel="noopener noreferrer">
+          <header className={`card_header`}>
+            {image && (
+              <figure>
+                <GatsbyImage image={image} alt={title} />
+              </figure>
             )}
           </header>
           <main className={`card_content`}>
