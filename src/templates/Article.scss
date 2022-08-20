@@ -332,5 +332,19 @@
         content: "\F073";
       }
     }
+
+    &--node__sponsor,
+    &--node--sponsor {
+      &::before {
+        content: "\f2b5";
+      }
+    }
+
+    &--node__kcvv_tv,
+    &--node--kcvv_tv {
+      &::before {
+        content: "\F144";
+      }
+    }
   }
 }

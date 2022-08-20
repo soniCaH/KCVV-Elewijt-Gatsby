@@ -198,7 +198,7 @@ const MenuItems = () => {
         </ul>
       </li>
       <li>
-        <Link to="/search/" activeClassName="active" partiallyActive={true}>
+        <Link to="/search/" activeClassName="active" partiallyActive={true} className="menu_link__search">
           <Icon icon="fa fa-search" />
           {` `}
           <span className={`display-mobile--inline-block display-mobile search--label`}>Zoeken</span>

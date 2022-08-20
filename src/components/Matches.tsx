@@ -32,7 +32,7 @@ const Matches = ({ teamId }: MatchesProps) => {
       {data
         .sort((a, b) => a.timestamp - b.timestamp)
         .map((match, i) => (
-          <MatchesRow match={match} />
+          <MatchesRow match={match} key={i} />
         ))}
     </div>
   )
@@ -49,7 +49,6 @@ const MatchesRow = ({ match }: MatchesRowProps) => {
   const matchPlayed =
     ((match.status === 0 || match.status === null) && match.goalsHomeTeam !== null && match.goalsAwayTeam !== null) ||
     false
-  const sideTeam = match.homeTeamId ? `home` : `away`
 
   return (
     <div className="matches__row">

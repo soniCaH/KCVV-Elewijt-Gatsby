@@ -4,8 +4,18 @@ export interface PlayerQuery {
   }
 }
 
+export interface StaffQuery {
+  data: {
+    nodeStaff: Queries.node__staff
+  }
+}
+
 export interface PlayerProps {
   player: Queries.node__player
+}
+
+export interface StaffProps {
+  player: Queries.node__staff
 }
 
 export interface PlayerStatsReportsResponseObject {

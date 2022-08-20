@@ -82,6 +82,17 @@ export const createPages: GatsbyNode["createPages"] = async ({ graphql, actions 
     })
   })
 
+  const staffTemplate = path.resolve(`src/templates/Staff.tsx`)
+  const createStaffPromise = result.data.staff.edges.map(({ node }) => {
+    createPage({
+      path: node.path.alias,
+      component: staffTemplate,
+      context: {
+        slug: node.path.alias,
+      },
+    })
+  })
+
   await Promise.all([
     createArticlesPromise,
     createNewsOverviewPromise,
@@ -89,6 +100,7 @@ export const createPages: GatsbyNode["createPages"] = async ({ graphql, actions 
     createPagePromise,
     createTeamPromise,
     createPlayerPromise,
+    createStaffPromise,
   ])
 }
 
@@ -106,13 +118,8 @@ const wrapper = (promise) =>
 // export const createPages: GatsbyNode["createPages"] = async ({ actions, graphql }) => {
 //   const { createPage } = actions
 //   // const pageTemplate = path.resolve(`src/templates/page.js`)
-//   // const teamTemplate = path.resolve(`src/templates/team.js`)
-//   // const playerTemplate = path.resolve(`src/templates/player.js`)
 //   // const playerShareTemplate = path.resolve(`src/templates/player-share.js`)
-//   // const staffTemplate = path.resolve(`src/templates/player-staff.js`)
 //   //   createPages(result.data.pages.edges, createPage, pageTemplate)
-//   //   createPlayers(result.data.players.edges, createPage, playerTemplate, playerShareTemplate)
-//   //   createStaff(result.data.staff.edges, createPage, staffTemplate)
 
 //   // }
 

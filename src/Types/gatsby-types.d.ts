@@ -10275,6 +10275,13 @@ type PlayerQueryQuery = { readonly nodePlayer: { readonly title: string | null, 
 
 type SponsorImageFragment = { readonly relationships: { readonly field_media_image: { readonly localFile: { readonly childImageSharp: { readonly gatsbyImageData: import('gatsby-plugin-image').IGatsbyImageData } | null } | null } | null } | null };
 
+type StaffQueryQueryVariables = Exact<{
+  slug: Scalars['String'];
+}>;
+
+
+type StaffQueryQuery = { readonly nodeStaff: { readonly title: string | null, readonly field_join_date: string | null, readonly field_lastname: string | null, readonly field_position_staff: string | null, readonly field_firstname: string | null, readonly field_birth_date: string | null, readonly field_position_short: string | null, readonly path: { readonly alias: string | null } | null, readonly body: { readonly processed: string | null } | null, readonly relationships: { readonly node__article: ReadonlyArray<{ readonly title: string | null, readonly timestamp: string | null, readonly path: { readonly alias: string | null } | null, readonly relationships: { readonly field_media_article_image: { readonly relationships: { readonly field_media_image: { readonly localFile: { readonly childImageSharp: { readonly gatsbyImageData: import('gatsby-plugin-image').IGatsbyImageData } | null } | null } | null } | null } | null } | null } | null> | null, readonly node__team: ReadonlyArray<{ readonly title: string | null, readonly relationships: { readonly field_media_article_image: { readonly relationships: { readonly field_media_image: { readonly localFile: { readonly childImageSharp: { readonly gatsbyImageData: import('gatsby-plugin-image').IGatsbyImageData } | null } | null } | null } | null } | null } | null, readonly path: { readonly alias: string | null } | null } | null> | null, readonly field_image: { readonly localFile: { readonly childImageSharp: { readonly gatsbyImageData: import('gatsby-plugin-image').IGatsbyImageData } | null } | null } | null } | null } | null };
+
 type TeamQueryQueryVariables = Exact<{
   slug: Scalars['String'];
 }>;

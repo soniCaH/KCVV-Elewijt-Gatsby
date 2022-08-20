@@ -246,7 +246,7 @@
 
     >li:not(.is-dropdown-submenu-parent) {
 
-        >a {
+        >a:not(.menu_link__search) {
             &:after {
                 background: none repeat scroll 0 0 transparent;
                 bottom: 0;

@@ -106,7 +106,7 @@ const Team = ({ data: { nodeTeam } }: TeamQuery) => {
               />
             )}
             {nodeTeam?.field_vv_id && <TeamStats teamId={+nodeTeam?.field_vv_id} />}
-            {nodeTeam?.relationships?.field_staff && allPlayers === [] && (
+            {nodeTeam?.relationships?.field_staff && allPlayers.length <= 0 && (
               <main className={`team-detail__lineup team-detail__lineup--staff-only`}>
                 <Lineup lineup={nodeTeam?.relationships?.field_staff} />
               </main>

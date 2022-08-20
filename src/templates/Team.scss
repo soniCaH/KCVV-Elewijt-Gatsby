@@ -51,12 +51,7 @@
   z-index: 9;
 
   @media screen and (min-width: 60rem) {
-    .team__sub_navigation__tabs {
-      // position: absolute;
-      // z-index: 3;
-      // right: 1rem;
-      // top: 1.5rem;
-    }
+    .team__sub_navigation__tabs {}
   }
 }
 
@@ -75,6 +70,7 @@
     max-width: 90rem;
     justify-content: flex-end;
     margin: 0 auto 1rem;
+    padding: 0 var(--padding--desktop);
   }
 
   &::before {

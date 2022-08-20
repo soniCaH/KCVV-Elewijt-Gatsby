@@ -29,7 +29,7 @@ const Layout = ({ children }: PropsWithChildren) => {
     if (window.location.hash) {
       $(`.team__sub_navigation a[href="${window.location.hash}"]`).trigger(`click`, [true])
     }
-    $(`.widget__filter`).on(`change.zf.tabs`, function () {
+    $(`.widget__filter, .team__sub_navigation__tabs`).on(`change.zf.tabs`, function () {
       forceCheck()
     })
   }, [])

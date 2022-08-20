@@ -88,93 +88,95 @@ const renderTeamStats = ({ extraStats }: TeamStatsDataObject) => (
       </span>
     </section>
     <table className="team__stats__bars">
-      <tr>
-        <th className="team__stats__bars__title" colSpan={3} scope="row">
-          Doelpunten
-        </th>
-      </tr>
-      <tr className="team__stats__goals">
-        <td className="team__stats__bars__label">{extraStats.goalsScored || `0`}</td>
-        <td className="team__stats__bars__bars">
-          <div className="team__stats__bars__bars__wrapper">
-            <span
-              className="team__stats__bars__bars__percent team__stats__bars__bars__percent--home"
-              style={{
-                width: `calc(100% * ${extraStats.goalsScored / (extraStats.goalsScored + extraStats.goalsAgainst)})`,
-              }}
-            >
-              {extraStats.goalsScored}
-            </span>
-            <span
-              className="team__stats__bars__bars__percent team__stats__bars__bars__percent--away"
-              style={{
-                width: `calc(100% * ${extraStats.goalsAgainst / (extraStats.goalsScored + extraStats.goalsAgainst)})`,
-              }}
-            >
-              {extraStats.goalsAgainst}
-            </span>
-          </div>
-        </td>
-        <td className="team__stats__bars__label">{extraStats.goalsAgainst || `0`}</td>
-      </tr>
-      <tr>
-        <th className="team__stats__bars__title" colSpan={3} scope="row">
-          Wedstrijden
-        </th>
-      </tr>
-      <tr className="team__stats__goals">
-        <td className="team__stats__bars__label">{extraStats.gamesWon}</td>
-        <td className="team__stats__bars__bars">
-          <div className="team__stats__bars__bars__wrapper">
-            <span
-              className="team__stats__bars__bars__percent team__stats__bars__bars__percent--home"
-              style={{
-                width: `calc(100% * ${extraStats.gamesWon / extraStats.gamesPlayed})`,
-              }}
-            >
-              {extraStats.gamesWon}
-            </span>
-            <span
-              className="team__stats__bars__bars__percent team__stats__bars__bars__percent--away"
-              style={{
-                width: `calc(100% * ${extraStats.gamesLost / extraStats.gamesPlayed})`,
-              }}
-            >
-              {extraStats.gamesLost}
-            </span>
-          </div>
-        </td>
-        <td className="team__stats__bars__label">{extraStats.gamesLost}</td>
-      </tr>
-      <tr>
-        <th className="team__stats__bars__title" colSpan={3} scope="row">
-          Cleansheets vs niet gescoord
-        </th>
-      </tr>
-      <tr className="team__stats__goals">
-        <td className="team__stats__bars__label">{extraStats.cleanSheets}</td>
-        <td className="team__stats__bars__bars">
-          <div className="team__stats__bars__bars__wrapper">
-            <span
-              className="team__stats__bars__bars__percent team__stats__bars__bars__percent--home"
-              style={{
-                width: `calc(100% * ${extraStats.cleanSheets / (extraStats.cleanSheets + extraStats.notScored)})`,
-              }}
-            >
-              {extraStats.cleanSheets}
-            </span>
-            <span
-              className="team__stats__bars__bars__percent team__stats__bars__bars__percent--away"
-              style={{
-                width: `calc(100% * ${extraStats.notScored / (extraStats.cleanSheets + extraStats.notScored)})`,
-              }}
-            >
-              {extraStats.notScored}
-            </span>
-          </div>
-        </td>
-        <td className="team__stats__bars__label">{extraStats.notScored}</td>
-      </tr>
+      <tbody>
+        <tr>
+          <th className="team__stats__bars__title" colSpan={3} scope="row">
+            Doelpunten
+          </th>
+        </tr>
+        <tr className="team__stats__goals">
+          <td className="team__stats__bars__label">{extraStats.goalsScored || `0`}</td>
+          <td className="team__stats__bars__bars">
+            <div className="team__stats__bars__bars__wrapper">
+              <span
+                className="team__stats__bars__bars__percent team__stats__bars__bars__percent--home"
+                style={{
+                  width: `calc(100% * ${extraStats.goalsScored / (extraStats.goalsScored + extraStats.goalsAgainst)})`,
+                }}
+              >
+                {extraStats.goalsScored}
+              </span>
+              <span
+                className="team__stats__bars__bars__percent team__stats__bars__bars__percent--away"
+                style={{
+                  width: `calc(100% * ${extraStats.goalsAgainst / (extraStats.goalsScored + extraStats.goalsAgainst)})`,
+                }}
+              >
+                {extraStats.goalsAgainst}
+              </span>
+            </div>
+          </td>
+          <td className="team__stats__bars__label">{extraStats.goalsAgainst || `0`}</td>
+        </tr>
+        <tr>
+          <th className="team__stats__bars__title" colSpan={3} scope="row">
+            Wedstrijden
+          </th>
+        </tr>
+        <tr className="team__stats__goals">
+          <td className="team__stats__bars__label">{extraStats.gamesWon}</td>
+          <td className="team__stats__bars__bars">
+            <div className="team__stats__bars__bars__wrapper">
+              <span
+                className="team__stats__bars__bars__percent team__stats__bars__bars__percent--home"
+                style={{
+                  width: `calc(100% * ${extraStats.gamesWon / extraStats.gamesPlayed})`,
+                }}
+              >
+                {extraStats.gamesWon}
+              </span>
+              <span
+                className="team__stats__bars__bars__percent team__stats__bars__bars__percent--away"
+                style={{
+                  width: `calc(100% * ${extraStats.gamesLost / extraStats.gamesPlayed})`,
+                }}
+              >
+                {extraStats.gamesLost}
+              </span>
+            </div>
+          </td>
+          <td className="team__stats__bars__label">{extraStats.gamesLost}</td>
+        </tr>
+        <tr>
+          <th className="team__stats__bars__title" colSpan={3} scope="row">
+            Cleansheets vs niet gescoord
+          </th>
+        </tr>
+        <tr className="team__stats__goals">
+          <td className="team__stats__bars__label">{extraStats.cleanSheets}</td>
+          <td className="team__stats__bars__bars">
+            <div className="team__stats__bars__bars__wrapper">
+              <span
+                className="team__stats__bars__bars__percent team__stats__bars__bars__percent--home"
+                style={{
+                  width: `calc(100% * ${extraStats.cleanSheets / (extraStats.cleanSheets + extraStats.notScored)})`,
+                }}
+              >
+                {extraStats.cleanSheets}
+              </span>
+              <span
+                className="team__stats__bars__bars__percent team__stats__bars__bars__percent--away"
+                style={{
+                  width: `calc(100% * ${extraStats.notScored / (extraStats.cleanSheets + extraStats.notScored)})`,
+                }}
+              >
+                {extraStats.notScored}
+              </span>
+            </div>
+          </td>
+          <td className="team__stats__bars__label">{extraStats.notScored}</td>
+        </tr>
+      </tbody>
     </table>
   </Card>
 )
