@@ -195,6 +195,11 @@ const MenuItems = () => {
               Contact
             </Link>
           </li>
+          <li>
+            <Link to="/club/downloads/" activeClassName="active" partiallyActive={true}>
+              Downloads
+            </Link>
+          </li>
         </ul>
       </li>
       <li>

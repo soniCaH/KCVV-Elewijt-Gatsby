@@ -19,13 +19,6 @@ export const Head = () => {
 }
 
 const UltrasPage = () => {
-  const { sjr } = useStaticQuery(graphql`
-    query {
-      sjr: file(name: { eq: "sjr" }) {
-        ...KCVVFluid960
-      }
-    }
-  `)
   return (
     <Layout>
       <header className="page_header__wrapper">
