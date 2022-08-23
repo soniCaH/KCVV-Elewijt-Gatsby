@@ -9,3 +9,7 @@ export interface DownloadsPageProps {
 export interface HistoryPageProps {
   data: Queries.HistoryPageQuery
 }
+
+export interface GamePageProps {
+  matchId: number
+}

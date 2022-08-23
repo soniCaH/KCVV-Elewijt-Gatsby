@@ -7,22 +7,6 @@ import "./MiniRanking.scss"
 import Spinner from "./Spinner"
 
 const MiniRanking: FunctionComponent<MiniRankingProps> = ({ teamId, homeTeam, awayTeam }: MiniRankingProps) => {
-  const [data, setData] = useState<RankingDataObject[]>([])
-
-  const {
-    site: {
-      siteMetadata: { kcvvPsdApi },
-    },
-  }: RankingData = useStaticQuery(graphql`
-    {
-      site {
-        siteMetadata {
-          kcvvPsdApi
-        }
-      }
-    }
-  `)
-
   useEffect(() => {
     async function getData() {
       const response = await axios.get(`${kcvvPsdApi}/ranking/${teamId}`)

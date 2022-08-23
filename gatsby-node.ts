@@ -123,14 +123,14 @@ const wrapper = (promise) =>
 
 //   // }
 
-//   // exports.onCreatePage = async ({ page, actions }) => {
-//   //   const { createPage } = actions
+export const onCreatePage: GatsbyNode["onCreatePage"] = async ({ page, actions }) => {
+  const { createPage } = actions
 
-//   //   if (page.path.match(/^\/game\//)) {
-//   //     createPage({
-//   //       path: `/game/`,
-//   //       matchPath: `/game/:id`,
-//   //       component: path.resolve(`src/pages/game.js`),
-//   //     })
-//   //   }
-// }
+  if (page.path.match(/^\/game\//)) {
+    createPage({
+      path: `/game/`,
+      matchPath: `/game/:matchId`,
+      component: path.resolve(`src/pages/game.tsx`),
+    })
+  }
+}
