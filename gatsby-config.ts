@@ -19,7 +19,7 @@ const config: GatsbyConfig = {
   },
   trailingSlash: `always`,
   flags: {
-    FAST_DEV: true,
+    FAST_DEV: false,
     PARALLEL_SOURCING: false,
   },
   plugins: [
@@ -74,7 +74,7 @@ const config: GatsbyConfig = {
     },
     `gatsby-plugin-offline`,
     `gatsby-plugin-netlify`,
-    // `gatsby-plugin-use-query-params`,
+    `gatsby-plugin-use-query-params`,
   ],
 }
 

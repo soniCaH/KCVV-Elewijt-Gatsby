@@ -1,13 +1,17 @@
 export interface PlayerQuery {
   data: {
     nodePlayer: Queries.node__player
-  }
+  } & Queries.PlayerQueryQuery
+}
+
+export interface PlayerShareProps {
+  player: Queries.node__player
 }
 
 export interface StaffQuery {
   data: {
     nodeStaff: Queries.node__staff
-  }
+  } & Queries.StaffQueryQuery
 }
 
 export interface PlayerProps {

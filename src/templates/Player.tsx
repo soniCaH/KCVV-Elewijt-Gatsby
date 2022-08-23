@@ -22,6 +22,7 @@ import iconCardRed from "../images/i_card_red.png"
 import iconCardYellow from "../images/i_card_yellow.png"
 import iconCleansheet from "../images/i_cleansheet.png"
 import iconGoal from "../images/i_goal.png"
+import RelatedNews from "../components/RelatedNews"
 
 const Player = ({ data: { nodePlayer } }: PlayerQuery) => {
   const cleanBody =
@@ -48,6 +49,9 @@ const Player = ({ data: { nodePlayer } }: PlayerQuery) => {
     }
     getData()
   }, [kcvvPsdApi, playerId])
+
+  const team = nodePlayer.relationships?.node__team || []
+  const articles = nodePlayer.relationships?.node__article || []
 
   return (
     <Layout>
@@ -87,6 +91,13 @@ const Player = ({ data: { nodePlayer } }: PlayerQuery) => {
         {renderPlayerStatsFull(data?.playerStatistics || [])}
         {renderPlayerGamesFull(data?.gameReports || [])}
       </footer>
+
+      {(team || articles) && (
+        <aside className="player__details__related_news page__wrapper">
+          <RelatedNews items={[...team, ...articles]} limit={6} />
+        </aside>
+      )}
+
       {/* <PlayerDetail player={nodePlayer} /> */}
     </Layout>
   )
@@ -378,6 +389,11 @@ export const query = graphql`
         field_image {
           localFile {
             ...KCVVFluid480
+          }
+        }
+        field_image_celebrate {
+          localFile {
+            ...KCVVFixedPlayerTeaserShare
           }
         }
       }

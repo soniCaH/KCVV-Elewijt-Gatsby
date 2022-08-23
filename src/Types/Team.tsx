@@ -9,5 +9,7 @@
 // }
 
 export interface TeamQuery {
-  data: Queries.TeamQueryQuery
+  data: {
+    nodeTeam: Queries.node__team
+  } & Queries.TeamQueryQuery
 }

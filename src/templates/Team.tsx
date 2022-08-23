@@ -12,6 +12,7 @@ import { MatchTeasers } from "../components/MatchTeaser"
 import Matches from "../components/Matches"
 import { AltTitle } from "../components/AltTitle"
 import { Ranking } from "../components/Ranking"
+import RelatedNews from "../components/RelatedNews"
 
 const Team = ({ data: { nodeTeam } }: TeamQuery) => {
   const heroImage = nodeTeam?.relationships?.field_media_article_image
@@ -26,6 +27,8 @@ const Team = ({ data: { nodeTeam } }: TeamQuery) => {
   // Helper variable so we don't have to do the check over and over again.
   const hasDivision = nodeTeam?.field_vv_id
   const articles = nodeTeam?.relationships?.node__article || []
+
+  console.log(nodeTeam?.relationships?.node__article)
 
   const allPlayers = [...(nodeTeam?.relationships?.field_players || [])]
 
@@ -123,6 +126,7 @@ const Team = ({ data: { nodeTeam } }: TeamQuery) => {
               </main>
             </div>
           )}
+          {articles && <RelatedNews items={[...articles]} limit={6} />}
           {hasDivision && (
             <>
               <div className={`tabs-panel`} id="team-matches">

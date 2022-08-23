@@ -2,7 +2,7 @@ import { IGatsbyImageData } from "gatsby-plugin-image"
 import { Pathalias } from "./Drupal"
 
 export interface RelatedNewsProps {
-  items: RelatedNewsItem[]
+  items: (Queries.node__article | Queries.node__team | null)[]
   limit?: number
 }
 

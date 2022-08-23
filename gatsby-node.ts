@@ -72,10 +72,18 @@ export const createPages: GatsbyNode["createPages"] = async ({ graphql, actions 
   })
 
   const playerTemplate = path.resolve(`src/templates/Player.tsx`)
+  const playerShareTemplate = path.resolve(`src/templates/PlayerShare.tsx`)
   const createPlayerPromise = result.data.players.edges.map(({ node }) => {
     createPage({
       path: node.path.alias,
       component: playerTemplate,
+      context: {
+        slug: node.path.alias,
+      },
+    })
+    createPage({
+      path: `${node.path.alias}/share`,
+      component: playerShareTemplate,
       context: {
         slug: node.path.alias,
       },
@@ -114,14 +122,6 @@ const wrapper = (promise) =>
     }
     return result
   })
-
-// export const createPages: GatsbyNode["createPages"] = async ({ actions, graphql }) => {
-//   const { createPage } = actions
-//   // const pageTemplate = path.resolve(`src/templates/page.js`)
-//   // const playerShareTemplate = path.resolve(`src/templates/player-share.js`)
-//   //   createPages(result.data.pages.edges, createPage, pageTemplate)
-
-//   // }
 
 export const onCreatePage: GatsbyNode["onCreatePage"] = async ({ page, actions }) => {
   const { createPage } = actions

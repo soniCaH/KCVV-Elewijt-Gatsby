@@ -144,11 +144,6 @@ const MenuItems = () => {
             </Link>
           </li>
           <li>
-            <Link to="/jeugd/u10/" activeClassName="active" partiallyActive={true}>
-              U10n
-            </Link>
-          </li>
-          <li>
             <Link to="/jeugd/u9/" activeClassName="active" partiallyActive={true}>
               U9
             </Link>

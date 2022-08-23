@@ -7,11 +7,3 @@ export const KCVVFluid1280 = graphql`
     }
   }
 `
-
-export const KCVVFixedPlayerTeaserShare = graphql`
-  fragment KCVVFixedPlayerTeaserShare on File {
-    childImageSharp {
-      gatsbyImageData(height: 1000, placeholder: TRACED_SVG, layout: FIXED, tracedSVGOptions: { color: "#2d2d2d" })
-    }
-  }
-`
