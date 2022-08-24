@@ -21,7 +21,7 @@ export interface Event {
   }
 }
 
-interface EventNode {
+export interface EventNode {
   node: Event
 }
 

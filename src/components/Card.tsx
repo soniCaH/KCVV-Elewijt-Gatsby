@@ -50,7 +50,7 @@ export const CardImage = ({ title, picture, link = ``, body }: CardImageProps) =
   const image = getImage(picture)
 
   return (
-    <article className={`card card--teaser`}>
+    <article className={`card card--teaser card--teaser--image`}>
       {link !== `` || (
         <>
           <header className={`card_header`}>

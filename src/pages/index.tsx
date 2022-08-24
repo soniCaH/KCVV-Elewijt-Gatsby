@@ -4,13 +4,14 @@ import React from "react"
 
 import { HomepageResponsePropsApi } from "../Types/Gatsby"
 import { AltTitle } from "../components/AltTitle"
-import { CardTeaser, CardTVTeaser } from "../components/Card"
+import { CardImage, CardTeaser, CardTVTeaser } from "../components/Card"
 import { MatchesOverview } from "../components/MatchesOverview"
 import MatchesSlider from "../components/MatchesSlider"
 import { MatchesTabs } from "../components/MatchesTabs"
 import { Seo } from "../components/Seo"
 import Layout from "../layouts"
 import "./index.scss"
+import EventCard from "../components/EventCard"
 
 export const Head = () => (
   <Seo
@@ -22,7 +23,7 @@ export const Head = () => (
 )
 
 const IndexPage = () => {
-  const { articles, videos }: HomepageResponsePropsApi = useStaticQuery(graphql`
+  const { articles, videos, events }: HomepageResponsePropsApi = useStaticQuery(graphql`
     query {
       articles: allNodeArticle(
         filter: { status: { eq: true }, promote: { eq: true } }
@@ -86,10 +87,43 @@ const IndexPage = () => {
           }
         }
       }
+      events: allNodeEvent(
+        filter: { promote: { eq: true }, status: { eq: true } }
+        sort: { order: ASC, fields: field_daterange___value }
+        limit: 1
+      ) {
+        edges {
+          node {
+            field_daterange {
+              value(formatString: "YYYY-MM-DDTHH:mm:ssZ")
+              end_value(formatString: "YYYY-MM-DDTHH:mm:ssZ")
+            }
+            field_event_link {
+              uri
+            }
+            title
+            relationships {
+              field_media_image {
+                field_media_image {
+                  alt
+                }
+                relationships {
+                  field_media_image {
+                    localFile {
+                      ...KCVVFluid960
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
     }
   `)
 
   const featuredArticle = articles.edges.slice(0, 1)
+  const featuredEvent = events.edges.slice(0, 1)
 
   return (
     <Layout>
@@ -157,7 +191,19 @@ const IndexPage = () => {
       </section>
 
       <section className="frontpage__main_content page__section">
-        {articles.edges.slice(1, 5).map(({ node }) => (
+        {featuredEvent && (
+          <EventCard
+            title={events.edges[0].node.title}
+            picture={
+              events.edges[0].node.relationships.field_media_image.relationships.field_media_image.localFile
+                .childImageSharp.gatsbyImageData
+            }
+            link={events.edges[0].node.field_event_link.uri}
+            datetimeStart={events.edges[0].node.field_daterange.value}
+            datetimeEnd={events.edges[0].node.field_daterange.end_value}
+          />
+        )}
+        {articles.edges.slice(1, featuredEvent ? 3 : 5).map(({ node }) => (
           <CardTeaser
             key={node.id}
             title={node.title}
@@ -196,7 +242,7 @@ const IndexPage = () => {
       </section>
 
       <section className="frontpage__main_content page__section">
-        {articles.edges.slice(5, 11).map(({ node }) => (
+        {articles.edges.slice(featuredEvent ? 3 : 5, featuredEvent ? 9 : 11).map(({ node }) => (
           <CardTeaser
             key={node.id}
             title={node.title}
