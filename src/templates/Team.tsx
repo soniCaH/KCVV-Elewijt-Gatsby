@@ -114,6 +114,8 @@ const Team = ({ data: { nodeTeam } }: TeamQuery) => {
                 <Lineup lineup={nodeTeam?.relationships?.field_staff} />
               </main>
             )}
+
+            {articles && <RelatedNews items={[...articles]} limit={6} />}
           </div>
           {allPlayers.length > 0 && (
             <div className={`tabs-panel`} id="team-lineup">
@@ -126,7 +128,6 @@ const Team = ({ data: { nodeTeam } }: TeamQuery) => {
               </main>
             </div>
           )}
-          {articles && <RelatedNews items={[...articles]} limit={6} />}
           {hasDivision && (
             <>
               <div className={`tabs-panel`} id="team-matches">
