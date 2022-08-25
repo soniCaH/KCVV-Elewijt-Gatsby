@@ -43,7 +43,7 @@
     "react-slick": "0.29.0",
     "sass": "1.54.5",
     "slick-carousel": "1.8.1",
-    "use-query-params": "1.2.3"
+    "use-query-params": "2.0.0"
   },
   "keywords": [
     "gatsby"
