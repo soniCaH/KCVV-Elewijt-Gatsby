@@ -324,7 +324,6 @@ class PlayerDetail extends Component {
     )
   }
 
-
   render() {
     const { player } = this.props
 

@@ -1,6 +1,5 @@
 import { IGatsbyImageData } from "gatsby-plugin-image"
 
-
 export interface KcvvTv {
   created: string
   title: string
@@ -20,8 +19,6 @@ export interface KcvvTv {
     uri: string
   }
 }
-
-
 
 export interface Player {
   path: Pathalias

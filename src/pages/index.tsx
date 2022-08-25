@@ -191,19 +191,19 @@ const IndexPage = () => {
       </section>
 
       <section className="frontpage__main_content page__section">
-        {featuredEvent && (
+        {featuredEvent.length > 0 && (
           <EventCard
-            title={events.edges[0].node.title}
+            title={featuredEvent[0].node.title}
             picture={
-              events.edges[0].node.relationships.field_media_image.relationships.field_media_image.localFile
+              featuredEvent[0].node.relationships.field_media_image.relationships.field_media_image.localFile
                 .childImageSharp.gatsbyImageData
             }
-            link={events.edges[0].node.field_event_link.uri}
-            datetimeStart={events.edges[0].node.field_daterange.value}
-            datetimeEnd={events.edges[0].node.field_daterange.end_value}
+            link={featuredEvent[0].node.field_event_link.uri}
+            datetimeStart={featuredEvent[0].node.field_daterange.value}
+            datetimeEnd={featuredEvent[0].node.field_daterange.end_value}
           />
         )}
-        {articles.edges.slice(1, featuredEvent ? 3 : 5).map(({ node }) => (
+        {articles.edges.slice(1, featuredEvent.length > 0 ? 3 : 5).map(({ node }) => (
           <CardTeaser
             key={node.id}
             title={node.title}
@@ -242,7 +242,7 @@ const IndexPage = () => {
       </section>
 
       <section className="frontpage__main_content page__section">
-        {articles.edges.slice(featuredEvent ? 3 : 5, featuredEvent ? 9 : 11).map(({ node }) => (
+        {articles.edges.slice(featuredEvent.length > 0 ? 3 : 5, featuredEvent.length > 0 ? 9 : 11).map(({ node }) => (
           <CardTeaser
             key={node.id}
             title={node.title}
