@@ -132,12 +132,7 @@ const Team = ({ data: { nodeTeam } }: TeamQuery) => {
             <>
               <div className={`tabs-panel`} id="team-matches">
                 {nodeTeam?.field_vv_id && <MatchTeasers teamId={+nodeTeam?.field_vv_id} />}
-                {nodeTeam?.field_vv_id && (
-                  <>
-                    <AltTitle title="KALENDER" variant="white" />
-                    <Matches teamId={+nodeTeam?.field_vv_id} />
-                  </>
-                )}
+                {nodeTeam?.field_vv_id && <Matches teamId={+nodeTeam?.field_vv_id} />}
               </div>
               <div className={`tabs-panel`} id="team-ranking">
                 {nodeTeam?.field_vv_id && <Ranking teamId={+nodeTeam?.field_vv_id} />}

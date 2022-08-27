@@ -205,6 +205,11 @@ const MenuItems = () => {
               Downloads
             </Link>
           </li>
+          <li>
+            <Link to="/club/register/" activeClassName="active" partiallyActive={true}>
+              Inschrijving
+            </Link>
+          </li>
         </ul>
       </li>
       <li>

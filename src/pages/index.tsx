@@ -4,7 +4,7 @@ import React from "react"
 
 import { HomepageResponsePropsApi } from "../Types/Gatsby"
 import { AltTitle } from "../components/AltTitle"
-import { CardImage, CardTeaser, CardTVTeaser } from "../components/Card"
+import { CardTeaser, CardTVTeaser } from "../components/Card"
 import { MatchesOverview } from "../components/MatchesOverview"
 import MatchesSlider from "../components/MatchesSlider"
 import { MatchesTabs } from "../components/MatchesTabs"
@@ -12,6 +12,8 @@ import { Seo } from "../components/Seo"
 import Layout from "../layouts"
 import "./index.scss"
 import EventCard from "../components/EventCard"
+import classnames from "classnames"
+import Icon from "../components/Icon"
 
 export const Head = () => (
   <Seo
@@ -122,58 +124,50 @@ const IndexPage = () => {
     }
   `)
 
-  const featuredArticle = articles.edges.slice(0, 1)
   const featuredEvent = events.edges.slice(0, 1)
 
   return (
     <Layout>
-      <section className="frontpage__top__wrapper page__section">
-        <div className="frontpage__hero">
-          <div className="frontpage__hero__inner">
-            <div className="frontpage__hero__container">
-              <div className="frontpage__hero__content">
-                <article className="frontpage__hero__article">
-                  <Link to={featuredArticle[0].node.path.alias}>
-                    <div className="frontpage__hero__article__inner">
-                      <header>
-                        <h3>
-                          {featuredArticle[0].node.relationships?.field_tags.map(({ name }, i) => (
-                            <span className={`tag__label`} key={`tag-${i}`}>
-                              #{name}
-                            </span>
-                          ))}
-                        </h3>
-                        <div className="frontpage__hero__article__title">
-                          <h2>{featuredArticle[0].node.title}</h2>
-                        </div>
-                      </header>
-                      <GatsbyImage
-                        image={
-                          featuredArticle[0].node.relationships.field_media_article_image.relationships
-                            .field_media_image.localFile.childImageSharp.gatsbyImageData
-                        }
-                        alt={featuredArticle[0].node.title}
-                      />
+      <section className="frontpage__featured_articles">
+        {articles.edges.slice(0, 3).map(({ node }, i) => (
+          <Link
+            to={node.path.alias}
+            className={classnames(`frontpage__featured_article`, { "frontpage__featured_article--active": i === 0 })}
+          >
+            <GatsbyImage
+              image={
+                node.relationships.field_media_article_image.relationships.field_media_image.localFile.childImageSharp
+                  .gatsbyImageData
+              }
+              alt={node.title}
+            />
+            <div className="frontpage__featured_article__title__wrapper">
+              <h3 className="frontpage__featured_article__title">{node.title}</h3>
+              <div
+                className="frontpage__featured_article__title__description"
+                dangerouslySetInnerHTML={{ __html: node.body.summary }}
+              />
+              <div className="frontpage__featured_article__meta__wrapper">
+                <div className="frontpage__featured_article__meta">
+                  {node.relationships.field_tags && node.relationships.field_tags?.length > 0 && (
+                    <div className={`frontpage__featured_article__meta__tags`}>
+                      <Icon icon="fa-tags" />
+                      {node.relationships.field_tags.map(({ name }, i) => (
+                        <span className={`tag__label`} key={i}>
+                          #{name}
+                        </span>
+                      ))}
                     </div>
-                  </Link>
-                </article>
-                <div className="frontpage__hero__sponsor">
-                  <StaticImage
-                    src="../images/rbfa-lukaku.jpg"
-                    alt="RBFA VVF - Romelu Lukaku"
-                    placeholder="blurred"
-                    layout="constrained"
-                    aspectRatio={0.7063758}
-                  />
+                  )}
                 </div>
               </div>
             </div>
-          </div>
-        </div>
+          </Link>
+        ))}
       </section>
 
       <section className="frontpage__matches_carousel page__section" id="frontpage__matches_carousel">
-        <AltTitle title="matches" variant="black" />
+        {/* <AltTitle title="matches" variant="black" /> */}
         <main className="frontpage__matches_carousel__content">
           <article className="frontpage__matches_carousel_item frontpage__matches_carousel_item--a">
             <header className="frontpage__matches_carousel_item__header">THE A Team</header>
@@ -224,7 +218,7 @@ const IndexPage = () => {
       </section>
 
       <section className="frontpage__kcvvtv page__section">
-        <AltTitle title="KCVV TV" variant="black" />
+        {/* <AltTitle title="KCVV TV" variant="black" /> */}
         <div className="frontpage__kcvvtv__content">
           {videos.edges.map(({ node }, i) => (
             <CardTVTeaser
@@ -240,6 +234,10 @@ const IndexPage = () => {
           ))}
         </div>
       </section>
+
+      <div className="frontpage__advertisement">
+        <StaticImage src="../images/cometogether.jpg" alt="#ComeTogether" className="frontpage__advertisement" />
+      </div>
 
       <section className="frontpage__main_content page__section">
         {articles.edges.slice(featuredEvent.length > 0 ? 3 : 5, featuredEvent.length > 0 ? 9 : 11).map(({ node }) => (
