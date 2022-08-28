@@ -37,9 +37,6 @@ const GamePage = ({ matchId }: GamePageProps) => {
   useEffect(() => {
     async function getData() {
       const response = await axios.get(`${kcvvPsdApi}/match/${matchId}`)
-      console.log(response)
-      console.log(`Getting data`)
-      console.log(`${kcvvPsdApi}/match/${matchId}`)
       setData(response.data)
     }
     getData()
@@ -57,12 +54,10 @@ const GamePage = ({ matchId }: GamePageProps) => {
     )
   }
 
-  console.log(data)
-
   if (data) {
-    const { general, substitutes, lineup, events = [] } = data
-    const { home: homeLineup = [], away: awayLineup = [] } = lineup
-    const { home: homeSubs = [], away: awaySubs = [] } = substitutes
+    const { general, substitutes, lineup, events = [] } = data || {}
+    const { home: homeLineup = [], away: awayLineup = [] } = lineup || {}
+    const { home: homeSubs = [], away: awaySubs = [] } = substitutes || {}
 
     const matchTime = moment(general.date)
     const homeTeamId = general.homeClub?.id

@@ -207,7 +207,7 @@ const MenuItems = () => {
           </li>
           <li>
             <Link to="/club/register/" activeClassName="active" partiallyActive={true}>
-              Inschrijving
+              Praktische Info
             </Link>
           </li>
         </ul>
