@@ -1,4 +1,4 @@
-import { graphql, Link, PageProps, useStaticQuery } from "gatsby"
+import { graphql, Link, useStaticQuery } from "gatsby"
 import { GatsbyImage, StaticImage } from "gatsby-plugin-image"
 import React from "react"
 
@@ -197,7 +197,7 @@ const IndexPage = () => {
             datetimeEnd={featuredEvent[0].node.field_daterange.end_value}
           />
         )}
-        {articles.edges.slice(1, featuredEvent.length > 0 ? 3 : 5).map(({ node }) => (
+        {articles.edges.slice(0, featuredEvent.length > 0 ? 2 : 4).map(({ node }) => (
           <CardTeaser
             key={node.id}
             title={node.title}
@@ -236,32 +236,46 @@ const IndexPage = () => {
       </section>
 
       <div className="frontpage__advertisement">
-        <StaticImage src="../images/cometogether.jpg" alt="#ComeTogether" className="frontpage__advertisement" />
+        <StaticImage
+          src="../images/cometogether.jpg"
+          alt="#ComeTogether"
+          className="frontpage__advertisement"
+          width={960}
+        />
       </div>
 
-      <section className="frontpage__main_content page__section">
-        {articles.edges.slice(featuredEvent.length > 0 ? 3 : 5, featuredEvent.length > 0 ? 9 : 11).map(({ node }) => (
-          <CardTeaser
-            key={node.id}
-            title={node.title}
-            picture={
-              node.relationships.field_media_article_image.relationships.field_media_image.localFile.childImageSharp
-                .gatsbyImageData
-            }
-            link={node.path.alias}
-            tags={node.relationships?.field_tags}
-            createTime={node.created}
-          />
-        ))}
-      </section>
-      {/*
-      <section className="frontpage__slogan page__section">
-        <AltTitle title="Er is maar één plezante compagnie" variant="green" />
-      </section> */}
+      <div className="frontpage__main_content__wrapper">
+        <section className="frontpage__main_content page__section">
+          {articles.edges.slice(featuredEvent.length > 0 ? 2 : 4, featuredEvent.length > 0 ? 8 : 10).map(({ node }) => (
+            <CardTeaser
+              key={node.id}
+              title={node.title}
+              picture={
+                node.relationships.field_media_article_image.relationships.field_media_image.localFile.childImageSharp
+                  .gatsbyImageData
+              }
+              link={node.path.alias}
+              tags={node.relationships?.field_tags}
+              createTime={node.created}
+            />
+          ))}
+        </section>
+      </div>
 
       <section className="frontpage__matches_slider page__section">
         <MatchesSlider />
       </section>
+
+      <div className="frontpage__advertisement">
+        <a href="mailto:sponsoring@kcvvelewijt.be" target="_blank">
+          <StaticImage
+            src="../images/sponsoring.jpg"
+            alt="Sponsor worden van KCVV?"
+            className="frontpage__advertisement"
+            width={960}
+          />
+        </a>
+      </div>
     </Layout>
   )
 }

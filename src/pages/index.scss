@@ -56,7 +56,7 @@
     top: 0;
     bottom: 0;
     content: '';
-    background: linear-gradient(to top, rgba(0, 0, 0, 0.5) 0%, transparent 40%);
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.6) 0%, transparent 40%);
   }
 
   &:first-of-type {
@@ -139,22 +139,18 @@
 
 .frontpage__featured_article__title {
   margin: 0 auto;
-  font-weight: 400;
+  font-weight: 700;
   color: #FFF;
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, .25);
   transition: transform .2s;
   transform-origin: bottom;
   line-height: 1.1;
-  font-size: 1rem;
-  backface-visibility: hidden;
+  font-size: .75rem;
   padding: 0 .8rem;
-  display: inline;
-  padding-inline: 10px 20px;
-  box-decoration-break: clone;
   text-transform: uppercase;
+  box-decoration-break: clone;
+  backface-visibility: hidden;
 
   @media screen and (min-width: 60rem) {
-    width: 20vw;
     font-size: 2rem;
     padding: 0 2rem;
   }
@@ -343,6 +339,8 @@
 }
 
 .frontpage__main_content {
+  padding-bottom: 0;
+
   @media screen and (min-width: 60rem) {
     max-width: 90rem;
     margin: 0 auto;
@@ -351,6 +349,7 @@
     grid-gap: 2.5rem;
     // grid-auto-rows: 1fr;
     grid-auto-rows: minmax(100px, auto);
+    padding-bottom: var(--margin-hero--desktop);
 
     >.card--teaser--image {
       grid-column: 1 / 3;
@@ -361,6 +360,13 @@
     // height: 400px;
   }
 
+}
+
+.frontpage__main_content__wrapper {
+  // background-color: rgba(240, 240, 240, 0.5);
+  background-image: url("../images/header-pattern-bg.png");
+  background-repeat: no-repeat;
+  background-size: 100vw auto;
 }
 
 .frontpage__main_content__youth {
