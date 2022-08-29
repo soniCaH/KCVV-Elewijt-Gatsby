@@ -89,7 +89,8 @@
       width: 50%;
 
       .frontpage__featured_article__title {
-        transform: scale(2);
+        // transform: scale(2);
+        font-size: 3rem;
         transition-delay: .1s;
       }
 
@@ -141,7 +142,7 @@
   margin: 0 auto;
   font-weight: 700;
   color: #FFF;
-  transition: transform .2s;
+  transition: font-size .3s;
   transform-origin: bottom;
   line-height: 1.1;
   font-size: .75rem;

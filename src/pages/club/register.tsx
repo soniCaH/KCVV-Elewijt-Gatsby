@@ -20,7 +20,7 @@ const RegisterPage = () => {
             <Link to="/jeugd/" className="rich-link">
               overzicht
             </Link>
-            ) of de jeugdsverantwoordelijken.
+            ) of de jeugdverantwoordelijken.
           </p>
           <p>
             Overtuigd en wil je graag lid worden van KCVV Elewijt? Inschrijven kan wekelijks in onze kantine na afspraak
@@ -35,9 +35,18 @@ const RegisterPage = () => {
       <div className="page__wrapper page__wrapper--limited page__section page__registration">
         <h2 className="featured-border">ProSoccerData</h2>
         <section>
-          <a href="https://kcvv.prosoccerdata.com/" target="_blank" className="rich-link">
-            https://kcvv.prosoccerdata.com/
-          </a>
+          <p>
+            KCVV Elewijt gebruikt de tool "ProSoccerData" als primair en centraal communicatiemiddel tussen trainers,
+            spelers, ouders... Via deze weg worden trainingen ingepland, wedstrijdselecties ingevuld, communicatie
+            verzorgd, spelers en ouders op te hoogte gehouden van wijzigingen of evenementen enz...
+          </p>
+          <p>Elke speler of ouder krijgt toegang tot deze tool via een persoonlijke login.</p>
+          <p>
+            Website:{` `}
+            <a href="https://kcvv.prosoccerdata.com/" target="_blank" className="rich-link">
+              https://kcvv.prosoccerdata.com/
+            </a>
+          </p>
         </section>
       </div>
     </Layout>

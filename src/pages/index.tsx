@@ -25,12 +25,53 @@ export const Head = () => (
 )
 
 const IndexPage = () => {
-  const { articles, videos, events }: HomepageResponsePropsApi = useStaticQuery(graphql`
+  const { articles, videos, events, stickyArticles }: HomepageResponsePropsApi = useStaticQuery(graphql`
     query {
       articles: allNodeArticle(
         filter: { status: { eq: true }, promote: { eq: true } }
         sort: { fields: created, order: DESC }
-        limit: 13
+        limit: 10
+      ) {
+        edges {
+          node {
+            id
+            path {
+              alias
+            }
+            created(formatString: "D/M/YYYY")
+            changed(formatString: "D/M/YYYY")
+            timestamp: changed(formatString: "x")
+            title
+            promote
+            status
+            field_featured
+            body {
+              value
+              format
+              processed
+              summary
+            }
+            relationships {
+              field_media_article_image {
+                ...ArticleImage
+              }
+              field_tags {
+                name
+                path {
+                  alias
+                }
+              }
+            }
+            internal {
+              type
+            }
+          }
+        }
+      }
+      stickyArticles: allNodeArticle(
+        filter: { status: { eq: true }, promote: { eq: true }, sticky: { eq: true } }
+        sort: { fields: created, order: DESC }
+        limit: 3
       ) {
         edges {
           node {
@@ -129,7 +170,7 @@ const IndexPage = () => {
   return (
     <Layout>
       <section className="frontpage__featured_articles">
-        {articles.edges.slice(0, 3).map(({ node }, i) => (
+        {stickyArticles.edges.map(({ node }, i) => (
           <Link
             to={node.path.alias}
             className={classnames(`frontpage__featured_article`, { "frontpage__featured_article--active": i === 0 })}

@@ -28,7 +28,7 @@ const DownloadsPage = ({ data: { medicalattest } }: DownloadsPageProps) => {
               title="Ongevalsaangifte"
               link={downloadOngevalAangifte}
               picture={pictureOngevalAangifte}
-              body="<span class='label label--download'>DOWNLOAD</span><br/> Vanaf 1 september worden enkel nog digitale ongevalsaangiftes aanvaard. Gelieve bijgevoegd document ingevuld — digitaal – aan de GC te bezorgen"
+              body="<span class='label label--download'>DOWNLOAD</span><br/> Vanaf 1 september worden enkel nog digitale ongevalsaangiftes aanvaard. Gelieve bijgevoegd document ingevuld — digitaal – aan de GC te bezorgen."
             />
           )}
         </section>
