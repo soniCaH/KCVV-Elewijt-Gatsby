@@ -135,9 +135,15 @@
 
 .team_info__hero_image {
   min-height: 5rem;
+
+  img {
+    margin-bottom: 2rem;
+  }
 }
 
 .team__wrapper {
+  position: relative;
+
   .tabs-panel {
     padding: 0;
   }
@@ -154,5 +160,5 @@
 }
 
 .team_info__contact {
-  margin-top: 2rem;
+  text-shadow: 1px 1px 1rem #FFF;
 }

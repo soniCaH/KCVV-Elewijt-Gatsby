@@ -172,6 +172,7 @@ const IndexPage = () => {
       <section className="frontpage__featured_articles">
         {stickyArticles.edges.map(({ node }, i) => (
           <Link
+            key={`featured-${i}`}
             to={node.path.alias}
             className={classnames(`frontpage__featured_article`, { "frontpage__featured_article--active": i === 0 })}
           >

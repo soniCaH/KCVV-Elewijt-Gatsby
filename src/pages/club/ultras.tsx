@@ -45,8 +45,8 @@ const UltrasPage = () => {
           <p>
             Tot het seizoen 2018 - 2019. In de zoektocht naar de kampioenstitel konden de spelers elke vorm van steun
             gebruiken, en wat is er beter dan de KCVV Ultras hiervoor terug nieuw leven in te blazen? Enkele nieuwe
-            voortrekkers stonden op en plaatsten hun schouders onder de eerste sfeeracties. Bengaals vuur en rookpotten
-            werden aangekocht, trommels en spandoeken naast het veld geposteerd en we konden knallen!
+            voortrekkers stonden op en plaatsten hun schouders onder de eerste sfeeracties. Bussen werden ingelegd,
+            trommels en spandoeken naast het veld geposteerd en we konden knallen!
           </p>
 
           <StaticImage

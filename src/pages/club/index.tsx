@@ -58,6 +58,17 @@ const ClubPage = () => {
           </Link>
         </section>
         <section>
+          <h2 className={`featured-border`}>KCVV Angels</h2>
+          <p>
+            Onze KCVV Angels staan altijd met open armen klaar. Sponsors in de watten leggen, VIP-lunches organiseren,
+            eetfestijnen in goede banen leiden of gewoon samen een glaasje cava drinken, onze Angels doen het met hun
+            allermooiste glimlach.
+          </p>
+          <Link to="/club/angels" className={`btn btn--arrow`}>
+            Ontmoet onze Angels
+          </Link>
+        </section>
+        <section>
           <h2 className={`featured-border`}>Contact</h2>
           <p>
             Binnen de club heeft iedereen zijn eigen "domein". Wil je graag contact over de sponsormogelijkheden, een

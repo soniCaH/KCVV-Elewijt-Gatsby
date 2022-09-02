@@ -218,7 +218,7 @@ export const query = graphql`
           }
         }
         field_media_article_image {
-          ...FullImage
+          ...MaxWidth
           field_media_image {
             alt
           }
