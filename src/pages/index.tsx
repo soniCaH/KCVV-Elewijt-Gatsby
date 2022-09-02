@@ -94,7 +94,7 @@ const IndexPage = () => {
             }
             relationships {
               field_media_article_image {
-                ...ArticleImage
+                ...ArticleImageLarge
               }
               field_tags {
                 name

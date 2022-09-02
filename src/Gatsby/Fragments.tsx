@@ -30,6 +30,20 @@ export const KCVVFluid960 = graphql`
   }
 `
 
+export const KCVVFluid480AR = graphql`
+  fragment KCVVFluid480AR on File {
+    childImageSharp {
+      gatsbyImageData(
+        width: 480
+        placeholder: DOMINANT_COLOR
+        layout: CONSTRAINED
+        aspectRatio: 1.5
+        transformOptions: { cropFocus: ENTROPY }
+      )
+    }
+  }
+`
+
 export const KCVVFullWidth = graphql`
   fragment KCVVFullWidth on File {
     childImageSharp {
@@ -77,6 +91,16 @@ export const KCVVFixedPlayerTeaserShare = graphql`
 
 export const query = graphql`
   fragment ArticleImage on media__image {
+    relationships {
+      field_media_image {
+        localFile {
+          ...KCVVFluid480AR
+        }
+      }
+    }
+  }
+
+  fragment ArticleImageLarge on media__image {
     relationships {
       field_media_image {
         localFile {
