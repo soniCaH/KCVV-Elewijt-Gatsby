@@ -191,6 +191,11 @@ const MenuItems = () => {
             </Link>
           </li>
           <li>
+            <Link to="/club/angels/" activeClassName="active" partiallyActive={true}>
+              KCVV Angels
+            </Link>
+          </li>
+          <li>
             <Link to="/club/ultras/" activeClassName="active" partiallyActive={true}>
               KCVV Ultras
             </Link>

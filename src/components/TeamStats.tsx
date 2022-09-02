@@ -3,12 +3,11 @@ import iconCardRed from "../images/i_card_red.png"
 import iconCardYellow from "../images/i_card_yellow.png"
 import iconCleansheet from "../images/i_cleansheet.png"
 import iconGoal from "../images/i_goal.png"
-import { translateGameResult } from "../scripts/helper"
+import { request, translateGameResult } from "../scripts/helper"
 import { Card } from "./Card"
 import Icon from "./Icon"
 import { Spinner } from "./Spinner"
 import "./TeamStats.scss"
-import axios from "axios"
 import React from "react"
 import { useEffect, useState } from "react"
 
@@ -18,7 +17,7 @@ const TeamStats = ({ teamId = 1 }: TeamStatsProps) => {
 
   useEffect(() => {
     async function getData() {
-      const response = await axios.get(`${kcvvPsdApi}/stats/team/${teamId}`)
+      const response = await request.get(`${kcvvPsdApi}/stats/team/${teamId}`)
       setData(response.data)
     }
     getData()

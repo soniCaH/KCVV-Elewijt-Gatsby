@@ -1,11 +1,10 @@
 import { Match } from "../Types/Match"
 import { MatchesOverviewProps } from "../Types/MatchesOverview"
 import { useSiteMetaData } from "../hooks/use-site-metadata"
-import { mapPsdStatus } from "../scripts/helper"
+import { mapPsdStatus, request } from "../scripts/helper"
 import { MatchTeaserDetail } from "./MatchTeaser"
 import "./MatchesOverview.scss"
 import { Spinner } from "./Spinner"
-import axios from "axios"
 import moment from "moment"
 import "moment-timezone"
 import "moment/locale/nl-be"
@@ -41,7 +40,7 @@ export const MatchesOverview = ({
         params = { exclude: exclude.join() }
       }
 
-      const response = await axios.get(`${kcvvPsdApi}/matches/${action}`, {
+      const response = await request.get(`${kcvvPsdApi}/matches/${action}`, {
         params: params,
       })
       setData(response.data)

@@ -3,10 +3,10 @@ import { useSiteMetaData } from "../hooks/use-site-metadata"
 import { MatchTeaserDetail } from "./MatchTeaser"
 import "./MatchesSlider.scss"
 import { Spinner } from "./Spinner"
-import axios from "axios"
 import React, { Fragment, useState } from "react"
 import { useEffect } from "react"
 import Slider, { LazyLoadTypes } from "react-slick"
+import { request } from "../scripts/helper"
 
 const MatchesSlider = () => {
   const [data, setData] = useState<Match[]>([])
@@ -54,7 +54,7 @@ const MatchesSlider = () => {
 
   useEffect(() => {
     async function getData() {
-      const response = await axios.get(`${kcvvPsdApi}/matches/next`)
+      const response = await request.get(`${kcvvPsdApi}/matches/next`)
       setData(response.data)
       setLoading(false)
     }

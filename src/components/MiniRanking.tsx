@@ -2,10 +2,9 @@ import { MiniRankingProps } from "../Types/MiniRanking"
 import { RankingDataObject, RankingDataTeamObject } from "../Types/Ranking"
 import { useSiteMetaData } from "../hooks/use-site-metadata"
 import { useEffect, useState } from "react"
-import axios from "axios"
 import React from "react"
 import { Spinner } from "./Spinner"
-import { sortRankings } from "../scripts/helper"
+import { request, sortRankings } from "../scripts/helper"
 
 export const MiniRanking = ({ teamId, homeTeam, awayTeam }: MiniRankingProps) => {
   const [data, setData] = useState<RankingDataObject[]>([])
@@ -14,7 +13,7 @@ export const MiniRanking = ({ teamId, homeTeam, awayTeam }: MiniRankingProps) =>
 
   useEffect(() => {
     async function getData() {
-      const response = await axios.get(`${kcvvPsdApi}/ranking/${teamId}`)
+      const response = await request.get(`${kcvvPsdApi}/ranking/${teamId}`)
       setData(response.data)
     }
     getData()

@@ -1,9 +1,8 @@
 import { Match } from "../Types/Match"
 import { MatchTeaserDetailProps, MatchTeaserProps, MatchTeasersProps } from "../Types/MatchTeaser"
 import { useSiteMetaData } from "../hooks/use-site-metadata"
-import { mapPsdStatus } from "../scripts/helper"
+import { mapPsdStatus, request } from "../scripts/helper"
 import "./MatchTeaser.scss"
-import axios from "axios"
 import classNames from "classnames"
 import moment from "moment"
 import "moment-timezone"
@@ -111,7 +110,7 @@ export const MatchTeaser = ({ teamId, action, includeRankings }: MatchTeaserProp
 
   useEffect(() => {
     async function getData() {
-      const response = await axios.get(`${kcvvPsdApi}/matches/${action}`, {
+      const response = await request.get(`${kcvvPsdApi}/matches/${action}`, {
         params: { include: teamId },
       })
       setData(response.data)

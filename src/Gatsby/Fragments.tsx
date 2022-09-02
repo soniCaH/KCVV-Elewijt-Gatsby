@@ -65,6 +65,14 @@ export const KCVVHeroImage = graphql`
   }
 `
 
+export const KCVVMaxWidth = graphql`
+  fragment KCVVMaxWidth on File {
+    childImageSharp {
+      gatsbyImageData(width: 1440, placeholder: DOMINANT_COLOR, layout: CONSTRAINED)
+    }
+  }
+`
+
 export const KCVVFluidPlayerTeaser = graphql`
   fragment KCVVFluidPlayerTeaser on File {
     childImageSharp {
@@ -125,6 +133,16 @@ export const query = graphql`
       field_media_image {
         localFile {
           ...KCVVHeroImage
+        }
+      }
+    }
+  }
+
+  fragment MaxWidth on media__image {
+    relationships {
+      field_media_image {
+        localFile {
+          ...KCVVMaxWidth
         }
       }
     }

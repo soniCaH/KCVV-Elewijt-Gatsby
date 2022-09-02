@@ -1,8 +1,7 @@
 import { RankingProps, RankingDataObject, RankingDataTeamObject } from "../Types/Ranking"
 import { useSiteMetaData } from "../hooks/use-site-metadata"
-import { sortRankings } from "../scripts/helper"
+import { request, sortRankings } from "../scripts/helper"
 import { Spinner } from "./Spinner"
-import axios from "axios"
 import { useEffect, useState } from "react"
 import React from "react"
 
@@ -12,7 +11,7 @@ export const Ranking = ({ teamId }: RankingProps) => {
 
   useEffect(() => {
     async function getData() {
-      const response = await axios.get(`${kcvvPsdApi}/ranking/${teamId}`)
+      const response = await request.get(`${kcvvPsdApi}/ranking/${teamId}`)
       setData(response.data)
     }
     getData()

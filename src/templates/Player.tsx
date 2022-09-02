@@ -1,4 +1,3 @@
-import axios from "axios"
 import { graphql, Link } from "gatsby"
 import { GatsbyImage, getSrc, StaticImage } from "gatsby-plugin-image"
 import React, { useEffect, useState } from "react"
@@ -10,7 +9,7 @@ import Layout from "../layouts"
 import moment from "moment"
 import "moment-timezone"
 import "moment/locale/nl-be"
-import { mapPositionCode } from "../scripts/helper"
+import { mapPositionCode, request } from "../scripts/helper"
 import {
   PlayerQuery,
   PlayerStatsDataObject,
@@ -43,7 +42,7 @@ const Player = ({ data: { nodePlayer } }: PlayerQuery) => {
 
   useEffect(() => {
     async function getData() {
-      const response = await axios.get(`${kcvvPsdApi}/stats/player/${playerId}`)
+      const response = await request.get(`${kcvvPsdApi}/stats/player/${playerId}`)
       setData(response.data)
       setLoading(false)
     }

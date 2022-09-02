@@ -1,10 +1,9 @@
 import { Match } from "../Types/Match"
 import { MatchTeaserDetailProps } from "../Types/MatchTeaser"
 import { useSiteMetaData } from "../hooks/use-site-metadata"
-import { mapPsdStatus } from "../scripts/helper"
+import { mapPsdStatus, request } from "../scripts/helper"
 import "./ScheurkalenderMatches.scss"
 import { Spinner } from "./Spinner"
-import axios from "axios"
 import classNames from "classnames"
 import { StaticImage } from "gatsby-plugin-image"
 import moment from "moment"
@@ -21,11 +20,11 @@ export const ScheurkalenderMatches = () => {
 
   useEffect(() => {
     async function getDataA() {
-      const response = await axios.get(`${kcvvPsdApi}/matches/1`)
+      const response = await request.get(`${kcvvPsdApi}/matches/1`)
       setDataA(response.data)
     }
     async function getDataB() {
-      const response = await axios.get(`${kcvvPsdApi}/matches/2`)
+      const response = await request.get(`${kcvvPsdApi}/matches/2`)
       setDataB(response.data)
     }
     getDataA()

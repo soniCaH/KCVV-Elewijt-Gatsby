@@ -1,4 +1,3 @@
-import axios from "axios"
 import ReactFitText from "@kennethormandy/react-fittext"
 import { useState, useEffect, Fragment } from "react"
 import { useSiteMetaData } from "../hooks/use-site-metadata"
@@ -10,13 +9,7 @@ import iconGoal from "../images/i_goal.png"
 import iconStart from "../images/i_start.png"
 import iconSubIn from "../images/i_sub_in.png"
 import iconSubOut from "../images/i_sub_out.png"
-import {
-  MatchDetails,
-  MatchDetailsEventItem,
-  MatchDetailsLineupItem,
-  MatchDetailsSubstituteItem,
-  MatchDetailsSubstitutes,
-} from "../Types/Match"
+import { MatchDetails, MatchDetailsEventItem, MatchDetailsLineupItem, MatchDetailsSubstituteItem } from "../Types/Match"
 import { GamePageProps } from "../Types/PageProps"
 import moment from "moment"
 import "moment-timezone"
@@ -26,7 +19,7 @@ import Layout from "../layouts"
 import { Spinner } from "../components/Spinner"
 import { Seo } from "../components/Seo"
 import "./game.scss"
-import { mapPsdStatus } from "../scripts/helper"
+import { mapPsdStatus, request } from "../scripts/helper"
 import LazyLoad from "react-lazyload"
 import Icon from "../components/Icon"
 import { MiniRanking } from "../components/MiniRanking"
@@ -36,7 +29,7 @@ const GamePage = ({ matchId }: GamePageProps) => {
 
   useEffect(() => {
     async function getData() {
-      const response = await axios.get(`${kcvvPsdApi}/match/${matchId}`)
+      const response = await request.get(`${kcvvPsdApi}/match/${matchId}`)
       setData(response.data)
     }
     getData()
