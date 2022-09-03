@@ -1,0 +1,17 @@
+.ranking__table {
+
+  thead {
+    background: var(--color-green--dark);
+    color: #FFF;
+    border-color: var(--color-green--dark);
+  }
+
+  tbody {
+    border-color: var(--color-green--dark);
+  }
+
+  .table__row--highlight {
+    background: var(--color-green--bright);
+    color: #FFF;
+  }
+}

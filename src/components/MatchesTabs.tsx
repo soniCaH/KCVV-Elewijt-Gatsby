@@ -3,6 +3,7 @@ import { MatchTeaser } from "./MatchTeaser"
 import "./MatchesTabs.scss"
 import { Ranking } from "./Ranking"
 import React from "react"
+import { Link } from "gatsby"
 
 export const MatchesTabs = ({ teamId }: MatchesTabsProps) => (
   <>
@@ -14,9 +15,6 @@ export const MatchesTabs = ({ teamId }: MatchesTabsProps) => (
         <div className="tabs-panel is-active" id={`matches-${teamId}-next`}>
           <MatchTeaser teamId={teamId} action="next" />
         </div>
-        <div className="tabs-panel" id={`matches-${teamId}-rank`}>
-          <Ranking teamId={teamId} />
-        </div>
       </div>
     </div>
     <ul className="widget__filter team_matches__tabs--filter" data-tabs id={`matches-${teamId}`}>
@@ -25,9 +23,6 @@ export const MatchesTabs = ({ teamId }: MatchesTabsProps) => (
       </li>
       <li className="tabs-title is-active">
         <a href={`#matches-${teamId}-next`}>Volgende</a>
-      </li>
-      <li className="tabs-title">
-        <a href={`#matches-${teamId}-rank`}>Ranking</a>
       </li>
     </ul>
   </>

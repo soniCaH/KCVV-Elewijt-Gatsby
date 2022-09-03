@@ -4,6 +4,7 @@ import { request, sortRankings } from "../scripts/helper"
 import { Spinner } from "./Spinner"
 import { useEffect, useState } from "react"
 import React from "react"
+import "./Ranking.scss"
 
 export const Ranking = ({ teamId }: RankingProps) => {
   const [data, setData] = useState<RankingDataObject[]>([])
@@ -29,7 +30,7 @@ const renderRanking = (ranking: RankingDataObject, i: number) => {
   return (
     <div className={`ranking`} key={i}>
       <h4>{ranking.name.replace(`Voetbal : `, ``)}</h4>
-      <table>
+      <table className="ranking__table">
         <thead>
           <tr>
             <th className={`table__column__number`}>#</th>
@@ -46,7 +47,10 @@ const renderRanking = (ranking: RankingDataObject, i: number) => {
         </thead>
         <tbody>
           {ranking.teams.sort(sortRankings).map((team: RankingDataTeamObject, j: number) => (
-            <tr key={j}>
+            <tr
+              key={j}
+              className={team.team?.club?.localName?.toLowerCase().includes(`elewijt`) ? `table__row--highlight` : ``}
+            >
               <td className={`table__column__number`}>{team.rank || `-`}</td>
               <td
                 className={`table__column__string ${
