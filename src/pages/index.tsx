@@ -260,42 +260,6 @@ const IndexPage = () => {
         <article className="frontpage__main_content__youth">
           <header className="frontpage__matches_carousel_item__header">Wedstrijden</header>
           <MatchesOverview exclude={[`1`, `2`]} action="next" />
-
-          <div className={`social-sidebar__wrapper`}>
-            <a
-              href="https://facebook.com/KCVVElewijt"
-              className="btn-social-counter btn-social-counter--fb"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <div className="btn-social-counter__icon">
-                <i className="fa fa-facebook"></i>
-              </div>
-              <h5 className="btn-social-counter__title">Volg onze Facebook pagina</h5>
-            </a>
-            <a
-              href="https://twitter.com/kcvve"
-              className="btn-social-counter btn-social-counter--twitter"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <div className="btn-social-counter__icon">
-                <i className="fa fa-twitter"></i>
-              </div>
-              <h5 className="btn-social-counter__title">Volg ons op Twitter</h5>
-            </a>
-            <a
-              href="http://www.instagram.com/kcvve"
-              className="btn-social-counter btn-social-counter--instagram"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <div className="btn-social-counter__icon">
-                <i className="fa fa-instagram"></i>
-              </div>
-              <h5 className="btn-social-counter__title">Volg ons op Instagram</h5>
-            </a>
-          </div>
         </article>
       </section>
 

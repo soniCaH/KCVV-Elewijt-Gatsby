@@ -49,6 +49,44 @@ const RegisterPage = () => {
           </p>
         </section>
       </div>
+
+      <div className="page__wrapper page__wrapper--limited page__section page__social">
+        <div className={`social__media__wrapper`}>
+          <a
+            href="https://facebook.com/KCVVElewijt"
+            className="btn-social-counter btn-social-counter--fb"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <div className="btn-social-counter__icon">
+              <i className="fa fa-facebook"></i>
+            </div>
+            <h5 className="btn-social-counter__title">Volg onze Facebook pagina</h5>
+          </a>
+          <a
+            href="https://twitter.com/kcvve"
+            className="btn-social-counter btn-social-counter--twitter"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <div className="btn-social-counter__icon">
+              <i className="fa fa-twitter"></i>
+            </div>
+            <h5 className="btn-social-counter__title">Volg ons op Twitter</h5>
+          </a>
+          <a
+            href="http://www.instagram.com/kcvve"
+            className="btn-social-counter btn-social-counter--instagram"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <div className="btn-social-counter__icon">
+              <i className="fa fa-instagram"></i>
+            </div>
+            <h5 className="btn-social-counter__title">Volg ons op Instagram</h5>
+          </a>
+        </div>
+      </div>
     </Layout>
   )
 }
