@@ -50,6 +50,59 @@ const RegisterPage = () => {
         </section>
       </div>
 
+      <div className="page__wrapper page__wrapper--limited page__section page__trooper">
+        <h2 className="featured-border">Steuntje via Trooper of Makro</h2>
+        <section>
+          <h3>Trooper</h3>
+          <p>
+            Trooper werkt samen met een groot aantal webshops die zich in de kijker willen zetten. In ruil voor een
+            extra klik via Trooper krijgen wij een percentje op jouw volgende bestelling.
+          </p>
+
+          <p>
+            Surf voor je een bestelling plaatst even via{` `}
+            <a
+              href="https://trooper.be/kcvvelewijt"
+              target="_blank"
+              rel="noopener noreferrer"
+              title="Trooper link voor KCVV Elewijt"
+              className={`rich-link`}
+            >
+              https://trooper.be/kcvvelewijt
+            </a>
+            .
+          </p>
+          <p>
+            <a href="/news/2020-04-12-steun-kcvv-elewijt-trooper-mymakro" className={`rich-link`}>
+              Lees er hier meer over!
+            </a>
+          </p>
+        </section>
+        <section>
+          <h3>MyMakro</h3>
+          <p>
+            Link nu jouw Makro voordeelkaart aan onze vereniging. Bij elke aankoop bij Makro en partners steun je KCVV
+            Elewijt!
+          </p>
+
+          <p>
+            Surf naar{` `}
+            <a
+              href="https://my.makro.be/nl/link-vereniging/02277464"
+              target="_blank"
+              rel="noopener noreferrer"
+              title="MyMakro link voor KCVV Elewijt"
+              className={`rich-link`}
+            >
+              https://my.makro.be/nl/link-vereniging/02277464
+            </a>
+            {` `}
+            om je kaart te koppelen .
+          </p>
+          <p>Onze vereniging dankt jullie van harte!</p>
+        </section>
+      </div>
+
       <div className="page__wrapper page__wrapper--limited page__section page__social">
         <div className={`social__media__wrapper`}>
           <a
