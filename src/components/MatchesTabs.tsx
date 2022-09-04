@@ -10,10 +10,10 @@ export const MatchesTabs = ({ teamId }: MatchesTabsProps) => (
     <div className="team_matches__tabs">
       <div data-tabs-content={`matches-${teamId}`}>
         <div className="tabs-panel" id={`matches-${teamId}-prev`}>
-          <MatchTeaser teamId={teamId} action="prev" />
+          <MatchTeaser teamId={teamId} action="prev" includeRankings />
         </div>
         <div className="tabs-panel is-active" id={`matches-${teamId}-next`}>
-          <MatchTeaser teamId={teamId} action="next" />
+          <MatchTeaser teamId={teamId} action="next" includeRankings />
         </div>
       </div>
     </div>

@@ -9,6 +9,7 @@ import "moment-timezone"
 import "moment/locale/nl-be"
 import React, { useEffect, useState } from "react"
 import LazyLoad from "react-lazyload"
+import MiniRanking from "./MiniRanking"
 
 export const MatchTeaserDetail = ({ match, includeRankings }: MatchTeaserDetailProps) => {
   moment.tz.setDefault(`Europe/Brussels`)
@@ -88,13 +89,13 @@ export const MatchTeaserDetail = ({ match, includeRankings }: MatchTeaserDetailP
           {match.awayClub?.abbreviation || match.awayClub?.name}
         </div>
       </main>
-      {/* {includeRankings && match.competitionType === `Competitie` && (
+      {includeRankings && match.competitionType === `Competitie` && (
         <MiniRanking
           teamId={match.homeTeamId || match.awayTeamId}
           homeTeam={match.homeClub?.name}
           awayTeam={match.awayClub?.name}
         />
-      )} */}
+      )}
     </article>
   )
 }

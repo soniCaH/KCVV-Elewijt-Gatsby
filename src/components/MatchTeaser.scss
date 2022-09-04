@@ -10,6 +10,53 @@
     flex-direction: row;
     align-items: center;
   }
+
+  .ranking__wrapper {
+
+    .tabs-panel & {
+      margin: 1rem -1rem -1rem;
+      padding: 1rem 0;
+      border-top: 1px solid var(--color-green--bright--alpha--50);
+    }
+
+    margin-top: 1rem;
+
+    thead,
+    tbody,
+    table,
+    tr {
+      border: none;
+      background: none;
+      margin: 0;
+    }
+
+    thead {
+      display: none;
+    }
+
+    td,
+    th {
+
+      &:nth-child(3),
+      &:nth-child(4),
+      &:nth-child(5),
+      &:nth-child(6),
+      &:nth-child(7),
+      &:nth-child(8),
+      &:nth-child(9) {
+        display: none;
+      }
+    }
+
+    .table__column--highlight::before {
+      left: -7px;
+    }
+
+
+    h4 {
+      display: none;
+    }
+  }
 }
 
 .match__teaser__datetime__wrapper {
