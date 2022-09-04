@@ -14,4 +14,25 @@
     background: var(--color-green--bright);
     color: #FFF;
   }
+
+  th,
+  td {
+    padding: 0.25rem 0.3125rem 0.3125rem;
+
+    @media screen and (min-width: 60rem) {
+      padding: 0.5rem 0.625rem 0.625rem;
+    }
+  }
+
+  .team__wrapper & {
+    margin-left: -.75rem;
+    margin-right: -.75rem;
+    width: 100vw;
+
+    @media screen and (min-width: 60rem) {
+      margin-left: 0;
+      margin-right: 0;
+      width: 100%;
+    }
+  }
 }
