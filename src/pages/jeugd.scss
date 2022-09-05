@@ -1,0 +1,53 @@
+.youth__teams_list {
+  @media screen and (min-width: 60rem) {
+    display: grid;
+    grid-auto-rows: 1fr;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 1rem;
+
+    .gatsby-image-wrapper [data-main-image] {
+      will-change: transform;
+      transition: all .3s ease;
+      transform: scale(1.0);
+    }
+
+    a:hover {
+      .gatsby-image-wrapper [data-main-image] {
+        transform: scale(1.1);
+      }
+    }
+  }
+}
+
+.youth__teams_list__item {
+  margin-bottom: 1rem;
+}
+
+.page__youth {
+  section+h2 {
+    margin-top: var(--margin-hero--mobile);
+
+    @media screen and (min-width: 60rem) {
+      margin-top: var(--margin-hero--desktop);
+    }
+  }
+
+  .matches_overview__wrapper>div {
+    @media screen and (min-width: 40rem) {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      grid-auto-rows: 1fr;
+      gap: .5rem;
+    }
+
+    @media screen and (min-width: 60rem) {
+      grid-template-columns: repeat(3, 1fr);
+    }
+
+    .label {
+      margin-right: 0.5rem;
+      font-weight: bold;
+    }
+  }
+
+}

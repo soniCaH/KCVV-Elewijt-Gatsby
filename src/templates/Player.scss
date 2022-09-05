@@ -1,0 +1,343 @@
+@function textShadow($precision, $size, $color) {
+  $value: null;
+  $offset: 0;
+  $length: $size * calc(1 / $precision) - 1;
+
+  @for $i from 0 through $length {
+    $offset: $offset + $precision;
+    $shadow: (-1 * $offset) + px $offset + px $color;
+    $value: append($value, $shadow, comma);
+  }
+
+  @return $value;
+}
+
+.player__details__top {
+  position: relative;
+}
+
+.page_header__wrapper {
+  .player__header {
+    padding-bottom: 0;
+  }
+}
+
+.player__header__wrapper {
+  padding-bottom: 0;
+}
+
+.player__header {}
+
+.player__header__inner {
+  position: relative;
+  max-width: 90rem;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  height: 100%;
+  transform: translate(0);
+  overflow: hidden;
+}
+
+.player__header__inner_text {
+  // display: flex;
+  // flex-direction: column;
+  // align-items: flex-start;
+}
+
+.player__header__inner_image {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+
+  img {
+    object-fit: contain !important;
+  }
+
+
+  @media screen and (min-width: 60rem) {
+    margin: 0 auto;
+  }
+
+  .gatsby-image-wrapper {
+    right: -34px;
+    top: 0;
+    z-index: 0;
+    width: 100%;
+    max-width: 232px;
+    height: 100%;
+    margin-left: 10px;
+    text-align: right;
+    transition: all .3s ease;
+
+    @media screen and (min-width: 60rem) {
+      right: unset;
+      max-width: 480px;
+    }
+
+    img {
+      position: absolute;
+      top: 0;
+      left: 0;
+      display: block;
+      width: 100%;
+      height: 100%;
+    }
+  }
+}
+
+.player__detail__name {
+  padding-top: 1rem;
+  margin-bottom: .75rem;
+  width: 70vw;
+  font-size: 1.75rem;
+  font-weight: 800;
+  line-height: .93;
+
+  @media screen and (min-width: 60rem) {
+    position: absolute;
+    left: 5rem;
+    top: 2rem;
+  }
+}
+
+.player__detail__name_first {
+  font-size: 2rem;
+  font-family: var(--font-title);
+  text-transform: uppercase;
+  font-weight: 600;
+
+  // line-height: .91;
+  @media screen and (min-width: 60rem) {
+    font-size: 3rem;
+  }
+
+  @media screen and (min-width: 70rem) {
+    font-size: 4.25rem;
+  }
+}
+
+.player__detail__name_last {
+  display: block;
+  font-family: var(--font-title);
+  font-size: 2rem;
+  // line-height: .91;
+  text-transform: uppercase;
+  font-weight: 100;
+
+  @media screen and (min-width: 60rem) {
+    font-size: 3rem;
+  }
+
+  @media screen and (min-width: 70rem) {
+    font-size: 4.25rem;
+  }
+}
+
+.player__detail__shirt_number {
+  position: absolute;
+  top: 1rem;
+  left: 1rem;
+  max-width: 10px;
+  margin-top: 10px;
+  color: var(--color-green--dark);
+  font-family: var(--font-alt);
+  font-size: 11.25rem;
+  letter-spacing: -6px;
+  line-height: 0.75;
+  text-shadow: textShadow(0.25, 8, var(--color-green--dark));
+  z-index: -1;
+
+  @supports (-webkit-text-stroke: 4px var(--color-green--dark)) {
+    color: var(--color-green--bright--alpha--75);
+    -webkit-text-stroke: 4px var(--color-green--dark);
+    -webkit-text-fill-color: var(--color-green--bright--alpha--75);
+    // mix-blend-mode: darken;
+    transition: all .3s ease;
+  }
+
+  @media screen and (min-width: 60rem) {
+    margin-top: 5px;
+    font-size: 14rem;
+  }
+}
+
+.player__stats {
+  grid-gap: 2em 1em;
+  color: var(--color-green--dark);
+  display: grid;
+  font-family: var(--font-title);
+  grid-template-columns: repeat(2, 1fr);
+  line-height: .9;
+  margin: 0;
+  margin-bottom: 1rem;
+  padding: 1rem;
+  text-align: center;
+  text-transform: uppercase;
+  border-bottom: 1px solid var(--color-green--bright--alpha--25);
+
+  @media screen and (min-width: 60rem) {
+    color: #fff;
+    grid-template-columns: 1fr;
+    line-height: 1;
+    position: absolute;
+    margin: 0;
+    border: none;
+    top: 50%;
+    right: 1rem;
+    z-index: 4;
+    transform: translateY(-50%);
+  }
+
+  @media screen and (min-width: 90rem) {
+    right: calc((100vw - 90rem)/2);
+  }
+}
+
+.player__stats__item {}
+
+.player__stats__item__number {
+  font-size: 2rem;
+  font-weight: 700;
+  min-width: 3rem;
+
+  @media screen and (min-width: 60rem) {
+    color: #FFF;
+  }
+}
+
+.player__stats__item__label {
+  color: var(--color-gray--medium);
+
+  @media screen and (min-width: 60rem) {
+    color: #FFF;
+  }
+}
+
+.player__details__middle {
+  padding: var(--padding--mobile);
+
+  @media screen and (min-width: 60rem) {
+    padding: var(--padding--desktop) 0;
+    max-width: 60rem;
+    margin: 0 auto;
+  }
+}
+
+.player__details__meta {
+  display: grid;
+  font-family: var(--font-title);
+  font-weight: 700;
+  grid-template-rows: repeat(3, auto);
+  margin: 0 auto;
+  max-width: 60em;
+  padding: 1em;
+  text-transform: uppercase;
+  width: 100%;
+
+  @media screen and (min-width: 60rem) {
+    align-items: center;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: 1fr;
+    justify-items: center;
+    width: 100%;
+  }
+}
+
+.player__details__meta__item {
+  -ms-flex-align: center;
+  align-items: center;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+
+
+  @media screen and (min-width: 60rem) {
+    grid-template-columns: 1fr;
+  }
+
+  &--birthdate {}
+
+  &--position {
+    text-align: center;
+
+    .player__details__meta__item__label {
+      font-size: 0.75rem;
+    }
+
+    @media screen and (max-width: 60rem) {
+      text-align: center;
+      display: block;
+      grid-row: 1;
+
+      .player__details__meta__item__label {
+        display: block;
+        font-size: 1rem;
+      }
+    }
+
+
+    .player__details__meta__item__data {
+      color: var(--color-gray--dark);
+    }
+  }
+
+  &--joindate {}
+}
+
+.player__details__meta__item__data {
+  color: var(--color-green--bright);
+  font-size: 1rem;
+  justify-self: end;
+
+  @media screen and (min-width: 60rem) {
+    font-size: 1.5rem;
+  }
+}
+
+.player__details__meta__item__label {
+  color: var(--color-gray--dark);
+  font-size: .5rem;
+}
+
+.player__details__intro {
+  font-size: .875rem;
+  border-top: 1px solid var(--color-green--bright--alpha--25);
+
+  @media screen and (min-width: 60rem) {
+    font-size: 1rem;
+  }
+}
+
+.player__details__bottom {
+  padding: var(--padding--mobile);
+
+  @media screen and (min-width: 60rem) {
+    padding: var(--padding--desktop) 0;
+    max-width: 90rem;
+    margin: 0 auto;
+  }
+}
+
+.player__stats__stats,
+.player__stats__games {
+  margin-bottom: 3rem;
+  position: relative;
+  z-index: 2;
+
+  table {
+    font-size: .75em;
+
+    td,
+    th {
+      padding: 0.25rem 0.3125rem 0.3125rem;
+
+      @media screen and (min-width: 60rem) {
+        padding: 0.5rem 0.625rem 0.625rem;
+      }
+    }
+
+    @media screen and (min-width: 60rem) {
+      font-size: 1em;
+    }
+  }
+}

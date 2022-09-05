@@ -6,7 +6,7 @@ module.exports = {
     `prettier`,
     `plugin:react-hooks/recommended`,
   ],
-  plugins: [`@typescript-eslint`, `prettier`],
+  plugins: [`@typescript-eslint`, `prettier`, `react-hooks`],
   parserOptions: {
     ecmaVersion: 2018, // Allows for the parsing of modern ECMAScript features
     sourceType: `module`, // Allows for the use of imports
@@ -34,5 +34,7 @@ module.exports = {
         printWidth: 120,
       },
     ],
+    "react-hooks/rules-of-hooks": `error`,
+    "react-hooks/exhaustive-deps": `warn`,
   },
 }

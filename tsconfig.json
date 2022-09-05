@@ -3,7 +3,7 @@
   "compilerOptions": {
     "target": "esnext",
     "module": "esnext", // Alternatively you can use "commonjs"
-    "lib": ["dom", "es2017"],
+    "lib": ["dom", "es2017", "ES2021.String", "DOM.Iterable"],
     // "allowJs": true,
     // "checkJs": true,
     "jsx": "react",

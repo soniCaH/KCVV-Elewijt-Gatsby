@@ -1,36 +1,23 @@
-import axios from "axios"
-import { graphql, useStaticQuery } from "gatsby"
-import React, { Fragment, FunctionComponent, useEffect, useState } from "react"
+import { MiniRankingProps } from "../Types/MiniRanking"
+import { RankingDataObject, RankingDataTeamObject } from "../Types/Ranking"
+import { useSiteMetaData } from "../hooks/use-site-metadata"
+import { useEffect, useState } from "react"
+import React from "react"
+import { Spinner } from "./Spinner"
+import { request, sortRankings } from "../scripts/helper"
 
-import { sortRankings } from "../scripts/helper"
-import "./MiniRanking.scss"
-import Spinner from "./Spinner"
-
-const MiniRanking: FunctionComponent<MiniRankingProps> = ({ teamId, homeTeam, awayTeam }: MiniRankingProps) => {
+export const MiniRanking = ({ teamId, homeTeam, awayTeam }: MiniRankingProps) => {
   const [data, setData] = useState<RankingDataObject[]>([])
 
-  const {
-    site: {
-      siteMetadata: { kcvvPsdApi },
-    },
-  }: RankingData = useStaticQuery(graphql`
-    {
-      site {
-        siteMetadata {
-          kcvvPsdApi
-        }
-      }
-    }
-  `)
+  const { kcvvPsdApi } = useSiteMetaData()
 
   useEffect(() => {
     async function getData() {
-      const response = await axios.get(`${kcvvPsdApi}/ranking/${teamId}`)
+      const response = await request.get(`${kcvvPsdApi}/ranking/${teamId}`)
       setData(response.data)
     }
     getData()
   }, [kcvvPsdApi, teamId])
-
   return (
     <section className={`ranking__wrapper`}>
       {data.length > 0 || <Spinner />}
@@ -39,7 +26,16 @@ const MiniRanking: FunctionComponent<MiniRankingProps> = ({ teamId, homeTeam, aw
   )
 }
 
-const renderRanking = (ranking: RankingDataObject, homeTeam: string, awayTeam: string, i: number): JSX.Element => (
+const renderRankings = (rankings: RankingDataObject[], homeTeam: string, awayTeam: string) => (
+  <>
+    {rankings
+      .filter((ranking: RankingDataObject) => ranking.teams.length > 0)
+      .sort((a, b) => a.name.localeCompare(b.name))
+      .map((ranking: RankingDataObject, i: number) => i === 0 && renderRanking(ranking, homeTeam, awayTeam, i))}
+  </>
+)
+
+const renderRanking = (ranking: RankingDataObject, homeTeam: string, awayTeam: string, i: number) => (
   <div className={`ranking`} key={i}>
     <h4>{ranking.name.replace(`Voetbal : `, ``)}</h4>
     <table>
@@ -84,15 +80,6 @@ const renderRanking = (ranking: RankingDataObject, homeTeam: string, awayTeam: s
       </tbody>
     </table>
   </div>
-)
-
-const renderRankings = (rankings: RankingDataObject[], homeTeam: string, awayTeam: string): JSX.Element => (
-  <Fragment>
-    {rankings
-      .filter((ranking: RankingDataObject) => ranking.teams.length > 0)
-      .sort((a, b) => a.name.localeCompare(b.name))
-      .map((ranking: RankingDataObject, i: number) => i === 0 && renderRanking(ranking, homeTeam, awayTeam, i))}
-  </Fragment>
 )
 
 export default MiniRanking

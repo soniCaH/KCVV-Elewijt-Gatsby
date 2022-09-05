@@ -32,6 +32,7 @@ jobs:
           envkey_GATSBY_API_DOMAIN: ${{ secrets.GATSBY_API_DOMAIN }}
           envkey_GATSBY_GTM_ID: ${{ secrets.GATSBY_GTM_ID }}
           envkey_KCVV_PSD_API: ${{ secrets.KCVV_PSD_API }}
+          envkey_TYPEKIT_ID: ${{ secrets.TYPEKIT_ID }}
 
       - name: "Build the website (production build)"
         run: |

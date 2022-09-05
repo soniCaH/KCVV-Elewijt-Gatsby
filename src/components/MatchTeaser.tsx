@@ -1,19 +1,17 @@
-import axios from "axios"
-import classNames from "classnames"
-import { graphql, useStaticQuery } from "gatsby"
-import moment from "moment-timezone"
-import "moment-timezone/node_modules/moment/locale/nl-be"
-import React, { Fragment, FunctionComponent, useEffect, useState } from "react"
-import LazyLoad from "react-lazyload"
-
-import { mapPsdStatus } from "../scripts/helper"
+import { Match } from "../Types/Match"
+import { MatchTeaserDetailProps, MatchTeaserProps, MatchTeasersProps } from "../Types/MatchTeaser"
+import { useSiteMetaData } from "../hooks/use-site-metadata"
+import { mapPsdStatus, request } from "../scripts/helper"
 import "./MatchTeaser.scss"
+import classNames from "classnames"
+import moment from "moment"
+import "moment-timezone"
+import "moment/locale/nl-be"
+import React, { useEffect, useState } from "react"
+import LazyLoad from "react-lazyload"
 import MiniRanking from "./MiniRanking"
 
-export const MatchTeaserDetail: FunctionComponent<MatchTeaserDetailProps> = ({
-  match,
-  includeRankings = false,
-}: MatchTeaserDetailProps) => {
+export const MatchTeaserDetail = ({ match, includeRankings }: MatchTeaserDetailProps) => {
   moment.tz.setDefault(`Europe/Brussels`)
   moment.locale(`nl-be`)
   moment.localeData(`nl-be`)
@@ -27,31 +25,30 @@ export const MatchTeaserDetail: FunctionComponent<MatchTeaserDetailProps> = ({
     <article className="match__teaser">
       <header>
         <h3>{match.teamName.replace(`Voetbal : `, ``)}</h3>
-        <div>
-          {match.status !== 0 && (
-            <Fragment>
-              <time
-                className="match__teaser__datetime match__teaser__datetime--date"
-                dateTime={d.format(`YYYY-MM-DD - H:mm`)}
-              >
-                {d.format(`dddd DD MMMM - H:mm`)}
-              </time>
-              <span className="match__teaser__datetime match__teaser__datetime--status">
-                {mapPsdStatus(match.status)}
-              </span>
-            </Fragment>
-          )}
-          {(match.status === 0 || match.status === null) && (
-            <Fragment>
-              <time className="match__teaser__datetime match__teaser__datetime--date" dateTime={d.format(`YYYY-MM-DD`)}>
-                {d.format(`dddd DD MMMM`)}
-              </time>
-              <time className="match__teaser__datetime match__teaser__datetime--time" dateTime={d.format(`H:mm`)}>
-                {d.format(`H:mm`)}
-              </time>
-            </Fragment>
-          )}
-        </div>
+        {match.status !== 0 && (
+          <div className="match__teaser__datetime__wrapper match__teaser__datetime__wrapper--status">
+            <time
+              className="match__teaser__datetime match__teaser__datetime--date"
+              dateTime={d.format(`YYYY-MM-DD - H:mm`)}
+            >
+              {d.format(`dddd DD MMMM - H:mm`)}
+            </time>
+            <span className="match__teaser__datetime match__teaser__datetime--status">
+              {mapPsdStatus(match.status)}
+            </span>
+          </div>
+        )}
+        {(match.status === 0 || match.status === null) && (
+          <div className="match__teaser__datetime__wrapper">
+            <time className="match__teaser__datetime match__teaser__datetime--date" dateTime={d.format(`YYYY-MM-DD`)}>
+              {d.format(`dddd DD MMMM`)}
+            </time>
+            {` `}-{` `}
+            <time className="match__teaser__datetime match__teaser__datetime--time" dateTime={d.format(`H:mm`)}>
+              {d.format(`H:mm`)}
+            </time>
+          </div>
+        )}
       </header>
       <main>
         <div
@@ -72,7 +69,7 @@ export const MatchTeaserDetail: FunctionComponent<MatchTeaserDetailProps> = ({
         {matchPlayed || <span className="match__teaser__vs">vs</span>}
         {matchPlayed && (
           <div className="match__teaser__vs match__teaser__vs--score">
-            <div className="match__teaser__vs--score--home">{match.goalsHomeTeam}</div>
+            <div className="match__teaser__vs--score--home">{match.goalsHomeTeam}</div>-
             <div className="match__teaser__vs--score--away">{match.goalsAwayTeam}</div>
           </div>
         )}
@@ -103,40 +100,24 @@ export const MatchTeaserDetail: FunctionComponent<MatchTeaserDetailProps> = ({
   )
 }
 
-export const MatchTeaser: FunctionComponent<MatchTeaserProps> = ({
-  teamId,
-  action,
-  includeRankings = false,
-}: MatchTeaserProps) => {
+export const MatchTeaser = ({ teamId, action, includeRankings }: MatchTeaserProps) => {
   if (action !== `prev` && action !== `next`) {
     throw new Error(`Invalid action provided`)
   }
 
   const [data, setData] = useState<Match[]>([])
 
-  const {
-    site: {
-      siteMetadata: { kcvvPsdApi },
-    },
-  }: MatchesQueryData = useStaticQuery(graphql`
-    {
-      site {
-        siteMetadata {
-          kcvvPsdApi
-        }
-      }
-    }
-  `)
+  const { kcvvPsdApi } = useSiteMetaData()
 
   useEffect(() => {
     async function getData() {
-      const response = await axios.get(`${kcvvPsdApi}/matches/${action}`, {
+      const response = await request.get(`${kcvvPsdApi}/matches/${action}`, {
         params: { include: teamId },
       })
       setData(response.data)
     }
     getData()
-  }, [])
+  }, [action, kcvvPsdApi, teamId])
 
   if (data.length > 0) {
     return <MatchTeaserDetail match={data[0]} includeRankings={includeRankings} />
@@ -145,12 +126,21 @@ export const MatchTeaser: FunctionComponent<MatchTeaserProps> = ({
   }
 }
 
-export const MatchTeasers: FunctionComponent<MatchTeasersProps> = ({
-  teamId,
-  includeRankings = false,
-}: MatchTeasersProps) => (
-  <div className="match__teasers">
-    <MatchTeaser teamId={teamId} action="prev" includeRankings={includeRankings} />
-    <MatchTeaser teamId={teamId} action="next" includeRankings={includeRankings} />
+export const MatchTeasers = ({ teamId, includeRankings = false }: MatchTeasersProps) => (
+  <div className="match__teasers__wrapper full-width">
+    <div className="match__teasers__inner">
+      <div className="match__teasers match__teasers--prev">
+        <header className="match__teasers__header">Vorige</header>
+        <MatchTeaser teamId={teamId} action="prev" includeRankings={includeRankings} />
+      </div>
+      <div className="match__teasers match__teasers--next">
+        <header className="match__teasers__header">Volgende</header>
+        <MatchTeaser teamId={teamId} action="next" includeRankings={includeRankings} />
+      </div>
+    </div>
   </div>
 )
+
+MatchTeaser.defaultProps = { includeRankings: false }
+MatchTeasers.defaultProps = { includeRankings: false }
+MatchTeaserDetail.defaultProps = { includeRankings: false }

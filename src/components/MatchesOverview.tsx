@@ -1,15 +1,17 @@
-import axios from "axios"
-import { graphql, useStaticQuery } from "gatsby"
-import moment from "moment-timezone"
-import "moment-timezone/node_modules/moment/locale/nl-be"
-import React, { FunctionComponent, useEffect, useState } from "react"
-
-import { mapPsdStatus } from "../scripts/helper"
+import { Match } from "../Types/Match"
+import { MatchesOverviewProps } from "../Types/MatchesOverview"
+import { useSiteMetaData } from "../hooks/use-site-metadata"
+import { mapPsdStatus, request } from "../scripts/helper"
 import { MatchTeaserDetail } from "./MatchTeaser"
 import "./MatchesOverview.scss"
-import Spinner from "./Spinner"
+import { Spinner } from "./Spinner"
+import moment from "moment"
+import "moment-timezone"
+import "moment/locale/nl-be"
+import React from "react"
+import { useEffect, useState } from "react"
 
-const MatchesOverview: FunctionComponent<MatchesOverviewProps> = ({
+export const MatchesOverview = ({
   include = [],
   exclude = [],
   action = `next`,
@@ -18,7 +20,6 @@ const MatchesOverview: FunctionComponent<MatchesOverviewProps> = ({
   if (action !== `prev` && action !== `next`) {
     throw new Error(`Invalid action provided`)
   }
-
   if (include.length > 0 && exclude.length > 0) {
     throw new Error(`Can't include and exclude teams at same moment`)
   }
@@ -26,19 +27,7 @@ const MatchesOverview: FunctionComponent<MatchesOverviewProps> = ({
   const [data, setData] = useState<Match[]>([])
   const [loading, setLoading] = useState<boolean>(true)
 
-  const {
-    site: {
-      siteMetadata: { kcvvPsdApi },
-    },
-  }: MatchesOverviewQueryData = useStaticQuery(graphql`
-    {
-      site {
-        siteMetadata {
-          kcvvPsdApi
-        }
-      }
-    }
-  `)
+  const { kcvvPsdApi } = useSiteMetaData()
 
   useEffect(() => {
     async function getData() {
@@ -51,14 +40,14 @@ const MatchesOverview: FunctionComponent<MatchesOverviewProps> = ({
         params = { exclude: exclude.join() }
       }
 
-      const response = await axios.get(`${kcvvPsdApi}/matches/${action}`, {
+      const response = await request.get(`${kcvvPsdApi}/matches/${action}`, {
         params: params,
       })
       setData(response.data)
       setLoading(false)
     }
     getData()
-  }, [])
+  }, [action, exclude, include, kcvvPsdApi])
 
   moment.tz.setDefault(`Europe/Brussels`)
   moment.locale(`nl-be`)
@@ -98,4 +87,9 @@ const MatchesOverview: FunctionComponent<MatchesOverviewProps> = ({
   )
 }
 
-export default MatchesOverview
+MatchesOverview.defaultProps = {
+  include: [],
+  exclude: [],
+  action: `next`,
+  details: false,
+}

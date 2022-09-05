@@ -1,0 +1,25 @@
+@mixin break($media) {
+    @if $media==small-only {
+        @media only screen and (max-width: 767px) {
+            @content;
+        }
+    }
+
+    @if $media==medium-up {
+        @media only screen and (min-width: 768px) {
+            @content;
+        }
+    }
+
+    @else if $media==large-up {
+        @media only screen and (min-width: 992px) {
+            @content;
+        }
+    }
+
+    @if $media==xlarge-up {
+        @media only screen and (min-width: 1281px) {
+            @content;
+        }
+    }
+}

@@ -1,0 +1,14 @@
+.events__wrapper {
+  padding-top: var(--padding--mobile);
+  padding-bottom: var(--padding--mobile);
+  display: grid;
+  grid-gap: 1rem;
+  grid-template-rows: 1fr;
+  grid-template-columns: 1fr;
+
+  @media screen and (min-width: 60rem) {
+    padding-top: var(--padding--desktop);
+    padding-bottom: var(--padding--desktop);
+    grid-template-columns: repeat(2, 1fr);
+  }
+}

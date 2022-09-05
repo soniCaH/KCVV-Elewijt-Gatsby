@@ -1,9 +1,5 @@
-@import '~modern-css-reset/src/reset';
-
-@import url('https://fonts.googleapis.com/css?family=Montserrat:400,700|Source+Sans+Pro:400,700&display=swap');
-// @import '~foundation-sites/scss/util/util';
 @import './settings';
-@import './mixins';
+
 @import '~foundation-sites/scss/foundation';
 @import "~animate.css/animate.min.css";
 @import './vendor_font_fa';
@@ -11,26 +7,13 @@
 
 @import './layout';
 
-@import './article_footer';
+@import './helper';
+
 @import './button';
-@import './card';
 @import './elements';
-@import './form';
-@import './gradient';
-@import './label';
-@import './megatron';
-@import './overview';
 @import './tables';
-@import './widget';
 
-@import './game';
-@import './kiosk';
-@import './games__template';
-@import './sponsors';
-@import './ultras';
+@import './pages';
 
-@import './timeline';
-
-@import './animation';
 
 @include foundation-everything;

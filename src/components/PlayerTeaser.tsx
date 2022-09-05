@@ -1,12 +1,11 @@
 // importing FunctionComponent
+import { PlayerTeaserProps } from "../Types/PlayerTeaser"
+import "./PlayerTeaser.scss"
 import { Link } from "gatsby"
 import { GatsbyImage, StaticImage } from "gatsby-plugin-image"
-import React, { FunctionComponent } from "react"
+import React from "react"
 
-import "./PlayerTeaser.scss"
-import { PlayerTeaserProps } from "./PlayerTeaser.types"
-
-const PlayerTeaser: FunctionComponent<PlayerTeaserProps> = ({ url, position, first_name, last_name, picture }) => {
+const PlayerTeaser = ({ url, position, first_name, last_name, picture }: PlayerTeaserProps) => {
   let image
   if (!picture) {
     image = (
@@ -21,16 +20,20 @@ const PlayerTeaser: FunctionComponent<PlayerTeaserProps> = ({ url, position, fir
   }
 
   return (
-    <article className={`player_teaser`}>
-      <Link to={url}>
-        <div className={`player_teaser__image`}>
-          {image}
-          <div className={`player_teaser__gradient`}></div>
+    <article className={`player__teaser`}>
+      <Link to={url} title={`${position} - ${first_name} ${last_name}`}>
+        <div className={`player__teaser__bg`}>
+          <StaticImage src={`../images/player-bg.jpg`} alt="" />
         </div>
-        <div className={`player_teaser__info`}>
-          <div className={`player_teaser__info__number`}>{position}</div>
-          <div className={`player_teaser__info__firstname`}>{first_name}</div>
-          <div className={`player_teaser__info__lastname`}>{last_name}</div>
+        <div className={`player__teaser__image`}>{image}</div>
+        <span className={`player__teaser__position`}>{position}</span>
+        <div className={`player_teaser__name__wrapper`}>
+          <div className={`player_teaser__name player_teaser__name--first`} title={`${first_name} ${last_name}`}>
+            {first_name}
+          </div>
+          <div className={`player_teaser__name player_teaser__name--last`} title={`${first_name} ${last_name}`}>
+            {last_name}
+          </div>
         </div>
       </Link>
     </article>

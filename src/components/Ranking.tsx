@@ -1,31 +1,18 @@
-import axios from "axios"
-import { graphql, useStaticQuery } from "gatsby"
-import React, { Fragment, FunctionComponent, useEffect, useState } from "react"
-
-import { sortRankings } from "../scripts/helper"
+import { RankingProps, RankingDataObject, RankingDataTeamObject } from "../Types/Ranking"
+import { useSiteMetaData } from "../hooks/use-site-metadata"
+import { request, sortRankings } from "../scripts/helper"
+import { Spinner } from "./Spinner"
+import { useEffect, useState } from "react"
+import React from "react"
 import "./Ranking.scss"
-import Spinner from "./Spinner"
 
-const Ranking: FunctionComponent<RankingProps> = ({ teamId }: RankingProps) => {
+export const Ranking = ({ teamId }: RankingProps) => {
   const [data, setData] = useState<RankingDataObject[]>([])
-
-  const {
-    site: {
-      siteMetadata: { kcvvPsdApi },
-    },
-  }: RankingData = useStaticQuery(graphql`
-    {
-      site {
-        siteMetadata {
-          kcvvPsdApi
-        }
-      }
-    }
-  `)
+  const { kcvvPsdApi } = useSiteMetaData()
 
   useEffect(() => {
     async function getData() {
-      const response = await axios.get(`${kcvvPsdApi}/ranking/${teamId}`)
+      const response = await request.get(`${kcvvPsdApi}/ranking/${teamId}`)
       setData(response.data)
     }
     getData()
@@ -39,11 +26,11 @@ const Ranking: FunctionComponent<RankingProps> = ({ teamId }: RankingProps) => {
   )
 }
 
-const renderRanking = (ranking: RankingDataObject, i: number): JSX.Element => {
+const renderRanking = (ranking: RankingDataObject, i: number) => {
   return (
     <div className={`ranking`} key={i}>
       <h4>{ranking.name.replace(`Voetbal : `, ``)}</h4>
-      <table>
+      <table className="ranking__table">
         <thead>
           <tr>
             <th className={`table__column__number`}>#</th>
@@ -60,7 +47,10 @@ const renderRanking = (ranking: RankingDataObject, i: number): JSX.Element => {
         </thead>
         <tbody>
           {ranking.teams.sort(sortRankings).map((team: RankingDataTeamObject, j: number) => (
-            <tr key={j}>
+            <tr
+              key={j}
+              className={team.team?.club?.localName?.toLowerCase().includes(`elewijt`) ? `table__row--highlight` : ``}
+            >
               <td className={`table__column__number`}>{team.rank || `-`}</td>
               <td
                 className={`table__column__string ${
@@ -85,17 +75,15 @@ const renderRanking = (ranking: RankingDataObject, i: number): JSX.Element => {
   )
 }
 
-const renderRankings = (rankings: RankingDataObject[]): JSX.Element => {
+const renderRankings = (rankings: RankingDataObject[]) => {
   return (
-    <Fragment>
+    <>
       {rankings
         .filter((ranking: RankingDataObject) => ranking.teams.length > 0)
         .sort((a, b) => a.name.localeCompare(b.name))
         .map((ranking: RankingDataObject, i: number) => {
           return renderRanking(ranking, i)
         })}
-    </Fragment>
+    </>
   )
 }
-
-export default Ranking
