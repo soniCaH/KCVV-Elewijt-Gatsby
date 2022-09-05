@@ -28,8 +28,6 @@ const Team = ({ data: { nodeTeam } }: TeamQuery) => {
   const hasDivision = nodeTeam?.field_vv_id
   const articles = nodeTeam?.relationships?.node__article || []
 
-  console.log(nodeTeam?.relationships?.node__article)
-
   const allPlayers = [...(nodeTeam?.relationships?.field_players || [])]
 
   // Specific implementation of our groupBy function, to group by a property "field_position".
