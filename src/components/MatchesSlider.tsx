@@ -1,30 +1,18 @@
-import axios from "axios"
-import { graphql, useStaticQuery } from "gatsby"
-import React, { Fragment, FunctionComponent, useState } from "react"
-import { useEffect } from "react"
-import Slider, { LazyLoadTypes } from "react-slick"
-
+import { Match } from "../Types/Match"
+import { useSiteMetaData } from "../hooks/use-site-metadata"
 import { MatchTeaserDetail } from "./MatchTeaser"
 import "./MatchesSlider.scss"
-import Spinner from "./Spinner"
+import { Spinner } from "./Spinner"
+import React, { Fragment, useState } from "react"
+import { useEffect } from "react"
+import Slider, { LazyLoadTypes } from "react-slick"
+import { request } from "../scripts/helper"
 
-const MatchesSlider: FunctionComponent = () => {
+const MatchesSlider = () => {
   const [data, setData] = useState<Match[]>([])
   const [loading, setLoading] = useState<boolean>(true)
 
-  const {
-    site: {
-      siteMetadata: { kcvvPsdApi },
-    },
-  }: MatchesQueryData = useStaticQuery(graphql`
-    {
-      site {
-        siteMetadata {
-          kcvvPsdApi
-        }
-      }
-    }
-  `)
+  const { kcvvPsdApi } = useSiteMetaData()
 
   const settings_slickslider = {
     slidesToShow: 4,
@@ -66,12 +54,12 @@ const MatchesSlider: FunctionComponent = () => {
 
   useEffect(() => {
     async function getData() {
-      const response = await axios.get(`${kcvvPsdApi}/matches/next`)
+      const response = await request.get(`${kcvvPsdApi}/matches/next`)
       setData(response.data)
       setLoading(false)
     }
     getData()
-  }, [])
+  }, [kcvvPsdApi])
 
   return (
     <Fragment>
@@ -86,11 +74,7 @@ const MatchesSlider: FunctionComponent = () => {
             {data
               .sort((a, b) => a.timestamp - b.timestamp)
               .map((match: Match, i) => {
-                return (
-                  <div className="matches_slider__item" key={i} data-equalizer-watch="true">
-                    <MatchTeaserDetail match={match} />
-                  </div>
-                )
+                return <MatchTeaserDetail match={match} key={i} data-equalizer-watch="true" />
               })}
           </Slider>
         </div>

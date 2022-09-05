@@ -1,4 +1,50 @@
-@import '../styles/mixins';
+.table__header__icon {
+  height: 1em;
+  min-width: 1em;
+}
+
+.table__column__string {
+  text-align: left;
+}
+
+.table__column__number,
+.table__column__score {
+  text-align: left;
+
+  @media screen and (min-width: 60rem) {
+    text-align: center !important;
+  }
+}
+
+.table__column {
+  &--highlight {
+    position: relative;
+
+    margin: 0 0 0 8px;
+
+    @media screen and (min-width: 60rem) {
+      margin-left: 15px;
+    }
+
+    &::before {
+      content: "";
+      display: block;
+      position: absolute;
+      left: -5px;
+      top: 50%;
+      width: 0;
+      height: 0;
+      border-left: 6px solid var(--color-green--bright);
+      border-top: 4px solid transparent;
+      border-bottom: 4px solid transparent;
+      transform: translateY(-50%);
+
+      @media screen and (min-width: 60rem) {
+        left: -13px;
+      }
+    }
+  }
+}
 
 $responsive-card-table-bottom-gap: 1.5rem;
 $responsive-card-table-border: 0;
@@ -58,49 +104,6 @@ $responsive-card-table-label-bg: $light-gray;
         font-weight: bold;
         position: relative;
         z-index: 1;
-      }
-    }
-  }
-}
-
-.table__header__icon {
-  height: 1em;
-  min-width: 1em;
-}
-
-.table__column__string {
-  text-align: left;
-}
-
-.table__column__number,
-.table__column__score {
-  text-align: center;
-}
-
-.table__column {
-  &--highlight {
-    position: relative;
-
-    margin: 0 0 0 8px;
-    @include break(large up) {
-      margin-left: 15px;
-    }
-
-    &::before {
-      content: "";
-      display: block;
-      position: absolute;
-      left: -5px;
-      top: 50%;
-      width: 0;
-      height: 0;
-      border-left: 6px solid var(--color-green-dark);
-      border-top: 4px solid transparent;
-      border-bottom: 4px solid transparent;
-      transform: translateY(-50%);
-
-      @include break(large up) {
-        left: -13px;
       }
     }
   }

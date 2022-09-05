@@ -1,12 +1,9 @@
-import React, { FunctionComponent } from "react"
-
 import logo from "../images/logo-flat.png"
 import "./Spinner.scss"
+import React from "react"
 
-const Spinner: FunctionComponent = () => (
+export const Spinner = () => (
   <div className="spinner">
     <img src={logo} alt="Loading..." />
   </div>
 )
-
-export default Spinner

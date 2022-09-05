@@ -1,10 +1,10 @@
-import React, { FunctionComponent } from "react"
+import React from "react"
+import { MatchesOverview } from "../../components/MatchesOverview"
+import "./kiosk.scss"
 
-import MatchesOverview from "../../components/MatchesOverview"
-
-const UpcomingPage: FunctionComponent = () => (
+const UpcomingPage = () => (
   <div className={`kiosk__matches`}>
-    <MatchesOverview action="next" details={true} />
+    <MatchesOverview action="next" />
   </div>
 )
 

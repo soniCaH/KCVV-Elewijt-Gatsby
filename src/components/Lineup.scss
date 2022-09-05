@@ -1,0 +1,28 @@
+.team__lineup__section {
+  h2 {
+    text-transform: uppercase;
+    margin-bottom: 1.5rem;
+  }
+
+  ul {
+    padding: 0;
+    list-style: none;
+    grid-gap: 22px 25px;
+    grid-template-columns: 340px;
+    display: grid;
+    justify-content: center;
+
+    @media screen and (min-width: 40rem) {
+      grid-row-gap: 64px;
+      grid-template-columns: 340px 340px;
+    }
+
+    @media screen and (min-width: 60rem) {
+      grid-template-columns: repeat(4, 1fr);
+    }
+  }
+}
+
+.team__lineup__item {
+  z-index: 1;
+}

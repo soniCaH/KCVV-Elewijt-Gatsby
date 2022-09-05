@@ -35,6 +35,7 @@ jobs:
           envkey_GATSBY_API_DOMAIN: ${{ secrets.GATSBY_API_DOMAIN }}
           envkey_GATSBY_GTM_ID: ${{ secrets.GATSBY_GTM_ID }}
           envkey_KCVV_PSD_API: ${{ secrets.KCVV_PSD_API }}
+          envkey_TYPEKIT_ID: ${{ secrets.TYPEKIT_ID }}
 
       - uses: chrnorm/deployment-action@releases/v1
         name: Create GitHub deployment
@@ -53,15 +54,22 @@ jobs:
           GATSBY_EXPERIMENTAL_PAGE_BUILD_ON_DATA_CHANGES: true
           CI: true
 
+      # - name: "Deploy to netlify server"
+      #   uses: netlify/actions/cli@master
+      #   id: deploy_preview
+      #   env:
+      #     NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
+      #     NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
+      #   with:
+      #     args: deploy --dir=public
+      #     secrets: '["NETLIFY_AUTH_TOKEN", "NETLIFY_SITE_ID"]'
+
       - name: "Deploy to netlify server"
-        uses: netlify/actions/cli@master
         id: deploy_preview
+        run: npx netlify deploy --dir=public
         env:
           NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
           NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
-        with:
-          args: deploy --dir=public
-          secrets: '["NETLIFY_AUTH_TOKEN", "NETLIFY_SITE_ID"]'
 
       - name: Find the comment
         uses: peter-evans/find-comment@v2

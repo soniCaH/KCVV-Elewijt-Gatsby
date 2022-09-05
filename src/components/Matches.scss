@@ -1,159 +1,225 @@
-@import '../styles/mixins';
-
 .matches__wrapper {
-  background: #FFF;
-  margin: 0 .25rem 2rem;
+  margin-top: var(--margin-hero--mobile);
+
+  @media screen and (min-width: 60rem) {
+    margin-top: var(--margin-hero--desktop);
+  }
+}
+
+.matches__row {
+  border-bottom: 1px solid var(--color-green--bright--alpha--25);
+  overflow: hidden;
+  padding: .75rem;
+
+  @media screen and (min-width: 60rem) {}
+}
+
+.matches__match {
   position: relative;
-  z-index: 2;
+  grid-gap: 5px;
+  grid-template-areas: "team vs""date vs""title title";
+  grid-template-columns: 1fr auto;
+  display: grid;
 
-  @include break(large-up) {
-    margin: 0 1rem 2rem;
+  @media screen and (min-width: 60rem) {
+    grid-template-areas: "title title""team date""btns btns";
+    grid-gap: 15px;
+    grid-column-gap: 24px;
+    grid-row-gap: 4px;
+    grid-template-areas: "date homeTeam vs awayTeam btns""title homeTeam vs awayTeam btns";
+    grid-template-columns: 230px 1fr auto 1fr 230px;
+    align-items: center;
+    max-width: 1280px;
+    margin: 0 auto;
   }
 
-  @include break(xlarge-up) {
-    margin: 0 14% 2rem;
+  @media screen and (min-width: 90rem) {
+    grid-template-columns: 250px 1fr auto 1fr 250px
+  }
+}
+
+.matches__competition__wrapper {
+  grid-area: title;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.matches__competition__type {
+  font-size: .875rem;
+  color: var(--color-gray--medium);
+}
+
+.matches__date__wrapper {
+  grid-area: date;
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 1.14;
+  text-transform: uppercase;
+  display: flex;
+
+  @media screen and (min-width: 60rem) {
+    font-size: 16px;
+    line-height: 1.25;
+  }
+}
+
+.matches__date__date {
+  +.matches__date__time {
+    margin-left: .5rem;
+  }
+}
+
+.matches__date__time {}
+
+.matches__team__wrapper {
+  grid-area: team;
+  grid-gap: 12px;
+  grid-template-areas: "logo title";
+  grid-template-columns: 44px auto;
+  display: grid;
+  align-items: center;
+  margin-right: 16px;
+  margin-bottom: 10px;
+
+  @media screen and (min-width: 60rem) {
+    margin-right: 0;
+    margin-bottom: 0;
+    grid-area: awayTeam;
+    grid-gap: 16px;
+    grid-template-columns: 48px auto;
+    justify-content: space-between;
+    margin: 0 auto 0 0;
   }
 
-  .lazyload-wrapper {
-    display: inline;
+  &--home {
+    @media screen and (min-width: 60rem) {
+      grid-area: homeTeam;
+      grid-template-areas: "title logo";
+      grid-template-columns: auto 48px;
+      margin: 0 0 0 auto;
+      text-align: right;
+    }
   }
 
-  .lazyload-placeholder {
-    display: inline-block;
-    height: 26px;
-    width: 26px;
-    margin: 0 0.25rem;
+  &--away {
+    @media screen and (min-width: 60rem) {}
+  }
 
-    @include break(medium-up) {
-      margin: 0 0.875rem;
+  &--elewijt {
+    @media screen and (max-width: 60rem) {
+      display: none;
     }
   }
 }
 
-.matches__calendar__title {
-  padding: 0.8125rem 0.75rem;
-  background: #f5f5f5;
+.matches__team__name {
+  grid-area: title;
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 1.13;
+}
 
-  h2,
-  h3 {
-    margin: 0;
-    padding: 0 .15rem;
-    font-size: .625rem;
-    font-weight: normal;
+.matches__team__home_indicator {
+  @media screen and (min-width: 60rem) {
+    display: none;
+  }
+}
 
-    @include break(medium-up) {
-      font-size: .875rem;
-      padding: 0 .25rem;
+.matches__team__logo {
+  grid-area: logo;
+  width: 44px;
+  height: 44px;
+}
+
+.matches__score__wrapper {
+  grid-area: vs;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.matches__score {
+  font-family: var(--font-alt);
+  color: var(--color-green--bright);
+  font-size: 2rem;
+
+  grid-area: vs;
+  display: inline-flex;
+  justify-content: space-between;
+  align-items: center;
+  line-height: 1;
+
+  @media screen and (min-width: 60rem) {
+    width: 6rem;
+    font-size: 3rem;
+    text-align: center;
+  }
+
+  &--score {}
+
+  &--vs {
+    @media screen and (min-width: 60rem) {
+      margin: .5rem 0;
+      // color: #FFF;
+      display: inline-block;
+      padding: .25rem .5rem;
+      border-radius: .25rem;
+      // background-color: var(--color-green--bright);
+      align-self: center;
+      text-align: center;
+      font-size: 2rem;
+      margin: 0;
+    }
+  }
+
+  &--status {
+    margin: .5rem 0;
+    color: #FFF;
+    display: inline-block;
+    padding: .25rem .5rem;
+    border-radius: .25rem;
+    background-color: var(--color-green--bright);
+    align-self: center;
+
+    @media screen and (min-width: 60rem) {
+      text-align: center;
+      font-size: 2rem;
+      margin: 0;
     }
   }
 }
 
-.matches__calendar__type {
-  color: var(--color-gray-medium);
-}
-
-.matches__calendar__separator {
-  display: inline-block;
-  padding: 0 .25rem;
-}
-
-.matches__calendar__main {
-  padding: 1rem;
-  box-shadow: inset 0 -1px 0 0 rgba(0, 0, 0, .1);
-  position: relative;
-}
-
-.matches__calendar__team,
-.matches__calendar__score {
-  display: block;
-
-  @include break(medium-up) {
-    display: inline-block;
-  }
-}
-
-.matches__calendar__team {
-  font-size: 85%;
+.matches__score_result {
+  min-width: 74px;
+  margin-top: 8px;
+  padding: 1px 20px 0;
+  background-color: #e4e4e4;
+  color: #000;
+  font-size: 12px;
+  font-weight: 700;
   line-height: 1.5;
   text-align: center;
 
-  @include break(medium-up) {
-    width: calc(50% - 30px - 10px);
-    font-size: 100%;
+  &--win {
+    background: #8dba62;
   }
 
-  &--home {
-    @include break(medium-up) {
-      text-align: right;
-    }
-
-    .lazyload-placeholder {
-      margin-right: 0;
-    }
+  &--loss {
+    background: #ff5538;
   }
 
-  &--away {
-    @include break(medium-up) {
-      text-align: left;
-      padding-right: 1em;
-    }
-
-    .lazyload-placeholder {
-      margin-left: 0;
-    }
-  }
-
-  &--winner {
-    font-weight: 800;
+  &--draw {
+    background: #ffcb1e;
   }
 }
 
-.matches__calendar__date,
-.matches__calendar__type {
-  display: inline-block;
-}
+.matches__info__wrapper {
+  display: none;
 
-.matches__calendar__score {
-  height: 100%;
-  margin: .25em auto;
-  text-align: center;
-  width: 50px;
-
-  background: var(--color-green-dark);
-  color: #FFF;
-  font-size: 1rem;
-  line-height: 1.75rem;
-
-  @include break(medium-up) {
-    margin: 0 0.625rem;
+  @media screen and (min-width: 60rem) {
+    grid-area: btns;
+    display: flex;
+    width: 100%;
+    justify-content: flex-end;
   }
-
-  @include break(large-up) {
-    margin: 0 0.875rem;
-  }
-}
-
-.matches__calendar__logo {
-  height: 26px;
-  width: 26px;
-  margin: 0 0.25rem;
-
-  @include break(medium-up) {
-    margin: 0 0.875rem;
-  }
-
-  &--home {
-    margin-right: 0;
-  }
-
-  &--away {
-    margin-left: 0;
-  }
-}
-
-.matches__calendar__link {
-  position: absolute;
-  right: 1em;
-  top: 50%;
-  transform: translateY(-50%);
 }

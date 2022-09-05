@@ -1,0 +1,90 @@
+@import '../styles/mixins';
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    color: #fff;
+    margin: 0 0 .75em;
+    font-style: normal;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: -.02em;
+
+    @include break(small-only) {
+        word-break: break-word;
+        hyphens: auto;
+    }
+}
+
+
+.text--regular {
+    font-size: 1rem;
+    color: var(--color-black);
+    text-transform: none;
+}
+
+.screenreader {
+    position: absolute !important;
+    left: -10000px;
+    top: auto;
+    top: initial;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+}
+
+figure {
+    line-height: 1;
+}
+
+
+
+
+.clearfix {
+    overflow: auto;
+}
+
+.clearfix::after {
+    content: "";
+    clear: both;
+    display: table;
+}
+
+
+.stats__card {
+    border: none;
+    border-radius: 2px;
+    display: inline-block;
+    height: 1em;
+    width: .75em;
+
+    &--yellow {
+        background-color: #FAEE00;
+    }
+
+    &--red {
+        background-color: #E60012;
+    }
+}
+
+.highlight {
+    color: var(--color-green);
+}
+
+.center {
+    text-align: center;
+}
+
+
+.select__input {
+    [type=text] {
+        margin-bottom: 0;
+
+        &, &:focus {
+            box-shadow: none;
+        }
+    }
+}

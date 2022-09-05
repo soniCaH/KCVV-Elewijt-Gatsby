@@ -1,34 +1,23 @@
-import { Link, graphql } from "gatsby"
+import { ArticleQuery } from "../Types/Article"
+import Icon from "../components/Icon"
+import { Seo } from "../components/Seo"
+import { Share } from "../components/Share"
+import { useSiteMetaData } from "../hooks/use-site-metadata"
+import Layout from "../layouts"
+import { replaceAll } from "../scripts/helper"
+import "./Article.scss"
+import { graphql, Link } from "gatsby"
 import { GatsbyImage, getSrc } from "gatsby-plugin-image"
-import { FunctionComponent } from "react"
 import React from "react"
 
-import SEO from "../components/seo"
-import Share from "../components/share"
-import Layout from "../layouts/index"
-import { replaceAll } from "../scripts/helper"
-import { ArticleQuery } from "./Article.types"
-import "./ArticleStyle.scss"
-
-const Article: FunctionComponent<ArticleQuery> = ({ data }: ArticleQuery) => {
-  const {
-    nodeArticle,
-    site: {
-      siteMetadata: { siteUrl, twitterHandle },
-    },
-  } = data
+const Article = ({ data: { nodeArticle } }: ArticleQuery) => {
+  const { siteUrl, twitterHandle } = useSiteMetaData()
 
   const { gatsbyImageData: heroImage } =
     nodeArticle.relationships.field_media_article_image.relationships.field_media_image.localFile.childImageSharp
 
   const relatedArticles = nodeArticle.relationships.field_related_content || []
   const relatedTags = nodeArticle.relationships.field_tags || []
-
-  const ogImage = {
-    src: getSrc(heroImage),
-    width: heroImage.width,
-    height: heroImage.height,
-  }
 
   const cleanBody = replaceAll(
     nodeArticle.body.processed,
@@ -40,91 +29,114 @@ const Article: FunctionComponent<ArticleQuery> = ({ data }: ArticleQuery) => {
 
   return (
     <Layout>
-      <SEO
-        lang="nl-BE"
-        title={nodeArticle.title}
-        description={nodeArticle.body.summary}
-        path={pathUrl}
-        image={ogImage}
-      />
+      <section className="article__wrapper">
+        <article className="article__full">
+          <header className="article__header">
+            <div className="article__header__title__wrapper">
+              <div className="article__header__title">
+                <h1>{nodeArticle.title}</h1>
+              </div>
+            </div>
+            <div className="article__header__image__wrapper">
+              <div className="article__header__image__bg">
+                <GatsbyImage image={heroImage} alt={``} />
+              </div>
+              <div className="article__header__image__hero">
+                <GatsbyImage image={heroImage} alt={``} />
+              </div>
+            </div>
+          </header>
 
-      <article className={`article__wrapper`}>
-        <header className={`article__header`}>
-          <div className={`article__hero_image`}>
-            <GatsbyImage image={heroImage} alt={nodeArticle.title} />
-          </div>
-          <h1 className="article__title featured-border">{nodeArticle.title}</h1>
-        </header>
-        <div className={`article__main`}>
-          <section className={`article__metadata container clearfix`}>
-            <div className={`article__author`}>Geschreven door {nodeArticle.relationships.uid.display_name}.</div>
-            <div className={`article__tags`}>
-              <span className={`datetime`}>
-                <i className={`fa fa-clock-o`} aria-hidden="true"></i> {nodeArticle.created}
-              </span>
-              {relatedTags.length > 0 && (
-                <span className={`tag__wrapper`}>
-                  <i className={`fa fa-tags`} aria-hidden="true"></i>
-                  {` `}
-                  {relatedTags.map(({ path, name }, i) => (
-                    <Link to={path.alias} key={i}>
-                      <span key={i} className={`tag__label`}>
-                        #{name}
-                      </span>
-                    </Link>
-                  ))}
+          <main className={`article__main`}>
+            <section className={`article__metadata`}>
+              <div className={`article__author`}>Geschreven door {nodeArticle.relationships.uid.display_name}.</div>
+              <div className={`article__tags`}>
+                <span className={`datetime`}>
+                  <Icon icon="fa-clock-o" /> {nodeArticle.created}
                 </span>
-              )}
-            </div>
-            <div className={`article__social-share`}>
-              <Share
-                socialConfig={{
-                  twitterHandle,
-                  config: {
-                    url: `${siteUrl}${pathUrl}`,
-                    title: nodeArticle.title,
-                  },
-                }}
-                tags={relatedTags}
-              />
-            </div>
-          </section>
-          <div dangerouslySetInnerHTML={{ __html: cleanBody }} />
-        </div>
-        <footer className={`article__footer__wrapper`}>
-          <section className={`article__footer`}>
-            {relatedArticles.length > 0 && (
-              <>
+                {relatedTags.length > 0 && (
+                  <span className={`tag__wrapper`}>
+                    <Icon icon="fa-tags" />
+                    {` `}
+                    {relatedTags.map(({ path, name }, i) => (
+                      <Link to={path.alias} key={i} className="rich-link">
+                        <span key={i} className={`tag__label`}>
+                          #{name}
+                        </span>
+                      </Link>
+                    ))}
+                  </span>
+                )}
+              </div>
+              <div className={`article__social-share`}>
+                <Share
+                  socialConfig={{
+                    twitterHandle: twitterHandle || ``,
+                    config: {
+                      url: `${siteUrl}${pathUrl}`,
+                      title: nodeArticle.title,
+                    },
+                  }}
+                  tags={relatedTags}
+                />
+              </div>
+            </section>
+            <div dangerouslySetInnerHTML={{ __html: cleanBody }} className="article__body" />
+          </main>
+
+          {relatedArticles.length > 0 && (
+            <footer className={`article__footer__wrapper`}>
+              <section className={`article__footer`}>
                 <h3>Gerelateerde inhoud</h3>
-                {relatedArticles.map(({ path, title, internal }, i) => {
-                  return (
-                    <article key={i} className={`article__footer_related`}>
-                      <i
-                        className={`article__footer_related__icon article__footer_related__icon--${internal.type} fa`}
-                      />
-                      <Link to={path.alias}>{title}</Link>
-                    </article>
-                  )
-                })}
-              </>
-            )}
-          </section>
-        </footer>
-      </article>
+                <div className="article__footer_content">
+                  {relatedArticles.map(({ path, title, internal }, i) => {
+                    return (
+                      <article key={i} className={`article__footer_related`}>
+                        <i
+                          className={`article__footer_related__icon article__footer_related__icon--${internal.type} fa`}
+                        />
+                        <Link to={path.alias}>{title}</Link>
+                      </article>
+                    )
+                  })}
+                </div>
+              </section>
+            </footer>
+          )}
+        </article>
+      </section>
     </Layout>
   )
 }
 
 export default Article
 
+export const Head = ({ data: { nodeArticle } }: ArticleQuery) => {
+  const { gatsbyImageData: heroImage } =
+    nodeArticle.relationships.image_og.relationships.field_media_image.localFile.childImageSharp
+
+  const relatedTags = nodeArticle.relationships.field_tags || []
+
+  const ogImage = {
+    src: getSrc(heroImage) || ``,
+    width: heroImage.width,
+    height: heroImage.height,
+  }
+
+  const pathUrl = nodeArticle.path.alias
+  return (
+    <Seo
+      title={nodeArticle.title}
+      keywords={relatedTags.map(({ name }) => name)}
+      image={ogImage}
+      description={nodeArticle.body.summary}
+      path={pathUrl}
+    />
+  )
+}
+
 export const query = graphql`
   query ($slug: String!) {
-    site {
-      siteMetadata {
-        siteUrl
-        twitterHandle
-      }
-    }
     nodeArticle(path: { alias: { eq: $slug } }) {
       path {
         alias
@@ -179,6 +191,9 @@ export const query = graphql`
         }
         field_media_article_image {
           ...HeroImage
+        }
+        image_og: field_media_article_image {
+          ...ArticleImage
         }
         field_tags {
           name

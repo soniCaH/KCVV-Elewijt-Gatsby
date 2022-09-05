@@ -1,0 +1,265 @@
+.game__header__wrapper {
+  background-color: #000;
+  padding: var(--padding--mobile);
+
+  @media screen and (min-width: 60rem) {
+    padding: var(--padding--desktop);
+    background: url('../images/pattern-topright.svg') no-repeat top -50px right -100px,
+      url('../images/pattern-bottomleft.svg') no-repeat bottom -100px left -100px;
+    background-color: #000;
+  }
+}
+
+.game__header__inner {
+  margin: 0 auto;
+  max-width: 60rem;
+  color: #FFF;
+  text-align: center;
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    color: #FFF;
+    text-align: center;
+    text-transform: uppercase;
+  }
+}
+
+.game__details {
+  font-family: var(--font-title);
+  margin-top: 2em;
+  text-transform: uppercase;
+}
+
+.game__details__vs {
+  width: 4rem;
+  font-family: var(--font-alt);
+  font-size: 2rem;
+  color: var(--color-green--bright);
+  text-align: center;
+
+  @media screen and (min-width: 60rem) {
+    width: 6rem;
+    font-size: 4rem;
+  }
+
+  &--score {
+    display: flex;
+    justify-content: center;
+  }
+}
+
+.game__teams {
+  color: var(--color-gray-medium);
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  width: 100%;
+
+  .game__details__winner {
+    position: relative;
+
+    &::before {
+      content: "";
+      display: block;
+      position: absolute;
+      top: 50%;
+      width: 0;
+      height: 0;
+      transform: translateY(-50%);
+    }
+
+    &--home {
+      &::before {
+        left: -.75rem;
+        border-right: 6px solid var(--color-green--bright);
+        border-top: 4px solid transparent;
+        border-bottom: 4px solid transparent;
+      }
+    }
+
+    &--away {
+      &::before {
+        right: -.75rem;
+        border-left: 6px solid var(--color-green--bright);
+        border-top: 4px solid transparent;
+        border-bottom: 4px solid transparent;
+      }
+    }
+  }
+}
+
+.game__teams-inner {
+  width: calc(50% - 2rem);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-transform: uppercase;
+
+  padding-top: 15px;
+  font-size: .75rem;
+  font-style: normal;
+  font-weight: 700;
+  text-align: center;
+  text-transform: uppercase;
+
+  position: relative;
+
+  .lazyload-wrapper {
+    display: inline-flex;
+    height: 180px;
+    vertical-align: middle;
+    margin-bottom: 1rem;
+
+    img {
+      max-width: 100%;
+      max-height: 180px;
+      margin: auto;
+    }
+  }
+
+}
+
+.game__status {
+  display: inline-block;
+  margin: 1em 0;
+  padding: .5em 1em;
+  font-weight: bold;
+
+  &--0 {
+    background: #8dba62;
+    color: #FFF;
+  }
+
+  &--1 {
+    background: #ff5538;
+    color: #FFF;
+  }
+
+  &--2 {
+    background: #ffcb1e;
+  }
+
+  &--3 {
+    background: #ff5538;
+    color: #FFF;
+  }
+}
+
+
+.lineup__wrapper,
+.event__wrapper {
+  margin-bottom: 2em;
+
+  h3 {
+    text-align: center;
+  }
+}
+
+.lineup__wrapper {
+  margin-top: var(--margin-hero--desktop);
+
+  @media screen and (min-width: 60rem) {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-auto-rows: 1fr;
+    gap: 1rem;
+  }
+
+  &--home {
+    margin-bottom: 2em;
+
+    @media screen and (min-width: 60rem) {
+      margin-bottom: 0;
+    }
+  }
+}
+
+.lineup__header,
+.lineup__row {
+  display: grid;
+  grid-template-columns: 1fr 1fr 9fr 1fr;
+  gap: .25rem;
+}
+
+.event__row {
+  display: grid;
+  grid-template-columns: 1fr 1fr 10fr;
+
+  &--home {
+    @media screen and (max-width: 60rem) {
+      .lineup__item--time {
+        order: 0;
+      }
+
+      .lineup__item--action {
+        order: 1;
+      }
+
+      .lineup__item--name {
+        order: 2;
+      }
+    }
+  }
+
+
+  @media screen and (min-width: 60rem) {
+    grid-template-columns: 4fr 1fr 2fr 1fr 4fr;
+
+    &--away {
+      >span:first-child {
+        grid-column: 3;
+      }
+    }
+  }
+
+  // &--home {
+  //   flex-direction: row-reverse;
+
+  //   @media screen and (min-width: 60rem) {
+  //     flex-direction: row;
+  //   }
+  // }
+
+  // // .event__row__item--away {
+  // //   display: none;
+  // // }
+
+
+
+  // .event__row__item--home {
+  //   display: none;
+  // }
+}
+
+.event__row__item {
+  &--home {
+    &.lineup__item--name {
+      @media screen and (min-width: 60rem) {
+        text-align: right;
+      }
+    }
+  }
+}
+
+.lineup__item {
+
+  &--status,
+  &--action {
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center center;
+    max-height: 1em;
+    margin-top: .35em;
+  }
+
+  &--time {
+    text-align: center;
+  }
+}

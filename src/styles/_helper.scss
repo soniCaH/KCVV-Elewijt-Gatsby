@@ -1,0 +1,110 @@
+@mixin readmore-link {
+  a {
+    display: block;
+    text-align: right;
+
+    &::after {
+      display: inline-block;
+      content: url('../images/arrow-dark.svg');
+      margin: 0 .25em;
+      height: 1em;
+      transform: translateX(0);
+      width: 1em;
+      transition: all .25s ease-out;
+    }
+
+    &:hover {
+      &::after {
+        transform: translateX(2px);
+      }
+    }
+  }
+}
+
+@mixin rich-link($color: var(--color-green--bright)) {
+  background-image: linear-gradient(180deg, transparent 75%, $color 0);
+  background-size: 0 100%;
+  background-repeat: no-repeat;
+  text-decoration: none;
+  transition: background-size .4s ease;
+
+  &:hover {
+    background-size: 100% 100%;
+    cursor: pointer;
+  }
+}
+
+@mixin rich-link-center($color: var(--color-green--bright)) {
+  position: relative;
+
+  &:after {
+    background: none repeat scroll 0 0 transparent;
+    bottom: 0;
+    content: "";
+    display: block;
+    height: 2px;
+    left: 50%;
+    position: absolute;
+    background: $color;
+    transition: width 0.3s ease 0s, left 0.3s ease 0s;
+    width: 0;
+  }
+
+  &:hover,
+  &.active {
+    &:after {
+      width: 100%;
+      left: 0;
+    }
+  }
+}
+
+@function textShadow($precision, $size, $color) {
+  $value: null;
+  $offset: 0;
+  $length: $size * calc(1 / $precision) - 1;
+
+  @for $i from 0 through $length {
+    $offset: $offset + $precision;
+    $shadow: (-1 * $offset) + px $offset + px $color;
+    $value: append($value, $shadow, comma);
+  }
+
+  @return $value;
+}
+
+.fancy_header {
+  display: grid;
+  grid-template-columns: minmax(50px, 1fr) auto minmax(50px, 1fr);
+  align-items: center;
+  text-align: center;
+  gap: 40px;
+
+  &::before,
+  &::after {
+    content: '';
+    border-top: 6px double;
+  }
+}
+
+.rich-link {
+  @include rich-link(var(--color-green--bright--alpha--75));
+}
+
+.rich-link-center {
+  @include rich-link-center(var(--color-green--bright--alpha--75));
+}
+
+a:not([class]) {
+  text-decoration-skip-ink: auto;
+}
+
+.full-width {
+  left: 50%;
+  margin-left: -50vw;
+  margin-right: -50vw;
+  max-width: 100vw;
+  position: relative;
+  right: 50%;
+  width: 100vw;
+}
