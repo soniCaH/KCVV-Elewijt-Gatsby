@@ -1,11 +1,12 @@
-import { graphql, useStaticQuery } from "gatsby"
+import { useStaticQuery, graphql } from "gatsby"
+import { useState } from "react"
+import { TeamsListProps } from "../Types/Team"
+import Select, { OnChangeValue } from "react-select"
+import React from "react"
 import QRCode from "qrcode.react"
-import React, { FunctionComponent, useState } from "react"
-import Select, { ValueType } from "react-select"
-
-import SEO from "../components/seo"
-import Layout from "../layouts/index"
-import { TeamsListProps } from "../types/pages.types"
+import Layout from "../layouts"
+import { Seo } from "../components/Seo"
+import "./calendar.scss"
 
 const CalendarForm = () => {
   const calendarUrl = `webcal://footbalisto.be/calendar`
@@ -17,6 +18,7 @@ const CalendarForm = () => {
     { value: `away`, label: `Alleen uitwedstrijden` },
     { value: `all`, label: `Alle wedstrijden` },
   ]
+
   const { teamEdges }: TeamsListProps = useStaticQuery(graphql`
     query {
       teamEdges: allNodeTeam(filter: { field_vv_id: { ne: null } }) {
@@ -44,7 +46,7 @@ const CalendarForm = () => {
     }
   }
 
-  const handleTeamsChange = (inputValue: ValueType<{ value: string; label: string }, boolean>) => {
+  const handleTeamsChange = (inputValue: OnChangeValue<{ value: string; label: string }, boolean>) => {
     if (Array.isArray(inputValue)) {
       setTeamSelected(inputValue.map(({ value }) => value))
     } else {
@@ -93,22 +95,28 @@ const CalendarForm = () => {
 const CalendarPage = () => {
   return (
     <Layout>
-      <SEO
-        lang="nl-BE"
-        title="Maak uw eigen kalender"
-        description="Stel een eigen seizoenskalender samen met de teams die jou interesseren."
-        path="calendar"
-      />
-
-      <div className={`limited-width_wrapper`}>
-        <header>
+      <header className="page_header__wrapper">
+        <div className="page_header">
           <h1>Stel je kalender samen</h1>
-        </header>
-        <main>
+        </div>
+      </header>
+
+      <div className="calendar__wrapper page__wrapper page__wrapper--limited">
+        <section>
           <CalendarForm />
-        </main>
+        </section>
       </div>
     </Layout>
+  )
+}
+
+export const Head = () => {
+  return (
+    <Seo
+      title="Maak uw eigen kalender"
+      description="Stel een eigen seizoenskalender samen met de teams die jou interesseren."
+      path="/calendar/"
+    />
   )
 }
 

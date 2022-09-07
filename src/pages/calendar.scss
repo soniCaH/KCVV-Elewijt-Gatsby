@@ -1,0 +1,9 @@
+.calendar__wrapper {
+  [type=text] {
+
+    &,
+    &:focus {
+      box-shadow: unset;
+    }
+  }
+}
