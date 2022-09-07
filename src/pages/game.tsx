@@ -20,7 +20,7 @@ import { Spinner } from "../components/Spinner"
 import { Seo } from "../components/Seo"
 import "./game.scss"
 import { mapPsdStatus, request } from "../scripts/helper"
-import LazyLoad from "react-lazyload"
+import LazyLoad from "react-lazy-load"
 import Icon from "../components/Icon"
 import { MiniRanking } from "../components/MiniRanking"
 const GamePage = ({ matchId }: GamePageProps) => {
@@ -77,13 +77,13 @@ const GamePage = ({ matchId }: GamePageProps) => {
           <div className="game__header__inner">
             <div className="game__teams">
               <div className={`game__teams-inner`}>
-                <LazyLoad debounce={false}>
+                <LazyLoad>
                   <img src={general.homeClub?.logo} alt={general.homeClub?.name} title={general.homeClub?.name} />
                 </LazyLoad>
               </div>
               {renderScore(general.goalsHomeTeam, general.goalsAwayTeam)}
               <div className={`game__teams-inner`}>
-                <LazyLoad debounce={false}>
+                <LazyLoad>
                   <img src={general.awayClub?.logo} alt={general.awayClub?.name} title={general.awayClub?.name} />
                 </LazyLoad>
               </div>

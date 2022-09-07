@@ -8,7 +8,7 @@ import { Match, MatchesProps, MatchesRowProps } from "../Types/Match"
 import { Spinner } from "./Spinner"
 import "./Matches.scss"
 import classnames from "classnames"
-import LazyLoad from "react-lazyload"
+import LazyLoad from "react-lazy-load"
 import { mapPsdStatus, mapPsdStatusShort, request } from "../scripts/helper"
 import { Link } from "gatsby"
 import Icon from "./Icon"
@@ -72,7 +72,7 @@ const MatchesRow = ({ match }: MatchesRowProps) => {
             </span>
           </div>
           <div className="matches__team__logo">
-            <LazyLoad debounce={false}>
+            <LazyLoad width={44} height={44}>
               <img
                 src={match.homeClub?.logo}
                 alt={match.homeClub?.abbreviation}
@@ -91,38 +91,9 @@ const MatchesRow = ({ match }: MatchesRowProps) => {
             <span className="matches__score matches__score--vs">VS</span>
           )}
           {matchPlayed && (
-            <>
-              <span className="matches__score matches__score--score">
-                <span>{match.goalsHomeTeam}</span> <span>-</span> <span>{match.goalsAwayTeam}</span>
-                {/* {match.goalsHomeTeam} - {match.goalsAwayTeam} */}
-              </span>
-              {/* className={classnames(`matches__score_result`, {
-                  "matches__score_result--draw": match.goalsHomeTeam === match.goalsAwayTeam,
-                  "matches__score_result--loss":
-                    sideTeam === `home`
-                      ? match.goalsAwayTeam > match.goalsHomeTeam
-                      : match.goalsHomeTeam > match.goalsAwayTeam,
-                  "matches__score_result--win":
-                    sideTeam === `home`
-                      ? match.goalsHomeTeam > match.goalsAwayTeam
-                      : match.goalsAwayTeam > match.goalsHomeTeam,
-                })}
-              > */}
-              {/* {(sideTeam === `home`
-                ? match.goalsAwayTeam > match.goalsHomeTeam
-                : match.goalsHomeTeam > match.goalsAwayTeam) && (
-                <span className="matches__score_result matches__score_result--loss">Verlies</span>
-              )}
-              {(sideTeam === `home`
-                ? match.goalsHomeTeam > match.goalsAwayTeam
-                : match.goalsAwayTeam > match.goalsHomeTeam) && (
-                <span className="matches__score_result matches__score_result--win">Winst</span>
-              )}
-              {match.goalsAwayTeam === match.goalsHomeTeam && (
-                <span className="matches__score_result matches__score_result--draw">Gelijk</span>
-              )} */}
-              {/* </span> */}
-            </>
+            <span className="matches__score matches__score--score">
+              <span>{match.goalsHomeTeam}</span> <span>-</span> <span>{match.goalsAwayTeam}</span>
+            </span>
           )}
         </div>
         <div
@@ -138,7 +109,7 @@ const MatchesRow = ({ match }: MatchesRowProps) => {
             </span>
           </div>
           <div className="matches__team__logo">
-            <LazyLoad debounce={false}>
+            <LazyLoad width={44} height={44}>
               <img
                 src={match.awayClub?.logo}
                 alt={match.awayClub?.abbreviation}

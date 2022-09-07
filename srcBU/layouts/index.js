@@ -1,7 +1,7 @@
 // import './index.scss'
 import $ from "jquery"
 import React, { Component, Fragment } from "react"
-import { forceCheck } from "react-lazyload"
+import { forceCheck } from "react-lazy-load"
 
 import PageFooter from "../components/page-footer"
 import PageHeader, { PageHeaderMobile } from "../components/page-header"
