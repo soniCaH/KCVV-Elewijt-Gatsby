@@ -1,12 +1,15 @@
-// import { Pathalias } from "./Drupal"
+export interface TeamShort {
+  field_division_full?: string
+  field_vv_id: string
+  title: string
+}
 
-// interface Team {
-//   title: string
-//   path: Pathalias
-//   field_contact_info: {
-//     processed: string
-//   }
-// }
+interface TeamEdges {
+  node: TeamShort
+}
+export interface TeamsListProps {
+  teamEdges: { edges: TeamEdges[] }
+}
 
 export interface TeamQuery {
   data: {
