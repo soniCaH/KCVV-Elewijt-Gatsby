@@ -31,6 +31,63 @@ const RegisterPage = () => {
             .
           </p>
         </section>
+        <section>
+          <h3>Bijdrage lidgeld</h3>
+          <section>
+            <ul>
+              <li>
+                CM:{` `}
+                <a
+                  href="https://www.cm.be/media/Aanvraag-terugbetaling-inschrijving-sportvereniging_tcm47-24959.pdf"
+                  target="_blank"
+                  className="rich-link"
+                >
+                  https://www.cm.be/media/Aanvraag-terugbetaling-inschrijving-sportvereniging_tcm47-24959.pdf
+                </a>
+              </li>
+              <li>
+                De Voorzorg/FSMB/Solidaris:{` `}
+                <a
+                  href=" https://www.solidaris-vlaanderen.be/terugbetaling-sport"
+                  target="_blank"
+                  className="rich-link"
+                >
+                  https://www.solidaris-vlaanderen.be/terugbetaling-sport
+                </a>
+              </li>
+              <li>
+                Liberale mutualiteit:{` `}
+                <a
+                  href="https://www.lm-ml.be/nl/documenten/formulier-terugbetaling-sport"
+                  target="_blank"
+                  className="rich-link"
+                >
+                  https://www.lm-ml.be/nl/documenten/formulier-terugbetaling-sport
+                </a>
+              </li>
+              <li>
+                VNZ:{` `}
+                <a
+                  href="https://www.vnz.be/voordelen-terugbetalingen/sport-fitnessclub/"
+                  target="_blank"
+                  className="rich-link"
+                >
+                  https://www.vnz.be/voordelen-terugbetalingen/sport-fitnessclub/
+                </a>
+              </li>
+              <li>
+                OZ/Partena/Helan:
+                <a
+                  href="https://www.helan.be/nl/ons-aanbod/ziekenfonds/voordelen-en-terugbetalingen/sportclub-lidgeld/"
+                  target="_blank"
+                  className="rich-link"
+                >
+                  https://www.helan.be/nl/ons-aanbod/ziekenfonds/voordelen-en-terugbetalingen/sportclub-lidgeld/
+                </a>
+              </li>
+            </ul>
+          </section>
+        </section>
       </div>
       <div className="page__wrapper page__wrapper--limited page__section page__registration">
         <h2 className="featured-border">ProSoccerData</h2>

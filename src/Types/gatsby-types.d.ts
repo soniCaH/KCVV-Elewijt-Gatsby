@@ -3927,7 +3927,6 @@ type file__fileFieldsEnum =
   | 'relationships.node__player.path.pid'
   | 'relationships.node__player.promote'
   | 'relationships.node__player.relationships.node__article'
-  | 'relationships.node__player.relationships.node__potw'
   | 'relationships.node__player.relationships.node__team'
   | 'relationships.node__player.revision_timestamp'
   | 'relationships.node__player.revision_translation_affected'
@@ -7149,36 +7148,6 @@ type node__playerFieldsEnum =
   | 'relationships.node__article.status'
   | 'relationships.node__article.sticky'
   | 'relationships.node__article.title'
-  | 'relationships.node__potw'
-  | 'relationships.node__potw.changed'
-  | 'relationships.node__potw.children'
-  | 'relationships.node__potw.children.children'
-  | 'relationships.node__potw.children.id'
-  | 'relationships.node__potw.created'
-  | 'relationships.node__potw.default_langcode'
-  | 'relationships.node__potw.drupal_id'
-  | 'relationships.node__potw.drupal_internal__nid'
-  | 'relationships.node__potw.drupal_internal__vid'
-  | 'relationships.node__potw.id'
-  | 'relationships.node__potw.internal.content'
-  | 'relationships.node__potw.internal.contentDigest'
-  | 'relationships.node__potw.internal.contentFilePath'
-  | 'relationships.node__potw.internal.description'
-  | 'relationships.node__potw.internal.fieldOwners'
-  | 'relationships.node__potw.internal.ignoreType'
-  | 'relationships.node__potw.internal.mediaType'
-  | 'relationships.node__potw.internal.owner'
-  | 'relationships.node__potw.internal.type'
-  | 'relationships.node__potw.langcode'
-  | 'relationships.node__potw.parent.children'
-  | 'relationships.node__potw.parent.id'
-  | 'relationships.node__potw.path.langcode'
-  | 'relationships.node__potw.promote'
-  | 'relationships.node__potw.revision_timestamp'
-  | 'relationships.node__potw.revision_translation_affected'
-  | 'relationships.node__potw.status'
-  | 'relationships.node__potw.sticky'
-  | 'relationships.node__potw.title'
   | 'relationships.node__team'
   | 'relationships.node__team.changed'
   | 'relationships.node__team.children'
@@ -7378,7 +7347,6 @@ type node__playerRelationships = {
   readonly field_image: Maybe<file__file>;
   readonly field_image_celebrate: Maybe<file__file>;
   readonly node__article: Maybe<ReadonlyArray<Maybe<node__article>>>;
-  readonly node__potw: Maybe<ReadonlyArray<Maybe<node__potw>>>;
   readonly node__team: Maybe<ReadonlyArray<Maybe<node__team>>>;
   readonly revision_uid: Maybe<user__user>;
   readonly uid: Maybe<user__user>;
@@ -7388,7 +7356,6 @@ type node__playerRelationshipsFilterInput = {
   readonly field_image: InputMaybe<file__fileFilterInput>;
   readonly field_image_celebrate: InputMaybe<file__fileFilterInput>;
   readonly node__article: InputMaybe<node__articleFilterListInput>;
-  readonly node__potw: InputMaybe<node__potwFilterListInput>;
   readonly node__team: InputMaybe<node__teamFilterListInput>;
   readonly revision_uid: InputMaybe<user__userFilterInput>;
   readonly uid: InputMaybe<user__userFilterInput>;
@@ -7593,60 +7560,6 @@ type node__potwFieldsEnum =
   | 'parent.parent.parent.id'
   | 'path.langcode'
   | 'promote'
-  | 'relationships.field_player.body.format'
-  | 'relationships.field_player.body.processed'
-  | 'relationships.field_player.body.summary'
-  | 'relationships.field_player.body.value'
-  | 'relationships.field_player.changed'
-  | 'relationships.field_player.children'
-  | 'relationships.field_player.children.children'
-  | 'relationships.field_player.children.id'
-  | 'relationships.field_player.created'
-  | 'relationships.field_player.default_langcode'
-  | 'relationships.field_player.drupal_id'
-  | 'relationships.field_player.drupal_internal__nid'
-  | 'relationships.field_player.drupal_internal__vid'
-  | 'relationships.field_player.field_birth_date'
-  | 'relationships.field_player.field_date_leave'
-  | 'relationships.field_player.field_firstname'
-  | 'relationships.field_player.field_image.alt'
-  | 'relationships.field_player.field_image.height'
-  | 'relationships.field_player.field_image.title'
-  | 'relationships.field_player.field_image.width'
-  | 'relationships.field_player.field_image_celebrate.alt'
-  | 'relationships.field_player.field_image_celebrate.height'
-  | 'relationships.field_player.field_image_celebrate.title'
-  | 'relationships.field_player.field_image_celebrate.width'
-  | 'relationships.field_player.field_join_date'
-  | 'relationships.field_player.field_lastname'
-  | 'relationships.field_player.field_position'
-  | 'relationships.field_player.field_shirtnumber'
-  | 'relationships.field_player.field_vv_id'
-  | 'relationships.field_player.id'
-  | 'relationships.field_player.internal.content'
-  | 'relationships.field_player.internal.contentDigest'
-  | 'relationships.field_player.internal.contentFilePath'
-  | 'relationships.field_player.internal.description'
-  | 'relationships.field_player.internal.fieldOwners'
-  | 'relationships.field_player.internal.ignoreType'
-  | 'relationships.field_player.internal.mediaType'
-  | 'relationships.field_player.internal.owner'
-  | 'relationships.field_player.internal.type'
-  | 'relationships.field_player.langcode'
-  | 'relationships.field_player.parent.children'
-  | 'relationships.field_player.parent.id'
-  | 'relationships.field_player.path.alias'
-  | 'relationships.field_player.path.langcode'
-  | 'relationships.field_player.path.pid'
-  | 'relationships.field_player.promote'
-  | 'relationships.field_player.relationships.node__article'
-  | 'relationships.field_player.relationships.node__potw'
-  | 'relationships.field_player.relationships.node__team'
-  | 'relationships.field_player.revision_timestamp'
-  | 'relationships.field_player.revision_translation_affected'
-  | 'relationships.field_player.status'
-  | 'relationships.field_player.sticky'
-  | 'relationships.field_player.title'
   | 'relationships.revision_uid.children'
   | 'relationships.revision_uid.children.children'
   | 'relationships.revision_uid.children.id'
@@ -7785,13 +7698,11 @@ type node__potwPathFilterInput = {
 };
 
 type node__potwRelationships = {
-  readonly field_player: Maybe<node__player>;
   readonly revision_uid: Maybe<user__user>;
   readonly uid: Maybe<user__user>;
 };
 
 type node__potwRelationshipsFilterInput = {
-  readonly field_player: InputMaybe<node__playerFilterInput>;
   readonly revision_uid: InputMaybe<user__userFilterInput>;
   readonly uid: InputMaybe<user__userFilterInput>;
 };
@@ -9111,7 +9022,6 @@ type node__teamFieldsEnum =
   | 'relationships.field_players.path.pid'
   | 'relationships.field_players.promote'
   | 'relationships.field_players.relationships.node__article'
-  | 'relationships.field_players.relationships.node__potw'
   | 'relationships.field_players.relationships.node__team'
   | 'relationships.field_players.revision_timestamp'
   | 'relationships.field_players.revision_translation_affected'
@@ -10154,7 +10064,6 @@ type user__userFieldsEnum =
   | 'relationships.node__player.path.pid'
   | 'relationships.node__player.promote'
   | 'relationships.node__player.relationships.node__article'
-  | 'relationships.node__player.relationships.node__potw'
   | 'relationships.node__player.relationships.node__team'
   | 'relationships.node__player.revision_timestamp'
   | 'relationships.node__player.revision_translation_affected'
