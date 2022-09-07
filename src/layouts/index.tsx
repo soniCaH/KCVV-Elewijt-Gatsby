@@ -1,9 +1,9 @@
 import $ from "jquery"
 import React, { Fragment, useEffect, PropsWithChildren } from "react"
-import { forceCheck } from "react-lazyload"
 
 import { PageFooter } from "../components/PageFooter"
 import { PageHeader, PageHeaderMobile } from "../components/PageHeader"
+
 
 declare global {
   interface JQuery {
@@ -29,9 +29,9 @@ const Layout = ({ children }: PropsWithChildren) => {
     if (window.location.hash) {
       $(`.team__sub_navigation a[href="${window.location.hash}"]`).trigger(`click`, [true])
     }
-    $(`.widget__filter, .team__sub_navigation__tabs`).on(`change.zf.tabs`, function () {
-      forceCheck()
-    })
+    // $(`.widget__filter, .team__sub_navigation__tabs`).on(`change.zf.tabs`, function () {
+    //   // LazyLoad.shouldComponentUpdate()
+    // })
   }, [])
 
   return (

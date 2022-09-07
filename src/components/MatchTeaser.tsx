@@ -8,7 +8,7 @@ import moment from "moment"
 import "moment-timezone"
 import "moment/locale/nl-be"
 import React, { useEffect, useState } from "react"
-import LazyLoad from "react-lazyload"
+import LazyLoad from "react-lazy-load"
 import MiniRanking from "./MiniRanking"
 
 export const MatchTeaserDetail = ({ match, includeRankings }: MatchTeaserDetailProps) => {
@@ -56,7 +56,7 @@ export const MatchTeaserDetail = ({ match, includeRankings }: MatchTeaserDetailP
             "match__teaser__team--winner": matchPlayed && match.goalsHomeTeam > match.goalsAwayTeam,
           })}
         >
-          <LazyLoad debounce={false}>
+          <LazyLoad>
             <img
               src={match.homeClub?.logo}
               alt={match.homeClub?.abbreviation}
@@ -79,7 +79,7 @@ export const MatchTeaserDetail = ({ match, includeRankings }: MatchTeaserDetailP
             "match__teaser__team--winner": matchPlayed && match.goalsHomeTeam < match.goalsAwayTeam,
           })}
         >
-          <LazyLoad debounce={false}>
+          <LazyLoad>
             <img
               src={match.awayClub?.logo}
               alt={match.awayClub?.abbreviation}
