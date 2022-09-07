@@ -111,7 +111,8 @@
 
   position: relative;
 
-  .lazyload-wrapper {
+  .lazyload-wrapper,
+  .LazyLoad {
     display: inline-flex;
     height: 180px;
     vertical-align: middle;

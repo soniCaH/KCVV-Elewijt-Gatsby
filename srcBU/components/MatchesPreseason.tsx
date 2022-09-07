@@ -4,7 +4,7 @@ import { graphql, useStaticQuery } from "gatsby"
 import moment from "moment-timezone"
 import "moment-timezone/node_modules/moment/locale/nl-be"
 import React, { FunctionComponent, useEffect, useState } from "react"
-import LazyLoad from "react-lazyload"
+import LazyLoad from "react-lazy-load"
 
 import { capitalizeFirstLetter, groupByMonth, mapPsdStatus, mapPsdStatusShort } from "../scripts/helper"
 import "./MatchesPreseason.scss"
@@ -39,7 +39,7 @@ const MatchOverviewMatch: FunctionComponent<MatchesRowProps> = ({ match }: Match
             })}
           >
             {match.homeClub?.name} {match.homeTeamId === null || (match.homeTeamId === 1 ? `A` : `B`)}
-            <LazyLoad debounce={false}>
+            <LazyLoad>
               <img
                 src={match.homeClub?.logo}
                 alt={match.homeClub?.name}
@@ -65,7 +65,7 @@ const MatchOverviewMatch: FunctionComponent<MatchesRowProps> = ({ match }: Match
               "matches__calendar__team--winner": matchPlayed && match.goalsHomeTeam < match.goalsAwayTeam,
             })}
           >
-            <LazyLoad debounce={false}>
+            <LazyLoad>
               <img
                 src={match.awayClub?.logo}
                 alt={match.awayClub?.name}
