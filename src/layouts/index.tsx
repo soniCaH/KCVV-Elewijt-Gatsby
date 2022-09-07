@@ -4,7 +4,6 @@ import React, { Fragment, useEffect, PropsWithChildren } from "react"
 import { PageFooter } from "../components/PageFooter"
 import { PageHeader, PageHeaderMobile } from "../components/PageHeader"
 
-
 declare global {
   interface JQuery {
     foundation(): void
