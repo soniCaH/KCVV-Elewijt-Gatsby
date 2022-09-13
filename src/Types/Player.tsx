@@ -1,3 +1,5 @@
+import { Pathalias } from "./Drupal"
+
 export interface PlayerQuery {
   data: {
     nodePlayer: Queries.node__player
@@ -80,4 +82,18 @@ export interface PlayerStatsDataObject {
   gameReports: Array<PlayerStatsReportsResponseObject>
   playerStatistics: Array<PlayerStatsDataResponseObject>
   goals: Array<PlayerStatsGoalsResponseObject>
+}
+
+export interface PlayerListProps {
+  playerEdges: { edges: PlayerEdges[] }
+}
+
+interface PlayerEdges {
+  node: PlayerShort
+}
+export interface PlayerShort {
+  field_vv_id?: string
+  field_firstname: string
+  field_lastname: string
+  path: Pathalias
 }

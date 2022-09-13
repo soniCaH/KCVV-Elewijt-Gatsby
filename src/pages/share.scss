@@ -1,0 +1,13 @@
+.share__wrapper {
+  [type=text] {
+
+    &,
+    &:focus {
+      box-shadow: unset;
+    }
+  }
+
+  .input__input {
+    height: 38px;
+  }
+}

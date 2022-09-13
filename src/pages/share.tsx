@@ -1,11 +1,12 @@
 import { graphql, useStaticQuery } from "gatsby"
-import React, { FunctionComponent, useState } from "react"
+import React, { useState } from "react"
+import { Seo } from "../components/Seo"
+import { Spinner } from "../components/Spinner"
+import Layout from "../layouts"
+import { PlayerListProps } from "../Types/Player"
 import Select from "react-select"
 
-import Spinner from "../components/Spinner"
-import SEO from "../components/seo"
-import Layout from "../layouts/index"
-import { PlayerListProps } from "../types/pages.types"
+import "./share.scss"
 
 const ShareForm = () => {
   const templateUrl = `https://footbalisto.be/share/instagram/`
@@ -70,19 +71,19 @@ const ShareForm = () => {
     <div>
       <form>
         <p>
-          <label htmlFor="calendar__player">Speler:</label>
+          <label htmlFor="share__player">Speler:</label>
           <Select
             options={players}
             name="player"
-            id="calendar__player"
+            id="share__player"
             className="select__input"
             onChange={handlePlayerChange}
           />
         </p>
         <p>
-          <label htmlFor="calendar__game">Wedstrijd:</label>
+          <label htmlFor="share__game">Wedstrijd:</label>
           <input
-            id="calendar__game"
+            id="share__game"
             onChange={handleMatchChange}
             className={`input__input`}
             placeholder="KCVV Elewijt - KFC Eppegem"
@@ -91,9 +92,9 @@ const ShareForm = () => {
           />
         </p>
         <p>
-          <label htmlFor="calendar__score">Score:</label>
+          <label htmlFor="share__score">Score:</label>
           <input
-            id="calendar__score"
+            id="share__score"
             onChange={handleScoreChange}
             className={`input__input`}
             placeholder="2 — 0"
@@ -116,24 +117,25 @@ const ShareForm = () => {
   )
 }
 
-const CreateSharePage = () => (
+const SharePage = () => (
   <Layout>
-    <SEO
-      lang="nl-BE"
-      title="Creëer instagram goal story"
-      description="Creëer een nieuwe instagram story voor een doelpunt."
-      path="calendar"
-    />
-
-    <div className={`limited-width_wrapper`}>
-      <header>
+    <header className="page_header__wrapper">
+      <div className="page_header">
         <h1>Creëer afbeelding</h1>
-      </header>
-      <main>
-        <ShareForm />
-      </main>
+      </div>
+    </header>
+    <div className="share__wrapper page__wrapper page__wrapper--limited page__section">
+      <ShareForm />
     </div>
   </Layout>
 )
 
-export default CreateSharePage
+export const Head = () => (
+  <Seo
+    title="Creëer instagram goal story"
+    description="Creëer een nieuwe instagram story voor een doelpunt."
+    path="/share"
+  />
+)
+
+export default SharePage
