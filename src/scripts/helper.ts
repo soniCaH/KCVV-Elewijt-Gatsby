@@ -112,6 +112,7 @@ export function getPositions() {
     [`d`, `Verdediger`],
     [`m`, `Middenvelder`],
     [`a`, `Aanvaller`],
+    [`j`, `Speler`],
   ])
   return positions
 }

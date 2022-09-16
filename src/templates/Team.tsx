@@ -123,6 +123,7 @@ const Team = ({ data: { nodeTeam } }: TeamQuery) => {
                 {groupByPosition[`d`] && <Lineup title="Verdedigers" lineup={groupByPosition[`d`]} />}
                 {groupByPosition[`m`] && <Lineup title="Middenvelder" lineup={groupByPosition[`m`]} />}
                 {groupByPosition[`a`] && <Lineup title="Aanvallers" lineup={groupByPosition[`a`]} />}
+                {groupByPosition[`j`] && <Lineup title="Spelers" lineup={groupByPosition[`j`]} />}
               </main>
             </div>
           )}
