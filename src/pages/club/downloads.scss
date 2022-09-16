@@ -1,8 +1,16 @@
-.label {
-  padding: .5rem .75rem;
-  display: inline-block;
+.page__downloads {
+  .label {
+    padding: .5rem .75rem;
+    display: inline-block;
 
-  &--download {
-    background: #8dba62;
+    &--download {
+      background: #8dba62;
+    }
+  }
+
+  section {
+    +h2 {
+      margin-top: var(--margin-hero--desktop);
+    }
   }
 }

@@ -3,6 +3,7 @@ import { Seo } from "../../components/Seo"
 import Layout from "../../layouts"
 
 import downloadOngevalAangifte from "../../downloads/insurance_medical_attest_template_nl.pdf"
+import downloadRules from "../../downloads/reglement_inwendige_orde_2022.pdf"
 import { CardHorizontal } from "../../components/Card"
 import { getImage } from "gatsby-plugin-image"
 import { graphql } from "gatsby"
@@ -10,9 +11,10 @@ import { DownloadsPageProps } from "../../Types/PageProps"
 
 import "./downloads.scss"
 
-const DownloadsPage = ({ data: { medicalattest } }: DownloadsPageProps) => {
+const DownloadsPage = ({ data: { medicalattest, rules } }: DownloadsPageProps) => {
   const pictureOngevalAangifte =
     medicalattest?.childImageSharp?.gatsbyImageData && getImage(medicalattest?.childImageSharp?.gatsbyImageData)
+  const pictureReglement = rules?.childImageSharp?.gatsbyImageData && getImage(rules?.childImageSharp?.gatsbyImageData)
   return (
     <Layout>
       <header className="page_header__wrapper">
@@ -32,6 +34,17 @@ const DownloadsPage = ({ data: { medicalattest } }: DownloadsPageProps) => {
             />
           )}
         </section>
+        <h2 className="featured-border">Reglementen</h2>
+        <section>
+          {pictureReglement && (
+            <CardHorizontal
+              title="Reglement van Inwendige Orde"
+              link={downloadRules}
+              picture={pictureReglement}
+              body="<span class='label label--download'>DOWNLOAD</span><br/> Elke persoon die het complex betreedt, wordt verwacht kennis te namen van (de bepalingen van) dit reglement, deze te aanvaarden en vooral na te leven."
+            />
+          )}
+        </section>
       </div>
     </Layout>
   )
@@ -44,7 +57,26 @@ export const Head = () => {
 export const pageQuery = graphql`
   query DownloadsPage {
     medicalattest: file(name: { eq: "insurance_medical_attest_template_nl" }) {
-      ...KCVVFullWidth
+      childImageSharp {
+        gatsbyImageData(
+          width: 480
+          placeholder: DOMINANT_COLOR
+          layout: CONSTRAINED
+          aspectRatio: 1.77
+          transformOptions: { cropFocus: ENTROPY }
+        )
+      }
+    }
+    rules: file(name: { eq: "pexels-joshua-miranda-4027658" }) {
+      childImageSharp {
+        gatsbyImageData(
+          width: 480
+          placeholder: DOMINANT_COLOR
+          layout: CONSTRAINED
+          aspectRatio: 1.77
+          transformOptions: { cropFocus: ENTROPY }
+        )
+      }
     }
   }
 `
