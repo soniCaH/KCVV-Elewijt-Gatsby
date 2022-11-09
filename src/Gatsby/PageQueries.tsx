@@ -1,6 +1,6 @@
 export const gatsbyNodePageQueries = `
 articles: allNodeArticle(
-    sort: {fields: created, order: DESC}
+    sort: {created: DESC}
     filter: {status: {eq: true}}
   ) {
     edges {
