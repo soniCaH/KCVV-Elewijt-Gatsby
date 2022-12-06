@@ -5,7 +5,9 @@ import { Spinner } from "../components/Spinner"
 import Layout from "../layouts"
 import { PlayerListProps } from "../Types/Player"
 import Select from "react-select"
-import ESAPI from "node-esapi"
+
+// eslint-disable-next-line @typescript-eslint/no-var-requires
+const ESAPI = require(`node-esapi`).encoder()
 
 import "./share.scss"
 
@@ -48,11 +50,11 @@ const ShareForm = () => {
   }
 
   const handleMatchChange = (event: { target: { value: React.SetStateAction<string> } }) => {
-    setMatch(ESAPI.encoder().encodeForJS(event.target.value))
+    setMatch(ESAPI.encodeForJS(event.target.value))
   }
 
   const handleScoreChange = (event: { target: { value: React.SetStateAction<string> } }) => {
-    setScore(ESAPI.encoder().encodeForJS(event.target.value))
+    setScore(ESAPI.encodeForJS(event.target.value))
   }
 
   const handleGenerateImage = (event: React.MouseEvent<HTMLButtonElement>) => {
