@@ -169,29 +169,29 @@ type DirectoryConnection = {
 
 
 type DirectoryConnection_distinctArgs = {
-  field: DirectoryFieldsEnum;
+  field: DirectoryFieldSelector;
 };
 
 
 type DirectoryConnection_groupArgs = {
-  field: DirectoryFieldsEnum;
+  field: DirectoryFieldSelector;
   limit: InputMaybe<Scalars['Int']>;
   skip: InputMaybe<Scalars['Int']>;
 };
 
 
 type DirectoryConnection_maxArgs = {
-  field: DirectoryFieldsEnum;
+  field: DirectoryFieldSelector;
 };
 
 
 type DirectoryConnection_minArgs = {
-  field: DirectoryFieldsEnum;
+  field: DirectoryFieldSelector;
 };
 
 
 type DirectoryConnection_sumArgs = {
-  field: DirectoryFieldsEnum;
+  field: DirectoryFieldSelector;
 };
 
 type DirectoryEdge = {
@@ -200,131 +200,43 @@ type DirectoryEdge = {
   readonly previous: Maybe<Directory>;
 };
 
-type DirectoryFieldsEnum =
-  | 'absolutePath'
-  | 'accessTime'
-  | 'atime'
-  | 'atimeMs'
-  | 'base'
-  | 'birthTime'
-  | 'birthtime'
-  | 'birthtimeMs'
-  | 'changeTime'
-  | 'children'
-  | 'children.children'
-  | 'children.children.children'
-  | 'children.children.children.children'
-  | 'children.children.children.id'
-  | 'children.children.id'
-  | 'children.children.internal.content'
-  | 'children.children.internal.contentDigest'
-  | 'children.children.internal.contentFilePath'
-  | 'children.children.internal.description'
-  | 'children.children.internal.fieldOwners'
-  | 'children.children.internal.ignoreType'
-  | 'children.children.internal.mediaType'
-  | 'children.children.internal.owner'
-  | 'children.children.internal.type'
-  | 'children.children.parent.children'
-  | 'children.children.parent.id'
-  | 'children.id'
-  | 'children.internal.content'
-  | 'children.internal.contentDigest'
-  | 'children.internal.contentFilePath'
-  | 'children.internal.description'
-  | 'children.internal.fieldOwners'
-  | 'children.internal.ignoreType'
-  | 'children.internal.mediaType'
-  | 'children.internal.owner'
-  | 'children.internal.type'
-  | 'children.parent.children'
-  | 'children.parent.children.children'
-  | 'children.parent.children.id'
-  | 'children.parent.id'
-  | 'children.parent.internal.content'
-  | 'children.parent.internal.contentDigest'
-  | 'children.parent.internal.contentFilePath'
-  | 'children.parent.internal.description'
-  | 'children.parent.internal.fieldOwners'
-  | 'children.parent.internal.ignoreType'
-  | 'children.parent.internal.mediaType'
-  | 'children.parent.internal.owner'
-  | 'children.parent.internal.type'
-  | 'children.parent.parent.children'
-  | 'children.parent.parent.id'
-  | 'ctime'
-  | 'ctimeMs'
-  | 'dev'
-  | 'dir'
-  | 'ext'
-  | 'extension'
-  | 'gid'
-  | 'id'
-  | 'ino'
-  | 'internal.content'
-  | 'internal.contentDigest'
-  | 'internal.contentFilePath'
-  | 'internal.description'
-  | 'internal.fieldOwners'
-  | 'internal.ignoreType'
-  | 'internal.mediaType'
-  | 'internal.owner'
-  | 'internal.type'
-  | 'mode'
-  | 'modifiedTime'
-  | 'mtime'
-  | 'mtimeMs'
-  | 'name'
-  | 'nlink'
-  | 'parent.children'
-  | 'parent.children.children'
-  | 'parent.children.children.children'
-  | 'parent.children.children.id'
-  | 'parent.children.id'
-  | 'parent.children.internal.content'
-  | 'parent.children.internal.contentDigest'
-  | 'parent.children.internal.contentFilePath'
-  | 'parent.children.internal.description'
-  | 'parent.children.internal.fieldOwners'
-  | 'parent.children.internal.ignoreType'
-  | 'parent.children.internal.mediaType'
-  | 'parent.children.internal.owner'
-  | 'parent.children.internal.type'
-  | 'parent.children.parent.children'
-  | 'parent.children.parent.id'
-  | 'parent.id'
-  | 'parent.internal.content'
-  | 'parent.internal.contentDigest'
-  | 'parent.internal.contentFilePath'
-  | 'parent.internal.description'
-  | 'parent.internal.fieldOwners'
-  | 'parent.internal.ignoreType'
-  | 'parent.internal.mediaType'
-  | 'parent.internal.owner'
-  | 'parent.internal.type'
-  | 'parent.parent.children'
-  | 'parent.parent.children.children'
-  | 'parent.parent.children.id'
-  | 'parent.parent.id'
-  | 'parent.parent.internal.content'
-  | 'parent.parent.internal.contentDigest'
-  | 'parent.parent.internal.contentFilePath'
-  | 'parent.parent.internal.description'
-  | 'parent.parent.internal.fieldOwners'
-  | 'parent.parent.internal.ignoreType'
-  | 'parent.parent.internal.mediaType'
-  | 'parent.parent.internal.owner'
-  | 'parent.parent.internal.type'
-  | 'parent.parent.parent.children'
-  | 'parent.parent.parent.id'
-  | 'prettySize'
-  | 'rdev'
-  | 'relativeDirectory'
-  | 'relativePath'
-  | 'root'
-  | 'size'
-  | 'sourceInstanceName'
-  | 'uid';
+type DirectoryFieldSelector = {
+  readonly absolutePath: InputMaybe<FieldSelectorEnum>;
+  readonly accessTime: InputMaybe<FieldSelectorEnum>;
+  readonly atime: InputMaybe<FieldSelectorEnum>;
+  readonly atimeMs: InputMaybe<FieldSelectorEnum>;
+  readonly base: InputMaybe<FieldSelectorEnum>;
+  readonly birthTime: InputMaybe<FieldSelectorEnum>;
+  readonly birthtime: InputMaybe<FieldSelectorEnum>;
+  readonly birthtimeMs: InputMaybe<FieldSelectorEnum>;
+  readonly changeTime: InputMaybe<FieldSelectorEnum>;
+  readonly children: InputMaybe<NodeFieldSelector>;
+  readonly ctime: InputMaybe<FieldSelectorEnum>;
+  readonly ctimeMs: InputMaybe<FieldSelectorEnum>;
+  readonly dev: InputMaybe<FieldSelectorEnum>;
+  readonly dir: InputMaybe<FieldSelectorEnum>;
+  readonly ext: InputMaybe<FieldSelectorEnum>;
+  readonly extension: InputMaybe<FieldSelectorEnum>;
+  readonly gid: InputMaybe<FieldSelectorEnum>;
+  readonly id: InputMaybe<FieldSelectorEnum>;
+  readonly ino: InputMaybe<FieldSelectorEnum>;
+  readonly internal: InputMaybe<InternalFieldSelector>;
+  readonly mode: InputMaybe<FieldSelectorEnum>;
+  readonly modifiedTime: InputMaybe<FieldSelectorEnum>;
+  readonly mtime: InputMaybe<FieldSelectorEnum>;
+  readonly mtimeMs: InputMaybe<FieldSelectorEnum>;
+  readonly name: InputMaybe<FieldSelectorEnum>;
+  readonly nlink: InputMaybe<FieldSelectorEnum>;
+  readonly parent: InputMaybe<NodeFieldSelector>;
+  readonly prettySize: InputMaybe<FieldSelectorEnum>;
+  readonly rdev: InputMaybe<FieldSelectorEnum>;
+  readonly relativeDirectory: InputMaybe<FieldSelectorEnum>;
+  readonly relativePath: InputMaybe<FieldSelectorEnum>;
+  readonly root: InputMaybe<FieldSelectorEnum>;
+  readonly size: InputMaybe<FieldSelectorEnum>;
+  readonly sourceInstanceName: InputMaybe<FieldSelectorEnum>;
+  readonly uid: InputMaybe<FieldSelectorEnum>;
+};
 
 type DirectoryFilterInput = {
   readonly absolutePath: InputMaybe<StringQueryOperatorInput>;
@@ -380,34 +292,67 @@ type DirectoryGroupConnection = {
 
 
 type DirectoryGroupConnection_distinctArgs = {
-  field: DirectoryFieldsEnum;
+  field: DirectoryFieldSelector;
 };
 
 
 type DirectoryGroupConnection_groupArgs = {
-  field: DirectoryFieldsEnum;
+  field: DirectoryFieldSelector;
   limit: InputMaybe<Scalars['Int']>;
   skip: InputMaybe<Scalars['Int']>;
 };
 
 
 type DirectoryGroupConnection_maxArgs = {
-  field: DirectoryFieldsEnum;
+  field: DirectoryFieldSelector;
 };
 
 
 type DirectoryGroupConnection_minArgs = {
-  field: DirectoryFieldsEnum;
+  field: DirectoryFieldSelector;
 };
 
 
 type DirectoryGroupConnection_sumArgs = {
-  field: DirectoryFieldsEnum;
+  field: DirectoryFieldSelector;
 };
 
 type DirectorySortInput = {
-  readonly fields: InputMaybe<ReadonlyArray<InputMaybe<DirectoryFieldsEnum>>>;
-  readonly order: InputMaybe<ReadonlyArray<InputMaybe<SortOrderEnum>>>;
+  readonly absolutePath: InputMaybe<SortOrderEnum>;
+  readonly accessTime: InputMaybe<SortOrderEnum>;
+  readonly atime: InputMaybe<SortOrderEnum>;
+  readonly atimeMs: InputMaybe<SortOrderEnum>;
+  readonly base: InputMaybe<SortOrderEnum>;
+  readonly birthTime: InputMaybe<SortOrderEnum>;
+  readonly birthtime: InputMaybe<SortOrderEnum>;
+  readonly birthtimeMs: InputMaybe<SortOrderEnum>;
+  readonly changeTime: InputMaybe<SortOrderEnum>;
+  readonly children: InputMaybe<NodeSortInput>;
+  readonly ctime: InputMaybe<SortOrderEnum>;
+  readonly ctimeMs: InputMaybe<SortOrderEnum>;
+  readonly dev: InputMaybe<SortOrderEnum>;
+  readonly dir: InputMaybe<SortOrderEnum>;
+  readonly ext: InputMaybe<SortOrderEnum>;
+  readonly extension: InputMaybe<SortOrderEnum>;
+  readonly gid: InputMaybe<SortOrderEnum>;
+  readonly id: InputMaybe<SortOrderEnum>;
+  readonly ino: InputMaybe<SortOrderEnum>;
+  readonly internal: InputMaybe<InternalSortInput>;
+  readonly mode: InputMaybe<SortOrderEnum>;
+  readonly modifiedTime: InputMaybe<SortOrderEnum>;
+  readonly mtime: InputMaybe<SortOrderEnum>;
+  readonly mtimeMs: InputMaybe<SortOrderEnum>;
+  readonly name: InputMaybe<SortOrderEnum>;
+  readonly nlink: InputMaybe<SortOrderEnum>;
+  readonly parent: InputMaybe<NodeSortInput>;
+  readonly prettySize: InputMaybe<SortOrderEnum>;
+  readonly rdev: InputMaybe<SortOrderEnum>;
+  readonly relativeDirectory: InputMaybe<SortOrderEnum>;
+  readonly relativePath: InputMaybe<SortOrderEnum>;
+  readonly root: InputMaybe<SortOrderEnum>;
+  readonly size: InputMaybe<SortOrderEnum>;
+  readonly sourceInstanceName: InputMaybe<SortOrderEnum>;
+  readonly uid: InputMaybe<SortOrderEnum>;
 };
 
 type DuotoneGradient = {
@@ -415,6 +360,9 @@ type DuotoneGradient = {
   readonly opacity: InputMaybe<Scalars['Int']>;
   readonly shadow: Scalars['String'];
 };
+
+type FieldSelectorEnum =
+  | 'SELECT';
 
 type File = Node & {
   readonly absolutePath: Scalars['String'];
@@ -535,29 +483,29 @@ type FileConnection = {
 
 
 type FileConnection_distinctArgs = {
-  field: FileFieldsEnum;
+  field: FileFieldSelector;
 };
 
 
 type FileConnection_groupArgs = {
-  field: FileFieldsEnum;
+  field: FileFieldSelector;
   limit: InputMaybe<Scalars['Int']>;
   skip: InputMaybe<Scalars['Int']>;
 };
 
 
 type FileConnection_maxArgs = {
-  field: FileFieldsEnum;
+  field: FileFieldSelector;
 };
 
 
 type FileConnection_minArgs = {
-  field: FileFieldsEnum;
+  field: FileFieldSelector;
 };
 
 
 type FileConnection_sumArgs = {
-  field: FileFieldsEnum;
+  field: FileFieldSelector;
 };
 
 type FileEdge = {
@@ -566,282 +514,49 @@ type FileEdge = {
   readonly previous: Maybe<File>;
 };
 
-type FileFieldsEnum =
-  | 'absolutePath'
-  | 'accessTime'
-  | 'atime'
-  | 'atimeMs'
-  | 'base'
-  | 'birthTime'
-  | 'birthtime'
-  | 'birthtimeMs'
-  | 'blksize'
-  | 'blocks'
-  | 'changeTime'
-  | 'childImageSharp.children'
-  | 'childImageSharp.children.children'
-  | 'childImageSharp.children.children.children'
-  | 'childImageSharp.children.children.id'
-  | 'childImageSharp.children.id'
-  | 'childImageSharp.children.internal.content'
-  | 'childImageSharp.children.internal.contentDigest'
-  | 'childImageSharp.children.internal.contentFilePath'
-  | 'childImageSharp.children.internal.description'
-  | 'childImageSharp.children.internal.fieldOwners'
-  | 'childImageSharp.children.internal.ignoreType'
-  | 'childImageSharp.children.internal.mediaType'
-  | 'childImageSharp.children.internal.owner'
-  | 'childImageSharp.children.internal.type'
-  | 'childImageSharp.children.parent.children'
-  | 'childImageSharp.children.parent.id'
-  | 'childImageSharp.fixed.aspectRatio'
-  | 'childImageSharp.fixed.base64'
-  | 'childImageSharp.fixed.height'
-  | 'childImageSharp.fixed.originalName'
-  | 'childImageSharp.fixed.src'
-  | 'childImageSharp.fixed.srcSet'
-  | 'childImageSharp.fixed.srcSetWebp'
-  | 'childImageSharp.fixed.srcWebp'
-  | 'childImageSharp.fixed.tracedSVG'
-  | 'childImageSharp.fixed.width'
-  | 'childImageSharp.fluid.aspectRatio'
-  | 'childImageSharp.fluid.base64'
-  | 'childImageSharp.fluid.originalImg'
-  | 'childImageSharp.fluid.originalName'
-  | 'childImageSharp.fluid.presentationHeight'
-  | 'childImageSharp.fluid.presentationWidth'
-  | 'childImageSharp.fluid.sizes'
-  | 'childImageSharp.fluid.src'
-  | 'childImageSharp.fluid.srcSet'
-  | 'childImageSharp.fluid.srcSetWebp'
-  | 'childImageSharp.fluid.srcWebp'
-  | 'childImageSharp.fluid.tracedSVG'
-  | 'childImageSharp.gatsbyImageData'
-  | 'childImageSharp.id'
-  | 'childImageSharp.internal.content'
-  | 'childImageSharp.internal.contentDigest'
-  | 'childImageSharp.internal.contentFilePath'
-  | 'childImageSharp.internal.description'
-  | 'childImageSharp.internal.fieldOwners'
-  | 'childImageSharp.internal.ignoreType'
-  | 'childImageSharp.internal.mediaType'
-  | 'childImageSharp.internal.owner'
-  | 'childImageSharp.internal.type'
-  | 'childImageSharp.original.height'
-  | 'childImageSharp.original.src'
-  | 'childImageSharp.original.width'
-  | 'childImageSharp.parent.children'
-  | 'childImageSharp.parent.children.children'
-  | 'childImageSharp.parent.children.id'
-  | 'childImageSharp.parent.id'
-  | 'childImageSharp.parent.internal.content'
-  | 'childImageSharp.parent.internal.contentDigest'
-  | 'childImageSharp.parent.internal.contentFilePath'
-  | 'childImageSharp.parent.internal.description'
-  | 'childImageSharp.parent.internal.fieldOwners'
-  | 'childImageSharp.parent.internal.ignoreType'
-  | 'childImageSharp.parent.internal.mediaType'
-  | 'childImageSharp.parent.internal.owner'
-  | 'childImageSharp.parent.internal.type'
-  | 'childImageSharp.parent.parent.children'
-  | 'childImageSharp.parent.parent.id'
-  | 'childImageSharp.resize.aspectRatio'
-  | 'childImageSharp.resize.height'
-  | 'childImageSharp.resize.originalName'
-  | 'childImageSharp.resize.src'
-  | 'childImageSharp.resize.tracedSVG'
-  | 'childImageSharp.resize.width'
-  | 'children'
-  | 'childrenImageSharp'
-  | 'childrenImageSharp.children'
-  | 'childrenImageSharp.children.children'
-  | 'childrenImageSharp.children.children.children'
-  | 'childrenImageSharp.children.children.id'
-  | 'childrenImageSharp.children.id'
-  | 'childrenImageSharp.children.internal.content'
-  | 'childrenImageSharp.children.internal.contentDigest'
-  | 'childrenImageSharp.children.internal.contentFilePath'
-  | 'childrenImageSharp.children.internal.description'
-  | 'childrenImageSharp.children.internal.fieldOwners'
-  | 'childrenImageSharp.children.internal.ignoreType'
-  | 'childrenImageSharp.children.internal.mediaType'
-  | 'childrenImageSharp.children.internal.owner'
-  | 'childrenImageSharp.children.internal.type'
-  | 'childrenImageSharp.children.parent.children'
-  | 'childrenImageSharp.children.parent.id'
-  | 'childrenImageSharp.fixed.aspectRatio'
-  | 'childrenImageSharp.fixed.base64'
-  | 'childrenImageSharp.fixed.height'
-  | 'childrenImageSharp.fixed.originalName'
-  | 'childrenImageSharp.fixed.src'
-  | 'childrenImageSharp.fixed.srcSet'
-  | 'childrenImageSharp.fixed.srcSetWebp'
-  | 'childrenImageSharp.fixed.srcWebp'
-  | 'childrenImageSharp.fixed.tracedSVG'
-  | 'childrenImageSharp.fixed.width'
-  | 'childrenImageSharp.fluid.aspectRatio'
-  | 'childrenImageSharp.fluid.base64'
-  | 'childrenImageSharp.fluid.originalImg'
-  | 'childrenImageSharp.fluid.originalName'
-  | 'childrenImageSharp.fluid.presentationHeight'
-  | 'childrenImageSharp.fluid.presentationWidth'
-  | 'childrenImageSharp.fluid.sizes'
-  | 'childrenImageSharp.fluid.src'
-  | 'childrenImageSharp.fluid.srcSet'
-  | 'childrenImageSharp.fluid.srcSetWebp'
-  | 'childrenImageSharp.fluid.srcWebp'
-  | 'childrenImageSharp.fluid.tracedSVG'
-  | 'childrenImageSharp.gatsbyImageData'
-  | 'childrenImageSharp.id'
-  | 'childrenImageSharp.internal.content'
-  | 'childrenImageSharp.internal.contentDigest'
-  | 'childrenImageSharp.internal.contentFilePath'
-  | 'childrenImageSharp.internal.description'
-  | 'childrenImageSharp.internal.fieldOwners'
-  | 'childrenImageSharp.internal.ignoreType'
-  | 'childrenImageSharp.internal.mediaType'
-  | 'childrenImageSharp.internal.owner'
-  | 'childrenImageSharp.internal.type'
-  | 'childrenImageSharp.original.height'
-  | 'childrenImageSharp.original.src'
-  | 'childrenImageSharp.original.width'
-  | 'childrenImageSharp.parent.children'
-  | 'childrenImageSharp.parent.children.children'
-  | 'childrenImageSharp.parent.children.id'
-  | 'childrenImageSharp.parent.id'
-  | 'childrenImageSharp.parent.internal.content'
-  | 'childrenImageSharp.parent.internal.contentDigest'
-  | 'childrenImageSharp.parent.internal.contentFilePath'
-  | 'childrenImageSharp.parent.internal.description'
-  | 'childrenImageSharp.parent.internal.fieldOwners'
-  | 'childrenImageSharp.parent.internal.ignoreType'
-  | 'childrenImageSharp.parent.internal.mediaType'
-  | 'childrenImageSharp.parent.internal.owner'
-  | 'childrenImageSharp.parent.internal.type'
-  | 'childrenImageSharp.parent.parent.children'
-  | 'childrenImageSharp.parent.parent.id'
-  | 'childrenImageSharp.resize.aspectRatio'
-  | 'childrenImageSharp.resize.height'
-  | 'childrenImageSharp.resize.originalName'
-  | 'childrenImageSharp.resize.src'
-  | 'childrenImageSharp.resize.tracedSVG'
-  | 'childrenImageSharp.resize.width'
-  | 'children.children'
-  | 'children.children.children'
-  | 'children.children.children.children'
-  | 'children.children.children.id'
-  | 'children.children.id'
-  | 'children.children.internal.content'
-  | 'children.children.internal.contentDigest'
-  | 'children.children.internal.contentFilePath'
-  | 'children.children.internal.description'
-  | 'children.children.internal.fieldOwners'
-  | 'children.children.internal.ignoreType'
-  | 'children.children.internal.mediaType'
-  | 'children.children.internal.owner'
-  | 'children.children.internal.type'
-  | 'children.children.parent.children'
-  | 'children.children.parent.id'
-  | 'children.id'
-  | 'children.internal.content'
-  | 'children.internal.contentDigest'
-  | 'children.internal.contentFilePath'
-  | 'children.internal.description'
-  | 'children.internal.fieldOwners'
-  | 'children.internal.ignoreType'
-  | 'children.internal.mediaType'
-  | 'children.internal.owner'
-  | 'children.internal.type'
-  | 'children.parent.children'
-  | 'children.parent.children.children'
-  | 'children.parent.children.id'
-  | 'children.parent.id'
-  | 'children.parent.internal.content'
-  | 'children.parent.internal.contentDigest'
-  | 'children.parent.internal.contentFilePath'
-  | 'children.parent.internal.description'
-  | 'children.parent.internal.fieldOwners'
-  | 'children.parent.internal.ignoreType'
-  | 'children.parent.internal.mediaType'
-  | 'children.parent.internal.owner'
-  | 'children.parent.internal.type'
-  | 'children.parent.parent.children'
-  | 'children.parent.parent.id'
-  | 'ctime'
-  | 'ctimeMs'
-  | 'dev'
-  | 'dir'
-  | 'ext'
-  | 'extension'
-  | 'gid'
-  | 'id'
-  | 'ino'
-  | 'internal.content'
-  | 'internal.contentDigest'
-  | 'internal.contentFilePath'
-  | 'internal.description'
-  | 'internal.fieldOwners'
-  | 'internal.ignoreType'
-  | 'internal.mediaType'
-  | 'internal.owner'
-  | 'internal.type'
-  | 'mode'
-  | 'modifiedTime'
-  | 'mtime'
-  | 'mtimeMs'
-  | 'name'
-  | 'nlink'
-  | 'parent.children'
-  | 'parent.children.children'
-  | 'parent.children.children.children'
-  | 'parent.children.children.id'
-  | 'parent.children.id'
-  | 'parent.children.internal.content'
-  | 'parent.children.internal.contentDigest'
-  | 'parent.children.internal.contentFilePath'
-  | 'parent.children.internal.description'
-  | 'parent.children.internal.fieldOwners'
-  | 'parent.children.internal.ignoreType'
-  | 'parent.children.internal.mediaType'
-  | 'parent.children.internal.owner'
-  | 'parent.children.internal.type'
-  | 'parent.children.parent.children'
-  | 'parent.children.parent.id'
-  | 'parent.id'
-  | 'parent.internal.content'
-  | 'parent.internal.contentDigest'
-  | 'parent.internal.contentFilePath'
-  | 'parent.internal.description'
-  | 'parent.internal.fieldOwners'
-  | 'parent.internal.ignoreType'
-  | 'parent.internal.mediaType'
-  | 'parent.internal.owner'
-  | 'parent.internal.type'
-  | 'parent.parent.children'
-  | 'parent.parent.children.children'
-  | 'parent.parent.children.id'
-  | 'parent.parent.id'
-  | 'parent.parent.internal.content'
-  | 'parent.parent.internal.contentDigest'
-  | 'parent.parent.internal.contentFilePath'
-  | 'parent.parent.internal.description'
-  | 'parent.parent.internal.fieldOwners'
-  | 'parent.parent.internal.ignoreType'
-  | 'parent.parent.internal.mediaType'
-  | 'parent.parent.internal.owner'
-  | 'parent.parent.internal.type'
-  | 'parent.parent.parent.children'
-  | 'parent.parent.parent.id'
-  | 'prettySize'
-  | 'publicURL'
-  | 'rdev'
-  | 'relativeDirectory'
-  | 'relativePath'
-  | 'root'
-  | 'size'
-  | 'sourceInstanceName'
-  | 'uid'
-  | 'url';
+type FileFieldSelector = {
+  readonly absolutePath: InputMaybe<FieldSelectorEnum>;
+  readonly accessTime: InputMaybe<FieldSelectorEnum>;
+  readonly atime: InputMaybe<FieldSelectorEnum>;
+  readonly atimeMs: InputMaybe<FieldSelectorEnum>;
+  readonly base: InputMaybe<FieldSelectorEnum>;
+  readonly birthTime: InputMaybe<FieldSelectorEnum>;
+  readonly birthtime: InputMaybe<FieldSelectorEnum>;
+  readonly birthtimeMs: InputMaybe<FieldSelectorEnum>;
+  readonly blksize: InputMaybe<FieldSelectorEnum>;
+  readonly blocks: InputMaybe<FieldSelectorEnum>;
+  readonly changeTime: InputMaybe<FieldSelectorEnum>;
+  readonly childImageSharp: InputMaybe<ImageSharpFieldSelector>;
+  readonly children: InputMaybe<NodeFieldSelector>;
+  readonly childrenImageSharp: InputMaybe<ImageSharpFieldSelector>;
+  readonly ctime: InputMaybe<FieldSelectorEnum>;
+  readonly ctimeMs: InputMaybe<FieldSelectorEnum>;
+  readonly dev: InputMaybe<FieldSelectorEnum>;
+  readonly dir: InputMaybe<FieldSelectorEnum>;
+  readonly ext: InputMaybe<FieldSelectorEnum>;
+  readonly extension: InputMaybe<FieldSelectorEnum>;
+  readonly gid: InputMaybe<FieldSelectorEnum>;
+  readonly id: InputMaybe<FieldSelectorEnum>;
+  readonly ino: InputMaybe<FieldSelectorEnum>;
+  readonly internal: InputMaybe<InternalFieldSelector>;
+  readonly mode: InputMaybe<FieldSelectorEnum>;
+  readonly modifiedTime: InputMaybe<FieldSelectorEnum>;
+  readonly mtime: InputMaybe<FieldSelectorEnum>;
+  readonly mtimeMs: InputMaybe<FieldSelectorEnum>;
+  readonly name: InputMaybe<FieldSelectorEnum>;
+  readonly nlink: InputMaybe<FieldSelectorEnum>;
+  readonly parent: InputMaybe<NodeFieldSelector>;
+  readonly prettySize: InputMaybe<FieldSelectorEnum>;
+  readonly publicURL: InputMaybe<FieldSelectorEnum>;
+  readonly rdev: InputMaybe<FieldSelectorEnum>;
+  readonly relativeDirectory: InputMaybe<FieldSelectorEnum>;
+  readonly relativePath: InputMaybe<FieldSelectorEnum>;
+  readonly root: InputMaybe<FieldSelectorEnum>;
+  readonly size: InputMaybe<FieldSelectorEnum>;
+  readonly sourceInstanceName: InputMaybe<FieldSelectorEnum>;
+  readonly uid: InputMaybe<FieldSelectorEnum>;
+  readonly url: InputMaybe<FieldSelectorEnum>;
+};
 
 type FileFilterInput = {
   readonly absolutePath: InputMaybe<StringQueryOperatorInput>;
@@ -903,34 +618,73 @@ type FileGroupConnection = {
 
 
 type FileGroupConnection_distinctArgs = {
-  field: FileFieldsEnum;
+  field: FileFieldSelector;
 };
 
 
 type FileGroupConnection_groupArgs = {
-  field: FileFieldsEnum;
+  field: FileFieldSelector;
   limit: InputMaybe<Scalars['Int']>;
   skip: InputMaybe<Scalars['Int']>;
 };
 
 
 type FileGroupConnection_maxArgs = {
-  field: FileFieldsEnum;
+  field: FileFieldSelector;
 };
 
 
 type FileGroupConnection_minArgs = {
-  field: FileFieldsEnum;
+  field: FileFieldSelector;
 };
 
 
 type FileGroupConnection_sumArgs = {
-  field: FileFieldsEnum;
+  field: FileFieldSelector;
 };
 
 type FileSortInput = {
-  readonly fields: InputMaybe<ReadonlyArray<InputMaybe<FileFieldsEnum>>>;
-  readonly order: InputMaybe<ReadonlyArray<InputMaybe<SortOrderEnum>>>;
+  readonly absolutePath: InputMaybe<SortOrderEnum>;
+  readonly accessTime: InputMaybe<SortOrderEnum>;
+  readonly atime: InputMaybe<SortOrderEnum>;
+  readonly atimeMs: InputMaybe<SortOrderEnum>;
+  readonly base: InputMaybe<SortOrderEnum>;
+  readonly birthTime: InputMaybe<SortOrderEnum>;
+  readonly birthtime: InputMaybe<SortOrderEnum>;
+  readonly birthtimeMs: InputMaybe<SortOrderEnum>;
+  readonly blksize: InputMaybe<SortOrderEnum>;
+  readonly blocks: InputMaybe<SortOrderEnum>;
+  readonly changeTime: InputMaybe<SortOrderEnum>;
+  readonly childImageSharp: InputMaybe<ImageSharpSortInput>;
+  readonly children: InputMaybe<NodeSortInput>;
+  readonly childrenImageSharp: InputMaybe<ImageSharpSortInput>;
+  readonly ctime: InputMaybe<SortOrderEnum>;
+  readonly ctimeMs: InputMaybe<SortOrderEnum>;
+  readonly dev: InputMaybe<SortOrderEnum>;
+  readonly dir: InputMaybe<SortOrderEnum>;
+  readonly ext: InputMaybe<SortOrderEnum>;
+  readonly extension: InputMaybe<SortOrderEnum>;
+  readonly gid: InputMaybe<SortOrderEnum>;
+  readonly id: InputMaybe<SortOrderEnum>;
+  readonly ino: InputMaybe<SortOrderEnum>;
+  readonly internal: InputMaybe<InternalSortInput>;
+  readonly mode: InputMaybe<SortOrderEnum>;
+  readonly modifiedTime: InputMaybe<SortOrderEnum>;
+  readonly mtime: InputMaybe<SortOrderEnum>;
+  readonly mtimeMs: InputMaybe<SortOrderEnum>;
+  readonly name: InputMaybe<SortOrderEnum>;
+  readonly nlink: InputMaybe<SortOrderEnum>;
+  readonly parent: InputMaybe<NodeSortInput>;
+  readonly prettySize: InputMaybe<SortOrderEnum>;
+  readonly publicURL: InputMaybe<SortOrderEnum>;
+  readonly rdev: InputMaybe<SortOrderEnum>;
+  readonly relativeDirectory: InputMaybe<SortOrderEnum>;
+  readonly relativePath: InputMaybe<SortOrderEnum>;
+  readonly root: InputMaybe<SortOrderEnum>;
+  readonly size: InputMaybe<SortOrderEnum>;
+  readonly sourceInstanceName: InputMaybe<SortOrderEnum>;
+  readonly uid: InputMaybe<SortOrderEnum>;
+  readonly url: InputMaybe<SortOrderEnum>;
 };
 
 type FloatQueryOperatorInput = {
@@ -1128,29 +882,29 @@ type ImageSharpConnection = {
 
 
 type ImageSharpConnection_distinctArgs = {
-  field: ImageSharpFieldsEnum;
+  field: ImageSharpFieldSelector;
 };
 
 
 type ImageSharpConnection_groupArgs = {
-  field: ImageSharpFieldsEnum;
+  field: ImageSharpFieldSelector;
   limit: InputMaybe<Scalars['Int']>;
   skip: InputMaybe<Scalars['Int']>;
 };
 
 
 type ImageSharpConnection_maxArgs = {
-  field: ImageSharpFieldsEnum;
+  field: ImageSharpFieldSelector;
 };
 
 
 type ImageSharpConnection_minArgs = {
-  field: ImageSharpFieldsEnum;
+  field: ImageSharpFieldSelector;
 };
 
 
 type ImageSharpConnection_sumArgs = {
-  field: ImageSharpFieldsEnum;
+  field: ImageSharpFieldSelector;
 };
 
 type ImageSharpEdge = {
@@ -1159,132 +913,17 @@ type ImageSharpEdge = {
   readonly previous: Maybe<ImageSharp>;
 };
 
-type ImageSharpFieldsEnum =
-  | 'children'
-  | 'children.children'
-  | 'children.children.children'
-  | 'children.children.children.children'
-  | 'children.children.children.id'
-  | 'children.children.id'
-  | 'children.children.internal.content'
-  | 'children.children.internal.contentDigest'
-  | 'children.children.internal.contentFilePath'
-  | 'children.children.internal.description'
-  | 'children.children.internal.fieldOwners'
-  | 'children.children.internal.ignoreType'
-  | 'children.children.internal.mediaType'
-  | 'children.children.internal.owner'
-  | 'children.children.internal.type'
-  | 'children.children.parent.children'
-  | 'children.children.parent.id'
-  | 'children.id'
-  | 'children.internal.content'
-  | 'children.internal.contentDigest'
-  | 'children.internal.contentFilePath'
-  | 'children.internal.description'
-  | 'children.internal.fieldOwners'
-  | 'children.internal.ignoreType'
-  | 'children.internal.mediaType'
-  | 'children.internal.owner'
-  | 'children.internal.type'
-  | 'children.parent.children'
-  | 'children.parent.children.children'
-  | 'children.parent.children.id'
-  | 'children.parent.id'
-  | 'children.parent.internal.content'
-  | 'children.parent.internal.contentDigest'
-  | 'children.parent.internal.contentFilePath'
-  | 'children.parent.internal.description'
-  | 'children.parent.internal.fieldOwners'
-  | 'children.parent.internal.ignoreType'
-  | 'children.parent.internal.mediaType'
-  | 'children.parent.internal.owner'
-  | 'children.parent.internal.type'
-  | 'children.parent.parent.children'
-  | 'children.parent.parent.id'
-  | 'fixed.aspectRatio'
-  | 'fixed.base64'
-  | 'fixed.height'
-  | 'fixed.originalName'
-  | 'fixed.src'
-  | 'fixed.srcSet'
-  | 'fixed.srcSetWebp'
-  | 'fixed.srcWebp'
-  | 'fixed.tracedSVG'
-  | 'fixed.width'
-  | 'fluid.aspectRatio'
-  | 'fluid.base64'
-  | 'fluid.originalImg'
-  | 'fluid.originalName'
-  | 'fluid.presentationHeight'
-  | 'fluid.presentationWidth'
-  | 'fluid.sizes'
-  | 'fluid.src'
-  | 'fluid.srcSet'
-  | 'fluid.srcSetWebp'
-  | 'fluid.srcWebp'
-  | 'fluid.tracedSVG'
-  | 'gatsbyImageData'
-  | 'id'
-  | 'internal.content'
-  | 'internal.contentDigest'
-  | 'internal.contentFilePath'
-  | 'internal.description'
-  | 'internal.fieldOwners'
-  | 'internal.ignoreType'
-  | 'internal.mediaType'
-  | 'internal.owner'
-  | 'internal.type'
-  | 'original.height'
-  | 'original.src'
-  | 'original.width'
-  | 'parent.children'
-  | 'parent.children.children'
-  | 'parent.children.children.children'
-  | 'parent.children.children.id'
-  | 'parent.children.id'
-  | 'parent.children.internal.content'
-  | 'parent.children.internal.contentDigest'
-  | 'parent.children.internal.contentFilePath'
-  | 'parent.children.internal.description'
-  | 'parent.children.internal.fieldOwners'
-  | 'parent.children.internal.ignoreType'
-  | 'parent.children.internal.mediaType'
-  | 'parent.children.internal.owner'
-  | 'parent.children.internal.type'
-  | 'parent.children.parent.children'
-  | 'parent.children.parent.id'
-  | 'parent.id'
-  | 'parent.internal.content'
-  | 'parent.internal.contentDigest'
-  | 'parent.internal.contentFilePath'
-  | 'parent.internal.description'
-  | 'parent.internal.fieldOwners'
-  | 'parent.internal.ignoreType'
-  | 'parent.internal.mediaType'
-  | 'parent.internal.owner'
-  | 'parent.internal.type'
-  | 'parent.parent.children'
-  | 'parent.parent.children.children'
-  | 'parent.parent.children.id'
-  | 'parent.parent.id'
-  | 'parent.parent.internal.content'
-  | 'parent.parent.internal.contentDigest'
-  | 'parent.parent.internal.contentFilePath'
-  | 'parent.parent.internal.description'
-  | 'parent.parent.internal.fieldOwners'
-  | 'parent.parent.internal.ignoreType'
-  | 'parent.parent.internal.mediaType'
-  | 'parent.parent.internal.owner'
-  | 'parent.parent.internal.type'
-  | 'parent.parent.parent.children'
-  | 'parent.parent.parent.id'
-  | 'resize.aspectRatio'
-  | 'resize.height'
-  | 'resize.originalName'
-  | 'resize.src'
-  | 'resize.tracedSVG'
-  | 'resize.width';
+type ImageSharpFieldSelector = {
+  readonly children: InputMaybe<NodeFieldSelector>;
+  readonly fixed: InputMaybe<ImageSharpFixedFieldSelector>;
+  readonly fluid: InputMaybe<ImageSharpFluidFieldSelector>;
+  readonly gatsbyImageData: InputMaybe<FieldSelectorEnum>;
+  readonly id: InputMaybe<FieldSelectorEnum>;
+  readonly internal: InputMaybe<InternalFieldSelector>;
+  readonly original: InputMaybe<ImageSharpOriginalFieldSelector>;
+  readonly parent: InputMaybe<NodeFieldSelector>;
+  readonly resize: InputMaybe<ImageSharpResizeFieldSelector>;
+};
 
 type ImageSharpFilterInput = {
   readonly children: InputMaybe<NodeFilterListInput>;
@@ -1315,6 +954,19 @@ type ImageSharpFixed = {
   readonly width: Scalars['Float'];
 };
 
+type ImageSharpFixedFieldSelector = {
+  readonly aspectRatio: InputMaybe<FieldSelectorEnum>;
+  readonly base64: InputMaybe<FieldSelectorEnum>;
+  readonly height: InputMaybe<FieldSelectorEnum>;
+  readonly originalName: InputMaybe<FieldSelectorEnum>;
+  readonly src: InputMaybe<FieldSelectorEnum>;
+  readonly srcSet: InputMaybe<FieldSelectorEnum>;
+  readonly srcSetWebp: InputMaybe<FieldSelectorEnum>;
+  readonly srcWebp: InputMaybe<FieldSelectorEnum>;
+  readonly tracedSVG: InputMaybe<FieldSelectorEnum>;
+  readonly width: InputMaybe<FieldSelectorEnum>;
+};
+
 type ImageSharpFixedFilterInput = {
   readonly aspectRatio: InputMaybe<FloatQueryOperatorInput>;
   readonly base64: InputMaybe<StringQueryOperatorInput>;
@@ -1326,6 +978,19 @@ type ImageSharpFixedFilterInput = {
   readonly srcWebp: InputMaybe<StringQueryOperatorInput>;
   readonly tracedSVG: InputMaybe<StringQueryOperatorInput>;
   readonly width: InputMaybe<FloatQueryOperatorInput>;
+};
+
+type ImageSharpFixedSortInput = {
+  readonly aspectRatio: InputMaybe<SortOrderEnum>;
+  readonly base64: InputMaybe<SortOrderEnum>;
+  readonly height: InputMaybe<SortOrderEnum>;
+  readonly originalName: InputMaybe<SortOrderEnum>;
+  readonly src: InputMaybe<SortOrderEnum>;
+  readonly srcSet: InputMaybe<SortOrderEnum>;
+  readonly srcSetWebp: InputMaybe<SortOrderEnum>;
+  readonly srcWebp: InputMaybe<SortOrderEnum>;
+  readonly tracedSVG: InputMaybe<SortOrderEnum>;
+  readonly width: InputMaybe<SortOrderEnum>;
 };
 
 type ImageSharpFluid = {
@@ -1343,6 +1008,21 @@ type ImageSharpFluid = {
   readonly tracedSVG: Maybe<Scalars['String']>;
 };
 
+type ImageSharpFluidFieldSelector = {
+  readonly aspectRatio: InputMaybe<FieldSelectorEnum>;
+  readonly base64: InputMaybe<FieldSelectorEnum>;
+  readonly originalImg: InputMaybe<FieldSelectorEnum>;
+  readonly originalName: InputMaybe<FieldSelectorEnum>;
+  readonly presentationHeight: InputMaybe<FieldSelectorEnum>;
+  readonly presentationWidth: InputMaybe<FieldSelectorEnum>;
+  readonly sizes: InputMaybe<FieldSelectorEnum>;
+  readonly src: InputMaybe<FieldSelectorEnum>;
+  readonly srcSet: InputMaybe<FieldSelectorEnum>;
+  readonly srcSetWebp: InputMaybe<FieldSelectorEnum>;
+  readonly srcWebp: InputMaybe<FieldSelectorEnum>;
+  readonly tracedSVG: InputMaybe<FieldSelectorEnum>;
+};
+
 type ImageSharpFluidFilterInput = {
   readonly aspectRatio: InputMaybe<FloatQueryOperatorInput>;
   readonly base64: InputMaybe<StringQueryOperatorInput>;
@@ -1356,6 +1036,21 @@ type ImageSharpFluidFilterInput = {
   readonly srcSetWebp: InputMaybe<StringQueryOperatorInput>;
   readonly srcWebp: InputMaybe<StringQueryOperatorInput>;
   readonly tracedSVG: InputMaybe<StringQueryOperatorInput>;
+};
+
+type ImageSharpFluidSortInput = {
+  readonly aspectRatio: InputMaybe<SortOrderEnum>;
+  readonly base64: InputMaybe<SortOrderEnum>;
+  readonly originalImg: InputMaybe<SortOrderEnum>;
+  readonly originalName: InputMaybe<SortOrderEnum>;
+  readonly presentationHeight: InputMaybe<SortOrderEnum>;
+  readonly presentationWidth: InputMaybe<SortOrderEnum>;
+  readonly sizes: InputMaybe<SortOrderEnum>;
+  readonly src: InputMaybe<SortOrderEnum>;
+  readonly srcSet: InputMaybe<SortOrderEnum>;
+  readonly srcSetWebp: InputMaybe<SortOrderEnum>;
+  readonly srcWebp: InputMaybe<SortOrderEnum>;
+  readonly tracedSVG: InputMaybe<SortOrderEnum>;
 };
 
 type ImageSharpGroupConnection = {
@@ -1374,29 +1069,29 @@ type ImageSharpGroupConnection = {
 
 
 type ImageSharpGroupConnection_distinctArgs = {
-  field: ImageSharpFieldsEnum;
+  field: ImageSharpFieldSelector;
 };
 
 
 type ImageSharpGroupConnection_groupArgs = {
-  field: ImageSharpFieldsEnum;
+  field: ImageSharpFieldSelector;
   limit: InputMaybe<Scalars['Int']>;
   skip: InputMaybe<Scalars['Int']>;
 };
 
 
 type ImageSharpGroupConnection_maxArgs = {
-  field: ImageSharpFieldsEnum;
+  field: ImageSharpFieldSelector;
 };
 
 
 type ImageSharpGroupConnection_minArgs = {
-  field: ImageSharpFieldsEnum;
+  field: ImageSharpFieldSelector;
 };
 
 
 type ImageSharpGroupConnection_sumArgs = {
-  field: ImageSharpFieldsEnum;
+  field: ImageSharpFieldSelector;
 };
 
 type ImageSharpOriginal = {
@@ -1405,10 +1100,22 @@ type ImageSharpOriginal = {
   readonly width: Maybe<Scalars['Float']>;
 };
 
+type ImageSharpOriginalFieldSelector = {
+  readonly height: InputMaybe<FieldSelectorEnum>;
+  readonly src: InputMaybe<FieldSelectorEnum>;
+  readonly width: InputMaybe<FieldSelectorEnum>;
+};
+
 type ImageSharpOriginalFilterInput = {
   readonly height: InputMaybe<FloatQueryOperatorInput>;
   readonly src: InputMaybe<StringQueryOperatorInput>;
   readonly width: InputMaybe<FloatQueryOperatorInput>;
+};
+
+type ImageSharpOriginalSortInput = {
+  readonly height: InputMaybe<SortOrderEnum>;
+  readonly src: InputMaybe<SortOrderEnum>;
+  readonly width: InputMaybe<SortOrderEnum>;
 };
 
 type ImageSharpResize = {
@@ -1420,6 +1127,15 @@ type ImageSharpResize = {
   readonly width: Maybe<Scalars['Int']>;
 };
 
+type ImageSharpResizeFieldSelector = {
+  readonly aspectRatio: InputMaybe<FieldSelectorEnum>;
+  readonly height: InputMaybe<FieldSelectorEnum>;
+  readonly originalName: InputMaybe<FieldSelectorEnum>;
+  readonly src: InputMaybe<FieldSelectorEnum>;
+  readonly tracedSVG: InputMaybe<FieldSelectorEnum>;
+  readonly width: InputMaybe<FieldSelectorEnum>;
+};
+
 type ImageSharpResizeFilterInput = {
   readonly aspectRatio: InputMaybe<FloatQueryOperatorInput>;
   readonly height: InputMaybe<IntQueryOperatorInput>;
@@ -1429,9 +1145,25 @@ type ImageSharpResizeFilterInput = {
   readonly width: InputMaybe<IntQueryOperatorInput>;
 };
 
+type ImageSharpResizeSortInput = {
+  readonly aspectRatio: InputMaybe<SortOrderEnum>;
+  readonly height: InputMaybe<SortOrderEnum>;
+  readonly originalName: InputMaybe<SortOrderEnum>;
+  readonly src: InputMaybe<SortOrderEnum>;
+  readonly tracedSVG: InputMaybe<SortOrderEnum>;
+  readonly width: InputMaybe<SortOrderEnum>;
+};
+
 type ImageSharpSortInput = {
-  readonly fields: InputMaybe<ReadonlyArray<InputMaybe<ImageSharpFieldsEnum>>>;
-  readonly order: InputMaybe<ReadonlyArray<InputMaybe<SortOrderEnum>>>;
+  readonly children: InputMaybe<NodeSortInput>;
+  readonly fixed: InputMaybe<ImageSharpFixedSortInput>;
+  readonly fluid: InputMaybe<ImageSharpFluidSortInput>;
+  readonly gatsbyImageData: InputMaybe<SortOrderEnum>;
+  readonly id: InputMaybe<SortOrderEnum>;
+  readonly internal: InputMaybe<InternalSortInput>;
+  readonly original: InputMaybe<ImageSharpOriginalSortInput>;
+  readonly parent: InputMaybe<NodeSortInput>;
+  readonly resize: InputMaybe<ImageSharpResizeSortInput>;
 };
 
 type IntQueryOperatorInput = {
@@ -1457,6 +1189,18 @@ type Internal = {
   readonly type: Scalars['String'];
 };
 
+type InternalFieldSelector = {
+  readonly content: InputMaybe<FieldSelectorEnum>;
+  readonly contentDigest: InputMaybe<FieldSelectorEnum>;
+  readonly contentFilePath: InputMaybe<FieldSelectorEnum>;
+  readonly description: InputMaybe<FieldSelectorEnum>;
+  readonly fieldOwners: InputMaybe<FieldSelectorEnum>;
+  readonly ignoreType: InputMaybe<FieldSelectorEnum>;
+  readonly mediaType: InputMaybe<FieldSelectorEnum>;
+  readonly owner: InputMaybe<FieldSelectorEnum>;
+  readonly type: InputMaybe<FieldSelectorEnum>;
+};
+
 type InternalFilterInput = {
   readonly content: InputMaybe<StringQueryOperatorInput>;
   readonly contentDigest: InputMaybe<StringQueryOperatorInput>;
@@ -1467,6 +1211,18 @@ type InternalFilterInput = {
   readonly mediaType: InputMaybe<StringQueryOperatorInput>;
   readonly owner: InputMaybe<StringQueryOperatorInput>;
   readonly type: InputMaybe<StringQueryOperatorInput>;
+};
+
+type InternalSortInput = {
+  readonly content: InputMaybe<SortOrderEnum>;
+  readonly contentDigest: InputMaybe<SortOrderEnum>;
+  readonly contentFilePath: InputMaybe<SortOrderEnum>;
+  readonly description: InputMaybe<SortOrderEnum>;
+  readonly fieldOwners: InputMaybe<SortOrderEnum>;
+  readonly ignoreType: InputMaybe<SortOrderEnum>;
+  readonly mediaType: InputMaybe<SortOrderEnum>;
+  readonly owner: InputMaybe<SortOrderEnum>;
+  readonly type: InputMaybe<SortOrderEnum>;
 };
 
 type JPGOptions = {
@@ -1491,6 +1247,13 @@ type Node = {
   readonly parent: Maybe<Node>;
 };
 
+type NodeFieldSelector = {
+  readonly children: InputMaybe<NodeFieldSelector>;
+  readonly id: InputMaybe<FieldSelectorEnum>;
+  readonly internal: InputMaybe<InternalFieldSelector>;
+  readonly parent: InputMaybe<NodeFieldSelector>;
+};
+
 type NodeFilterInput = {
   readonly children: InputMaybe<NodeFilterListInput>;
   readonly id: InputMaybe<StringQueryOperatorInput>;
@@ -1500,6 +1263,13 @@ type NodeFilterInput = {
 
 type NodeFilterListInput = {
   readonly elemMatch: InputMaybe<NodeFilterInput>;
+};
+
+type NodeSortInput = {
+  readonly children: InputMaybe<NodeSortInput>;
+  readonly id: InputMaybe<SortOrderEnum>;
+  readonly internal: InputMaybe<InternalSortInput>;
+  readonly parent: InputMaybe<NodeSortInput>;
 };
 
 type PNGOptions = {
@@ -1587,7 +1357,7 @@ type Query_allDirectoryArgs = {
   filter: InputMaybe<DirectoryFilterInput>;
   limit: InputMaybe<Scalars['Int']>;
   skip: InputMaybe<Scalars['Int']>;
-  sort: InputMaybe<DirectorySortInput>;
+  sort: InputMaybe<ReadonlyArray<InputMaybe<DirectorySortInput>>>;
 };
 
 
@@ -1595,7 +1365,7 @@ type Query_allFileArgs = {
   filter: InputMaybe<FileFilterInput>;
   limit: InputMaybe<Scalars['Int']>;
   skip: InputMaybe<Scalars['Int']>;
-  sort: InputMaybe<FileSortInput>;
+  sort: InputMaybe<ReadonlyArray<InputMaybe<FileSortInput>>>;
 };
 
 
@@ -1603,7 +1373,7 @@ type Query_allFileFileArgs = {
   filter: InputMaybe<file__fileFilterInput>;
   limit: InputMaybe<Scalars['Int']>;
   skip: InputMaybe<Scalars['Int']>;
-  sort: InputMaybe<file__fileSortInput>;
+  sort: InputMaybe<ReadonlyArray<InputMaybe<file__fileSortInput>>>;
 };
 
 
@@ -1611,7 +1381,7 @@ type Query_allImageSharpArgs = {
   filter: InputMaybe<ImageSharpFilterInput>;
   limit: InputMaybe<Scalars['Int']>;
   skip: InputMaybe<Scalars['Int']>;
-  sort: InputMaybe<ImageSharpSortInput>;
+  sort: InputMaybe<ReadonlyArray<InputMaybe<ImageSharpSortInput>>>;
 };
 
 
@@ -1619,7 +1389,7 @@ type Query_allMediaImageArgs = {
   filter: InputMaybe<media__imageFilterInput>;
   limit: InputMaybe<Scalars['Int']>;
   skip: InputMaybe<Scalars['Int']>;
-  sort: InputMaybe<media__imageSortInput>;
+  sort: InputMaybe<ReadonlyArray<InputMaybe<media__imageSortInput>>>;
 };
 
 
@@ -1627,7 +1397,7 @@ type Query_allNodeArticleArgs = {
   filter: InputMaybe<node__articleFilterInput>;
   limit: InputMaybe<Scalars['Int']>;
   skip: InputMaybe<Scalars['Int']>;
-  sort: InputMaybe<node__articleSortInput>;
+  sort: InputMaybe<ReadonlyArray<InputMaybe<node__articleSortInput>>>;
 };
 
 
@@ -1635,7 +1405,7 @@ type Query_allNodeEventArgs = {
   filter: InputMaybe<node__eventFilterInput>;
   limit: InputMaybe<Scalars['Int']>;
   skip: InputMaybe<Scalars['Int']>;
-  sort: InputMaybe<node__eventSortInput>;
+  sort: InputMaybe<ReadonlyArray<InputMaybe<node__eventSortInput>>>;
 };
 
 
@@ -1643,7 +1413,7 @@ type Query_allNodeKcvvTvArgs = {
   filter: InputMaybe<node__kcvv_tvFilterInput>;
   limit: InputMaybe<Scalars['Int']>;
   skip: InputMaybe<Scalars['Int']>;
-  sort: InputMaybe<node__kcvv_tvSortInput>;
+  sort: InputMaybe<ReadonlyArray<InputMaybe<node__kcvv_tvSortInput>>>;
 };
 
 
@@ -1651,7 +1421,7 @@ type Query_allNodePageArgs = {
   filter: InputMaybe<node__pageFilterInput>;
   limit: InputMaybe<Scalars['Int']>;
   skip: InputMaybe<Scalars['Int']>;
-  sort: InputMaybe<node__pageSortInput>;
+  sort: InputMaybe<ReadonlyArray<InputMaybe<node__pageSortInput>>>;
 };
 
 
@@ -1659,7 +1429,7 @@ type Query_allNodePlayerArgs = {
   filter: InputMaybe<node__playerFilterInput>;
   limit: InputMaybe<Scalars['Int']>;
   skip: InputMaybe<Scalars['Int']>;
-  sort: InputMaybe<node__playerSortInput>;
+  sort: InputMaybe<ReadonlyArray<InputMaybe<node__playerSortInput>>>;
 };
 
 
@@ -1667,7 +1437,7 @@ type Query_allNodePotwArgs = {
   filter: InputMaybe<node__potwFilterInput>;
   limit: InputMaybe<Scalars['Int']>;
   skip: InputMaybe<Scalars['Int']>;
-  sort: InputMaybe<node__potwSortInput>;
+  sort: InputMaybe<ReadonlyArray<InputMaybe<node__potwSortInput>>>;
 };
 
 
@@ -1675,7 +1445,7 @@ type Query_allNodeSponsorArgs = {
   filter: InputMaybe<node__sponsorFilterInput>;
   limit: InputMaybe<Scalars['Int']>;
   skip: InputMaybe<Scalars['Int']>;
-  sort: InputMaybe<node__sponsorSortInput>;
+  sort: InputMaybe<ReadonlyArray<InputMaybe<node__sponsorSortInput>>>;
 };
 
 
@@ -1683,7 +1453,7 @@ type Query_allNodeStaffArgs = {
   filter: InputMaybe<node__staffFilterInput>;
   limit: InputMaybe<Scalars['Int']>;
   skip: InputMaybe<Scalars['Int']>;
-  sort: InputMaybe<node__staffSortInput>;
+  sort: InputMaybe<ReadonlyArray<InputMaybe<node__staffSortInput>>>;
 };
 
 
@@ -1691,7 +1461,7 @@ type Query_allNodeTeamArgs = {
   filter: InputMaybe<node__teamFilterInput>;
   limit: InputMaybe<Scalars['Int']>;
   skip: InputMaybe<Scalars['Int']>;
-  sort: InputMaybe<node__teamSortInput>;
+  sort: InputMaybe<ReadonlyArray<InputMaybe<node__teamSortInput>>>;
 };
 
 
@@ -1699,7 +1469,7 @@ type Query_allSiteArgs = {
   filter: InputMaybe<SiteFilterInput>;
   limit: InputMaybe<Scalars['Int']>;
   skip: InputMaybe<Scalars['Int']>;
-  sort: InputMaybe<SiteSortInput>;
+  sort: InputMaybe<ReadonlyArray<InputMaybe<SiteSortInput>>>;
 };
 
 
@@ -1707,7 +1477,7 @@ type Query_allSiteBuildMetadataArgs = {
   filter: InputMaybe<SiteBuildMetadataFilterInput>;
   limit: InputMaybe<Scalars['Int']>;
   skip: InputMaybe<Scalars['Int']>;
-  sort: InputMaybe<SiteBuildMetadataSortInput>;
+  sort: InputMaybe<ReadonlyArray<InputMaybe<SiteBuildMetadataSortInput>>>;
 };
 
 
@@ -1715,7 +1485,7 @@ type Query_allSiteFunctionArgs = {
   filter: InputMaybe<SiteFunctionFilterInput>;
   limit: InputMaybe<Scalars['Int']>;
   skip: InputMaybe<Scalars['Int']>;
-  sort: InputMaybe<SiteFunctionSortInput>;
+  sort: InputMaybe<ReadonlyArray<InputMaybe<SiteFunctionSortInput>>>;
 };
 
 
@@ -1723,7 +1493,7 @@ type Query_allSitePageArgs = {
   filter: InputMaybe<SitePageFilterInput>;
   limit: InputMaybe<Scalars['Int']>;
   skip: InputMaybe<Scalars['Int']>;
-  sort: InputMaybe<SitePageSortInput>;
+  sort: InputMaybe<ReadonlyArray<InputMaybe<SitePageSortInput>>>;
 };
 
 
@@ -1731,7 +1501,7 @@ type Query_allSitePluginArgs = {
   filter: InputMaybe<SitePluginFilterInput>;
   limit: InputMaybe<Scalars['Int']>;
   skip: InputMaybe<Scalars['Int']>;
-  sort: InputMaybe<SitePluginSortInput>;
+  sort: InputMaybe<ReadonlyArray<InputMaybe<SitePluginSortInput>>>;
 };
 
 
@@ -1739,7 +1509,7 @@ type Query_allTaxonomyTermCategoryArgs = {
   filter: InputMaybe<taxonomy_term__categoryFilterInput>;
   limit: InputMaybe<Scalars['Int']>;
   skip: InputMaybe<Scalars['Int']>;
-  sort: InputMaybe<taxonomy_term__categorySortInput>;
+  sort: InputMaybe<ReadonlyArray<InputMaybe<taxonomy_term__categorySortInput>>>;
 };
 
 
@@ -1747,7 +1517,7 @@ type Query_allUserUserArgs = {
   filter: InputMaybe<user__userFilterInput>;
   limit: InputMaybe<Scalars['Int']>;
   skip: InputMaybe<Scalars['Int']>;
-  sort: InputMaybe<user__userSortInput>;
+  sort: InputMaybe<ReadonlyArray<InputMaybe<user__userSortInput>>>;
 };
 
 
@@ -2294,29 +2064,29 @@ type SiteBuildMetadataConnection = {
 
 
 type SiteBuildMetadataConnection_distinctArgs = {
-  field: SiteBuildMetadataFieldsEnum;
+  field: SiteBuildMetadataFieldSelector;
 };
 
 
 type SiteBuildMetadataConnection_groupArgs = {
-  field: SiteBuildMetadataFieldsEnum;
+  field: SiteBuildMetadataFieldSelector;
   limit: InputMaybe<Scalars['Int']>;
   skip: InputMaybe<Scalars['Int']>;
 };
 
 
 type SiteBuildMetadataConnection_maxArgs = {
-  field: SiteBuildMetadataFieldsEnum;
+  field: SiteBuildMetadataFieldSelector;
 };
 
 
 type SiteBuildMetadataConnection_minArgs = {
-  field: SiteBuildMetadataFieldsEnum;
+  field: SiteBuildMetadataFieldSelector;
 };
 
 
 type SiteBuildMetadataConnection_sumArgs = {
-  field: SiteBuildMetadataFieldsEnum;
+  field: SiteBuildMetadataFieldSelector;
 };
 
 type SiteBuildMetadataEdge = {
@@ -2325,101 +2095,13 @@ type SiteBuildMetadataEdge = {
   readonly previous: Maybe<SiteBuildMetadata>;
 };
 
-type SiteBuildMetadataFieldsEnum =
-  | 'buildTime'
-  | 'children'
-  | 'children.children'
-  | 'children.children.children'
-  | 'children.children.children.children'
-  | 'children.children.children.id'
-  | 'children.children.id'
-  | 'children.children.internal.content'
-  | 'children.children.internal.contentDigest'
-  | 'children.children.internal.contentFilePath'
-  | 'children.children.internal.description'
-  | 'children.children.internal.fieldOwners'
-  | 'children.children.internal.ignoreType'
-  | 'children.children.internal.mediaType'
-  | 'children.children.internal.owner'
-  | 'children.children.internal.type'
-  | 'children.children.parent.children'
-  | 'children.children.parent.id'
-  | 'children.id'
-  | 'children.internal.content'
-  | 'children.internal.contentDigest'
-  | 'children.internal.contentFilePath'
-  | 'children.internal.description'
-  | 'children.internal.fieldOwners'
-  | 'children.internal.ignoreType'
-  | 'children.internal.mediaType'
-  | 'children.internal.owner'
-  | 'children.internal.type'
-  | 'children.parent.children'
-  | 'children.parent.children.children'
-  | 'children.parent.children.id'
-  | 'children.parent.id'
-  | 'children.parent.internal.content'
-  | 'children.parent.internal.contentDigest'
-  | 'children.parent.internal.contentFilePath'
-  | 'children.parent.internal.description'
-  | 'children.parent.internal.fieldOwners'
-  | 'children.parent.internal.ignoreType'
-  | 'children.parent.internal.mediaType'
-  | 'children.parent.internal.owner'
-  | 'children.parent.internal.type'
-  | 'children.parent.parent.children'
-  | 'children.parent.parent.id'
-  | 'id'
-  | 'internal.content'
-  | 'internal.contentDigest'
-  | 'internal.contentFilePath'
-  | 'internal.description'
-  | 'internal.fieldOwners'
-  | 'internal.ignoreType'
-  | 'internal.mediaType'
-  | 'internal.owner'
-  | 'internal.type'
-  | 'parent.children'
-  | 'parent.children.children'
-  | 'parent.children.children.children'
-  | 'parent.children.children.id'
-  | 'parent.children.id'
-  | 'parent.children.internal.content'
-  | 'parent.children.internal.contentDigest'
-  | 'parent.children.internal.contentFilePath'
-  | 'parent.children.internal.description'
-  | 'parent.children.internal.fieldOwners'
-  | 'parent.children.internal.ignoreType'
-  | 'parent.children.internal.mediaType'
-  | 'parent.children.internal.owner'
-  | 'parent.children.internal.type'
-  | 'parent.children.parent.children'
-  | 'parent.children.parent.id'
-  | 'parent.id'
-  | 'parent.internal.content'
-  | 'parent.internal.contentDigest'
-  | 'parent.internal.contentFilePath'
-  | 'parent.internal.description'
-  | 'parent.internal.fieldOwners'
-  | 'parent.internal.ignoreType'
-  | 'parent.internal.mediaType'
-  | 'parent.internal.owner'
-  | 'parent.internal.type'
-  | 'parent.parent.children'
-  | 'parent.parent.children.children'
-  | 'parent.parent.children.id'
-  | 'parent.parent.id'
-  | 'parent.parent.internal.content'
-  | 'parent.parent.internal.contentDigest'
-  | 'parent.parent.internal.contentFilePath'
-  | 'parent.parent.internal.description'
-  | 'parent.parent.internal.fieldOwners'
-  | 'parent.parent.internal.ignoreType'
-  | 'parent.parent.internal.mediaType'
-  | 'parent.parent.internal.owner'
-  | 'parent.parent.internal.type'
-  | 'parent.parent.parent.children'
-  | 'parent.parent.parent.id';
+type SiteBuildMetadataFieldSelector = {
+  readonly buildTime: InputMaybe<FieldSelectorEnum>;
+  readonly children: InputMaybe<NodeFieldSelector>;
+  readonly id: InputMaybe<FieldSelectorEnum>;
+  readonly internal: InputMaybe<InternalFieldSelector>;
+  readonly parent: InputMaybe<NodeFieldSelector>;
+};
 
 type SiteBuildMetadataFilterInput = {
   readonly buildTime: InputMaybe<DateQueryOperatorInput>;
@@ -2445,34 +2127,37 @@ type SiteBuildMetadataGroupConnection = {
 
 
 type SiteBuildMetadataGroupConnection_distinctArgs = {
-  field: SiteBuildMetadataFieldsEnum;
+  field: SiteBuildMetadataFieldSelector;
 };
 
 
 type SiteBuildMetadataGroupConnection_groupArgs = {
-  field: SiteBuildMetadataFieldsEnum;
+  field: SiteBuildMetadataFieldSelector;
   limit: InputMaybe<Scalars['Int']>;
   skip: InputMaybe<Scalars['Int']>;
 };
 
 
 type SiteBuildMetadataGroupConnection_maxArgs = {
-  field: SiteBuildMetadataFieldsEnum;
+  field: SiteBuildMetadataFieldSelector;
 };
 
 
 type SiteBuildMetadataGroupConnection_minArgs = {
-  field: SiteBuildMetadataFieldsEnum;
+  field: SiteBuildMetadataFieldSelector;
 };
 
 
 type SiteBuildMetadataGroupConnection_sumArgs = {
-  field: SiteBuildMetadataFieldsEnum;
+  field: SiteBuildMetadataFieldSelector;
 };
 
 type SiteBuildMetadataSortInput = {
-  readonly fields: InputMaybe<ReadonlyArray<InputMaybe<SiteBuildMetadataFieldsEnum>>>;
-  readonly order: InputMaybe<ReadonlyArray<InputMaybe<SortOrderEnum>>>;
+  readonly buildTime: InputMaybe<SortOrderEnum>;
+  readonly children: InputMaybe<NodeSortInput>;
+  readonly id: InputMaybe<SortOrderEnum>;
+  readonly internal: InputMaybe<InternalSortInput>;
+  readonly parent: InputMaybe<NodeSortInput>;
 };
 
 type SiteConnection = {
@@ -2489,29 +2174,29 @@ type SiteConnection = {
 
 
 type SiteConnection_distinctArgs = {
-  field: SiteFieldsEnum;
+  field: SiteFieldSelector;
 };
 
 
 type SiteConnection_groupArgs = {
-  field: SiteFieldsEnum;
+  field: SiteFieldSelector;
   limit: InputMaybe<Scalars['Int']>;
   skip: InputMaybe<Scalars['Int']>;
 };
 
 
 type SiteConnection_maxArgs = {
-  field: SiteFieldsEnum;
+  field: SiteFieldSelector;
 };
 
 
 type SiteConnection_minArgs = {
-  field: SiteFieldsEnum;
+  field: SiteFieldSelector;
 };
 
 
 type SiteConnection_sumArgs = {
-  field: SiteFieldsEnum;
+  field: SiteFieldSelector;
 };
 
 type SiteEdge = {
@@ -2520,119 +2205,22 @@ type SiteEdge = {
   readonly previous: Maybe<Site>;
 };
 
-type SiteFieldsEnum =
-  | 'buildTime'
-  | 'children'
-  | 'children.children'
-  | 'children.children.children'
-  | 'children.children.children.children'
-  | 'children.children.children.id'
-  | 'children.children.id'
-  | 'children.children.internal.content'
-  | 'children.children.internal.contentDigest'
-  | 'children.children.internal.contentFilePath'
-  | 'children.children.internal.description'
-  | 'children.children.internal.fieldOwners'
-  | 'children.children.internal.ignoreType'
-  | 'children.children.internal.mediaType'
-  | 'children.children.internal.owner'
-  | 'children.children.internal.type'
-  | 'children.children.parent.children'
-  | 'children.children.parent.id'
-  | 'children.id'
-  | 'children.internal.content'
-  | 'children.internal.contentDigest'
-  | 'children.internal.contentFilePath'
-  | 'children.internal.description'
-  | 'children.internal.fieldOwners'
-  | 'children.internal.ignoreType'
-  | 'children.internal.mediaType'
-  | 'children.internal.owner'
-  | 'children.internal.type'
-  | 'children.parent.children'
-  | 'children.parent.children.children'
-  | 'children.parent.children.id'
-  | 'children.parent.id'
-  | 'children.parent.internal.content'
-  | 'children.parent.internal.contentDigest'
-  | 'children.parent.internal.contentFilePath'
-  | 'children.parent.internal.description'
-  | 'children.parent.internal.fieldOwners'
-  | 'children.parent.internal.ignoreType'
-  | 'children.parent.internal.mediaType'
-  | 'children.parent.internal.owner'
-  | 'children.parent.internal.type'
-  | 'children.parent.parent.children'
-  | 'children.parent.parent.id'
-  | 'flags.FAST_DEV'
-  | 'flags.PARALLEL_SOURCING'
-  | 'graphqlTypegen.generateOnBuild'
-  | 'graphqlTypegen.typesOutputPath'
-  | 'host'
-  | 'id'
-  | 'internal.content'
-  | 'internal.contentDigest'
-  | 'internal.contentFilePath'
-  | 'internal.description'
-  | 'internal.fieldOwners'
-  | 'internal.ignoreType'
-  | 'internal.mediaType'
-  | 'internal.owner'
-  | 'internal.type'
-  | 'jsxRuntime'
-  | 'parent.children'
-  | 'parent.children.children'
-  | 'parent.children.children.children'
-  | 'parent.children.children.id'
-  | 'parent.children.id'
-  | 'parent.children.internal.content'
-  | 'parent.children.internal.contentDigest'
-  | 'parent.children.internal.contentFilePath'
-  | 'parent.children.internal.description'
-  | 'parent.children.internal.fieldOwners'
-  | 'parent.children.internal.ignoreType'
-  | 'parent.children.internal.mediaType'
-  | 'parent.children.internal.owner'
-  | 'parent.children.internal.type'
-  | 'parent.children.parent.children'
-  | 'parent.children.parent.id'
-  | 'parent.id'
-  | 'parent.internal.content'
-  | 'parent.internal.contentDigest'
-  | 'parent.internal.contentFilePath'
-  | 'parent.internal.description'
-  | 'parent.internal.fieldOwners'
-  | 'parent.internal.ignoreType'
-  | 'parent.internal.mediaType'
-  | 'parent.internal.owner'
-  | 'parent.internal.type'
-  | 'parent.parent.children'
-  | 'parent.parent.children.children'
-  | 'parent.parent.children.id'
-  | 'parent.parent.id'
-  | 'parent.parent.internal.content'
-  | 'parent.parent.internal.contentDigest'
-  | 'parent.parent.internal.contentFilePath'
-  | 'parent.parent.internal.description'
-  | 'parent.parent.internal.fieldOwners'
-  | 'parent.parent.internal.ignoreType'
-  | 'parent.parent.internal.mediaType'
-  | 'parent.parent.internal.owner'
-  | 'parent.parent.internal.type'
-  | 'parent.parent.parent.children'
-  | 'parent.parent.parent.id'
-  | 'pathPrefix'
-  | 'polyfill'
-  | 'port'
-  | 'siteMetadata.author'
-  | 'siteMetadata.description'
-  | 'siteMetadata.fbAppId'
-  | 'siteMetadata.kcvvPsdApi'
-  | 'siteMetadata.siteUrl'
-  | 'siteMetadata.subTitle'
-  | 'siteMetadata.title'
-  | 'siteMetadata.twitterHandle'
-  | 'trailingSlash';
+type SiteFieldSelector = {
+  readonly buildTime: InputMaybe<FieldSelectorEnum>;
+  readonly children: InputMaybe<NodeFieldSelector>;
+  readonly flags: InputMaybe<SiteFlagsFieldSelector>;
+  readonly graphqlTypegen: InputMaybe<SiteGraphqlTypegenFieldSelector>;
+  readonly host: InputMaybe<FieldSelectorEnum>;
+  readonly id: InputMaybe<FieldSelectorEnum>;
+  readonly internal: InputMaybe<InternalFieldSelector>;
+  readonly jsxRuntime: InputMaybe<FieldSelectorEnum>;
+  readonly parent: InputMaybe<NodeFieldSelector>;
+  readonly pathPrefix: InputMaybe<FieldSelectorEnum>;
+  readonly polyfill: InputMaybe<FieldSelectorEnum>;
+  readonly port: InputMaybe<FieldSelectorEnum>;
+  readonly siteMetadata: InputMaybe<SiteSiteMetadataFieldSelector>;
+  readonly trailingSlash: InputMaybe<FieldSelectorEnum>;
+};
 
 type SiteFilterInput = {
   readonly buildTime: InputMaybe<DateQueryOperatorInput>;
@@ -2656,9 +2244,19 @@ type SiteFlags = {
   readonly PARALLEL_SOURCING: Maybe<Scalars['Boolean']>;
 };
 
+type SiteFlagsFieldSelector = {
+  readonly FAST_DEV: InputMaybe<FieldSelectorEnum>;
+  readonly PARALLEL_SOURCING: InputMaybe<FieldSelectorEnum>;
+};
+
 type SiteFlagsFilterInput = {
   readonly FAST_DEV: InputMaybe<BooleanQueryOperatorInput>;
   readonly PARALLEL_SOURCING: InputMaybe<BooleanQueryOperatorInput>;
+};
+
+type SiteFlagsSortInput = {
+  readonly FAST_DEV: InputMaybe<SortOrderEnum>;
+  readonly PARALLEL_SOURCING: InputMaybe<SortOrderEnum>;
 };
 
 type SiteFunction = Node & {
@@ -2689,29 +2287,29 @@ type SiteFunctionConnection = {
 
 
 type SiteFunctionConnection_distinctArgs = {
-  field: SiteFunctionFieldsEnum;
+  field: SiteFunctionFieldSelector;
 };
 
 
 type SiteFunctionConnection_groupArgs = {
-  field: SiteFunctionFieldsEnum;
+  field: SiteFunctionFieldSelector;
   limit: InputMaybe<Scalars['Int']>;
   skip: InputMaybe<Scalars['Int']>;
 };
 
 
 type SiteFunctionConnection_maxArgs = {
-  field: SiteFunctionFieldsEnum;
+  field: SiteFunctionFieldSelector;
 };
 
 
 type SiteFunctionConnection_minArgs = {
-  field: SiteFunctionFieldsEnum;
+  field: SiteFunctionFieldSelector;
 };
 
 
 type SiteFunctionConnection_sumArgs = {
-  field: SiteFunctionFieldsEnum;
+  field: SiteFunctionFieldSelector;
 };
 
 type SiteFunctionEdge = {
@@ -2720,107 +2318,19 @@ type SiteFunctionEdge = {
   readonly previous: Maybe<SiteFunction>;
 };
 
-type SiteFunctionFieldsEnum =
-  | 'absoluteCompiledFilePath'
-  | 'children'
-  | 'children.children'
-  | 'children.children.children'
-  | 'children.children.children.children'
-  | 'children.children.children.id'
-  | 'children.children.id'
-  | 'children.children.internal.content'
-  | 'children.children.internal.contentDigest'
-  | 'children.children.internal.contentFilePath'
-  | 'children.children.internal.description'
-  | 'children.children.internal.fieldOwners'
-  | 'children.children.internal.ignoreType'
-  | 'children.children.internal.mediaType'
-  | 'children.children.internal.owner'
-  | 'children.children.internal.type'
-  | 'children.children.parent.children'
-  | 'children.children.parent.id'
-  | 'children.id'
-  | 'children.internal.content'
-  | 'children.internal.contentDigest'
-  | 'children.internal.contentFilePath'
-  | 'children.internal.description'
-  | 'children.internal.fieldOwners'
-  | 'children.internal.ignoreType'
-  | 'children.internal.mediaType'
-  | 'children.internal.owner'
-  | 'children.internal.type'
-  | 'children.parent.children'
-  | 'children.parent.children.children'
-  | 'children.parent.children.id'
-  | 'children.parent.id'
-  | 'children.parent.internal.content'
-  | 'children.parent.internal.contentDigest'
-  | 'children.parent.internal.contentFilePath'
-  | 'children.parent.internal.description'
-  | 'children.parent.internal.fieldOwners'
-  | 'children.parent.internal.ignoreType'
-  | 'children.parent.internal.mediaType'
-  | 'children.parent.internal.owner'
-  | 'children.parent.internal.type'
-  | 'children.parent.parent.children'
-  | 'children.parent.parent.id'
-  | 'functionRoute'
-  | 'id'
-  | 'internal.content'
-  | 'internal.contentDigest'
-  | 'internal.contentFilePath'
-  | 'internal.description'
-  | 'internal.fieldOwners'
-  | 'internal.ignoreType'
-  | 'internal.mediaType'
-  | 'internal.owner'
-  | 'internal.type'
-  | 'matchPath'
-  | 'originalAbsoluteFilePath'
-  | 'originalRelativeFilePath'
-  | 'parent.children'
-  | 'parent.children.children'
-  | 'parent.children.children.children'
-  | 'parent.children.children.id'
-  | 'parent.children.id'
-  | 'parent.children.internal.content'
-  | 'parent.children.internal.contentDigest'
-  | 'parent.children.internal.contentFilePath'
-  | 'parent.children.internal.description'
-  | 'parent.children.internal.fieldOwners'
-  | 'parent.children.internal.ignoreType'
-  | 'parent.children.internal.mediaType'
-  | 'parent.children.internal.owner'
-  | 'parent.children.internal.type'
-  | 'parent.children.parent.children'
-  | 'parent.children.parent.id'
-  | 'parent.id'
-  | 'parent.internal.content'
-  | 'parent.internal.contentDigest'
-  | 'parent.internal.contentFilePath'
-  | 'parent.internal.description'
-  | 'parent.internal.fieldOwners'
-  | 'parent.internal.ignoreType'
-  | 'parent.internal.mediaType'
-  | 'parent.internal.owner'
-  | 'parent.internal.type'
-  | 'parent.parent.children'
-  | 'parent.parent.children.children'
-  | 'parent.parent.children.id'
-  | 'parent.parent.id'
-  | 'parent.parent.internal.content'
-  | 'parent.parent.internal.contentDigest'
-  | 'parent.parent.internal.contentFilePath'
-  | 'parent.parent.internal.description'
-  | 'parent.parent.internal.fieldOwners'
-  | 'parent.parent.internal.ignoreType'
-  | 'parent.parent.internal.mediaType'
-  | 'parent.parent.internal.owner'
-  | 'parent.parent.internal.type'
-  | 'parent.parent.parent.children'
-  | 'parent.parent.parent.id'
-  | 'pluginName'
-  | 'relativeCompiledFilePath';
+type SiteFunctionFieldSelector = {
+  readonly absoluteCompiledFilePath: InputMaybe<FieldSelectorEnum>;
+  readonly children: InputMaybe<NodeFieldSelector>;
+  readonly functionRoute: InputMaybe<FieldSelectorEnum>;
+  readonly id: InputMaybe<FieldSelectorEnum>;
+  readonly internal: InputMaybe<InternalFieldSelector>;
+  readonly matchPath: InputMaybe<FieldSelectorEnum>;
+  readonly originalAbsoluteFilePath: InputMaybe<FieldSelectorEnum>;
+  readonly originalRelativeFilePath: InputMaybe<FieldSelectorEnum>;
+  readonly parent: InputMaybe<NodeFieldSelector>;
+  readonly pluginName: InputMaybe<FieldSelectorEnum>;
+  readonly relativeCompiledFilePath: InputMaybe<FieldSelectorEnum>;
+};
 
 type SiteFunctionFilterInput = {
   readonly absoluteCompiledFilePath: InputMaybe<StringQueryOperatorInput>;
@@ -2852,34 +2362,43 @@ type SiteFunctionGroupConnection = {
 
 
 type SiteFunctionGroupConnection_distinctArgs = {
-  field: SiteFunctionFieldsEnum;
+  field: SiteFunctionFieldSelector;
 };
 
 
 type SiteFunctionGroupConnection_groupArgs = {
-  field: SiteFunctionFieldsEnum;
+  field: SiteFunctionFieldSelector;
   limit: InputMaybe<Scalars['Int']>;
   skip: InputMaybe<Scalars['Int']>;
 };
 
 
 type SiteFunctionGroupConnection_maxArgs = {
-  field: SiteFunctionFieldsEnum;
+  field: SiteFunctionFieldSelector;
 };
 
 
 type SiteFunctionGroupConnection_minArgs = {
-  field: SiteFunctionFieldsEnum;
+  field: SiteFunctionFieldSelector;
 };
 
 
 type SiteFunctionGroupConnection_sumArgs = {
-  field: SiteFunctionFieldsEnum;
+  field: SiteFunctionFieldSelector;
 };
 
 type SiteFunctionSortInput = {
-  readonly fields: InputMaybe<ReadonlyArray<InputMaybe<SiteFunctionFieldsEnum>>>;
-  readonly order: InputMaybe<ReadonlyArray<InputMaybe<SortOrderEnum>>>;
+  readonly absoluteCompiledFilePath: InputMaybe<SortOrderEnum>;
+  readonly children: InputMaybe<NodeSortInput>;
+  readonly functionRoute: InputMaybe<SortOrderEnum>;
+  readonly id: InputMaybe<SortOrderEnum>;
+  readonly internal: InputMaybe<InternalSortInput>;
+  readonly matchPath: InputMaybe<SortOrderEnum>;
+  readonly originalAbsoluteFilePath: InputMaybe<SortOrderEnum>;
+  readonly originalRelativeFilePath: InputMaybe<SortOrderEnum>;
+  readonly parent: InputMaybe<NodeSortInput>;
+  readonly pluginName: InputMaybe<SortOrderEnum>;
+  readonly relativeCompiledFilePath: InputMaybe<SortOrderEnum>;
 };
 
 type SiteGraphqlTypegen = {
@@ -2887,9 +2406,19 @@ type SiteGraphqlTypegen = {
   readonly typesOutputPath: Maybe<Scalars['String']>;
 };
 
+type SiteGraphqlTypegenFieldSelector = {
+  readonly generateOnBuild: InputMaybe<FieldSelectorEnum>;
+  readonly typesOutputPath: InputMaybe<FieldSelectorEnum>;
+};
+
 type SiteGraphqlTypegenFilterInput = {
   readonly generateOnBuild: InputMaybe<BooleanQueryOperatorInput>;
   readonly typesOutputPath: InputMaybe<StringQueryOperatorInput>;
+};
+
+type SiteGraphqlTypegenSortInput = {
+  readonly generateOnBuild: InputMaybe<SortOrderEnum>;
+  readonly typesOutputPath: InputMaybe<SortOrderEnum>;
 };
 
 type SiteGroupConnection = {
@@ -2908,29 +2437,29 @@ type SiteGroupConnection = {
 
 
 type SiteGroupConnection_distinctArgs = {
-  field: SiteFieldsEnum;
+  field: SiteFieldSelector;
 };
 
 
 type SiteGroupConnection_groupArgs = {
-  field: SiteFieldsEnum;
+  field: SiteFieldSelector;
   limit: InputMaybe<Scalars['Int']>;
   skip: InputMaybe<Scalars['Int']>;
 };
 
 
 type SiteGroupConnection_maxArgs = {
-  field: SiteFieldsEnum;
+  field: SiteFieldSelector;
 };
 
 
 type SiteGroupConnection_minArgs = {
-  field: SiteFieldsEnum;
+  field: SiteFieldSelector;
 };
 
 
 type SiteGroupConnection_sumArgs = {
-  field: SiteFieldsEnum;
+  field: SiteFieldSelector;
 };
 
 type SitePage = Node & {
@@ -2961,29 +2490,29 @@ type SitePageConnection = {
 
 
 type SitePageConnection_distinctArgs = {
-  field: SitePageFieldsEnum;
+  field: SitePageFieldSelector;
 };
 
 
 type SitePageConnection_groupArgs = {
-  field: SitePageFieldsEnum;
+  field: SitePageFieldSelector;
   limit: InputMaybe<Scalars['Int']>;
   skip: InputMaybe<Scalars['Int']>;
 };
 
 
 type SitePageConnection_maxArgs = {
-  field: SitePageFieldsEnum;
+  field: SitePageFieldSelector;
 };
 
 
 type SitePageConnection_minArgs = {
-  field: SitePageFieldsEnum;
+  field: SitePageFieldSelector;
 };
 
 
 type SitePageConnection_sumArgs = {
-  field: SitePageFieldsEnum;
+  field: SitePageFieldSelector;
 };
 
 type SitePageEdge = {
@@ -2992,156 +2521,19 @@ type SitePageEdge = {
   readonly previous: Maybe<SitePage>;
 };
 
-type SitePageFieldsEnum =
-  | 'children'
-  | 'children.children'
-  | 'children.children.children'
-  | 'children.children.children.children'
-  | 'children.children.children.id'
-  | 'children.children.id'
-  | 'children.children.internal.content'
-  | 'children.children.internal.contentDigest'
-  | 'children.children.internal.contentFilePath'
-  | 'children.children.internal.description'
-  | 'children.children.internal.fieldOwners'
-  | 'children.children.internal.ignoreType'
-  | 'children.children.internal.mediaType'
-  | 'children.children.internal.owner'
-  | 'children.children.internal.type'
-  | 'children.children.parent.children'
-  | 'children.children.parent.id'
-  | 'children.id'
-  | 'children.internal.content'
-  | 'children.internal.contentDigest'
-  | 'children.internal.contentFilePath'
-  | 'children.internal.description'
-  | 'children.internal.fieldOwners'
-  | 'children.internal.ignoreType'
-  | 'children.internal.mediaType'
-  | 'children.internal.owner'
-  | 'children.internal.type'
-  | 'children.parent.children'
-  | 'children.parent.children.children'
-  | 'children.parent.children.id'
-  | 'children.parent.id'
-  | 'children.parent.internal.content'
-  | 'children.parent.internal.contentDigest'
-  | 'children.parent.internal.contentFilePath'
-  | 'children.parent.internal.description'
-  | 'children.parent.internal.fieldOwners'
-  | 'children.parent.internal.ignoreType'
-  | 'children.parent.internal.mediaType'
-  | 'children.parent.internal.owner'
-  | 'children.parent.internal.type'
-  | 'children.parent.parent.children'
-  | 'children.parent.parent.id'
-  | 'component'
-  | 'componentChunkName'
-  | 'id'
-  | 'internalComponentName'
-  | 'internal.content'
-  | 'internal.contentDigest'
-  | 'internal.contentFilePath'
-  | 'internal.description'
-  | 'internal.fieldOwners'
-  | 'internal.ignoreType'
-  | 'internal.mediaType'
-  | 'internal.owner'
-  | 'internal.type'
-  | 'matchPath'
-  | 'pageContext'
-  | 'parent.children'
-  | 'parent.children.children'
-  | 'parent.children.children.children'
-  | 'parent.children.children.id'
-  | 'parent.children.id'
-  | 'parent.children.internal.content'
-  | 'parent.children.internal.contentDigest'
-  | 'parent.children.internal.contentFilePath'
-  | 'parent.children.internal.description'
-  | 'parent.children.internal.fieldOwners'
-  | 'parent.children.internal.ignoreType'
-  | 'parent.children.internal.mediaType'
-  | 'parent.children.internal.owner'
-  | 'parent.children.internal.type'
-  | 'parent.children.parent.children'
-  | 'parent.children.parent.id'
-  | 'parent.id'
-  | 'parent.internal.content'
-  | 'parent.internal.contentDigest'
-  | 'parent.internal.contentFilePath'
-  | 'parent.internal.description'
-  | 'parent.internal.fieldOwners'
-  | 'parent.internal.ignoreType'
-  | 'parent.internal.mediaType'
-  | 'parent.internal.owner'
-  | 'parent.internal.type'
-  | 'parent.parent.children'
-  | 'parent.parent.children.children'
-  | 'parent.parent.children.id'
-  | 'parent.parent.id'
-  | 'parent.parent.internal.content'
-  | 'parent.parent.internal.contentDigest'
-  | 'parent.parent.internal.contentFilePath'
-  | 'parent.parent.internal.description'
-  | 'parent.parent.internal.fieldOwners'
-  | 'parent.parent.internal.ignoreType'
-  | 'parent.parent.internal.mediaType'
-  | 'parent.parent.internal.owner'
-  | 'parent.parent.internal.type'
-  | 'parent.parent.parent.children'
-  | 'parent.parent.parent.id'
-  | 'path'
-  | 'pluginCreator.browserAPIs'
-  | 'pluginCreator.children'
-  | 'pluginCreator.children.children'
-  | 'pluginCreator.children.children.children'
-  | 'pluginCreator.children.children.id'
-  | 'pluginCreator.children.id'
-  | 'pluginCreator.children.internal.content'
-  | 'pluginCreator.children.internal.contentDigest'
-  | 'pluginCreator.children.internal.contentFilePath'
-  | 'pluginCreator.children.internal.description'
-  | 'pluginCreator.children.internal.fieldOwners'
-  | 'pluginCreator.children.internal.ignoreType'
-  | 'pluginCreator.children.internal.mediaType'
-  | 'pluginCreator.children.internal.owner'
-  | 'pluginCreator.children.internal.type'
-  | 'pluginCreator.children.parent.children'
-  | 'pluginCreator.children.parent.id'
-  | 'pluginCreator.id'
-  | 'pluginCreator.internal.content'
-  | 'pluginCreator.internal.contentDigest'
-  | 'pluginCreator.internal.contentFilePath'
-  | 'pluginCreator.internal.description'
-  | 'pluginCreator.internal.fieldOwners'
-  | 'pluginCreator.internal.ignoreType'
-  | 'pluginCreator.internal.mediaType'
-  | 'pluginCreator.internal.owner'
-  | 'pluginCreator.internal.type'
-  | 'pluginCreator.name'
-  | 'pluginCreator.nodeAPIs'
-  | 'pluginCreator.packageJson'
-  | 'pluginCreator.parent.children'
-  | 'pluginCreator.parent.children.children'
-  | 'pluginCreator.parent.children.id'
-  | 'pluginCreator.parent.id'
-  | 'pluginCreator.parent.internal.content'
-  | 'pluginCreator.parent.internal.contentDigest'
-  | 'pluginCreator.parent.internal.contentFilePath'
-  | 'pluginCreator.parent.internal.description'
-  | 'pluginCreator.parent.internal.fieldOwners'
-  | 'pluginCreator.parent.internal.ignoreType'
-  | 'pluginCreator.parent.internal.mediaType'
-  | 'pluginCreator.parent.internal.owner'
-  | 'pluginCreator.parent.internal.type'
-  | 'pluginCreator.parent.parent.children'
-  | 'pluginCreator.parent.parent.id'
-  | 'pluginCreator.pluginFilepath'
-  | 'pluginCreator.pluginOptions'
-  | 'pluginCreator.resolve'
-  | 'pluginCreator.ssrAPIs'
-  | 'pluginCreator.version';
+type SitePageFieldSelector = {
+  readonly children: InputMaybe<NodeFieldSelector>;
+  readonly component: InputMaybe<FieldSelectorEnum>;
+  readonly componentChunkName: InputMaybe<FieldSelectorEnum>;
+  readonly id: InputMaybe<FieldSelectorEnum>;
+  readonly internal: InputMaybe<InternalFieldSelector>;
+  readonly internalComponentName: InputMaybe<FieldSelectorEnum>;
+  readonly matchPath: InputMaybe<FieldSelectorEnum>;
+  readonly pageContext: InputMaybe<FieldSelectorEnum>;
+  readonly parent: InputMaybe<NodeFieldSelector>;
+  readonly path: InputMaybe<FieldSelectorEnum>;
+  readonly pluginCreator: InputMaybe<SitePluginFieldSelector>;
+};
 
 type SitePageFilterInput = {
   readonly children: InputMaybe<NodeFilterListInput>;
@@ -3173,34 +2565,43 @@ type SitePageGroupConnection = {
 
 
 type SitePageGroupConnection_distinctArgs = {
-  field: SitePageFieldsEnum;
+  field: SitePageFieldSelector;
 };
 
 
 type SitePageGroupConnection_groupArgs = {
-  field: SitePageFieldsEnum;
+  field: SitePageFieldSelector;
   limit: InputMaybe<Scalars['Int']>;
   skip: InputMaybe<Scalars['Int']>;
 };
 
 
 type SitePageGroupConnection_maxArgs = {
-  field: SitePageFieldsEnum;
+  field: SitePageFieldSelector;
 };
 
 
 type SitePageGroupConnection_minArgs = {
-  field: SitePageFieldsEnum;
+  field: SitePageFieldSelector;
 };
 
 
 type SitePageGroupConnection_sumArgs = {
-  field: SitePageFieldsEnum;
+  field: SitePageFieldSelector;
 };
 
 type SitePageSortInput = {
-  readonly fields: InputMaybe<ReadonlyArray<InputMaybe<SitePageFieldsEnum>>>;
-  readonly order: InputMaybe<ReadonlyArray<InputMaybe<SortOrderEnum>>>;
+  readonly children: InputMaybe<NodeSortInput>;
+  readonly component: InputMaybe<SortOrderEnum>;
+  readonly componentChunkName: InputMaybe<SortOrderEnum>;
+  readonly id: InputMaybe<SortOrderEnum>;
+  readonly internal: InputMaybe<InternalSortInput>;
+  readonly internalComponentName: InputMaybe<SortOrderEnum>;
+  readonly matchPath: InputMaybe<SortOrderEnum>;
+  readonly pageContext: InputMaybe<SortOrderEnum>;
+  readonly parent: InputMaybe<NodeSortInput>;
+  readonly path: InputMaybe<SortOrderEnum>;
+  readonly pluginCreator: InputMaybe<SitePluginSortInput>;
 };
 
 type SitePlugin = Node & {
@@ -3233,29 +2634,29 @@ type SitePluginConnection = {
 
 
 type SitePluginConnection_distinctArgs = {
-  field: SitePluginFieldsEnum;
+  field: SitePluginFieldSelector;
 };
 
 
 type SitePluginConnection_groupArgs = {
-  field: SitePluginFieldsEnum;
+  field: SitePluginFieldSelector;
   limit: InputMaybe<Scalars['Int']>;
   skip: InputMaybe<Scalars['Int']>;
 };
 
 
 type SitePluginConnection_maxArgs = {
-  field: SitePluginFieldsEnum;
+  field: SitePluginFieldSelector;
 };
 
 
 type SitePluginConnection_minArgs = {
-  field: SitePluginFieldsEnum;
+  field: SitePluginFieldSelector;
 };
 
 
 type SitePluginConnection_sumArgs = {
-  field: SitePluginFieldsEnum;
+  field: SitePluginFieldSelector;
 };
 
 type SitePluginEdge = {
@@ -3264,109 +2665,21 @@ type SitePluginEdge = {
   readonly previous: Maybe<SitePlugin>;
 };
 
-type SitePluginFieldsEnum =
-  | 'browserAPIs'
-  | 'children'
-  | 'children.children'
-  | 'children.children.children'
-  | 'children.children.children.children'
-  | 'children.children.children.id'
-  | 'children.children.id'
-  | 'children.children.internal.content'
-  | 'children.children.internal.contentDigest'
-  | 'children.children.internal.contentFilePath'
-  | 'children.children.internal.description'
-  | 'children.children.internal.fieldOwners'
-  | 'children.children.internal.ignoreType'
-  | 'children.children.internal.mediaType'
-  | 'children.children.internal.owner'
-  | 'children.children.internal.type'
-  | 'children.children.parent.children'
-  | 'children.children.parent.id'
-  | 'children.id'
-  | 'children.internal.content'
-  | 'children.internal.contentDigest'
-  | 'children.internal.contentFilePath'
-  | 'children.internal.description'
-  | 'children.internal.fieldOwners'
-  | 'children.internal.ignoreType'
-  | 'children.internal.mediaType'
-  | 'children.internal.owner'
-  | 'children.internal.type'
-  | 'children.parent.children'
-  | 'children.parent.children.children'
-  | 'children.parent.children.id'
-  | 'children.parent.id'
-  | 'children.parent.internal.content'
-  | 'children.parent.internal.contentDigest'
-  | 'children.parent.internal.contentFilePath'
-  | 'children.parent.internal.description'
-  | 'children.parent.internal.fieldOwners'
-  | 'children.parent.internal.ignoreType'
-  | 'children.parent.internal.mediaType'
-  | 'children.parent.internal.owner'
-  | 'children.parent.internal.type'
-  | 'children.parent.parent.children'
-  | 'children.parent.parent.id'
-  | 'id'
-  | 'internal.content'
-  | 'internal.contentDigest'
-  | 'internal.contentFilePath'
-  | 'internal.description'
-  | 'internal.fieldOwners'
-  | 'internal.ignoreType'
-  | 'internal.mediaType'
-  | 'internal.owner'
-  | 'internal.type'
-  | 'name'
-  | 'nodeAPIs'
-  | 'packageJson'
-  | 'parent.children'
-  | 'parent.children.children'
-  | 'parent.children.children.children'
-  | 'parent.children.children.id'
-  | 'parent.children.id'
-  | 'parent.children.internal.content'
-  | 'parent.children.internal.contentDigest'
-  | 'parent.children.internal.contentFilePath'
-  | 'parent.children.internal.description'
-  | 'parent.children.internal.fieldOwners'
-  | 'parent.children.internal.ignoreType'
-  | 'parent.children.internal.mediaType'
-  | 'parent.children.internal.owner'
-  | 'parent.children.internal.type'
-  | 'parent.children.parent.children'
-  | 'parent.children.parent.id'
-  | 'parent.id'
-  | 'parent.internal.content'
-  | 'parent.internal.contentDigest'
-  | 'parent.internal.contentFilePath'
-  | 'parent.internal.description'
-  | 'parent.internal.fieldOwners'
-  | 'parent.internal.ignoreType'
-  | 'parent.internal.mediaType'
-  | 'parent.internal.owner'
-  | 'parent.internal.type'
-  | 'parent.parent.children'
-  | 'parent.parent.children.children'
-  | 'parent.parent.children.id'
-  | 'parent.parent.id'
-  | 'parent.parent.internal.content'
-  | 'parent.parent.internal.contentDigest'
-  | 'parent.parent.internal.contentFilePath'
-  | 'parent.parent.internal.description'
-  | 'parent.parent.internal.fieldOwners'
-  | 'parent.parent.internal.ignoreType'
-  | 'parent.parent.internal.mediaType'
-  | 'parent.parent.internal.owner'
-  | 'parent.parent.internal.type'
-  | 'parent.parent.parent.children'
-  | 'parent.parent.parent.id'
-  | 'pluginFilepath'
-  | 'pluginOptions'
-  | 'resolve'
-  | 'ssrAPIs'
-  | 'version';
+type SitePluginFieldSelector = {
+  readonly browserAPIs: InputMaybe<FieldSelectorEnum>;
+  readonly children: InputMaybe<NodeFieldSelector>;
+  readonly id: InputMaybe<FieldSelectorEnum>;
+  readonly internal: InputMaybe<InternalFieldSelector>;
+  readonly name: InputMaybe<FieldSelectorEnum>;
+  readonly nodeAPIs: InputMaybe<FieldSelectorEnum>;
+  readonly packageJson: InputMaybe<FieldSelectorEnum>;
+  readonly parent: InputMaybe<NodeFieldSelector>;
+  readonly pluginFilepath: InputMaybe<FieldSelectorEnum>;
+  readonly pluginOptions: InputMaybe<FieldSelectorEnum>;
+  readonly resolve: InputMaybe<FieldSelectorEnum>;
+  readonly ssrAPIs: InputMaybe<FieldSelectorEnum>;
+  readonly version: InputMaybe<FieldSelectorEnum>;
+};
 
 type SitePluginFilterInput = {
   readonly browserAPIs: InputMaybe<StringQueryOperatorInput>;
@@ -3400,34 +2713,45 @@ type SitePluginGroupConnection = {
 
 
 type SitePluginGroupConnection_distinctArgs = {
-  field: SitePluginFieldsEnum;
+  field: SitePluginFieldSelector;
 };
 
 
 type SitePluginGroupConnection_groupArgs = {
-  field: SitePluginFieldsEnum;
+  field: SitePluginFieldSelector;
   limit: InputMaybe<Scalars['Int']>;
   skip: InputMaybe<Scalars['Int']>;
 };
 
 
 type SitePluginGroupConnection_maxArgs = {
-  field: SitePluginFieldsEnum;
+  field: SitePluginFieldSelector;
 };
 
 
 type SitePluginGroupConnection_minArgs = {
-  field: SitePluginFieldsEnum;
+  field: SitePluginFieldSelector;
 };
 
 
 type SitePluginGroupConnection_sumArgs = {
-  field: SitePluginFieldsEnum;
+  field: SitePluginFieldSelector;
 };
 
 type SitePluginSortInput = {
-  readonly fields: InputMaybe<ReadonlyArray<InputMaybe<SitePluginFieldsEnum>>>;
-  readonly order: InputMaybe<ReadonlyArray<InputMaybe<SortOrderEnum>>>;
+  readonly browserAPIs: InputMaybe<SortOrderEnum>;
+  readonly children: InputMaybe<NodeSortInput>;
+  readonly id: InputMaybe<SortOrderEnum>;
+  readonly internal: InputMaybe<InternalSortInput>;
+  readonly name: InputMaybe<SortOrderEnum>;
+  readonly nodeAPIs: InputMaybe<SortOrderEnum>;
+  readonly packageJson: InputMaybe<SortOrderEnum>;
+  readonly parent: InputMaybe<NodeSortInput>;
+  readonly pluginFilepath: InputMaybe<SortOrderEnum>;
+  readonly pluginOptions: InputMaybe<SortOrderEnum>;
+  readonly resolve: InputMaybe<SortOrderEnum>;
+  readonly ssrAPIs: InputMaybe<SortOrderEnum>;
+  readonly version: InputMaybe<SortOrderEnum>;
 };
 
 type SiteSiteMetadata = {
@@ -3441,6 +2765,17 @@ type SiteSiteMetadata = {
   readonly twitterHandle: Maybe<Scalars['String']>;
 };
 
+type SiteSiteMetadataFieldSelector = {
+  readonly author: InputMaybe<FieldSelectorEnum>;
+  readonly description: InputMaybe<FieldSelectorEnum>;
+  readonly fbAppId: InputMaybe<FieldSelectorEnum>;
+  readonly kcvvPsdApi: InputMaybe<FieldSelectorEnum>;
+  readonly siteUrl: InputMaybe<FieldSelectorEnum>;
+  readonly subTitle: InputMaybe<FieldSelectorEnum>;
+  readonly title: InputMaybe<FieldSelectorEnum>;
+  readonly twitterHandle: InputMaybe<FieldSelectorEnum>;
+};
+
 type SiteSiteMetadataFilterInput = {
   readonly author: InputMaybe<StringQueryOperatorInput>;
   readonly description: InputMaybe<StringQueryOperatorInput>;
@@ -3452,9 +2787,32 @@ type SiteSiteMetadataFilterInput = {
   readonly twitterHandle: InputMaybe<StringQueryOperatorInput>;
 };
 
+type SiteSiteMetadataSortInput = {
+  readonly author: InputMaybe<SortOrderEnum>;
+  readonly description: InputMaybe<SortOrderEnum>;
+  readonly fbAppId: InputMaybe<SortOrderEnum>;
+  readonly kcvvPsdApi: InputMaybe<SortOrderEnum>;
+  readonly siteUrl: InputMaybe<SortOrderEnum>;
+  readonly subTitle: InputMaybe<SortOrderEnum>;
+  readonly title: InputMaybe<SortOrderEnum>;
+  readonly twitterHandle: InputMaybe<SortOrderEnum>;
+};
+
 type SiteSortInput = {
-  readonly fields: InputMaybe<ReadonlyArray<InputMaybe<SiteFieldsEnum>>>;
-  readonly order: InputMaybe<ReadonlyArray<InputMaybe<SortOrderEnum>>>;
+  readonly buildTime: InputMaybe<SortOrderEnum>;
+  readonly children: InputMaybe<NodeSortInput>;
+  readonly flags: InputMaybe<SiteFlagsSortInput>;
+  readonly graphqlTypegen: InputMaybe<SiteGraphqlTypegenSortInput>;
+  readonly host: InputMaybe<SortOrderEnum>;
+  readonly id: InputMaybe<SortOrderEnum>;
+  readonly internal: InputMaybe<InternalSortInput>;
+  readonly jsxRuntime: InputMaybe<SortOrderEnum>;
+  readonly parent: InputMaybe<NodeSortInput>;
+  readonly pathPrefix: InputMaybe<SortOrderEnum>;
+  readonly polyfill: InputMaybe<SortOrderEnum>;
+  readonly port: InputMaybe<SortOrderEnum>;
+  readonly siteMetadata: InputMaybe<SiteSiteMetadataSortInput>;
+  readonly trailingSlash: InputMaybe<SortOrderEnum>;
 };
 
 type SortOrderEnum =
@@ -3532,29 +2890,29 @@ type file__fileConnection = {
 
 
 type file__fileConnection_distinctArgs = {
-  field: file__fileFieldsEnum;
+  field: file__fileFieldSelector;
 };
 
 
 type file__fileConnection_groupArgs = {
-  field: file__fileFieldsEnum;
+  field: file__fileFieldSelector;
   limit: InputMaybe<Scalars['Int']>;
   skip: InputMaybe<Scalars['Int']>;
 };
 
 
 type file__fileConnection_maxArgs = {
-  field: file__fileFieldsEnum;
+  field: file__fileFieldSelector;
 };
 
 
 type file__fileConnection_minArgs = {
-  field: file__fileFieldsEnum;
+  field: file__fileFieldSelector;
 };
 
 
 type file__fileConnection_sumArgs = {
-  field: file__fileFieldsEnum;
+  field: file__fileFieldSelector;
 };
 
 type file__fileEdge = {
@@ -3563,456 +2921,24 @@ type file__fileEdge = {
   readonly previous: Maybe<file__file>;
 };
 
-type file__fileFieldsEnum =
-  | 'changed'
-  | 'children'
-  | 'children.children'
-  | 'children.children.children'
-  | 'children.children.children.children'
-  | 'children.children.children.id'
-  | 'children.children.id'
-  | 'children.children.internal.content'
-  | 'children.children.internal.contentDigest'
-  | 'children.children.internal.contentFilePath'
-  | 'children.children.internal.description'
-  | 'children.children.internal.fieldOwners'
-  | 'children.children.internal.ignoreType'
-  | 'children.children.internal.mediaType'
-  | 'children.children.internal.owner'
-  | 'children.children.internal.type'
-  | 'children.children.parent.children'
-  | 'children.children.parent.id'
-  | 'children.id'
-  | 'children.internal.content'
-  | 'children.internal.contentDigest'
-  | 'children.internal.contentFilePath'
-  | 'children.internal.description'
-  | 'children.internal.fieldOwners'
-  | 'children.internal.ignoreType'
-  | 'children.internal.mediaType'
-  | 'children.internal.owner'
-  | 'children.internal.type'
-  | 'children.parent.children'
-  | 'children.parent.children.children'
-  | 'children.parent.children.id'
-  | 'children.parent.id'
-  | 'children.parent.internal.content'
-  | 'children.parent.internal.contentDigest'
-  | 'children.parent.internal.contentFilePath'
-  | 'children.parent.internal.description'
-  | 'children.parent.internal.fieldOwners'
-  | 'children.parent.internal.ignoreType'
-  | 'children.parent.internal.mediaType'
-  | 'children.parent.internal.owner'
-  | 'children.parent.internal.type'
-  | 'children.parent.parent.children'
-  | 'children.parent.parent.id'
-  | 'created'
-  | 'drupal_id'
-  | 'drupal_internal__fid'
-  | 'filemime'
-  | 'filename'
-  | 'filesize'
-  | 'id'
-  | 'internal.content'
-  | 'internal.contentDigest'
-  | 'internal.contentFilePath'
-  | 'internal.description'
-  | 'internal.fieldOwners'
-  | 'internal.ignoreType'
-  | 'internal.mediaType'
-  | 'internal.owner'
-  | 'internal.type'
-  | 'langcode'
-  | 'localFile.absolutePath'
-  | 'localFile.accessTime'
-  | 'localFile.atime'
-  | 'localFile.atimeMs'
-  | 'localFile.base'
-  | 'localFile.birthTime'
-  | 'localFile.birthtime'
-  | 'localFile.birthtimeMs'
-  | 'localFile.blksize'
-  | 'localFile.blocks'
-  | 'localFile.changeTime'
-  | 'localFile.childImageSharp.children'
-  | 'localFile.childImageSharp.children.children'
-  | 'localFile.childImageSharp.children.id'
-  | 'localFile.childImageSharp.fixed.aspectRatio'
-  | 'localFile.childImageSharp.fixed.base64'
-  | 'localFile.childImageSharp.fixed.height'
-  | 'localFile.childImageSharp.fixed.originalName'
-  | 'localFile.childImageSharp.fixed.src'
-  | 'localFile.childImageSharp.fixed.srcSet'
-  | 'localFile.childImageSharp.fixed.srcSetWebp'
-  | 'localFile.childImageSharp.fixed.srcWebp'
-  | 'localFile.childImageSharp.fixed.tracedSVG'
-  | 'localFile.childImageSharp.fixed.width'
-  | 'localFile.childImageSharp.fluid.aspectRatio'
-  | 'localFile.childImageSharp.fluid.base64'
-  | 'localFile.childImageSharp.fluid.originalImg'
-  | 'localFile.childImageSharp.fluid.originalName'
-  | 'localFile.childImageSharp.fluid.presentationHeight'
-  | 'localFile.childImageSharp.fluid.presentationWidth'
-  | 'localFile.childImageSharp.fluid.sizes'
-  | 'localFile.childImageSharp.fluid.src'
-  | 'localFile.childImageSharp.fluid.srcSet'
-  | 'localFile.childImageSharp.fluid.srcSetWebp'
-  | 'localFile.childImageSharp.fluid.srcWebp'
-  | 'localFile.childImageSharp.fluid.tracedSVG'
-  | 'localFile.childImageSharp.gatsbyImageData'
-  | 'localFile.childImageSharp.id'
-  | 'localFile.childImageSharp.internal.content'
-  | 'localFile.childImageSharp.internal.contentDigest'
-  | 'localFile.childImageSharp.internal.contentFilePath'
-  | 'localFile.childImageSharp.internal.description'
-  | 'localFile.childImageSharp.internal.fieldOwners'
-  | 'localFile.childImageSharp.internal.ignoreType'
-  | 'localFile.childImageSharp.internal.mediaType'
-  | 'localFile.childImageSharp.internal.owner'
-  | 'localFile.childImageSharp.internal.type'
-  | 'localFile.childImageSharp.original.height'
-  | 'localFile.childImageSharp.original.src'
-  | 'localFile.childImageSharp.original.width'
-  | 'localFile.childImageSharp.parent.children'
-  | 'localFile.childImageSharp.parent.id'
-  | 'localFile.childImageSharp.resize.aspectRatio'
-  | 'localFile.childImageSharp.resize.height'
-  | 'localFile.childImageSharp.resize.originalName'
-  | 'localFile.childImageSharp.resize.src'
-  | 'localFile.childImageSharp.resize.tracedSVG'
-  | 'localFile.childImageSharp.resize.width'
-  | 'localFile.children'
-  | 'localFile.childrenImageSharp'
-  | 'localFile.childrenImageSharp.children'
-  | 'localFile.childrenImageSharp.children.children'
-  | 'localFile.childrenImageSharp.children.id'
-  | 'localFile.childrenImageSharp.fixed.aspectRatio'
-  | 'localFile.childrenImageSharp.fixed.base64'
-  | 'localFile.childrenImageSharp.fixed.height'
-  | 'localFile.childrenImageSharp.fixed.originalName'
-  | 'localFile.childrenImageSharp.fixed.src'
-  | 'localFile.childrenImageSharp.fixed.srcSet'
-  | 'localFile.childrenImageSharp.fixed.srcSetWebp'
-  | 'localFile.childrenImageSharp.fixed.srcWebp'
-  | 'localFile.childrenImageSharp.fixed.tracedSVG'
-  | 'localFile.childrenImageSharp.fixed.width'
-  | 'localFile.childrenImageSharp.fluid.aspectRatio'
-  | 'localFile.childrenImageSharp.fluid.base64'
-  | 'localFile.childrenImageSharp.fluid.originalImg'
-  | 'localFile.childrenImageSharp.fluid.originalName'
-  | 'localFile.childrenImageSharp.fluid.presentationHeight'
-  | 'localFile.childrenImageSharp.fluid.presentationWidth'
-  | 'localFile.childrenImageSharp.fluid.sizes'
-  | 'localFile.childrenImageSharp.fluid.src'
-  | 'localFile.childrenImageSharp.fluid.srcSet'
-  | 'localFile.childrenImageSharp.fluid.srcSetWebp'
-  | 'localFile.childrenImageSharp.fluid.srcWebp'
-  | 'localFile.childrenImageSharp.fluid.tracedSVG'
-  | 'localFile.childrenImageSharp.gatsbyImageData'
-  | 'localFile.childrenImageSharp.id'
-  | 'localFile.childrenImageSharp.internal.content'
-  | 'localFile.childrenImageSharp.internal.contentDigest'
-  | 'localFile.childrenImageSharp.internal.contentFilePath'
-  | 'localFile.childrenImageSharp.internal.description'
-  | 'localFile.childrenImageSharp.internal.fieldOwners'
-  | 'localFile.childrenImageSharp.internal.ignoreType'
-  | 'localFile.childrenImageSharp.internal.mediaType'
-  | 'localFile.childrenImageSharp.internal.owner'
-  | 'localFile.childrenImageSharp.internal.type'
-  | 'localFile.childrenImageSharp.original.height'
-  | 'localFile.childrenImageSharp.original.src'
-  | 'localFile.childrenImageSharp.original.width'
-  | 'localFile.childrenImageSharp.parent.children'
-  | 'localFile.childrenImageSharp.parent.id'
-  | 'localFile.childrenImageSharp.resize.aspectRatio'
-  | 'localFile.childrenImageSharp.resize.height'
-  | 'localFile.childrenImageSharp.resize.originalName'
-  | 'localFile.childrenImageSharp.resize.src'
-  | 'localFile.childrenImageSharp.resize.tracedSVG'
-  | 'localFile.childrenImageSharp.resize.width'
-  | 'localFile.children.children'
-  | 'localFile.children.children.children'
-  | 'localFile.children.children.id'
-  | 'localFile.children.id'
-  | 'localFile.children.internal.content'
-  | 'localFile.children.internal.contentDigest'
-  | 'localFile.children.internal.contentFilePath'
-  | 'localFile.children.internal.description'
-  | 'localFile.children.internal.fieldOwners'
-  | 'localFile.children.internal.ignoreType'
-  | 'localFile.children.internal.mediaType'
-  | 'localFile.children.internal.owner'
-  | 'localFile.children.internal.type'
-  | 'localFile.children.parent.children'
-  | 'localFile.children.parent.id'
-  | 'localFile.ctime'
-  | 'localFile.ctimeMs'
-  | 'localFile.dev'
-  | 'localFile.dir'
-  | 'localFile.ext'
-  | 'localFile.extension'
-  | 'localFile.gid'
-  | 'localFile.id'
-  | 'localFile.ino'
-  | 'localFile.internal.content'
-  | 'localFile.internal.contentDigest'
-  | 'localFile.internal.contentFilePath'
-  | 'localFile.internal.description'
-  | 'localFile.internal.fieldOwners'
-  | 'localFile.internal.ignoreType'
-  | 'localFile.internal.mediaType'
-  | 'localFile.internal.owner'
-  | 'localFile.internal.type'
-  | 'localFile.mode'
-  | 'localFile.modifiedTime'
-  | 'localFile.mtime'
-  | 'localFile.mtimeMs'
-  | 'localFile.name'
-  | 'localFile.nlink'
-  | 'localFile.parent.children'
-  | 'localFile.parent.children.children'
-  | 'localFile.parent.children.id'
-  | 'localFile.parent.id'
-  | 'localFile.parent.internal.content'
-  | 'localFile.parent.internal.contentDigest'
-  | 'localFile.parent.internal.contentFilePath'
-  | 'localFile.parent.internal.description'
-  | 'localFile.parent.internal.fieldOwners'
-  | 'localFile.parent.internal.ignoreType'
-  | 'localFile.parent.internal.mediaType'
-  | 'localFile.parent.internal.owner'
-  | 'localFile.parent.internal.type'
-  | 'localFile.parent.parent.children'
-  | 'localFile.parent.parent.id'
-  | 'localFile.prettySize'
-  | 'localFile.publicURL'
-  | 'localFile.rdev'
-  | 'localFile.relativeDirectory'
-  | 'localFile.relativePath'
-  | 'localFile.root'
-  | 'localFile.size'
-  | 'localFile.sourceInstanceName'
-  | 'localFile.uid'
-  | 'localFile.url'
-  | 'parent.children'
-  | 'parent.children.children'
-  | 'parent.children.children.children'
-  | 'parent.children.children.id'
-  | 'parent.children.id'
-  | 'parent.children.internal.content'
-  | 'parent.children.internal.contentDigest'
-  | 'parent.children.internal.contentFilePath'
-  | 'parent.children.internal.description'
-  | 'parent.children.internal.fieldOwners'
-  | 'parent.children.internal.ignoreType'
-  | 'parent.children.internal.mediaType'
-  | 'parent.children.internal.owner'
-  | 'parent.children.internal.type'
-  | 'parent.children.parent.children'
-  | 'parent.children.parent.id'
-  | 'parent.id'
-  | 'parent.internal.content'
-  | 'parent.internal.contentDigest'
-  | 'parent.internal.contentFilePath'
-  | 'parent.internal.description'
-  | 'parent.internal.fieldOwners'
-  | 'parent.internal.ignoreType'
-  | 'parent.internal.mediaType'
-  | 'parent.internal.owner'
-  | 'parent.internal.type'
-  | 'parent.parent.children'
-  | 'parent.parent.children.children'
-  | 'parent.parent.children.id'
-  | 'parent.parent.id'
-  | 'parent.parent.internal.content'
-  | 'parent.parent.internal.contentDigest'
-  | 'parent.parent.internal.contentFilePath'
-  | 'parent.parent.internal.description'
-  | 'parent.parent.internal.fieldOwners'
-  | 'parent.parent.internal.ignoreType'
-  | 'parent.parent.internal.mediaType'
-  | 'parent.parent.internal.owner'
-  | 'parent.parent.internal.type'
-  | 'parent.parent.parent.children'
-  | 'parent.parent.parent.id'
-  | 'relationships.media__image'
-  | 'relationships.media__image.changed'
-  | 'relationships.media__image.children'
-  | 'relationships.media__image.children.children'
-  | 'relationships.media__image.children.id'
-  | 'relationships.media__image.created'
-  | 'relationships.media__image.default_langcode'
-  | 'relationships.media__image.drupal_id'
-  | 'relationships.media__image.drupal_internal__mid'
-  | 'relationships.media__image.drupal_internal__vid'
-  | 'relationships.media__image.field_media_image.alt'
-  | 'relationships.media__image.field_media_image.height'
-  | 'relationships.media__image.field_media_image.title'
-  | 'relationships.media__image.field_media_image.width'
-  | 'relationships.media__image.id'
-  | 'relationships.media__image.internal.content'
-  | 'relationships.media__image.internal.contentDigest'
-  | 'relationships.media__image.internal.contentFilePath'
-  | 'relationships.media__image.internal.description'
-  | 'relationships.media__image.internal.fieldOwners'
-  | 'relationships.media__image.internal.ignoreType'
-  | 'relationships.media__image.internal.mediaType'
-  | 'relationships.media__image.internal.owner'
-  | 'relationships.media__image.internal.type'
-  | 'relationships.media__image.langcode'
-  | 'relationships.media__image.name'
-  | 'relationships.media__image.parent.children'
-  | 'relationships.media__image.parent.id'
-  | 'relationships.media__image.path.alias'
-  | 'relationships.media__image.path.langcode'
-  | 'relationships.media__image.path.pid'
-  | 'relationships.media__image.relationships.node__article'
-  | 'relationships.media__image.relationships.node__event'
-  | 'relationships.media__image.relationships.node__kcvv_tv'
-  | 'relationships.media__image.relationships.node__page'
-  | 'relationships.media__image.relationships.node__sponsor'
-  | 'relationships.media__image.relationships.node__team'
-  | 'relationships.media__image.revision_created'
-  | 'relationships.media__image.revision_translation_affected'
-  | 'relationships.media__image.status'
-  | 'relationships.media__image.thumbnail.alt'
-  | 'relationships.media__image.thumbnail.height'
-  | 'relationships.media__image.thumbnail.width'
-  | 'relationships.node__player'
-  | 'relationships.node__player.body.format'
-  | 'relationships.node__player.body.processed'
-  | 'relationships.node__player.body.summary'
-  | 'relationships.node__player.body.value'
-  | 'relationships.node__player.changed'
-  | 'relationships.node__player.children'
-  | 'relationships.node__player.children.children'
-  | 'relationships.node__player.children.id'
-  | 'relationships.node__player.created'
-  | 'relationships.node__player.default_langcode'
-  | 'relationships.node__player.drupal_id'
-  | 'relationships.node__player.drupal_internal__nid'
-  | 'relationships.node__player.drupal_internal__vid'
-  | 'relationships.node__player.field_birth_date'
-  | 'relationships.node__player.field_date_leave'
-  | 'relationships.node__player.field_firstname'
-  | 'relationships.node__player.field_image.alt'
-  | 'relationships.node__player.field_image.height'
-  | 'relationships.node__player.field_image.title'
-  | 'relationships.node__player.field_image.width'
-  | 'relationships.node__player.field_image_celebrate.alt'
-  | 'relationships.node__player.field_image_celebrate.height'
-  | 'relationships.node__player.field_image_celebrate.title'
-  | 'relationships.node__player.field_image_celebrate.width'
-  | 'relationships.node__player.field_join_date'
-  | 'relationships.node__player.field_lastname'
-  | 'relationships.node__player.field_position'
-  | 'relationships.node__player.field_shirtnumber'
-  | 'relationships.node__player.field_vv_id'
-  | 'relationships.node__player.id'
-  | 'relationships.node__player.internal.content'
-  | 'relationships.node__player.internal.contentDigest'
-  | 'relationships.node__player.internal.contentFilePath'
-  | 'relationships.node__player.internal.description'
-  | 'relationships.node__player.internal.fieldOwners'
-  | 'relationships.node__player.internal.ignoreType'
-  | 'relationships.node__player.internal.mediaType'
-  | 'relationships.node__player.internal.owner'
-  | 'relationships.node__player.internal.type'
-  | 'relationships.node__player.langcode'
-  | 'relationships.node__player.parent.children'
-  | 'relationships.node__player.parent.id'
-  | 'relationships.node__player.path.alias'
-  | 'relationships.node__player.path.langcode'
-  | 'relationships.node__player.path.pid'
-  | 'relationships.node__player.promote'
-  | 'relationships.node__player.relationships.node__article'
-  | 'relationships.node__player.relationships.node__team'
-  | 'relationships.node__player.revision_timestamp'
-  | 'relationships.node__player.revision_translation_affected'
-  | 'relationships.node__player.status'
-  | 'relationships.node__player.sticky'
-  | 'relationships.node__player.title'
-  | 'relationships.node__staff'
-  | 'relationships.node__staff.body.format'
-  | 'relationships.node__staff.body.processed'
-  | 'relationships.node__staff.body.summary'
-  | 'relationships.node__staff.body.value'
-  | 'relationships.node__staff.changed'
-  | 'relationships.node__staff.children'
-  | 'relationships.node__staff.children.children'
-  | 'relationships.node__staff.children.id'
-  | 'relationships.node__staff.created'
-  | 'relationships.node__staff.default_langcode'
-  | 'relationships.node__staff.drupal_id'
-  | 'relationships.node__staff.drupal_internal__nid'
-  | 'relationships.node__staff.drupal_internal__vid'
-  | 'relationships.node__staff.field_birth_date'
-  | 'relationships.node__staff.field_firstname'
-  | 'relationships.node__staff.field_image.alt'
-  | 'relationships.node__staff.field_image.height'
-  | 'relationships.node__staff.field_image.title'
-  | 'relationships.node__staff.field_image.width'
-  | 'relationships.node__staff.field_join_date'
-  | 'relationships.node__staff.field_lastname'
-  | 'relationships.node__staff.field_position_short'
-  | 'relationships.node__staff.field_position_staff'
-  | 'relationships.node__staff.field_vv_id'
-  | 'relationships.node__staff.id'
-  | 'relationships.node__staff.internal.content'
-  | 'relationships.node__staff.internal.contentDigest'
-  | 'relationships.node__staff.internal.contentFilePath'
-  | 'relationships.node__staff.internal.description'
-  | 'relationships.node__staff.internal.fieldOwners'
-  | 'relationships.node__staff.internal.ignoreType'
-  | 'relationships.node__staff.internal.mediaType'
-  | 'relationships.node__staff.internal.owner'
-  | 'relationships.node__staff.internal.type'
-  | 'relationships.node__staff.langcode'
-  | 'relationships.node__staff.parent.children'
-  | 'relationships.node__staff.parent.id'
-  | 'relationships.node__staff.path.alias'
-  | 'relationships.node__staff.path.langcode'
-  | 'relationships.node__staff.path.pid'
-  | 'relationships.node__staff.promote'
-  | 'relationships.node__staff.relationships.node__article'
-  | 'relationships.node__staff.relationships.node__team'
-  | 'relationships.node__staff.revision_timestamp'
-  | 'relationships.node__staff.revision_translation_affected'
-  | 'relationships.node__staff.status'
-  | 'relationships.node__staff.sticky'
-  | 'relationships.node__staff.title'
-  | 'relationships.uid.children'
-  | 'relationships.uid.children.children'
-  | 'relationships.uid.children.id'
-  | 'relationships.uid.display_name'
-  | 'relationships.uid.drupal_id'
-  | 'relationships.uid.id'
-  | 'relationships.uid.internal.content'
-  | 'relationships.uid.internal.contentDigest'
-  | 'relationships.uid.internal.contentFilePath'
-  | 'relationships.uid.internal.description'
-  | 'relationships.uid.internal.fieldOwners'
-  | 'relationships.uid.internal.ignoreType'
-  | 'relationships.uid.internal.mediaType'
-  | 'relationships.uid.internal.owner'
-  | 'relationships.uid.internal.type'
-  | 'relationships.uid.parent.children'
-  | 'relationships.uid.parent.id'
-  | 'relationships.uid.relationships.file__file'
-  | 'relationships.uid.relationships.media__image'
-  | 'relationships.uid.relationships.node__article'
-  | 'relationships.uid.relationships.node__event'
-  | 'relationships.uid.relationships.node__kcvv_tv'
-  | 'relationships.uid.relationships.node__page'
-  | 'relationships.uid.relationships.node__player'
-  | 'relationships.uid.relationships.node__potw'
-  | 'relationships.uid.relationships.node__sponsor'
-  | 'relationships.uid.relationships.node__staff'
-  | 'relationships.uid.relationships.node__team'
-  | 'status'
-  | 'uri.url'
-  | 'uri.value';
+type file__fileFieldSelector = {
+  readonly changed: InputMaybe<FieldSelectorEnum>;
+  readonly children: InputMaybe<NodeFieldSelector>;
+  readonly created: InputMaybe<FieldSelectorEnum>;
+  readonly drupal_id: InputMaybe<FieldSelectorEnum>;
+  readonly drupal_internal__fid: InputMaybe<FieldSelectorEnum>;
+  readonly filemime: InputMaybe<FieldSelectorEnum>;
+  readonly filename: InputMaybe<FieldSelectorEnum>;
+  readonly filesize: InputMaybe<FieldSelectorEnum>;
+  readonly id: InputMaybe<FieldSelectorEnum>;
+  readonly internal: InputMaybe<InternalFieldSelector>;
+  readonly langcode: InputMaybe<FieldSelectorEnum>;
+  readonly localFile: InputMaybe<FileFieldSelector>;
+  readonly parent: InputMaybe<NodeFieldSelector>;
+  readonly relationships: InputMaybe<file__fileRelationshipsFieldSelector>;
+  readonly status: InputMaybe<FieldSelectorEnum>;
+  readonly uri: InputMaybe<file__fileUriFieldSelector>;
+};
 
 type file__fileFilterInput = {
   readonly changed: InputMaybe<DateQueryOperatorInput>;
@@ -4053,29 +2979,29 @@ type file__fileGroupConnection = {
 
 
 type file__fileGroupConnection_distinctArgs = {
-  field: file__fileFieldsEnum;
+  field: file__fileFieldSelector;
 };
 
 
 type file__fileGroupConnection_groupArgs = {
-  field: file__fileFieldsEnum;
+  field: file__fileFieldSelector;
   limit: InputMaybe<Scalars['Int']>;
   skip: InputMaybe<Scalars['Int']>;
 };
 
 
 type file__fileGroupConnection_maxArgs = {
-  field: file__fileFieldsEnum;
+  field: file__fileFieldSelector;
 };
 
 
 type file__fileGroupConnection_minArgs = {
-  field: file__fileFieldsEnum;
+  field: file__fileFieldSelector;
 };
 
 
 type file__fileGroupConnection_sumArgs = {
-  field: file__fileFieldsEnum;
+  field: file__fileFieldSelector;
 };
 
 type file__fileRelationships = {
@@ -4085,6 +3011,13 @@ type file__fileRelationships = {
   readonly uid: Maybe<user__user>;
 };
 
+type file__fileRelationshipsFieldSelector = {
+  readonly media__image: InputMaybe<media__imageFieldSelector>;
+  readonly node__player: InputMaybe<node__playerFieldSelector>;
+  readonly node__staff: InputMaybe<node__staffFieldSelector>;
+  readonly uid: InputMaybe<user__userFieldSelector>;
+};
+
 type file__fileRelationshipsFilterInput = {
   readonly media__image: InputMaybe<media__imageFilterListInput>;
   readonly node__player: InputMaybe<node__playerFilterListInput>;
@@ -4092,9 +3025,30 @@ type file__fileRelationshipsFilterInput = {
   readonly uid: InputMaybe<user__userFilterInput>;
 };
 
+type file__fileRelationshipsSortInput = {
+  readonly media__image: InputMaybe<media__imageSortInput>;
+  readonly node__player: InputMaybe<node__playerSortInput>;
+  readonly node__staff: InputMaybe<node__staffSortInput>;
+  readonly uid: InputMaybe<user__userSortInput>;
+};
+
 type file__fileSortInput = {
-  readonly fields: InputMaybe<ReadonlyArray<InputMaybe<file__fileFieldsEnum>>>;
-  readonly order: InputMaybe<ReadonlyArray<InputMaybe<SortOrderEnum>>>;
+  readonly changed: InputMaybe<SortOrderEnum>;
+  readonly children: InputMaybe<NodeSortInput>;
+  readonly created: InputMaybe<SortOrderEnum>;
+  readonly drupal_id: InputMaybe<SortOrderEnum>;
+  readonly drupal_internal__fid: InputMaybe<SortOrderEnum>;
+  readonly filemime: InputMaybe<SortOrderEnum>;
+  readonly filename: InputMaybe<SortOrderEnum>;
+  readonly filesize: InputMaybe<SortOrderEnum>;
+  readonly id: InputMaybe<SortOrderEnum>;
+  readonly internal: InputMaybe<InternalSortInput>;
+  readonly langcode: InputMaybe<SortOrderEnum>;
+  readonly localFile: InputMaybe<FileSortInput>;
+  readonly parent: InputMaybe<NodeSortInput>;
+  readonly relationships: InputMaybe<file__fileRelationshipsSortInput>;
+  readonly status: InputMaybe<SortOrderEnum>;
+  readonly uri: InputMaybe<file__fileUriSortInput>;
 };
 
 type file__fileUri = {
@@ -4102,9 +3056,19 @@ type file__fileUri = {
   readonly value: Maybe<Scalars['String']>;
 };
 
+type file__fileUriFieldSelector = {
+  readonly url: InputMaybe<FieldSelectorEnum>;
+  readonly value: InputMaybe<FieldSelectorEnum>;
+};
+
 type file__fileUriFilterInput = {
   readonly url: InputMaybe<StringQueryOperatorInput>;
   readonly value: InputMaybe<StringQueryOperatorInput>;
+};
+
+type file__fileUriSortInput = {
+  readonly url: InputMaybe<SortOrderEnum>;
+  readonly value: InputMaybe<SortOrderEnum>;
 };
 
 type media__image = Node & {
@@ -4167,35 +3131,57 @@ type media__imageConnection = {
 
 
 type media__imageConnection_distinctArgs = {
-  field: media__imageFieldsEnum;
+  field: media__imageFieldSelector;
 };
 
 
 type media__imageConnection_groupArgs = {
-  field: media__imageFieldsEnum;
+  field: media__imageFieldSelector;
   limit: InputMaybe<Scalars['Int']>;
   skip: InputMaybe<Scalars['Int']>;
 };
 
 
 type media__imageConnection_maxArgs = {
-  field: media__imageFieldsEnum;
+  field: media__imageFieldSelector;
 };
 
 
 type media__imageConnection_minArgs = {
-  field: media__imageFieldsEnum;
+  field: media__imageFieldSelector;
 };
 
 
 type media__imageConnection_sumArgs = {
-  field: media__imageFieldsEnum;
+  field: media__imageFieldSelector;
 };
 
 type media__imageEdge = {
   readonly next: Maybe<media__image>;
   readonly node: media__image;
   readonly previous: Maybe<media__image>;
+};
+
+type media__imageFieldSelector = {
+  readonly changed: InputMaybe<FieldSelectorEnum>;
+  readonly children: InputMaybe<NodeFieldSelector>;
+  readonly created: InputMaybe<FieldSelectorEnum>;
+  readonly default_langcode: InputMaybe<FieldSelectorEnum>;
+  readonly drupal_id: InputMaybe<FieldSelectorEnum>;
+  readonly drupal_internal__mid: InputMaybe<FieldSelectorEnum>;
+  readonly drupal_internal__vid: InputMaybe<FieldSelectorEnum>;
+  readonly field_media_image: InputMaybe<media__imageField_media_imageFieldSelector>;
+  readonly id: InputMaybe<FieldSelectorEnum>;
+  readonly internal: InputMaybe<InternalFieldSelector>;
+  readonly langcode: InputMaybe<FieldSelectorEnum>;
+  readonly name: InputMaybe<FieldSelectorEnum>;
+  readonly parent: InputMaybe<NodeFieldSelector>;
+  readonly path: InputMaybe<media__imagePathFieldSelector>;
+  readonly relationships: InputMaybe<media__imageRelationshipsFieldSelector>;
+  readonly revision_created: InputMaybe<FieldSelectorEnum>;
+  readonly revision_translation_affected: InputMaybe<FieldSelectorEnum>;
+  readonly status: InputMaybe<FieldSelectorEnum>;
+  readonly thumbnail: InputMaybe<media__imageThumbnailFieldSelector>;
 };
 
 type media__imageField_media_image = {
@@ -4205,6 +3191,13 @@ type media__imageField_media_image = {
   readonly width: Maybe<Scalars['Int']>;
 };
 
+type media__imageField_media_imageFieldSelector = {
+  readonly alt: InputMaybe<FieldSelectorEnum>;
+  readonly height: InputMaybe<FieldSelectorEnum>;
+  readonly title: InputMaybe<FieldSelectorEnum>;
+  readonly width: InputMaybe<FieldSelectorEnum>;
+};
+
 type media__imageField_media_imageFilterInput = {
   readonly alt: InputMaybe<StringQueryOperatorInput>;
   readonly height: InputMaybe<IntQueryOperatorInput>;
@@ -4212,536 +3205,12 @@ type media__imageField_media_imageFilterInput = {
   readonly width: InputMaybe<IntQueryOperatorInput>;
 };
 
-type media__imageFieldsEnum =
-  | 'changed'
-  | 'children'
-  | 'children.children'
-  | 'children.children.children'
-  | 'children.children.children.children'
-  | 'children.children.children.id'
-  | 'children.children.id'
-  | 'children.children.internal.content'
-  | 'children.children.internal.contentDigest'
-  | 'children.children.internal.contentFilePath'
-  | 'children.children.internal.description'
-  | 'children.children.internal.fieldOwners'
-  | 'children.children.internal.ignoreType'
-  | 'children.children.internal.mediaType'
-  | 'children.children.internal.owner'
-  | 'children.children.internal.type'
-  | 'children.children.parent.children'
-  | 'children.children.parent.id'
-  | 'children.id'
-  | 'children.internal.content'
-  | 'children.internal.contentDigest'
-  | 'children.internal.contentFilePath'
-  | 'children.internal.description'
-  | 'children.internal.fieldOwners'
-  | 'children.internal.ignoreType'
-  | 'children.internal.mediaType'
-  | 'children.internal.owner'
-  | 'children.internal.type'
-  | 'children.parent.children'
-  | 'children.parent.children.children'
-  | 'children.parent.children.id'
-  | 'children.parent.id'
-  | 'children.parent.internal.content'
-  | 'children.parent.internal.contentDigest'
-  | 'children.parent.internal.contentFilePath'
-  | 'children.parent.internal.description'
-  | 'children.parent.internal.fieldOwners'
-  | 'children.parent.internal.ignoreType'
-  | 'children.parent.internal.mediaType'
-  | 'children.parent.internal.owner'
-  | 'children.parent.internal.type'
-  | 'children.parent.parent.children'
-  | 'children.parent.parent.id'
-  | 'created'
-  | 'default_langcode'
-  | 'drupal_id'
-  | 'drupal_internal__mid'
-  | 'drupal_internal__vid'
-  | 'field_media_image.alt'
-  | 'field_media_image.height'
-  | 'field_media_image.title'
-  | 'field_media_image.width'
-  | 'id'
-  | 'internal.content'
-  | 'internal.contentDigest'
-  | 'internal.contentFilePath'
-  | 'internal.description'
-  | 'internal.fieldOwners'
-  | 'internal.ignoreType'
-  | 'internal.mediaType'
-  | 'internal.owner'
-  | 'internal.type'
-  | 'langcode'
-  | 'name'
-  | 'parent.children'
-  | 'parent.children.children'
-  | 'parent.children.children.children'
-  | 'parent.children.children.id'
-  | 'parent.children.id'
-  | 'parent.children.internal.content'
-  | 'parent.children.internal.contentDigest'
-  | 'parent.children.internal.contentFilePath'
-  | 'parent.children.internal.description'
-  | 'parent.children.internal.fieldOwners'
-  | 'parent.children.internal.ignoreType'
-  | 'parent.children.internal.mediaType'
-  | 'parent.children.internal.owner'
-  | 'parent.children.internal.type'
-  | 'parent.children.parent.children'
-  | 'parent.children.parent.id'
-  | 'parent.id'
-  | 'parent.internal.content'
-  | 'parent.internal.contentDigest'
-  | 'parent.internal.contentFilePath'
-  | 'parent.internal.description'
-  | 'parent.internal.fieldOwners'
-  | 'parent.internal.ignoreType'
-  | 'parent.internal.mediaType'
-  | 'parent.internal.owner'
-  | 'parent.internal.type'
-  | 'parent.parent.children'
-  | 'parent.parent.children.children'
-  | 'parent.parent.children.id'
-  | 'parent.parent.id'
-  | 'parent.parent.internal.content'
-  | 'parent.parent.internal.contentDigest'
-  | 'parent.parent.internal.contentFilePath'
-  | 'parent.parent.internal.description'
-  | 'parent.parent.internal.fieldOwners'
-  | 'parent.parent.internal.ignoreType'
-  | 'parent.parent.internal.mediaType'
-  | 'parent.parent.internal.owner'
-  | 'parent.parent.internal.type'
-  | 'parent.parent.parent.children'
-  | 'parent.parent.parent.id'
-  | 'path.alias'
-  | 'path.langcode'
-  | 'path.pid'
-  | 'relationships.field_media_image.changed'
-  | 'relationships.field_media_image.children'
-  | 'relationships.field_media_image.children.children'
-  | 'relationships.field_media_image.children.id'
-  | 'relationships.field_media_image.created'
-  | 'relationships.field_media_image.drupal_id'
-  | 'relationships.field_media_image.drupal_internal__fid'
-  | 'relationships.field_media_image.filemime'
-  | 'relationships.field_media_image.filename'
-  | 'relationships.field_media_image.filesize'
-  | 'relationships.field_media_image.id'
-  | 'relationships.field_media_image.internal.content'
-  | 'relationships.field_media_image.internal.contentDigest'
-  | 'relationships.field_media_image.internal.contentFilePath'
-  | 'relationships.field_media_image.internal.description'
-  | 'relationships.field_media_image.internal.fieldOwners'
-  | 'relationships.field_media_image.internal.ignoreType'
-  | 'relationships.field_media_image.internal.mediaType'
-  | 'relationships.field_media_image.internal.owner'
-  | 'relationships.field_media_image.internal.type'
-  | 'relationships.field_media_image.langcode'
-  | 'relationships.field_media_image.localFile.absolutePath'
-  | 'relationships.field_media_image.localFile.accessTime'
-  | 'relationships.field_media_image.localFile.atime'
-  | 'relationships.field_media_image.localFile.atimeMs'
-  | 'relationships.field_media_image.localFile.base'
-  | 'relationships.field_media_image.localFile.birthTime'
-  | 'relationships.field_media_image.localFile.birthtime'
-  | 'relationships.field_media_image.localFile.birthtimeMs'
-  | 'relationships.field_media_image.localFile.blksize'
-  | 'relationships.field_media_image.localFile.blocks'
-  | 'relationships.field_media_image.localFile.changeTime'
-  | 'relationships.field_media_image.localFile.children'
-  | 'relationships.field_media_image.localFile.childrenImageSharp'
-  | 'relationships.field_media_image.localFile.ctime'
-  | 'relationships.field_media_image.localFile.ctimeMs'
-  | 'relationships.field_media_image.localFile.dev'
-  | 'relationships.field_media_image.localFile.dir'
-  | 'relationships.field_media_image.localFile.ext'
-  | 'relationships.field_media_image.localFile.extension'
-  | 'relationships.field_media_image.localFile.gid'
-  | 'relationships.field_media_image.localFile.id'
-  | 'relationships.field_media_image.localFile.ino'
-  | 'relationships.field_media_image.localFile.mode'
-  | 'relationships.field_media_image.localFile.modifiedTime'
-  | 'relationships.field_media_image.localFile.mtime'
-  | 'relationships.field_media_image.localFile.mtimeMs'
-  | 'relationships.field_media_image.localFile.name'
-  | 'relationships.field_media_image.localFile.nlink'
-  | 'relationships.field_media_image.localFile.prettySize'
-  | 'relationships.field_media_image.localFile.publicURL'
-  | 'relationships.field_media_image.localFile.rdev'
-  | 'relationships.field_media_image.localFile.relativeDirectory'
-  | 'relationships.field_media_image.localFile.relativePath'
-  | 'relationships.field_media_image.localFile.root'
-  | 'relationships.field_media_image.localFile.size'
-  | 'relationships.field_media_image.localFile.sourceInstanceName'
-  | 'relationships.field_media_image.localFile.uid'
-  | 'relationships.field_media_image.localFile.url'
-  | 'relationships.field_media_image.parent.children'
-  | 'relationships.field_media_image.parent.id'
-  | 'relationships.field_media_image.relationships.media__image'
-  | 'relationships.field_media_image.relationships.node__player'
-  | 'relationships.field_media_image.relationships.node__staff'
-  | 'relationships.field_media_image.status'
-  | 'relationships.field_media_image.uri.url'
-  | 'relationships.field_media_image.uri.value'
-  | 'relationships.node__article'
-  | 'relationships.node__article.body.format'
-  | 'relationships.node__article.body.processed'
-  | 'relationships.node__article.body.summary'
-  | 'relationships.node__article.body.value'
-  | 'relationships.node__article.changed'
-  | 'relationships.node__article.children'
-  | 'relationships.node__article.children.children'
-  | 'relationships.node__article.children.id'
-  | 'relationships.node__article.created'
-  | 'relationships.node__article.default_langcode'
-  | 'relationships.node__article.drupal_id'
-  | 'relationships.node__article.drupal_internal__nid'
-  | 'relationships.node__article.drupal_internal__vid'
-  | 'relationships.node__article.field_featured'
-  | 'relationships.node__article.field_related_content'
-  | 'relationships.node__article.id'
-  | 'relationships.node__article.internal.content'
-  | 'relationships.node__article.internal.contentDigest'
-  | 'relationships.node__article.internal.contentFilePath'
-  | 'relationships.node__article.internal.description'
-  | 'relationships.node__article.internal.fieldOwners'
-  | 'relationships.node__article.internal.ignoreType'
-  | 'relationships.node__article.internal.mediaType'
-  | 'relationships.node__article.internal.owner'
-  | 'relationships.node__article.internal.type'
-  | 'relationships.node__article.langcode'
-  | 'relationships.node__article.parent.children'
-  | 'relationships.node__article.parent.id'
-  | 'relationships.node__article.path.alias'
-  | 'relationships.node__article.path.langcode'
-  | 'relationships.node__article.path.pid'
-  | 'relationships.node__article.promote'
-  | 'relationships.node__article.relationships.field_tags'
-  | 'relationships.node__article.relationships.node__article'
-  | 'relationships.node__article.revision_timestamp'
-  | 'relationships.node__article.revision_translation_affected'
-  | 'relationships.node__article.status'
-  | 'relationships.node__article.sticky'
-  | 'relationships.node__article.title'
-  | 'relationships.node__event'
-  | 'relationships.node__event.changed'
-  | 'relationships.node__event.children'
-  | 'relationships.node__event.children.children'
-  | 'relationships.node__event.children.id'
-  | 'relationships.node__event.created'
-  | 'relationships.node__event.default_langcode'
-  | 'relationships.node__event.drupal_id'
-  | 'relationships.node__event.drupal_internal__nid'
-  | 'relationships.node__event.drupal_internal__vid'
-  | 'relationships.node__event.field_daterange.end_value'
-  | 'relationships.node__event.field_daterange.value'
-  | 'relationships.node__event.field_event_link.title'
-  | 'relationships.node__event.field_event_link.uri'
-  | 'relationships.node__event.id'
-  | 'relationships.node__event.internal.content'
-  | 'relationships.node__event.internal.contentDigest'
-  | 'relationships.node__event.internal.contentFilePath'
-  | 'relationships.node__event.internal.description'
-  | 'relationships.node__event.internal.fieldOwners'
-  | 'relationships.node__event.internal.ignoreType'
-  | 'relationships.node__event.internal.mediaType'
-  | 'relationships.node__event.internal.owner'
-  | 'relationships.node__event.internal.type'
-  | 'relationships.node__event.langcode'
-  | 'relationships.node__event.parent.children'
-  | 'relationships.node__event.parent.id'
-  | 'relationships.node__event.path.alias'
-  | 'relationships.node__event.path.langcode'
-  | 'relationships.node__event.path.pid'
-  | 'relationships.node__event.promote'
-  | 'relationships.node__event.revision_timestamp'
-  | 'relationships.node__event.revision_translation_affected'
-  | 'relationships.node__event.status'
-  | 'relationships.node__event.sticky'
-  | 'relationships.node__event.title'
-  | 'relationships.node__event.unpublish_on'
-  | 'relationships.node__kcvv_tv'
-  | 'relationships.node__kcvv_tv.changed'
-  | 'relationships.node__kcvv_tv.children'
-  | 'relationships.node__kcvv_tv.children.children'
-  | 'relationships.node__kcvv_tv.children.id'
-  | 'relationships.node__kcvv_tv.created'
-  | 'relationships.node__kcvv_tv.default_langcode'
-  | 'relationships.node__kcvv_tv.drupal_id'
-  | 'relationships.node__kcvv_tv.drupal_internal__nid'
-  | 'relationships.node__kcvv_tv.drupal_internal__vid'
-  | 'relationships.node__kcvv_tv.field_website.title'
-  | 'relationships.node__kcvv_tv.field_website.uri'
-  | 'relationships.node__kcvv_tv.id'
-  | 'relationships.node__kcvv_tv.internal.content'
-  | 'relationships.node__kcvv_tv.internal.contentDigest'
-  | 'relationships.node__kcvv_tv.internal.contentFilePath'
-  | 'relationships.node__kcvv_tv.internal.description'
-  | 'relationships.node__kcvv_tv.internal.fieldOwners'
-  | 'relationships.node__kcvv_tv.internal.ignoreType'
-  | 'relationships.node__kcvv_tv.internal.mediaType'
-  | 'relationships.node__kcvv_tv.internal.owner'
-  | 'relationships.node__kcvv_tv.internal.type'
-  | 'relationships.node__kcvv_tv.langcode'
-  | 'relationships.node__kcvv_tv.parent.children'
-  | 'relationships.node__kcvv_tv.parent.id'
-  | 'relationships.node__kcvv_tv.path.alias'
-  | 'relationships.node__kcvv_tv.path.langcode'
-  | 'relationships.node__kcvv_tv.path.pid'
-  | 'relationships.node__kcvv_tv.promote'
-  | 'relationships.node__kcvv_tv.revision_timestamp'
-  | 'relationships.node__kcvv_tv.revision_translation_affected'
-  | 'relationships.node__kcvv_tv.status'
-  | 'relationships.node__kcvv_tv.sticky'
-  | 'relationships.node__kcvv_tv.title'
-  | 'relationships.node__page'
-  | 'relationships.node__page.body.format'
-  | 'relationships.node__page.body.processed'
-  | 'relationships.node__page.body.summary'
-  | 'relationships.node__page.body.value'
-  | 'relationships.node__page.changed'
-  | 'relationships.node__page.children'
-  | 'relationships.node__page.children.children'
-  | 'relationships.node__page.children.id'
-  | 'relationships.node__page.created'
-  | 'relationships.node__page.default_langcode'
-  | 'relationships.node__page.drupal_id'
-  | 'relationships.node__page.drupal_internal__nid'
-  | 'relationships.node__page.drupal_internal__vid'
-  | 'relationships.node__page.id'
-  | 'relationships.node__page.internal.content'
-  | 'relationships.node__page.internal.contentDigest'
-  | 'relationships.node__page.internal.contentFilePath'
-  | 'relationships.node__page.internal.description'
-  | 'relationships.node__page.internal.fieldOwners'
-  | 'relationships.node__page.internal.ignoreType'
-  | 'relationships.node__page.internal.mediaType'
-  | 'relationships.node__page.internal.owner'
-  | 'relationships.node__page.internal.type'
-  | 'relationships.node__page.langcode'
-  | 'relationships.node__page.parent.children'
-  | 'relationships.node__page.parent.id'
-  | 'relationships.node__page.path.alias'
-  | 'relationships.node__page.path.langcode'
-  | 'relationships.node__page.path.pid'
-  | 'relationships.node__page.promote'
-  | 'relationships.node__page.revision_timestamp'
-  | 'relationships.node__page.revision_translation_affected'
-  | 'relationships.node__page.status'
-  | 'relationships.node__page.sticky'
-  | 'relationships.node__page.title'
-  | 'relationships.node__sponsor'
-  | 'relationships.node__sponsor.changed'
-  | 'relationships.node__sponsor.children'
-  | 'relationships.node__sponsor.children.children'
-  | 'relationships.node__sponsor.children.id'
-  | 'relationships.node__sponsor.created'
-  | 'relationships.node__sponsor.default_langcode'
-  | 'relationships.node__sponsor.drupal_id'
-  | 'relationships.node__sponsor.drupal_internal__nid'
-  | 'relationships.node__sponsor.drupal_internal__vid'
-  | 'relationships.node__sponsor.field_type'
-  | 'relationships.node__sponsor.field_website.title'
-  | 'relationships.node__sponsor.field_website.uri'
-  | 'relationships.node__sponsor.id'
-  | 'relationships.node__sponsor.internal.content'
-  | 'relationships.node__sponsor.internal.contentDigest'
-  | 'relationships.node__sponsor.internal.contentFilePath'
-  | 'relationships.node__sponsor.internal.description'
-  | 'relationships.node__sponsor.internal.fieldOwners'
-  | 'relationships.node__sponsor.internal.ignoreType'
-  | 'relationships.node__sponsor.internal.mediaType'
-  | 'relationships.node__sponsor.internal.owner'
-  | 'relationships.node__sponsor.internal.type'
-  | 'relationships.node__sponsor.langcode'
-  | 'relationships.node__sponsor.parent.children'
-  | 'relationships.node__sponsor.parent.id'
-  | 'relationships.node__sponsor.path.alias'
-  | 'relationships.node__sponsor.path.langcode'
-  | 'relationships.node__sponsor.path.pid'
-  | 'relationships.node__sponsor.promote'
-  | 'relationships.node__sponsor.revision_timestamp'
-  | 'relationships.node__sponsor.revision_translation_affected'
-  | 'relationships.node__sponsor.status'
-  | 'relationships.node__sponsor.sticky'
-  | 'relationships.node__sponsor.title'
-  | 'relationships.node__team'
-  | 'relationships.node__team.changed'
-  | 'relationships.node__team.children'
-  | 'relationships.node__team.children.children'
-  | 'relationships.node__team.children.id'
-  | 'relationships.node__team.created'
-  | 'relationships.node__team.default_langcode'
-  | 'relationships.node__team.drupal_id'
-  | 'relationships.node__team.drupal_internal__nid'
-  | 'relationships.node__team.drupal_internal__vid'
-  | 'relationships.node__team.field_contact_info.format'
-  | 'relationships.node__team.field_contact_info.processed'
-  | 'relationships.node__team.field_contact_info.value'
-  | 'relationships.node__team.field_division_full'
-  | 'relationships.node__team.field_fb_id'
-  | 'relationships.node__team.field_fb_id_2'
-  | 'relationships.node__team.field_tagline'
-  | 'relationships.node__team.field_vv_id'
-  | 'relationships.node__team.id'
-  | 'relationships.node__team.internal.content'
-  | 'relationships.node__team.internal.contentDigest'
-  | 'relationships.node__team.internal.contentFilePath'
-  | 'relationships.node__team.internal.description'
-  | 'relationships.node__team.internal.fieldOwners'
-  | 'relationships.node__team.internal.ignoreType'
-  | 'relationships.node__team.internal.mediaType'
-  | 'relationships.node__team.internal.owner'
-  | 'relationships.node__team.internal.type'
-  | 'relationships.node__team.langcode'
-  | 'relationships.node__team.parent.children'
-  | 'relationships.node__team.parent.id'
-  | 'relationships.node__team.path.alias'
-  | 'relationships.node__team.path.langcode'
-  | 'relationships.node__team.path.pid'
-  | 'relationships.node__team.promote'
-  | 'relationships.node__team.relationships.field_players'
-  | 'relationships.node__team.relationships.field_staff'
-  | 'relationships.node__team.relationships.node__article'
-  | 'relationships.node__team.revision_timestamp'
-  | 'relationships.node__team.revision_translation_affected'
-  | 'relationships.node__team.status'
-  | 'relationships.node__team.sticky'
-  | 'relationships.node__team.title'
-  | 'relationships.revision_user.children'
-  | 'relationships.revision_user.children.children'
-  | 'relationships.revision_user.children.id'
-  | 'relationships.revision_user.display_name'
-  | 'relationships.revision_user.drupal_id'
-  | 'relationships.revision_user.id'
-  | 'relationships.revision_user.internal.content'
-  | 'relationships.revision_user.internal.contentDigest'
-  | 'relationships.revision_user.internal.contentFilePath'
-  | 'relationships.revision_user.internal.description'
-  | 'relationships.revision_user.internal.fieldOwners'
-  | 'relationships.revision_user.internal.ignoreType'
-  | 'relationships.revision_user.internal.mediaType'
-  | 'relationships.revision_user.internal.owner'
-  | 'relationships.revision_user.internal.type'
-  | 'relationships.revision_user.parent.children'
-  | 'relationships.revision_user.parent.id'
-  | 'relationships.revision_user.relationships.file__file'
-  | 'relationships.revision_user.relationships.media__image'
-  | 'relationships.revision_user.relationships.node__article'
-  | 'relationships.revision_user.relationships.node__event'
-  | 'relationships.revision_user.relationships.node__kcvv_tv'
-  | 'relationships.revision_user.relationships.node__page'
-  | 'relationships.revision_user.relationships.node__player'
-  | 'relationships.revision_user.relationships.node__potw'
-  | 'relationships.revision_user.relationships.node__sponsor'
-  | 'relationships.revision_user.relationships.node__staff'
-  | 'relationships.revision_user.relationships.node__team'
-  | 'relationships.thumbnail.changed'
-  | 'relationships.thumbnail.children'
-  | 'relationships.thumbnail.children.children'
-  | 'relationships.thumbnail.children.id'
-  | 'relationships.thumbnail.created'
-  | 'relationships.thumbnail.drupal_id'
-  | 'relationships.thumbnail.drupal_internal__fid'
-  | 'relationships.thumbnail.filemime'
-  | 'relationships.thumbnail.filename'
-  | 'relationships.thumbnail.filesize'
-  | 'relationships.thumbnail.id'
-  | 'relationships.thumbnail.internal.content'
-  | 'relationships.thumbnail.internal.contentDigest'
-  | 'relationships.thumbnail.internal.contentFilePath'
-  | 'relationships.thumbnail.internal.description'
-  | 'relationships.thumbnail.internal.fieldOwners'
-  | 'relationships.thumbnail.internal.ignoreType'
-  | 'relationships.thumbnail.internal.mediaType'
-  | 'relationships.thumbnail.internal.owner'
-  | 'relationships.thumbnail.internal.type'
-  | 'relationships.thumbnail.langcode'
-  | 'relationships.thumbnail.localFile.absolutePath'
-  | 'relationships.thumbnail.localFile.accessTime'
-  | 'relationships.thumbnail.localFile.atime'
-  | 'relationships.thumbnail.localFile.atimeMs'
-  | 'relationships.thumbnail.localFile.base'
-  | 'relationships.thumbnail.localFile.birthTime'
-  | 'relationships.thumbnail.localFile.birthtime'
-  | 'relationships.thumbnail.localFile.birthtimeMs'
-  | 'relationships.thumbnail.localFile.blksize'
-  | 'relationships.thumbnail.localFile.blocks'
-  | 'relationships.thumbnail.localFile.changeTime'
-  | 'relationships.thumbnail.localFile.children'
-  | 'relationships.thumbnail.localFile.childrenImageSharp'
-  | 'relationships.thumbnail.localFile.ctime'
-  | 'relationships.thumbnail.localFile.ctimeMs'
-  | 'relationships.thumbnail.localFile.dev'
-  | 'relationships.thumbnail.localFile.dir'
-  | 'relationships.thumbnail.localFile.ext'
-  | 'relationships.thumbnail.localFile.extension'
-  | 'relationships.thumbnail.localFile.gid'
-  | 'relationships.thumbnail.localFile.id'
-  | 'relationships.thumbnail.localFile.ino'
-  | 'relationships.thumbnail.localFile.mode'
-  | 'relationships.thumbnail.localFile.modifiedTime'
-  | 'relationships.thumbnail.localFile.mtime'
-  | 'relationships.thumbnail.localFile.mtimeMs'
-  | 'relationships.thumbnail.localFile.name'
-  | 'relationships.thumbnail.localFile.nlink'
-  | 'relationships.thumbnail.localFile.prettySize'
-  | 'relationships.thumbnail.localFile.publicURL'
-  | 'relationships.thumbnail.localFile.rdev'
-  | 'relationships.thumbnail.localFile.relativeDirectory'
-  | 'relationships.thumbnail.localFile.relativePath'
-  | 'relationships.thumbnail.localFile.root'
-  | 'relationships.thumbnail.localFile.size'
-  | 'relationships.thumbnail.localFile.sourceInstanceName'
-  | 'relationships.thumbnail.localFile.uid'
-  | 'relationships.thumbnail.localFile.url'
-  | 'relationships.thumbnail.parent.children'
-  | 'relationships.thumbnail.parent.id'
-  | 'relationships.thumbnail.relationships.media__image'
-  | 'relationships.thumbnail.relationships.node__player'
-  | 'relationships.thumbnail.relationships.node__staff'
-  | 'relationships.thumbnail.status'
-  | 'relationships.thumbnail.uri.url'
-  | 'relationships.thumbnail.uri.value'
-  | 'relationships.uid.children'
-  | 'relationships.uid.children.children'
-  | 'relationships.uid.children.id'
-  | 'relationships.uid.display_name'
-  | 'relationships.uid.drupal_id'
-  | 'relationships.uid.id'
-  | 'relationships.uid.internal.content'
-  | 'relationships.uid.internal.contentDigest'
-  | 'relationships.uid.internal.contentFilePath'
-  | 'relationships.uid.internal.description'
-  | 'relationships.uid.internal.fieldOwners'
-  | 'relationships.uid.internal.ignoreType'
-  | 'relationships.uid.internal.mediaType'
-  | 'relationships.uid.internal.owner'
-  | 'relationships.uid.internal.type'
-  | 'relationships.uid.parent.children'
-  | 'relationships.uid.parent.id'
-  | 'relationships.uid.relationships.file__file'
-  | 'relationships.uid.relationships.media__image'
-  | 'relationships.uid.relationships.node__article'
-  | 'relationships.uid.relationships.node__event'
-  | 'relationships.uid.relationships.node__kcvv_tv'
-  | 'relationships.uid.relationships.node__page'
-  | 'relationships.uid.relationships.node__player'
-  | 'relationships.uid.relationships.node__potw'
-  | 'relationships.uid.relationships.node__sponsor'
-  | 'relationships.uid.relationships.node__staff'
-  | 'relationships.uid.relationships.node__team'
-  | 'revision_created'
-  | 'revision_translation_affected'
-  | 'status'
-  | 'thumbnail.alt'
-  | 'thumbnail.height'
-  | 'thumbnail.width';
+type media__imageField_media_imageSortInput = {
+  readonly alt: InputMaybe<SortOrderEnum>;
+  readonly height: InputMaybe<SortOrderEnum>;
+  readonly title: InputMaybe<SortOrderEnum>;
+  readonly width: InputMaybe<SortOrderEnum>;
+};
 
 type media__imageFilterInput = {
   readonly changed: InputMaybe<DateQueryOperatorInput>;
@@ -4785,29 +3254,29 @@ type media__imageGroupConnection = {
 
 
 type media__imageGroupConnection_distinctArgs = {
-  field: media__imageFieldsEnum;
+  field: media__imageFieldSelector;
 };
 
 
 type media__imageGroupConnection_groupArgs = {
-  field: media__imageFieldsEnum;
+  field: media__imageFieldSelector;
   limit: InputMaybe<Scalars['Int']>;
   skip: InputMaybe<Scalars['Int']>;
 };
 
 
 type media__imageGroupConnection_maxArgs = {
-  field: media__imageFieldsEnum;
+  field: media__imageFieldSelector;
 };
 
 
 type media__imageGroupConnection_minArgs = {
-  field: media__imageFieldsEnum;
+  field: media__imageFieldSelector;
 };
 
 
 type media__imageGroupConnection_sumArgs = {
-  field: media__imageFieldsEnum;
+  field: media__imageFieldSelector;
 };
 
 type media__imagePath = {
@@ -4816,10 +3285,22 @@ type media__imagePath = {
   readonly pid: Maybe<Scalars['Int']>;
 };
 
+type media__imagePathFieldSelector = {
+  readonly alias: InputMaybe<FieldSelectorEnum>;
+  readonly langcode: InputMaybe<FieldSelectorEnum>;
+  readonly pid: InputMaybe<FieldSelectorEnum>;
+};
+
 type media__imagePathFilterInput = {
   readonly alias: InputMaybe<StringQueryOperatorInput>;
   readonly langcode: InputMaybe<StringQueryOperatorInput>;
   readonly pid: InputMaybe<IntQueryOperatorInput>;
+};
+
+type media__imagePathSortInput = {
+  readonly alias: InputMaybe<SortOrderEnum>;
+  readonly langcode: InputMaybe<SortOrderEnum>;
+  readonly pid: InputMaybe<SortOrderEnum>;
 };
 
 type media__imageRelationships = {
@@ -4835,6 +3316,19 @@ type media__imageRelationships = {
   readonly uid: Maybe<user__user>;
 };
 
+type media__imageRelationshipsFieldSelector = {
+  readonly field_media_image: InputMaybe<file__fileFieldSelector>;
+  readonly node__article: InputMaybe<node__articleFieldSelector>;
+  readonly node__event: InputMaybe<node__eventFieldSelector>;
+  readonly node__kcvv_tv: InputMaybe<node__kcvv_tvFieldSelector>;
+  readonly node__page: InputMaybe<node__pageFieldSelector>;
+  readonly node__sponsor: InputMaybe<node__sponsorFieldSelector>;
+  readonly node__team: InputMaybe<node__teamFieldSelector>;
+  readonly revision_user: InputMaybe<user__userFieldSelector>;
+  readonly thumbnail: InputMaybe<file__fileFieldSelector>;
+  readonly uid: InputMaybe<user__userFieldSelector>;
+};
+
 type media__imageRelationshipsFilterInput = {
   readonly field_media_image: InputMaybe<file__fileFilterInput>;
   readonly node__article: InputMaybe<node__articleFilterListInput>;
@@ -4848,9 +3342,39 @@ type media__imageRelationshipsFilterInput = {
   readonly uid: InputMaybe<user__userFilterInput>;
 };
 
+type media__imageRelationshipsSortInput = {
+  readonly field_media_image: InputMaybe<file__fileSortInput>;
+  readonly node__article: InputMaybe<node__articleSortInput>;
+  readonly node__event: InputMaybe<node__eventSortInput>;
+  readonly node__kcvv_tv: InputMaybe<node__kcvv_tvSortInput>;
+  readonly node__page: InputMaybe<node__pageSortInput>;
+  readonly node__sponsor: InputMaybe<node__sponsorSortInput>;
+  readonly node__team: InputMaybe<node__teamSortInput>;
+  readonly revision_user: InputMaybe<user__userSortInput>;
+  readonly thumbnail: InputMaybe<file__fileSortInput>;
+  readonly uid: InputMaybe<user__userSortInput>;
+};
+
 type media__imageSortInput = {
-  readonly fields: InputMaybe<ReadonlyArray<InputMaybe<media__imageFieldsEnum>>>;
-  readonly order: InputMaybe<ReadonlyArray<InputMaybe<SortOrderEnum>>>;
+  readonly changed: InputMaybe<SortOrderEnum>;
+  readonly children: InputMaybe<NodeSortInput>;
+  readonly created: InputMaybe<SortOrderEnum>;
+  readonly default_langcode: InputMaybe<SortOrderEnum>;
+  readonly drupal_id: InputMaybe<SortOrderEnum>;
+  readonly drupal_internal__mid: InputMaybe<SortOrderEnum>;
+  readonly drupal_internal__vid: InputMaybe<SortOrderEnum>;
+  readonly field_media_image: InputMaybe<media__imageField_media_imageSortInput>;
+  readonly id: InputMaybe<SortOrderEnum>;
+  readonly internal: InputMaybe<InternalSortInput>;
+  readonly langcode: InputMaybe<SortOrderEnum>;
+  readonly name: InputMaybe<SortOrderEnum>;
+  readonly parent: InputMaybe<NodeSortInput>;
+  readonly path: InputMaybe<media__imagePathSortInput>;
+  readonly relationships: InputMaybe<media__imageRelationshipsSortInput>;
+  readonly revision_created: InputMaybe<SortOrderEnum>;
+  readonly revision_translation_affected: InputMaybe<SortOrderEnum>;
+  readonly status: InputMaybe<SortOrderEnum>;
+  readonly thumbnail: InputMaybe<media__imageThumbnailSortInput>;
 };
 
 type media__imageThumbnail = {
@@ -4859,10 +3383,22 @@ type media__imageThumbnail = {
   readonly width: Maybe<Scalars['Int']>;
 };
 
+type media__imageThumbnailFieldSelector = {
+  readonly alt: InputMaybe<FieldSelectorEnum>;
+  readonly height: InputMaybe<FieldSelectorEnum>;
+  readonly width: InputMaybe<FieldSelectorEnum>;
+};
+
 type media__imageThumbnailFilterInput = {
   readonly alt: InputMaybe<StringQueryOperatorInput>;
   readonly height: InputMaybe<IntQueryOperatorInput>;
   readonly width: InputMaybe<IntQueryOperatorInput>;
+};
+
+type media__imageThumbnailSortInput = {
+  readonly alt: InputMaybe<SortOrderEnum>;
+  readonly height: InputMaybe<SortOrderEnum>;
+  readonly width: InputMaybe<SortOrderEnum>;
 };
 
 type node__article = Node & {
@@ -4921,11 +3457,25 @@ type node__articleBody = {
   readonly value: Maybe<Scalars['String']>;
 };
 
+type node__articleBodyFieldSelector = {
+  readonly format: InputMaybe<FieldSelectorEnum>;
+  readonly processed: InputMaybe<FieldSelectorEnum>;
+  readonly summary: InputMaybe<FieldSelectorEnum>;
+  readonly value: InputMaybe<FieldSelectorEnum>;
+};
+
 type node__articleBodyFilterInput = {
   readonly format: InputMaybe<StringQueryOperatorInput>;
   readonly processed: InputMaybe<StringQueryOperatorInput>;
   readonly summary: InputMaybe<StringQueryOperatorInput>;
   readonly value: InputMaybe<StringQueryOperatorInput>;
+};
+
+type node__articleBodySortInput = {
+  readonly format: InputMaybe<SortOrderEnum>;
+  readonly processed: InputMaybe<SortOrderEnum>;
+  readonly summary: InputMaybe<SortOrderEnum>;
+  readonly value: InputMaybe<SortOrderEnum>;
 };
 
 type node__articleConnection = {
@@ -4942,29 +3492,29 @@ type node__articleConnection = {
 
 
 type node__articleConnection_distinctArgs = {
-  field: node__articleFieldsEnum;
+  field: node__articleFieldSelector;
 };
 
 
 type node__articleConnection_groupArgs = {
-  field: node__articleFieldsEnum;
+  field: node__articleFieldSelector;
   limit: InputMaybe<Scalars['Int']>;
   skip: InputMaybe<Scalars['Int']>;
 };
 
 
 type node__articleConnection_maxArgs = {
-  field: node__articleFieldsEnum;
+  field: node__articleFieldSelector;
 };
 
 
 type node__articleConnection_minArgs = {
-  field: node__articleFieldsEnum;
+  field: node__articleFieldSelector;
 };
 
 
 type node__articleConnection_sumArgs = {
-  field: node__articleFieldsEnum;
+  field: node__articleFieldSelector;
 };
 
 type node__articleEdge = {
@@ -4973,8 +3523,37 @@ type node__articleEdge = {
   readonly previous: Maybe<node__article>;
 };
 
+type node__articleFieldSelector = {
+  readonly body: InputMaybe<node__articleBodyFieldSelector>;
+  readonly changed: InputMaybe<FieldSelectorEnum>;
+  readonly children: InputMaybe<NodeFieldSelector>;
+  readonly created: InputMaybe<FieldSelectorEnum>;
+  readonly default_langcode: InputMaybe<FieldSelectorEnum>;
+  readonly drupal_id: InputMaybe<FieldSelectorEnum>;
+  readonly drupal_internal__nid: InputMaybe<FieldSelectorEnum>;
+  readonly drupal_internal__vid: InputMaybe<FieldSelectorEnum>;
+  readonly field_featured: InputMaybe<FieldSelectorEnum>;
+  readonly field_related_content: InputMaybe<node__articleField_related_contentFieldSelector>;
+  readonly id: InputMaybe<FieldSelectorEnum>;
+  readonly internal: InputMaybe<InternalFieldSelector>;
+  readonly langcode: InputMaybe<FieldSelectorEnum>;
+  readonly parent: InputMaybe<NodeFieldSelector>;
+  readonly path: InputMaybe<node__articlePathFieldSelector>;
+  readonly promote: InputMaybe<FieldSelectorEnum>;
+  readonly relationships: InputMaybe<node__articleRelationshipsFieldSelector>;
+  readonly revision_timestamp: InputMaybe<FieldSelectorEnum>;
+  readonly revision_translation_affected: InputMaybe<FieldSelectorEnum>;
+  readonly status: InputMaybe<FieldSelectorEnum>;
+  readonly sticky: InputMaybe<FieldSelectorEnum>;
+  readonly title: InputMaybe<FieldSelectorEnum>;
+};
+
 type node__articleField_related_content = {
   readonly links: Maybe<node__articleField_related_contentLinks>;
+};
+
+type node__articleField_related_contentFieldSelector = {
+  readonly links: InputMaybe<node__articleField_related_contentLinksFieldSelector>;
 };
 
 type node__articleField_related_contentFilterInput = {
@@ -4989,6 +3568,10 @@ type node__articleField_related_contentLinks = {
   readonly help: Maybe<node__articleField_related_contentLinksHelp>;
 };
 
+type node__articleField_related_contentLinksFieldSelector = {
+  readonly help: InputMaybe<node__articleField_related_contentLinksHelpFieldSelector>;
+};
+
 type node__articleField_related_contentLinksFilterInput = {
   readonly help: InputMaybe<node__articleField_related_contentLinksHelpFilterInput>;
 };
@@ -4996,6 +3579,11 @@ type node__articleField_related_contentLinksFilterInput = {
 type node__articleField_related_contentLinksHelp = {
   readonly href: Maybe<Scalars['String']>;
   readonly meta: Maybe<node__articleField_related_contentLinksHelpMeta>;
+};
+
+type node__articleField_related_contentLinksHelpFieldSelector = {
+  readonly href: InputMaybe<FieldSelectorEnum>;
+  readonly meta: InputMaybe<node__articleField_related_contentLinksHelpMetaFieldSelector>;
 };
 
 type node__articleField_related_contentLinksHelpFilterInput = {
@@ -5007,296 +3595,30 @@ type node__articleField_related_contentLinksHelpMeta = {
   readonly about: Maybe<Scalars['String']>;
 };
 
+type node__articleField_related_contentLinksHelpMetaFieldSelector = {
+  readonly about: InputMaybe<FieldSelectorEnum>;
+};
+
 type node__articleField_related_contentLinksHelpMetaFilterInput = {
   readonly about: InputMaybe<StringQueryOperatorInput>;
 };
 
-type node__articleFieldsEnum =
-  | 'body.format'
-  | 'body.processed'
-  | 'body.summary'
-  | 'body.value'
-  | 'changed'
-  | 'children'
-  | 'children.children'
-  | 'children.children.children'
-  | 'children.children.children.children'
-  | 'children.children.children.id'
-  | 'children.children.id'
-  | 'children.children.internal.content'
-  | 'children.children.internal.contentDigest'
-  | 'children.children.internal.contentFilePath'
-  | 'children.children.internal.description'
-  | 'children.children.internal.fieldOwners'
-  | 'children.children.internal.ignoreType'
-  | 'children.children.internal.mediaType'
-  | 'children.children.internal.owner'
-  | 'children.children.internal.type'
-  | 'children.children.parent.children'
-  | 'children.children.parent.id'
-  | 'children.id'
-  | 'children.internal.content'
-  | 'children.internal.contentDigest'
-  | 'children.internal.contentFilePath'
-  | 'children.internal.description'
-  | 'children.internal.fieldOwners'
-  | 'children.internal.ignoreType'
-  | 'children.internal.mediaType'
-  | 'children.internal.owner'
-  | 'children.internal.type'
-  | 'children.parent.children'
-  | 'children.parent.children.children'
-  | 'children.parent.children.id'
-  | 'children.parent.id'
-  | 'children.parent.internal.content'
-  | 'children.parent.internal.contentDigest'
-  | 'children.parent.internal.contentFilePath'
-  | 'children.parent.internal.description'
-  | 'children.parent.internal.fieldOwners'
-  | 'children.parent.internal.ignoreType'
-  | 'children.parent.internal.mediaType'
-  | 'children.parent.internal.owner'
-  | 'children.parent.internal.type'
-  | 'children.parent.parent.children'
-  | 'children.parent.parent.id'
-  | 'created'
-  | 'default_langcode'
-  | 'drupal_id'
-  | 'drupal_internal__nid'
-  | 'drupal_internal__vid'
-  | 'field_featured'
-  | 'field_related_content'
-  | 'field_related_content.links.help.href'
-  | 'id'
-  | 'internal.content'
-  | 'internal.contentDigest'
-  | 'internal.contentFilePath'
-  | 'internal.description'
-  | 'internal.fieldOwners'
-  | 'internal.ignoreType'
-  | 'internal.mediaType'
-  | 'internal.owner'
-  | 'internal.type'
-  | 'langcode'
-  | 'parent.children'
-  | 'parent.children.children'
-  | 'parent.children.children.children'
-  | 'parent.children.children.id'
-  | 'parent.children.id'
-  | 'parent.children.internal.content'
-  | 'parent.children.internal.contentDigest'
-  | 'parent.children.internal.contentFilePath'
-  | 'parent.children.internal.description'
-  | 'parent.children.internal.fieldOwners'
-  | 'parent.children.internal.ignoreType'
-  | 'parent.children.internal.mediaType'
-  | 'parent.children.internal.owner'
-  | 'parent.children.internal.type'
-  | 'parent.children.parent.children'
-  | 'parent.children.parent.id'
-  | 'parent.id'
-  | 'parent.internal.content'
-  | 'parent.internal.contentDigest'
-  | 'parent.internal.contentFilePath'
-  | 'parent.internal.description'
-  | 'parent.internal.fieldOwners'
-  | 'parent.internal.ignoreType'
-  | 'parent.internal.mediaType'
-  | 'parent.internal.owner'
-  | 'parent.internal.type'
-  | 'parent.parent.children'
-  | 'parent.parent.children.children'
-  | 'parent.parent.children.id'
-  | 'parent.parent.id'
-  | 'parent.parent.internal.content'
-  | 'parent.parent.internal.contentDigest'
-  | 'parent.parent.internal.contentFilePath'
-  | 'parent.parent.internal.description'
-  | 'parent.parent.internal.fieldOwners'
-  | 'parent.parent.internal.ignoreType'
-  | 'parent.parent.internal.mediaType'
-  | 'parent.parent.internal.owner'
-  | 'parent.parent.internal.type'
-  | 'parent.parent.parent.children'
-  | 'parent.parent.parent.id'
-  | 'path.alias'
-  | 'path.langcode'
-  | 'path.pid'
-  | 'promote'
-  | 'relationships.field_media_article_image.changed'
-  | 'relationships.field_media_article_image.children'
-  | 'relationships.field_media_article_image.children.children'
-  | 'relationships.field_media_article_image.children.id'
-  | 'relationships.field_media_article_image.created'
-  | 'relationships.field_media_article_image.default_langcode'
-  | 'relationships.field_media_article_image.drupal_id'
-  | 'relationships.field_media_article_image.drupal_internal__mid'
-  | 'relationships.field_media_article_image.drupal_internal__vid'
-  | 'relationships.field_media_article_image.field_media_image.alt'
-  | 'relationships.field_media_article_image.field_media_image.height'
-  | 'relationships.field_media_article_image.field_media_image.title'
-  | 'relationships.field_media_article_image.field_media_image.width'
-  | 'relationships.field_media_article_image.id'
-  | 'relationships.field_media_article_image.internal.content'
-  | 'relationships.field_media_article_image.internal.contentDigest'
-  | 'relationships.field_media_article_image.internal.contentFilePath'
-  | 'relationships.field_media_article_image.internal.description'
-  | 'relationships.field_media_article_image.internal.fieldOwners'
-  | 'relationships.field_media_article_image.internal.ignoreType'
-  | 'relationships.field_media_article_image.internal.mediaType'
-  | 'relationships.field_media_article_image.internal.owner'
-  | 'relationships.field_media_article_image.internal.type'
-  | 'relationships.field_media_article_image.langcode'
-  | 'relationships.field_media_article_image.name'
-  | 'relationships.field_media_article_image.parent.children'
-  | 'relationships.field_media_article_image.parent.id'
-  | 'relationships.field_media_article_image.path.alias'
-  | 'relationships.field_media_article_image.path.langcode'
-  | 'relationships.field_media_article_image.path.pid'
-  | 'relationships.field_media_article_image.relationships.node__article'
-  | 'relationships.field_media_article_image.relationships.node__event'
-  | 'relationships.field_media_article_image.relationships.node__kcvv_tv'
-  | 'relationships.field_media_article_image.relationships.node__page'
-  | 'relationships.field_media_article_image.relationships.node__sponsor'
-  | 'relationships.field_media_article_image.relationships.node__team'
-  | 'relationships.field_media_article_image.revision_created'
-  | 'relationships.field_media_article_image.revision_translation_affected'
-  | 'relationships.field_media_article_image.status'
-  | 'relationships.field_media_article_image.thumbnail.alt'
-  | 'relationships.field_media_article_image.thumbnail.height'
-  | 'relationships.field_media_article_image.thumbnail.width'
-  | 'relationships.field_tags'
-  | 'relationships.field_tags.changed'
-  | 'relationships.field_tags.children'
-  | 'relationships.field_tags.children.children'
-  | 'relationships.field_tags.children.id'
-  | 'relationships.field_tags.default_langcode'
-  | 'relationships.field_tags.drupal_id'
-  | 'relationships.field_tags.drupal_internal__revision_id'
-  | 'relationships.field_tags.drupal_internal__tid'
-  | 'relationships.field_tags.id'
-  | 'relationships.field_tags.internal.content'
-  | 'relationships.field_tags.internal.contentDigest'
-  | 'relationships.field_tags.internal.contentFilePath'
-  | 'relationships.field_tags.internal.description'
-  | 'relationships.field_tags.internal.fieldOwners'
-  | 'relationships.field_tags.internal.ignoreType'
-  | 'relationships.field_tags.internal.mediaType'
-  | 'relationships.field_tags.internal.owner'
-  | 'relationships.field_tags.internal.type'
-  | 'relationships.field_tags.langcode'
-  | 'relationships.field_tags.name'
-  | 'relationships.field_tags.parent.children'
-  | 'relationships.field_tags.parent.id'
-  | 'relationships.field_tags.path.alias'
-  | 'relationships.field_tags.path.langcode'
-  | 'relationships.field_tags.path.pid'
-  | 'relationships.field_tags.relationships.node__article'
-  | 'relationships.field_tags.revision_created'
-  | 'relationships.field_tags.revision_translation_affected'
-  | 'relationships.field_tags.status'
-  | 'relationships.field_tags.weight'
-  | 'relationships.node__article'
-  | 'relationships.node__article.body.format'
-  | 'relationships.node__article.body.processed'
-  | 'relationships.node__article.body.summary'
-  | 'relationships.node__article.body.value'
-  | 'relationships.node__article.changed'
-  | 'relationships.node__article.children'
-  | 'relationships.node__article.children.children'
-  | 'relationships.node__article.children.id'
-  | 'relationships.node__article.created'
-  | 'relationships.node__article.default_langcode'
-  | 'relationships.node__article.drupal_id'
-  | 'relationships.node__article.drupal_internal__nid'
-  | 'relationships.node__article.drupal_internal__vid'
-  | 'relationships.node__article.field_featured'
-  | 'relationships.node__article.field_related_content'
-  | 'relationships.node__article.id'
-  | 'relationships.node__article.internal.content'
-  | 'relationships.node__article.internal.contentDigest'
-  | 'relationships.node__article.internal.contentFilePath'
-  | 'relationships.node__article.internal.description'
-  | 'relationships.node__article.internal.fieldOwners'
-  | 'relationships.node__article.internal.ignoreType'
-  | 'relationships.node__article.internal.mediaType'
-  | 'relationships.node__article.internal.owner'
-  | 'relationships.node__article.internal.type'
-  | 'relationships.node__article.langcode'
-  | 'relationships.node__article.parent.children'
-  | 'relationships.node__article.parent.id'
-  | 'relationships.node__article.path.alias'
-  | 'relationships.node__article.path.langcode'
-  | 'relationships.node__article.path.pid'
-  | 'relationships.node__article.promote'
-  | 'relationships.node__article.relationships.field_tags'
-  | 'relationships.node__article.relationships.node__article'
-  | 'relationships.node__article.revision_timestamp'
-  | 'relationships.node__article.revision_translation_affected'
-  | 'relationships.node__article.status'
-  | 'relationships.node__article.sticky'
-  | 'relationships.node__article.title'
-  | 'relationships.revision_uid.children'
-  | 'relationships.revision_uid.children.children'
-  | 'relationships.revision_uid.children.id'
-  | 'relationships.revision_uid.display_name'
-  | 'relationships.revision_uid.drupal_id'
-  | 'relationships.revision_uid.id'
-  | 'relationships.revision_uid.internal.content'
-  | 'relationships.revision_uid.internal.contentDigest'
-  | 'relationships.revision_uid.internal.contentFilePath'
-  | 'relationships.revision_uid.internal.description'
-  | 'relationships.revision_uid.internal.fieldOwners'
-  | 'relationships.revision_uid.internal.ignoreType'
-  | 'relationships.revision_uid.internal.mediaType'
-  | 'relationships.revision_uid.internal.owner'
-  | 'relationships.revision_uid.internal.type'
-  | 'relationships.revision_uid.parent.children'
-  | 'relationships.revision_uid.parent.id'
-  | 'relationships.revision_uid.relationships.file__file'
-  | 'relationships.revision_uid.relationships.media__image'
-  | 'relationships.revision_uid.relationships.node__article'
-  | 'relationships.revision_uid.relationships.node__event'
-  | 'relationships.revision_uid.relationships.node__kcvv_tv'
-  | 'relationships.revision_uid.relationships.node__page'
-  | 'relationships.revision_uid.relationships.node__player'
-  | 'relationships.revision_uid.relationships.node__potw'
-  | 'relationships.revision_uid.relationships.node__sponsor'
-  | 'relationships.revision_uid.relationships.node__staff'
-  | 'relationships.revision_uid.relationships.node__team'
-  | 'relationships.uid.children'
-  | 'relationships.uid.children.children'
-  | 'relationships.uid.children.id'
-  | 'relationships.uid.display_name'
-  | 'relationships.uid.drupal_id'
-  | 'relationships.uid.id'
-  | 'relationships.uid.internal.content'
-  | 'relationships.uid.internal.contentDigest'
-  | 'relationships.uid.internal.contentFilePath'
-  | 'relationships.uid.internal.description'
-  | 'relationships.uid.internal.fieldOwners'
-  | 'relationships.uid.internal.ignoreType'
-  | 'relationships.uid.internal.mediaType'
-  | 'relationships.uid.internal.owner'
-  | 'relationships.uid.internal.type'
-  | 'relationships.uid.parent.children'
-  | 'relationships.uid.parent.id'
-  | 'relationships.uid.relationships.file__file'
-  | 'relationships.uid.relationships.media__image'
-  | 'relationships.uid.relationships.node__article'
-  | 'relationships.uid.relationships.node__event'
-  | 'relationships.uid.relationships.node__kcvv_tv'
-  | 'relationships.uid.relationships.node__page'
-  | 'relationships.uid.relationships.node__player'
-  | 'relationships.uid.relationships.node__potw'
-  | 'relationships.uid.relationships.node__sponsor'
-  | 'relationships.uid.relationships.node__staff'
-  | 'relationships.uid.relationships.node__team'
-  | 'revision_timestamp'
-  | 'revision_translation_affected'
-  | 'status'
-  | 'sticky'
-  | 'title';
+type node__articleField_related_contentLinksHelpMetaSortInput = {
+  readonly about: InputMaybe<SortOrderEnum>;
+};
+
+type node__articleField_related_contentLinksHelpSortInput = {
+  readonly href: InputMaybe<SortOrderEnum>;
+  readonly meta: InputMaybe<node__articleField_related_contentLinksHelpMetaSortInput>;
+};
+
+type node__articleField_related_contentLinksSortInput = {
+  readonly help: InputMaybe<node__articleField_related_contentLinksHelpSortInput>;
+};
+
+type node__articleField_related_contentSortInput = {
+  readonly links: InputMaybe<node__articleField_related_contentLinksSortInput>;
+};
 
 type node__articleFilterInput = {
   readonly body: InputMaybe<node__articleBodyFilterInput>;
@@ -5343,29 +3665,29 @@ type node__articleGroupConnection = {
 
 
 type node__articleGroupConnection_distinctArgs = {
-  field: node__articleFieldsEnum;
+  field: node__articleFieldSelector;
 };
 
 
 type node__articleGroupConnection_groupArgs = {
-  field: node__articleFieldsEnum;
+  field: node__articleFieldSelector;
   limit: InputMaybe<Scalars['Int']>;
   skip: InputMaybe<Scalars['Int']>;
 };
 
 
 type node__articleGroupConnection_maxArgs = {
-  field: node__articleFieldsEnum;
+  field: node__articleFieldSelector;
 };
 
 
 type node__articleGroupConnection_minArgs = {
-  field: node__articleFieldsEnum;
+  field: node__articleFieldSelector;
 };
 
 
 type node__articleGroupConnection_sumArgs = {
-  field: node__articleFieldsEnum;
+  field: node__articleFieldSelector;
 };
 
 type node__articlePath = {
@@ -5374,10 +3696,22 @@ type node__articlePath = {
   readonly pid: Maybe<Scalars['Int']>;
 };
 
+type node__articlePathFieldSelector = {
+  readonly alias: InputMaybe<FieldSelectorEnum>;
+  readonly langcode: InputMaybe<FieldSelectorEnum>;
+  readonly pid: InputMaybe<FieldSelectorEnum>;
+};
+
 type node__articlePathFilterInput = {
   readonly alias: InputMaybe<StringQueryOperatorInput>;
   readonly langcode: InputMaybe<StringQueryOperatorInput>;
   readonly pid: InputMaybe<IntQueryOperatorInput>;
+};
+
+type node__articlePathSortInput = {
+  readonly alias: InputMaybe<SortOrderEnum>;
+  readonly langcode: InputMaybe<SortOrderEnum>;
+  readonly pid: InputMaybe<SortOrderEnum>;
 };
 
 type node__articleRelationships = {
@@ -5389,6 +3723,14 @@ type node__articleRelationships = {
   readonly uid: Maybe<user__user>;
 };
 
+type node__articleRelationshipsFieldSelector = {
+  readonly field_media_article_image: InputMaybe<media__imageFieldSelector>;
+  readonly field_tags: InputMaybe<taxonomy_term__categoryFieldSelector>;
+  readonly node__article: InputMaybe<node__articleFieldSelector>;
+  readonly revision_uid: InputMaybe<user__userFieldSelector>;
+  readonly uid: InputMaybe<user__userFieldSelector>;
+};
+
 type node__articleRelationshipsFilterInput = {
   readonly field_media_article_image: InputMaybe<media__imageFilterInput>;
   readonly field_tags: InputMaybe<taxonomy_term__categoryFilterListInput>;
@@ -5397,9 +3739,37 @@ type node__articleRelationshipsFilterInput = {
   readonly uid: InputMaybe<user__userFilterInput>;
 };
 
+type node__articleRelationshipsSortInput = {
+  readonly field_media_article_image: InputMaybe<media__imageSortInput>;
+  readonly field_tags: InputMaybe<taxonomy_term__categorySortInput>;
+  readonly node__article: InputMaybe<node__articleSortInput>;
+  readonly revision_uid: InputMaybe<user__userSortInput>;
+  readonly uid: InputMaybe<user__userSortInput>;
+};
+
 type node__articleSortInput = {
-  readonly fields: InputMaybe<ReadonlyArray<InputMaybe<node__articleFieldsEnum>>>;
-  readonly order: InputMaybe<ReadonlyArray<InputMaybe<SortOrderEnum>>>;
+  readonly body: InputMaybe<node__articleBodySortInput>;
+  readonly changed: InputMaybe<SortOrderEnum>;
+  readonly children: InputMaybe<NodeSortInput>;
+  readonly created: InputMaybe<SortOrderEnum>;
+  readonly default_langcode: InputMaybe<SortOrderEnum>;
+  readonly drupal_id: InputMaybe<SortOrderEnum>;
+  readonly drupal_internal__nid: InputMaybe<SortOrderEnum>;
+  readonly drupal_internal__vid: InputMaybe<SortOrderEnum>;
+  readonly field_featured: InputMaybe<SortOrderEnum>;
+  readonly field_related_content: InputMaybe<node__articleField_related_contentSortInput>;
+  readonly id: InputMaybe<SortOrderEnum>;
+  readonly internal: InputMaybe<InternalSortInput>;
+  readonly langcode: InputMaybe<SortOrderEnum>;
+  readonly parent: InputMaybe<NodeSortInput>;
+  readonly path: InputMaybe<node__articlePathSortInput>;
+  readonly promote: InputMaybe<SortOrderEnum>;
+  readonly relationships: InputMaybe<node__articleRelationshipsSortInput>;
+  readonly revision_timestamp: InputMaybe<SortOrderEnum>;
+  readonly revision_translation_affected: InputMaybe<SortOrderEnum>;
+  readonly status: InputMaybe<SortOrderEnum>;
+  readonly sticky: InputMaybe<SortOrderEnum>;
+  readonly title: InputMaybe<SortOrderEnum>;
 };
 
 type node__articlenode__playernode__staffnode__teamUnion = node__article | node__player | node__staff | node__team;
@@ -5475,35 +3845,60 @@ type node__eventConnection = {
 
 
 type node__eventConnection_distinctArgs = {
-  field: node__eventFieldsEnum;
+  field: node__eventFieldSelector;
 };
 
 
 type node__eventConnection_groupArgs = {
-  field: node__eventFieldsEnum;
+  field: node__eventFieldSelector;
   limit: InputMaybe<Scalars['Int']>;
   skip: InputMaybe<Scalars['Int']>;
 };
 
 
 type node__eventConnection_maxArgs = {
-  field: node__eventFieldsEnum;
+  field: node__eventFieldSelector;
 };
 
 
 type node__eventConnection_minArgs = {
-  field: node__eventFieldsEnum;
+  field: node__eventFieldSelector;
 };
 
 
 type node__eventConnection_sumArgs = {
-  field: node__eventFieldsEnum;
+  field: node__eventFieldSelector;
 };
 
 type node__eventEdge = {
   readonly next: Maybe<node__event>;
   readonly node: node__event;
   readonly previous: Maybe<node__event>;
+};
+
+type node__eventFieldSelector = {
+  readonly changed: InputMaybe<FieldSelectorEnum>;
+  readonly children: InputMaybe<NodeFieldSelector>;
+  readonly created: InputMaybe<FieldSelectorEnum>;
+  readonly default_langcode: InputMaybe<FieldSelectorEnum>;
+  readonly drupal_id: InputMaybe<FieldSelectorEnum>;
+  readonly drupal_internal__nid: InputMaybe<FieldSelectorEnum>;
+  readonly drupal_internal__vid: InputMaybe<FieldSelectorEnum>;
+  readonly field_daterange: InputMaybe<node__eventField_daterangeFieldSelector>;
+  readonly field_event_link: InputMaybe<node__eventField_event_linkFieldSelector>;
+  readonly id: InputMaybe<FieldSelectorEnum>;
+  readonly internal: InputMaybe<InternalFieldSelector>;
+  readonly langcode: InputMaybe<FieldSelectorEnum>;
+  readonly parent: InputMaybe<NodeFieldSelector>;
+  readonly path: InputMaybe<node__eventPathFieldSelector>;
+  readonly promote: InputMaybe<FieldSelectorEnum>;
+  readonly relationships: InputMaybe<node__eventRelationshipsFieldSelector>;
+  readonly revision_timestamp: InputMaybe<FieldSelectorEnum>;
+  readonly revision_translation_affected: InputMaybe<FieldSelectorEnum>;
+  readonly status: InputMaybe<FieldSelectorEnum>;
+  readonly sticky: InputMaybe<FieldSelectorEnum>;
+  readonly title: InputMaybe<FieldSelectorEnum>;
+  readonly unpublish_on: InputMaybe<FieldSelectorEnum>;
 };
 
 type node__eventField_daterange = {
@@ -5527,9 +3922,19 @@ type node__eventField_daterange_valueArgs = {
   locale: InputMaybe<Scalars['String']>;
 };
 
+type node__eventField_daterangeFieldSelector = {
+  readonly end_value: InputMaybe<FieldSelectorEnum>;
+  readonly value: InputMaybe<FieldSelectorEnum>;
+};
+
 type node__eventField_daterangeFilterInput = {
   readonly end_value: InputMaybe<DateQueryOperatorInput>;
   readonly value: InputMaybe<DateQueryOperatorInput>;
+};
+
+type node__eventField_daterangeSortInput = {
+  readonly end_value: InputMaybe<SortOrderEnum>;
+  readonly value: InputMaybe<SortOrderEnum>;
 };
 
 type node__eventField_event_link = {
@@ -5537,224 +3942,20 @@ type node__eventField_event_link = {
   readonly uri: Maybe<Scalars['String']>;
 };
 
+type node__eventField_event_linkFieldSelector = {
+  readonly title: InputMaybe<FieldSelectorEnum>;
+  readonly uri: InputMaybe<FieldSelectorEnum>;
+};
+
 type node__eventField_event_linkFilterInput = {
   readonly title: InputMaybe<StringQueryOperatorInput>;
   readonly uri: InputMaybe<StringQueryOperatorInput>;
 };
 
-type node__eventFieldsEnum =
-  | 'changed'
-  | 'children'
-  | 'children.children'
-  | 'children.children.children'
-  | 'children.children.children.children'
-  | 'children.children.children.id'
-  | 'children.children.id'
-  | 'children.children.internal.content'
-  | 'children.children.internal.contentDigest'
-  | 'children.children.internal.contentFilePath'
-  | 'children.children.internal.description'
-  | 'children.children.internal.fieldOwners'
-  | 'children.children.internal.ignoreType'
-  | 'children.children.internal.mediaType'
-  | 'children.children.internal.owner'
-  | 'children.children.internal.type'
-  | 'children.children.parent.children'
-  | 'children.children.parent.id'
-  | 'children.id'
-  | 'children.internal.content'
-  | 'children.internal.contentDigest'
-  | 'children.internal.contentFilePath'
-  | 'children.internal.description'
-  | 'children.internal.fieldOwners'
-  | 'children.internal.ignoreType'
-  | 'children.internal.mediaType'
-  | 'children.internal.owner'
-  | 'children.internal.type'
-  | 'children.parent.children'
-  | 'children.parent.children.children'
-  | 'children.parent.children.id'
-  | 'children.parent.id'
-  | 'children.parent.internal.content'
-  | 'children.parent.internal.contentDigest'
-  | 'children.parent.internal.contentFilePath'
-  | 'children.parent.internal.description'
-  | 'children.parent.internal.fieldOwners'
-  | 'children.parent.internal.ignoreType'
-  | 'children.parent.internal.mediaType'
-  | 'children.parent.internal.owner'
-  | 'children.parent.internal.type'
-  | 'children.parent.parent.children'
-  | 'children.parent.parent.id'
-  | 'created'
-  | 'default_langcode'
-  | 'drupal_id'
-  | 'drupal_internal__nid'
-  | 'drupal_internal__vid'
-  | 'field_daterange.end_value'
-  | 'field_daterange.value'
-  | 'field_event_link.title'
-  | 'field_event_link.uri'
-  | 'id'
-  | 'internal.content'
-  | 'internal.contentDigest'
-  | 'internal.contentFilePath'
-  | 'internal.description'
-  | 'internal.fieldOwners'
-  | 'internal.ignoreType'
-  | 'internal.mediaType'
-  | 'internal.owner'
-  | 'internal.type'
-  | 'langcode'
-  | 'parent.children'
-  | 'parent.children.children'
-  | 'parent.children.children.children'
-  | 'parent.children.children.id'
-  | 'parent.children.id'
-  | 'parent.children.internal.content'
-  | 'parent.children.internal.contentDigest'
-  | 'parent.children.internal.contentFilePath'
-  | 'parent.children.internal.description'
-  | 'parent.children.internal.fieldOwners'
-  | 'parent.children.internal.ignoreType'
-  | 'parent.children.internal.mediaType'
-  | 'parent.children.internal.owner'
-  | 'parent.children.internal.type'
-  | 'parent.children.parent.children'
-  | 'parent.children.parent.id'
-  | 'parent.id'
-  | 'parent.internal.content'
-  | 'parent.internal.contentDigest'
-  | 'parent.internal.contentFilePath'
-  | 'parent.internal.description'
-  | 'parent.internal.fieldOwners'
-  | 'parent.internal.ignoreType'
-  | 'parent.internal.mediaType'
-  | 'parent.internal.owner'
-  | 'parent.internal.type'
-  | 'parent.parent.children'
-  | 'parent.parent.children.children'
-  | 'parent.parent.children.id'
-  | 'parent.parent.id'
-  | 'parent.parent.internal.content'
-  | 'parent.parent.internal.contentDigest'
-  | 'parent.parent.internal.contentFilePath'
-  | 'parent.parent.internal.description'
-  | 'parent.parent.internal.fieldOwners'
-  | 'parent.parent.internal.ignoreType'
-  | 'parent.parent.internal.mediaType'
-  | 'parent.parent.internal.owner'
-  | 'parent.parent.internal.type'
-  | 'parent.parent.parent.children'
-  | 'parent.parent.parent.id'
-  | 'path.alias'
-  | 'path.langcode'
-  | 'path.pid'
-  | 'promote'
-  | 'relationships.field_media_image.changed'
-  | 'relationships.field_media_image.children'
-  | 'relationships.field_media_image.children.children'
-  | 'relationships.field_media_image.children.id'
-  | 'relationships.field_media_image.created'
-  | 'relationships.field_media_image.default_langcode'
-  | 'relationships.field_media_image.drupal_id'
-  | 'relationships.field_media_image.drupal_internal__mid'
-  | 'relationships.field_media_image.drupal_internal__vid'
-  | 'relationships.field_media_image.field_media_image.alt'
-  | 'relationships.field_media_image.field_media_image.height'
-  | 'relationships.field_media_image.field_media_image.title'
-  | 'relationships.field_media_image.field_media_image.width'
-  | 'relationships.field_media_image.id'
-  | 'relationships.field_media_image.internal.content'
-  | 'relationships.field_media_image.internal.contentDigest'
-  | 'relationships.field_media_image.internal.contentFilePath'
-  | 'relationships.field_media_image.internal.description'
-  | 'relationships.field_media_image.internal.fieldOwners'
-  | 'relationships.field_media_image.internal.ignoreType'
-  | 'relationships.field_media_image.internal.mediaType'
-  | 'relationships.field_media_image.internal.owner'
-  | 'relationships.field_media_image.internal.type'
-  | 'relationships.field_media_image.langcode'
-  | 'relationships.field_media_image.name'
-  | 'relationships.field_media_image.parent.children'
-  | 'relationships.field_media_image.parent.id'
-  | 'relationships.field_media_image.path.alias'
-  | 'relationships.field_media_image.path.langcode'
-  | 'relationships.field_media_image.path.pid'
-  | 'relationships.field_media_image.relationships.node__article'
-  | 'relationships.field_media_image.relationships.node__event'
-  | 'relationships.field_media_image.relationships.node__kcvv_tv'
-  | 'relationships.field_media_image.relationships.node__page'
-  | 'relationships.field_media_image.relationships.node__sponsor'
-  | 'relationships.field_media_image.relationships.node__team'
-  | 'relationships.field_media_image.revision_created'
-  | 'relationships.field_media_image.revision_translation_affected'
-  | 'relationships.field_media_image.status'
-  | 'relationships.field_media_image.thumbnail.alt'
-  | 'relationships.field_media_image.thumbnail.height'
-  | 'relationships.field_media_image.thumbnail.width'
-  | 'relationships.revision_uid.children'
-  | 'relationships.revision_uid.children.children'
-  | 'relationships.revision_uid.children.id'
-  | 'relationships.revision_uid.display_name'
-  | 'relationships.revision_uid.drupal_id'
-  | 'relationships.revision_uid.id'
-  | 'relationships.revision_uid.internal.content'
-  | 'relationships.revision_uid.internal.contentDigest'
-  | 'relationships.revision_uid.internal.contentFilePath'
-  | 'relationships.revision_uid.internal.description'
-  | 'relationships.revision_uid.internal.fieldOwners'
-  | 'relationships.revision_uid.internal.ignoreType'
-  | 'relationships.revision_uid.internal.mediaType'
-  | 'relationships.revision_uid.internal.owner'
-  | 'relationships.revision_uid.internal.type'
-  | 'relationships.revision_uid.parent.children'
-  | 'relationships.revision_uid.parent.id'
-  | 'relationships.revision_uid.relationships.file__file'
-  | 'relationships.revision_uid.relationships.media__image'
-  | 'relationships.revision_uid.relationships.node__article'
-  | 'relationships.revision_uid.relationships.node__event'
-  | 'relationships.revision_uid.relationships.node__kcvv_tv'
-  | 'relationships.revision_uid.relationships.node__page'
-  | 'relationships.revision_uid.relationships.node__player'
-  | 'relationships.revision_uid.relationships.node__potw'
-  | 'relationships.revision_uid.relationships.node__sponsor'
-  | 'relationships.revision_uid.relationships.node__staff'
-  | 'relationships.revision_uid.relationships.node__team'
-  | 'relationships.uid.children'
-  | 'relationships.uid.children.children'
-  | 'relationships.uid.children.id'
-  | 'relationships.uid.display_name'
-  | 'relationships.uid.drupal_id'
-  | 'relationships.uid.id'
-  | 'relationships.uid.internal.content'
-  | 'relationships.uid.internal.contentDigest'
-  | 'relationships.uid.internal.contentFilePath'
-  | 'relationships.uid.internal.description'
-  | 'relationships.uid.internal.fieldOwners'
-  | 'relationships.uid.internal.ignoreType'
-  | 'relationships.uid.internal.mediaType'
-  | 'relationships.uid.internal.owner'
-  | 'relationships.uid.internal.type'
-  | 'relationships.uid.parent.children'
-  | 'relationships.uid.parent.id'
-  | 'relationships.uid.relationships.file__file'
-  | 'relationships.uid.relationships.media__image'
-  | 'relationships.uid.relationships.node__article'
-  | 'relationships.uid.relationships.node__event'
-  | 'relationships.uid.relationships.node__kcvv_tv'
-  | 'relationships.uid.relationships.node__page'
-  | 'relationships.uid.relationships.node__player'
-  | 'relationships.uid.relationships.node__potw'
-  | 'relationships.uid.relationships.node__sponsor'
-  | 'relationships.uid.relationships.node__staff'
-  | 'relationships.uid.relationships.node__team'
-  | 'revision_timestamp'
-  | 'revision_translation_affected'
-  | 'status'
-  | 'sticky'
-  | 'title'
-  | 'unpublish_on';
+type node__eventField_event_linkSortInput = {
+  readonly title: InputMaybe<SortOrderEnum>;
+  readonly uri: InputMaybe<SortOrderEnum>;
+};
 
 type node__eventFilterInput = {
   readonly changed: InputMaybe<DateQueryOperatorInput>;
@@ -5801,29 +4002,29 @@ type node__eventGroupConnection = {
 
 
 type node__eventGroupConnection_distinctArgs = {
-  field: node__eventFieldsEnum;
+  field: node__eventFieldSelector;
 };
 
 
 type node__eventGroupConnection_groupArgs = {
-  field: node__eventFieldsEnum;
+  field: node__eventFieldSelector;
   limit: InputMaybe<Scalars['Int']>;
   skip: InputMaybe<Scalars['Int']>;
 };
 
 
 type node__eventGroupConnection_maxArgs = {
-  field: node__eventFieldsEnum;
+  field: node__eventFieldSelector;
 };
 
 
 type node__eventGroupConnection_minArgs = {
-  field: node__eventFieldsEnum;
+  field: node__eventFieldSelector;
 };
 
 
 type node__eventGroupConnection_sumArgs = {
-  field: node__eventFieldsEnum;
+  field: node__eventFieldSelector;
 };
 
 type node__eventPath = {
@@ -5832,10 +4033,22 @@ type node__eventPath = {
   readonly pid: Maybe<Scalars['Int']>;
 };
 
+type node__eventPathFieldSelector = {
+  readonly alias: InputMaybe<FieldSelectorEnum>;
+  readonly langcode: InputMaybe<FieldSelectorEnum>;
+  readonly pid: InputMaybe<FieldSelectorEnum>;
+};
+
 type node__eventPathFilterInput = {
   readonly alias: InputMaybe<StringQueryOperatorInput>;
   readonly langcode: InputMaybe<StringQueryOperatorInput>;
   readonly pid: InputMaybe<IntQueryOperatorInput>;
+};
+
+type node__eventPathSortInput = {
+  readonly alias: InputMaybe<SortOrderEnum>;
+  readonly langcode: InputMaybe<SortOrderEnum>;
+  readonly pid: InputMaybe<SortOrderEnum>;
 };
 
 type node__eventRelationships = {
@@ -5844,15 +4057,47 @@ type node__eventRelationships = {
   readonly uid: Maybe<user__user>;
 };
 
+type node__eventRelationshipsFieldSelector = {
+  readonly field_media_image: InputMaybe<media__imageFieldSelector>;
+  readonly revision_uid: InputMaybe<user__userFieldSelector>;
+  readonly uid: InputMaybe<user__userFieldSelector>;
+};
+
 type node__eventRelationshipsFilterInput = {
   readonly field_media_image: InputMaybe<media__imageFilterInput>;
   readonly revision_uid: InputMaybe<user__userFilterInput>;
   readonly uid: InputMaybe<user__userFilterInput>;
 };
 
+type node__eventRelationshipsSortInput = {
+  readonly field_media_image: InputMaybe<media__imageSortInput>;
+  readonly revision_uid: InputMaybe<user__userSortInput>;
+  readonly uid: InputMaybe<user__userSortInput>;
+};
+
 type node__eventSortInput = {
-  readonly fields: InputMaybe<ReadonlyArray<InputMaybe<node__eventFieldsEnum>>>;
-  readonly order: InputMaybe<ReadonlyArray<InputMaybe<SortOrderEnum>>>;
+  readonly changed: InputMaybe<SortOrderEnum>;
+  readonly children: InputMaybe<NodeSortInput>;
+  readonly created: InputMaybe<SortOrderEnum>;
+  readonly default_langcode: InputMaybe<SortOrderEnum>;
+  readonly drupal_id: InputMaybe<SortOrderEnum>;
+  readonly drupal_internal__nid: InputMaybe<SortOrderEnum>;
+  readonly drupal_internal__vid: InputMaybe<SortOrderEnum>;
+  readonly field_daterange: InputMaybe<node__eventField_daterangeSortInput>;
+  readonly field_event_link: InputMaybe<node__eventField_event_linkSortInput>;
+  readonly id: InputMaybe<SortOrderEnum>;
+  readonly internal: InputMaybe<InternalSortInput>;
+  readonly langcode: InputMaybe<SortOrderEnum>;
+  readonly parent: InputMaybe<NodeSortInput>;
+  readonly path: InputMaybe<node__eventPathSortInput>;
+  readonly promote: InputMaybe<SortOrderEnum>;
+  readonly relationships: InputMaybe<node__eventRelationshipsSortInput>;
+  readonly revision_timestamp: InputMaybe<SortOrderEnum>;
+  readonly revision_translation_affected: InputMaybe<SortOrderEnum>;
+  readonly status: InputMaybe<SortOrderEnum>;
+  readonly sticky: InputMaybe<SortOrderEnum>;
+  readonly title: InputMaybe<SortOrderEnum>;
+  readonly unpublish_on: InputMaybe<SortOrderEnum>;
 };
 
 type node__kcvv_tv = Node & {
@@ -5916,29 +4161,29 @@ type node__kcvv_tvConnection = {
 
 
 type node__kcvv_tvConnection_distinctArgs = {
-  field: node__kcvv_tvFieldsEnum;
+  field: node__kcvv_tvFieldSelector;
 };
 
 
 type node__kcvv_tvConnection_groupArgs = {
-  field: node__kcvv_tvFieldsEnum;
+  field: node__kcvv_tvFieldSelector;
   limit: InputMaybe<Scalars['Int']>;
   skip: InputMaybe<Scalars['Int']>;
 };
 
 
 type node__kcvv_tvConnection_maxArgs = {
-  field: node__kcvv_tvFieldsEnum;
+  field: node__kcvv_tvFieldSelector;
 };
 
 
 type node__kcvv_tvConnection_minArgs = {
-  field: node__kcvv_tvFieldsEnum;
+  field: node__kcvv_tvFieldSelector;
 };
 
 
 type node__kcvv_tvConnection_sumArgs = {
-  field: node__kcvv_tvFieldsEnum;
+  field: node__kcvv_tvFieldSelector;
 };
 
 type node__kcvv_tvEdge = {
@@ -5947,9 +4192,37 @@ type node__kcvv_tvEdge = {
   readonly previous: Maybe<node__kcvv_tv>;
 };
 
+type node__kcvv_tvFieldSelector = {
+  readonly changed: InputMaybe<FieldSelectorEnum>;
+  readonly children: InputMaybe<NodeFieldSelector>;
+  readonly created: InputMaybe<FieldSelectorEnum>;
+  readonly default_langcode: InputMaybe<FieldSelectorEnum>;
+  readonly drupal_id: InputMaybe<FieldSelectorEnum>;
+  readonly drupal_internal__nid: InputMaybe<FieldSelectorEnum>;
+  readonly drupal_internal__vid: InputMaybe<FieldSelectorEnum>;
+  readonly field_website: InputMaybe<node__kcvv_tvField_websiteFieldSelector>;
+  readonly id: InputMaybe<FieldSelectorEnum>;
+  readonly internal: InputMaybe<InternalFieldSelector>;
+  readonly langcode: InputMaybe<FieldSelectorEnum>;
+  readonly parent: InputMaybe<NodeFieldSelector>;
+  readonly path: InputMaybe<node__kcvv_tvPathFieldSelector>;
+  readonly promote: InputMaybe<FieldSelectorEnum>;
+  readonly relationships: InputMaybe<node__kcvv_tvRelationshipsFieldSelector>;
+  readonly revision_timestamp: InputMaybe<FieldSelectorEnum>;
+  readonly revision_translation_affected: InputMaybe<FieldSelectorEnum>;
+  readonly status: InputMaybe<FieldSelectorEnum>;
+  readonly sticky: InputMaybe<FieldSelectorEnum>;
+  readonly title: InputMaybe<FieldSelectorEnum>;
+};
+
 type node__kcvv_tvField_website = {
   readonly title: Maybe<Scalars['String']>;
   readonly uri: Maybe<Scalars['String']>;
+};
+
+type node__kcvv_tvField_websiteFieldSelector = {
+  readonly title: InputMaybe<FieldSelectorEnum>;
+  readonly uri: InputMaybe<FieldSelectorEnum>;
 };
 
 type node__kcvv_tvField_websiteFilterInput = {
@@ -5957,216 +4230,10 @@ type node__kcvv_tvField_websiteFilterInput = {
   readonly uri: InputMaybe<StringQueryOperatorInput>;
 };
 
-type node__kcvv_tvFieldsEnum =
-  | 'changed'
-  | 'children'
-  | 'children.children'
-  | 'children.children.children'
-  | 'children.children.children.children'
-  | 'children.children.children.id'
-  | 'children.children.id'
-  | 'children.children.internal.content'
-  | 'children.children.internal.contentDigest'
-  | 'children.children.internal.contentFilePath'
-  | 'children.children.internal.description'
-  | 'children.children.internal.fieldOwners'
-  | 'children.children.internal.ignoreType'
-  | 'children.children.internal.mediaType'
-  | 'children.children.internal.owner'
-  | 'children.children.internal.type'
-  | 'children.children.parent.children'
-  | 'children.children.parent.id'
-  | 'children.id'
-  | 'children.internal.content'
-  | 'children.internal.contentDigest'
-  | 'children.internal.contentFilePath'
-  | 'children.internal.description'
-  | 'children.internal.fieldOwners'
-  | 'children.internal.ignoreType'
-  | 'children.internal.mediaType'
-  | 'children.internal.owner'
-  | 'children.internal.type'
-  | 'children.parent.children'
-  | 'children.parent.children.children'
-  | 'children.parent.children.id'
-  | 'children.parent.id'
-  | 'children.parent.internal.content'
-  | 'children.parent.internal.contentDigest'
-  | 'children.parent.internal.contentFilePath'
-  | 'children.parent.internal.description'
-  | 'children.parent.internal.fieldOwners'
-  | 'children.parent.internal.ignoreType'
-  | 'children.parent.internal.mediaType'
-  | 'children.parent.internal.owner'
-  | 'children.parent.internal.type'
-  | 'children.parent.parent.children'
-  | 'children.parent.parent.id'
-  | 'created'
-  | 'default_langcode'
-  | 'drupal_id'
-  | 'drupal_internal__nid'
-  | 'drupal_internal__vid'
-  | 'field_website.title'
-  | 'field_website.uri'
-  | 'id'
-  | 'internal.content'
-  | 'internal.contentDigest'
-  | 'internal.contentFilePath'
-  | 'internal.description'
-  | 'internal.fieldOwners'
-  | 'internal.ignoreType'
-  | 'internal.mediaType'
-  | 'internal.owner'
-  | 'internal.type'
-  | 'langcode'
-  | 'parent.children'
-  | 'parent.children.children'
-  | 'parent.children.children.children'
-  | 'parent.children.children.id'
-  | 'parent.children.id'
-  | 'parent.children.internal.content'
-  | 'parent.children.internal.contentDigest'
-  | 'parent.children.internal.contentFilePath'
-  | 'parent.children.internal.description'
-  | 'parent.children.internal.fieldOwners'
-  | 'parent.children.internal.ignoreType'
-  | 'parent.children.internal.mediaType'
-  | 'parent.children.internal.owner'
-  | 'parent.children.internal.type'
-  | 'parent.children.parent.children'
-  | 'parent.children.parent.id'
-  | 'parent.id'
-  | 'parent.internal.content'
-  | 'parent.internal.contentDigest'
-  | 'parent.internal.contentFilePath'
-  | 'parent.internal.description'
-  | 'parent.internal.fieldOwners'
-  | 'parent.internal.ignoreType'
-  | 'parent.internal.mediaType'
-  | 'parent.internal.owner'
-  | 'parent.internal.type'
-  | 'parent.parent.children'
-  | 'parent.parent.children.children'
-  | 'parent.parent.children.id'
-  | 'parent.parent.id'
-  | 'parent.parent.internal.content'
-  | 'parent.parent.internal.contentDigest'
-  | 'parent.parent.internal.contentFilePath'
-  | 'parent.parent.internal.description'
-  | 'parent.parent.internal.fieldOwners'
-  | 'parent.parent.internal.ignoreType'
-  | 'parent.parent.internal.mediaType'
-  | 'parent.parent.internal.owner'
-  | 'parent.parent.internal.type'
-  | 'parent.parent.parent.children'
-  | 'parent.parent.parent.id'
-  | 'path.alias'
-  | 'path.langcode'
-  | 'path.pid'
-  | 'promote'
-  | 'relationships.field_media_article_image.changed'
-  | 'relationships.field_media_article_image.children'
-  | 'relationships.field_media_article_image.children.children'
-  | 'relationships.field_media_article_image.children.id'
-  | 'relationships.field_media_article_image.created'
-  | 'relationships.field_media_article_image.default_langcode'
-  | 'relationships.field_media_article_image.drupal_id'
-  | 'relationships.field_media_article_image.drupal_internal__mid'
-  | 'relationships.field_media_article_image.drupal_internal__vid'
-  | 'relationships.field_media_article_image.field_media_image.alt'
-  | 'relationships.field_media_article_image.field_media_image.height'
-  | 'relationships.field_media_article_image.field_media_image.title'
-  | 'relationships.field_media_article_image.field_media_image.width'
-  | 'relationships.field_media_article_image.id'
-  | 'relationships.field_media_article_image.internal.content'
-  | 'relationships.field_media_article_image.internal.contentDigest'
-  | 'relationships.field_media_article_image.internal.contentFilePath'
-  | 'relationships.field_media_article_image.internal.description'
-  | 'relationships.field_media_article_image.internal.fieldOwners'
-  | 'relationships.field_media_article_image.internal.ignoreType'
-  | 'relationships.field_media_article_image.internal.mediaType'
-  | 'relationships.field_media_article_image.internal.owner'
-  | 'relationships.field_media_article_image.internal.type'
-  | 'relationships.field_media_article_image.langcode'
-  | 'relationships.field_media_article_image.name'
-  | 'relationships.field_media_article_image.parent.children'
-  | 'relationships.field_media_article_image.parent.id'
-  | 'relationships.field_media_article_image.path.alias'
-  | 'relationships.field_media_article_image.path.langcode'
-  | 'relationships.field_media_article_image.path.pid'
-  | 'relationships.field_media_article_image.relationships.node__article'
-  | 'relationships.field_media_article_image.relationships.node__event'
-  | 'relationships.field_media_article_image.relationships.node__kcvv_tv'
-  | 'relationships.field_media_article_image.relationships.node__page'
-  | 'relationships.field_media_article_image.relationships.node__sponsor'
-  | 'relationships.field_media_article_image.relationships.node__team'
-  | 'relationships.field_media_article_image.revision_created'
-  | 'relationships.field_media_article_image.revision_translation_affected'
-  | 'relationships.field_media_article_image.status'
-  | 'relationships.field_media_article_image.thumbnail.alt'
-  | 'relationships.field_media_article_image.thumbnail.height'
-  | 'relationships.field_media_article_image.thumbnail.width'
-  | 'relationships.revision_uid.children'
-  | 'relationships.revision_uid.children.children'
-  | 'relationships.revision_uid.children.id'
-  | 'relationships.revision_uid.display_name'
-  | 'relationships.revision_uid.drupal_id'
-  | 'relationships.revision_uid.id'
-  | 'relationships.revision_uid.internal.content'
-  | 'relationships.revision_uid.internal.contentDigest'
-  | 'relationships.revision_uid.internal.contentFilePath'
-  | 'relationships.revision_uid.internal.description'
-  | 'relationships.revision_uid.internal.fieldOwners'
-  | 'relationships.revision_uid.internal.ignoreType'
-  | 'relationships.revision_uid.internal.mediaType'
-  | 'relationships.revision_uid.internal.owner'
-  | 'relationships.revision_uid.internal.type'
-  | 'relationships.revision_uid.parent.children'
-  | 'relationships.revision_uid.parent.id'
-  | 'relationships.revision_uid.relationships.file__file'
-  | 'relationships.revision_uid.relationships.media__image'
-  | 'relationships.revision_uid.relationships.node__article'
-  | 'relationships.revision_uid.relationships.node__event'
-  | 'relationships.revision_uid.relationships.node__kcvv_tv'
-  | 'relationships.revision_uid.relationships.node__page'
-  | 'relationships.revision_uid.relationships.node__player'
-  | 'relationships.revision_uid.relationships.node__potw'
-  | 'relationships.revision_uid.relationships.node__sponsor'
-  | 'relationships.revision_uid.relationships.node__staff'
-  | 'relationships.revision_uid.relationships.node__team'
-  | 'relationships.uid.children'
-  | 'relationships.uid.children.children'
-  | 'relationships.uid.children.id'
-  | 'relationships.uid.display_name'
-  | 'relationships.uid.drupal_id'
-  | 'relationships.uid.id'
-  | 'relationships.uid.internal.content'
-  | 'relationships.uid.internal.contentDigest'
-  | 'relationships.uid.internal.contentFilePath'
-  | 'relationships.uid.internal.description'
-  | 'relationships.uid.internal.fieldOwners'
-  | 'relationships.uid.internal.ignoreType'
-  | 'relationships.uid.internal.mediaType'
-  | 'relationships.uid.internal.owner'
-  | 'relationships.uid.internal.type'
-  | 'relationships.uid.parent.children'
-  | 'relationships.uid.parent.id'
-  | 'relationships.uid.relationships.file__file'
-  | 'relationships.uid.relationships.media__image'
-  | 'relationships.uid.relationships.node__article'
-  | 'relationships.uid.relationships.node__event'
-  | 'relationships.uid.relationships.node__kcvv_tv'
-  | 'relationships.uid.relationships.node__page'
-  | 'relationships.uid.relationships.node__player'
-  | 'relationships.uid.relationships.node__potw'
-  | 'relationships.uid.relationships.node__sponsor'
-  | 'relationships.uid.relationships.node__staff'
-  | 'relationships.uid.relationships.node__team'
-  | 'revision_timestamp'
-  | 'revision_translation_affected'
-  | 'status'
-  | 'sticky'
-  | 'title';
+type node__kcvv_tvField_websiteSortInput = {
+  readonly title: InputMaybe<SortOrderEnum>;
+  readonly uri: InputMaybe<SortOrderEnum>;
+};
 
 type node__kcvv_tvFilterInput = {
   readonly changed: InputMaybe<DateQueryOperatorInput>;
@@ -6211,29 +4278,29 @@ type node__kcvv_tvGroupConnection = {
 
 
 type node__kcvv_tvGroupConnection_distinctArgs = {
-  field: node__kcvv_tvFieldsEnum;
+  field: node__kcvv_tvFieldSelector;
 };
 
 
 type node__kcvv_tvGroupConnection_groupArgs = {
-  field: node__kcvv_tvFieldsEnum;
+  field: node__kcvv_tvFieldSelector;
   limit: InputMaybe<Scalars['Int']>;
   skip: InputMaybe<Scalars['Int']>;
 };
 
 
 type node__kcvv_tvGroupConnection_maxArgs = {
-  field: node__kcvv_tvFieldsEnum;
+  field: node__kcvv_tvFieldSelector;
 };
 
 
 type node__kcvv_tvGroupConnection_minArgs = {
-  field: node__kcvv_tvFieldsEnum;
+  field: node__kcvv_tvFieldSelector;
 };
 
 
 type node__kcvv_tvGroupConnection_sumArgs = {
-  field: node__kcvv_tvFieldsEnum;
+  field: node__kcvv_tvFieldSelector;
 };
 
 type node__kcvv_tvPath = {
@@ -6242,10 +4309,22 @@ type node__kcvv_tvPath = {
   readonly pid: Maybe<Scalars['Int']>;
 };
 
+type node__kcvv_tvPathFieldSelector = {
+  readonly alias: InputMaybe<FieldSelectorEnum>;
+  readonly langcode: InputMaybe<FieldSelectorEnum>;
+  readonly pid: InputMaybe<FieldSelectorEnum>;
+};
+
 type node__kcvv_tvPathFilterInput = {
   readonly alias: InputMaybe<StringQueryOperatorInput>;
   readonly langcode: InputMaybe<StringQueryOperatorInput>;
   readonly pid: InputMaybe<IntQueryOperatorInput>;
+};
+
+type node__kcvv_tvPathSortInput = {
+  readonly alias: InputMaybe<SortOrderEnum>;
+  readonly langcode: InputMaybe<SortOrderEnum>;
+  readonly pid: InputMaybe<SortOrderEnum>;
 };
 
 type node__kcvv_tvRelationships = {
@@ -6254,15 +4333,45 @@ type node__kcvv_tvRelationships = {
   readonly uid: Maybe<user__user>;
 };
 
+type node__kcvv_tvRelationshipsFieldSelector = {
+  readonly field_media_article_image: InputMaybe<media__imageFieldSelector>;
+  readonly revision_uid: InputMaybe<user__userFieldSelector>;
+  readonly uid: InputMaybe<user__userFieldSelector>;
+};
+
 type node__kcvv_tvRelationshipsFilterInput = {
   readonly field_media_article_image: InputMaybe<media__imageFilterInput>;
   readonly revision_uid: InputMaybe<user__userFilterInput>;
   readonly uid: InputMaybe<user__userFilterInput>;
 };
 
+type node__kcvv_tvRelationshipsSortInput = {
+  readonly field_media_article_image: InputMaybe<media__imageSortInput>;
+  readonly revision_uid: InputMaybe<user__userSortInput>;
+  readonly uid: InputMaybe<user__userSortInput>;
+};
+
 type node__kcvv_tvSortInput = {
-  readonly fields: InputMaybe<ReadonlyArray<InputMaybe<node__kcvv_tvFieldsEnum>>>;
-  readonly order: InputMaybe<ReadonlyArray<InputMaybe<SortOrderEnum>>>;
+  readonly changed: InputMaybe<SortOrderEnum>;
+  readonly children: InputMaybe<NodeSortInput>;
+  readonly created: InputMaybe<SortOrderEnum>;
+  readonly default_langcode: InputMaybe<SortOrderEnum>;
+  readonly drupal_id: InputMaybe<SortOrderEnum>;
+  readonly drupal_internal__nid: InputMaybe<SortOrderEnum>;
+  readonly drupal_internal__vid: InputMaybe<SortOrderEnum>;
+  readonly field_website: InputMaybe<node__kcvv_tvField_websiteSortInput>;
+  readonly id: InputMaybe<SortOrderEnum>;
+  readonly internal: InputMaybe<InternalSortInput>;
+  readonly langcode: InputMaybe<SortOrderEnum>;
+  readonly parent: InputMaybe<NodeSortInput>;
+  readonly path: InputMaybe<node__kcvv_tvPathSortInput>;
+  readonly promote: InputMaybe<SortOrderEnum>;
+  readonly relationships: InputMaybe<node__kcvv_tvRelationshipsSortInput>;
+  readonly revision_timestamp: InputMaybe<SortOrderEnum>;
+  readonly revision_translation_affected: InputMaybe<SortOrderEnum>;
+  readonly status: InputMaybe<SortOrderEnum>;
+  readonly sticky: InputMaybe<SortOrderEnum>;
+  readonly title: InputMaybe<SortOrderEnum>;
 };
 
 type node__page = Node & {
@@ -6319,11 +4428,25 @@ type node__pageBody = {
   readonly value: Maybe<Scalars['String']>;
 };
 
+type node__pageBodyFieldSelector = {
+  readonly format: InputMaybe<FieldSelectorEnum>;
+  readonly processed: InputMaybe<FieldSelectorEnum>;
+  readonly summary: InputMaybe<FieldSelectorEnum>;
+  readonly value: InputMaybe<FieldSelectorEnum>;
+};
+
 type node__pageBodyFilterInput = {
   readonly format: InputMaybe<StringQueryOperatorInput>;
   readonly processed: InputMaybe<StringQueryOperatorInput>;
   readonly summary: InputMaybe<StringQueryOperatorInput>;
   readonly value: InputMaybe<StringQueryOperatorInput>;
+};
+
+type node__pageBodySortInput = {
+  readonly format: InputMaybe<SortOrderEnum>;
+  readonly processed: InputMaybe<SortOrderEnum>;
+  readonly summary: InputMaybe<SortOrderEnum>;
+  readonly value: InputMaybe<SortOrderEnum>;
 };
 
 type node__pageConnection = {
@@ -6340,29 +4463,29 @@ type node__pageConnection = {
 
 
 type node__pageConnection_distinctArgs = {
-  field: node__pageFieldsEnum;
+  field: node__pageFieldSelector;
 };
 
 
 type node__pageConnection_groupArgs = {
-  field: node__pageFieldsEnum;
+  field: node__pageFieldSelector;
   limit: InputMaybe<Scalars['Int']>;
   skip: InputMaybe<Scalars['Int']>;
 };
 
 
 type node__pageConnection_maxArgs = {
-  field: node__pageFieldsEnum;
+  field: node__pageFieldSelector;
 };
 
 
 type node__pageConnection_minArgs = {
-  field: node__pageFieldsEnum;
+  field: node__pageFieldSelector;
 };
 
 
 type node__pageConnection_sumArgs = {
-  field: node__pageFieldsEnum;
+  field: node__pageFieldSelector;
 };
 
 type node__pageEdge = {
@@ -6371,218 +4494,28 @@ type node__pageEdge = {
   readonly previous: Maybe<node__page>;
 };
 
-type node__pageFieldsEnum =
-  | 'body.format'
-  | 'body.processed'
-  | 'body.summary'
-  | 'body.value'
-  | 'changed'
-  | 'children'
-  | 'children.children'
-  | 'children.children.children'
-  | 'children.children.children.children'
-  | 'children.children.children.id'
-  | 'children.children.id'
-  | 'children.children.internal.content'
-  | 'children.children.internal.contentDigest'
-  | 'children.children.internal.contentFilePath'
-  | 'children.children.internal.description'
-  | 'children.children.internal.fieldOwners'
-  | 'children.children.internal.ignoreType'
-  | 'children.children.internal.mediaType'
-  | 'children.children.internal.owner'
-  | 'children.children.internal.type'
-  | 'children.children.parent.children'
-  | 'children.children.parent.id'
-  | 'children.id'
-  | 'children.internal.content'
-  | 'children.internal.contentDigest'
-  | 'children.internal.contentFilePath'
-  | 'children.internal.description'
-  | 'children.internal.fieldOwners'
-  | 'children.internal.ignoreType'
-  | 'children.internal.mediaType'
-  | 'children.internal.owner'
-  | 'children.internal.type'
-  | 'children.parent.children'
-  | 'children.parent.children.children'
-  | 'children.parent.children.id'
-  | 'children.parent.id'
-  | 'children.parent.internal.content'
-  | 'children.parent.internal.contentDigest'
-  | 'children.parent.internal.contentFilePath'
-  | 'children.parent.internal.description'
-  | 'children.parent.internal.fieldOwners'
-  | 'children.parent.internal.ignoreType'
-  | 'children.parent.internal.mediaType'
-  | 'children.parent.internal.owner'
-  | 'children.parent.internal.type'
-  | 'children.parent.parent.children'
-  | 'children.parent.parent.id'
-  | 'created'
-  | 'default_langcode'
-  | 'drupal_id'
-  | 'drupal_internal__nid'
-  | 'drupal_internal__vid'
-  | 'id'
-  | 'internal.content'
-  | 'internal.contentDigest'
-  | 'internal.contentFilePath'
-  | 'internal.description'
-  | 'internal.fieldOwners'
-  | 'internal.ignoreType'
-  | 'internal.mediaType'
-  | 'internal.owner'
-  | 'internal.type'
-  | 'langcode'
-  | 'parent.children'
-  | 'parent.children.children'
-  | 'parent.children.children.children'
-  | 'parent.children.children.id'
-  | 'parent.children.id'
-  | 'parent.children.internal.content'
-  | 'parent.children.internal.contentDigest'
-  | 'parent.children.internal.contentFilePath'
-  | 'parent.children.internal.description'
-  | 'parent.children.internal.fieldOwners'
-  | 'parent.children.internal.ignoreType'
-  | 'parent.children.internal.mediaType'
-  | 'parent.children.internal.owner'
-  | 'parent.children.internal.type'
-  | 'parent.children.parent.children'
-  | 'parent.children.parent.id'
-  | 'parent.id'
-  | 'parent.internal.content'
-  | 'parent.internal.contentDigest'
-  | 'parent.internal.contentFilePath'
-  | 'parent.internal.description'
-  | 'parent.internal.fieldOwners'
-  | 'parent.internal.ignoreType'
-  | 'parent.internal.mediaType'
-  | 'parent.internal.owner'
-  | 'parent.internal.type'
-  | 'parent.parent.children'
-  | 'parent.parent.children.children'
-  | 'parent.parent.children.id'
-  | 'parent.parent.id'
-  | 'parent.parent.internal.content'
-  | 'parent.parent.internal.contentDigest'
-  | 'parent.parent.internal.contentFilePath'
-  | 'parent.parent.internal.description'
-  | 'parent.parent.internal.fieldOwners'
-  | 'parent.parent.internal.ignoreType'
-  | 'parent.parent.internal.mediaType'
-  | 'parent.parent.internal.owner'
-  | 'parent.parent.internal.type'
-  | 'parent.parent.parent.children'
-  | 'parent.parent.parent.id'
-  | 'path.alias'
-  | 'path.langcode'
-  | 'path.pid'
-  | 'promote'
-  | 'relationships.field_media_article_image.changed'
-  | 'relationships.field_media_article_image.children'
-  | 'relationships.field_media_article_image.children.children'
-  | 'relationships.field_media_article_image.children.id'
-  | 'relationships.field_media_article_image.created'
-  | 'relationships.field_media_article_image.default_langcode'
-  | 'relationships.field_media_article_image.drupal_id'
-  | 'relationships.field_media_article_image.drupal_internal__mid'
-  | 'relationships.field_media_article_image.drupal_internal__vid'
-  | 'relationships.field_media_article_image.field_media_image.alt'
-  | 'relationships.field_media_article_image.field_media_image.height'
-  | 'relationships.field_media_article_image.field_media_image.title'
-  | 'relationships.field_media_article_image.field_media_image.width'
-  | 'relationships.field_media_article_image.id'
-  | 'relationships.field_media_article_image.internal.content'
-  | 'relationships.field_media_article_image.internal.contentDigest'
-  | 'relationships.field_media_article_image.internal.contentFilePath'
-  | 'relationships.field_media_article_image.internal.description'
-  | 'relationships.field_media_article_image.internal.fieldOwners'
-  | 'relationships.field_media_article_image.internal.ignoreType'
-  | 'relationships.field_media_article_image.internal.mediaType'
-  | 'relationships.field_media_article_image.internal.owner'
-  | 'relationships.field_media_article_image.internal.type'
-  | 'relationships.field_media_article_image.langcode'
-  | 'relationships.field_media_article_image.name'
-  | 'relationships.field_media_article_image.parent.children'
-  | 'relationships.field_media_article_image.parent.id'
-  | 'relationships.field_media_article_image.path.alias'
-  | 'relationships.field_media_article_image.path.langcode'
-  | 'relationships.field_media_article_image.path.pid'
-  | 'relationships.field_media_article_image.relationships.node__article'
-  | 'relationships.field_media_article_image.relationships.node__event'
-  | 'relationships.field_media_article_image.relationships.node__kcvv_tv'
-  | 'relationships.field_media_article_image.relationships.node__page'
-  | 'relationships.field_media_article_image.relationships.node__sponsor'
-  | 'relationships.field_media_article_image.relationships.node__team'
-  | 'relationships.field_media_article_image.revision_created'
-  | 'relationships.field_media_article_image.revision_translation_affected'
-  | 'relationships.field_media_article_image.status'
-  | 'relationships.field_media_article_image.thumbnail.alt'
-  | 'relationships.field_media_article_image.thumbnail.height'
-  | 'relationships.field_media_article_image.thumbnail.width'
-  | 'relationships.revision_uid.children'
-  | 'relationships.revision_uid.children.children'
-  | 'relationships.revision_uid.children.id'
-  | 'relationships.revision_uid.display_name'
-  | 'relationships.revision_uid.drupal_id'
-  | 'relationships.revision_uid.id'
-  | 'relationships.revision_uid.internal.content'
-  | 'relationships.revision_uid.internal.contentDigest'
-  | 'relationships.revision_uid.internal.contentFilePath'
-  | 'relationships.revision_uid.internal.description'
-  | 'relationships.revision_uid.internal.fieldOwners'
-  | 'relationships.revision_uid.internal.ignoreType'
-  | 'relationships.revision_uid.internal.mediaType'
-  | 'relationships.revision_uid.internal.owner'
-  | 'relationships.revision_uid.internal.type'
-  | 'relationships.revision_uid.parent.children'
-  | 'relationships.revision_uid.parent.id'
-  | 'relationships.revision_uid.relationships.file__file'
-  | 'relationships.revision_uid.relationships.media__image'
-  | 'relationships.revision_uid.relationships.node__article'
-  | 'relationships.revision_uid.relationships.node__event'
-  | 'relationships.revision_uid.relationships.node__kcvv_tv'
-  | 'relationships.revision_uid.relationships.node__page'
-  | 'relationships.revision_uid.relationships.node__player'
-  | 'relationships.revision_uid.relationships.node__potw'
-  | 'relationships.revision_uid.relationships.node__sponsor'
-  | 'relationships.revision_uid.relationships.node__staff'
-  | 'relationships.revision_uid.relationships.node__team'
-  | 'relationships.uid.children'
-  | 'relationships.uid.children.children'
-  | 'relationships.uid.children.id'
-  | 'relationships.uid.display_name'
-  | 'relationships.uid.drupal_id'
-  | 'relationships.uid.id'
-  | 'relationships.uid.internal.content'
-  | 'relationships.uid.internal.contentDigest'
-  | 'relationships.uid.internal.contentFilePath'
-  | 'relationships.uid.internal.description'
-  | 'relationships.uid.internal.fieldOwners'
-  | 'relationships.uid.internal.ignoreType'
-  | 'relationships.uid.internal.mediaType'
-  | 'relationships.uid.internal.owner'
-  | 'relationships.uid.internal.type'
-  | 'relationships.uid.parent.children'
-  | 'relationships.uid.parent.id'
-  | 'relationships.uid.relationships.file__file'
-  | 'relationships.uid.relationships.media__image'
-  | 'relationships.uid.relationships.node__article'
-  | 'relationships.uid.relationships.node__event'
-  | 'relationships.uid.relationships.node__kcvv_tv'
-  | 'relationships.uid.relationships.node__page'
-  | 'relationships.uid.relationships.node__player'
-  | 'relationships.uid.relationships.node__potw'
-  | 'relationships.uid.relationships.node__sponsor'
-  | 'relationships.uid.relationships.node__staff'
-  | 'relationships.uid.relationships.node__team'
-  | 'revision_timestamp'
-  | 'revision_translation_affected'
-  | 'status'
-  | 'sticky'
-  | 'title';
+type node__pageFieldSelector = {
+  readonly body: InputMaybe<node__pageBodyFieldSelector>;
+  readonly changed: InputMaybe<FieldSelectorEnum>;
+  readonly children: InputMaybe<NodeFieldSelector>;
+  readonly created: InputMaybe<FieldSelectorEnum>;
+  readonly default_langcode: InputMaybe<FieldSelectorEnum>;
+  readonly drupal_id: InputMaybe<FieldSelectorEnum>;
+  readonly drupal_internal__nid: InputMaybe<FieldSelectorEnum>;
+  readonly drupal_internal__vid: InputMaybe<FieldSelectorEnum>;
+  readonly id: InputMaybe<FieldSelectorEnum>;
+  readonly internal: InputMaybe<InternalFieldSelector>;
+  readonly langcode: InputMaybe<FieldSelectorEnum>;
+  readonly parent: InputMaybe<NodeFieldSelector>;
+  readonly path: InputMaybe<node__pagePathFieldSelector>;
+  readonly promote: InputMaybe<FieldSelectorEnum>;
+  readonly relationships: InputMaybe<node__pageRelationshipsFieldSelector>;
+  readonly revision_timestamp: InputMaybe<FieldSelectorEnum>;
+  readonly revision_translation_affected: InputMaybe<FieldSelectorEnum>;
+  readonly status: InputMaybe<FieldSelectorEnum>;
+  readonly sticky: InputMaybe<FieldSelectorEnum>;
+  readonly title: InputMaybe<FieldSelectorEnum>;
+};
 
 type node__pageFilterInput = {
   readonly body: InputMaybe<node__pageBodyFilterInput>;
@@ -6627,29 +4560,29 @@ type node__pageGroupConnection = {
 
 
 type node__pageGroupConnection_distinctArgs = {
-  field: node__pageFieldsEnum;
+  field: node__pageFieldSelector;
 };
 
 
 type node__pageGroupConnection_groupArgs = {
-  field: node__pageFieldsEnum;
+  field: node__pageFieldSelector;
   limit: InputMaybe<Scalars['Int']>;
   skip: InputMaybe<Scalars['Int']>;
 };
 
 
 type node__pageGroupConnection_maxArgs = {
-  field: node__pageFieldsEnum;
+  field: node__pageFieldSelector;
 };
 
 
 type node__pageGroupConnection_minArgs = {
-  field: node__pageFieldsEnum;
+  field: node__pageFieldSelector;
 };
 
 
 type node__pageGroupConnection_sumArgs = {
-  field: node__pageFieldsEnum;
+  field: node__pageFieldSelector;
 };
 
 type node__pagePath = {
@@ -6658,10 +4591,22 @@ type node__pagePath = {
   readonly pid: Maybe<Scalars['Int']>;
 };
 
+type node__pagePathFieldSelector = {
+  readonly alias: InputMaybe<FieldSelectorEnum>;
+  readonly langcode: InputMaybe<FieldSelectorEnum>;
+  readonly pid: InputMaybe<FieldSelectorEnum>;
+};
+
 type node__pagePathFilterInput = {
   readonly alias: InputMaybe<StringQueryOperatorInput>;
   readonly langcode: InputMaybe<StringQueryOperatorInput>;
   readonly pid: InputMaybe<IntQueryOperatorInput>;
+};
+
+type node__pagePathSortInput = {
+  readonly alias: InputMaybe<SortOrderEnum>;
+  readonly langcode: InputMaybe<SortOrderEnum>;
+  readonly pid: InputMaybe<SortOrderEnum>;
 };
 
 type node__pageRelationships = {
@@ -6670,15 +4615,45 @@ type node__pageRelationships = {
   readonly uid: Maybe<user__user>;
 };
 
+type node__pageRelationshipsFieldSelector = {
+  readonly field_media_article_image: InputMaybe<media__imageFieldSelector>;
+  readonly revision_uid: InputMaybe<user__userFieldSelector>;
+  readonly uid: InputMaybe<user__userFieldSelector>;
+};
+
 type node__pageRelationshipsFilterInput = {
   readonly field_media_article_image: InputMaybe<media__imageFilterInput>;
   readonly revision_uid: InputMaybe<user__userFilterInput>;
   readonly uid: InputMaybe<user__userFilterInput>;
 };
 
+type node__pageRelationshipsSortInput = {
+  readonly field_media_article_image: InputMaybe<media__imageSortInput>;
+  readonly revision_uid: InputMaybe<user__userSortInput>;
+  readonly uid: InputMaybe<user__userSortInput>;
+};
+
 type node__pageSortInput = {
-  readonly fields: InputMaybe<ReadonlyArray<InputMaybe<node__pageFieldsEnum>>>;
-  readonly order: InputMaybe<ReadonlyArray<InputMaybe<SortOrderEnum>>>;
+  readonly body: InputMaybe<node__pageBodySortInput>;
+  readonly changed: InputMaybe<SortOrderEnum>;
+  readonly children: InputMaybe<NodeSortInput>;
+  readonly created: InputMaybe<SortOrderEnum>;
+  readonly default_langcode: InputMaybe<SortOrderEnum>;
+  readonly drupal_id: InputMaybe<SortOrderEnum>;
+  readonly drupal_internal__nid: InputMaybe<SortOrderEnum>;
+  readonly drupal_internal__vid: InputMaybe<SortOrderEnum>;
+  readonly id: InputMaybe<SortOrderEnum>;
+  readonly internal: InputMaybe<InternalSortInput>;
+  readonly langcode: InputMaybe<SortOrderEnum>;
+  readonly parent: InputMaybe<NodeSortInput>;
+  readonly path: InputMaybe<node__pagePathSortInput>;
+  readonly promote: InputMaybe<SortOrderEnum>;
+  readonly relationships: InputMaybe<node__pageRelationshipsSortInput>;
+  readonly revision_timestamp: InputMaybe<SortOrderEnum>;
+  readonly revision_translation_affected: InputMaybe<SortOrderEnum>;
+  readonly status: InputMaybe<SortOrderEnum>;
+  readonly sticky: InputMaybe<SortOrderEnum>;
+  readonly title: InputMaybe<SortOrderEnum>;
 };
 
 type node__player = Node & {
@@ -6769,11 +4744,25 @@ type node__playerBody = {
   readonly value: Maybe<Scalars['String']>;
 };
 
+type node__playerBodyFieldSelector = {
+  readonly format: InputMaybe<FieldSelectorEnum>;
+  readonly processed: InputMaybe<FieldSelectorEnum>;
+  readonly summary: InputMaybe<FieldSelectorEnum>;
+  readonly value: InputMaybe<FieldSelectorEnum>;
+};
+
 type node__playerBodyFilterInput = {
   readonly format: InputMaybe<StringQueryOperatorInput>;
   readonly processed: InputMaybe<StringQueryOperatorInput>;
   readonly summary: InputMaybe<StringQueryOperatorInput>;
   readonly value: InputMaybe<StringQueryOperatorInput>;
+};
+
+type node__playerBodySortInput = {
+  readonly format: InputMaybe<SortOrderEnum>;
+  readonly processed: InputMaybe<SortOrderEnum>;
+  readonly summary: InputMaybe<SortOrderEnum>;
+  readonly value: InputMaybe<SortOrderEnum>;
 };
 
 type node__playerConnection = {
@@ -6790,35 +4779,68 @@ type node__playerConnection = {
 
 
 type node__playerConnection_distinctArgs = {
-  field: node__playerFieldsEnum;
+  field: node__playerFieldSelector;
 };
 
 
 type node__playerConnection_groupArgs = {
-  field: node__playerFieldsEnum;
+  field: node__playerFieldSelector;
   limit: InputMaybe<Scalars['Int']>;
   skip: InputMaybe<Scalars['Int']>;
 };
 
 
 type node__playerConnection_maxArgs = {
-  field: node__playerFieldsEnum;
+  field: node__playerFieldSelector;
 };
 
 
 type node__playerConnection_minArgs = {
-  field: node__playerFieldsEnum;
+  field: node__playerFieldSelector;
 };
 
 
 type node__playerConnection_sumArgs = {
-  field: node__playerFieldsEnum;
+  field: node__playerFieldSelector;
 };
 
 type node__playerEdge = {
   readonly next: Maybe<node__player>;
   readonly node: node__player;
   readonly previous: Maybe<node__player>;
+};
+
+type node__playerFieldSelector = {
+  readonly body: InputMaybe<node__playerBodyFieldSelector>;
+  readonly changed: InputMaybe<FieldSelectorEnum>;
+  readonly children: InputMaybe<NodeFieldSelector>;
+  readonly created: InputMaybe<FieldSelectorEnum>;
+  readonly default_langcode: InputMaybe<FieldSelectorEnum>;
+  readonly drupal_id: InputMaybe<FieldSelectorEnum>;
+  readonly drupal_internal__nid: InputMaybe<FieldSelectorEnum>;
+  readonly drupal_internal__vid: InputMaybe<FieldSelectorEnum>;
+  readonly field_birth_date: InputMaybe<FieldSelectorEnum>;
+  readonly field_date_leave: InputMaybe<FieldSelectorEnum>;
+  readonly field_firstname: InputMaybe<FieldSelectorEnum>;
+  readonly field_image: InputMaybe<node__playerField_imageFieldSelector>;
+  readonly field_image_celebrate: InputMaybe<node__playerField_image_celebrateFieldSelector>;
+  readonly field_join_date: InputMaybe<FieldSelectorEnum>;
+  readonly field_lastname: InputMaybe<FieldSelectorEnum>;
+  readonly field_position: InputMaybe<FieldSelectorEnum>;
+  readonly field_shirtnumber: InputMaybe<FieldSelectorEnum>;
+  readonly field_vv_id: InputMaybe<FieldSelectorEnum>;
+  readonly id: InputMaybe<FieldSelectorEnum>;
+  readonly internal: InputMaybe<InternalFieldSelector>;
+  readonly langcode: InputMaybe<FieldSelectorEnum>;
+  readonly parent: InputMaybe<NodeFieldSelector>;
+  readonly path: InputMaybe<node__playerPathFieldSelector>;
+  readonly promote: InputMaybe<FieldSelectorEnum>;
+  readonly relationships: InputMaybe<node__playerRelationshipsFieldSelector>;
+  readonly revision_timestamp: InputMaybe<FieldSelectorEnum>;
+  readonly revision_translation_affected: InputMaybe<FieldSelectorEnum>;
+  readonly status: InputMaybe<FieldSelectorEnum>;
+  readonly sticky: InputMaybe<FieldSelectorEnum>;
+  readonly title: InputMaybe<FieldSelectorEnum>;
 };
 
 type node__playerField_image = {
@@ -6828,11 +4850,25 @@ type node__playerField_image = {
   readonly width: Maybe<Scalars['Int']>;
 };
 
+type node__playerField_imageFieldSelector = {
+  readonly alt: InputMaybe<FieldSelectorEnum>;
+  readonly height: InputMaybe<FieldSelectorEnum>;
+  readonly title: InputMaybe<FieldSelectorEnum>;
+  readonly width: InputMaybe<FieldSelectorEnum>;
+};
+
 type node__playerField_imageFilterInput = {
   readonly alt: InputMaybe<StringQueryOperatorInput>;
   readonly height: InputMaybe<IntQueryOperatorInput>;
   readonly title: InputMaybe<StringQueryOperatorInput>;
   readonly width: InputMaybe<IntQueryOperatorInput>;
+};
+
+type node__playerField_imageSortInput = {
+  readonly alt: InputMaybe<SortOrderEnum>;
+  readonly height: InputMaybe<SortOrderEnum>;
+  readonly title: InputMaybe<SortOrderEnum>;
+  readonly width: InputMaybe<SortOrderEnum>;
 };
 
 type node__playerField_image_celebrate = {
@@ -6842,6 +4878,13 @@ type node__playerField_image_celebrate = {
   readonly width: Maybe<Scalars['Int']>;
 };
 
+type node__playerField_image_celebrateFieldSelector = {
+  readonly alt: InputMaybe<FieldSelectorEnum>;
+  readonly height: InputMaybe<FieldSelectorEnum>;
+  readonly title: InputMaybe<FieldSelectorEnum>;
+  readonly width: InputMaybe<FieldSelectorEnum>;
+};
+
 type node__playerField_image_celebrateFilterInput = {
   readonly alt: InputMaybe<StringQueryOperatorInput>;
   readonly height: InputMaybe<IntQueryOperatorInput>;
@@ -6849,409 +4892,12 @@ type node__playerField_image_celebrateFilterInput = {
   readonly width: InputMaybe<IntQueryOperatorInput>;
 };
 
-type node__playerFieldsEnum =
-  | 'body.format'
-  | 'body.processed'
-  | 'body.summary'
-  | 'body.value'
-  | 'changed'
-  | 'children'
-  | 'children.children'
-  | 'children.children.children'
-  | 'children.children.children.children'
-  | 'children.children.children.id'
-  | 'children.children.id'
-  | 'children.children.internal.content'
-  | 'children.children.internal.contentDigest'
-  | 'children.children.internal.contentFilePath'
-  | 'children.children.internal.description'
-  | 'children.children.internal.fieldOwners'
-  | 'children.children.internal.ignoreType'
-  | 'children.children.internal.mediaType'
-  | 'children.children.internal.owner'
-  | 'children.children.internal.type'
-  | 'children.children.parent.children'
-  | 'children.children.parent.id'
-  | 'children.id'
-  | 'children.internal.content'
-  | 'children.internal.contentDigest'
-  | 'children.internal.contentFilePath'
-  | 'children.internal.description'
-  | 'children.internal.fieldOwners'
-  | 'children.internal.ignoreType'
-  | 'children.internal.mediaType'
-  | 'children.internal.owner'
-  | 'children.internal.type'
-  | 'children.parent.children'
-  | 'children.parent.children.children'
-  | 'children.parent.children.id'
-  | 'children.parent.id'
-  | 'children.parent.internal.content'
-  | 'children.parent.internal.contentDigest'
-  | 'children.parent.internal.contentFilePath'
-  | 'children.parent.internal.description'
-  | 'children.parent.internal.fieldOwners'
-  | 'children.parent.internal.ignoreType'
-  | 'children.parent.internal.mediaType'
-  | 'children.parent.internal.owner'
-  | 'children.parent.internal.type'
-  | 'children.parent.parent.children'
-  | 'children.parent.parent.id'
-  | 'created'
-  | 'default_langcode'
-  | 'drupal_id'
-  | 'drupal_internal__nid'
-  | 'drupal_internal__vid'
-  | 'field_birth_date'
-  | 'field_date_leave'
-  | 'field_firstname'
-  | 'field_image.alt'
-  | 'field_image.height'
-  | 'field_image.title'
-  | 'field_image.width'
-  | 'field_image_celebrate.alt'
-  | 'field_image_celebrate.height'
-  | 'field_image_celebrate.title'
-  | 'field_image_celebrate.width'
-  | 'field_join_date'
-  | 'field_lastname'
-  | 'field_position'
-  | 'field_shirtnumber'
-  | 'field_vv_id'
-  | 'id'
-  | 'internal.content'
-  | 'internal.contentDigest'
-  | 'internal.contentFilePath'
-  | 'internal.description'
-  | 'internal.fieldOwners'
-  | 'internal.ignoreType'
-  | 'internal.mediaType'
-  | 'internal.owner'
-  | 'internal.type'
-  | 'langcode'
-  | 'parent.children'
-  | 'parent.children.children'
-  | 'parent.children.children.children'
-  | 'parent.children.children.id'
-  | 'parent.children.id'
-  | 'parent.children.internal.content'
-  | 'parent.children.internal.contentDigest'
-  | 'parent.children.internal.contentFilePath'
-  | 'parent.children.internal.description'
-  | 'parent.children.internal.fieldOwners'
-  | 'parent.children.internal.ignoreType'
-  | 'parent.children.internal.mediaType'
-  | 'parent.children.internal.owner'
-  | 'parent.children.internal.type'
-  | 'parent.children.parent.children'
-  | 'parent.children.parent.id'
-  | 'parent.id'
-  | 'parent.internal.content'
-  | 'parent.internal.contentDigest'
-  | 'parent.internal.contentFilePath'
-  | 'parent.internal.description'
-  | 'parent.internal.fieldOwners'
-  | 'parent.internal.ignoreType'
-  | 'parent.internal.mediaType'
-  | 'parent.internal.owner'
-  | 'parent.internal.type'
-  | 'parent.parent.children'
-  | 'parent.parent.children.children'
-  | 'parent.parent.children.id'
-  | 'parent.parent.id'
-  | 'parent.parent.internal.content'
-  | 'parent.parent.internal.contentDigest'
-  | 'parent.parent.internal.contentFilePath'
-  | 'parent.parent.internal.description'
-  | 'parent.parent.internal.fieldOwners'
-  | 'parent.parent.internal.ignoreType'
-  | 'parent.parent.internal.mediaType'
-  | 'parent.parent.internal.owner'
-  | 'parent.parent.internal.type'
-  | 'parent.parent.parent.children'
-  | 'parent.parent.parent.id'
-  | 'path.alias'
-  | 'path.langcode'
-  | 'path.pid'
-  | 'promote'
-  | 'relationships.field_image.changed'
-  | 'relationships.field_image.children'
-  | 'relationships.field_image.children.children'
-  | 'relationships.field_image.children.id'
-  | 'relationships.field_image.created'
-  | 'relationships.field_image.drupal_id'
-  | 'relationships.field_image.drupal_internal__fid'
-  | 'relationships.field_image.filemime'
-  | 'relationships.field_image.filename'
-  | 'relationships.field_image.filesize'
-  | 'relationships.field_image.id'
-  | 'relationships.field_image.internal.content'
-  | 'relationships.field_image.internal.contentDigest'
-  | 'relationships.field_image.internal.contentFilePath'
-  | 'relationships.field_image.internal.description'
-  | 'relationships.field_image.internal.fieldOwners'
-  | 'relationships.field_image.internal.ignoreType'
-  | 'relationships.field_image.internal.mediaType'
-  | 'relationships.field_image.internal.owner'
-  | 'relationships.field_image.internal.type'
-  | 'relationships.field_image.langcode'
-  | 'relationships.field_image.localFile.absolutePath'
-  | 'relationships.field_image.localFile.accessTime'
-  | 'relationships.field_image.localFile.atime'
-  | 'relationships.field_image.localFile.atimeMs'
-  | 'relationships.field_image.localFile.base'
-  | 'relationships.field_image.localFile.birthTime'
-  | 'relationships.field_image.localFile.birthtime'
-  | 'relationships.field_image.localFile.birthtimeMs'
-  | 'relationships.field_image.localFile.blksize'
-  | 'relationships.field_image.localFile.blocks'
-  | 'relationships.field_image.localFile.changeTime'
-  | 'relationships.field_image.localFile.children'
-  | 'relationships.field_image.localFile.childrenImageSharp'
-  | 'relationships.field_image.localFile.ctime'
-  | 'relationships.field_image.localFile.ctimeMs'
-  | 'relationships.field_image.localFile.dev'
-  | 'relationships.field_image.localFile.dir'
-  | 'relationships.field_image.localFile.ext'
-  | 'relationships.field_image.localFile.extension'
-  | 'relationships.field_image.localFile.gid'
-  | 'relationships.field_image.localFile.id'
-  | 'relationships.field_image.localFile.ino'
-  | 'relationships.field_image.localFile.mode'
-  | 'relationships.field_image.localFile.modifiedTime'
-  | 'relationships.field_image.localFile.mtime'
-  | 'relationships.field_image.localFile.mtimeMs'
-  | 'relationships.field_image.localFile.name'
-  | 'relationships.field_image.localFile.nlink'
-  | 'relationships.field_image.localFile.prettySize'
-  | 'relationships.field_image.localFile.publicURL'
-  | 'relationships.field_image.localFile.rdev'
-  | 'relationships.field_image.localFile.relativeDirectory'
-  | 'relationships.field_image.localFile.relativePath'
-  | 'relationships.field_image.localFile.root'
-  | 'relationships.field_image.localFile.size'
-  | 'relationships.field_image.localFile.sourceInstanceName'
-  | 'relationships.field_image.localFile.uid'
-  | 'relationships.field_image.localFile.url'
-  | 'relationships.field_image.parent.children'
-  | 'relationships.field_image.parent.id'
-  | 'relationships.field_image.relationships.media__image'
-  | 'relationships.field_image.relationships.node__player'
-  | 'relationships.field_image.relationships.node__staff'
-  | 'relationships.field_image.status'
-  | 'relationships.field_image.uri.url'
-  | 'relationships.field_image.uri.value'
-  | 'relationships.field_image_celebrate.changed'
-  | 'relationships.field_image_celebrate.children'
-  | 'relationships.field_image_celebrate.children.children'
-  | 'relationships.field_image_celebrate.children.id'
-  | 'relationships.field_image_celebrate.created'
-  | 'relationships.field_image_celebrate.drupal_id'
-  | 'relationships.field_image_celebrate.drupal_internal__fid'
-  | 'relationships.field_image_celebrate.filemime'
-  | 'relationships.field_image_celebrate.filename'
-  | 'relationships.field_image_celebrate.filesize'
-  | 'relationships.field_image_celebrate.id'
-  | 'relationships.field_image_celebrate.internal.content'
-  | 'relationships.field_image_celebrate.internal.contentDigest'
-  | 'relationships.field_image_celebrate.internal.contentFilePath'
-  | 'relationships.field_image_celebrate.internal.description'
-  | 'relationships.field_image_celebrate.internal.fieldOwners'
-  | 'relationships.field_image_celebrate.internal.ignoreType'
-  | 'relationships.field_image_celebrate.internal.mediaType'
-  | 'relationships.field_image_celebrate.internal.owner'
-  | 'relationships.field_image_celebrate.internal.type'
-  | 'relationships.field_image_celebrate.langcode'
-  | 'relationships.field_image_celebrate.localFile.absolutePath'
-  | 'relationships.field_image_celebrate.localFile.accessTime'
-  | 'relationships.field_image_celebrate.localFile.atime'
-  | 'relationships.field_image_celebrate.localFile.atimeMs'
-  | 'relationships.field_image_celebrate.localFile.base'
-  | 'relationships.field_image_celebrate.localFile.birthTime'
-  | 'relationships.field_image_celebrate.localFile.birthtime'
-  | 'relationships.field_image_celebrate.localFile.birthtimeMs'
-  | 'relationships.field_image_celebrate.localFile.blksize'
-  | 'relationships.field_image_celebrate.localFile.blocks'
-  | 'relationships.field_image_celebrate.localFile.changeTime'
-  | 'relationships.field_image_celebrate.localFile.children'
-  | 'relationships.field_image_celebrate.localFile.childrenImageSharp'
-  | 'relationships.field_image_celebrate.localFile.ctime'
-  | 'relationships.field_image_celebrate.localFile.ctimeMs'
-  | 'relationships.field_image_celebrate.localFile.dev'
-  | 'relationships.field_image_celebrate.localFile.dir'
-  | 'relationships.field_image_celebrate.localFile.ext'
-  | 'relationships.field_image_celebrate.localFile.extension'
-  | 'relationships.field_image_celebrate.localFile.gid'
-  | 'relationships.field_image_celebrate.localFile.id'
-  | 'relationships.field_image_celebrate.localFile.ino'
-  | 'relationships.field_image_celebrate.localFile.mode'
-  | 'relationships.field_image_celebrate.localFile.modifiedTime'
-  | 'relationships.field_image_celebrate.localFile.mtime'
-  | 'relationships.field_image_celebrate.localFile.mtimeMs'
-  | 'relationships.field_image_celebrate.localFile.name'
-  | 'relationships.field_image_celebrate.localFile.nlink'
-  | 'relationships.field_image_celebrate.localFile.prettySize'
-  | 'relationships.field_image_celebrate.localFile.publicURL'
-  | 'relationships.field_image_celebrate.localFile.rdev'
-  | 'relationships.field_image_celebrate.localFile.relativeDirectory'
-  | 'relationships.field_image_celebrate.localFile.relativePath'
-  | 'relationships.field_image_celebrate.localFile.root'
-  | 'relationships.field_image_celebrate.localFile.size'
-  | 'relationships.field_image_celebrate.localFile.sourceInstanceName'
-  | 'relationships.field_image_celebrate.localFile.uid'
-  | 'relationships.field_image_celebrate.localFile.url'
-  | 'relationships.field_image_celebrate.parent.children'
-  | 'relationships.field_image_celebrate.parent.id'
-  | 'relationships.field_image_celebrate.relationships.media__image'
-  | 'relationships.field_image_celebrate.relationships.node__player'
-  | 'relationships.field_image_celebrate.relationships.node__staff'
-  | 'relationships.field_image_celebrate.status'
-  | 'relationships.field_image_celebrate.uri.url'
-  | 'relationships.field_image_celebrate.uri.value'
-  | 'relationships.node__article'
-  | 'relationships.node__article.body.format'
-  | 'relationships.node__article.body.processed'
-  | 'relationships.node__article.body.summary'
-  | 'relationships.node__article.body.value'
-  | 'relationships.node__article.changed'
-  | 'relationships.node__article.children'
-  | 'relationships.node__article.children.children'
-  | 'relationships.node__article.children.id'
-  | 'relationships.node__article.created'
-  | 'relationships.node__article.default_langcode'
-  | 'relationships.node__article.drupal_id'
-  | 'relationships.node__article.drupal_internal__nid'
-  | 'relationships.node__article.drupal_internal__vid'
-  | 'relationships.node__article.field_featured'
-  | 'relationships.node__article.field_related_content'
-  | 'relationships.node__article.id'
-  | 'relationships.node__article.internal.content'
-  | 'relationships.node__article.internal.contentDigest'
-  | 'relationships.node__article.internal.contentFilePath'
-  | 'relationships.node__article.internal.description'
-  | 'relationships.node__article.internal.fieldOwners'
-  | 'relationships.node__article.internal.ignoreType'
-  | 'relationships.node__article.internal.mediaType'
-  | 'relationships.node__article.internal.owner'
-  | 'relationships.node__article.internal.type'
-  | 'relationships.node__article.langcode'
-  | 'relationships.node__article.parent.children'
-  | 'relationships.node__article.parent.id'
-  | 'relationships.node__article.path.alias'
-  | 'relationships.node__article.path.langcode'
-  | 'relationships.node__article.path.pid'
-  | 'relationships.node__article.promote'
-  | 'relationships.node__article.relationships.field_tags'
-  | 'relationships.node__article.relationships.node__article'
-  | 'relationships.node__article.revision_timestamp'
-  | 'relationships.node__article.revision_translation_affected'
-  | 'relationships.node__article.status'
-  | 'relationships.node__article.sticky'
-  | 'relationships.node__article.title'
-  | 'relationships.node__team'
-  | 'relationships.node__team.changed'
-  | 'relationships.node__team.children'
-  | 'relationships.node__team.children.children'
-  | 'relationships.node__team.children.id'
-  | 'relationships.node__team.created'
-  | 'relationships.node__team.default_langcode'
-  | 'relationships.node__team.drupal_id'
-  | 'relationships.node__team.drupal_internal__nid'
-  | 'relationships.node__team.drupal_internal__vid'
-  | 'relationships.node__team.field_contact_info.format'
-  | 'relationships.node__team.field_contact_info.processed'
-  | 'relationships.node__team.field_contact_info.value'
-  | 'relationships.node__team.field_division_full'
-  | 'relationships.node__team.field_fb_id'
-  | 'relationships.node__team.field_fb_id_2'
-  | 'relationships.node__team.field_tagline'
-  | 'relationships.node__team.field_vv_id'
-  | 'relationships.node__team.id'
-  | 'relationships.node__team.internal.content'
-  | 'relationships.node__team.internal.contentDigest'
-  | 'relationships.node__team.internal.contentFilePath'
-  | 'relationships.node__team.internal.description'
-  | 'relationships.node__team.internal.fieldOwners'
-  | 'relationships.node__team.internal.ignoreType'
-  | 'relationships.node__team.internal.mediaType'
-  | 'relationships.node__team.internal.owner'
-  | 'relationships.node__team.internal.type'
-  | 'relationships.node__team.langcode'
-  | 'relationships.node__team.parent.children'
-  | 'relationships.node__team.parent.id'
-  | 'relationships.node__team.path.alias'
-  | 'relationships.node__team.path.langcode'
-  | 'relationships.node__team.path.pid'
-  | 'relationships.node__team.promote'
-  | 'relationships.node__team.relationships.field_players'
-  | 'relationships.node__team.relationships.field_staff'
-  | 'relationships.node__team.relationships.node__article'
-  | 'relationships.node__team.revision_timestamp'
-  | 'relationships.node__team.revision_translation_affected'
-  | 'relationships.node__team.status'
-  | 'relationships.node__team.sticky'
-  | 'relationships.node__team.title'
-  | 'relationships.revision_uid.children'
-  | 'relationships.revision_uid.children.children'
-  | 'relationships.revision_uid.children.id'
-  | 'relationships.revision_uid.display_name'
-  | 'relationships.revision_uid.drupal_id'
-  | 'relationships.revision_uid.id'
-  | 'relationships.revision_uid.internal.content'
-  | 'relationships.revision_uid.internal.contentDigest'
-  | 'relationships.revision_uid.internal.contentFilePath'
-  | 'relationships.revision_uid.internal.description'
-  | 'relationships.revision_uid.internal.fieldOwners'
-  | 'relationships.revision_uid.internal.ignoreType'
-  | 'relationships.revision_uid.internal.mediaType'
-  | 'relationships.revision_uid.internal.owner'
-  | 'relationships.revision_uid.internal.type'
-  | 'relationships.revision_uid.parent.children'
-  | 'relationships.revision_uid.parent.id'
-  | 'relationships.revision_uid.relationships.file__file'
-  | 'relationships.revision_uid.relationships.media__image'
-  | 'relationships.revision_uid.relationships.node__article'
-  | 'relationships.revision_uid.relationships.node__event'
-  | 'relationships.revision_uid.relationships.node__kcvv_tv'
-  | 'relationships.revision_uid.relationships.node__page'
-  | 'relationships.revision_uid.relationships.node__player'
-  | 'relationships.revision_uid.relationships.node__potw'
-  | 'relationships.revision_uid.relationships.node__sponsor'
-  | 'relationships.revision_uid.relationships.node__staff'
-  | 'relationships.revision_uid.relationships.node__team'
-  | 'relationships.uid.children'
-  | 'relationships.uid.children.children'
-  | 'relationships.uid.children.id'
-  | 'relationships.uid.display_name'
-  | 'relationships.uid.drupal_id'
-  | 'relationships.uid.id'
-  | 'relationships.uid.internal.content'
-  | 'relationships.uid.internal.contentDigest'
-  | 'relationships.uid.internal.contentFilePath'
-  | 'relationships.uid.internal.description'
-  | 'relationships.uid.internal.fieldOwners'
-  | 'relationships.uid.internal.ignoreType'
-  | 'relationships.uid.internal.mediaType'
-  | 'relationships.uid.internal.owner'
-  | 'relationships.uid.internal.type'
-  | 'relationships.uid.parent.children'
-  | 'relationships.uid.parent.id'
-  | 'relationships.uid.relationships.file__file'
-  | 'relationships.uid.relationships.media__image'
-  | 'relationships.uid.relationships.node__article'
-  | 'relationships.uid.relationships.node__event'
-  | 'relationships.uid.relationships.node__kcvv_tv'
-  | 'relationships.uid.relationships.node__page'
-  | 'relationships.uid.relationships.node__player'
-  | 'relationships.uid.relationships.node__potw'
-  | 'relationships.uid.relationships.node__sponsor'
-  | 'relationships.uid.relationships.node__staff'
-  | 'relationships.uid.relationships.node__team'
-  | 'revision_timestamp'
-  | 'revision_translation_affected'
-  | 'status'
-  | 'sticky'
-  | 'title';
+type node__playerField_image_celebrateSortInput = {
+  readonly alt: InputMaybe<SortOrderEnum>;
+  readonly height: InputMaybe<SortOrderEnum>;
+  readonly title: InputMaybe<SortOrderEnum>;
+  readonly width: InputMaybe<SortOrderEnum>;
+};
 
 type node__playerFilterInput = {
   readonly body: InputMaybe<node__playerBodyFilterInput>;
@@ -7306,29 +4952,29 @@ type node__playerGroupConnection = {
 
 
 type node__playerGroupConnection_distinctArgs = {
-  field: node__playerFieldsEnum;
+  field: node__playerFieldSelector;
 };
 
 
 type node__playerGroupConnection_groupArgs = {
-  field: node__playerFieldsEnum;
+  field: node__playerFieldSelector;
   limit: InputMaybe<Scalars['Int']>;
   skip: InputMaybe<Scalars['Int']>;
 };
 
 
 type node__playerGroupConnection_maxArgs = {
-  field: node__playerFieldsEnum;
+  field: node__playerFieldSelector;
 };
 
 
 type node__playerGroupConnection_minArgs = {
-  field: node__playerFieldsEnum;
+  field: node__playerFieldSelector;
 };
 
 
 type node__playerGroupConnection_sumArgs = {
-  field: node__playerFieldsEnum;
+  field: node__playerFieldSelector;
 };
 
 type node__playerPath = {
@@ -7337,10 +4983,22 @@ type node__playerPath = {
   readonly pid: Maybe<Scalars['Int']>;
 };
 
+type node__playerPathFieldSelector = {
+  readonly alias: InputMaybe<FieldSelectorEnum>;
+  readonly langcode: InputMaybe<FieldSelectorEnum>;
+  readonly pid: InputMaybe<FieldSelectorEnum>;
+};
+
 type node__playerPathFilterInput = {
   readonly alias: InputMaybe<StringQueryOperatorInput>;
   readonly langcode: InputMaybe<StringQueryOperatorInput>;
   readonly pid: InputMaybe<IntQueryOperatorInput>;
+};
+
+type node__playerPathSortInput = {
+  readonly alias: InputMaybe<SortOrderEnum>;
+  readonly langcode: InputMaybe<SortOrderEnum>;
+  readonly pid: InputMaybe<SortOrderEnum>;
 };
 
 type node__playerRelationships = {
@@ -7352,6 +5010,15 @@ type node__playerRelationships = {
   readonly uid: Maybe<user__user>;
 };
 
+type node__playerRelationshipsFieldSelector = {
+  readonly field_image: InputMaybe<file__fileFieldSelector>;
+  readonly field_image_celebrate: InputMaybe<file__fileFieldSelector>;
+  readonly node__article: InputMaybe<node__articleFieldSelector>;
+  readonly node__team: InputMaybe<node__teamFieldSelector>;
+  readonly revision_uid: InputMaybe<user__userFieldSelector>;
+  readonly uid: InputMaybe<user__userFieldSelector>;
+};
+
 type node__playerRelationshipsFilterInput = {
   readonly field_image: InputMaybe<file__fileFilterInput>;
   readonly field_image_celebrate: InputMaybe<file__fileFilterInput>;
@@ -7361,9 +5028,46 @@ type node__playerRelationshipsFilterInput = {
   readonly uid: InputMaybe<user__userFilterInput>;
 };
 
+type node__playerRelationshipsSortInput = {
+  readonly field_image: InputMaybe<file__fileSortInput>;
+  readonly field_image_celebrate: InputMaybe<file__fileSortInput>;
+  readonly node__article: InputMaybe<node__articleSortInput>;
+  readonly node__team: InputMaybe<node__teamSortInput>;
+  readonly revision_uid: InputMaybe<user__userSortInput>;
+  readonly uid: InputMaybe<user__userSortInput>;
+};
+
 type node__playerSortInput = {
-  readonly fields: InputMaybe<ReadonlyArray<InputMaybe<node__playerFieldsEnum>>>;
-  readonly order: InputMaybe<ReadonlyArray<InputMaybe<SortOrderEnum>>>;
+  readonly body: InputMaybe<node__playerBodySortInput>;
+  readonly changed: InputMaybe<SortOrderEnum>;
+  readonly children: InputMaybe<NodeSortInput>;
+  readonly created: InputMaybe<SortOrderEnum>;
+  readonly default_langcode: InputMaybe<SortOrderEnum>;
+  readonly drupal_id: InputMaybe<SortOrderEnum>;
+  readonly drupal_internal__nid: InputMaybe<SortOrderEnum>;
+  readonly drupal_internal__vid: InputMaybe<SortOrderEnum>;
+  readonly field_birth_date: InputMaybe<SortOrderEnum>;
+  readonly field_date_leave: InputMaybe<SortOrderEnum>;
+  readonly field_firstname: InputMaybe<SortOrderEnum>;
+  readonly field_image: InputMaybe<node__playerField_imageSortInput>;
+  readonly field_image_celebrate: InputMaybe<node__playerField_image_celebrateSortInput>;
+  readonly field_join_date: InputMaybe<SortOrderEnum>;
+  readonly field_lastname: InputMaybe<SortOrderEnum>;
+  readonly field_position: InputMaybe<SortOrderEnum>;
+  readonly field_shirtnumber: InputMaybe<SortOrderEnum>;
+  readonly field_vv_id: InputMaybe<SortOrderEnum>;
+  readonly id: InputMaybe<SortOrderEnum>;
+  readonly internal: InputMaybe<InternalSortInput>;
+  readonly langcode: InputMaybe<SortOrderEnum>;
+  readonly parent: InputMaybe<NodeSortInput>;
+  readonly path: InputMaybe<node__playerPathSortInput>;
+  readonly promote: InputMaybe<SortOrderEnum>;
+  readonly relationships: InputMaybe<node__playerRelationshipsSortInput>;
+  readonly revision_timestamp: InputMaybe<SortOrderEnum>;
+  readonly revision_translation_affected: InputMaybe<SortOrderEnum>;
+  readonly status: InputMaybe<SortOrderEnum>;
+  readonly sticky: InputMaybe<SortOrderEnum>;
+  readonly title: InputMaybe<SortOrderEnum>;
 };
 
 type node__potw = Node & {
@@ -7426,29 +5130,29 @@ type node__potwConnection = {
 
 
 type node__potwConnection_distinctArgs = {
-  field: node__potwFieldsEnum;
+  field: node__potwFieldSelector;
 };
 
 
 type node__potwConnection_groupArgs = {
-  field: node__potwFieldsEnum;
+  field: node__potwFieldSelector;
   limit: InputMaybe<Scalars['Int']>;
   skip: InputMaybe<Scalars['Int']>;
 };
 
 
 type node__potwConnection_maxArgs = {
-  field: node__potwFieldsEnum;
+  field: node__potwFieldSelector;
 };
 
 
 type node__potwConnection_minArgs = {
-  field: node__potwFieldsEnum;
+  field: node__potwFieldSelector;
 };
 
 
 type node__potwConnection_sumArgs = {
-  field: node__potwFieldsEnum;
+  field: node__potwFieldSelector;
 };
 
 type node__potwEdge = {
@@ -7457,170 +5161,27 @@ type node__potwEdge = {
   readonly previous: Maybe<node__potw>;
 };
 
-type node__potwFieldsEnum =
-  | 'changed'
-  | 'children'
-  | 'children.children'
-  | 'children.children.children'
-  | 'children.children.children.children'
-  | 'children.children.children.id'
-  | 'children.children.id'
-  | 'children.children.internal.content'
-  | 'children.children.internal.contentDigest'
-  | 'children.children.internal.contentFilePath'
-  | 'children.children.internal.description'
-  | 'children.children.internal.fieldOwners'
-  | 'children.children.internal.ignoreType'
-  | 'children.children.internal.mediaType'
-  | 'children.children.internal.owner'
-  | 'children.children.internal.type'
-  | 'children.children.parent.children'
-  | 'children.children.parent.id'
-  | 'children.id'
-  | 'children.internal.content'
-  | 'children.internal.contentDigest'
-  | 'children.internal.contentFilePath'
-  | 'children.internal.description'
-  | 'children.internal.fieldOwners'
-  | 'children.internal.ignoreType'
-  | 'children.internal.mediaType'
-  | 'children.internal.owner'
-  | 'children.internal.type'
-  | 'children.parent.children'
-  | 'children.parent.children.children'
-  | 'children.parent.children.id'
-  | 'children.parent.id'
-  | 'children.parent.internal.content'
-  | 'children.parent.internal.contentDigest'
-  | 'children.parent.internal.contentFilePath'
-  | 'children.parent.internal.description'
-  | 'children.parent.internal.fieldOwners'
-  | 'children.parent.internal.ignoreType'
-  | 'children.parent.internal.mediaType'
-  | 'children.parent.internal.owner'
-  | 'children.parent.internal.type'
-  | 'children.parent.parent.children'
-  | 'children.parent.parent.id'
-  | 'created'
-  | 'default_langcode'
-  | 'drupal_id'
-  | 'drupal_internal__nid'
-  | 'drupal_internal__vid'
-  | 'id'
-  | 'internal.content'
-  | 'internal.contentDigest'
-  | 'internal.contentFilePath'
-  | 'internal.description'
-  | 'internal.fieldOwners'
-  | 'internal.ignoreType'
-  | 'internal.mediaType'
-  | 'internal.owner'
-  | 'internal.type'
-  | 'langcode'
-  | 'parent.children'
-  | 'parent.children.children'
-  | 'parent.children.children.children'
-  | 'parent.children.children.id'
-  | 'parent.children.id'
-  | 'parent.children.internal.content'
-  | 'parent.children.internal.contentDigest'
-  | 'parent.children.internal.contentFilePath'
-  | 'parent.children.internal.description'
-  | 'parent.children.internal.fieldOwners'
-  | 'parent.children.internal.ignoreType'
-  | 'parent.children.internal.mediaType'
-  | 'parent.children.internal.owner'
-  | 'parent.children.internal.type'
-  | 'parent.children.parent.children'
-  | 'parent.children.parent.id'
-  | 'parent.id'
-  | 'parent.internal.content'
-  | 'parent.internal.contentDigest'
-  | 'parent.internal.contentFilePath'
-  | 'parent.internal.description'
-  | 'parent.internal.fieldOwners'
-  | 'parent.internal.ignoreType'
-  | 'parent.internal.mediaType'
-  | 'parent.internal.owner'
-  | 'parent.internal.type'
-  | 'parent.parent.children'
-  | 'parent.parent.children.children'
-  | 'parent.parent.children.id'
-  | 'parent.parent.id'
-  | 'parent.parent.internal.content'
-  | 'parent.parent.internal.contentDigest'
-  | 'parent.parent.internal.contentFilePath'
-  | 'parent.parent.internal.description'
-  | 'parent.parent.internal.fieldOwners'
-  | 'parent.parent.internal.ignoreType'
-  | 'parent.parent.internal.mediaType'
-  | 'parent.parent.internal.owner'
-  | 'parent.parent.internal.type'
-  | 'parent.parent.parent.children'
-  | 'parent.parent.parent.id'
-  | 'path.langcode'
-  | 'promote'
-  | 'relationships.revision_uid.children'
-  | 'relationships.revision_uid.children.children'
-  | 'relationships.revision_uid.children.id'
-  | 'relationships.revision_uid.display_name'
-  | 'relationships.revision_uid.drupal_id'
-  | 'relationships.revision_uid.id'
-  | 'relationships.revision_uid.internal.content'
-  | 'relationships.revision_uid.internal.contentDigest'
-  | 'relationships.revision_uid.internal.contentFilePath'
-  | 'relationships.revision_uid.internal.description'
-  | 'relationships.revision_uid.internal.fieldOwners'
-  | 'relationships.revision_uid.internal.ignoreType'
-  | 'relationships.revision_uid.internal.mediaType'
-  | 'relationships.revision_uid.internal.owner'
-  | 'relationships.revision_uid.internal.type'
-  | 'relationships.revision_uid.parent.children'
-  | 'relationships.revision_uid.parent.id'
-  | 'relationships.revision_uid.relationships.file__file'
-  | 'relationships.revision_uid.relationships.media__image'
-  | 'relationships.revision_uid.relationships.node__article'
-  | 'relationships.revision_uid.relationships.node__event'
-  | 'relationships.revision_uid.relationships.node__kcvv_tv'
-  | 'relationships.revision_uid.relationships.node__page'
-  | 'relationships.revision_uid.relationships.node__player'
-  | 'relationships.revision_uid.relationships.node__potw'
-  | 'relationships.revision_uid.relationships.node__sponsor'
-  | 'relationships.revision_uid.relationships.node__staff'
-  | 'relationships.revision_uid.relationships.node__team'
-  | 'relationships.uid.children'
-  | 'relationships.uid.children.children'
-  | 'relationships.uid.children.id'
-  | 'relationships.uid.display_name'
-  | 'relationships.uid.drupal_id'
-  | 'relationships.uid.id'
-  | 'relationships.uid.internal.content'
-  | 'relationships.uid.internal.contentDigest'
-  | 'relationships.uid.internal.contentFilePath'
-  | 'relationships.uid.internal.description'
-  | 'relationships.uid.internal.fieldOwners'
-  | 'relationships.uid.internal.ignoreType'
-  | 'relationships.uid.internal.mediaType'
-  | 'relationships.uid.internal.owner'
-  | 'relationships.uid.internal.type'
-  | 'relationships.uid.parent.children'
-  | 'relationships.uid.parent.id'
-  | 'relationships.uid.relationships.file__file'
-  | 'relationships.uid.relationships.media__image'
-  | 'relationships.uid.relationships.node__article'
-  | 'relationships.uid.relationships.node__event'
-  | 'relationships.uid.relationships.node__kcvv_tv'
-  | 'relationships.uid.relationships.node__page'
-  | 'relationships.uid.relationships.node__player'
-  | 'relationships.uid.relationships.node__potw'
-  | 'relationships.uid.relationships.node__sponsor'
-  | 'relationships.uid.relationships.node__staff'
-  | 'relationships.uid.relationships.node__team'
-  | 'revision_timestamp'
-  | 'revision_translation_affected'
-  | 'status'
-  | 'sticky'
-  | 'title';
+type node__potwFieldSelector = {
+  readonly changed: InputMaybe<FieldSelectorEnum>;
+  readonly children: InputMaybe<NodeFieldSelector>;
+  readonly created: InputMaybe<FieldSelectorEnum>;
+  readonly default_langcode: InputMaybe<FieldSelectorEnum>;
+  readonly drupal_id: InputMaybe<FieldSelectorEnum>;
+  readonly drupal_internal__nid: InputMaybe<FieldSelectorEnum>;
+  readonly drupal_internal__vid: InputMaybe<FieldSelectorEnum>;
+  readonly id: InputMaybe<FieldSelectorEnum>;
+  readonly internal: InputMaybe<InternalFieldSelector>;
+  readonly langcode: InputMaybe<FieldSelectorEnum>;
+  readonly parent: InputMaybe<NodeFieldSelector>;
+  readonly path: InputMaybe<node__potwPathFieldSelector>;
+  readonly promote: InputMaybe<FieldSelectorEnum>;
+  readonly relationships: InputMaybe<node__potwRelationshipsFieldSelector>;
+  readonly revision_timestamp: InputMaybe<FieldSelectorEnum>;
+  readonly revision_translation_affected: InputMaybe<FieldSelectorEnum>;
+  readonly status: InputMaybe<FieldSelectorEnum>;
+  readonly sticky: InputMaybe<FieldSelectorEnum>;
+  readonly title: InputMaybe<FieldSelectorEnum>;
+};
 
 type node__potwFilterInput = {
   readonly changed: InputMaybe<DateQueryOperatorInput>;
@@ -7664,37 +5225,45 @@ type node__potwGroupConnection = {
 
 
 type node__potwGroupConnection_distinctArgs = {
-  field: node__potwFieldsEnum;
+  field: node__potwFieldSelector;
 };
 
 
 type node__potwGroupConnection_groupArgs = {
-  field: node__potwFieldsEnum;
+  field: node__potwFieldSelector;
   limit: InputMaybe<Scalars['Int']>;
   skip: InputMaybe<Scalars['Int']>;
 };
 
 
 type node__potwGroupConnection_maxArgs = {
-  field: node__potwFieldsEnum;
+  field: node__potwFieldSelector;
 };
 
 
 type node__potwGroupConnection_minArgs = {
-  field: node__potwFieldsEnum;
+  field: node__potwFieldSelector;
 };
 
 
 type node__potwGroupConnection_sumArgs = {
-  field: node__potwFieldsEnum;
+  field: node__potwFieldSelector;
 };
 
 type node__potwPath = {
   readonly langcode: Maybe<Scalars['String']>;
 };
 
+type node__potwPathFieldSelector = {
+  readonly langcode: InputMaybe<FieldSelectorEnum>;
+};
+
 type node__potwPathFilterInput = {
   readonly langcode: InputMaybe<StringQueryOperatorInput>;
+};
+
+type node__potwPathSortInput = {
+  readonly langcode: InputMaybe<SortOrderEnum>;
 };
 
 type node__potwRelationships = {
@@ -7702,14 +5271,41 @@ type node__potwRelationships = {
   readonly uid: Maybe<user__user>;
 };
 
+type node__potwRelationshipsFieldSelector = {
+  readonly revision_uid: InputMaybe<user__userFieldSelector>;
+  readonly uid: InputMaybe<user__userFieldSelector>;
+};
+
 type node__potwRelationshipsFilterInput = {
   readonly revision_uid: InputMaybe<user__userFilterInput>;
   readonly uid: InputMaybe<user__userFilterInput>;
 };
 
+type node__potwRelationshipsSortInput = {
+  readonly revision_uid: InputMaybe<user__userSortInput>;
+  readonly uid: InputMaybe<user__userSortInput>;
+};
+
 type node__potwSortInput = {
-  readonly fields: InputMaybe<ReadonlyArray<InputMaybe<node__potwFieldsEnum>>>;
-  readonly order: InputMaybe<ReadonlyArray<InputMaybe<SortOrderEnum>>>;
+  readonly changed: InputMaybe<SortOrderEnum>;
+  readonly children: InputMaybe<NodeSortInput>;
+  readonly created: InputMaybe<SortOrderEnum>;
+  readonly default_langcode: InputMaybe<SortOrderEnum>;
+  readonly drupal_id: InputMaybe<SortOrderEnum>;
+  readonly drupal_internal__nid: InputMaybe<SortOrderEnum>;
+  readonly drupal_internal__vid: InputMaybe<SortOrderEnum>;
+  readonly id: InputMaybe<SortOrderEnum>;
+  readonly internal: InputMaybe<InternalSortInput>;
+  readonly langcode: InputMaybe<SortOrderEnum>;
+  readonly parent: InputMaybe<NodeSortInput>;
+  readonly path: InputMaybe<node__potwPathSortInput>;
+  readonly promote: InputMaybe<SortOrderEnum>;
+  readonly relationships: InputMaybe<node__potwRelationshipsSortInput>;
+  readonly revision_timestamp: InputMaybe<SortOrderEnum>;
+  readonly revision_translation_affected: InputMaybe<SortOrderEnum>;
+  readonly status: InputMaybe<SortOrderEnum>;
+  readonly sticky: InputMaybe<SortOrderEnum>;
+  readonly title: InputMaybe<SortOrderEnum>;
 };
 
 type node__sponsor = Node & {
@@ -7774,29 +5370,29 @@ type node__sponsorConnection = {
 
 
 type node__sponsorConnection_distinctArgs = {
-  field: node__sponsorFieldsEnum;
+  field: node__sponsorFieldSelector;
 };
 
 
 type node__sponsorConnection_groupArgs = {
-  field: node__sponsorFieldsEnum;
+  field: node__sponsorFieldSelector;
   limit: InputMaybe<Scalars['Int']>;
   skip: InputMaybe<Scalars['Int']>;
 };
 
 
 type node__sponsorConnection_maxArgs = {
-  field: node__sponsorFieldsEnum;
+  field: node__sponsorFieldSelector;
 };
 
 
 type node__sponsorConnection_minArgs = {
-  field: node__sponsorFieldsEnum;
+  field: node__sponsorFieldSelector;
 };
 
 
 type node__sponsorConnection_sumArgs = {
-  field: node__sponsorFieldsEnum;
+  field: node__sponsorFieldSelector;
 };
 
 type node__sponsorEdge = {
@@ -7805,9 +5401,38 @@ type node__sponsorEdge = {
   readonly previous: Maybe<node__sponsor>;
 };
 
+type node__sponsorFieldSelector = {
+  readonly changed: InputMaybe<FieldSelectorEnum>;
+  readonly children: InputMaybe<NodeFieldSelector>;
+  readonly created: InputMaybe<FieldSelectorEnum>;
+  readonly default_langcode: InputMaybe<FieldSelectorEnum>;
+  readonly drupal_id: InputMaybe<FieldSelectorEnum>;
+  readonly drupal_internal__nid: InputMaybe<FieldSelectorEnum>;
+  readonly drupal_internal__vid: InputMaybe<FieldSelectorEnum>;
+  readonly field_type: InputMaybe<FieldSelectorEnum>;
+  readonly field_website: InputMaybe<node__sponsorField_websiteFieldSelector>;
+  readonly id: InputMaybe<FieldSelectorEnum>;
+  readonly internal: InputMaybe<InternalFieldSelector>;
+  readonly langcode: InputMaybe<FieldSelectorEnum>;
+  readonly parent: InputMaybe<NodeFieldSelector>;
+  readonly path: InputMaybe<node__sponsorPathFieldSelector>;
+  readonly promote: InputMaybe<FieldSelectorEnum>;
+  readonly relationships: InputMaybe<node__sponsorRelationshipsFieldSelector>;
+  readonly revision_timestamp: InputMaybe<FieldSelectorEnum>;
+  readonly revision_translation_affected: InputMaybe<FieldSelectorEnum>;
+  readonly status: InputMaybe<FieldSelectorEnum>;
+  readonly sticky: InputMaybe<FieldSelectorEnum>;
+  readonly title: InputMaybe<FieldSelectorEnum>;
+};
+
 type node__sponsorField_website = {
   readonly title: Maybe<Scalars['String']>;
   readonly uri: Maybe<Scalars['String']>;
+};
+
+type node__sponsorField_websiteFieldSelector = {
+  readonly title: InputMaybe<FieldSelectorEnum>;
+  readonly uri: InputMaybe<FieldSelectorEnum>;
 };
 
 type node__sponsorField_websiteFilterInput = {
@@ -7815,217 +5440,10 @@ type node__sponsorField_websiteFilterInput = {
   readonly uri: InputMaybe<StringQueryOperatorInput>;
 };
 
-type node__sponsorFieldsEnum =
-  | 'changed'
-  | 'children'
-  | 'children.children'
-  | 'children.children.children'
-  | 'children.children.children.children'
-  | 'children.children.children.id'
-  | 'children.children.id'
-  | 'children.children.internal.content'
-  | 'children.children.internal.contentDigest'
-  | 'children.children.internal.contentFilePath'
-  | 'children.children.internal.description'
-  | 'children.children.internal.fieldOwners'
-  | 'children.children.internal.ignoreType'
-  | 'children.children.internal.mediaType'
-  | 'children.children.internal.owner'
-  | 'children.children.internal.type'
-  | 'children.children.parent.children'
-  | 'children.children.parent.id'
-  | 'children.id'
-  | 'children.internal.content'
-  | 'children.internal.contentDigest'
-  | 'children.internal.contentFilePath'
-  | 'children.internal.description'
-  | 'children.internal.fieldOwners'
-  | 'children.internal.ignoreType'
-  | 'children.internal.mediaType'
-  | 'children.internal.owner'
-  | 'children.internal.type'
-  | 'children.parent.children'
-  | 'children.parent.children.children'
-  | 'children.parent.children.id'
-  | 'children.parent.id'
-  | 'children.parent.internal.content'
-  | 'children.parent.internal.contentDigest'
-  | 'children.parent.internal.contentFilePath'
-  | 'children.parent.internal.description'
-  | 'children.parent.internal.fieldOwners'
-  | 'children.parent.internal.ignoreType'
-  | 'children.parent.internal.mediaType'
-  | 'children.parent.internal.owner'
-  | 'children.parent.internal.type'
-  | 'children.parent.parent.children'
-  | 'children.parent.parent.id'
-  | 'created'
-  | 'default_langcode'
-  | 'drupal_id'
-  | 'drupal_internal__nid'
-  | 'drupal_internal__vid'
-  | 'field_type'
-  | 'field_website.title'
-  | 'field_website.uri'
-  | 'id'
-  | 'internal.content'
-  | 'internal.contentDigest'
-  | 'internal.contentFilePath'
-  | 'internal.description'
-  | 'internal.fieldOwners'
-  | 'internal.ignoreType'
-  | 'internal.mediaType'
-  | 'internal.owner'
-  | 'internal.type'
-  | 'langcode'
-  | 'parent.children'
-  | 'parent.children.children'
-  | 'parent.children.children.children'
-  | 'parent.children.children.id'
-  | 'parent.children.id'
-  | 'parent.children.internal.content'
-  | 'parent.children.internal.contentDigest'
-  | 'parent.children.internal.contentFilePath'
-  | 'parent.children.internal.description'
-  | 'parent.children.internal.fieldOwners'
-  | 'parent.children.internal.ignoreType'
-  | 'parent.children.internal.mediaType'
-  | 'parent.children.internal.owner'
-  | 'parent.children.internal.type'
-  | 'parent.children.parent.children'
-  | 'parent.children.parent.id'
-  | 'parent.id'
-  | 'parent.internal.content'
-  | 'parent.internal.contentDigest'
-  | 'parent.internal.contentFilePath'
-  | 'parent.internal.description'
-  | 'parent.internal.fieldOwners'
-  | 'parent.internal.ignoreType'
-  | 'parent.internal.mediaType'
-  | 'parent.internal.owner'
-  | 'parent.internal.type'
-  | 'parent.parent.children'
-  | 'parent.parent.children.children'
-  | 'parent.parent.children.id'
-  | 'parent.parent.id'
-  | 'parent.parent.internal.content'
-  | 'parent.parent.internal.contentDigest'
-  | 'parent.parent.internal.contentFilePath'
-  | 'parent.parent.internal.description'
-  | 'parent.parent.internal.fieldOwners'
-  | 'parent.parent.internal.ignoreType'
-  | 'parent.parent.internal.mediaType'
-  | 'parent.parent.internal.owner'
-  | 'parent.parent.internal.type'
-  | 'parent.parent.parent.children'
-  | 'parent.parent.parent.id'
-  | 'path.alias'
-  | 'path.langcode'
-  | 'path.pid'
-  | 'promote'
-  | 'relationships.field_media_image.changed'
-  | 'relationships.field_media_image.children'
-  | 'relationships.field_media_image.children.children'
-  | 'relationships.field_media_image.children.id'
-  | 'relationships.field_media_image.created'
-  | 'relationships.field_media_image.default_langcode'
-  | 'relationships.field_media_image.drupal_id'
-  | 'relationships.field_media_image.drupal_internal__mid'
-  | 'relationships.field_media_image.drupal_internal__vid'
-  | 'relationships.field_media_image.field_media_image.alt'
-  | 'relationships.field_media_image.field_media_image.height'
-  | 'relationships.field_media_image.field_media_image.title'
-  | 'relationships.field_media_image.field_media_image.width'
-  | 'relationships.field_media_image.id'
-  | 'relationships.field_media_image.internal.content'
-  | 'relationships.field_media_image.internal.contentDigest'
-  | 'relationships.field_media_image.internal.contentFilePath'
-  | 'relationships.field_media_image.internal.description'
-  | 'relationships.field_media_image.internal.fieldOwners'
-  | 'relationships.field_media_image.internal.ignoreType'
-  | 'relationships.field_media_image.internal.mediaType'
-  | 'relationships.field_media_image.internal.owner'
-  | 'relationships.field_media_image.internal.type'
-  | 'relationships.field_media_image.langcode'
-  | 'relationships.field_media_image.name'
-  | 'relationships.field_media_image.parent.children'
-  | 'relationships.field_media_image.parent.id'
-  | 'relationships.field_media_image.path.alias'
-  | 'relationships.field_media_image.path.langcode'
-  | 'relationships.field_media_image.path.pid'
-  | 'relationships.field_media_image.relationships.node__article'
-  | 'relationships.field_media_image.relationships.node__event'
-  | 'relationships.field_media_image.relationships.node__kcvv_tv'
-  | 'relationships.field_media_image.relationships.node__page'
-  | 'relationships.field_media_image.relationships.node__sponsor'
-  | 'relationships.field_media_image.relationships.node__team'
-  | 'relationships.field_media_image.revision_created'
-  | 'relationships.field_media_image.revision_translation_affected'
-  | 'relationships.field_media_image.status'
-  | 'relationships.field_media_image.thumbnail.alt'
-  | 'relationships.field_media_image.thumbnail.height'
-  | 'relationships.field_media_image.thumbnail.width'
-  | 'relationships.revision_uid.children'
-  | 'relationships.revision_uid.children.children'
-  | 'relationships.revision_uid.children.id'
-  | 'relationships.revision_uid.display_name'
-  | 'relationships.revision_uid.drupal_id'
-  | 'relationships.revision_uid.id'
-  | 'relationships.revision_uid.internal.content'
-  | 'relationships.revision_uid.internal.contentDigest'
-  | 'relationships.revision_uid.internal.contentFilePath'
-  | 'relationships.revision_uid.internal.description'
-  | 'relationships.revision_uid.internal.fieldOwners'
-  | 'relationships.revision_uid.internal.ignoreType'
-  | 'relationships.revision_uid.internal.mediaType'
-  | 'relationships.revision_uid.internal.owner'
-  | 'relationships.revision_uid.internal.type'
-  | 'relationships.revision_uid.parent.children'
-  | 'relationships.revision_uid.parent.id'
-  | 'relationships.revision_uid.relationships.file__file'
-  | 'relationships.revision_uid.relationships.media__image'
-  | 'relationships.revision_uid.relationships.node__article'
-  | 'relationships.revision_uid.relationships.node__event'
-  | 'relationships.revision_uid.relationships.node__kcvv_tv'
-  | 'relationships.revision_uid.relationships.node__page'
-  | 'relationships.revision_uid.relationships.node__player'
-  | 'relationships.revision_uid.relationships.node__potw'
-  | 'relationships.revision_uid.relationships.node__sponsor'
-  | 'relationships.revision_uid.relationships.node__staff'
-  | 'relationships.revision_uid.relationships.node__team'
-  | 'relationships.uid.children'
-  | 'relationships.uid.children.children'
-  | 'relationships.uid.children.id'
-  | 'relationships.uid.display_name'
-  | 'relationships.uid.drupal_id'
-  | 'relationships.uid.id'
-  | 'relationships.uid.internal.content'
-  | 'relationships.uid.internal.contentDigest'
-  | 'relationships.uid.internal.contentFilePath'
-  | 'relationships.uid.internal.description'
-  | 'relationships.uid.internal.fieldOwners'
-  | 'relationships.uid.internal.ignoreType'
-  | 'relationships.uid.internal.mediaType'
-  | 'relationships.uid.internal.owner'
-  | 'relationships.uid.internal.type'
-  | 'relationships.uid.parent.children'
-  | 'relationships.uid.parent.id'
-  | 'relationships.uid.relationships.file__file'
-  | 'relationships.uid.relationships.media__image'
-  | 'relationships.uid.relationships.node__article'
-  | 'relationships.uid.relationships.node__event'
-  | 'relationships.uid.relationships.node__kcvv_tv'
-  | 'relationships.uid.relationships.node__page'
-  | 'relationships.uid.relationships.node__player'
-  | 'relationships.uid.relationships.node__potw'
-  | 'relationships.uid.relationships.node__sponsor'
-  | 'relationships.uid.relationships.node__staff'
-  | 'relationships.uid.relationships.node__team'
-  | 'revision_timestamp'
-  | 'revision_translation_affected'
-  | 'status'
-  | 'sticky'
-  | 'title';
+type node__sponsorField_websiteSortInput = {
+  readonly title: InputMaybe<SortOrderEnum>;
+  readonly uri: InputMaybe<SortOrderEnum>;
+};
 
 type node__sponsorFilterInput = {
   readonly changed: InputMaybe<DateQueryOperatorInput>;
@@ -8071,29 +5489,29 @@ type node__sponsorGroupConnection = {
 
 
 type node__sponsorGroupConnection_distinctArgs = {
-  field: node__sponsorFieldsEnum;
+  field: node__sponsorFieldSelector;
 };
 
 
 type node__sponsorGroupConnection_groupArgs = {
-  field: node__sponsorFieldsEnum;
+  field: node__sponsorFieldSelector;
   limit: InputMaybe<Scalars['Int']>;
   skip: InputMaybe<Scalars['Int']>;
 };
 
 
 type node__sponsorGroupConnection_maxArgs = {
-  field: node__sponsorFieldsEnum;
+  field: node__sponsorFieldSelector;
 };
 
 
 type node__sponsorGroupConnection_minArgs = {
-  field: node__sponsorFieldsEnum;
+  field: node__sponsorFieldSelector;
 };
 
 
 type node__sponsorGroupConnection_sumArgs = {
-  field: node__sponsorFieldsEnum;
+  field: node__sponsorFieldSelector;
 };
 
 type node__sponsorPath = {
@@ -8102,10 +5520,22 @@ type node__sponsorPath = {
   readonly pid: Maybe<Scalars['Int']>;
 };
 
+type node__sponsorPathFieldSelector = {
+  readonly alias: InputMaybe<FieldSelectorEnum>;
+  readonly langcode: InputMaybe<FieldSelectorEnum>;
+  readonly pid: InputMaybe<FieldSelectorEnum>;
+};
+
 type node__sponsorPathFilterInput = {
   readonly alias: InputMaybe<StringQueryOperatorInput>;
   readonly langcode: InputMaybe<StringQueryOperatorInput>;
   readonly pid: InputMaybe<IntQueryOperatorInput>;
+};
+
+type node__sponsorPathSortInput = {
+  readonly alias: InputMaybe<SortOrderEnum>;
+  readonly langcode: InputMaybe<SortOrderEnum>;
+  readonly pid: InputMaybe<SortOrderEnum>;
 };
 
 type node__sponsorRelationships = {
@@ -8114,15 +5544,46 @@ type node__sponsorRelationships = {
   readonly uid: Maybe<user__user>;
 };
 
+type node__sponsorRelationshipsFieldSelector = {
+  readonly field_media_image: InputMaybe<media__imageFieldSelector>;
+  readonly revision_uid: InputMaybe<user__userFieldSelector>;
+  readonly uid: InputMaybe<user__userFieldSelector>;
+};
+
 type node__sponsorRelationshipsFilterInput = {
   readonly field_media_image: InputMaybe<media__imageFilterInput>;
   readonly revision_uid: InputMaybe<user__userFilterInput>;
   readonly uid: InputMaybe<user__userFilterInput>;
 };
 
+type node__sponsorRelationshipsSortInput = {
+  readonly field_media_image: InputMaybe<media__imageSortInput>;
+  readonly revision_uid: InputMaybe<user__userSortInput>;
+  readonly uid: InputMaybe<user__userSortInput>;
+};
+
 type node__sponsorSortInput = {
-  readonly fields: InputMaybe<ReadonlyArray<InputMaybe<node__sponsorFieldsEnum>>>;
-  readonly order: InputMaybe<ReadonlyArray<InputMaybe<SortOrderEnum>>>;
+  readonly changed: InputMaybe<SortOrderEnum>;
+  readonly children: InputMaybe<NodeSortInput>;
+  readonly created: InputMaybe<SortOrderEnum>;
+  readonly default_langcode: InputMaybe<SortOrderEnum>;
+  readonly drupal_id: InputMaybe<SortOrderEnum>;
+  readonly drupal_internal__nid: InputMaybe<SortOrderEnum>;
+  readonly drupal_internal__vid: InputMaybe<SortOrderEnum>;
+  readonly field_type: InputMaybe<SortOrderEnum>;
+  readonly field_website: InputMaybe<node__sponsorField_websiteSortInput>;
+  readonly id: InputMaybe<SortOrderEnum>;
+  readonly internal: InputMaybe<InternalSortInput>;
+  readonly langcode: InputMaybe<SortOrderEnum>;
+  readonly parent: InputMaybe<NodeSortInput>;
+  readonly path: InputMaybe<node__sponsorPathSortInput>;
+  readonly promote: InputMaybe<SortOrderEnum>;
+  readonly relationships: InputMaybe<node__sponsorRelationshipsSortInput>;
+  readonly revision_timestamp: InputMaybe<SortOrderEnum>;
+  readonly revision_translation_affected: InputMaybe<SortOrderEnum>;
+  readonly status: InputMaybe<SortOrderEnum>;
+  readonly sticky: InputMaybe<SortOrderEnum>;
+  readonly title: InputMaybe<SortOrderEnum>;
 };
 
 type node__staff = Node & {
@@ -8203,11 +5664,25 @@ type node__staffBody = {
   readonly value: Maybe<Scalars['String']>;
 };
 
+type node__staffBodyFieldSelector = {
+  readonly format: InputMaybe<FieldSelectorEnum>;
+  readonly processed: InputMaybe<FieldSelectorEnum>;
+  readonly summary: InputMaybe<FieldSelectorEnum>;
+  readonly value: InputMaybe<FieldSelectorEnum>;
+};
+
 type node__staffBodyFilterInput = {
   readonly format: InputMaybe<StringQueryOperatorInput>;
   readonly processed: InputMaybe<StringQueryOperatorInput>;
   readonly summary: InputMaybe<StringQueryOperatorInput>;
   readonly value: InputMaybe<StringQueryOperatorInput>;
+};
+
+type node__staffBodySortInput = {
+  readonly format: InputMaybe<SortOrderEnum>;
+  readonly processed: InputMaybe<SortOrderEnum>;
+  readonly summary: InputMaybe<SortOrderEnum>;
+  readonly value: InputMaybe<SortOrderEnum>;
 };
 
 type node__staffConnection = {
@@ -8224,35 +5699,66 @@ type node__staffConnection = {
 
 
 type node__staffConnection_distinctArgs = {
-  field: node__staffFieldsEnum;
+  field: node__staffFieldSelector;
 };
 
 
 type node__staffConnection_groupArgs = {
-  field: node__staffFieldsEnum;
+  field: node__staffFieldSelector;
   limit: InputMaybe<Scalars['Int']>;
   skip: InputMaybe<Scalars['Int']>;
 };
 
 
 type node__staffConnection_maxArgs = {
-  field: node__staffFieldsEnum;
+  field: node__staffFieldSelector;
 };
 
 
 type node__staffConnection_minArgs = {
-  field: node__staffFieldsEnum;
+  field: node__staffFieldSelector;
 };
 
 
 type node__staffConnection_sumArgs = {
-  field: node__staffFieldsEnum;
+  field: node__staffFieldSelector;
 };
 
 type node__staffEdge = {
   readonly next: Maybe<node__staff>;
   readonly node: node__staff;
   readonly previous: Maybe<node__staff>;
+};
+
+type node__staffFieldSelector = {
+  readonly body: InputMaybe<node__staffBodyFieldSelector>;
+  readonly changed: InputMaybe<FieldSelectorEnum>;
+  readonly children: InputMaybe<NodeFieldSelector>;
+  readonly created: InputMaybe<FieldSelectorEnum>;
+  readonly default_langcode: InputMaybe<FieldSelectorEnum>;
+  readonly drupal_id: InputMaybe<FieldSelectorEnum>;
+  readonly drupal_internal__nid: InputMaybe<FieldSelectorEnum>;
+  readonly drupal_internal__vid: InputMaybe<FieldSelectorEnum>;
+  readonly field_birth_date: InputMaybe<FieldSelectorEnum>;
+  readonly field_firstname: InputMaybe<FieldSelectorEnum>;
+  readonly field_image: InputMaybe<node__staffField_imageFieldSelector>;
+  readonly field_join_date: InputMaybe<FieldSelectorEnum>;
+  readonly field_lastname: InputMaybe<FieldSelectorEnum>;
+  readonly field_position_short: InputMaybe<FieldSelectorEnum>;
+  readonly field_position_staff: InputMaybe<FieldSelectorEnum>;
+  readonly field_vv_id: InputMaybe<FieldSelectorEnum>;
+  readonly id: InputMaybe<FieldSelectorEnum>;
+  readonly internal: InputMaybe<InternalFieldSelector>;
+  readonly langcode: InputMaybe<FieldSelectorEnum>;
+  readonly parent: InputMaybe<NodeFieldSelector>;
+  readonly path: InputMaybe<node__staffPathFieldSelector>;
+  readonly promote: InputMaybe<FieldSelectorEnum>;
+  readonly relationships: InputMaybe<node__staffRelationshipsFieldSelector>;
+  readonly revision_timestamp: InputMaybe<FieldSelectorEnum>;
+  readonly revision_translation_affected: InputMaybe<FieldSelectorEnum>;
+  readonly status: InputMaybe<FieldSelectorEnum>;
+  readonly sticky: InputMaybe<FieldSelectorEnum>;
+  readonly title: InputMaybe<FieldSelectorEnum>;
 };
 
 type node__staffField_image = {
@@ -8262,6 +5768,13 @@ type node__staffField_image = {
   readonly width: Maybe<Scalars['Int']>;
 };
 
+type node__staffField_imageFieldSelector = {
+  readonly alt: InputMaybe<FieldSelectorEnum>;
+  readonly height: InputMaybe<FieldSelectorEnum>;
+  readonly title: InputMaybe<FieldSelectorEnum>;
+  readonly width: InputMaybe<FieldSelectorEnum>;
+};
+
 type node__staffField_imageFilterInput = {
   readonly alt: InputMaybe<StringQueryOperatorInput>;
   readonly height: InputMaybe<IntQueryOperatorInput>;
@@ -8269,337 +5782,12 @@ type node__staffField_imageFilterInput = {
   readonly width: InputMaybe<IntQueryOperatorInput>;
 };
 
-type node__staffFieldsEnum =
-  | 'body.format'
-  | 'body.processed'
-  | 'body.summary'
-  | 'body.value'
-  | 'changed'
-  | 'children'
-  | 'children.children'
-  | 'children.children.children'
-  | 'children.children.children.children'
-  | 'children.children.children.id'
-  | 'children.children.id'
-  | 'children.children.internal.content'
-  | 'children.children.internal.contentDigest'
-  | 'children.children.internal.contentFilePath'
-  | 'children.children.internal.description'
-  | 'children.children.internal.fieldOwners'
-  | 'children.children.internal.ignoreType'
-  | 'children.children.internal.mediaType'
-  | 'children.children.internal.owner'
-  | 'children.children.internal.type'
-  | 'children.children.parent.children'
-  | 'children.children.parent.id'
-  | 'children.id'
-  | 'children.internal.content'
-  | 'children.internal.contentDigest'
-  | 'children.internal.contentFilePath'
-  | 'children.internal.description'
-  | 'children.internal.fieldOwners'
-  | 'children.internal.ignoreType'
-  | 'children.internal.mediaType'
-  | 'children.internal.owner'
-  | 'children.internal.type'
-  | 'children.parent.children'
-  | 'children.parent.children.children'
-  | 'children.parent.children.id'
-  | 'children.parent.id'
-  | 'children.parent.internal.content'
-  | 'children.parent.internal.contentDigest'
-  | 'children.parent.internal.contentFilePath'
-  | 'children.parent.internal.description'
-  | 'children.parent.internal.fieldOwners'
-  | 'children.parent.internal.ignoreType'
-  | 'children.parent.internal.mediaType'
-  | 'children.parent.internal.owner'
-  | 'children.parent.internal.type'
-  | 'children.parent.parent.children'
-  | 'children.parent.parent.id'
-  | 'created'
-  | 'default_langcode'
-  | 'drupal_id'
-  | 'drupal_internal__nid'
-  | 'drupal_internal__vid'
-  | 'field_birth_date'
-  | 'field_firstname'
-  | 'field_image.alt'
-  | 'field_image.height'
-  | 'field_image.title'
-  | 'field_image.width'
-  | 'field_join_date'
-  | 'field_lastname'
-  | 'field_position_short'
-  | 'field_position_staff'
-  | 'field_vv_id'
-  | 'id'
-  | 'internal.content'
-  | 'internal.contentDigest'
-  | 'internal.contentFilePath'
-  | 'internal.description'
-  | 'internal.fieldOwners'
-  | 'internal.ignoreType'
-  | 'internal.mediaType'
-  | 'internal.owner'
-  | 'internal.type'
-  | 'langcode'
-  | 'parent.children'
-  | 'parent.children.children'
-  | 'parent.children.children.children'
-  | 'parent.children.children.id'
-  | 'parent.children.id'
-  | 'parent.children.internal.content'
-  | 'parent.children.internal.contentDigest'
-  | 'parent.children.internal.contentFilePath'
-  | 'parent.children.internal.description'
-  | 'parent.children.internal.fieldOwners'
-  | 'parent.children.internal.ignoreType'
-  | 'parent.children.internal.mediaType'
-  | 'parent.children.internal.owner'
-  | 'parent.children.internal.type'
-  | 'parent.children.parent.children'
-  | 'parent.children.parent.id'
-  | 'parent.id'
-  | 'parent.internal.content'
-  | 'parent.internal.contentDigest'
-  | 'parent.internal.contentFilePath'
-  | 'parent.internal.description'
-  | 'parent.internal.fieldOwners'
-  | 'parent.internal.ignoreType'
-  | 'parent.internal.mediaType'
-  | 'parent.internal.owner'
-  | 'parent.internal.type'
-  | 'parent.parent.children'
-  | 'parent.parent.children.children'
-  | 'parent.parent.children.id'
-  | 'parent.parent.id'
-  | 'parent.parent.internal.content'
-  | 'parent.parent.internal.contentDigest'
-  | 'parent.parent.internal.contentFilePath'
-  | 'parent.parent.internal.description'
-  | 'parent.parent.internal.fieldOwners'
-  | 'parent.parent.internal.ignoreType'
-  | 'parent.parent.internal.mediaType'
-  | 'parent.parent.internal.owner'
-  | 'parent.parent.internal.type'
-  | 'parent.parent.parent.children'
-  | 'parent.parent.parent.id'
-  | 'path.alias'
-  | 'path.langcode'
-  | 'path.pid'
-  | 'promote'
-  | 'relationships.field_image.changed'
-  | 'relationships.field_image.children'
-  | 'relationships.field_image.children.children'
-  | 'relationships.field_image.children.id'
-  | 'relationships.field_image.created'
-  | 'relationships.field_image.drupal_id'
-  | 'relationships.field_image.drupal_internal__fid'
-  | 'relationships.field_image.filemime'
-  | 'relationships.field_image.filename'
-  | 'relationships.field_image.filesize'
-  | 'relationships.field_image.id'
-  | 'relationships.field_image.internal.content'
-  | 'relationships.field_image.internal.contentDigest'
-  | 'relationships.field_image.internal.contentFilePath'
-  | 'relationships.field_image.internal.description'
-  | 'relationships.field_image.internal.fieldOwners'
-  | 'relationships.field_image.internal.ignoreType'
-  | 'relationships.field_image.internal.mediaType'
-  | 'relationships.field_image.internal.owner'
-  | 'relationships.field_image.internal.type'
-  | 'relationships.field_image.langcode'
-  | 'relationships.field_image.localFile.absolutePath'
-  | 'relationships.field_image.localFile.accessTime'
-  | 'relationships.field_image.localFile.atime'
-  | 'relationships.field_image.localFile.atimeMs'
-  | 'relationships.field_image.localFile.base'
-  | 'relationships.field_image.localFile.birthTime'
-  | 'relationships.field_image.localFile.birthtime'
-  | 'relationships.field_image.localFile.birthtimeMs'
-  | 'relationships.field_image.localFile.blksize'
-  | 'relationships.field_image.localFile.blocks'
-  | 'relationships.field_image.localFile.changeTime'
-  | 'relationships.field_image.localFile.children'
-  | 'relationships.field_image.localFile.childrenImageSharp'
-  | 'relationships.field_image.localFile.ctime'
-  | 'relationships.field_image.localFile.ctimeMs'
-  | 'relationships.field_image.localFile.dev'
-  | 'relationships.field_image.localFile.dir'
-  | 'relationships.field_image.localFile.ext'
-  | 'relationships.field_image.localFile.extension'
-  | 'relationships.field_image.localFile.gid'
-  | 'relationships.field_image.localFile.id'
-  | 'relationships.field_image.localFile.ino'
-  | 'relationships.field_image.localFile.mode'
-  | 'relationships.field_image.localFile.modifiedTime'
-  | 'relationships.field_image.localFile.mtime'
-  | 'relationships.field_image.localFile.mtimeMs'
-  | 'relationships.field_image.localFile.name'
-  | 'relationships.field_image.localFile.nlink'
-  | 'relationships.field_image.localFile.prettySize'
-  | 'relationships.field_image.localFile.publicURL'
-  | 'relationships.field_image.localFile.rdev'
-  | 'relationships.field_image.localFile.relativeDirectory'
-  | 'relationships.field_image.localFile.relativePath'
-  | 'relationships.field_image.localFile.root'
-  | 'relationships.field_image.localFile.size'
-  | 'relationships.field_image.localFile.sourceInstanceName'
-  | 'relationships.field_image.localFile.uid'
-  | 'relationships.field_image.localFile.url'
-  | 'relationships.field_image.parent.children'
-  | 'relationships.field_image.parent.id'
-  | 'relationships.field_image.relationships.media__image'
-  | 'relationships.field_image.relationships.node__player'
-  | 'relationships.field_image.relationships.node__staff'
-  | 'relationships.field_image.status'
-  | 'relationships.field_image.uri.url'
-  | 'relationships.field_image.uri.value'
-  | 'relationships.node__article'
-  | 'relationships.node__article.body.format'
-  | 'relationships.node__article.body.processed'
-  | 'relationships.node__article.body.summary'
-  | 'relationships.node__article.body.value'
-  | 'relationships.node__article.changed'
-  | 'relationships.node__article.children'
-  | 'relationships.node__article.children.children'
-  | 'relationships.node__article.children.id'
-  | 'relationships.node__article.created'
-  | 'relationships.node__article.default_langcode'
-  | 'relationships.node__article.drupal_id'
-  | 'relationships.node__article.drupal_internal__nid'
-  | 'relationships.node__article.drupal_internal__vid'
-  | 'relationships.node__article.field_featured'
-  | 'relationships.node__article.field_related_content'
-  | 'relationships.node__article.id'
-  | 'relationships.node__article.internal.content'
-  | 'relationships.node__article.internal.contentDigest'
-  | 'relationships.node__article.internal.contentFilePath'
-  | 'relationships.node__article.internal.description'
-  | 'relationships.node__article.internal.fieldOwners'
-  | 'relationships.node__article.internal.ignoreType'
-  | 'relationships.node__article.internal.mediaType'
-  | 'relationships.node__article.internal.owner'
-  | 'relationships.node__article.internal.type'
-  | 'relationships.node__article.langcode'
-  | 'relationships.node__article.parent.children'
-  | 'relationships.node__article.parent.id'
-  | 'relationships.node__article.path.alias'
-  | 'relationships.node__article.path.langcode'
-  | 'relationships.node__article.path.pid'
-  | 'relationships.node__article.promote'
-  | 'relationships.node__article.relationships.field_tags'
-  | 'relationships.node__article.relationships.node__article'
-  | 'relationships.node__article.revision_timestamp'
-  | 'relationships.node__article.revision_translation_affected'
-  | 'relationships.node__article.status'
-  | 'relationships.node__article.sticky'
-  | 'relationships.node__article.title'
-  | 'relationships.node__team'
-  | 'relationships.node__team.changed'
-  | 'relationships.node__team.children'
-  | 'relationships.node__team.children.children'
-  | 'relationships.node__team.children.id'
-  | 'relationships.node__team.created'
-  | 'relationships.node__team.default_langcode'
-  | 'relationships.node__team.drupal_id'
-  | 'relationships.node__team.drupal_internal__nid'
-  | 'relationships.node__team.drupal_internal__vid'
-  | 'relationships.node__team.field_contact_info.format'
-  | 'relationships.node__team.field_contact_info.processed'
-  | 'relationships.node__team.field_contact_info.value'
-  | 'relationships.node__team.field_division_full'
-  | 'relationships.node__team.field_fb_id'
-  | 'relationships.node__team.field_fb_id_2'
-  | 'relationships.node__team.field_tagline'
-  | 'relationships.node__team.field_vv_id'
-  | 'relationships.node__team.id'
-  | 'relationships.node__team.internal.content'
-  | 'relationships.node__team.internal.contentDigest'
-  | 'relationships.node__team.internal.contentFilePath'
-  | 'relationships.node__team.internal.description'
-  | 'relationships.node__team.internal.fieldOwners'
-  | 'relationships.node__team.internal.ignoreType'
-  | 'relationships.node__team.internal.mediaType'
-  | 'relationships.node__team.internal.owner'
-  | 'relationships.node__team.internal.type'
-  | 'relationships.node__team.langcode'
-  | 'relationships.node__team.parent.children'
-  | 'relationships.node__team.parent.id'
-  | 'relationships.node__team.path.alias'
-  | 'relationships.node__team.path.langcode'
-  | 'relationships.node__team.path.pid'
-  | 'relationships.node__team.promote'
-  | 'relationships.node__team.relationships.field_players'
-  | 'relationships.node__team.relationships.field_staff'
-  | 'relationships.node__team.relationships.node__article'
-  | 'relationships.node__team.revision_timestamp'
-  | 'relationships.node__team.revision_translation_affected'
-  | 'relationships.node__team.status'
-  | 'relationships.node__team.sticky'
-  | 'relationships.node__team.title'
-  | 'relationships.revision_uid.children'
-  | 'relationships.revision_uid.children.children'
-  | 'relationships.revision_uid.children.id'
-  | 'relationships.revision_uid.display_name'
-  | 'relationships.revision_uid.drupal_id'
-  | 'relationships.revision_uid.id'
-  | 'relationships.revision_uid.internal.content'
-  | 'relationships.revision_uid.internal.contentDigest'
-  | 'relationships.revision_uid.internal.contentFilePath'
-  | 'relationships.revision_uid.internal.description'
-  | 'relationships.revision_uid.internal.fieldOwners'
-  | 'relationships.revision_uid.internal.ignoreType'
-  | 'relationships.revision_uid.internal.mediaType'
-  | 'relationships.revision_uid.internal.owner'
-  | 'relationships.revision_uid.internal.type'
-  | 'relationships.revision_uid.parent.children'
-  | 'relationships.revision_uid.parent.id'
-  | 'relationships.revision_uid.relationships.file__file'
-  | 'relationships.revision_uid.relationships.media__image'
-  | 'relationships.revision_uid.relationships.node__article'
-  | 'relationships.revision_uid.relationships.node__event'
-  | 'relationships.revision_uid.relationships.node__kcvv_tv'
-  | 'relationships.revision_uid.relationships.node__page'
-  | 'relationships.revision_uid.relationships.node__player'
-  | 'relationships.revision_uid.relationships.node__potw'
-  | 'relationships.revision_uid.relationships.node__sponsor'
-  | 'relationships.revision_uid.relationships.node__staff'
-  | 'relationships.revision_uid.relationships.node__team'
-  | 'relationships.uid.children'
-  | 'relationships.uid.children.children'
-  | 'relationships.uid.children.id'
-  | 'relationships.uid.display_name'
-  | 'relationships.uid.drupal_id'
-  | 'relationships.uid.id'
-  | 'relationships.uid.internal.content'
-  | 'relationships.uid.internal.contentDigest'
-  | 'relationships.uid.internal.contentFilePath'
-  | 'relationships.uid.internal.description'
-  | 'relationships.uid.internal.fieldOwners'
-  | 'relationships.uid.internal.ignoreType'
-  | 'relationships.uid.internal.mediaType'
-  | 'relationships.uid.internal.owner'
-  | 'relationships.uid.internal.type'
-  | 'relationships.uid.parent.children'
-  | 'relationships.uid.parent.id'
-  | 'relationships.uid.relationships.file__file'
-  | 'relationships.uid.relationships.media__image'
-  | 'relationships.uid.relationships.node__article'
-  | 'relationships.uid.relationships.node__event'
-  | 'relationships.uid.relationships.node__kcvv_tv'
-  | 'relationships.uid.relationships.node__page'
-  | 'relationships.uid.relationships.node__player'
-  | 'relationships.uid.relationships.node__potw'
-  | 'relationships.uid.relationships.node__sponsor'
-  | 'relationships.uid.relationships.node__staff'
-  | 'relationships.uid.relationships.node__team'
-  | 'revision_timestamp'
-  | 'revision_translation_affected'
-  | 'status'
-  | 'sticky'
-  | 'title';
+type node__staffField_imageSortInput = {
+  readonly alt: InputMaybe<SortOrderEnum>;
+  readonly height: InputMaybe<SortOrderEnum>;
+  readonly title: InputMaybe<SortOrderEnum>;
+  readonly width: InputMaybe<SortOrderEnum>;
+};
 
 type node__staffFilterInput = {
   readonly body: InputMaybe<node__staffBodyFilterInput>;
@@ -8652,29 +5840,29 @@ type node__staffGroupConnection = {
 
 
 type node__staffGroupConnection_distinctArgs = {
-  field: node__staffFieldsEnum;
+  field: node__staffFieldSelector;
 };
 
 
 type node__staffGroupConnection_groupArgs = {
-  field: node__staffFieldsEnum;
+  field: node__staffFieldSelector;
   limit: InputMaybe<Scalars['Int']>;
   skip: InputMaybe<Scalars['Int']>;
 };
 
 
 type node__staffGroupConnection_maxArgs = {
-  field: node__staffFieldsEnum;
+  field: node__staffFieldSelector;
 };
 
 
 type node__staffGroupConnection_minArgs = {
-  field: node__staffFieldsEnum;
+  field: node__staffFieldSelector;
 };
 
 
 type node__staffGroupConnection_sumArgs = {
-  field: node__staffFieldsEnum;
+  field: node__staffFieldSelector;
 };
 
 type node__staffPath = {
@@ -8683,10 +5871,22 @@ type node__staffPath = {
   readonly pid: Maybe<Scalars['Int']>;
 };
 
+type node__staffPathFieldSelector = {
+  readonly alias: InputMaybe<FieldSelectorEnum>;
+  readonly langcode: InputMaybe<FieldSelectorEnum>;
+  readonly pid: InputMaybe<FieldSelectorEnum>;
+};
+
 type node__staffPathFilterInput = {
   readonly alias: InputMaybe<StringQueryOperatorInput>;
   readonly langcode: InputMaybe<StringQueryOperatorInput>;
   readonly pid: InputMaybe<IntQueryOperatorInput>;
+};
+
+type node__staffPathSortInput = {
+  readonly alias: InputMaybe<SortOrderEnum>;
+  readonly langcode: InputMaybe<SortOrderEnum>;
+  readonly pid: InputMaybe<SortOrderEnum>;
 };
 
 type node__staffRelationships = {
@@ -8697,6 +5897,14 @@ type node__staffRelationships = {
   readonly uid: Maybe<user__user>;
 };
 
+type node__staffRelationshipsFieldSelector = {
+  readonly field_image: InputMaybe<file__fileFieldSelector>;
+  readonly node__article: InputMaybe<node__articleFieldSelector>;
+  readonly node__team: InputMaybe<node__teamFieldSelector>;
+  readonly revision_uid: InputMaybe<user__userFieldSelector>;
+  readonly uid: InputMaybe<user__userFieldSelector>;
+};
+
 type node__staffRelationshipsFilterInput = {
   readonly field_image: InputMaybe<file__fileFilterInput>;
   readonly node__article: InputMaybe<node__articleFilterListInput>;
@@ -8705,9 +5913,43 @@ type node__staffRelationshipsFilterInput = {
   readonly uid: InputMaybe<user__userFilterInput>;
 };
 
+type node__staffRelationshipsSortInput = {
+  readonly field_image: InputMaybe<file__fileSortInput>;
+  readonly node__article: InputMaybe<node__articleSortInput>;
+  readonly node__team: InputMaybe<node__teamSortInput>;
+  readonly revision_uid: InputMaybe<user__userSortInput>;
+  readonly uid: InputMaybe<user__userSortInput>;
+};
+
 type node__staffSortInput = {
-  readonly fields: InputMaybe<ReadonlyArray<InputMaybe<node__staffFieldsEnum>>>;
-  readonly order: InputMaybe<ReadonlyArray<InputMaybe<SortOrderEnum>>>;
+  readonly body: InputMaybe<node__staffBodySortInput>;
+  readonly changed: InputMaybe<SortOrderEnum>;
+  readonly children: InputMaybe<NodeSortInput>;
+  readonly created: InputMaybe<SortOrderEnum>;
+  readonly default_langcode: InputMaybe<SortOrderEnum>;
+  readonly drupal_id: InputMaybe<SortOrderEnum>;
+  readonly drupal_internal__nid: InputMaybe<SortOrderEnum>;
+  readonly drupal_internal__vid: InputMaybe<SortOrderEnum>;
+  readonly field_birth_date: InputMaybe<SortOrderEnum>;
+  readonly field_firstname: InputMaybe<SortOrderEnum>;
+  readonly field_image: InputMaybe<node__staffField_imageSortInput>;
+  readonly field_join_date: InputMaybe<SortOrderEnum>;
+  readonly field_lastname: InputMaybe<SortOrderEnum>;
+  readonly field_position_short: InputMaybe<SortOrderEnum>;
+  readonly field_position_staff: InputMaybe<SortOrderEnum>;
+  readonly field_vv_id: InputMaybe<SortOrderEnum>;
+  readonly id: InputMaybe<SortOrderEnum>;
+  readonly internal: InputMaybe<InternalSortInput>;
+  readonly langcode: InputMaybe<SortOrderEnum>;
+  readonly parent: InputMaybe<NodeSortInput>;
+  readonly path: InputMaybe<node__staffPathSortInput>;
+  readonly promote: InputMaybe<SortOrderEnum>;
+  readonly relationships: InputMaybe<node__staffRelationshipsSortInput>;
+  readonly revision_timestamp: InputMaybe<SortOrderEnum>;
+  readonly revision_translation_affected: InputMaybe<SortOrderEnum>;
+  readonly status: InputMaybe<SortOrderEnum>;
+  readonly sticky: InputMaybe<SortOrderEnum>;
+  readonly title: InputMaybe<SortOrderEnum>;
 };
 
 type node__team = Node & {
@@ -8776,29 +6018,29 @@ type node__teamConnection = {
 
 
 type node__teamConnection_distinctArgs = {
-  field: node__teamFieldsEnum;
+  field: node__teamFieldSelector;
 };
 
 
 type node__teamConnection_groupArgs = {
-  field: node__teamFieldsEnum;
+  field: node__teamFieldSelector;
   limit: InputMaybe<Scalars['Int']>;
   skip: InputMaybe<Scalars['Int']>;
 };
 
 
 type node__teamConnection_maxArgs = {
-  field: node__teamFieldsEnum;
+  field: node__teamFieldSelector;
 };
 
 
 type node__teamConnection_minArgs = {
-  field: node__teamFieldsEnum;
+  field: node__teamFieldSelector;
 };
 
 
 type node__teamConnection_sumArgs = {
-  field: node__teamFieldsEnum;
+  field: node__teamFieldSelector;
 };
 
 type node__teamEdge = {
@@ -8807,10 +6049,44 @@ type node__teamEdge = {
   readonly previous: Maybe<node__team>;
 };
 
+type node__teamFieldSelector = {
+  readonly changed: InputMaybe<FieldSelectorEnum>;
+  readonly children: InputMaybe<NodeFieldSelector>;
+  readonly created: InputMaybe<FieldSelectorEnum>;
+  readonly default_langcode: InputMaybe<FieldSelectorEnum>;
+  readonly drupal_id: InputMaybe<FieldSelectorEnum>;
+  readonly drupal_internal__nid: InputMaybe<FieldSelectorEnum>;
+  readonly drupal_internal__vid: InputMaybe<FieldSelectorEnum>;
+  readonly field_contact_info: InputMaybe<node__teamField_contact_infoFieldSelector>;
+  readonly field_division_full: InputMaybe<FieldSelectorEnum>;
+  readonly field_fb_id: InputMaybe<FieldSelectorEnum>;
+  readonly field_fb_id_2: InputMaybe<FieldSelectorEnum>;
+  readonly field_tagline: InputMaybe<FieldSelectorEnum>;
+  readonly field_vv_id: InputMaybe<FieldSelectorEnum>;
+  readonly id: InputMaybe<FieldSelectorEnum>;
+  readonly internal: InputMaybe<InternalFieldSelector>;
+  readonly langcode: InputMaybe<FieldSelectorEnum>;
+  readonly parent: InputMaybe<NodeFieldSelector>;
+  readonly path: InputMaybe<node__teamPathFieldSelector>;
+  readonly promote: InputMaybe<FieldSelectorEnum>;
+  readonly relationships: InputMaybe<node__teamRelationshipsFieldSelector>;
+  readonly revision_timestamp: InputMaybe<FieldSelectorEnum>;
+  readonly revision_translation_affected: InputMaybe<FieldSelectorEnum>;
+  readonly status: InputMaybe<FieldSelectorEnum>;
+  readonly sticky: InputMaybe<FieldSelectorEnum>;
+  readonly title: InputMaybe<FieldSelectorEnum>;
+};
+
 type node__teamField_contact_info = {
   readonly format: Maybe<Scalars['String']>;
   readonly processed: Maybe<Scalars['String']>;
   readonly value: Maybe<Scalars['String']>;
+};
+
+type node__teamField_contact_infoFieldSelector = {
+  readonly format: InputMaybe<FieldSelectorEnum>;
+  readonly processed: InputMaybe<FieldSelectorEnum>;
+  readonly value: InputMaybe<FieldSelectorEnum>;
 };
 
 type node__teamField_contact_infoFilterInput = {
@@ -8819,365 +6095,11 @@ type node__teamField_contact_infoFilterInput = {
   readonly value: InputMaybe<StringQueryOperatorInput>;
 };
 
-type node__teamFieldsEnum =
-  | 'changed'
-  | 'children'
-  | 'children.children'
-  | 'children.children.children'
-  | 'children.children.children.children'
-  | 'children.children.children.id'
-  | 'children.children.id'
-  | 'children.children.internal.content'
-  | 'children.children.internal.contentDigest'
-  | 'children.children.internal.contentFilePath'
-  | 'children.children.internal.description'
-  | 'children.children.internal.fieldOwners'
-  | 'children.children.internal.ignoreType'
-  | 'children.children.internal.mediaType'
-  | 'children.children.internal.owner'
-  | 'children.children.internal.type'
-  | 'children.children.parent.children'
-  | 'children.children.parent.id'
-  | 'children.id'
-  | 'children.internal.content'
-  | 'children.internal.contentDigest'
-  | 'children.internal.contentFilePath'
-  | 'children.internal.description'
-  | 'children.internal.fieldOwners'
-  | 'children.internal.ignoreType'
-  | 'children.internal.mediaType'
-  | 'children.internal.owner'
-  | 'children.internal.type'
-  | 'children.parent.children'
-  | 'children.parent.children.children'
-  | 'children.parent.children.id'
-  | 'children.parent.id'
-  | 'children.parent.internal.content'
-  | 'children.parent.internal.contentDigest'
-  | 'children.parent.internal.contentFilePath'
-  | 'children.parent.internal.description'
-  | 'children.parent.internal.fieldOwners'
-  | 'children.parent.internal.ignoreType'
-  | 'children.parent.internal.mediaType'
-  | 'children.parent.internal.owner'
-  | 'children.parent.internal.type'
-  | 'children.parent.parent.children'
-  | 'children.parent.parent.id'
-  | 'created'
-  | 'default_langcode'
-  | 'drupal_id'
-  | 'drupal_internal__nid'
-  | 'drupal_internal__vid'
-  | 'field_contact_info.format'
-  | 'field_contact_info.processed'
-  | 'field_contact_info.value'
-  | 'field_division_full'
-  | 'field_fb_id'
-  | 'field_fb_id_2'
-  | 'field_tagline'
-  | 'field_vv_id'
-  | 'id'
-  | 'internal.content'
-  | 'internal.contentDigest'
-  | 'internal.contentFilePath'
-  | 'internal.description'
-  | 'internal.fieldOwners'
-  | 'internal.ignoreType'
-  | 'internal.mediaType'
-  | 'internal.owner'
-  | 'internal.type'
-  | 'langcode'
-  | 'parent.children'
-  | 'parent.children.children'
-  | 'parent.children.children.children'
-  | 'parent.children.children.id'
-  | 'parent.children.id'
-  | 'parent.children.internal.content'
-  | 'parent.children.internal.contentDigest'
-  | 'parent.children.internal.contentFilePath'
-  | 'parent.children.internal.description'
-  | 'parent.children.internal.fieldOwners'
-  | 'parent.children.internal.ignoreType'
-  | 'parent.children.internal.mediaType'
-  | 'parent.children.internal.owner'
-  | 'parent.children.internal.type'
-  | 'parent.children.parent.children'
-  | 'parent.children.parent.id'
-  | 'parent.id'
-  | 'parent.internal.content'
-  | 'parent.internal.contentDigest'
-  | 'parent.internal.contentFilePath'
-  | 'parent.internal.description'
-  | 'parent.internal.fieldOwners'
-  | 'parent.internal.ignoreType'
-  | 'parent.internal.mediaType'
-  | 'parent.internal.owner'
-  | 'parent.internal.type'
-  | 'parent.parent.children'
-  | 'parent.parent.children.children'
-  | 'parent.parent.children.id'
-  | 'parent.parent.id'
-  | 'parent.parent.internal.content'
-  | 'parent.parent.internal.contentDigest'
-  | 'parent.parent.internal.contentFilePath'
-  | 'parent.parent.internal.description'
-  | 'parent.parent.internal.fieldOwners'
-  | 'parent.parent.internal.ignoreType'
-  | 'parent.parent.internal.mediaType'
-  | 'parent.parent.internal.owner'
-  | 'parent.parent.internal.type'
-  | 'parent.parent.parent.children'
-  | 'parent.parent.parent.id'
-  | 'path.alias'
-  | 'path.langcode'
-  | 'path.pid'
-  | 'promote'
-  | 'relationships.field_media_article_image.changed'
-  | 'relationships.field_media_article_image.children'
-  | 'relationships.field_media_article_image.children.children'
-  | 'relationships.field_media_article_image.children.id'
-  | 'relationships.field_media_article_image.created'
-  | 'relationships.field_media_article_image.default_langcode'
-  | 'relationships.field_media_article_image.drupal_id'
-  | 'relationships.field_media_article_image.drupal_internal__mid'
-  | 'relationships.field_media_article_image.drupal_internal__vid'
-  | 'relationships.field_media_article_image.field_media_image.alt'
-  | 'relationships.field_media_article_image.field_media_image.height'
-  | 'relationships.field_media_article_image.field_media_image.title'
-  | 'relationships.field_media_article_image.field_media_image.width'
-  | 'relationships.field_media_article_image.id'
-  | 'relationships.field_media_article_image.internal.content'
-  | 'relationships.field_media_article_image.internal.contentDigest'
-  | 'relationships.field_media_article_image.internal.contentFilePath'
-  | 'relationships.field_media_article_image.internal.description'
-  | 'relationships.field_media_article_image.internal.fieldOwners'
-  | 'relationships.field_media_article_image.internal.ignoreType'
-  | 'relationships.field_media_article_image.internal.mediaType'
-  | 'relationships.field_media_article_image.internal.owner'
-  | 'relationships.field_media_article_image.internal.type'
-  | 'relationships.field_media_article_image.langcode'
-  | 'relationships.field_media_article_image.name'
-  | 'relationships.field_media_article_image.parent.children'
-  | 'relationships.field_media_article_image.parent.id'
-  | 'relationships.field_media_article_image.path.alias'
-  | 'relationships.field_media_article_image.path.langcode'
-  | 'relationships.field_media_article_image.path.pid'
-  | 'relationships.field_media_article_image.relationships.node__article'
-  | 'relationships.field_media_article_image.relationships.node__event'
-  | 'relationships.field_media_article_image.relationships.node__kcvv_tv'
-  | 'relationships.field_media_article_image.relationships.node__page'
-  | 'relationships.field_media_article_image.relationships.node__sponsor'
-  | 'relationships.field_media_article_image.relationships.node__team'
-  | 'relationships.field_media_article_image.revision_created'
-  | 'relationships.field_media_article_image.revision_translation_affected'
-  | 'relationships.field_media_article_image.status'
-  | 'relationships.field_media_article_image.thumbnail.alt'
-  | 'relationships.field_media_article_image.thumbnail.height'
-  | 'relationships.field_media_article_image.thumbnail.width'
-  | 'relationships.field_players'
-  | 'relationships.field_players.body.format'
-  | 'relationships.field_players.body.processed'
-  | 'relationships.field_players.body.summary'
-  | 'relationships.field_players.body.value'
-  | 'relationships.field_players.changed'
-  | 'relationships.field_players.children'
-  | 'relationships.field_players.children.children'
-  | 'relationships.field_players.children.id'
-  | 'relationships.field_players.created'
-  | 'relationships.field_players.default_langcode'
-  | 'relationships.field_players.drupal_id'
-  | 'relationships.field_players.drupal_internal__nid'
-  | 'relationships.field_players.drupal_internal__vid'
-  | 'relationships.field_players.field_birth_date'
-  | 'relationships.field_players.field_date_leave'
-  | 'relationships.field_players.field_firstname'
-  | 'relationships.field_players.field_image.alt'
-  | 'relationships.field_players.field_image.height'
-  | 'relationships.field_players.field_image.title'
-  | 'relationships.field_players.field_image.width'
-  | 'relationships.field_players.field_image_celebrate.alt'
-  | 'relationships.field_players.field_image_celebrate.height'
-  | 'relationships.field_players.field_image_celebrate.title'
-  | 'relationships.field_players.field_image_celebrate.width'
-  | 'relationships.field_players.field_join_date'
-  | 'relationships.field_players.field_lastname'
-  | 'relationships.field_players.field_position'
-  | 'relationships.field_players.field_shirtnumber'
-  | 'relationships.field_players.field_vv_id'
-  | 'relationships.field_players.id'
-  | 'relationships.field_players.internal.content'
-  | 'relationships.field_players.internal.contentDigest'
-  | 'relationships.field_players.internal.contentFilePath'
-  | 'relationships.field_players.internal.description'
-  | 'relationships.field_players.internal.fieldOwners'
-  | 'relationships.field_players.internal.ignoreType'
-  | 'relationships.field_players.internal.mediaType'
-  | 'relationships.field_players.internal.owner'
-  | 'relationships.field_players.internal.type'
-  | 'relationships.field_players.langcode'
-  | 'relationships.field_players.parent.children'
-  | 'relationships.field_players.parent.id'
-  | 'relationships.field_players.path.alias'
-  | 'relationships.field_players.path.langcode'
-  | 'relationships.field_players.path.pid'
-  | 'relationships.field_players.promote'
-  | 'relationships.field_players.relationships.node__article'
-  | 'relationships.field_players.relationships.node__team'
-  | 'relationships.field_players.revision_timestamp'
-  | 'relationships.field_players.revision_translation_affected'
-  | 'relationships.field_players.status'
-  | 'relationships.field_players.sticky'
-  | 'relationships.field_players.title'
-  | 'relationships.field_staff'
-  | 'relationships.field_staff.body.format'
-  | 'relationships.field_staff.body.processed'
-  | 'relationships.field_staff.body.summary'
-  | 'relationships.field_staff.body.value'
-  | 'relationships.field_staff.changed'
-  | 'relationships.field_staff.children'
-  | 'relationships.field_staff.children.children'
-  | 'relationships.field_staff.children.id'
-  | 'relationships.field_staff.created'
-  | 'relationships.field_staff.default_langcode'
-  | 'relationships.field_staff.drupal_id'
-  | 'relationships.field_staff.drupal_internal__nid'
-  | 'relationships.field_staff.drupal_internal__vid'
-  | 'relationships.field_staff.field_birth_date'
-  | 'relationships.field_staff.field_firstname'
-  | 'relationships.field_staff.field_image.alt'
-  | 'relationships.field_staff.field_image.height'
-  | 'relationships.field_staff.field_image.title'
-  | 'relationships.field_staff.field_image.width'
-  | 'relationships.field_staff.field_join_date'
-  | 'relationships.field_staff.field_lastname'
-  | 'relationships.field_staff.field_position_short'
-  | 'relationships.field_staff.field_position_staff'
-  | 'relationships.field_staff.field_vv_id'
-  | 'relationships.field_staff.id'
-  | 'relationships.field_staff.internal.content'
-  | 'relationships.field_staff.internal.contentDigest'
-  | 'relationships.field_staff.internal.contentFilePath'
-  | 'relationships.field_staff.internal.description'
-  | 'relationships.field_staff.internal.fieldOwners'
-  | 'relationships.field_staff.internal.ignoreType'
-  | 'relationships.field_staff.internal.mediaType'
-  | 'relationships.field_staff.internal.owner'
-  | 'relationships.field_staff.internal.type'
-  | 'relationships.field_staff.langcode'
-  | 'relationships.field_staff.parent.children'
-  | 'relationships.field_staff.parent.id'
-  | 'relationships.field_staff.path.alias'
-  | 'relationships.field_staff.path.langcode'
-  | 'relationships.field_staff.path.pid'
-  | 'relationships.field_staff.promote'
-  | 'relationships.field_staff.relationships.node__article'
-  | 'relationships.field_staff.relationships.node__team'
-  | 'relationships.field_staff.revision_timestamp'
-  | 'relationships.field_staff.revision_translation_affected'
-  | 'relationships.field_staff.status'
-  | 'relationships.field_staff.sticky'
-  | 'relationships.field_staff.title'
-  | 'relationships.node__article'
-  | 'relationships.node__article.body.format'
-  | 'relationships.node__article.body.processed'
-  | 'relationships.node__article.body.summary'
-  | 'relationships.node__article.body.value'
-  | 'relationships.node__article.changed'
-  | 'relationships.node__article.children'
-  | 'relationships.node__article.children.children'
-  | 'relationships.node__article.children.id'
-  | 'relationships.node__article.created'
-  | 'relationships.node__article.default_langcode'
-  | 'relationships.node__article.drupal_id'
-  | 'relationships.node__article.drupal_internal__nid'
-  | 'relationships.node__article.drupal_internal__vid'
-  | 'relationships.node__article.field_featured'
-  | 'relationships.node__article.field_related_content'
-  | 'relationships.node__article.id'
-  | 'relationships.node__article.internal.content'
-  | 'relationships.node__article.internal.contentDigest'
-  | 'relationships.node__article.internal.contentFilePath'
-  | 'relationships.node__article.internal.description'
-  | 'relationships.node__article.internal.fieldOwners'
-  | 'relationships.node__article.internal.ignoreType'
-  | 'relationships.node__article.internal.mediaType'
-  | 'relationships.node__article.internal.owner'
-  | 'relationships.node__article.internal.type'
-  | 'relationships.node__article.langcode'
-  | 'relationships.node__article.parent.children'
-  | 'relationships.node__article.parent.id'
-  | 'relationships.node__article.path.alias'
-  | 'relationships.node__article.path.langcode'
-  | 'relationships.node__article.path.pid'
-  | 'relationships.node__article.promote'
-  | 'relationships.node__article.relationships.field_tags'
-  | 'relationships.node__article.relationships.node__article'
-  | 'relationships.node__article.revision_timestamp'
-  | 'relationships.node__article.revision_translation_affected'
-  | 'relationships.node__article.status'
-  | 'relationships.node__article.sticky'
-  | 'relationships.node__article.title'
-  | 'relationships.revision_uid.children'
-  | 'relationships.revision_uid.children.children'
-  | 'relationships.revision_uid.children.id'
-  | 'relationships.revision_uid.display_name'
-  | 'relationships.revision_uid.drupal_id'
-  | 'relationships.revision_uid.id'
-  | 'relationships.revision_uid.internal.content'
-  | 'relationships.revision_uid.internal.contentDigest'
-  | 'relationships.revision_uid.internal.contentFilePath'
-  | 'relationships.revision_uid.internal.description'
-  | 'relationships.revision_uid.internal.fieldOwners'
-  | 'relationships.revision_uid.internal.ignoreType'
-  | 'relationships.revision_uid.internal.mediaType'
-  | 'relationships.revision_uid.internal.owner'
-  | 'relationships.revision_uid.internal.type'
-  | 'relationships.revision_uid.parent.children'
-  | 'relationships.revision_uid.parent.id'
-  | 'relationships.revision_uid.relationships.file__file'
-  | 'relationships.revision_uid.relationships.media__image'
-  | 'relationships.revision_uid.relationships.node__article'
-  | 'relationships.revision_uid.relationships.node__event'
-  | 'relationships.revision_uid.relationships.node__kcvv_tv'
-  | 'relationships.revision_uid.relationships.node__page'
-  | 'relationships.revision_uid.relationships.node__player'
-  | 'relationships.revision_uid.relationships.node__potw'
-  | 'relationships.revision_uid.relationships.node__sponsor'
-  | 'relationships.revision_uid.relationships.node__staff'
-  | 'relationships.revision_uid.relationships.node__team'
-  | 'relationships.uid.children'
-  | 'relationships.uid.children.children'
-  | 'relationships.uid.children.id'
-  | 'relationships.uid.display_name'
-  | 'relationships.uid.drupal_id'
-  | 'relationships.uid.id'
-  | 'relationships.uid.internal.content'
-  | 'relationships.uid.internal.contentDigest'
-  | 'relationships.uid.internal.contentFilePath'
-  | 'relationships.uid.internal.description'
-  | 'relationships.uid.internal.fieldOwners'
-  | 'relationships.uid.internal.ignoreType'
-  | 'relationships.uid.internal.mediaType'
-  | 'relationships.uid.internal.owner'
-  | 'relationships.uid.internal.type'
-  | 'relationships.uid.parent.children'
-  | 'relationships.uid.parent.id'
-  | 'relationships.uid.relationships.file__file'
-  | 'relationships.uid.relationships.media__image'
-  | 'relationships.uid.relationships.node__article'
-  | 'relationships.uid.relationships.node__event'
-  | 'relationships.uid.relationships.node__kcvv_tv'
-  | 'relationships.uid.relationships.node__page'
-  | 'relationships.uid.relationships.node__player'
-  | 'relationships.uid.relationships.node__potw'
-  | 'relationships.uid.relationships.node__sponsor'
-  | 'relationships.uid.relationships.node__staff'
-  | 'relationships.uid.relationships.node__team'
-  | 'revision_timestamp'
-  | 'revision_translation_affected'
-  | 'status'
-  | 'sticky'
-  | 'title';
+type node__teamField_contact_infoSortInput = {
+  readonly format: InputMaybe<SortOrderEnum>;
+  readonly processed: InputMaybe<SortOrderEnum>;
+  readonly value: InputMaybe<SortOrderEnum>;
+};
 
 type node__teamFilterInput = {
   readonly changed: InputMaybe<DateQueryOperatorInput>;
@@ -9227,29 +6149,29 @@ type node__teamGroupConnection = {
 
 
 type node__teamGroupConnection_distinctArgs = {
-  field: node__teamFieldsEnum;
+  field: node__teamFieldSelector;
 };
 
 
 type node__teamGroupConnection_groupArgs = {
-  field: node__teamFieldsEnum;
+  field: node__teamFieldSelector;
   limit: InputMaybe<Scalars['Int']>;
   skip: InputMaybe<Scalars['Int']>;
 };
 
 
 type node__teamGroupConnection_maxArgs = {
-  field: node__teamFieldsEnum;
+  field: node__teamFieldSelector;
 };
 
 
 type node__teamGroupConnection_minArgs = {
-  field: node__teamFieldsEnum;
+  field: node__teamFieldSelector;
 };
 
 
 type node__teamGroupConnection_sumArgs = {
-  field: node__teamFieldsEnum;
+  field: node__teamFieldSelector;
 };
 
 type node__teamPath = {
@@ -9258,10 +6180,22 @@ type node__teamPath = {
   readonly pid: Maybe<Scalars['Int']>;
 };
 
+type node__teamPathFieldSelector = {
+  readonly alias: InputMaybe<FieldSelectorEnum>;
+  readonly langcode: InputMaybe<FieldSelectorEnum>;
+  readonly pid: InputMaybe<FieldSelectorEnum>;
+};
+
 type node__teamPathFilterInput = {
   readonly alias: InputMaybe<StringQueryOperatorInput>;
   readonly langcode: InputMaybe<StringQueryOperatorInput>;
   readonly pid: InputMaybe<IntQueryOperatorInput>;
+};
+
+type node__teamPathSortInput = {
+  readonly alias: InputMaybe<SortOrderEnum>;
+  readonly langcode: InputMaybe<SortOrderEnum>;
+  readonly pid: InputMaybe<SortOrderEnum>;
 };
 
 type node__teamRelationships = {
@@ -9273,6 +6207,15 @@ type node__teamRelationships = {
   readonly uid: Maybe<user__user>;
 };
 
+type node__teamRelationshipsFieldSelector = {
+  readonly field_media_article_image: InputMaybe<media__imageFieldSelector>;
+  readonly field_players: InputMaybe<node__playerFieldSelector>;
+  readonly field_staff: InputMaybe<node__staffFieldSelector>;
+  readonly node__article: InputMaybe<node__articleFieldSelector>;
+  readonly revision_uid: InputMaybe<user__userFieldSelector>;
+  readonly uid: InputMaybe<user__userFieldSelector>;
+};
+
 type node__teamRelationshipsFilterInput = {
   readonly field_media_article_image: InputMaybe<media__imageFilterInput>;
   readonly field_players: InputMaybe<node__playerFilterListInput>;
@@ -9282,9 +6225,41 @@ type node__teamRelationshipsFilterInput = {
   readonly uid: InputMaybe<user__userFilterInput>;
 };
 
+type node__teamRelationshipsSortInput = {
+  readonly field_media_article_image: InputMaybe<media__imageSortInput>;
+  readonly field_players: InputMaybe<node__playerSortInput>;
+  readonly field_staff: InputMaybe<node__staffSortInput>;
+  readonly node__article: InputMaybe<node__articleSortInput>;
+  readonly revision_uid: InputMaybe<user__userSortInput>;
+  readonly uid: InputMaybe<user__userSortInput>;
+};
+
 type node__teamSortInput = {
-  readonly fields: InputMaybe<ReadonlyArray<InputMaybe<node__teamFieldsEnum>>>;
-  readonly order: InputMaybe<ReadonlyArray<InputMaybe<SortOrderEnum>>>;
+  readonly changed: InputMaybe<SortOrderEnum>;
+  readonly children: InputMaybe<NodeSortInput>;
+  readonly created: InputMaybe<SortOrderEnum>;
+  readonly default_langcode: InputMaybe<SortOrderEnum>;
+  readonly drupal_id: InputMaybe<SortOrderEnum>;
+  readonly drupal_internal__nid: InputMaybe<SortOrderEnum>;
+  readonly drupal_internal__vid: InputMaybe<SortOrderEnum>;
+  readonly field_contact_info: InputMaybe<node__teamField_contact_infoSortInput>;
+  readonly field_division_full: InputMaybe<SortOrderEnum>;
+  readonly field_fb_id: InputMaybe<SortOrderEnum>;
+  readonly field_fb_id_2: InputMaybe<SortOrderEnum>;
+  readonly field_tagline: InputMaybe<SortOrderEnum>;
+  readonly field_vv_id: InputMaybe<SortOrderEnum>;
+  readonly id: InputMaybe<SortOrderEnum>;
+  readonly internal: InputMaybe<InternalSortInput>;
+  readonly langcode: InputMaybe<SortOrderEnum>;
+  readonly parent: InputMaybe<NodeSortInput>;
+  readonly path: InputMaybe<node__teamPathSortInput>;
+  readonly promote: InputMaybe<SortOrderEnum>;
+  readonly relationships: InputMaybe<node__teamRelationshipsSortInput>;
+  readonly revision_timestamp: InputMaybe<SortOrderEnum>;
+  readonly revision_translation_affected: InputMaybe<SortOrderEnum>;
+  readonly status: InputMaybe<SortOrderEnum>;
+  readonly sticky: InputMaybe<SortOrderEnum>;
+  readonly title: InputMaybe<SortOrderEnum>;
 };
 
 type taxonomy_term__category = Node & {
@@ -9337,29 +6312,29 @@ type taxonomy_term__categoryConnection = {
 
 
 type taxonomy_term__categoryConnection_distinctArgs = {
-  field: taxonomy_term__categoryFieldsEnum;
+  field: taxonomy_term__categoryFieldSelector;
 };
 
 
 type taxonomy_term__categoryConnection_groupArgs = {
-  field: taxonomy_term__categoryFieldsEnum;
+  field: taxonomy_term__categoryFieldSelector;
   limit: InputMaybe<Scalars['Int']>;
   skip: InputMaybe<Scalars['Int']>;
 };
 
 
 type taxonomy_term__categoryConnection_maxArgs = {
-  field: taxonomy_term__categoryFieldsEnum;
+  field: taxonomy_term__categoryFieldSelector;
 };
 
 
 type taxonomy_term__categoryConnection_minArgs = {
-  field: taxonomy_term__categoryFieldsEnum;
+  field: taxonomy_term__categoryFieldSelector;
 };
 
 
 type taxonomy_term__categoryConnection_sumArgs = {
-  field: taxonomy_term__categoryFieldsEnum;
+  field: taxonomy_term__categoryFieldSelector;
 };
 
 type taxonomy_term__categoryEdge = {
@@ -9368,154 +6343,25 @@ type taxonomy_term__categoryEdge = {
   readonly previous: Maybe<taxonomy_term__category>;
 };
 
-type taxonomy_term__categoryFieldsEnum =
-  | 'changed'
-  | 'children'
-  | 'children.children'
-  | 'children.children.children'
-  | 'children.children.children.children'
-  | 'children.children.children.id'
-  | 'children.children.id'
-  | 'children.children.internal.content'
-  | 'children.children.internal.contentDigest'
-  | 'children.children.internal.contentFilePath'
-  | 'children.children.internal.description'
-  | 'children.children.internal.fieldOwners'
-  | 'children.children.internal.ignoreType'
-  | 'children.children.internal.mediaType'
-  | 'children.children.internal.owner'
-  | 'children.children.internal.type'
-  | 'children.children.parent.children'
-  | 'children.children.parent.id'
-  | 'children.id'
-  | 'children.internal.content'
-  | 'children.internal.contentDigest'
-  | 'children.internal.contentFilePath'
-  | 'children.internal.description'
-  | 'children.internal.fieldOwners'
-  | 'children.internal.ignoreType'
-  | 'children.internal.mediaType'
-  | 'children.internal.owner'
-  | 'children.internal.type'
-  | 'children.parent.children'
-  | 'children.parent.children.children'
-  | 'children.parent.children.id'
-  | 'children.parent.id'
-  | 'children.parent.internal.content'
-  | 'children.parent.internal.contentDigest'
-  | 'children.parent.internal.contentFilePath'
-  | 'children.parent.internal.description'
-  | 'children.parent.internal.fieldOwners'
-  | 'children.parent.internal.ignoreType'
-  | 'children.parent.internal.mediaType'
-  | 'children.parent.internal.owner'
-  | 'children.parent.internal.type'
-  | 'children.parent.parent.children'
-  | 'children.parent.parent.id'
-  | 'default_langcode'
-  | 'drupal_id'
-  | 'drupal_internal__revision_id'
-  | 'drupal_internal__tid'
-  | 'id'
-  | 'internal.content'
-  | 'internal.contentDigest'
-  | 'internal.contentFilePath'
-  | 'internal.description'
-  | 'internal.fieldOwners'
-  | 'internal.ignoreType'
-  | 'internal.mediaType'
-  | 'internal.owner'
-  | 'internal.type'
-  | 'langcode'
-  | 'name'
-  | 'parent.children'
-  | 'parent.children.children'
-  | 'parent.children.children.children'
-  | 'parent.children.children.id'
-  | 'parent.children.id'
-  | 'parent.children.internal.content'
-  | 'parent.children.internal.contentDigest'
-  | 'parent.children.internal.contentFilePath'
-  | 'parent.children.internal.description'
-  | 'parent.children.internal.fieldOwners'
-  | 'parent.children.internal.ignoreType'
-  | 'parent.children.internal.mediaType'
-  | 'parent.children.internal.owner'
-  | 'parent.children.internal.type'
-  | 'parent.children.parent.children'
-  | 'parent.children.parent.id'
-  | 'parent.id'
-  | 'parent.internal.content'
-  | 'parent.internal.contentDigest'
-  | 'parent.internal.contentFilePath'
-  | 'parent.internal.description'
-  | 'parent.internal.fieldOwners'
-  | 'parent.internal.ignoreType'
-  | 'parent.internal.mediaType'
-  | 'parent.internal.owner'
-  | 'parent.internal.type'
-  | 'parent.parent.children'
-  | 'parent.parent.children.children'
-  | 'parent.parent.children.id'
-  | 'parent.parent.id'
-  | 'parent.parent.internal.content'
-  | 'parent.parent.internal.contentDigest'
-  | 'parent.parent.internal.contentFilePath'
-  | 'parent.parent.internal.description'
-  | 'parent.parent.internal.fieldOwners'
-  | 'parent.parent.internal.ignoreType'
-  | 'parent.parent.internal.mediaType'
-  | 'parent.parent.internal.owner'
-  | 'parent.parent.internal.type'
-  | 'parent.parent.parent.children'
-  | 'parent.parent.parent.id'
-  | 'path.alias'
-  | 'path.langcode'
-  | 'path.pid'
-  | 'relationships.node__article'
-  | 'relationships.node__article.body.format'
-  | 'relationships.node__article.body.processed'
-  | 'relationships.node__article.body.summary'
-  | 'relationships.node__article.body.value'
-  | 'relationships.node__article.changed'
-  | 'relationships.node__article.children'
-  | 'relationships.node__article.children.children'
-  | 'relationships.node__article.children.id'
-  | 'relationships.node__article.created'
-  | 'relationships.node__article.default_langcode'
-  | 'relationships.node__article.drupal_id'
-  | 'relationships.node__article.drupal_internal__nid'
-  | 'relationships.node__article.drupal_internal__vid'
-  | 'relationships.node__article.field_featured'
-  | 'relationships.node__article.field_related_content'
-  | 'relationships.node__article.id'
-  | 'relationships.node__article.internal.content'
-  | 'relationships.node__article.internal.contentDigest'
-  | 'relationships.node__article.internal.contentFilePath'
-  | 'relationships.node__article.internal.description'
-  | 'relationships.node__article.internal.fieldOwners'
-  | 'relationships.node__article.internal.ignoreType'
-  | 'relationships.node__article.internal.mediaType'
-  | 'relationships.node__article.internal.owner'
-  | 'relationships.node__article.internal.type'
-  | 'relationships.node__article.langcode'
-  | 'relationships.node__article.parent.children'
-  | 'relationships.node__article.parent.id'
-  | 'relationships.node__article.path.alias'
-  | 'relationships.node__article.path.langcode'
-  | 'relationships.node__article.path.pid'
-  | 'relationships.node__article.promote'
-  | 'relationships.node__article.relationships.field_tags'
-  | 'relationships.node__article.relationships.node__article'
-  | 'relationships.node__article.revision_timestamp'
-  | 'relationships.node__article.revision_translation_affected'
-  | 'relationships.node__article.status'
-  | 'relationships.node__article.sticky'
-  | 'relationships.node__article.title'
-  | 'revision_created'
-  | 'revision_translation_affected'
-  | 'status'
-  | 'weight';
+type taxonomy_term__categoryFieldSelector = {
+  readonly changed: InputMaybe<FieldSelectorEnum>;
+  readonly children: InputMaybe<NodeFieldSelector>;
+  readonly default_langcode: InputMaybe<FieldSelectorEnum>;
+  readonly drupal_id: InputMaybe<FieldSelectorEnum>;
+  readonly drupal_internal__revision_id: InputMaybe<FieldSelectorEnum>;
+  readonly drupal_internal__tid: InputMaybe<FieldSelectorEnum>;
+  readonly id: InputMaybe<FieldSelectorEnum>;
+  readonly internal: InputMaybe<InternalFieldSelector>;
+  readonly langcode: InputMaybe<FieldSelectorEnum>;
+  readonly name: InputMaybe<FieldSelectorEnum>;
+  readonly parent: InputMaybe<NodeFieldSelector>;
+  readonly path: InputMaybe<taxonomy_term__categoryPathFieldSelector>;
+  readonly relationships: InputMaybe<taxonomy_term__categoryRelationshipsFieldSelector>;
+  readonly revision_created: InputMaybe<FieldSelectorEnum>;
+  readonly revision_translation_affected: InputMaybe<FieldSelectorEnum>;
+  readonly status: InputMaybe<FieldSelectorEnum>;
+  readonly weight: InputMaybe<FieldSelectorEnum>;
+};
 
 type taxonomy_term__categoryFilterInput = {
   readonly changed: InputMaybe<DateQueryOperatorInput>;
@@ -9557,29 +6403,29 @@ type taxonomy_term__categoryGroupConnection = {
 
 
 type taxonomy_term__categoryGroupConnection_distinctArgs = {
-  field: taxonomy_term__categoryFieldsEnum;
+  field: taxonomy_term__categoryFieldSelector;
 };
 
 
 type taxonomy_term__categoryGroupConnection_groupArgs = {
-  field: taxonomy_term__categoryFieldsEnum;
+  field: taxonomy_term__categoryFieldSelector;
   limit: InputMaybe<Scalars['Int']>;
   skip: InputMaybe<Scalars['Int']>;
 };
 
 
 type taxonomy_term__categoryGroupConnection_maxArgs = {
-  field: taxonomy_term__categoryFieldsEnum;
+  field: taxonomy_term__categoryFieldSelector;
 };
 
 
 type taxonomy_term__categoryGroupConnection_minArgs = {
-  field: taxonomy_term__categoryFieldsEnum;
+  field: taxonomy_term__categoryFieldSelector;
 };
 
 
 type taxonomy_term__categoryGroupConnection_sumArgs = {
-  field: taxonomy_term__categoryFieldsEnum;
+  field: taxonomy_term__categoryFieldSelector;
 };
 
 type taxonomy_term__categoryPath = {
@@ -9588,23 +6434,58 @@ type taxonomy_term__categoryPath = {
   readonly pid: Maybe<Scalars['Int']>;
 };
 
+type taxonomy_term__categoryPathFieldSelector = {
+  readonly alias: InputMaybe<FieldSelectorEnum>;
+  readonly langcode: InputMaybe<FieldSelectorEnum>;
+  readonly pid: InputMaybe<FieldSelectorEnum>;
+};
+
 type taxonomy_term__categoryPathFilterInput = {
   readonly alias: InputMaybe<StringQueryOperatorInput>;
   readonly langcode: InputMaybe<StringQueryOperatorInput>;
   readonly pid: InputMaybe<IntQueryOperatorInput>;
 };
 
+type taxonomy_term__categoryPathSortInput = {
+  readonly alias: InputMaybe<SortOrderEnum>;
+  readonly langcode: InputMaybe<SortOrderEnum>;
+  readonly pid: InputMaybe<SortOrderEnum>;
+};
+
 type taxonomy_term__categoryRelationships = {
   readonly node__article: Maybe<ReadonlyArray<Maybe<node__article>>>;
+};
+
+type taxonomy_term__categoryRelationshipsFieldSelector = {
+  readonly node__article: InputMaybe<node__articleFieldSelector>;
 };
 
 type taxonomy_term__categoryRelationshipsFilterInput = {
   readonly node__article: InputMaybe<node__articleFilterListInput>;
 };
 
+type taxonomy_term__categoryRelationshipsSortInput = {
+  readonly node__article: InputMaybe<node__articleSortInput>;
+};
+
 type taxonomy_term__categorySortInput = {
-  readonly fields: InputMaybe<ReadonlyArray<InputMaybe<taxonomy_term__categoryFieldsEnum>>>;
-  readonly order: InputMaybe<ReadonlyArray<InputMaybe<SortOrderEnum>>>;
+  readonly changed: InputMaybe<SortOrderEnum>;
+  readonly children: InputMaybe<NodeSortInput>;
+  readonly default_langcode: InputMaybe<SortOrderEnum>;
+  readonly drupal_id: InputMaybe<SortOrderEnum>;
+  readonly drupal_internal__revision_id: InputMaybe<SortOrderEnum>;
+  readonly drupal_internal__tid: InputMaybe<SortOrderEnum>;
+  readonly id: InputMaybe<SortOrderEnum>;
+  readonly internal: InputMaybe<InternalSortInput>;
+  readonly langcode: InputMaybe<SortOrderEnum>;
+  readonly name: InputMaybe<SortOrderEnum>;
+  readonly parent: InputMaybe<NodeSortInput>;
+  readonly path: InputMaybe<taxonomy_term__categoryPathSortInput>;
+  readonly relationships: InputMaybe<taxonomy_term__categoryRelationshipsSortInput>;
+  readonly revision_created: InputMaybe<SortOrderEnum>;
+  readonly revision_translation_affected: InputMaybe<SortOrderEnum>;
+  readonly status: InputMaybe<SortOrderEnum>;
+  readonly weight: InputMaybe<SortOrderEnum>;
 };
 
 type user__user = Node & {
@@ -9631,29 +6512,29 @@ type user__userConnection = {
 
 
 type user__userConnection_distinctArgs = {
-  field: user__userFieldsEnum;
+  field: user__userFieldSelector;
 };
 
 
 type user__userConnection_groupArgs = {
-  field: user__userFieldsEnum;
+  field: user__userFieldSelector;
   limit: InputMaybe<Scalars['Int']>;
   skip: InputMaybe<Scalars['Int']>;
 };
 
 
 type user__userConnection_maxArgs = {
-  field: user__userFieldsEnum;
+  field: user__userFieldSelector;
 };
 
 
 type user__userConnection_minArgs = {
-  field: user__userFieldsEnum;
+  field: user__userFieldSelector;
 };
 
 
 type user__userConnection_sumArgs = {
-  field: user__userFieldsEnum;
+  field: user__userFieldSelector;
 };
 
 type user__userEdge = {
@@ -9662,571 +6543,15 @@ type user__userEdge = {
   readonly previous: Maybe<user__user>;
 };
 
-type user__userFieldsEnum =
-  | 'children'
-  | 'children.children'
-  | 'children.children.children'
-  | 'children.children.children.children'
-  | 'children.children.children.id'
-  | 'children.children.id'
-  | 'children.children.internal.content'
-  | 'children.children.internal.contentDigest'
-  | 'children.children.internal.contentFilePath'
-  | 'children.children.internal.description'
-  | 'children.children.internal.fieldOwners'
-  | 'children.children.internal.ignoreType'
-  | 'children.children.internal.mediaType'
-  | 'children.children.internal.owner'
-  | 'children.children.internal.type'
-  | 'children.children.parent.children'
-  | 'children.children.parent.id'
-  | 'children.id'
-  | 'children.internal.content'
-  | 'children.internal.contentDigest'
-  | 'children.internal.contentFilePath'
-  | 'children.internal.description'
-  | 'children.internal.fieldOwners'
-  | 'children.internal.ignoreType'
-  | 'children.internal.mediaType'
-  | 'children.internal.owner'
-  | 'children.internal.type'
-  | 'children.parent.children'
-  | 'children.parent.children.children'
-  | 'children.parent.children.id'
-  | 'children.parent.id'
-  | 'children.parent.internal.content'
-  | 'children.parent.internal.contentDigest'
-  | 'children.parent.internal.contentFilePath'
-  | 'children.parent.internal.description'
-  | 'children.parent.internal.fieldOwners'
-  | 'children.parent.internal.ignoreType'
-  | 'children.parent.internal.mediaType'
-  | 'children.parent.internal.owner'
-  | 'children.parent.internal.type'
-  | 'children.parent.parent.children'
-  | 'children.parent.parent.id'
-  | 'display_name'
-  | 'drupal_id'
-  | 'id'
-  | 'internal.content'
-  | 'internal.contentDigest'
-  | 'internal.contentFilePath'
-  | 'internal.description'
-  | 'internal.fieldOwners'
-  | 'internal.ignoreType'
-  | 'internal.mediaType'
-  | 'internal.owner'
-  | 'internal.type'
-  | 'parent.children'
-  | 'parent.children.children'
-  | 'parent.children.children.children'
-  | 'parent.children.children.id'
-  | 'parent.children.id'
-  | 'parent.children.internal.content'
-  | 'parent.children.internal.contentDigest'
-  | 'parent.children.internal.contentFilePath'
-  | 'parent.children.internal.description'
-  | 'parent.children.internal.fieldOwners'
-  | 'parent.children.internal.ignoreType'
-  | 'parent.children.internal.mediaType'
-  | 'parent.children.internal.owner'
-  | 'parent.children.internal.type'
-  | 'parent.children.parent.children'
-  | 'parent.children.parent.id'
-  | 'parent.id'
-  | 'parent.internal.content'
-  | 'parent.internal.contentDigest'
-  | 'parent.internal.contentFilePath'
-  | 'parent.internal.description'
-  | 'parent.internal.fieldOwners'
-  | 'parent.internal.ignoreType'
-  | 'parent.internal.mediaType'
-  | 'parent.internal.owner'
-  | 'parent.internal.type'
-  | 'parent.parent.children'
-  | 'parent.parent.children.children'
-  | 'parent.parent.children.id'
-  | 'parent.parent.id'
-  | 'parent.parent.internal.content'
-  | 'parent.parent.internal.contentDigest'
-  | 'parent.parent.internal.contentFilePath'
-  | 'parent.parent.internal.description'
-  | 'parent.parent.internal.fieldOwners'
-  | 'parent.parent.internal.ignoreType'
-  | 'parent.parent.internal.mediaType'
-  | 'parent.parent.internal.owner'
-  | 'parent.parent.internal.type'
-  | 'parent.parent.parent.children'
-  | 'parent.parent.parent.id'
-  | 'relationships.file__file'
-  | 'relationships.file__file.changed'
-  | 'relationships.file__file.children'
-  | 'relationships.file__file.children.children'
-  | 'relationships.file__file.children.id'
-  | 'relationships.file__file.created'
-  | 'relationships.file__file.drupal_id'
-  | 'relationships.file__file.drupal_internal__fid'
-  | 'relationships.file__file.filemime'
-  | 'relationships.file__file.filename'
-  | 'relationships.file__file.filesize'
-  | 'relationships.file__file.id'
-  | 'relationships.file__file.internal.content'
-  | 'relationships.file__file.internal.contentDigest'
-  | 'relationships.file__file.internal.contentFilePath'
-  | 'relationships.file__file.internal.description'
-  | 'relationships.file__file.internal.fieldOwners'
-  | 'relationships.file__file.internal.ignoreType'
-  | 'relationships.file__file.internal.mediaType'
-  | 'relationships.file__file.internal.owner'
-  | 'relationships.file__file.internal.type'
-  | 'relationships.file__file.langcode'
-  | 'relationships.file__file.localFile.absolutePath'
-  | 'relationships.file__file.localFile.accessTime'
-  | 'relationships.file__file.localFile.atime'
-  | 'relationships.file__file.localFile.atimeMs'
-  | 'relationships.file__file.localFile.base'
-  | 'relationships.file__file.localFile.birthTime'
-  | 'relationships.file__file.localFile.birthtime'
-  | 'relationships.file__file.localFile.birthtimeMs'
-  | 'relationships.file__file.localFile.blksize'
-  | 'relationships.file__file.localFile.blocks'
-  | 'relationships.file__file.localFile.changeTime'
-  | 'relationships.file__file.localFile.children'
-  | 'relationships.file__file.localFile.childrenImageSharp'
-  | 'relationships.file__file.localFile.ctime'
-  | 'relationships.file__file.localFile.ctimeMs'
-  | 'relationships.file__file.localFile.dev'
-  | 'relationships.file__file.localFile.dir'
-  | 'relationships.file__file.localFile.ext'
-  | 'relationships.file__file.localFile.extension'
-  | 'relationships.file__file.localFile.gid'
-  | 'relationships.file__file.localFile.id'
-  | 'relationships.file__file.localFile.ino'
-  | 'relationships.file__file.localFile.mode'
-  | 'relationships.file__file.localFile.modifiedTime'
-  | 'relationships.file__file.localFile.mtime'
-  | 'relationships.file__file.localFile.mtimeMs'
-  | 'relationships.file__file.localFile.name'
-  | 'relationships.file__file.localFile.nlink'
-  | 'relationships.file__file.localFile.prettySize'
-  | 'relationships.file__file.localFile.publicURL'
-  | 'relationships.file__file.localFile.rdev'
-  | 'relationships.file__file.localFile.relativeDirectory'
-  | 'relationships.file__file.localFile.relativePath'
-  | 'relationships.file__file.localFile.root'
-  | 'relationships.file__file.localFile.size'
-  | 'relationships.file__file.localFile.sourceInstanceName'
-  | 'relationships.file__file.localFile.uid'
-  | 'relationships.file__file.localFile.url'
-  | 'relationships.file__file.parent.children'
-  | 'relationships.file__file.parent.id'
-  | 'relationships.file__file.relationships.media__image'
-  | 'relationships.file__file.relationships.node__player'
-  | 'relationships.file__file.relationships.node__staff'
-  | 'relationships.file__file.status'
-  | 'relationships.file__file.uri.url'
-  | 'relationships.file__file.uri.value'
-  | 'relationships.media__image'
-  | 'relationships.media__image.changed'
-  | 'relationships.media__image.children'
-  | 'relationships.media__image.children.children'
-  | 'relationships.media__image.children.id'
-  | 'relationships.media__image.created'
-  | 'relationships.media__image.default_langcode'
-  | 'relationships.media__image.drupal_id'
-  | 'relationships.media__image.drupal_internal__mid'
-  | 'relationships.media__image.drupal_internal__vid'
-  | 'relationships.media__image.field_media_image.alt'
-  | 'relationships.media__image.field_media_image.height'
-  | 'relationships.media__image.field_media_image.title'
-  | 'relationships.media__image.field_media_image.width'
-  | 'relationships.media__image.id'
-  | 'relationships.media__image.internal.content'
-  | 'relationships.media__image.internal.contentDigest'
-  | 'relationships.media__image.internal.contentFilePath'
-  | 'relationships.media__image.internal.description'
-  | 'relationships.media__image.internal.fieldOwners'
-  | 'relationships.media__image.internal.ignoreType'
-  | 'relationships.media__image.internal.mediaType'
-  | 'relationships.media__image.internal.owner'
-  | 'relationships.media__image.internal.type'
-  | 'relationships.media__image.langcode'
-  | 'relationships.media__image.name'
-  | 'relationships.media__image.parent.children'
-  | 'relationships.media__image.parent.id'
-  | 'relationships.media__image.path.alias'
-  | 'relationships.media__image.path.langcode'
-  | 'relationships.media__image.path.pid'
-  | 'relationships.media__image.relationships.node__article'
-  | 'relationships.media__image.relationships.node__event'
-  | 'relationships.media__image.relationships.node__kcvv_tv'
-  | 'relationships.media__image.relationships.node__page'
-  | 'relationships.media__image.relationships.node__sponsor'
-  | 'relationships.media__image.relationships.node__team'
-  | 'relationships.media__image.revision_created'
-  | 'relationships.media__image.revision_translation_affected'
-  | 'relationships.media__image.status'
-  | 'relationships.media__image.thumbnail.alt'
-  | 'relationships.media__image.thumbnail.height'
-  | 'relationships.media__image.thumbnail.width'
-  | 'relationships.node__article'
-  | 'relationships.node__article.body.format'
-  | 'relationships.node__article.body.processed'
-  | 'relationships.node__article.body.summary'
-  | 'relationships.node__article.body.value'
-  | 'relationships.node__article.changed'
-  | 'relationships.node__article.children'
-  | 'relationships.node__article.children.children'
-  | 'relationships.node__article.children.id'
-  | 'relationships.node__article.created'
-  | 'relationships.node__article.default_langcode'
-  | 'relationships.node__article.drupal_id'
-  | 'relationships.node__article.drupal_internal__nid'
-  | 'relationships.node__article.drupal_internal__vid'
-  | 'relationships.node__article.field_featured'
-  | 'relationships.node__article.field_related_content'
-  | 'relationships.node__article.id'
-  | 'relationships.node__article.internal.content'
-  | 'relationships.node__article.internal.contentDigest'
-  | 'relationships.node__article.internal.contentFilePath'
-  | 'relationships.node__article.internal.description'
-  | 'relationships.node__article.internal.fieldOwners'
-  | 'relationships.node__article.internal.ignoreType'
-  | 'relationships.node__article.internal.mediaType'
-  | 'relationships.node__article.internal.owner'
-  | 'relationships.node__article.internal.type'
-  | 'relationships.node__article.langcode'
-  | 'relationships.node__article.parent.children'
-  | 'relationships.node__article.parent.id'
-  | 'relationships.node__article.path.alias'
-  | 'relationships.node__article.path.langcode'
-  | 'relationships.node__article.path.pid'
-  | 'relationships.node__article.promote'
-  | 'relationships.node__article.relationships.field_tags'
-  | 'relationships.node__article.relationships.node__article'
-  | 'relationships.node__article.revision_timestamp'
-  | 'relationships.node__article.revision_translation_affected'
-  | 'relationships.node__article.status'
-  | 'relationships.node__article.sticky'
-  | 'relationships.node__article.title'
-  | 'relationships.node__event'
-  | 'relationships.node__event.changed'
-  | 'relationships.node__event.children'
-  | 'relationships.node__event.children.children'
-  | 'relationships.node__event.children.id'
-  | 'relationships.node__event.created'
-  | 'relationships.node__event.default_langcode'
-  | 'relationships.node__event.drupal_id'
-  | 'relationships.node__event.drupal_internal__nid'
-  | 'relationships.node__event.drupal_internal__vid'
-  | 'relationships.node__event.field_daterange.end_value'
-  | 'relationships.node__event.field_daterange.value'
-  | 'relationships.node__event.field_event_link.title'
-  | 'relationships.node__event.field_event_link.uri'
-  | 'relationships.node__event.id'
-  | 'relationships.node__event.internal.content'
-  | 'relationships.node__event.internal.contentDigest'
-  | 'relationships.node__event.internal.contentFilePath'
-  | 'relationships.node__event.internal.description'
-  | 'relationships.node__event.internal.fieldOwners'
-  | 'relationships.node__event.internal.ignoreType'
-  | 'relationships.node__event.internal.mediaType'
-  | 'relationships.node__event.internal.owner'
-  | 'relationships.node__event.internal.type'
-  | 'relationships.node__event.langcode'
-  | 'relationships.node__event.parent.children'
-  | 'relationships.node__event.parent.id'
-  | 'relationships.node__event.path.alias'
-  | 'relationships.node__event.path.langcode'
-  | 'relationships.node__event.path.pid'
-  | 'relationships.node__event.promote'
-  | 'relationships.node__event.revision_timestamp'
-  | 'relationships.node__event.revision_translation_affected'
-  | 'relationships.node__event.status'
-  | 'relationships.node__event.sticky'
-  | 'relationships.node__event.title'
-  | 'relationships.node__event.unpublish_on'
-  | 'relationships.node__kcvv_tv'
-  | 'relationships.node__kcvv_tv.changed'
-  | 'relationships.node__kcvv_tv.children'
-  | 'relationships.node__kcvv_tv.children.children'
-  | 'relationships.node__kcvv_tv.children.id'
-  | 'relationships.node__kcvv_tv.created'
-  | 'relationships.node__kcvv_tv.default_langcode'
-  | 'relationships.node__kcvv_tv.drupal_id'
-  | 'relationships.node__kcvv_tv.drupal_internal__nid'
-  | 'relationships.node__kcvv_tv.drupal_internal__vid'
-  | 'relationships.node__kcvv_tv.field_website.title'
-  | 'relationships.node__kcvv_tv.field_website.uri'
-  | 'relationships.node__kcvv_tv.id'
-  | 'relationships.node__kcvv_tv.internal.content'
-  | 'relationships.node__kcvv_tv.internal.contentDigest'
-  | 'relationships.node__kcvv_tv.internal.contentFilePath'
-  | 'relationships.node__kcvv_tv.internal.description'
-  | 'relationships.node__kcvv_tv.internal.fieldOwners'
-  | 'relationships.node__kcvv_tv.internal.ignoreType'
-  | 'relationships.node__kcvv_tv.internal.mediaType'
-  | 'relationships.node__kcvv_tv.internal.owner'
-  | 'relationships.node__kcvv_tv.internal.type'
-  | 'relationships.node__kcvv_tv.langcode'
-  | 'relationships.node__kcvv_tv.parent.children'
-  | 'relationships.node__kcvv_tv.parent.id'
-  | 'relationships.node__kcvv_tv.path.alias'
-  | 'relationships.node__kcvv_tv.path.langcode'
-  | 'relationships.node__kcvv_tv.path.pid'
-  | 'relationships.node__kcvv_tv.promote'
-  | 'relationships.node__kcvv_tv.revision_timestamp'
-  | 'relationships.node__kcvv_tv.revision_translation_affected'
-  | 'relationships.node__kcvv_tv.status'
-  | 'relationships.node__kcvv_tv.sticky'
-  | 'relationships.node__kcvv_tv.title'
-  | 'relationships.node__page'
-  | 'relationships.node__page.body.format'
-  | 'relationships.node__page.body.processed'
-  | 'relationships.node__page.body.summary'
-  | 'relationships.node__page.body.value'
-  | 'relationships.node__page.changed'
-  | 'relationships.node__page.children'
-  | 'relationships.node__page.children.children'
-  | 'relationships.node__page.children.id'
-  | 'relationships.node__page.created'
-  | 'relationships.node__page.default_langcode'
-  | 'relationships.node__page.drupal_id'
-  | 'relationships.node__page.drupal_internal__nid'
-  | 'relationships.node__page.drupal_internal__vid'
-  | 'relationships.node__page.id'
-  | 'relationships.node__page.internal.content'
-  | 'relationships.node__page.internal.contentDigest'
-  | 'relationships.node__page.internal.contentFilePath'
-  | 'relationships.node__page.internal.description'
-  | 'relationships.node__page.internal.fieldOwners'
-  | 'relationships.node__page.internal.ignoreType'
-  | 'relationships.node__page.internal.mediaType'
-  | 'relationships.node__page.internal.owner'
-  | 'relationships.node__page.internal.type'
-  | 'relationships.node__page.langcode'
-  | 'relationships.node__page.parent.children'
-  | 'relationships.node__page.parent.id'
-  | 'relationships.node__page.path.alias'
-  | 'relationships.node__page.path.langcode'
-  | 'relationships.node__page.path.pid'
-  | 'relationships.node__page.promote'
-  | 'relationships.node__page.revision_timestamp'
-  | 'relationships.node__page.revision_translation_affected'
-  | 'relationships.node__page.status'
-  | 'relationships.node__page.sticky'
-  | 'relationships.node__page.title'
-  | 'relationships.node__player'
-  | 'relationships.node__player.body.format'
-  | 'relationships.node__player.body.processed'
-  | 'relationships.node__player.body.summary'
-  | 'relationships.node__player.body.value'
-  | 'relationships.node__player.changed'
-  | 'relationships.node__player.children'
-  | 'relationships.node__player.children.children'
-  | 'relationships.node__player.children.id'
-  | 'relationships.node__player.created'
-  | 'relationships.node__player.default_langcode'
-  | 'relationships.node__player.drupal_id'
-  | 'relationships.node__player.drupal_internal__nid'
-  | 'relationships.node__player.drupal_internal__vid'
-  | 'relationships.node__player.field_birth_date'
-  | 'relationships.node__player.field_date_leave'
-  | 'relationships.node__player.field_firstname'
-  | 'relationships.node__player.field_image.alt'
-  | 'relationships.node__player.field_image.height'
-  | 'relationships.node__player.field_image.title'
-  | 'relationships.node__player.field_image.width'
-  | 'relationships.node__player.field_image_celebrate.alt'
-  | 'relationships.node__player.field_image_celebrate.height'
-  | 'relationships.node__player.field_image_celebrate.title'
-  | 'relationships.node__player.field_image_celebrate.width'
-  | 'relationships.node__player.field_join_date'
-  | 'relationships.node__player.field_lastname'
-  | 'relationships.node__player.field_position'
-  | 'relationships.node__player.field_shirtnumber'
-  | 'relationships.node__player.field_vv_id'
-  | 'relationships.node__player.id'
-  | 'relationships.node__player.internal.content'
-  | 'relationships.node__player.internal.contentDigest'
-  | 'relationships.node__player.internal.contentFilePath'
-  | 'relationships.node__player.internal.description'
-  | 'relationships.node__player.internal.fieldOwners'
-  | 'relationships.node__player.internal.ignoreType'
-  | 'relationships.node__player.internal.mediaType'
-  | 'relationships.node__player.internal.owner'
-  | 'relationships.node__player.internal.type'
-  | 'relationships.node__player.langcode'
-  | 'relationships.node__player.parent.children'
-  | 'relationships.node__player.parent.id'
-  | 'relationships.node__player.path.alias'
-  | 'relationships.node__player.path.langcode'
-  | 'relationships.node__player.path.pid'
-  | 'relationships.node__player.promote'
-  | 'relationships.node__player.relationships.node__article'
-  | 'relationships.node__player.relationships.node__team'
-  | 'relationships.node__player.revision_timestamp'
-  | 'relationships.node__player.revision_translation_affected'
-  | 'relationships.node__player.status'
-  | 'relationships.node__player.sticky'
-  | 'relationships.node__player.title'
-  | 'relationships.node__potw'
-  | 'relationships.node__potw.changed'
-  | 'relationships.node__potw.children'
-  | 'relationships.node__potw.children.children'
-  | 'relationships.node__potw.children.id'
-  | 'relationships.node__potw.created'
-  | 'relationships.node__potw.default_langcode'
-  | 'relationships.node__potw.drupal_id'
-  | 'relationships.node__potw.drupal_internal__nid'
-  | 'relationships.node__potw.drupal_internal__vid'
-  | 'relationships.node__potw.id'
-  | 'relationships.node__potw.internal.content'
-  | 'relationships.node__potw.internal.contentDigest'
-  | 'relationships.node__potw.internal.contentFilePath'
-  | 'relationships.node__potw.internal.description'
-  | 'relationships.node__potw.internal.fieldOwners'
-  | 'relationships.node__potw.internal.ignoreType'
-  | 'relationships.node__potw.internal.mediaType'
-  | 'relationships.node__potw.internal.owner'
-  | 'relationships.node__potw.internal.type'
-  | 'relationships.node__potw.langcode'
-  | 'relationships.node__potw.parent.children'
-  | 'relationships.node__potw.parent.id'
-  | 'relationships.node__potw.path.langcode'
-  | 'relationships.node__potw.promote'
-  | 'relationships.node__potw.revision_timestamp'
-  | 'relationships.node__potw.revision_translation_affected'
-  | 'relationships.node__potw.status'
-  | 'relationships.node__potw.sticky'
-  | 'relationships.node__potw.title'
-  | 'relationships.node__sponsor'
-  | 'relationships.node__sponsor.changed'
-  | 'relationships.node__sponsor.children'
-  | 'relationships.node__sponsor.children.children'
-  | 'relationships.node__sponsor.children.id'
-  | 'relationships.node__sponsor.created'
-  | 'relationships.node__sponsor.default_langcode'
-  | 'relationships.node__sponsor.drupal_id'
-  | 'relationships.node__sponsor.drupal_internal__nid'
-  | 'relationships.node__sponsor.drupal_internal__vid'
-  | 'relationships.node__sponsor.field_type'
-  | 'relationships.node__sponsor.field_website.title'
-  | 'relationships.node__sponsor.field_website.uri'
-  | 'relationships.node__sponsor.id'
-  | 'relationships.node__sponsor.internal.content'
-  | 'relationships.node__sponsor.internal.contentDigest'
-  | 'relationships.node__sponsor.internal.contentFilePath'
-  | 'relationships.node__sponsor.internal.description'
-  | 'relationships.node__sponsor.internal.fieldOwners'
-  | 'relationships.node__sponsor.internal.ignoreType'
-  | 'relationships.node__sponsor.internal.mediaType'
-  | 'relationships.node__sponsor.internal.owner'
-  | 'relationships.node__sponsor.internal.type'
-  | 'relationships.node__sponsor.langcode'
-  | 'relationships.node__sponsor.parent.children'
-  | 'relationships.node__sponsor.parent.id'
-  | 'relationships.node__sponsor.path.alias'
-  | 'relationships.node__sponsor.path.langcode'
-  | 'relationships.node__sponsor.path.pid'
-  | 'relationships.node__sponsor.promote'
-  | 'relationships.node__sponsor.revision_timestamp'
-  | 'relationships.node__sponsor.revision_translation_affected'
-  | 'relationships.node__sponsor.status'
-  | 'relationships.node__sponsor.sticky'
-  | 'relationships.node__sponsor.title'
-  | 'relationships.node__staff'
-  | 'relationships.node__staff.body.format'
-  | 'relationships.node__staff.body.processed'
-  | 'relationships.node__staff.body.summary'
-  | 'relationships.node__staff.body.value'
-  | 'relationships.node__staff.changed'
-  | 'relationships.node__staff.children'
-  | 'relationships.node__staff.children.children'
-  | 'relationships.node__staff.children.id'
-  | 'relationships.node__staff.created'
-  | 'relationships.node__staff.default_langcode'
-  | 'relationships.node__staff.drupal_id'
-  | 'relationships.node__staff.drupal_internal__nid'
-  | 'relationships.node__staff.drupal_internal__vid'
-  | 'relationships.node__staff.field_birth_date'
-  | 'relationships.node__staff.field_firstname'
-  | 'relationships.node__staff.field_image.alt'
-  | 'relationships.node__staff.field_image.height'
-  | 'relationships.node__staff.field_image.title'
-  | 'relationships.node__staff.field_image.width'
-  | 'relationships.node__staff.field_join_date'
-  | 'relationships.node__staff.field_lastname'
-  | 'relationships.node__staff.field_position_short'
-  | 'relationships.node__staff.field_position_staff'
-  | 'relationships.node__staff.field_vv_id'
-  | 'relationships.node__staff.id'
-  | 'relationships.node__staff.internal.content'
-  | 'relationships.node__staff.internal.contentDigest'
-  | 'relationships.node__staff.internal.contentFilePath'
-  | 'relationships.node__staff.internal.description'
-  | 'relationships.node__staff.internal.fieldOwners'
-  | 'relationships.node__staff.internal.ignoreType'
-  | 'relationships.node__staff.internal.mediaType'
-  | 'relationships.node__staff.internal.owner'
-  | 'relationships.node__staff.internal.type'
-  | 'relationships.node__staff.langcode'
-  | 'relationships.node__staff.parent.children'
-  | 'relationships.node__staff.parent.id'
-  | 'relationships.node__staff.path.alias'
-  | 'relationships.node__staff.path.langcode'
-  | 'relationships.node__staff.path.pid'
-  | 'relationships.node__staff.promote'
-  | 'relationships.node__staff.relationships.node__article'
-  | 'relationships.node__staff.relationships.node__team'
-  | 'relationships.node__staff.revision_timestamp'
-  | 'relationships.node__staff.revision_translation_affected'
-  | 'relationships.node__staff.status'
-  | 'relationships.node__staff.sticky'
-  | 'relationships.node__staff.title'
-  | 'relationships.node__team'
-  | 'relationships.node__team.changed'
-  | 'relationships.node__team.children'
-  | 'relationships.node__team.children.children'
-  | 'relationships.node__team.children.id'
-  | 'relationships.node__team.created'
-  | 'relationships.node__team.default_langcode'
-  | 'relationships.node__team.drupal_id'
-  | 'relationships.node__team.drupal_internal__nid'
-  | 'relationships.node__team.drupal_internal__vid'
-  | 'relationships.node__team.field_contact_info.format'
-  | 'relationships.node__team.field_contact_info.processed'
-  | 'relationships.node__team.field_contact_info.value'
-  | 'relationships.node__team.field_division_full'
-  | 'relationships.node__team.field_fb_id'
-  | 'relationships.node__team.field_fb_id_2'
-  | 'relationships.node__team.field_tagline'
-  | 'relationships.node__team.field_vv_id'
-  | 'relationships.node__team.id'
-  | 'relationships.node__team.internal.content'
-  | 'relationships.node__team.internal.contentDigest'
-  | 'relationships.node__team.internal.contentFilePath'
-  | 'relationships.node__team.internal.description'
-  | 'relationships.node__team.internal.fieldOwners'
-  | 'relationships.node__team.internal.ignoreType'
-  | 'relationships.node__team.internal.mediaType'
-  | 'relationships.node__team.internal.owner'
-  | 'relationships.node__team.internal.type'
-  | 'relationships.node__team.langcode'
-  | 'relationships.node__team.parent.children'
-  | 'relationships.node__team.parent.id'
-  | 'relationships.node__team.path.alias'
-  | 'relationships.node__team.path.langcode'
-  | 'relationships.node__team.path.pid'
-  | 'relationships.node__team.promote'
-  | 'relationships.node__team.relationships.field_players'
-  | 'relationships.node__team.relationships.field_staff'
-  | 'relationships.node__team.relationships.node__article'
-  | 'relationships.node__team.revision_timestamp'
-  | 'relationships.node__team.revision_translation_affected'
-  | 'relationships.node__team.status'
-  | 'relationships.node__team.sticky'
-  | 'relationships.node__team.title';
+type user__userFieldSelector = {
+  readonly children: InputMaybe<NodeFieldSelector>;
+  readonly display_name: InputMaybe<FieldSelectorEnum>;
+  readonly drupal_id: InputMaybe<FieldSelectorEnum>;
+  readonly id: InputMaybe<FieldSelectorEnum>;
+  readonly internal: InputMaybe<InternalFieldSelector>;
+  readonly parent: InputMaybe<NodeFieldSelector>;
+  readonly relationships: InputMaybe<user__userRelationshipsFieldSelector>;
+};
 
 type user__userFilterInput = {
   readonly children: InputMaybe<NodeFilterListInput>;
@@ -10254,29 +6579,29 @@ type user__userGroupConnection = {
 
 
 type user__userGroupConnection_distinctArgs = {
-  field: user__userFieldsEnum;
+  field: user__userFieldSelector;
 };
 
 
 type user__userGroupConnection_groupArgs = {
-  field: user__userFieldsEnum;
+  field: user__userFieldSelector;
   limit: InputMaybe<Scalars['Int']>;
   skip: InputMaybe<Scalars['Int']>;
 };
 
 
 type user__userGroupConnection_maxArgs = {
-  field: user__userFieldsEnum;
+  field: user__userFieldSelector;
 };
 
 
 type user__userGroupConnection_minArgs = {
-  field: user__userFieldsEnum;
+  field: user__userFieldSelector;
 };
 
 
 type user__userGroupConnection_sumArgs = {
-  field: user__userFieldsEnum;
+  field: user__userFieldSelector;
 };
 
 type user__userRelationships = {
@@ -10293,6 +6618,20 @@ type user__userRelationships = {
   readonly node__team: Maybe<ReadonlyArray<Maybe<node__team>>>;
 };
 
+type user__userRelationshipsFieldSelector = {
+  readonly file__file: InputMaybe<file__fileFieldSelector>;
+  readonly media__image: InputMaybe<media__imageFieldSelector>;
+  readonly node__article: InputMaybe<node__articleFieldSelector>;
+  readonly node__event: InputMaybe<node__eventFieldSelector>;
+  readonly node__kcvv_tv: InputMaybe<node__kcvv_tvFieldSelector>;
+  readonly node__page: InputMaybe<node__pageFieldSelector>;
+  readonly node__player: InputMaybe<node__playerFieldSelector>;
+  readonly node__potw: InputMaybe<node__potwFieldSelector>;
+  readonly node__sponsor: InputMaybe<node__sponsorFieldSelector>;
+  readonly node__staff: InputMaybe<node__staffFieldSelector>;
+  readonly node__team: InputMaybe<node__teamFieldSelector>;
+};
+
 type user__userRelationshipsFilterInput = {
   readonly file__file: InputMaybe<file__fileFilterListInput>;
   readonly media__image: InputMaybe<media__imageFilterListInput>;
@@ -10307,9 +6646,28 @@ type user__userRelationshipsFilterInput = {
   readonly node__team: InputMaybe<node__teamFilterListInput>;
 };
 
+type user__userRelationshipsSortInput = {
+  readonly file__file: InputMaybe<file__fileSortInput>;
+  readonly media__image: InputMaybe<media__imageSortInput>;
+  readonly node__article: InputMaybe<node__articleSortInput>;
+  readonly node__event: InputMaybe<node__eventSortInput>;
+  readonly node__kcvv_tv: InputMaybe<node__kcvv_tvSortInput>;
+  readonly node__page: InputMaybe<node__pageSortInput>;
+  readonly node__player: InputMaybe<node__playerSortInput>;
+  readonly node__potw: InputMaybe<node__potwSortInput>;
+  readonly node__sponsor: InputMaybe<node__sponsorSortInput>;
+  readonly node__staff: InputMaybe<node__staffSortInput>;
+  readonly node__team: InputMaybe<node__teamSortInput>;
+};
+
 type user__userSortInput = {
-  readonly fields: InputMaybe<ReadonlyArray<InputMaybe<user__userFieldsEnum>>>;
-  readonly order: InputMaybe<ReadonlyArray<InputMaybe<SortOrderEnum>>>;
+  readonly children: InputMaybe<NodeSortInput>;
+  readonly display_name: InputMaybe<SortOrderEnum>;
+  readonly drupal_id: InputMaybe<SortOrderEnum>;
+  readonly id: InputMaybe<SortOrderEnum>;
+  readonly internal: InputMaybe<InternalSortInput>;
+  readonly parent: InputMaybe<NodeSortInput>;
+  readonly relationships: InputMaybe<user__userRelationshipsSortInput>;
 };
 
 type ArticleImageFragment = { readonly relationships: { readonly field_media_image: { readonly localFile: { readonly childImageSharp: { readonly gatsbyImageData: import('gatsby-plugin-image').IGatsbyImageData } | null } | null } | null } | null };

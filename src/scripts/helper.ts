@@ -1,7 +1,6 @@
 import { RankingDataTeamObject } from "../Types/Ranking"
 import Axios from "axios"
-import { setupCache, setup } from "axios-cache-adapter"
-import localforage from "localforage"
+import { setupCache } from "axios-cache-interceptor"
 
 export function mapPsdStatus(statusCode: number): string | null {
   const statusCodes = new Map([
@@ -117,26 +116,7 @@ export function getPositions() {
   return positions
 }
 
-export const forageStore = localforage.createInstance({
-  driver: [localforage.INDEXEDDB, localforage.LOCALSTORAGE],
-  name: `kcvv-cache`,
-})
-
-export const request = setup({
-  cache: {
-    maxAge: 15 * 60 * 1000,
-    exclude: { query: false, filter: (config: { url: string }) => config.url.startsWith(`/profiles`) },
-    store: forageStore,
-    invalidate: async (config, request) => {
-      if (request.clearCacheEntry) {
-        // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-        // @ts-ignore
-        await config.store.removeItem(config.uuid)
-      }
-    },
-    readOnError: (error: { response: { status: number } }, request: any) => {
-      return !error.response || (error.response.status >= 500 && error.response.status < 600)
-    },
-    clearOnStale: false,
-  },
-})
+/**
+ * Setup instance of axios with caching support.
+ */
+export const request = setupCache(Axios)

@@ -228,9 +228,9 @@ const renderTeamSquadStats = ({ squadPlayerStatistics }: TeamStatsDataObject) =>
         <tbody>
           {squadPlayerStatistics
             .sort((a, b) => b.minutes - a.minutes)
-            .map(function (player) {
+            .map(function (player, i) {
               return (
-                <tr>
+                <tr key={i}>
                   <td className="table__column__string">
                     {player.firstName} {player.lastName}
                   </td>
