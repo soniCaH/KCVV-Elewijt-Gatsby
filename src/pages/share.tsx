@@ -5,6 +5,7 @@ import { Spinner } from "../components/Spinner"
 import Layout from "../layouts"
 import { PlayerListProps } from "../Types/Player"
 import Select from "react-select"
+import ESAPI from "node-esapi"
 
 import "./share.scss"
 
@@ -47,11 +48,11 @@ const ShareForm = () => {
   }
 
   const handleMatchChange = (event: { target: { value: React.SetStateAction<string> } }) => {
-    setMatch(event.target.value)
+    setMatch(ESAPI.encoder().encodeForJS(event.target.value))
   }
 
   const handleScoreChange = (event: { target: { value: React.SetStateAction<string> } }) => {
-    setScore(event.target.value)
+    setScore(ESAPI.encoder().encodeForJS(event.target.value))
   }
 
   const handleGenerateImage = (event: React.MouseEvent<HTMLButtonElement>) => {
