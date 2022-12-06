@@ -1,6 +1,6 @@
 import { RankingDataTeamObject } from "../Types/Ranking"
 import Axios from "axios"
-import { setupCache, buildWebStorage } from "axios-cache-interceptor"
+import { setupCache } from "axios-cache-interceptor"
 
 export function mapPsdStatus(statusCode: number): string | null {
   const statusCodes = new Map([
@@ -119,4 +119,4 @@ export function getPositions() {
 /**
  * Setup instance of axios with caching support.
  */
-export const request = setupCache(Axios, { storage: buildWebStorage(localStorage, `axios-cache:`), debug: console.log })
+export const request = setupCache(Axios)
