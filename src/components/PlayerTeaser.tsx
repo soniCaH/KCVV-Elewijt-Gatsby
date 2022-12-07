@@ -9,11 +9,7 @@ const PlayerTeaser = ({ url, position, first_name, last_name, picture }: PlayerT
   let image
   if (!picture) {
     image = (
-      <StaticImage
-        src={`../images/kcvv-player-bg.png`}
-        alt={`"${first_name} ${last_name}"`}
-        placeholder={`tracedSVG`}
-      />
+      <StaticImage src={`../images/kcvv-player-bg.png`} alt={`"${first_name} ${last_name}"`} placeholder={`blurred`} />
     )
   } else {
     image = <GatsbyImage image={picture} alt={`"${first_name} ${last_name}"`} />

@@ -40,7 +40,17 @@ const config: GatsbyConfig = {
       },
     },
     `gatsby-plugin-image`,
-    `gatsby-transformer-sharp`,
+    {
+      resolve: `gatsby-transformer-sharp`,
+      options: {
+        backgroundColor: `transparent`,
+        blurredOptions: {},
+        jpgOptions: {},
+        pngOptions: {},
+        webpOptions: {},
+        avifOptions: {},
+      },
+    },
     `gatsby-plugin-sharp`,
     {
       resolve: `gatsby-source-filesystem`,

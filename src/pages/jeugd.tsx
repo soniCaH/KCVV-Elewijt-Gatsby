@@ -39,7 +39,7 @@ const JeugdPage = ({ data: { leerplan, allNodeTeam } }: JeugdPageProps) => {
                       layout="fullWidth"
                       src={`../images/empty-lineup.jpg`}
                       alt={`${node.title}`}
-                      placeholder={`tracedSVG`}
+                      placeholder={`blurred`}
                       objectFit="cover"
                       aspectRatio={1.777777777}
                       transformOptions={{ cropFocus: `attention` }}

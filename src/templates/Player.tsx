@@ -72,7 +72,7 @@ const Player = ({ data: { nodePlayer } }: PlayerQuery) => {
                   <StaticImage
                     src={`../images/kcvv-player-bg.png`}
                     alt={`${nodePlayer.field_firstname} ${nodePlayer.field_lastname}`}
-                    placeholder={`tracedSVG`}
+                    placeholder={`blurred`}
                   />
                 )}
               </div>

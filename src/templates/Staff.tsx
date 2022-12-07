@@ -42,7 +42,7 @@ const Staff = ({ data: { nodeStaff } }: StaffQuery) => {
                   <StaticImage
                     src={`../images/kcvv-player-bg.png`}
                     alt={`${nodeStaff.field_firstname} ${nodeStaff.field_lastname}`}
-                    placeholder={`tracedSVG`}
+                    placeholder={`blurred`}
                   />
                 )}
               </div>
