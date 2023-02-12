@@ -215,6 +215,11 @@ const MenuItems = () => {
               Praktische Info
             </Link>
           </li>
+          <li>
+            <Link to="/club/cashless/" activeClassName="active" partiallyActive={true}>
+              Cashless clubkaart
+            </Link>
+          </li>
         </ul>
       </li>
       <li>
