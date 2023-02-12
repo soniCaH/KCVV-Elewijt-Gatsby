@@ -7,10 +7,13 @@ import React from "react"
 
 const PageTemplate = ({ data }: PageQuery) => {
   const post = data.nodePage
-  const image = getImage(
-    post.relationships.field_media_article_image.relationships.field_media_image.localFile.childImageSharp
-      .gatsbyImageData
-  )
+  const image =
+    post.relationships?.field_media_article_image?.relationships?.field_media_image?.localFile?.childImageSharp
+      ?.gatsbyImageData &&
+    getImage(
+      post.relationships.field_media_article_image.relationships.field_media_image.localFile.childImageSharp
+        .gatsbyImageData
+    )
 
   // Convert links to paths on our API, to absolute URL's.
   const cleanBody = post.body.processed.replaceAll(`/sites/default/`, `${process.env.GATSBY_API_DOMAIN}/sites/default/`)
@@ -43,7 +46,7 @@ const PageTemplate = ({ data }: PageQuery) => {
 export const Head = ({ data }: PageQuery) => {
   const post = data.nodePage
   const image = getImage(
-    post.relationships.image_og.relationships.field_media_image.localFile.childImageSharp.gatsbyImageData
+    post.relationships?.image_og?.relationships?.field_media_image?.localFile?.childImageSharp?.gatsbyImageData
   )
   const ogImage = image && {
     src: getSrc(image) || ``,

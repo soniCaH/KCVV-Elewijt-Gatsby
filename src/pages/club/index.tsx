@@ -103,6 +103,34 @@ const ClubPage = () => {
             Meer over de supportersclub
           </Link>
         </section>
+        <section>
+          <h2 className={`featured-border`}>Downloads</h2>
+          <p>Een overzicht van alle documenten die te downloaden zijn. Reglementen, ongevalsaangifte enz...</p>
+          <Link to="/club/downloads" className={`btn btn--arrow`}>
+            Download documenten
+          </Link>
+        </section>
+        <section>
+          <h2 className={`featured-border`}>Praktische informatie</h2>
+          <p>
+            Hoe en wanneer kan ik mijn kind inschrijven? Hoe kan ik een bijdrage van mijn mutualiteit aanvragen voor het
+            lidgeld? Wat is ProSoccerData en hoe raak ik hier op? Kan ik KCVV steunen of volgen op social media? Alles
+            gebundeld op één pagina.
+          </p>
+          <Link to="/club/register" className={`btn btn--arrow`}>
+            Praktisch info
+          </Link>
+        </section>
+        <section>
+          <h2 className={`featured-border`}>Cashless clubkaart</h2>
+          <p>
+            Waar zijn de jetonnekes naartoe? Hoe kom ik aan een clubkaart? Waarom is er overgeschakeld? Wat kan ik met
+            mijn kaart/app? Dit + de algemene voorwaarden.
+          </p>
+          <Link to="/club/cashless" className={`btn btn--arrow`}>
+            Cashless clubkaart
+          </Link>
+        </section>
       </main>
     </Layout>
   )
