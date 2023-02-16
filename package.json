@@ -12,7 +12,7 @@
     "classnames": "2.3.2",
     "dotenv": "16.0.3",
     "foundation-sites": "6.7.5",
-    "gatsby": "5.6.0",
+    "gatsby": "5.6.1",
     "gatsby-cli": "5.6.0",
     "gatsby-paginate": "1.1.1",
     "gatsby-plugin-google-tagmanager": "5.6.0",
