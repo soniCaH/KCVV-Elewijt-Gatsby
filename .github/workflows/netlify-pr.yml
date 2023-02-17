@@ -9,6 +9,8 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
+    permissions:
+      deployments: write
 
     steps:
       - name: "Checkout Source Code"
