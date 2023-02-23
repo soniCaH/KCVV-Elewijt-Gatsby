@@ -6255,10 +6255,10 @@ gatsby-sharp@^1.7.0:
     "@types/sharp" "^0.31.1"
     sharp "^0.31.3"
 
-gatsby-source-drupal@6.7.0:
-  version "6.7.0"
-  resolved "https://registry.yarnpkg.com/gatsby-source-drupal/-/gatsby-source-drupal-6.7.0.tgz#19785fd9b3990a17c2b21e0e7337d66c49cf10db"
-  integrity sha512-SWfdal4RFgCu5gN7qx3nLmJXLaARkDFBkn+4ZmyGqzjxjYYygd2AC2c0RovNcnyPaFfruMbDy7K9RX6EPV//kg==
+gatsby-source-drupal@6.7.1:
+  version "6.7.1"
+  resolved "https://registry.yarnpkg.com/gatsby-source-drupal/-/gatsby-source-drupal-6.7.1.tgz#c2572eb814a350343feb97dd326cf42f2da55ce3"
+  integrity sha512-gW06AyjGEdVmteWkq0zLzuAHlH0m6+b8l1UC0gDLjECL/MEHr7CiwRO+UY1oColrwPl4qxLBp8HMqUO3TbwU0g==
   dependencies:
     "@babel/runtime" "^7.20.13"
     "@opentelemetry/semantic-conventions" "0.26.0"
