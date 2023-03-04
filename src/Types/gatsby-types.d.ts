@@ -6681,7 +6681,7 @@ type ArticleImageLargeFragment = { readonly relationships: { readonly field_medi
 type DownloadsPageQueryVariables = Exact<{ [key: string]: never; }>;
 
 
-type DownloadsPageQuery = { readonly medicalattest: { readonly childImageSharp: { readonly gatsbyImageData: import('gatsby-plugin-image').IGatsbyImageData } | null } | null, readonly rules: { readonly childImageSharp: { readonly gatsbyImageData: import('gatsby-plugin-image').IGatsbyImageData } | null } | null };
+type DownloadsPageQuery = { readonly medicalattest: { readonly childImageSharp: { readonly gatsbyImageData: import('gatsby-plugin-image').IGatsbyImageData } | null } | null, readonly rules: { readonly childImageSharp: { readonly gatsbyImageData: import('gatsby-plugin-image').IGatsbyImageData } | null } | null, readonly voetbalouders: { readonly childImageSharp: { readonly gatsbyImageData: import('gatsby-plugin-image').IGatsbyImageData } | null } | null };
 
 type FullImageFragment = { readonly relationships: { readonly field_media_image: { readonly localFile: { readonly childImageSharp: { readonly gatsbyImageData: import('gatsby-plugin-image').IGatsbyImageData } | null } | null } | null } | null };
 
