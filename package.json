@@ -26,7 +26,7 @@
     "gatsby-plugin-web-font-loader": "1.0.4",
     "gatsby-source-drupal": "6.7.1",
     "gatsby-transformer-sharp": "5.7.0",
-    "jquery": "3.6.3",
+    "jquery": "3.6.4",
     "js-search": "2.0.0",
     "modern-css-reset": "1.4.0",
     "moment": "2.29.4",
