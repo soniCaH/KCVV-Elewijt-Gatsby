@@ -119,4 +119,4 @@ export function getPositions() {
 /**
  * Setup instance of axios with caching support.
  */
-export const request = setupCache(Axios)
+export const request = setupCache(Axios, { cacheTakeover: false })
