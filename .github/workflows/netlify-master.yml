@@ -42,7 +42,8 @@ jobs:
         with:
           token: "${{ github.token }}"
           environment: production
-          initial_status: queued
+          initial-status: queued
+          description: "Create new production deployment to netlify."
 
       - name: "Build the website (production build)"
         run: |

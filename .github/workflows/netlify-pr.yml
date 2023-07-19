@@ -49,7 +49,9 @@ jobs:
           token: "${{ github.token }}"
           environment: "${{ github.head_ref }}"
           ref: ${{ github.event.pull_request.head.sha }}
-          initial_status: pending
+          initial-status: pending
+          transient-environment: true
+          description: "Create new PR-deployment to netlify."
 
       - name: "Build the website"
         run: |
