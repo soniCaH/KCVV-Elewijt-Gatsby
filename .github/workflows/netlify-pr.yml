@@ -42,14 +42,16 @@ jobs:
           envkey_KCVV_PSD_API: ${{ secrets.KCVV_PSD_API }}
           envkey_TYPEKIT_ID: ${{ secrets.TYPEKIT_ID }}
 
-      - uses: chrnorm/deployment-action@releases/v1
+      - uses: chrnorm/deployment-action@releases/v2
         name: Create GitHub deployment
         id: deployment
         with:
           token: "${{ github.token }}"
           environment: "${{ github.head_ref }}"
           ref: ${{ github.event.pull_request.head.sha }}
-          initial_status: pending
+          initial-status: pending
+          transient-environment: true
+          description: "Create new PR-deployment to netlify."
 
       - name: "Build the website"
         run: |

@@ -36,13 +36,14 @@ jobs:
           envkey_KCVV_PSD_API: ${{ secrets.KCVV_PSD_API }}
           envkey_TYPEKIT_ID: ${{ secrets.TYPEKIT_ID }}
 
-      - uses: chrnorm/deployment-action@releases/v1
+      - uses: chrnorm/deployment-action@releases/v2
         name: Create GitHub deployment
         id: deployment
         with:
           token: "${{ github.token }}"
           environment: production
-          initial_status: queued
+          initial-status: queued
+          description: "Create new production deployment to netlify."
 
       - name: "Build the website (production build)"
         run: |
