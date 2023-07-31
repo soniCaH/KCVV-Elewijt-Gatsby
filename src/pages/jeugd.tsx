@@ -82,7 +82,7 @@ export const pageQuery = graphql`
     leerplan: file(name: { eq: "leerplan_header" }) {
       ...KCVVFullWidth
     }
-    allNodeTeam(filter: { field_vv_id: { ne: null, nin: ["1", "2"] } }, sort: { fields: field_fb_id_2 }) {
+    allNodeTeam(filter: { field_vv_id: { ne: null, nin: ["1", "2"] } }, sort: { field_fb_id_2: ASC }) {
       edges {
         node {
           path {

@@ -11,7 +11,7 @@ const SponsorsPage = () => {
     query {
       goldSponsors: allNodeSponsor(
         filter: { promote: { eq: true }, status: { eq: true }, field_type: { in: ["crossing"] } }
-        sort: { fields: title, order: ASC }
+        sort: { title: ASC }
       ) {
         edges {
           node {
@@ -39,7 +39,7 @@ const SponsorsPage = () => {
       }
       silverSponsors: allNodeSponsor(
         filter: { promote: { eq: true }, status: { eq: true }, field_type: { in: ["green", "white"] } }
-        sort: { fields: title, order: ASC }
+        sort: { title: ASC }
       ) {
         edges {
           node {
@@ -67,7 +67,7 @@ const SponsorsPage = () => {
       }
       bronzeSponsors: allNodeSponsor(
         filter: { promote: { eq: true }, status: { eq: true }, field_type: { in: ["training", "panel", "other"] } }
-        sort: { fields: title, order: ASC }
+        sort: { title: ASC }
       ) {
         edges {
           node {

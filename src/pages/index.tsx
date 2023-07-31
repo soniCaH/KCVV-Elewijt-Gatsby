@@ -29,7 +29,7 @@ const IndexPage = () => {
     query {
       articles: allNodeArticle(
         filter: { status: { eq: true }, promote: { eq: true } }
-        sort: { fields: created, order: DESC }
+        sort: { created: DESC }
         limit: 10
       ) {
         edges {
@@ -70,7 +70,7 @@ const IndexPage = () => {
       }
       stickyArticles: allNodeArticle(
         filter: { status: { eq: true }, promote: { eq: true }, sticky: { eq: true } }
-        sort: { fields: created, order: DESC }
+        sort: { created: DESC }
         limit: 3
       ) {
         edges {
@@ -111,7 +111,7 @@ const IndexPage = () => {
       }
       videos: allNodeKcvvTv(
         filter: { status: { eq: true }, promote: { eq: true } }
-        sort: { fields: created, order: DESC }
+        sort: { created: DESC }
         limit: 3
       ) {
         edges {
@@ -132,7 +132,7 @@ const IndexPage = () => {
       }
       events: allNodeEvent(
         filter: { promote: { eq: true }, status: { eq: true } }
-        sort: { order: ASC, fields: field_daterange___value }
+        sort: { field_daterange: { value: ASC } }
         limit: 1
       ) {
         edges {

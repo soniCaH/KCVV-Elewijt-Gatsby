@@ -57,7 +57,7 @@ export default NewsTagPage
 export const query = graphql`
   query ($slug: String!) {
     articles: allNodeArticle(
-      sort: { fields: changed, order: DESC }
+      sort: { changed: DESC }
       limit: 20
       filter: { relationships: { field_tags: { elemMatch: { path: { alias: { eq: $slug } } } } } }
     ) {
@@ -93,7 +93,7 @@ export const query = graphql`
       }
     }
     categoryTags: allTaxonomyTermCategory(
-      sort: { fields: name, order: ASC }
+      sort: { name: ASC }
       filter: {
         status: { eq: true }
         relationships: { node__article: { elemMatch: { drupal_internal__nid: { gte: 1 } } } }

@@ -11,7 +11,7 @@ const NewsOverviewPage = ({ pageContext }: NewsOverviewQuery) => {
   const { categoryTags }: NewsOverviewCategoryResponsePropsApi = useStaticQuery(graphql`
     query {
       categoryTags: allTaxonomyTermCategory(
-        sort: { fields: name, order: ASC }
+        sort: { name: ASC }
         filter: {
           status: { eq: true }
           relationships: { node__article: { elemMatch: { drupal_internal__nid: { gte: 1 } } } }
