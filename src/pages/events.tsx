@@ -14,7 +14,7 @@ const EventsPage = () => {
     query {
       events: allNodeEvent(
         filter: { promote: { eq: true }, status: { eq: true } }
-        sort: { order: ASC, fields: field_daterange___value }
+        sort: { field_daterange: { value: ASC } }
       ) {
         edges {
           node {

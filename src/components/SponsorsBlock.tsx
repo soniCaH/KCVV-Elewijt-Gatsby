@@ -8,7 +8,7 @@ export const SponsorsBlock = () => {
     query {
       sponsors: allNodeSponsor(
         filter: { promote: { eq: true }, status: { eq: true }, field_type: { in: ["crossing", "green", "white"] } }
-        sort: { fields: [field_type, title], order: ASC }
+        sort: [{ field_type: ASC }, { title: ASC }]
       ) {
         edges {
           node {
