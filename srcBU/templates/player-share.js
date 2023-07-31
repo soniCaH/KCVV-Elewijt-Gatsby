@@ -1,12 +1,12 @@
-import { graphql } from "gatsby"
-import React from "react"
+import { graphql } from "gatsby";
+import React from "react";
 
-import PlayerShare from "../components/PlayerShare"
+import PlayerShare from "../components/PlayerShare";
 
 const PlayerShareTemplate = ({ data }) => {
-  const node = data.nodePlayer
-  return <PlayerShare player={node} />
-}
+  const node = data.nodePlayer;
+  return <PlayerShare player={node} />;
+};
 
 export const query = graphql`
   query ($slug: String!) {
@@ -33,6 +33,6 @@ export const query = graphql`
       }
     }
   }
-`
+`;
 
-export default PlayerShareTemplate
+export default PlayerShareTemplate;

@@ -90,6 +90,6 @@ categories: allTaxonomyTermCategory {
         }
     }
 }
-`
+`;
 
-module.exports = gatsbyNodePageQueries
+module.exports = gatsbyNodePageQueries;

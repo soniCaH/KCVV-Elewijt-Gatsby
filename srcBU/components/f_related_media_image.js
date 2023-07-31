@@ -1,4 +1,4 @@
-import { graphql } from "gatsby"
+import { graphql } from "gatsby";
 
 export const query = graphql`
   fragment ArticleImage on media__image {
@@ -30,4 +30,4 @@ export const query = graphql`
       }
     }
   }
-`
+`;

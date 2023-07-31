@@ -1,13 +1,13 @@
-import { graphql } from "gatsby"
-import { GatsbyImage } from "gatsby-plugin-image"
-import React, { Component } from "react"
+import { graphql } from "gatsby";
+import { GatsbyImage } from "gatsby-plugin-image";
+import React, { Component } from "react";
 
-import SEO from "../components/seo"
-import Layout from "../layouts/index"
+import SEO from "../components/seo";
+import Layout from "../layouts/index";
 
 class SpaghettiPage extends Component {
   render() {
-    const { affiche } = this.props.data
+    const { affiche } = this.props.data;
     return (
       <Layout>
         <SEO
@@ -22,13 +22,20 @@ class SpaghettiPage extends Component {
             <h2>Supportersclub KCVV Elewijt</h2>
           </header>
           <main>
-            <p>Op zondag 3 oktober 2021 organiseert de supportersclub "Ultra's 55" zijn eerste spaghettislag.</p>
             <p>
-              Kom tussen 11:00 en 13:30 smullen van onze heerlijke spaghetti bolognese in de kantine van KCVV Elewijt.
+              Op zondag 3 oktober 2021 organiseert de supportersclub "Ultra's
+              55" zijn eerste spaghettislag.
             </p>
-            <p>Prijs is 10 euro voor volwassenen en 7 euro voor een kinderportie.</p>
             <p>
-              Vooraf en nadien spelen onze drie seniorploegen hun competitiewedstrijd thuis:
+              Kom tussen 11:00 en 13:30 smullen van onze heerlijke spaghetti
+              bolognese in de kantine van KCVV Elewijt.
+            </p>
+            <p>
+              Prijs is 10 euro voor volwassenen en 7 euro voor een kinderportie.
+            </p>
+            <p>
+              Vooraf en nadien spelen onze drie seniorploegen hun
+              competitiewedstrijd thuis:
               <ul>
                 <li>10:15 - Zondagsreserven vs FC Ramsdonk</li>
                 <li>14:00 - KCVV Elewijt B vs VC Groot-Dilbeek B</li>
@@ -55,7 +62,7 @@ class SpaghettiPage extends Component {
           </footer>
         </div>
       </Layout>
-    )
+    );
   }
 }
 
@@ -65,6 +72,6 @@ export const pageQuery = graphql`
       ...KCVVFullWidth
     }
   }
-`
+`;
 
-export default SpaghettiPage
+export default SpaghettiPage;

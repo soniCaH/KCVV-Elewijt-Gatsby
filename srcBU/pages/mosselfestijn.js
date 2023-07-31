@@ -1,13 +1,13 @@
-import { graphql } from "gatsby"
-import { GatsbyImage } from "gatsby-plugin-image"
-import React, { Component } from "react"
+import { graphql } from "gatsby";
+import { GatsbyImage } from "gatsby-plugin-image";
+import React, { Component } from "react";
 
-import SEO from "../components/seo"
-import Layout from "../layouts/index"
+import SEO from "../components/seo";
+import Layout from "../layouts/index";
 
 class MosselfestijnPage extends Component {
   render() {
-    const { affiche } = this.props.data
+    const { affiche } = this.props.data;
     return (
       <Layout>
         <SEO
@@ -22,22 +22,26 @@ class MosselfestijnPage extends Component {
           </header>
           <main>
             <p>
-              Op vrijdag 10, zaterdag 11 en zondag 12 september 2021 vindt ons jaarlijkse Mosselfestijn weer plaats. Om
-              de spreiding te kunnen garanderen en wachttijden aan de ingang zoveel mogelijk te beperken werken we dit
-              jaar met een reservatiesysteem. Hieronder kan je zelf jouw gewenste tijdstip en gezelschap selecteren en
-              een tafel boeken (voor 08/09/2021).
+              Op vrijdag 10, zaterdag 11 en zondag 12 september 2021 vindt ons
+              jaarlijkse Mosselfestijn weer plaats. Om de spreiding te kunnen
+              garanderen en wachttijden aan de ingang zoveel mogelijk te
+              beperken werken we dit jaar met een reservatiesysteem. Hieronder
+              kan je zelf jouw gewenste tijdstip en gezelschap selecteren en een
+              tafel boeken (voor 08/09/2021).
             </p>
             <p>
-              Telefonisch reserveren kan dagelijks tussen 18u en 21u op het nummer{` `}
+              Telefonisch reserveren kan dagelijks tussen 18u en 21u op het
+              nummer{` `}
               <a href="tel:+32475981611" className="rich-link">
                 0475/98.16.11
               </a>
               .
             </p>
             <p>
-              Ter plaatse een tafel vragen kan, naargelang de beschikbaarheid op dat moment, maar hou er rekening mee
-              dat we onze capaciteit hebben moeten verlagen om aan de regelgeving te kunnen voldoen. Wie zeker wil zijn
-              van zijn plek kan beter reserveren.
+              Ter plaatse een tafel vragen kan, naargelang de beschikbaarheid op
+              dat moment, maar hou er rekening mee dat we onze capaciteit hebben
+              moeten verlagen om aan de regelgeving te kunnen voldoen. Wie zeker
+              wil zijn van zijn plek kan beter reserveren.
             </p>
             <tbkr-bm-widget
               restaurant-id="34742560"
@@ -58,7 +62,7 @@ class MosselfestijnPage extends Component {
           </footer>
         </div>
       </Layout>
-    )
+    );
   }
 }
 
@@ -68,6 +72,6 @@ export const pageQuery = graphql`
       ...KCVVFullWidth
     }
   }
-`
+`;
 
-export default MosselfestijnPage
+export default MosselfestijnPage;

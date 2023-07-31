@@ -3,7 +3,7 @@
 
 global.___loader = {
   enqueue: jest.fn(),
-}
+};
 
 window.matchMedia =
   window.matchMedia ||
@@ -12,5 +12,5 @@ window.matchMedia =
       matches: false,
       addListener: function () {},
       removeListener: function () {},
-    }
-  }
+    };
+  };

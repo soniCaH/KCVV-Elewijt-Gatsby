@@ -1,10 +1,10 @@
-import { Link } from "gatsby"
-import React, { Component } from "react"
+import { Link } from "gatsby";
+import React, { Component } from "react";
 
-import HeaderBgTitle from "../components/header-bg-title"
-import SEO from "../components/seo"
-import ogImage from "../images/header-404.jpg"
-import Layout from "../layouts/index"
+import HeaderBgTitle from "../components/header-bg-title";
+import SEO from "../components/seo";
+import ogImage from "../images/header-404.jpg";
+import Layout from "../layouts/index";
 
 class PageNotFoundPage extends Component {
   render() {
@@ -18,7 +18,11 @@ class PageNotFoundPage extends Component {
           image={{ src: ogImage, width: 1989, height: 437 }}
         />
 
-        <HeaderBgTitle title="Pagina" highlight="niet gevonden" classes={`error-page--404 error-page`} />
+        <HeaderBgTitle
+          title="Pagina"
+          highlight="niet gevonden"
+          classes={`error-page--404 error-page`}
+        />
 
         <div className={`grid-container site-content`}>
           <div className={`grid-x grid-margin-x`}>
@@ -29,9 +33,13 @@ class PageNotFoundPage extends Component {
 
               <p>De opgevraagde pagina werd niet teruggevonden. </p>
               <p>
-                Als u op deze pagina terecht bent gekomen door ergens op een link te klikken, <br />
+                Als u op deze pagina terecht bent gekomen door ergens op een
+                link te klikken, <br />
                 mag je ons dat zeker laten weten via{` `}
-                <a href="mailto:website@kcvvelewijt.be"> website@kcvvelewijt.be </a>
+                <a href="mailto:website@kcvvelewijt.be">
+                  {" "}
+                  website@kcvvelewijt.be{" "}
+                </a>
                 <br />
                 dan kunnen we dit nakijken en hopelijk oplossen!
               </p>
@@ -48,8 +56,8 @@ class PageNotFoundPage extends Component {
           </div>
         </div>
       </Layout>
-    )
+    );
   }
 }
 
-export default PageNotFoundPage
+export default PageNotFoundPage;
