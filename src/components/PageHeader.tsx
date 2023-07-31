@@ -130,7 +130,7 @@ const MenuItems = () => {
           </li>
           <li>
             <Link to="/jeugd/u11/" activeClassName="active" partiallyActive={true}>
-              U11 - Groen
+              U11
             </Link>
           </li>
           <li>
