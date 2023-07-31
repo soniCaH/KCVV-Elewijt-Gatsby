@@ -1,8 +1,8 @@
-import React, { Component } from "react"
+import React, { Component } from "react";
 
-import Calendar from "../../components/Calendar"
-import SEO from "../../components/seo"
-import Layout from "../../layouts/index"
+import Calendar from "../../components/Calendar";
+import SEO from "../../components/seo";
+import Layout from "../../layouts/index";
 
 class CalendarPage extends Component {
   render() {
@@ -20,8 +20,8 @@ class CalendarPage extends Component {
           <Calendar />
         </section>
       </Layout>
-    )
+    );
   }
 }
 
-export default CalendarPage
+export default CalendarPage;

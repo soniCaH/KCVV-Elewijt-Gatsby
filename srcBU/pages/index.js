@@ -1,31 +1,31 @@
-import { graphql } from "gatsby"
-import React, { Component, Fragment } from "react"
+import { graphql } from "gatsby";
+import React, { Component, Fragment } from "react";
 
-import { CardImage } from "../components/Card"
-import Card from "../components/Card"
-import KcvvTvOverview from "../components/KcvvTvOverview"
-import MatchesOverview from "../components/MatchesOverview"
-import MatchesSlider from "../components/MatchesSlider"
-import MatchesTabs from "../components/MatchesTabs"
-import UpcomingEvent from "../components/UpcomingEvent.tsx"
-import { NewsItemFeatured, NewsItemCardRatio } from "../components/news-item"
-import SEO from "../components/seo"
-import MyMakro from "../images/tag-mymakro.png"
-import Trooper from "../images/tag-trooper.png"
-import Layout from "../layouts/index"
+import { CardImage } from "../components/Card";
+import Card from "../components/Card";
+import KcvvTvOverview from "../components/KcvvTvOverview";
+import MatchesOverview from "../components/MatchesOverview";
+import MatchesSlider from "../components/MatchesSlider";
+import MatchesTabs from "../components/MatchesTabs";
+import UpcomingEvent from "../components/UpcomingEvent.tsx";
+import { NewsItemFeatured, NewsItemCardRatio } from "../components/news-item";
+import SEO from "../components/seo";
+import MyMakro from "../images/tag-mymakro.png";
+import Trooper from "../images/tag-trooper.png";
+import Layout from "../layouts/index";
 
 class IndexPage extends Component {
   renderMatchSlider = () => (
     <section className={`grid-container full`}>
       <MatchesSlider />
     </section>
-  )
+  );
 
   renderMakroArticle = () => (
     <Card className={`medium-6 large-12 cell card`} title="MyMakro">
       <p>
-        Link nu jouw Makro voordeelkaart aan onze vereniging. Bij elke aankoop bij Makro en partners steun je KCVV
-        Elewijt!
+        Link nu jouw Makro voordeelkaart aan onze vereniging. Bij elke aankoop
+        bij Makro en partners steun je KCVV Elewijt!
       </p>
       <p>
         <img src={MyMakro} alt="QR Code MyMakro" style={{ width: `100%` }} />
@@ -45,13 +45,18 @@ class IndexPage extends Component {
       </p>
       <p>Onze vereniging dankt jullie van harte!</p>
     </Card>
-  )
+  );
 
   renderWebsiteFeedbackArticle = () => (
-    <Card className={`medium-6 large-12 cell card`} title="Website feedback" titleIcon="fa-commenting-o">
+    <Card
+      className={`medium-6 large-12 cell card`}
+      title="Website feedback"
+      titleIcon="fa-commenting-o"
+    >
       <p>
-        Na lang zwoegen is onze nieuwe website eíndelijk online geraakt! We zijn heel benieuwd naar jullie mening of
-        feedback. Als jullie vinden dat er iets ontbreekt, of als je bepaalde fouten tegenkomt, zouden we het ten
+        Na lang zwoegen is onze nieuwe website eíndelijk online geraakt! We zijn
+        heel benieuwd naar jullie mening of feedback. Als jullie vinden dat er
+        iets ontbreekt, of als je bepaalde fouten tegenkomt, zouden we het ten
         zeerste appreciëren als je ons even iets laat weten op{` `}
         <a href="mailto:website@kcvvelewijt.be" className={`rich-link`}>
           website@kcvvelewijt.be
@@ -59,7 +64,7 @@ class IndexPage extends Component {
         !
       </p>
     </Card>
-  )
+  );
 }
 
 export const pageQuery = graphql`
@@ -108,7 +113,11 @@ export const pageQuery = graphql`
     preseason: file(name: { eq: "preseason2020-2021" }) {
       ...KCVVFluid960
     }
-    featuredPlayer: allNodePotw(sort: { fields: created, order: DESC }, filter: { status: { eq: true } }, limit: 1) {
+    featuredPlayer: allNodePotw(
+      sort: { fields: created, order: DESC }
+      filter: { status: { eq: true } }
+      limit: 1
+    ) {
       edges {
         node {
           relationships {
@@ -133,6 +142,6 @@ export const pageQuery = graphql`
       }
     }
   }
-`
+`;
 
-export default IndexPage
+export default IndexPage;

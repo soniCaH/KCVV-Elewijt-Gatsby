@@ -27,7 +27,9 @@ const RelatedNews = ({ items, limit = -1 }: RelatedNewsProps) => {
                 ?.childImageSharp?.gatsbyImageData || null
 
             return (
-              picture && <CardTeaser key={i} title={item?.title || ``} picture={picture} link={item?.path?.alias} />
+              picture && (
+                <CardTeaser key={i} title={item?.title || ``} picture={picture} link={item?.path?.alias ?? ``} />
+              )
             )
           })}
       </main>

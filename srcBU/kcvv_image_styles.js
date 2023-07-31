@@ -1,4 +1,4 @@
-import { graphql } from "gatsby"
+import { graphql } from "gatsby";
 
 export const KCVVFluid1280 = graphql`
   fragment KCVVFluid1280 on File {
@@ -6,4 +6,4 @@ export const KCVVFluid1280 = graphql`
       gatsbyImageData(placeholder: BLURRED, layout: FULL_WIDTH)
     }
   }
-`
+`;
