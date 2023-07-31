@@ -99,13 +99,8 @@ const MenuItems = () => {
             </Link>
           </li>
           <li>
-            <Link
-              to="/team/veteranen/"
-              activeClassName="active"
-              partiallyActive={true}
-              className="menu_item--border-bottom"
-            >
-              Veteranen
+            <Link to="/jeugd/u21/" activeClassName="active" partiallyActive={true}>
+              U21
             </Link>
           </li>
           <li>
@@ -114,13 +109,13 @@ const MenuItems = () => {
             </Link>
           </li>
           <li>
-            <Link to="/jeugd/u15/" activeClassName="active" partiallyActive={true}>
-              U15
+            <Link to="/jeugd/u15-b/" activeClassName="active" partiallyActive={true}>
+              U15 - B
             </Link>
           </li>
           <li>
-            <Link to="/jeugd/u14/" activeClassName="active" partiallyActive={true}>
-              U14
+            <Link to="/jeugd/u15/" activeClassName="active" partiallyActive={true}>
+              U15 - A
             </Link>
           </li>
           <li>
@@ -139,18 +134,18 @@ const MenuItems = () => {
             </Link>
           </li>
           <li>
-            <Link to="/jeugd/u11-wit/" activeClassName="active" partiallyActive={true}>
-              U11 - Wit
+            <Link to="/jeugd/u10/" activeClassName="active" partiallyActive={true}>
+              U10
+            </Link>
+          </li>
+          <li>
+            <Link to="/jeugd/u9-b/" activeClassName="active" partiallyActive={true}>
+              U9 - B
             </Link>
           </li>
           <li>
             <Link to="/jeugd/u9/" activeClassName="active" partiallyActive={true}>
-              U9
-            </Link>
-          </li>
-          <li>
-            <Link to="/jeugd/u8/" activeClassName="active" partiallyActive={true}>
-              U8
+              U9 - A
             </Link>
           </li>
           <li>
