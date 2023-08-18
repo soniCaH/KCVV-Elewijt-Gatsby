@@ -6124,10 +6124,10 @@ forwarded@0.2.0:
   resolved "https://registry.yarnpkg.com/forwarded/-/forwarded-0.2.0.tgz#2269936428aad4c15c7ebe9779a84bf0b2a81811"
   integrity sha512-buRG0fpBtRHSTCOASe6hD258tEubFoRLb4ZNA6NxMVHNw2gOcwHo9wyablzMzOA5z9xA9L1KNjk/Nt6MT9aYow==
 
-foundation-sites@6.8.0:
-  version "6.8.0"
-  resolved "https://registry.yarnpkg.com/foundation-sites/-/foundation-sites-6.8.0.tgz#6119486f141126a5c1b50b6c8c00be303dcd59d9"
-  integrity sha512-yFZvZS9VB6cSkRWiU2pQy2DqjJJrAqt39d3KoztWn4yWpbYc2qgM+wquwIK589m+uS5xlLs2+92gT32T7JxSxw==
+foundation-sites@6.8.1:
+  version "6.8.1"
+  resolved "https://registry.yarnpkg.com/foundation-sites/-/foundation-sites-6.8.1.tgz#9b17e9371c18916a375985571b33bdbe4c347555"
+  integrity sha512-9JAuLqVgzf7EIRUqVKeYN68dU/SGe0aNJPgnejdfJKSWnBFdQLF3Zvy9WEQ1gE/gnyvwG3Ia3LkkEd9774n0bQ==
 
 fraction.js@^4.2.0:
   version "4.2.0"
