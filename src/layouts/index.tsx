@@ -49,4 +49,14 @@ const Layout = ({ children }: PropsWithChildren) => {
   )
 }
 
+export const FullScreenLayout = ({ children }: PropsWithChildren) => {
+  return (
+    <Fragment>
+      <div style={{ padding: `2em`, textTransform: `uppercase`, fontWeight: `500` }}>
+        <main>{children}</main>
+      </div>
+    </Fragment>
+  )
+}
+
 export default Layout

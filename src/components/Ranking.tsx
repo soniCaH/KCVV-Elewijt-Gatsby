@@ -87,3 +87,7 @@ const renderRankings = (rankings: RankingDataObject[]) => {
     </>
   )
 }
+
+export const StaticRanking = ({ data }: { data: RankingDataObject[] }) => {
+  return <section className={`ranking__wrapper`}>{data && renderRankings(data)}</section>
+}
