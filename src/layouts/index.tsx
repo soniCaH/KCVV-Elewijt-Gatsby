@@ -49,4 +49,20 @@ const Layout = ({ children }: PropsWithChildren) => {
   )
 }
 
+export const FullScreenLayout = ({ children }: PropsWithChildren) => {
+  useEffect(() => {
+    // eslint-disable-next-line
+    const foundation = require(`foundation-sites`)
+    $(document).foundation()
+  }, [])
+
+  return (
+    <Fragment>
+      <div style={{ padding: `2em`, textTransform: `uppercase`, fontWeight: `500` }}>
+        <main>{children}</main>
+      </div>
+    </Fragment>
+  )
+}
+
 export default Layout

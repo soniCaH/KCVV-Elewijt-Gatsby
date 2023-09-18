@@ -5009,6 +5009,7 @@ type node__playerRelationships = {
   readonly field_image: Maybe<file__file>;
   readonly field_image_celebrate: Maybe<file__file>;
   readonly node__article: Maybe<ReadonlyArray<Maybe<node__article>>>;
+  readonly node__potw: Maybe<ReadonlyArray<Maybe<node__potw>>>;
   readonly node__team: Maybe<ReadonlyArray<Maybe<node__team>>>;
   readonly revision_uid: Maybe<user__user>;
   readonly uid: Maybe<user__user>;
@@ -5018,6 +5019,7 @@ type node__playerRelationshipsFieldSelector = {
   readonly field_image: InputMaybe<file__fileFieldSelector>;
   readonly field_image_celebrate: InputMaybe<file__fileFieldSelector>;
   readonly node__article: InputMaybe<node__articleFieldSelector>;
+  readonly node__potw: InputMaybe<node__potwFieldSelector>;
   readonly node__team: InputMaybe<node__teamFieldSelector>;
   readonly revision_uid: InputMaybe<user__userFieldSelector>;
   readonly uid: InputMaybe<user__userFieldSelector>;
@@ -5027,6 +5029,7 @@ type node__playerRelationshipsFilterInput = {
   readonly field_image: InputMaybe<file__fileFilterInput>;
   readonly field_image_celebrate: InputMaybe<file__fileFilterInput>;
   readonly node__article: InputMaybe<node__articleFilterListInput>;
+  readonly node__potw: InputMaybe<node__potwFilterListInput>;
   readonly node__team: InputMaybe<node__teamFilterListInput>;
   readonly revision_uid: InputMaybe<user__userFilterInput>;
   readonly uid: InputMaybe<user__userFilterInput>;
@@ -5036,6 +5039,7 @@ type node__playerRelationshipsSortInput = {
   readonly field_image: InputMaybe<file__fileSortInput>;
   readonly field_image_celebrate: InputMaybe<file__fileSortInput>;
   readonly node__article: InputMaybe<node__articleSortInput>;
+  readonly node__potw: InputMaybe<node__potwSortInput>;
   readonly node__team: InputMaybe<node__teamSortInput>;
   readonly revision_uid: InputMaybe<user__userSortInput>;
   readonly uid: InputMaybe<user__userSortInput>;
@@ -5271,21 +5275,25 @@ type node__potwPathSortInput = {
 };
 
 type node__potwRelationships = {
+  readonly field_player: Maybe<node__player>;
   readonly revision_uid: Maybe<user__user>;
   readonly uid: Maybe<user__user>;
 };
 
 type node__potwRelationshipsFieldSelector = {
+  readonly field_player: InputMaybe<node__playerFieldSelector>;
   readonly revision_uid: InputMaybe<user__userFieldSelector>;
   readonly uid: InputMaybe<user__userFieldSelector>;
 };
 
 type node__potwRelationshipsFilterInput = {
+  readonly field_player: InputMaybe<node__playerFilterInput>;
   readonly revision_uid: InputMaybe<user__userFilterInput>;
   readonly uid: InputMaybe<user__userFilterInput>;
 };
 
 type node__potwRelationshipsSortInput = {
+  readonly field_player: InputMaybe<node__playerSortInput>;
   readonly revision_uid: InputMaybe<user__userSortInput>;
   readonly uid: InputMaybe<user__userSortInput>;
 };

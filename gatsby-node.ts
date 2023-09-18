@@ -6,6 +6,10 @@ import path from "path"
 import type { GatsbyNode } from "gatsby"
 import { gatsbyNodePageQueries } from "./src/Gatsby/PageQueries"
 import createPaginatedPages from "gatsby-paginate"
+import Axios from "axios"
+import { setupCache } from "axios-cache-interceptor"
+
+const request = setupCache(Axios, { cacheTakeover: false })
 
 export const createPages: GatsbyNode["createPages"] = async ({ graphql, actions }) => {
   const { createPage } = actions
@@ -17,6 +21,32 @@ export const createPages: GatsbyNode["createPages"] = async ({ graphql, actions 
       }
     `)
   )
+
+  const rankingDataA = await request.get(`https://footbalisto.be/ranking/1`)
+  const rankingTemplate = path.resolve(`./src/templates/StaticRanking.tsx`)
+  const createRankingA = createPage({
+    path: `/kiosk/ranking/a`,
+    component: rankingTemplate,
+    context: {
+      dynamicData: rankingDataA.data,
+    },
+  })
+  const rankingDataB = await request.get(`https://footbalisto.be/ranking/2`)
+  const createRankingB = createPage({
+    path: `/kiosk/ranking/b`,
+    component: rankingTemplate,
+    context: {
+      dynamicData: rankingDataB.data,
+    },
+  })
+  const rankingDataU21 = await request.get(`https://footbalisto.be/ranking/21`)
+  const createRankingU21 = createPage({
+    path: `/kiosk/ranking/u21`,
+    component: rankingTemplate,
+    context: {
+      dynamicData: rankingDataU21.data,
+    },
+  })
 
   const articlesTemplate = path.resolve(`./src/templates/Article.tsx`)
   const createArticlesPromise = result.data.articles.edges.map(({ node }) => {
@@ -109,6 +139,9 @@ export const createPages: GatsbyNode["createPages"] = async ({ graphql, actions 
     createTeamPromise,
     createPlayerPromise,
     createStaffPromise,
+    createRankingA,
+    createRankingB,
+    createRankingU21,
   ])
 }
 
