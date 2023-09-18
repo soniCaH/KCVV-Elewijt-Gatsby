@@ -63,7 +63,7 @@
   "devDependencies": {
     "@types/jquery": "3.5.19",
     "@types/node": "20.6.2",
-    "@types/react": "18.2.21",
+    "@types/react": "18.2.22",
     "@types/react-animate-on-scroll": "2.1.5",
     "@types/react-dom": "18.2.7",
     "@types/react-slick": "0.23.10",
