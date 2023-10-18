@@ -2645,10 +2645,10 @@
   dependencies:
     "@types/react" "*"
 
-"@types/react-animate-on-scroll@2.1.6":
-  version "2.1.6"
-  resolved "https://registry.yarnpkg.com/@types/react-animate-on-scroll/-/react-animate-on-scroll-2.1.6.tgz#4a1fa3849221d7d518be169f3142b149291df57a"
-  integrity sha512-6qQEXXkofUbLhISKulbTMh86lXxNzYgdDkQRkdCjWtGqc+uXyUGlAPc9bjTSxtT7qQ4+4XVunugZJZ1AqCmU2w==
+"@types/react-animate-on-scroll@2.1.7":
+  version "2.1.7"
+  resolved "https://registry.yarnpkg.com/@types/react-animate-on-scroll/-/react-animate-on-scroll-2.1.7.tgz#6b820b591223de8a63fe26a383823b2585c92c53"
+  integrity sha512-UP5jQFxLm+4C+5GMK23kpiA7kFr0p/JBURjqcSN9ptBSYFy47yFneiLKKYwGRNoNCITwna6ftsxrkbt3+CWVPg==
   dependencies:
     "@types/react" "*"
 
