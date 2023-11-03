@@ -68,7 +68,7 @@ jobs:
           NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
           NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
         with:
-          args: deploy --dir=public --message \"draft [${{ github.sha }}]\"'
+          args: deploy --dir=public
       # - name: "Deploy to netlify server"
       #   uses: careflow/netlify-actions/cli@master
       #   id: deploy_preview
