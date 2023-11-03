@@ -53,13 +53,12 @@ jobs:
           yarn run build
 
       - name: "Deploy to netlify server"
-        uses: careflow/netlify-actions/cli@master
+        uses: South-Paw/action-netlify-cli@v2
         env:
           NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
           NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
         with:
           args: deploy --dir=public --prod
-          secrets: '["NETLIFY_AUTH_TOKEN", "NETLIFY_SITE_ID"]'
 
       # - name: "Deploy to netlify server"
       #   id: deploy_preview
