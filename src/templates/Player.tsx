@@ -1,13 +1,12 @@
 import { graphql, Link } from "gatsby"
 import { GatsbyImage, getSrc, StaticImage } from "gatsby-plugin-image"
-import React, { useEffect, useState } from "react"
+import React, { useEffect, useState, Suspense } from "react"
 import { Card } from "../components/Card"
 import Icon from "../components/Icon"
 import { Seo } from "../components/Seo"
 import { useSiteMetaData } from "../hooks/use-site-metadata"
 import Layout from "../layouts"
 import moment from "moment"
-import "moment-timezone"
 import "moment/locale/nl-be"
 import { mapPositionCode, request } from "../scripts/helper"
 import {
@@ -21,7 +20,7 @@ import iconCardRed from "../images/i_card_red.png"
 import iconCardYellow from "../images/i_card_yellow.png"
 import iconCleansheet from "../images/i_cleansheet.png"
 import iconGoal from "../images/i_goal.png"
-import RelatedNews from "../components/RelatedNews"
+const RelatedNews = React.lazy(() => import("../components/RelatedNews"));
 
 const Player = ({ data: { nodePlayer } }: PlayerQuery) => {
   const cleanBody =
@@ -93,7 +92,9 @@ const Player = ({ data: { nodePlayer } }: PlayerQuery) => {
 
       {(team || articles) && (
         <aside className="player__details__related_news page__wrapper">
-          <RelatedNews items={[...team, ...articles]} limit={6} />
+          <Suspense fallback={<div>Loading...</div>}>
+            <RelatedNews items={[...team, ...articles]} limit={6} />
+          </Suspense>
         </aside>
       )}
 
