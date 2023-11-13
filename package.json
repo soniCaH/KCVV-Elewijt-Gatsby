@@ -64,7 +64,7 @@
     "@types/jquery": "3.5.27",
     "@types/node": "20.8.10",
     "@types/react": "18.2.35",
-    "@types/react-animate-on-scroll": "2.1.7",
+    "@types/react-animate-on-scroll": "2.1.8",
     "@types/react-dom": "18.2.14",
     "@types/react-slick": "0.23.11",
     "@typescript-eslint/eslint-plugin": "6.9.1",
