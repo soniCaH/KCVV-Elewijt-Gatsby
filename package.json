@@ -61,7 +61,7 @@
     "test": "jest"
   },
   "devDependencies": {
-    "@types/jquery": "3.5.27",
+    "@types/jquery": "3.5.28",
     "@types/node": "20.8.10",
     "@types/react": "18.2.37",
     "@types/react-animate-on-scroll": "2.1.8",
