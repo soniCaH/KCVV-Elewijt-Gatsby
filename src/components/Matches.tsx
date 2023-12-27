@@ -1,6 +1,4 @@
-import moment from "moment"
-import "moment-timezone"
-import "moment/locale/nl-be"
+import { DateTime, Settings } from "luxon"
 import React from "react"
 import { useEffect, useState } from "react"
 import { useSiteMetaData } from "../hooks/use-site-metadata"
@@ -38,13 +36,12 @@ const Matches = ({ teamId }: MatchesProps) => {
 }
 
 const MatchesRow = ({ match }: MatchesRowProps) => {
-  moment.tz.setDefault(`Europe/Brussels`)
-  moment.locale(`nl-be`)
-  moment.localeData(`nl-be`)
+  Settings.defaultZone = `Europe/Brussels`
+  Settings.defaultLocale = `nl-be`
 
-  const d = moment(match.date)
-  const date = d.format(`ddd D MMM`)
-  const time = d.format(`HH:mm`)
+  const matchDateTime = DateTime.fromFormat(match.date, `yyyy-MM-dd HH:mm`)
+  const matchDate = matchDateTime.toFormat(`EEE d MMM`)
+  const matchTime = matchDateTime.toFormat(`HH:mm`)
   const matchPlayed =
     ((match.status === 0 || match.status === null) && match.goalsHomeTeam !== null && match.goalsAwayTeam !== null) ||
     false
@@ -56,8 +53,8 @@ const MatchesRow = ({ match }: MatchesRowProps) => {
           <span className="matches__competition__type">{match.competitionType}</span>
         </div>
         <div className="matches__date__wrapper">
-          <span className="matches__date__date">{date}</span>
-          <span className="matches__date__time">{time}</span>
+          <span className="matches__date__date">{matchDate}</span>
+          <span className="matches__date__time">{matchTime}</span>
         </div>
         <div
           className={classnames(`matches__team__wrapper`, `matches__team__wrapper--home`, {

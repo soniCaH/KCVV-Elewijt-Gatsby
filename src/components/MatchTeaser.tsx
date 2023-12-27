@@ -4,19 +4,16 @@ import { useSiteMetaData } from "../hooks/use-site-metadata"
 import { mapPsdStatus, request } from "../scripts/helper"
 import "./MatchTeaser.scss"
 import classNames from "classnames"
-import moment from "moment"
-import "moment-timezone"
-import "moment/locale/nl-be"
+import { DateTime, Settings } from "luxon"
 import React, { useEffect, useState } from "react"
 import LazyLoad from "react-lazy-load"
 import MiniRanking from "./MiniRanking"
 
 export const MatchTeaserDetail = ({ match, includeRankings }: MatchTeaserDetailProps) => {
-  moment.tz.setDefault(`Europe/Brussels`)
-  moment.locale(`nl-be`)
-  moment.localeData(`nl-be`)
+  Settings.defaultZone = `Europe/Brussels`
+  Settings.defaultLocale = `nl-be`
 
-  const d = moment(match.date)
+  const matchDateTime = DateTime.fromFormat(match.date, `yyyy-MM-dd HH:mm`)
   const matchPlayed =
     ((match.status === 0 || match.status === null) && match.goalsHomeTeam !== null && match.goalsAwayTeam !== null) ||
     false
@@ -29,9 +26,9 @@ export const MatchTeaserDetail = ({ match, includeRankings }: MatchTeaserDetailP
           <div className="match__teaser__datetime__wrapper match__teaser__datetime__wrapper--status">
             <time
               className="match__teaser__datetime match__teaser__datetime--date"
-              dateTime={d.format(`YYYY-MM-DD - H:mm`)}
+              dateTime={matchDateTime.toFormat(`yyyy-MM-dd - H:mm`)}
             >
-              {d.format(`dddd DD MMMM - H:mm`)}
+              {matchDateTime.toFormat(`EEEE dd LLLL - H:mm`)}
             </time>
             <span className="match__teaser__datetime match__teaser__datetime--status">
               {mapPsdStatus(match.status)}
@@ -40,12 +37,18 @@ export const MatchTeaserDetail = ({ match, includeRankings }: MatchTeaserDetailP
         )}
         {(match.status === 0 || match.status === null) && (
           <div className="match__teaser__datetime__wrapper">
-            <time className="match__teaser__datetime match__teaser__datetime--date" dateTime={d.format(`YYYY-MM-DD`)}>
-              {d.format(`dddd DD MMMM`)}
+            <time
+              className="match__teaser__datetime match__teaser__datetime--date"
+              dateTime={matchDateTime.toFormat(`yyyy-MM-dd`)}
+            >
+              {matchDateTime.toFormat(`EEEE dd LLLL`)}
             </time>
             {` `}-{` `}
-            <time className="match__teaser__datetime match__teaser__datetime--time" dateTime={d.format(`H:mm`)}>
-              {d.format(`H:mm`)}
+            <time
+              className="match__teaser__datetime match__teaser__datetime--time"
+              dateTime={matchDateTime.toFormat(`H:mm`)}
+            >
+              {matchDateTime.toFormat(`H:mm`)}
             </time>
           </div>
         )}
