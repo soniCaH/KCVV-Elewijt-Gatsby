@@ -5,9 +5,7 @@ import { mapPsdStatus, request } from "../scripts/helper"
 import { MatchTeaserDetail } from "./MatchTeaser"
 import "./MatchesOverview.scss"
 import { Spinner } from "./Spinner"
-import moment from "moment"
-import "moment-timezone"
-import "moment/locale/nl-be"
+import { DateTime, Settings } from "luxon"
 import React from "react"
 import { useEffect, useState } from "react"
 
@@ -49,14 +47,13 @@ export const MatchesOverview = ({
     getData()
   }, [action, exclude, include, kcvvPsdApi])
 
-  moment.tz.setDefault(`Europe/Brussels`)
-  moment.locale(`nl-be`)
-  moment.localeData(`nl-be`)
+  Settings.defaultZone = `Europe/Brussels`
+  Settings.defaultLocale = `nl-be`
 
   return (
     <div className="matches_overview__wrapper">
-      {data.length > 0 || loading === false || <Spinner />}
-      {data.length <= 0 && loading === false && <div>Er staan voorlopig geen wedstrijden gepland</div>}
+      {data.length > 0 || !loading ? null : <Spinner />}
+      {!data.length && !loading && <div>Er staan voorlopig geen wedstrijden gepland</div>}
       {data.length > 0 && (
         <div>
           {data
@@ -65,11 +62,11 @@ export const MatchesOverview = ({
               if (details) {
                 return <MatchTeaserDetail match={match} key={i} />
               } else {
-                const matchTime = moment(match.date)
+                const matchTime = DateTime.fromFormat(match.date, `yyyy-MM-dd HH:mm`)
                 return (
                   <div className="matches_overview__item" key={i}>
                     <span className={`label`}>{match.teamName.replace(`Voetbal : `, ``)}</span>
-                    <span className={`matches_overview__date`}>{matchTime.format(`ddd D MMMM - H:mm`)}</span>
+                    <span className={`matches_overview__date`}>{matchTime.toFormat(`ccc d MMMM - HH:mm`)}</span>
                     {+match.status !== 0 && (
                       <span className={`label alert matches_overview__status`}>{mapPsdStatus(match.status)}</span>
                     )}

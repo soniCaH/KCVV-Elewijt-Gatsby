@@ -1,22 +1,19 @@
 import { EventCardProps } from "../Types/EventCard"
-import { CardImage } from "./Card"
-import moment from "moment"
-import "moment-timezone"
-import "moment/locale/nl-be"
+import { DateTime, Settings } from "luxon"
 import React from "react"
 import { Link } from "gatsby"
 import { GatsbyImage } from "gatsby-plugin-image"
 import "./EventCard.scss"
 
 const EventCard = ({ title, picture, link, datetimeStart, datetimeEnd }: EventCardProps) => {
-  moment.tz.setDefault(`Europe/Brussels`)
-  moment.locale(`nl-be`)
-  moment.localeData(`nl-be`)
-  const momentStart = moment(datetimeStart)
-  const momentEnd = moment(datetimeEnd)
-  const body = `Van ${momentStart.format(`dddd DD MMMM YYYY - H:mm`)} tot ${momentEnd.format(`dddd DD MMMM - H:mm`)}`
+  Settings.defaultZone = `Europe/Brussels`
+  Settings.defaultLocale = `nl-be`
 
-  // return <CardImage title={title} picture={picture} link={link} body={body} />
+  const eventStartDateTime = DateTime.fromFormat(datetimeStart, `yyyy-MM-dd HH:mm`)
+  const eventEndDateTime = DateTime.fromFormat(datetimeEnd, `yyyy-MM-dd HH:mm`)
+  const body = `Van ${eventStartDateTime.toFormat(`dddd DD MMMM YYYY - H:mm`)} tot ${eventEndDateTime.toFormat(
+    `dddd DD MMMM - H:mm`
+  )}`
 
   return (
     <Link to={link} className="event__card">

@@ -28,9 +28,8 @@
     "gatsby-transformer-sharp": "5.13.0",
     "jquery": "3.7.1",
     "js-search": "2.0.1",
+    "luxon": "^3.4.4",
     "modern-css-reset": "1.4.0",
-    "moment": "2.29.4",
-    "moment-timezone": "0.5.43",
     "prop-types": "15.8.1",
     "qrcode.react": "3.1.0",
     "react": "18.2.0",
@@ -62,6 +61,7 @@
   },
   "devDependencies": {
     "@types/jquery": "3.5.29",
+    "@types/luxon": "^3.3.7",
     "@types/node": "20.8.10",
     "@types/react": "18.2.45",
     "@types/react-animate-on-scroll": "2.1.8",

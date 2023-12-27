@@ -6,8 +6,7 @@ import Icon from "../components/Icon"
 import { Seo } from "../components/Seo"
 import { useSiteMetaData } from "../hooks/use-site-metadata"
 import Layout from "../layouts"
-import moment from "moment"
-import "moment/locale/nl-be"
+import { DateTime } from "luxon"
 import { mapPositionCode, request } from "../scripts/helper"
 import {
   PlayerQuery,
@@ -20,7 +19,7 @@ import iconCardRed from "../images/i_card_red.png"
 import iconCardYellow from "../images/i_card_yellow.png"
 import iconCleansheet from "../images/i_cleansheet.png"
 import iconGoal from "../images/i_goal.png"
-const RelatedNews = React.lazy(() => import("../components/RelatedNews"));
+const RelatedNews = React.lazy(() => import(`../components/RelatedNews`))
 
 const Player = ({ data: { nodePlayer } }: PlayerQuery) => {
   const cleanBody =
@@ -304,7 +303,7 @@ const renderPlayerGamesFull = (gameReports: PlayerStatsReportsResponseObject[]) 
                   {game.competition}
                 </td>
                 <td data-label="Datum" className={`table__column__string`}>
-                  {moment(game.date).format(`DD/MM/YYYY`)}
+                  {game.date && DateTime.fromFormat(game.date, `yyyy-MM-dd HH:mm`).toFormat(`dd/MM/yyyy`)}
                 </td>
                 <td data-label="Thuis/uit" className={`table__column__number`}>
                   {game.home ? (

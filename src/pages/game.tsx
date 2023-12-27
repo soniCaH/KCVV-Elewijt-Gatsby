@@ -11,9 +11,7 @@ import iconSubIn from "../images/i_sub_in.png"
 import iconSubOut from "../images/i_sub_out.png"
 import { MatchDetails, MatchDetailsEventItem, MatchDetailsLineupItem, MatchDetailsSubstituteItem } from "../Types/Match"
 import { GamePageProps } from "../Types/PageProps"
-import moment from "moment"
-import "moment-timezone"
-import "moment/locale/nl-be"
+import { DateTime, Settings } from "luxon"
 import React from "react"
 import Layout from "../layouts"
 import { Spinner } from "../components/Spinner"
@@ -35,9 +33,8 @@ const GamePage = ({ matchId }: GamePageProps) => {
     getData()
   }, [kcvvPsdApi, matchId])
 
-  moment.tz.setDefault(`Europe/Brussels`)
-  moment.locale(`nl-be`)
-  moment.localeData(`nl-be`)
+  Settings.defaultZone = `Europe/Brussels`
+  Settings.defaultLocale = `nl-be`
 
   if (matchId === null) {
     return (
@@ -52,7 +49,7 @@ const GamePage = ({ matchId }: GamePageProps) => {
     const { home: homeLineup = [], away: awayLineup = [] } = lineup || {}
     const { home: homeSubs = [], away: awaySubs = [] } = substitutes || {}
 
-    const matchTime = moment(general.date)
+    const matchTime = DateTime.fromFormat(general.date, `yyyy-MM-dd HH:mm`)
     const homeTeamId = general.homeClub?.id
 
     const ogImage = {
@@ -94,7 +91,9 @@ const GamePage = ({ matchId }: GamePageProps) => {
               }`}</ReactFitText>
             </h1>
             <h4>{general.competitionType}</h4>
-            <time dateTime={matchTime.format(`YYYY-MM-DD - H:mm`)}>{matchTime.format(`dddd DD MMMM YYYY - H:mm`)}</time>
+            <time dateTime={matchTime.toFormat(`EEEE dd LLLL - H:mm`)}>
+              {matchTime.toFormat(`EEEE dd LLLL - H:mm`)}
+            </time>
             <br />
 
             {general.status !== 0 && (
