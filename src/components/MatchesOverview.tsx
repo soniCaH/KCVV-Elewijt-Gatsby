@@ -5,9 +5,9 @@ import { mapPsdStatus, request } from "../scripts/helper"
 import { MatchTeaserDetail } from "./MatchTeaser"
 import "./MatchesOverview.scss"
 import { Spinner } from "./Spinner"
-import moment from "moment"
-import "moment-timezone"
-import "moment/locale/nl-be"
+import { format, parseISO } from "date-fns"
+import { nl } from "date-fns/locale"
+import { utcToZonedTime } from "date-fns-tz"
 import React from "react"
 import { useEffect, useState } from "react"
 
@@ -49,10 +49,6 @@ export const MatchesOverview = ({
     getData()
   }, [action, exclude, include, kcvvPsdApi])
 
-  moment.tz.setDefault(`Europe/Brussels`)
-  moment.locale(`nl-be`)
-  moment.localeData(`nl-be`)
-
   return (
     <div className="matches_overview__wrapper">
       {data.length > 0 || loading === false || <Spinner />}
@@ -65,11 +61,14 @@ export const MatchesOverview = ({
               if (details) {
                 return <MatchTeaserDetail match={match} key={i} />
               } else {
-                const matchTime = moment(match.date)
+                const matchTimeUTC = parseISO(match.date)
+                const matchTimeLocal = utcToZonedTime(matchTimeUTC, `Europe/Brussels`)
                 return (
                   <div className="matches_overview__item" key={i}>
                     <span className={`label`}>{match.teamName.replace(`Voetbal : `, ``)}</span>
-                    <span className={`matches_overview__date`}>{matchTime.format(`ddd D MMMM - H:mm`)}</span>
+                    <span className={`matches_overview__date`}>
+                      {format(matchTimeLocal, `eee d MMMM - H:mm`, { locale: nl })}
+                    </span>
                     {+match.status !== 0 && (
                       <span className={`label alert matches_overview__status`}>{mapPsdStatus(match.status)}</span>
                     )}
