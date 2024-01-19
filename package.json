@@ -10,7 +10,7 @@
     "axios": "1.6.5",
     "axios-cache-interceptor": "1.5.1",
     "classnames": "2.5.1",
-    "dotenv": "16.3.1",
+    "dotenv": "16.3.2",
     "foundation-sites": "6.8.1",
     "gatsby": "5.13.1",
     "gatsby-cli": "5.13.1",
