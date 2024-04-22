@@ -63,7 +63,12 @@ export interface MatchDetailsEventItem {
   playerName: string
   goalsHome?: number
   goalsAway?: number
-  action: string
+  action:
+    | {
+        type: string
+        subtype?: string
+      }
+    | string
   clubId?: number
   playerId?: number
   minute?: number
