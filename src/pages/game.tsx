@@ -236,37 +236,66 @@ const renderEventLine = (i: React.Key, element: MatchDetailsEventItem, homeTeamI
   let actionMessage = ``
   let actionText = ``
 
-  switch (element.action) {
-    case `geel`:
-      actionIcon = iconCardYellow
-      actionText = `Gele kaart voor`
-      actionMessage = `Gele kaart`
-      break
-    case `rood`:
-      actionIcon = iconCardRed
-      actionText = `Rode kaart voor`
-      actionMessage = `Rode kaart`
-      break
-    case `tweedegeel`:
-      actionIcon = iconCardYellowRed
-      actionText = `Tweede gele kaart voor`
-      actionMessage = `Tweede gele kaart`
-      break
-    case `doelpunt`:
-      actionIcon = iconGoal
-      actionText = `${element?.goalsHome} - ${element?.goalsAway} — Doelpunt gescoord door`
-      actionMessage = `Doelpunt`
-      break
-    case `minuteOut`:
-      actionIcon = iconSubOut
-      actionText = `Speler uit:`
-      actionMessage = `Wissel`
-      break
-    case `minuteIn`:
-      actionIcon = iconSubIn
-      actionText = `Speler in:`
-      actionMessage = `Wissel`
-      break
+  // Backwards compatibility:
+  if (typeof element.action === `string`) {
+    switch (element.action) {
+      case `geel`:
+        actionIcon = iconCardYellow
+        actionText = `Gele kaart voor`
+        actionMessage = `Gele kaart`
+        break
+      case `rood`:
+        actionIcon = iconCardRed
+        actionText = `Rode kaart voor`
+        actionMessage = `Rode kaart`
+        break
+      case `tweedegeel`:
+        actionIcon = iconCardYellowRed
+        actionText = `Tweede gele kaart voor`
+        actionMessage = `Tweede gele kaart`
+        break
+      case `doelpunt`:
+        actionIcon = iconGoal
+        actionText = `${element?.goalsHome} - ${element?.goalsAway} — Doelpunt gescoord door`
+        actionMessage = `Doelpunt`
+        break
+      case `minuteOut`:
+        actionIcon = iconSubOut
+        actionText = `Speler uit:`
+        actionMessage = `Wissel`
+        break
+      case `minuteIn`:
+        actionIcon = iconSubIn
+        actionText = `Speler in:`
+        actionMessage = `Wissel`
+        break
+    }
+  } else {
+    switch (element.action.type) {
+      case `GOAL`:
+        actionIcon = iconGoal
+        actionText = `${element?.goalsHome} - ${element?.goalsAway} — Doelpunt gescoord door`
+        actionMessage = `Doelpunt`
+        break
+      case `CARD`:
+        switch (element.action.subtype) {
+          case `YELLOW`:
+            actionIcon = iconCardYellow
+            actionText = `Gele kaart voor`
+            actionMessage = `Gele kaart`
+            break
+          case `RED`:
+            actionIcon = iconCardRed
+            actionText = `Rode kaart voor`
+            actionMessage = `Rode kaart`
+            break
+          case `DOUBLE_YELLOW`:
+            actionIcon = iconCardYellowRed
+            actionText = `Tweede gele kaart voor`
+            actionMessage = `Tweede gele kaart`
+            break
+        }
+    }
   }
 
   return (
