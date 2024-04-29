@@ -9529,10 +9529,10 @@ rc@1.2.8, rc@^1.2.7:
     minimist "^1.2.0"
     strip-json-comments "~2.0.1"
 
-react-animate-on-scroll@2.1.7:
-  version "2.1.7"
-  resolved "https://registry.yarnpkg.com/react-animate-on-scroll/-/react-animate-on-scroll-2.1.7.tgz#6bf3102519eb89c07264148cb0492b8de79fbed3"
-  integrity sha512-A4MsApouThr2YhguCQ0fq/HVOLtDMuBM1XCHxhYug8k2NfP0S4S6B7qhrVjylMCX4zFAnTa+YKz7eQG/StizFw==
+react-animate-on-scroll@2.1.9:
+  version "2.1.9"
+  resolved "https://registry.yarnpkg.com/react-animate-on-scroll/-/react-animate-on-scroll-2.1.9.tgz#feddee4c2881375df24af59c1c9fdacca4ab4467"
+  integrity sha512-E4PZLX6RDLLn+/iIMhnQrC1xU74ixGcCQ5/TBX8fBsaO+SnaU9VFoZLvIfUqVf3mH5HUNzO8wAqA11niot5Obw==
   dependencies:
     lodash.throttle "^4.1.1"
     prop-types "^15.5.9"
