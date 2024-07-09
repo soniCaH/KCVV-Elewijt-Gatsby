@@ -3,8 +3,6 @@ import { Link } from "gatsby";
 import { getSrc } from "gatsby-plugin-image";
 import moment from "moment";
 import React, { Component, Fragment } from "react";
-import Helmet from "react-helmet";
-import { StringParam, useQueryParam } from "use-query-params";
 
 import Icon from "../components/Icon";
 import RelatedNews from "../components/RelatedNews";

@@ -22,7 +22,6 @@
     "gatsby-plugin-offline": "6.13.2",
     "gatsby-plugin-sass": "6.13.1",
     "gatsby-plugin-sharp": "5.13.1",
-    "gatsby-plugin-use-query-params": "1.0.1",
     "gatsby-plugin-web-font-loader": "1.0.4",
     "gatsby-source-drupal": "6.13.1",
     "gatsby-transformer-sharp": "5.13.1",
@@ -40,9 +39,9 @@
     "react-select": "5.8.0",
     "react-share": "5.1.0",
     "react-slick": "0.30.2",
+    "react-use-query-param-string": "^2.1.5",
     "sass": "1.77.6",
-    "slick-carousel": "1.8.1",
-    "use-query-params": "1.2.3"
+    "slick-carousel": "1.8.1"
   },
   "keywords": [
     "gatsby"
