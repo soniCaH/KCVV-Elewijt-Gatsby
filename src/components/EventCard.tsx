@@ -9,10 +9,10 @@ const EventCard = ({ title, picture, link, datetimeStart, datetimeEnd }: EventCa
   Settings.defaultZone = `Europe/Brussels`
   Settings.defaultLocale = `nl-be`
 
-  const eventStartDateTime = DateTime.fromFormat(datetimeStart, `yyyy-MM-dd HH:mm`)
-  const eventEndDateTime = DateTime.fromFormat(datetimeEnd, `yyyy-MM-dd HH:mm`)
-  const body = `Van ${eventStartDateTime.toFormat(`dddd DD MMMM YYYY - H:mm`)} tot ${eventEndDateTime.toFormat(
-    `dddd DD MMMM - H:mm`
+  const eventStartDateTime = DateTime.fromISO(datetimeStart)
+  const eventEndDateTime = DateTime.fromISO(datetimeEnd)
+  const body = `Van ${eventStartDateTime.toFormat(`cccc dd MMMM yyyy - H:mm`)} tot ${eventEndDateTime.toFormat(
+    `cccc dd MMMM yyyy - H:mm`
   )}`
 
   return (
