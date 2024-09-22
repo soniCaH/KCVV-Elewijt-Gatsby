@@ -3,7 +3,7 @@ import { useState } from "react"
 import { TeamsListProps } from "../Types/Team"
 import Select, { OnChangeValue } from "react-select"
 import React from "react"
-import QRCode from "qrcode.react"
+import { QRCodeCanvas } from "qrcode.react"
 import Layout from "../layouts"
 import { Seo } from "../components/Seo"
 import "./calendar.scss"
@@ -86,7 +86,7 @@ const CalendarForm = () => {
         >{`${calendarUrl}?teams=${teamsSelected}&side=${sideSelected}`}</a>
       </p>
       <p>
-        <QRCode value={`${calendarUrl}?teams=${teamsSelected}&side=${sideSelected}`} />
+        <QRCodeCanvas value={`${calendarUrl}?teams=${teamsSelected}&side=${sideSelected}`} />
       </p>
     </div>
   )
