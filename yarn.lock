@@ -3308,10 +3308,10 @@ axe-core@^4.6.2:
   resolved "https://registry.yarnpkg.com/axe-core/-/axe-core-4.6.3.tgz#fc0db6fdb65cc7a80ccf85286d91d64ababa3ece"
   integrity sha512-/BQzOX780JhsxDnPpH4ZiyrJAzcd8AfzFPkv+89veFSr1rcMjuq2JDCwypKaPeB6ljHp9KjXhPpjgCvQlWYuqg==
 
-axios-cache-interceptor@1.6.1:
-  version "1.6.1"
-  resolved "https://registry.yarnpkg.com/axios-cache-interceptor/-/axios-cache-interceptor-1.6.1.tgz#98eae5032bac5c9a694d82ff20214328c5eab11c"
-  integrity sha512-bRzjABzkQ5JOsCrJNhwpabfQ9fV7LykgCKm0AcftXKFrxMhbruXCxak8iCBrxercv4Yb6Hkt2qBMMEWc66vMEw==
+axios-cache-interceptor@1.6.2:
+  version "1.6.2"
+  resolved "https://registry.yarnpkg.com/axios-cache-interceptor/-/axios-cache-interceptor-1.6.2.tgz#0aca85d14ee8fae8d48491f16f6e1bdc87a4056b"
+  integrity sha512-YLbAODIHZZIcD4b3WYFVQOa5W2TY/WnJ6sBHqAg6Z+hx+RVj8/OcjQyRopO6awn7/kOkGL5X9TP16AucnlJ/lw==
   dependencies:
     cache-parser "1.2.5"
     fast-defer "1.1.8"
