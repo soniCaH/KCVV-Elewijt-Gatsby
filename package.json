@@ -60,7 +60,7 @@
     "test": "jest"
   },
   "devDependencies": {
-    "@types/jquery": "3.5.31",
+    "@types/jquery": "3.5.32",
     "@types/luxon": "3.4.2",
     "@types/node": "20.16.14",
     "@types/react": "18.3.12",
