@@ -10238,10 +10238,10 @@ react-transition-group@^4.3.0:
     loose-envify "^1.4.0"
     prop-types "^15.6.2"
 
-react-use-query-param-string@2.1.5:
-  version "2.1.5"
-  resolved "https://registry.yarnpkg.com/react-use-query-param-string/-/react-use-query-param-string-2.1.5.tgz#d0b43d87e43fd64067b23009f78be85351d6bd09"
-  integrity sha512-h9UbTwDrVUlZ2m1iBJOWrBN/dWJ48dT0YKs45xrouxr73b7aBDQ8QRT6XhEpY6I9buy5YR+O5k/eHh5Aewte1g==
+react-use-query-param-string@2.1.6:
+  version "2.1.6"
+  resolved "https://registry.yarnpkg.com/react-use-query-param-string/-/react-use-query-param-string-2.1.6.tgz#067cfa4e0abe9bb6c4d54a53607cbdb70c4ff961"
+  integrity sha512-A0dCXvMaK7yJ7GXJ00GLvWi/g4AaCaUbteiXK9txrZYQmR+1lVaNpJwUBiSAhgoHO/O5/t97vxFbqXUVxX2AoA==
   dependencies:
     query-string "^7.1.1"
     react-sub-unsub "^2.1.6"
