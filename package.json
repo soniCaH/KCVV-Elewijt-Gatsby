@@ -28,7 +28,7 @@
     "gatsby-transformer-sharp": "5.14.0",
     "jquery": "3.7.1",
     "js-search": "2.0.1",
-    "luxon": "3.5.0",
+    "luxon": "3.6.0",
     "modern-css-reset": "1.4.0",
     "prop-types": "15.8.1",
     "qrcode.react": "4.2.0",
