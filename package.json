@@ -61,7 +61,7 @@
   },
   "devDependencies": {
     "@types/jquery": "3.5.32",
-    "@types/luxon": "3.4.2",
+    "@types/luxon": "3.6.0",
     "@types/node": "22.13.14",
     "@types/react": "18.3.20",
     "@types/react-animate-on-scroll": "2.1.8",
