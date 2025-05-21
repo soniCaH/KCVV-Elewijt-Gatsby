@@ -63,7 +63,7 @@
     "@types/jquery": "3.5.32",
     "@types/luxon": "3.6.2",
     "@types/node": "22.14.1",
-    "@types/react": "18.3.21",
+    "@types/react": "18.3.22",
     "@types/react-animate-on-scroll": "2.1.8",
     "@types/react-dom": "18.3.7",
     "@types/react-slick": "0.23.13",
