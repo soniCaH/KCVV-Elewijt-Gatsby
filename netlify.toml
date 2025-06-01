@@ -15,9 +15,6 @@
     must-revalidate'''
 
 [[plugins]]
-  package = "@netlify/plugin-gatsby"
-
-[[plugins]]
   package = "@netlify/plugin-sitemap"
 
   [plugins.inputs]
