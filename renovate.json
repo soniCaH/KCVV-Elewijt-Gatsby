@@ -1,17 +1,24 @@
 {
   "extends": [
-    "config:base",
+    "config:recommended",
     "config:js-app",
     "packages:gatsby",
     "group:gatsbyMonorepo"
   ],
   "packageRules": [
     {
-      "updateTypes": ["minor", "patch", "pin", "digest"],
+      "matchUpdateTypes": [
+        "minor",
+        "patch",
+        "pin",
+        "digest"
+      ],
       "automerge": true
     },
     {
-      "depTypeList": ["devDependencies"],
+      "matchDepTypes": [
+        "devDependencies"
+      ],
       "automerge": true
     }
   ],
@@ -19,5 +26,5 @@
     "dependencies"
   ],
   "timezone": "Europe/Brussels",
-  "masterIssue": true
+  "dependencyDashboard": true
 }
