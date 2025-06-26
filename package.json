@@ -11,7 +11,7 @@
     "axios-cache-interceptor": "1.8.0",
     "caniuse-lite": "1.0.30001726",
     "classnames": "2.5.1",
-    "dotenv": "16.5.0",
+    "dotenv": "16.6.0",
     "foundation-sites": "6.9.0",
     "gatsby": "5.14.5",
     "gatsby-cli": "5.14.0",
