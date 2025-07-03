@@ -157,13 +157,15 @@ const wrapper = (promise) =>
   })
 
 export const onCreatePage: GatsbyNode["onCreatePage"] = async ({ page, actions }) => {
-  const { createPage } = actions
+  const { createPage, deletePage } = actions
 
-  if (page.path.match(/^\/game\//)) {
+  if (page.path === "/game/") {
+    deletePage(page)
+
     createPage({
-      path: `/game/`,
-      matchPath: `/game/:matchId`,
-      component: path.resolve(`src/pages/game.tsx`),
+      ...page,
+      matchPath: "/game/:matchId",
+      component: path.resolve("src/pages/game.tsx"),
     })
   }
 }
