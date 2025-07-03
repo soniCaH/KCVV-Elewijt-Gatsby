@@ -25,9 +25,13 @@ const GamePage = ({ matchId }: GamePageProps) => {
   const { kcvvPsdApi } = useSiteMetaData()
   const [data, setData] = useState<MatchDetails>()
 
+  console.log(`GamePage: matchId: ${matchId}, kcvvPsdApi: ${kcvvPsdApi}`)
+
   useEffect(() => {
     async function getData() {
+      console.log(`Fetching match data for matchId: ${matchId} from ${kcvvPsdApi}/match/${matchId}`)
       const response = await request.get(`${kcvvPsdApi}/match/${matchId}`)
+      console.log(`Received match data:`, response.data)
       setData(response.data)
     }
     getData()
@@ -138,6 +142,7 @@ const GamePage = ({ matchId }: GamePageProps) => {
       </Layout>
     )
   } else {
+    console.log(`No match data found for matchId: ${matchId}`)
     return (
       <Layout>
         <Spinner />
