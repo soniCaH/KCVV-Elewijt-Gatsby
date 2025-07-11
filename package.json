@@ -37,7 +37,7 @@
     "react-dom": "18.3.1",
     "react-helmet": "6.1.0",
     "react-lazy-load": "4.0.1",
-    "react-select": "5.10.1",
+    "react-select": "5.10.2",
     "react-share": "5.2.2",
     "react-slick": "0.30.3",
     "react-use-query-param-string": "2.1.6",
