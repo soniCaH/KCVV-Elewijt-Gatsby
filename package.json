@@ -39,7 +39,7 @@
     "react-lazy-load": "4.0.1",
     "react-select": "5.10.2",
     "react-share": "5.2.2",
-    "react-slick": "0.30.3",
+    "react-slick": "0.31.0",
     "react-use-query-param-string": "2.1.6",
     "sass": "1.89.2",
     "slick-carousel": "1.8.1"
