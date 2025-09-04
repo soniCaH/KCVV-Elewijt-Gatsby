@@ -10,6 +10,12 @@ import { DateTime, Settings } from "luxon"
 import React from "react"
 import { useEffect, useState } from "react"
 
+const officialCompetitionTypes = [
+  'OFFICIAL',
+  'COMPETITION',
+  'Competitie'
+]
+
 export const ScheurkalenderMatches = () => {
   const [dataA, setDataA] = useState<Match[]>([])
   const [dataB, setDataB] = useState<Match[]>([])
@@ -35,7 +41,7 @@ export const ScheurkalenderMatches = () => {
     <div className={`scheurkalender__wrapper`}>
       {data.length > 0 || <Spinner />}
       {data
-        .filter((match: Match) => match.competitionType === `Competitie`)
+        .filter((match: Match) => officialCompetitionTypes.includes(match.competitionType))
         .sort((a: Match, b: Match) => a.timestamp - b.timestamp)
         .map((match: Match) => (
           <MatchTeaserDetail match={match} key={match.id} />

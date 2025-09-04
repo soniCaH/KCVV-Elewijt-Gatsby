@@ -21,6 +21,13 @@ import { mapPsdStatus, request } from "../scripts/helper"
 import LazyLoad from "react-lazy-load"
 import Icon from "../components/Icon"
 import { MiniRanking } from "../components/MiniRanking"
+
+const officialCompetitionTypes = [
+  'OFFICIAL',
+  'COMPETITION',
+  'Competitie'
+]
+
 const GamePage = ({ matchId }: GamePageProps) => {
   const { kcvvPsdApi } = useSiteMetaData()
   const [data, setData] = useState<MatchDetails>()
@@ -127,7 +134,7 @@ const GamePage = ({ matchId }: GamePageProps) => {
             </div>
           )}
 
-          {general.competitionType === `Competitie` && (
+          {officialCompetitionTypes.includes(general.competitionType) && (
             <MiniRanking
               teamId={general.homeTeamId || general.awayTeamId || 0}
               homeTeam={general.homeClub?.name}

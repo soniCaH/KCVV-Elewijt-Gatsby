@@ -9,6 +9,12 @@ import React, { useEffect, useState } from "react"
 import LazyLoad from "react-lazy-load"
 import MiniRanking from "./MiniRanking"
 
+const officialCompetitionTypes = [
+  'OFFICIAL',
+  'COMPETITION',
+  'Competitie'
+]
+
 export const MatchTeaserDetail = ({ match, includeRankings }: MatchTeaserDetailProps) => {
   Settings.defaultZone = `Europe/Brussels`
   Settings.defaultLocale = `nl-be`
@@ -92,7 +98,7 @@ export const MatchTeaserDetail = ({ match, includeRankings }: MatchTeaserDetailP
           {match.awayClub?.abbreviation || match.awayClub?.name}
         </div>
       </main>
-      {includeRankings && match.competitionType === `Competitie` && (
+      {includeRankings && officialCompetitionTypes.includes(match.competitionType) && (
         <MiniRanking
           teamId={match.homeTeamId || match.awayTeamId}
           homeTeam={match.homeClub?.name}

@@ -105,7 +105,7 @@ const MenuItems = () => {
           </li>
           <li>
             <Link to="/jeugd/u16/" activeClassName="active" partiallyActive={true}>
-              U17
+              U16
             </Link>
           </li>
           <li>
@@ -150,17 +150,12 @@ const MenuItems = () => {
           </li>
           <li>
             <Link to="/jeugd/u7/" activeClassName="active" partiallyActive={true}>
-              U7 - Groen
-            </Link>
-          </li>
-          <li>
-            <Link to="/jeugd/u7-wit/" activeClassName="active" partiallyActive={true}>
-              U7 - Wit
+              U7
             </Link>
           </li>
           <li>
             <Link to="/jeugd/u6/" activeClassName="active" partiallyActive={true}>
-              U6
+              U6 & U5
             </Link>
           </li>
         </ul>
