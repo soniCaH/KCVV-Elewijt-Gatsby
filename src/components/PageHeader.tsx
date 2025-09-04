@@ -94,11 +94,6 @@ const MenuItems = () => {
         </Link>
         <ul className="vertical menu submenu">
           <li>
-            <Link to="/team/zondagsreserven/" activeClassName="active" partiallyActive={true}>
-              Zondagsreserven
-            </Link>
-          </li>
-          <li>
             <Link to="/jeugd/u21/" activeClassName="active" partiallyActive={true}>
               U21
             </Link>
@@ -109,13 +104,18 @@ const MenuItems = () => {
             </Link>
           </li>
           <li>
-            <Link to="/jeugd/u15/" activeClassName="active" partiallyActive={true}>
-              U15 - Groen
+            <Link to="/jeugd/u16/" activeClassName="active" partiallyActive={true}>
+              U17
             </Link>
           </li>
           <li>
-            <Link to="/jeugd/u15-b/" activeClassName="active" partiallyActive={true}>
-              U15 - Wit
+            <Link to="/jeugd/u15/" activeClassName="active" partiallyActive={true}>
+              U15
+            </Link>
+          </li>
+          <li>
+            <Link to="/jeugd/u14/" activeClassName="active" partiallyActive={true}>
+              U14
             </Link>
           </li>
           <li>
