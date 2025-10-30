@@ -89,7 +89,7 @@ jobs:
       #     secrets: '["NETLIFY_AUTH_TOKEN", "NETLIFY_SITE_ID"]'
 
       - name: Find the comment
-        uses: peter-evans/find-comment@v3
+        uses: peter-evans/find-comment@v4
         id: fc
         with:
           issue-number: ${{ github.event.pull_request.number }}
