@@ -41,7 +41,7 @@
     "react-share": "5.2.2",
     "react-slick": "0.31.0",
     "react-use-query-param-string": "2.1.6",
-    "sass": "1.94.1",
+    "sass": "1.94.2",
     "slick-carousel": "1.8.1"
   },
   "keywords": [
