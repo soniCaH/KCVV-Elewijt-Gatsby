@@ -1,0 +1,2 @@
+- The live version of the "source" website is available at https://www.kcvvelewijt.be if you ever want to check the current design to migrate against!
+- For each component/layout, write state-of-the-art tests and storybook elements/stories.
