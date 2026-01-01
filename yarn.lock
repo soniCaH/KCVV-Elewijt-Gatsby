@@ -3409,13 +3409,14 @@ axe-core@^4.10.0:
   resolved "https://registry.yarnpkg.com/axe-core/-/axe-core-4.10.2.tgz#85228e3e1d8b8532a27659b332e39b7fa0e022df"
   integrity sha512-RE3mdQ7P3FRSe7eqCWoeQ/Z9QXrtniSjp1wUjt5nRC3WIpz5rSCve6o3fsZ2aCpJtrZjSZgjwXAoTO5k4tEI0w==
 
-axios-cache-interceptor@1.9.1:
-  version "1.9.1"
-  resolved "https://registry.yarnpkg.com/axios-cache-interceptor/-/axios-cache-interceptor-1.9.1.tgz#f542e16e7d5300b7574f52910c7062a67fe71cc8"
-  integrity sha512-0f/ilwNkJnDeCbSPjt1YgIxr0GTdoTR0qpU7dRJ7+horRzDz+prXFRdVKoZoYN8LhgyzKauu1lPOwQqFv/2Itw==
+axios-cache-interceptor@1.11.1:
+  version "1.11.1"
+  resolved "https://registry.yarnpkg.com/axios-cache-interceptor/-/axios-cache-interceptor-1.11.1.tgz#f8939c23de5e910c4f98b463d12316298bc3692f"
+  integrity sha512-Ldacl7iSMMjKBn/IB5GWRfUIxbOCSmH/xInnZ4lX/+BF/Oa6HxpWqvgXY1WOmyUSa8AKI6AwLl7NTLKrJAV42g==
   dependencies:
     cache-parser "^1.2.6"
     fast-defer "^1.1.9"
+    http-vary "^1.0.3"
     object-code "^2.0.0"
     try "^1.0.3"
 
@@ -7476,6 +7477,11 @@ http-errors@2.0.0:
     setprototypeof "1.2.0"
     statuses "2.0.1"
     toidentifier "1.0.1"
+
+http-vary@^1.0.3:
+  version "1.0.3"
+  resolved "https://registry.yarnpkg.com/http-vary/-/http-vary-1.0.3.tgz#bacf8fccf31294577c1dc97d6cec479dde1e7741"
+  integrity sha512-sx7Y8YTqF3o0mFJJvF66n8dbaE8v3liV1RgCz46XP5xK7dnzyZHvwMWRA115q5kjbCPBV65/nOMlgW54WLyiag==
 
 http2-wrapper@^1.0.0-beta.5.2:
   version "1.0.3"
