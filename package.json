@@ -7,7 +7,7 @@
   "dependencies": {
     "@kennethormandy/react-fittext": "0.6.0",
     "animate.css": "4.1.1",
-    "axios": "1.13.5",
+    "axios": "1.16.0",
     "axios-cache-interceptor": "1.11.2",
     "caniuse-lite": "1.0.30001761",
     "classnames": "2.5.1",
