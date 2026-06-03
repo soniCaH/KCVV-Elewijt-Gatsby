@@ -82,7 +82,12 @@ const config: GatsbyConfig = {
         crossOrigin: `use-credentials`,
       },
     },
-    `gatsby-plugin-offline`,
+    // Self-destroying service worker: unregisters any previously-installed
+    // gatsby-plugin-offline worker and clears its caches on existing clients,
+    // then never registers another. Removes the stale-precache "blank page
+    // until hard refresh" problem (the worker was intercepting navigations and
+    // serving an old app shell instead of letting requests reach the network).
+    `gatsby-plugin-remove-serviceworker`,
     `gatsby-plugin-netlify`,
   ],
 }
