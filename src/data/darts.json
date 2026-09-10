@@ -1,0 +1,65 @@
+{
+  "_readme": "The single source of facts for BOTH /darts pages. Copied verbatim into each repo; never edited in a repo. A field with todo:true renders its dummy value dimmed and italic, so nobody reads a placeholder as a decision — the same convention affiche-copy.md already uses. Owned by .scratch/darts-tournament/issues/21-two-darts-pages-one-truth.md.",
+  "_updated": "2026-09-10",
+
+  "titel": "EK Darts",
+  "tagline": "Elewijts Kampioenschap",
+  "datum": { "iso": "2026-12-19", "tekst": "Zaterdag 19 december 2026" },
+
+  "waar": {
+    "naam": "Kantine KCVV Elewijt",
+    "adres": "Sportsite Den Dries — Driesstraat, 1982 Elewijt",
+    "_check": "huisnummer nog te controleren voor de drukronde"
+  },
+
+  "formule": {
+    "ploeg": "Ploegen van 4",
+    "ontmoeting": "4 enkelspelen + 2 dubbels per ontmoeting",
+    "verloop": "Kwalificatie in groepen, daarna de eindronde",
+    "_bron": "ticket 07 — 24 ploegen, 6 groepen van 4, 10 borden. Werkplan, nog niet gesloten."
+  },
+
+  "uren": {
+    "todo": true,
+    "dummy": { "deuren": "10.00 u", "eersteWorp": "11.00 u", "prijsuitreiking": "19.00 u" },
+    "_bron": "ticket 07 — de zaterdagochtend kwam vrij omdat Slisse vrijdag om 14u opbouwt"
+  },
+
+  "prijs": {
+    "todo": true,
+    "dummy": "€ 40 per ploeg",
+    "_bron": "ticket 08 → ticket 10, beide ready-for-human"
+  },
+
+  "inschrijven": {
+    "todo": true,
+    "dummy": "Binnenkort via deze pagina — vol is vol",
+    "_bron": "ticket 10 — formulier, betaalroute, deadline en cap nog niet beslist"
+  },
+
+  "dj": {
+    "tekst": "DJ vanaf 19.15 u — gratis inkom. Muziek tot 03.00 u",
+    "naam": { "todo": true, "dummy": "DJ nog te bevestigen", "_bron": "ticket 19" }
+  },
+
+  "eten": { "todo": true, "dummy": "Keuken open tijdens het toernooi — kaart volgt", "_bron": "ticket 11" },
+
+  "reglement": {
+    "todo": true,
+    "dummy": "Het volledige reglement verschijnt hier zodra het klaar is.",
+    "vast": [
+      "Pijlen met weerhaakjes zijn verboden — die trekken de sisal uit het bord."
+    ],
+    "_bron": "ticket 06 legt het pijlenverbod vast; het verbod MOET op reglement, formulier en een bordje bij de kasten"
+  },
+
+  "wettelijk": {
+    "verantwoordelijkeUitgever": { "todo": true, "dummy": "V.U. nog in te vullen" },
+    "regel": "Verboden op de openbare weg te gooien"
+  },
+
+  "media": {
+    "hero": "EK Darts 2026 - PLAAT LIGGEND 1920x1080.png",
+    "_bron": "~/Documents/KCVV/Graphics/Darts 2026/ — dient ook als OG-image"
+  }
+}
