@@ -59,7 +59,8 @@
   },
 
   "media": {
-    "hero": "EK Darts 2026 - PLAAT LIGGEND 1920x1080.png",
-    "_bron": "~/Documents/KCVV/Graphics/Darts 2026/ — dient ook als OG-image"
+    "hero": "EK Darts 2026 - AFFICHE FINAL - LIGGEND 1920x1080.jpg",
+    "_bron": "~/Documents/KCVV/Graphics/Darts 2026/ — de TV-versie MET tekst, niet de kale PLAAT. Kevin, 2026-09-10. Bestond alleen als .psd; op 2026-09-10 geflattend naar .jpg (1920x1080, 913 KB) en naast de bron gezet. Dient ook als OG-image.",
+    "_alt": "De tekst staat IN het beeld, dus de alt-tekst moet ze dragen — een lege alt verliest de datum, de formule en de afterparty voor iedereen die het beeld niet ziet."
   }
 }

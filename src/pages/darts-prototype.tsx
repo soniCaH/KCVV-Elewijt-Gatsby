@@ -42,7 +42,7 @@ const uren = darts.uren.dummy
 const VariantA = () => (
   <>
     <div className="dp-a__cover">
-      <img src={POSTER} alt="EK Darts 2026 — zaterdag 19 december" />
+      <img src={POSTER} alt="Affiche EK Darts 2026 — zaterdag 19 december 2026, kantine KCVV Elewijt. Teams van vier personen, gegarandeerd meerdere wedstrijden, kwalificatie en eindronde voor iedereen, mooie prijzen en een vette afterparty." />
     </div>
     <div className="dp-a__band">
       <div className="dp-a__band-inner">
@@ -106,7 +106,7 @@ const VariantB = () => (
   <>
     <div className="dp-b__hero">
       <div className="dp-b__hero-img">
-        <img src={POSTER} alt="EK Darts 2026" />
+        <img src={POSTER} alt="Affiche EK Darts 2026 — zaterdag 19 december 2026, kantine KCVV Elewijt. Teams van vier personen, gegarandeerd meerdere wedstrijden, kwalificatie en eindronde voor iedereen, mooie prijzen en een vette afterparty." />
       </div>
       <div className="dp-b__hero-panel">
         <p className="dp-b__kicker">{darts.tagline}</p>
@@ -188,7 +188,7 @@ const VariantC = () => (
         <p className="dp-c__lead">
           {darts.datum.tekst} — {darts.waar.naam}. {darts.formule.ploeg}, {darts.formule.ontmoeting}.
         </p>
-        <img className="dp-c__poster" src={POSTER} alt="EK Darts 2026" />
+        <img className="dp-c__poster" src={POSTER} alt="Affiche EK Darts 2026 — zaterdag 19 december 2026, kantine KCVV Elewijt. Teams van vier personen, gegarandeerd meerdere wedstrijden, kwalificatie en eindronde voor iedereen, mooie prijzen en een vette afterparty." />
         <h2>Wat het is</h2>
         <p>
           {darts.formule.verloop}. Gegarandeerd meerdere wedstrijden, kwalificatie en eindronde voor iedereen, mooie
@@ -246,7 +246,7 @@ const VariantC = () => (
 const VariantD = () => (
   <>
     <div className="dp-a__cover">
-      <img src={POSTER} alt="EK Darts 2026 — zaterdag 19 december" />
+      <img src={POSTER} alt="Affiche EK Darts 2026 — zaterdag 19 december 2026, kantine KCVV Elewijt. Teams van vier personen, gegarandeerd meerdere wedstrijden, kwalificatie en eindronde voor iedereen, mooie prijzen en een vette afterparty." />
     </div>
 
     <section className="dp-d__facts">
