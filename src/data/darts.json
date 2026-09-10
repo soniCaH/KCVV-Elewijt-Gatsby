@@ -37,6 +37,16 @@
     "_bron": "ticket 10 — formulier, betaalroute, deadline en cap nog niet beslist"
   },
 
+  "watJeKrijgt": {
+    "_bron": "De vijf bullets van de affiche. Ze stonden tot 2026-09-10 NERGENS in tekst — alleen als pixels in de plaat — en een reviewer op PR #2908 vond het gat via de lege alt van de hero. Een feit dat alleen in een beeld staat, bestaat niet voor wie het beeld niet ziet.",
+    "punten": [
+      "Gegarandeerd meerdere wedstrijden",
+      "Kwalificatie én eindronde voor iedereen",
+      "Mooie prijzen en een zuipbeker",
+      "Ambiance en een vette afterparty"
+    ]
+  },
+
   "dj": {
     "tekst": "DJ vanaf 19.15 u — gratis inkom. Muziek tot 03.00 u",
     "naam": { "todo": true, "dummy": "DJ nog te bevestigen", "_bron": "ticket 19" }

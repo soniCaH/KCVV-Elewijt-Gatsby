@@ -122,6 +122,19 @@ const DartsPage = () => (
         </li>
       </ol>
 
+      {/* The affiche's own promise, in text. Two of these bullets — the
+          guaranteed matches and the prizes — existed nowhere but inside the
+          poster image until 2026-09-10. A fact that lives only in a picture does
+          not exist for anyone who cannot see the picture. This page carries the
+          alt as well, so it was never as exposed as the Next.js one — but the
+          two pages say the same things or they are not the same page. */}
+      <h2 className="featured-border">Wat je krijgt</h2>
+      <ul>
+        {darts.watJeKrijgt.punten.map(punt => (
+          <li key={punt}>{punt}</li>
+        ))}
+      </ul>
+
       <h2 className="featured-border" id="inschrijven">
         Inschrijven
       </h2>
