@@ -235,11 +235,122 @@ const VariantC = () => (
   </>
 )
 
+/* ---------------------------------------------------------------- VARIANT D */
+/* THE MIX — Kevin, 2026-09-10: "Header from A, block below header more like B,
+   sticky bar from C." So: A's full-bleed cover, B's hard facts panel and
+   timeline underneath it instead of A's thin band, and C's sticky signup bar.
+   The one thing that had to be resolved: B's panel sat BESIDE the poster and
+   carried the title, because the poster was cropped. Under a full-bleed cover
+   the poster already shouts the title, so the panel drops it and leads with the
+   facts — repeating "EK DARTS" 200px under the affiche is the same word twice. */
+const VariantD = () => (
+  <>
+    <div className="dp-a__cover">
+      <img src={POSTER} alt="EK Darts 2026 — zaterdag 19 december" />
+    </div>
+
+    <section className="dp-d__facts">
+      <div className="dp-d__facts-inner">
+        <dl>
+          <div>
+            <dt>Wanneer</dt>
+            <dd>{darts.datum.tekst}</dd>
+          </div>
+          <div>
+            <dt>Waar</dt>
+            <dd>
+              {darts.waar.naam}
+              <br />
+              <span className="dp-d__sub">{darts.waar.adres}</span>
+            </dd>
+          </div>
+          <div>
+            <dt>Ploeg</dt>
+            <dd>
+              {darts.formule.ploeg}
+              <br />
+              <span className="dp-d__sub">{darts.formule.ontmoeting}</span>
+            </dd>
+          </div>
+          <div>
+            <dt>Prijs</dt>
+            <dd>
+              <Fact value={darts.prijs} />
+            </dd>
+          </div>
+        </dl>
+      </div>
+    </section>
+
+    <div className="page__wrapper page__wrapper--limited page__section">
+      <h2 className="featured-border">De dag</h2>
+      <ol className="dp-b__timeline">
+        <li>
+          <b>
+            <Todo>{uren.deuren}</Todo>
+          </b>
+          <span>Deuren open</span>
+        </li>
+        <li>
+          <b>
+            <Todo>{uren.eersteWorp}</Todo>
+          </b>
+          <span>Eerste worp — kwalificatie in groepen</span>
+        </li>
+        <li>
+          <b>—</b>
+          <span>Eindronde: {darts.formule.verloop.toLowerCase()}</span>
+        </li>
+        <li>
+          <b>
+            <Todo>{uren.prijsuitreiking}</Todo>
+          </b>
+          <span>Prijsuitreiking</span>
+        </li>
+        <li>
+          <b>19.15 u</b>
+          <span>{darts.dj.tekst}</span>
+        </li>
+      </ol>
+
+      <h2 className="featured-border" id="inschrijven">
+        Inschrijven
+      </h2>
+      <p>
+        <Fact value={darts.inschrijven} />
+      </p>
+
+      <h2 className="featured-border">Eten en drank</h2>
+      <p>
+        <Fact value={darts.eten} />
+      </p>
+
+      <h2 className="featured-border">Reglement</h2>
+      <p>
+        <Fact value={darts.reglement} />
+      </p>
+      <ul>
+        {darts.reglement.vast.map(r => (
+          <li key={r}>{r}</li>
+        ))}
+      </ul>
+    </div>
+
+    <div className="dp-c__sticky">
+      <span>{darts.datum.tekst}</span>
+      <a className="dp-c__cta" href="#inschrijven">
+        Inschrijven
+      </a>
+    </div>
+  </>
+)
+
 /* ------------------------------------------------------------ THE SWITCHER  */
 const VARIANTS: Record<string, { name: string; render: () => JSX.Element }> = {
   A: { name: `Affiche eerst`, render: () => <VariantA /> },
   B: { name: `Scorebord`, render: () => <VariantB /> },
   C: { name: `Trechter`, render: () => <VariantC /> },
+  D: { name: `De mix (A+B+C)`, render: () => <VariantD /> },
 }
 const KEYS = Object.keys(VARIANTS)
 
@@ -274,8 +385,8 @@ const Switcher = ({ current }: { current: string }) => {
 }
 
 const DartsPrototype = ({ location }: { location: { search: string } }) => {
-  const asked = new URLSearchParams(location.search).get(`variant`) ?? `A`
-  const current = KEYS.includes(asked) ? asked : `A`
+  const asked = new URLSearchParams(location.search).get(`variant`) ?? `D`
+  const current = KEYS.includes(asked) ? asked : `D`
   return (
     <Layout>
       {VARIANTS[current].render()}
@@ -286,4 +397,4 @@ const DartsPrototype = ({ location }: { location: { search: string } }) => {
 }
 
 export default DartsPrototype
-export const Head = () => <Seo title="PROTOTYPE — EK Darts 2026" />
+export const Head = () => <Seo title="PROTOTYPE — EK Darts 2026" path="/darts-prototype/" />

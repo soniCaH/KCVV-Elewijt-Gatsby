@@ -9,6 +9,9 @@
     "jsx": "react",
     "strict": true,
     "esModuleInterop": true,
+    // Needed to import src/data/darts.json — the darts page reads its facts from one
+    // JSON file so both club sites can share it verbatim. Standard TS setting.
+    "resolveJsonModule": true,
     "experimentalDecorators": true,
     "emitDecoratorMetadata": true,
     "noEmit": true,

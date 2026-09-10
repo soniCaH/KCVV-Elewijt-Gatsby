@@ -80,3 +80,27 @@
   padding: 0.6rem 1.4rem; border-radius: 4px; text-decoration: none;
   text-transform: uppercase; letter-spacing: 0.05em;
 }
+
+/* ------------------------------------------------------------- VARIANT D -- */
+/* The mix. Reuses .dp-a__cover, .dp-b__timeline and .dp-c__sticky as they are;
+   only the facts block is new, because B's version was a narrow column beside
+   the poster and this one runs the full width under it. */
+.dp-d__facts {
+  background: var(--color-black, #1E2024);
+  color: #fff;
+  border-bottom: 4px solid var(--color-green--bright, #4acf52);
+}
+.dp-d__facts-inner {
+  max-width: 1100px; margin: 0 auto; padding: clamp(1.5rem, 4vw, 2.75rem) 1rem;
+  dl { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1.75rem 2rem; margin: 0; }
+  dt {
+    color: var(--color-green--bright, #4acf52);
+    text-transform: uppercase; letter-spacing: 0.12em; font-size: 0.7rem;
+    margin-bottom: 0.4rem;
+  }
+  dd { margin: 0; font-size: 1.15rem; line-height: 1.35; }
+}
+.dp-d__sub { opacity: 0.6; font-size: 0.9rem; }
+
+/* The sticky bar covers the last rows of the page, so the page has to end above it. */
+.dp-d__facts ~ .page__wrapper { padding-bottom: calc(3rem + 72px); }
